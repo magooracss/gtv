@@ -1,0 +1,147 @@
+object DM_GrupoRemitos: TDM_GrupoRemitos
+  OldCreateOrder = False
+  Height = 305
+  HorizontalOffset = 442
+  VerticalOffset = 57
+  Width = 401
+  object qGruposFacturacion: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TUGGRUPOSFACTURACION'
+      'WHERE bVisible = 1'
+      'ORDER BY GrupoFacturacion'
+    )
+    Params = <>
+    left = 202
+    top = 125
+  end
+  object tbResultados: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idRemito'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refCliente'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'Fecha'
+        DataType = ftDate
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nRemito'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Equipos'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'Detalles'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'Facturado'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Presentado'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'SinCargo'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Edificio'
+        DataType = ftString
+        Precision = 0
+        Size = 300
+      end    
+      item
+        Name = 'GrupoFacturacion'
+        DataType = ftString
+        Precision = 0
+        Size = 300
+      end>
+    left = 63
+    top = 24
+  end
+  object qResultados: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TUGGRUPOSFACTURACION'
+      'WHERE bVisible = 1'
+      'ORDER BY GrupoFacturacion'
+    )
+    Params = <    
+      item
+        DataType = ftDate
+        Name = 'FechaIni'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftDate
+        Name = 'FechaFin'
+        ParamType = ptInput
+      end>
+    left = 63
+    top = 109
+    ParamData = <    
+      item
+        DataType = ftDate
+        Name = 'FechaIni'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftDate
+        Name = 'FechaFin'
+        ParamType = ptInput
+      end>
+  end
+  object qEquiposCliente: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT * '
+      'FROM trRemitoEquipos RE'
+      '         INNER JOIN tbEquipos E ON E.idEquipo = RE.refEquipo'
+      'WHERE RE.refRemito = :refRemito'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end>
+    left = 65
+    top = 194
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end>
+  end
+end

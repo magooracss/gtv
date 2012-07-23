@@ -1,0 +1,73 @@
+object DM_SeleccionListado: TDM_SeleccionListado
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 274
+  HorizontalOffset = 293
+  VerticalOffset = 273
+  Width = 460
+  object qGrupos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    AfterScroll = qGruposAfterScroll
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tcListadosGrupos'
+      'WHERE bVisible = 1'
+      'ORDER BY ListadoGrupo'
+    )
+    Params = <>
+    left = 85
+    top = 61
+  end
+  object qListadoPorGrupo: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tcListados'
+      'WHERE refGrupo = :refGrupo'
+      ' and (bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refGrupo'
+        ParamType = ptUnknown
+      end>
+    left = 195
+    top = 69
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refGrupo'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbListados: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idListado'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'NombreListado'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'refFormulario'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'rutaReporte'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end>
+    left = 193
+    top = 18
+  end
+end
