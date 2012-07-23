@@ -1,0 +1,35 @@
+
+
+Versión 0.16
+============
+*	Corregido problema de refresco de datos al trabajar en red
+*	Modificados los tipos de datos numéricos en la información de los equipos: Velocidad, potenciaHP, AccesosOPyAd, VelUnica, VelAltaBaja, PC_Material, PR_Material, PR_ManualOtra  a campos de tipo cadena
+*	Agregado el campo observaciones en la información del equipo
+===>	gtv.exe
+===>	tablas13.sql
+
+31.05.2012
+============
+Versión 0.15
+============
+
+*	Presupuestos: Poner como orden por defecto el Número
+*	Presupuestos: Ordenar tildando en el título
+*	Cuotas: No funciona el borrar
+*	Cuotas: Modificar no muestra las cuotas en el desplegable
+*	Cuotas: No tiene número de factura
+*	Presupuestos: Búsqueda de clientes potenciales no funciona bien
++	Ordenes de Trabajo: Ordenamiento tocando el título
+*	Pantalla Principal: Boton derecho del mouse trae todas las OT
+*	Reclamos: Sacar los blancos al principio de los campos
+*	Compras: Separar los cheques propios de los cheques de terceros
+
+
+### Archivos
+
+	* tablas12.sql
+	* gtv.exe
+	
+
+
+
