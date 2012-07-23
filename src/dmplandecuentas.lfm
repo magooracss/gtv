@@ -1,0 +1,391 @@
+object DM_PlanDeCuentas: TDM_PlanDeCuentas
+  OldCreateOrder = False
+  Height = 329
+  HorizontalOffset = 432
+  VerticalOffset = 250
+  Width = 507
+  object qLevantarPlanDeCuentas: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugPlanDeCuentas'
+      'WHERE bVisible = 1'
+      'ORDER BY Codigo'
+    )
+    Params = <>
+    left = 65
+    top = 109
+  end
+  object tbPlanDeCuentas: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idCuenta'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Codigo'
+        DataType = ftString
+        Precision = 0
+        Size = 10
+      end    
+      item
+        Name = 'Cuenta'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end    
+      item
+        Name = 'Operacion'
+        DataType = ftString
+        Precision = 0
+        Size = 1
+      end    
+      item
+        Name = 'PorcIVA'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = tbPlanDeCuentasAfterInsert
+    left = 198
+    top = 34
+    object tbPlanDeCuentasidCuenta: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'idCuenta'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbPlanDeCuentasCodigo: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Codigo'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object tbPlanDeCuentasCuenta: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'Cuenta'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object tbPlanDeCuentasOperacion: TStringField
+      DisplayWidth = 1
+      FieldKind = fkData
+      FieldName = 'Operacion'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1
+    end
+    object tbPlanDeCuentasPorcIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PorcIVA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbPlanDeCuentasbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qFiltrarCodigo: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugPlanDeCuentas'
+      'WHERE (bVisible = 1)'
+      '      and (UPPER(Codigo) LIKE UPPER(''%''|| :elCodigo || ''%''))'
+      'ORDER BY Codigo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'elCodigo'
+        ParamType = ptUnknown
+      end>
+    left = 63
+    top = 170
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'elCodigo'
+        ParamType = ptUnknown
+      end>
+  end
+  object qFiltrarCuenta: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugPlanDeCuentas'
+      'WHERE (bVisible = 1)'
+      '      and (UPPER(Cuenta) LIKE UPPER(''%''|| :laCuenta || ''%''))'
+      'ORDER BY Cuenta'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'laCuenta'
+        ParamType = ptUnknown
+      end>
+    left = 64
+    top = 239
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'laCuenta'
+        ParamType = ptUnknown
+      end>
+  end
+  object tugPlanDeCuentasSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugPlanDeCuentas'
+      'WHERE idCuenta = :idCuenta'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCuenta'
+        ParamType = ptUnknown
+      end>
+    left = 197
+    top = 96
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCuenta'
+        ParamType = ptUnknown
+      end>
+  end
+  object tugPlanDeCuentasINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO  tugPlanDeCuentas'
+      '(IDCUENTA, CODIGO, CUENTA, OPERACION, PORCIVA, BVISIBLE)'
+      'VALUES'
+      '(:IDCUENTA, :CODIGO, :CUENTA, :OPERACION, :PORCIVA, :BVISIBLE)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCUENTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CODIGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUENTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OPERACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PORCIVA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+    left = 197
+    top = 156
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCUENTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CODIGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUENTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OPERACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PORCIVA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+  end
+  object tugPlanDeCuentasUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tugPlanDeCuentas'
+      'SET'
+      '   CODIGO = :CODIGO'
+      ', CUENTA = :CUENTA'
+      ', OPERACION = :OPERACION'
+      ', PORCIVA = :PORCIVA'
+      ', BVISIBLE = :BVISIBLE'
+      'WHERE IDCUENTA = :IDCUENTA'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'CODIGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUENTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OPERACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PORCIVA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDCUENTA'
+        ParamType = ptUnknown
+      end>
+    left = 198
+    top = 216
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'CODIGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUENTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OPERACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PORCIVA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDCUENTA'
+        ParamType = ptUnknown
+      end>
+  end
+  object tugPlanDeCuentasDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tugPlanDeCuentas'
+      'SET  BVISIBLE = 0'
+      'WHERE IDCUENTA = :IDCUENTA'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCUENTA'
+        ParamType = ptUnknown
+      end>
+    left = 196
+    top = 275
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCUENTA'
+        ParamType = ptUnknown
+      end>
+  end
+  object qCuentaPorCodigo: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugPlanDeCuentas'
+      'WHERE UPPER(Codigo) LIKE (:codigo)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'codigo'
+        ParamType = ptUnknown
+      end>
+    left = 304
+    top = 28
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'codigo'
+        ParamType = ptUnknown
+      end>
+  end
+end

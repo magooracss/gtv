@@ -1,0 +1,868 @@
+object DM_Presupuestos: TDM_Presupuestos
+  OldCreateOrder = False
+  Height = 498
+  HorizontalOffset = 419
+  VerticalOffset = 74
+  Width = 502
+  object tbPresupuestos: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idPresupuesto'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'nPresupuesto'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fEmision'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refCliente'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refEmpleado'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refEstado'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fCambioEstado'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'txMotivo'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'txObservaciones'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'bAceptado'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'cRecepciono'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end>
+    AfterInsert = tbPresupuestosAfterInsert
+    left = 45
+    top = 24
+  end
+  object qLevantarPresupuestos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT P.idPresupuesto, P.nPresupuesto, P.fEmision, P.refCliente, P.refEstado'
+      '    , CASE  '
+      '        WHEN C.idCliente is null then CP.cRazonSocial'
+      '      ELSE C.cNombre '
+      '      end as cNombre'
+      ', E.Estado'
+      ', CP.idClientePotencial'
+      ', C.idCliente'
+      ', P.refCliente'
+      'FROM tbPresupuestos P'
+      '       INNER JOIN tugPresupuestosEstados E ON E.idPresupuestoEstado = P.refEstado'
+      '       LEFT JOIN tbClientes C ON P.refCliente = C.idCliente '
+      '       LEFT JOIN tbClientesPotenciales CP ON P.refCliente = CP.idClientePotencial'
+      'WHERE (P.bVisible = 1)'
+    )
+    Params = <>
+    left = 45
+    top = 360
+  end
+  object qtugPresupuestosEstados: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugPresupuestosEstados'
+      'WHERE bVisible = 1 '
+    )
+    Params = <>
+    left = 384
+    top = 80
+  end
+  object qtugEmpleados: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugEmpleados'
+      'WHERE bVisible = 1 '
+    )
+    Params = <>
+    left = 384
+    top = 144
+  end
+  object tbPresupuestosSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbPresupuestos'
+      'WHERE idPresupuesto = :idPresupuesto'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idPresupuesto'
+        ParamType = ptUnknown
+      end>
+    left = 45
+    top = 88
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idPresupuesto'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbPresupuestosINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO  tbPresupuestos'
+      '(IDPRESUPUESTO'
+      ',NPRESUPUESTO'
+      ',FEMISION'
+      ',REFCLIENTE'
+      ',REFEMPLEADO'
+      ',REFESTADO'
+      ',FCAMBIOESTADO'
+      ',TXMOTIVO'
+      ',TXOBSERVACIONES'
+      ',BACEPTADO'
+      ',BVISIBLE'
+      ',cRecepciono)'
+      'VALUES'
+      '(:IDPRESUPUESTO'
+      ',:NPRESUPUESTO'
+      ',:FEMISION'
+      ',:REFCLIENTE'
+      ',:REFEMPLEADO'
+      ',:REFESTADO'
+      ',:FCAMBIOESTADO'
+      ',:TXMOTIVO'
+      ',:TXOBSERVACIONES'
+      ',:BACEPTADO'
+      ',:BVISIBLE'
+      ',:cRecepciono)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDPRESUPUESTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NPRESUPUESTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FEMISION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCLIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFEMPLEADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FCAMBIOESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXMOTIVO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXOBSERVACIONES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BACEPTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cRecepciono'
+        ParamType = ptUnknown
+      end>
+    left = 45
+    top = 152
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDPRESUPUESTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NPRESUPUESTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FEMISION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCLIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFEMPLEADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FCAMBIOESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXMOTIVO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXOBSERVACIONES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BACEPTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cRecepciono'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbPresupuestosUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbPresupuestos'
+      'SET '
+      ' NPRESUPUESTO = :NPRESUPUESTO '
+      ',FEMISION = :FEMISION'
+      ',REFCLIENTE = :REFCLIENTE'
+      ',REFEMPLEADO = :REFEMPLEADO'
+      ',REFESTADO = :REFESTADO'
+      ',FCAMBIOESTADO = :FCAMBIOESTADO'
+      ',TXMOTIVO = :TXMOTIVO'
+      ',TXOBSERVACIONES = :TXOBSERVACIONES'
+      ',BACEPTADO = :BACEPTADO'
+      ',BVISIBLE = :BVISIBLE'
+      ',cRecepciono = :cRecepciono'
+      'WHERE IDPRESUPUESTO = :IDPRESUPUESTO'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'NPRESUPUESTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FEMISION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCLIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFEMPLEADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FCAMBIOESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXMOTIVO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXOBSERVACIONES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BACEPTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cRecepciono'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDPRESUPUESTO'
+        ParamType = ptUnknown
+      end>
+    left = 45
+    top = 216
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'NPRESUPUESTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FEMISION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCLIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFEMPLEADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FCAMBIOESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXMOTIVO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXOBSERVACIONES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BACEPTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cRecepciono'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDPRESUPUESTO'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbPresupuestosDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbPresupuestos'
+      'SET BVISIBLE  = 0'
+      'WHERE idPresupuesto = :idPresupuesto'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idPresupuesto'
+        ParamType = ptUnknown
+      end>
+    left = 45
+    top = 277
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idPresupuesto'
+        ParamType = ptUnknown
+      end>
+  end
+  object qLevantarCuotasPresupuesto: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT CP.*'
+      '            ,TC.TipoCuota as lxTipo'
+      '            ,EC.EstadoCuota as lxEstado'
+      'FROM tbCuotasPresupuesto CP'
+      '           LEFT JOIN tugTiposCuota TC ON CP.refTipo = TC.idTipoCuota'
+      '           LEFT JOIN tugEstadosCuota EC ON EC.idEstadoCuota = CP.refEstado    '
+      'WHERE (CP.refPresupuesto = :idPresupuesto) '
+      '      and (CP.bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idPresupuesto'
+        ParamType = ptUnknown
+      end>
+    left = 216
+    top = 360
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idPresupuesto'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbCuotasPresupuestoSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbCuotasPresupuesto'
+      'WHERE idCuotaPresupuesto = :idCuotaPresupuesto'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCuotaPresupuesto'
+        ParamType = ptUnknown
+      end>
+    left = 192
+    top = 88
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCuotaPresupuesto'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbCuotasPresupuestoINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO  tbCuotasPresupuesto'
+      '('
+      'IDCUOTAPRESUPUESTO'
+      ', REFPRESUPUESTO'
+      ', NNROCUOTA'
+      ', REFTIPO'
+      ', FVENCIMIENTO'
+      ', NMONTO'
+      ', REFESTADO'
+      ', FPAGO'
+      ', BVISIBLE)'
+      'VALUES'
+      '(:IDCUOTAPRESUPUESTO'
+      ', :REFPRESUPUESTO'
+      ', :NNROCUOTA'
+      ', :REFTIPO'
+      ', :FVENCIMIENTO'
+      ', :NMONTO'
+      ', :REFESTADO'
+      ', :FPAGO'
+      ', :BVISIBLE)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCUOTAPRESUPUESTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPRESUPUESTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NNROCUOTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FVENCIMIENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+    left = 192
+    top = 152
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCUOTAPRESUPUESTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPRESUPUESTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NNROCUOTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FVENCIMIENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbCuotasPresupuestoUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbCuotasPresupuesto'
+      'SET '
+      '  REFPRESUPUESTO = :REFPRESUPUESTO'
+      ', NNROCUOTA = :NNROCUOTA'
+      ', REFTIPO = :REFTIPO'
+      ', FVENCIMIENTO = :FVENCIMIENTO'
+      ', NMONTO = :NMONTO'
+      ', REFESTADO = :REFESTADO'
+      ', FPAGO = :FPAGO'
+      ', BVISIBLE = :BVISIBLE'
+      'WHERE IDCUOTAPRESUPUESTO = :IDCUOTAPRESUPUESTO'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFPRESUPUESTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NNROCUOTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FVENCIMIENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDCUOTAPRESUPUESTO'
+        ParamType = ptUnknown
+      end>
+    left = 192
+    top = 216
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFPRESUPUESTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NNROCUOTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FVENCIMIENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDCUOTAPRESUPUESTO'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbCuotasPresupuestoDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbCuotasPresupuesto'
+      'SET BVISIBLE  = 0'
+      'WHERE idCuotaPresupuesto = :idCuotaPresupuesto'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCuotaPresupuesto'
+        ParamType = ptUnknown
+      end>
+    left = 192
+    top = 277
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCuotaPresupuesto'
+        ParamType = ptUnknown
+      end>
+  end
+  object qtugTiposCuotas: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugTiposCuota'
+      'WHERE bVisible = 1 '
+    )
+    Params = <>
+    left = 384
+    top = 208
+  end
+  object qtugEstadosCuota: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugEstadosCuota'
+      'WHERE bVisible = 1 '
+    )
+    Params = <>
+    left = 384
+    top = 272
+  end
+  object tbCuotasPresupuesto: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idCuotaPresupuesto'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refPresupuesto'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'nNroCuota'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refTipo'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fVencimiento'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nMonto'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refEstado'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fPago'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'lxTipo'
+        DataType = ftString
+        Precision = 0
+        Size = 100
+      end    
+      item
+        Name = 'lxEstado'
+        DataType = ftString
+        Precision = 0
+        Size = 100
+      end>
+    AfterInsert = tbCuotasPresupuestoAfterInsert
+    left = 184
+    top = 24
+  end
+end

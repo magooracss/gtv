@@ -1,0 +1,1384 @@
+object dm_reclamos: Tdm_reclamos
+  OldCreateOrder = False
+  Height = 445
+  HorizontalOffset = 284
+  VerticalOffset = 33
+  Width = 866
+  object qtugTecnicos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugEmpleados'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 360
+    top = 56
+  end
+  object qListaReclamos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT R.*'
+      ',C.cNombre'
+      ' FROM tbReclamos R '
+      '  LEFT JOIN tbClientes C ON R.refCliente = C.idCliente'
+    )
+    Params = <>
+    left = 48
+    top = 352
+  end
+  object tbReclamos: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idReclamo'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'refCliente'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'nNro'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'fFecha'
+        DataType = ftDateTime
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'cSolicitante'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'refMedio'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'txDetalles'
+        DataType = ftString
+        Precision = -1
+        Size = 3000
+      end    
+      item
+        Name = 'refOrdenTrabajo'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'fAtendido'
+        DataType = ftDateTime
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'refTecnicoAtendio'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'bAtendido'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'txInformeTecnico'
+        DataType = ftString
+        Precision = -1
+        Size = 3000
+      end    
+      item
+        Name = 'txObservaciones'
+        DataType = ftString
+        Precision = -1
+        Size = 3000
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'fHora'
+        DataType = ftDateTime
+        Precision = -1
+        Size = 0
+      end>
+    AfterInsert = tbReclamosAfterInsert
+    left = 48
+    top = 16
+    object tbReclamosidReclamo: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idReclamo'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbReclamosrefCliente: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refCliente'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbReclamosnNro: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nNro'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbReclamosfFecha: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fFecha'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbReclamoscSolicitante: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'cSolicitante'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbReclamosrefMedio: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refMedio'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbReclamostxDetalles: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'txDetalles'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbReclamosrefOrdenTrabajo: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refOrdenTrabajo'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbReclamosfAtendido: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fAtendido'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbReclamosrefTecnicoAtendio: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refTecnicoAtendio'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbReclamosbAtendido: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bAtendido'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbReclamostxInformeTecnico: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'txInformeTecnico'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbReclamostxObservaciones: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'txObservaciones'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbReclamosbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbReclamosfHora1: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fHora'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qtugMediosReclamo: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugMediosReclamo'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 360
+    top = 136
+  end
+  object trReclamosEquipos: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idReclamoEquipo'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refReclamo'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refEquipo'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'lxTipoEquipo'
+        DataType = ftString
+        Precision = 0
+        Size = 200
+      end    
+      item
+        Name = 'lxNombre'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'lxNro'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = trReclamosEquiposAfterInsert
+    left = 168
+    top = 16
+  end
+  object trReclamosEquiposSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM trReclamosEquipos'
+      'WHERE idReclamoEquipo = :idReclamoEquipo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamoEquipo'
+        ParamType = ptUnknown
+      end>
+    left = 168
+    top = 96
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamoEquipo'
+        ParamType = ptUnknown
+      end>
+  end
+  object trReclamosEquiposINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO  trReclamosEquipos'
+      '(idReclamoEquipo'
+      ',refEquipo'
+      ',refReclamo)'
+      'VALUES'
+      '( :IdReclamoEquipo'
+      ', :refEquipo'
+      ', :refReclamo)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IdReclamoEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end>
+    left = 168
+    top = 160
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IdReclamoEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end>
+  end
+  object trReclamosEquiposUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE  trReclamosEquipos'
+      'SET refEquipo = :refEquipo'
+      ',refReclamo = :refReclamo'
+      'WHERE idReclamoEquipo = :IdReclamoEquipo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IdReclamoEquipo'
+        ParamType = ptUnknown
+      end>
+    left = 168
+    top = 224
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IdReclamoEquipo'
+        ParamType = ptUnknown
+      end>
+  end
+  object trReclamosEquiposDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM trReclamosEquipos'
+      'WHERE idReclamoEquipo = :idReclamoEquipo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamoEquipo'
+        ParamType = ptUnknown
+      end>
+    left = 168
+    top = 280
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamoEquipo'
+        ParamType = ptUnknown
+      end>
+  end
+  object qLevantarReclamosEquipos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT TR.*'
+      '           , E.Nombre as lxNombre'
+      '           , E.nNroEquipo as lxNro'
+      '           , TipEq.Equipo as lxTipoEquipo'
+      'FROM TRRECLAMOSEQUIPOS TR'
+      '          LEFT JOIN tbEquipos E ON E.idEquipo = TR.refEquipo'
+      '          LEFT JOIN TUGTIPOSEQUIPOS TipEq ON E.refTipo = TipEq.idTipoEquipo'
+      'WHERE TR.refReclamo = :refReclamo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end>
+    left = 168
+    top = 352
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbReclamosSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbReclamos'
+      'WHERE idReclamo = :idReclamo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamo'
+        ParamType = ptUnknown
+      end>
+    left = 48
+    top = 96
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamo'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbReclamosINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO tbReclamos'
+      '( '
+      'IDRECLAMO'
+      ',REFCLIENTE'
+      ',NNRO'
+      ',FHORA'
+      ',FFECHA'
+      ',CSOLICITANTE'
+      ',REFMEDIO'
+      ',TXDETALLES'
+      ',REFORDENTRABAJO'
+      ',FATENDIDO'
+      ',REFTECNICOATENDIO'
+      ',BATENDIDO'
+      ',TXINFORMETECNICO'
+      ',TXOBSERVACIONES'
+      ',BVISIBLE'
+      ')'
+      'VALUES'
+      '( '
+      '  :IDRECLAMO'
+      ', :REFCLIENTE'
+      ', :NNRO'
+      ', :FHORA'
+      ', :FFECHA'
+      ', :CSOLICITANTE'
+      ', :REFMEDIO'
+      ', :TXDETALLES'
+      ', :REFORDENTRABAJO'
+      ', :FATENDIDO'
+      ', :REFTECNICOATENDIO'
+      ', :BATENDIDO'
+      ', :TXINFORMETECNICO'
+      ', :TXOBSERVACIONES'
+      ', :BVISIBLE'
+      ')'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDRECLAMO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCLIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NNRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FHORA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FFECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CSOLICITANTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFMEDIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXDETALLES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFORDENTRABAJO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FATENDIDO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTECNICOATENDIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BATENDIDO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXINFORMETECNICO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXOBSERVACIONES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+    left = 48
+    top = 160
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDRECLAMO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCLIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NNRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FHORA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FFECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CSOLICITANTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFMEDIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXDETALLES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFORDENTRABAJO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FATENDIDO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTECNICOATENDIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BATENDIDO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXINFORMETECNICO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXOBSERVACIONES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbReclamosUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE  tbReclamos'
+      'SET '
+      ' REFCLIENTE =:refcliente'
+      ', NNRO = :nNro'
+      ', FHORA =:fHora'
+      ', FFECHA = :fFecha '
+      ', CSOLICITANTE = :cSolicitante'
+      ', REFMEDIO = :refMedio'
+      ', TXDETALLES = :txDetalles'
+      ', REFORDENTRABAJO = :refOrdenTrabajo'
+      ', FATENDIDO= :fAtendido'
+      ', REFTECNICOATENDIO = :refTecnicoAtendio'
+      ', BATENDIDO = :bAtendido'
+      ', TXINFORMETECNICO = :txInformeTecnico'
+      ', TXOBSERVACIONES = :txObservaciones'
+      ', BVISIBLE = :bVisible'
+      'WHERE IDRECLAMO = :IDRECLAMO'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refcliente'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nNro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fHora'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fFecha'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cSolicitante'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refMedio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txDetalles'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refOrdenTrabajo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fAtendido'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTecnicoAtendio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bAtendido'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txInformeTecnico'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txObservaciones'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bVisible'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDRECLAMO'
+        ParamType = ptUnknown
+      end>
+    left = 48
+    top = 224
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refcliente'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nNro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fHora'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fFecha'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cSolicitante'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refMedio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txDetalles'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refOrdenTrabajo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fAtendido'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTecnicoAtendio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bAtendido'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txInformeTecnico'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txObservaciones'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bVisible'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDRECLAMO'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbReclamosDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbReclamos'
+      'SET bVisible = 0'
+      'WHERE idReclamo = :idReclamo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamo'
+        ParamType = ptUnknown
+      end>
+    left = 48
+    top = 280
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamo'
+        ParamType = ptUnknown
+      end>
+  end
+  object trReclamoTecnicos: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idReclamoTecnico'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refReclamo'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refTecnico'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'lxNombreTecnico'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end>
+    AfterInsert = trReclamoTecnicosAfterInsert
+    left = 496
+    top = 16
+  end
+  object trReclamoTecnicosSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM trReclamoTecnicos'
+      'WHERE idReclamoTecnico = :idReclamoTecnico'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamoTecnico'
+        ParamType = ptUnknown
+      end>
+    left = 496
+    top = 92
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamoTecnico'
+        ParamType = ptUnknown
+      end>
+  end
+  object trReclamoTecnicosINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO  trReclamoTecnicos'
+      '(idReclamoTecnico'
+      ',refTecnico'
+      ',refReclamo)'
+      'VALUES'
+      '( :IdReclamoTecnico'
+      ', :refTecnico'
+      ', :refReclamo)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IdReclamoTecnico'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTecnico'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end>
+    left = 496
+    top = 160
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IdReclamoTecnico'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTecnico'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end>
+  end
+  object trReclamoTecnicosUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE  trReclamoTecnicos'
+      'SET refTecnico = :refTecnico'
+      ',refReclamo = :refReclamo'
+      'WHERE idReclamoTecnico = :IdReclamoTecnico'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refTecnico'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IdReclamoTecnico'
+        ParamType = ptUnknown
+      end>
+    left = 496
+    top = 224
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refTecnico'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IdReclamoTecnico'
+        ParamType = ptUnknown
+      end>
+  end
+  object trReclamoTecnicosDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM trReclamoTecnicos'
+      'WHERE idReclamoTecnico = :idReclamoTecnico'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamoTecnico'
+        ParamType = ptUnknown
+      end>
+    left = 496
+    top = 280
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamoTecnico'
+        ParamType = ptUnknown
+      end>
+  end
+  object qLevantarReclamoTecnicos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT TR.*'
+      '           , E.Empleado as lxNombreTecnico'
+      'FROM TRReclamoTecnicos TR'
+      '          LEFT JOIN tugEmpleados E ON E.idEmpleado = TR.refTecnico'
+      'WHERE TR.refReclamo = :refReclamo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end>
+    left = 496
+    top = 352
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end>
+  end
+  object qLevantarReclamoRemito: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TRReclamoREmito TR'
+      '           LEFT JOIN TbRemitos R ON R.idRemito = TR.refRemito'
+      'WHERE TR.refReclamo = :refReclamo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end>
+    left = 272
+    top = 352
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end>
+  end
+  object qAsignarRemito: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    Params = <>
+    left = 720
+    top = 136
+  end
+  object qBorrarAsignacionReclamo: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM trReclamoRemito '
+      'WHERE refReclamo= :refReclamo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end>
+    left = 720
+    top = 208
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end>
+  end
+  object trReclamoRemito: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idReclamoRemito'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'refReclamo'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'refRemito'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'nRemito'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    left = 272
+    top = 16
+    object trReclamoRemitoidReclamoRemito: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idReclamoRemito'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object trReclamoRemitorefReclamo: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refReclamo'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object trReclamoRemitorefRemito: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refRemito'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object trReclamoRemitonRemito: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nRemito'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object trReclamoRemitoSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM trReclamoRemito'
+      'WHERE idReclamoRemito = :idReclamoRemito'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamoRemito'
+        ParamType = ptUnknown
+      end>
+    left = 272
+    top = 96
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamoRemito'
+        ParamType = ptUnknown
+      end>
+  end
+  object trReclamoRemitoINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO trReclamoRemito'
+      '(idReclamoRemito'
+      ',refReclamo'
+      ',refRemito)'
+      'VALUES'
+      '(:idReclamoRemito'
+      ',:refReclamo'
+      ',:refRemito)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamoRemito'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end>
+    left = 272
+    top = 160
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamoRemito'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end>
+  end
+  object trReclamoRemitoUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE  trReclamoRemito'
+      'SET refReclamo = :refReclamo'
+      ',refRemito = :refRemito'
+      'WHERE idReclamoRemito = :idReclamoRemito'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamoRemito'
+        ParamType = ptUnknown
+      end>
+    left = 272
+    top = 224
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamoRemito'
+        ParamType = ptUnknown
+      end>
+  end
+  object trReclamoRemitoDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM trReclamoRemito'
+      'WHERE idReclamoRemito = :idReclamoRemito'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamoRemito'
+        ParamType = ptUnknown
+      end>
+    left = 272
+    top = 280
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamoRemito'
+        ParamType = ptUnknown
+      end>
+  end
+  object qLevantarReclamosEquipos1: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT TR.*'
+      '           , E.Nombre as lxNombre'
+      '           , E.nNroEquipo as lxNro'
+      '           , TipEq.Equipo as lxTipoEquipo'
+      'FROM TRRECLAMOSEQUIPOS TR'
+      '          LEFT JOIN tbEquipos E ON E.idEquipo = TR.refEquipo'
+      '          LEFT JOIN TUGTIPOSEQUIPOS TipEq ON E.refTipo = TipEq.idTipoEquipo'
+      'WHERE TR.refReclamo = :refReclamo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end>
+    left = 720
+    top = 320
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end>
+  end
+end

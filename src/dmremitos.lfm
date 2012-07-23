@@ -1,0 +1,970 @@
+object DM_Remitos: TDM_Remitos
+  OldCreateOrder = False
+  Height = 595
+  HorizontalOffset = 407
+  VerticalOffset = 25
+  Width = 766
+  object qListaRemitos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT OT.idOrdenTrabajo, OT.refCliente, OT.nNro, OT.txTareas, OT.bCumplida, OT.fCumplida, OT.bAnulada, OT.fAnulada, OT.Falta'
+      ',C.cNombre'
+      ' FROM tbOrdenesTrabajo OT '
+      '  LEFT JOIN tbClientes C ON OT.refCliente = C.idCliente'
+    )
+    Params = <>
+    left = 80
+    top = 456
+  end
+  object tbRemitos: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idRemito'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refCliente'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'nRemito'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fFecha'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refOrdenTrabajo'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refMotivo'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'txDetalles'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'refFactura'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'bFacturar'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bSinCargo'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bFacturado'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bPresentado'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'lxMotivo'
+        DataType = ftString
+        Precision = 0
+        Size = 200
+      end>
+    AfterInsert = tbRemitosAfterInsert
+    left = 80
+    top = 44
+  end
+  object tbRemitosSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT RE.*'
+      'FROM tbRemitos RE           '
+      'WHERE RE.idRemito = :idRemito'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idRemito'
+        ParamType = ptUnknown
+      end>
+    left = 80
+    top = 124
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idRemito'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbRemitosINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO  tbRemitos'
+      '(IDREMITO'
+      ', REFCLIENTE'
+      ', NREMITO'
+      ', FFECHA'
+      ', REFORDENTRABAJO'
+      ', REFMOTIVO'
+      ', TXDETALLES'
+      ', REFFACTURA'
+      ', BFACTURAR'
+      ', BFACTURADO'
+      ', BPRESENTADO'
+      ', BVISIBLE'
+      ',BSINCARGO)'
+      'VALUES'
+      '( :IDREMITO'
+      ', :REFCLIENTE'
+      ', :NREMITO'
+      ', :FFECHA'
+      ', :REFORDENTRABAJO'
+      ', :REFMOTIVO'
+      ', :TXDETALLES'
+      ', :REFFACTURA'
+      ', :BFACTURAR'
+      ', :BFACTURADO'
+      ', :BPRESENTADO'
+      ', :BVISIBLE'
+      ', :BSINCARGO)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDREMITO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCLIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NREMITO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FFECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFORDENTRABAJO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFMOTIVO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXDETALLES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BFACTURAR'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BFACTURADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BPRESENTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BSINCARGO'
+        ParamType = ptUnknown
+      end>
+    left = 80
+    top = 188
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDREMITO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCLIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NREMITO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FFECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFORDENTRABAJO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFMOTIVO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXDETALLES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BFACTURAR'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BFACTURADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BPRESENTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BSINCARGO'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbRemitosUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbRemitos'
+      'SET '
+      '  REFCLIENTE = :REFCLIENTE '
+      ', NREMITO = :NREMITO'
+      ', FFECHA = :FFECHA'
+      ', REFORDENTRABAJO = :REFORDENTRABAJO'
+      ', REFMOTIVO = :REFMOTIVO'
+      ', TXDETALLES = :TXDETALLES'
+      ', REFFACTURA = :REFFACTURA'
+      ', BFACTURAR = :BFACTURAR'
+      ', BFACTURADO = :BFACTURADO'
+      ', BPRESENTADO = :BPRESENTADO '
+      ', BVISIBLE = :BVISIBLE '
+      ', BSINCARGO = :BSINCARGO'
+      'WHERE IDREMITO = :IDREMITO'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFCLIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NREMITO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FFECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFORDENTRABAJO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFMOTIVO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXDETALLES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BFACTURAR'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BFACTURADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BPRESENTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BSINCARGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDREMITO'
+        ParamType = ptUnknown
+      end>
+    left = 80
+    top = 252
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFCLIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NREMITO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FFECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFORDENTRABAJO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFMOTIVO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXDETALLES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BFACTURAR'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BFACTURADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BPRESENTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BSINCARGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDREMITO'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbRemitosDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbREMITOS'
+      'SET BVISIBLE  = 0'
+      'WHERE idRemito = :idRemito'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idRemito'
+        ParamType = ptUnknown
+      end>
+    left = 80
+    top = 320
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idRemito'
+        ParamType = ptUnknown
+      end>
+  end
+  object trRemitoEquipos: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idRemitoEquipo'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refRemito'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refEquipo'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'lxTipoEquipo'
+        DataType = ftString
+        Precision = 0
+        Size = 200
+      end    
+      item
+        Name = 'lxNombre'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'lxNro'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = trRemitoEquiposAfterInsert
+    left = 196
+    top = 44
+  end
+  object trRemitoEquiposSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM trRemitoEquipos'
+      'WHERE idRemitoEquipo = :idRemitoEquipo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idRemitoEquipo'
+        ParamType = ptUnknown
+      end>
+    left = 196
+    top = 124
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idRemitoEquipo'
+        ParamType = ptUnknown
+      end>
+  end
+  object trRemitoEquiposINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO  trRemitoEquipos'
+      '(idRemitoEquipo'
+      ',refEquipo'
+      ',refRemito)'
+      'VALUES'
+      '( :IdRemitoEquipo'
+      ', :refEquipo'
+      ', :refRemito)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IdRemitoEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end>
+    left = 196
+    top = 188
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IdRemitoEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end>
+  end
+  object trRemitoEquiposUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE  trRemitoEquipos'
+      'SET refEquipo = :refEquipo'
+      ',refRemito = :refRemito'
+      'WHERE idRemitoEquipo = :IdRemitoEquipo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IdRemitoEquipo'
+        ParamType = ptUnknown
+      end>
+    left = 196
+    top = 252
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IdRemitoEquipo'
+        ParamType = ptUnknown
+      end>
+  end
+  object trRemitoEquiposDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM trRemitoEquipos'
+      'WHERE idRemitoEquipo = :idRemitoEquipo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idRemitoEquipo'
+        ParamType = ptUnknown
+      end>
+    left = 196
+    top = 308
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idRemitoEquipo'
+        ParamType = ptUnknown
+      end>
+  end
+  object qLevantarRemitoEquipos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT TR.*'
+      '           , E.Nombre as lxNombre'
+      '           , E.nNroEquipo as lxNro'
+      '           , TipEq.Equipo as lxTipoEquipo'
+      'FROM TRRemitoEQUIPOS TR'
+      '          LEFT JOIN tbEquipos E ON E.idEquipo = TR.refEquipo'
+      '          LEFT JOIN TUGTIPOSEQUIPOS TipEq ON E.refTipo = TipEq.idTipoEquipo'
+      'WHERE TR.refRemito = :refRemito'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end>
+    left = 196
+    top = 380
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end>
+  end
+  object qtugMotivosRemito: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugMotivosRemito'
+      'WHERE bVisible = 1'
+      'ORDER BY MotivoRemito'
+    )
+    Params = <>
+    left = 584
+    top = 44
+  end
+  object trRemitoTecnicos: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idRemitoTecnico'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refRemito'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refTecnico'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'lxNombreTecnico'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end>
+    AfterInsert = trRemitoTecnicosAfterInsert
+    left = 312
+    top = 44
+  end
+  object trRemitoTecnicosSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM trRemitoTecnicos'
+      'WHERE idRemitoTecnico = :idRemitoTecnico'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idRemitoTecnico'
+        ParamType = ptUnknown
+      end>
+    left = 312
+    top = 120
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idRemitoTecnico'
+        ParamType = ptUnknown
+      end>
+  end
+  object trRemitoTecnicosINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO  trRemitoTecnicos'
+      '(idRemitoTecnico'
+      ',refTecnico'
+      ',refRemito)'
+      'VALUES'
+      '( :IdRemitoTecnico'
+      ', :refTecnico'
+      ', :refRemito)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IdRemitoTecnico'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTecnico'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end>
+    left = 312
+    top = 188
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IdRemitoTecnico'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTecnico'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end>
+  end
+  object trRemitoTecnicosUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE  trRemitoTecnicos'
+      'SET refTecnico = :refTecnico'
+      ',refRemito = :refRemito'
+      'WHERE idRemitoTecnico = :IdRemitoTecnico'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refTecnico'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IdRemitoTecnico'
+        ParamType = ptUnknown
+      end>
+    left = 312
+    top = 252
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refTecnico'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IdRemitoTecnico'
+        ParamType = ptUnknown
+      end>
+  end
+  object trRemitoTecnicosDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM trRemitoTecnicos'
+      'WHERE idRemitoTecnico = :idRemitoTecnico'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idRemitoTecnico'
+        ParamType = ptUnknown
+      end>
+    left = 312
+    top = 308
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idRemitoTecnico'
+        ParamType = ptUnknown
+      end>
+  end
+  object qLevantarRemitoTecnicos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT TR.*'
+      '           , E.Empleado as lxNombreTecnico'
+      'FROM TRRemitoTecnicos TR'
+      '          LEFT JOIN tugEmpleados E ON E.idEmpleado = TR.refTecnico'
+      'WHERE TR.refRemito = :refRemito'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end>
+    left = 312
+    top = 380
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end>
+  end
+  object qLevantarRemitoReclamo: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT TR.*'
+      '           , R.*'
+      'FROM trReclamoRemito TR'
+      '          LEFT JOIN tbReclamos R ON R.idReclamo = TR.refReclamo'
+      'WHERE TR.refRemito = :refRemito'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end>
+    left = 472
+    top = 120
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end>
+  end
+  object qAsignarReclamo: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO trReclamoRemito'
+      '(idReclamoRemito'
+      ',refReclamo'
+      ',refRemito)'
+      'VALUES'
+      '(:idReclamoRemito'
+      ',:refReclamo'
+      ',:refRemito)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamoRemito'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end>
+    left = 472
+    top = 176
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamoRemito'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refReclamo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBorrarAsignacionReclamo: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM trReclamoRemito '
+      'WHERE refRemito = :refRemito'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end>
+    left = 480
+    top = 240
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end>
+  end
+end

@@ -1,0 +1,118 @@
+object DM_Valores: TDM_Valores
+  OldCreateOrder = False
+  Height = 261
+  HorizontalOffset = 432
+  VerticalOffset = 267
+  Width = 492
+  object tugFormasPago: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugFormasPago'
+      'WHERE bVisible = 1'
+    )
+    Params = <>
+    left = 61
+    top = 31
+  end
+  object qAgrupamiento: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugFormasPago'
+      'WHERE idFormaPago = :idFormaPago'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idFormaPago'
+        ParamType = ptUnknown
+      end>
+    left = 60
+    top = 97
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idFormaPago'
+        ParamType = ptUnknown
+      end>
+  end
+  object tugBancos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugBancos'
+      'WHERE bVisible = 1'
+    )
+    Params = <>
+    left = 159
+    top = 38
+  end
+  object tugFormaPagoPorID: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugFormasPago'
+      'WHERE idFormaPago = :idFormaPago'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idFormaPago'
+        ParamType = ptUnknown
+      end>
+    left = 58
+    top = 168
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idFormaPago'
+        ParamType = ptUnknown
+      end>
+  end
+  object qChequePorID: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbCheques'
+      '         LEFT JOIN tugBancos ON refBanco = idBanco'
+      'WHERE idCheque = :idCheque'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCheque'
+        ParamType = ptUnknown
+      end>
+    left = 272
+    top = 41
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCheque'
+        ParamType = ptUnknown
+      end>
+  end
+  object BancoPorID: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugBancos'
+      'WHERE idBanco = :idBanco'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idBanco'
+        ParamType = ptUnknown
+      end>
+    left = 163
+    top = 102
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idBanco'
+        ParamType = ptUnknown
+      end>
+  end
+end

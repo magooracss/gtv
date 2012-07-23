@@ -1,0 +1,511 @@
+object frmPrincipal: TfrmPrincipal
+  Left = 168
+  Height = 477
+  Top = 102
+  Width = 907
+  Caption = 'Gestión de Transportes Verticales'
+  ClientHeight = 458
+  ClientWidth = 907
+  Menu = MenuPpal
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  SessionProperties = 'Height;Left;Top;Width'
+  ShowHint = True
+  LCLVersion = '0.9.30'
+  object st: TStatusBar
+    Left = 0
+    Height = 20
+    Top = 438
+    Width = 907
+    Panels = <    
+      item
+        Width = 100
+      end    
+      item
+        Alignment = taRightJustify
+        Width = 100
+      end>
+    SimplePanel = False
+  end
+  object ToolBar1: TToolBar
+    Left = 0
+    Height = 61
+    Top = 0
+    Width = 907
+    AutoSize = True
+    ButtonHeight = 59
+    ButtonWidth = 69
+    Caption = 'ToolBar1'
+    Images = DM_General.ImgAcciones
+    ShowCaptions = True
+    TabOrder = 1
+    object ToolButton1: TToolButton
+      Left = 1
+      Top = 2
+      Action = appSalir
+    end
+    object ToolButton2: TToolButton
+      Left = 70
+      Top = 2
+      Width = 8
+      Caption = 'ToolButton2'
+      Style = tbsSeparator
+    end
+    object ToolButton3: TToolButton
+      Left = 78
+      Top = 2
+      Action = cliNuevo
+    end
+    object ToolButton4: TToolButton
+      Left = 147
+      Top = 2
+      Action = cliBusYModificar
+    end
+    object ToolButton5: TToolButton
+      Left = 216
+      Top = 2
+      Width = 8
+      Caption = 'ToolButton5'
+      Style = tbsSeparator
+    end
+    object ToolButton6: TToolButton
+      Left = 224
+      Top = 2
+      Action = presPantGral
+    end
+    object ToolButton7: TToolButton
+      Left = 297
+      Top = 2
+      Action = OTPantGral
+    end
+    object ToolButton8: TToolButton
+      Left = 470
+      Top = 2
+      Action = RemitoPantGral
+    end
+    object ToolButton9: TToolButton
+      Left = 539
+      Top = 2
+      Width = 8
+      Caption = 'ToolButton9'
+      Style = tbsSeparator
+    end
+    object ToolButton11: TToolButton
+      Left = 401
+      Top = 2
+      Action = ReclPantGral
+    end
+    object ToolButton12: TToolButton
+      Left = 547
+      Top = 2
+      Action = cajaComprasListado
+    end
+    object ToolButton10: TToolButton
+      Left = 616
+      Top = 2
+      Action = cajaOPListado
+    end
+    object ToolButton13: TToolButton
+      Left = 707
+      Top = 2
+      Width = 8
+      Caption = 'ToolButton13'
+      Style = tbsSeparator
+    end
+    object ToolButton14: TToolButton
+      Left = 715
+      Top = 2
+      Action = appListados
+    end
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 377
+    Top = 61
+    Width = 907
+    Align = alClient
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Listado de Clientes'
+        Width = 875
+        FieldName = 'Cliente'
+      end>
+    DataSource = ds_Clientes
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    PopupMenu = popGrillaPrincipal
+    ReadOnly = True
+    TabOrder = 2
+  end
+  object MenuPpal: TMainMenu
+    Images = DM_General.ImgAcciones
+    left = 560
+    top = 328
+    object MenuItem1: TMenuItem
+      Caption = 'Programa'
+      object MenuItem18: TMenuItem
+        Action = appEditarReporte
+      end
+      object MenuItem25: TMenuItem
+        Action = appListados
+      end
+      object MenuItem26: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem2: TMenuItem
+        Action = appSalir
+      end
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'Clientes'
+      object MenuItem4: TMenuItem
+        Action = cliNuevo
+      end
+      object MenuItem6: TMenuItem
+        Action = cliBusYModificar
+      end
+      object MenuItem5: TMenuItem
+        Action = cliBorrar
+      end
+      object MenuItem10: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem11: TMenuItem
+        Action = presPantGral
+      end
+      object MenuItem8: TMenuItem
+        Action = OTPantGral
+      end
+      object MenuItem14: TMenuItem
+        Action = ReclPantGral
+      end
+    end
+    object MenuItem13: TMenuItem
+      Caption = 'Caja'
+      object MenuItem20: TMenuItem
+        Action = cajaCheques
+      end
+      object MenuItem22: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem21: TMenuItem
+        Action = cajaComprasListado
+      end
+      object MenuItem23: TMenuItem
+        Action = cajaCompraNueva
+      end
+      object MenuItem19: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem24: TMenuItem
+        Action = cajaOPListado
+      end
+      object MenuItem15: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem16: TMenuItem
+        Action = cajaPlanDeCuentas
+        OnClick = cajaPlanDeCuentasExecute
+      end
+      object MenuItem17: TMenuItem
+        Action = cajaProveedores
+      end
+    end
+  end
+  object ActionList1: TActionList
+    Images = DM_General.ImgAcciones
+    left = 560
+    top = 264
+    object appSalir: TAction
+      Category = 'Aplicacion'
+      Caption = '&Salir'
+      Hint = 'Sale del programa'
+      ImageIndex = 0
+      OnExecute = appSalirExecute
+    end
+    object cliNuevo: TAction
+      Category = 'Clientes'
+      Caption = 'Nuevo'
+      Hint = 'Agrega un nuevo cliente a la base'
+      ImageIndex = 5
+      OnExecute = cliNuevoExecute
+    end
+    object cliBusYModificar: TAction
+      Category = 'Clientes'
+      Caption = 'Modificar'
+      Hint = 'Busca y modifica los datos de un cliente'
+      ImageIndex = 6
+      OnExecute = cliBusYModificarExecute
+    end
+    object cliBorrar: TAction
+      Category = 'Clientes'
+      Caption = 'Borrar'
+      Hint = 'Borra un cliente de la Base'
+      ImageIndex = 4
+      OnExecute = cliBorrarExecute
+    end
+    object tugEquipos: TAction
+      Category = 'Tug'
+      Caption = 'Equipos'
+      Hint = 'Modifica los datos generales usados en la información de equipos'
+      ImageIndex = 8
+    end
+    object cliModificar: TAction
+      Category = 'Clientes'
+      Caption = 'Modificar'
+      Hint = 'Modifica los datos del cliente seleccionado'
+      ImageIndex = 6
+      OnExecute = cliModificarExecute
+    end
+    object presPantGral: TAction
+      Category = 'Presupuestos'
+      Caption = 'Presupuestos'
+      Hint = 'Muestra la pantalla de presupuestos'
+      ImageIndex = 10
+      OnExecute = presPantGralExecute
+    end
+    object presPantGralCliente: TAction
+      Category = 'Presupuestos'
+      Caption = 'Presupuestos'
+      Hint = 'Muestra los presupuestos del cliente seleccionado'
+      ImageIndex = 10
+      OnExecute = presPantGralClienteExecute
+    end
+    object OTPantGral: TAction
+      Category = 'OrdenesTrabajo'
+      Caption = 'Ordenes de Trabajo'
+      Hint = 'Muestra las órdenes de trabajo'
+      ImageIndex = 8
+      OnExecute = OTPantGralExecute
+    end
+    object OTPantGralCliente: TAction
+      Category = 'OrdenesTrabajo'
+      Caption = 'Ordenes de Trabajo'
+      ImageIndex = 8
+      OnExecute = OTPantGralClienteExecute
+    end
+    object RemitoPantGral: TAction
+      Category = 'Remitos'
+      Caption = 'Remitos'
+      ImageIndex = 20
+      OnExecute = RemitoPantGralExecute
+    end
+    object ReclPantGral: TAction
+      Category = 'Reclamos'
+      Caption = 'Reclamos'
+      Hint = 'Pantalla de reclamos'
+      ImageIndex = 16
+      OnExecute = ReclPantGralExecute
+    end
+    object ReclPantGralCliente: TAction
+      Category = 'Reclamos'
+      Caption = 'Reclamos'
+      Hint = 'Pantalla de reclamos para el cliente actual'
+      ImageIndex = 16
+    end
+    object RemitosPantGralCliente: TAction
+      Category = 'Remitos'
+      Caption = 'RemitosPantGralCliente'
+      ImageIndex = 20
+    end
+    object cajaMovimientos: TAction
+      Category = 'Caja'
+      Caption = 'Caja'
+      Hint = 'Muestra los movimientos de la caja'
+      ImageIndex = 7
+      OnExecute = cajaMovimientosExecute
+    end
+    object cajaTugConceptos: TAction
+      Category = 'Caja'
+      Caption = 'Conceptos'
+      ImageIndex = 14
+      OnExecute = cajaTugConceptosExecute
+    end
+    object cajaProveedores: TAction
+      Category = 'Caja'
+      Caption = 'Proveedores'
+      ImageIndex = 22
+      OnExecute = cajaProveedoresExecute
+    end
+    object appEditarReporte: TAction
+      Category = 'Aplicacion'
+      Caption = 'Editar Reporte'
+      ImageIndex = 17
+      OnExecute = appEditarReporteExecute
+    end
+    object cajaCheques: TAction
+      Category = 'Caja'
+      Caption = 'Cheques'
+      Hint = 'Muestra el listado de cheques'
+      ImageIndex = 8
+      OnExecute = cajaChequesExecute
+    end
+    object cajaComprasListado: TAction
+      Category = 'Caja'
+      Caption = 'Compras'
+      ImageIndex = 14
+      OnExecute = cajaComprasListadoExecute
+    end
+    object cajaPlanDeCuentas: TAction
+      Category = 'Caja'
+      Caption = 'Plan de Cuentas'
+      ImageIndex = 16
+      OnExecute = cajaPlanDeCuentasExecute
+    end
+    object cajaCompraNueva: TAction
+      Category = 'Caja'
+      Caption = 'Insertar Compra'
+      Hint = 'Carga una nueva Compra'
+      ImageIndex = 12
+      OnExecute = cajaCompraNuevaExecute
+    end
+    object cajaOPListado: TAction
+      Category = 'Caja'
+      Caption = 'Ordenes de Pago'
+      Hint = 'Listado de las Ordenes de Pago'
+      ImageIndex = 20
+      OnExecute = cajaOPListadoExecute
+    end
+    object appListados: TAction
+      Category = 'Aplicacion'
+      Caption = 'Listados'
+      ImageIndex = 24
+      OnExecute = appListadosExecute
+    end
+  end
+  object XMLPropiedades: TXMLPropStorage
+    StoredValues = <>
+    FileName = 'propiedades.xml'
+    left = 560
+    top = 392
+  end
+  object ds_Clientes: TDatasource
+    DataSet = DM_Clientes.qListaClientes
+    left = 96
+    top = 177
+  end
+  object popGrillaPrincipal: TPopupMenu
+    Images = DM_General.ImgAcciones
+    left = 488
+    top = 264
+    object MenuItem9: TMenuItem
+      Action = cliModificar
+      Bitmap.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF0069A8DFFF9D8267FF996634FFAF7A41FFAE793DFFAD783CFFAD783CFFAA75
+        39FFAA753CFF936131FF997C63FF69A9E1FFFFFFFF00FFFFFF00FFFFFF006DA2
+        D3FF2579CDFFC08E54FFB58143FFD3AF85FFD3AF85FFD1AB7FFFB98547FFD2AE
+        83FFD3AF85FFB07B3FFFA9763CFF2E7ECEFF6DA2D3FFFFFFFF00FFFFFF00297D
+        D1FF82BAEEFFC18F55FFD8B994FFCEA678FFCCA375FFBA9370FFB27F44FFCA9F
+        6EFFC89C69FFD3AE85FFB88449FF83BCEFFF2A77CAFFFFFFFF00FFFFFF00287C
+        CEFF78B3EAFFCEA679FFD2AE83FFD0A97DFFB78859FF4D4EA6FF77627CFFB684
+        4BFFC4935CFFC18E55FFC79A67FF7EB8EDFF2974C7FFFFFFFF00FFFFFF00A577
+        4AFFC3925BFFE2CAB0FFB68244FFB78345FFB88855FF4A5BD0FF5060D2FFBA87
+        4CFFB37F41FFBF8A4EFFD0A97DFFBE8D57FF9C6F46FFFFFFFF00FFFFFF00B674
+        39FFC29A70FFB27D41FFB48042FFDCBF9EFFBE8A4CFFC4B6BCFF5E67C8FFB381
+        4DFFD3B088FFC29159FFAF7A3EFF9F6F41FFAA7341FFFFFFFF00FFFFFF00FFFF
+        FF00AA6F3EFFA57645FFB17D3FFFD8BEA0FF968271FF5572A4FF435EB5FFA279
+        5FFFD9BEA0FFB48042FFA87546FFA67143FFFFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00AC7646FF966B3EFF537291FF9CCCF8FFAFD4F7FFAFD4F7FFA5CF
+        F6FF51799AFF8C643CFFA57146FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00395F89FFA6CAEEFFABCCEAFFA7D0F6FFA8D0F6FFABCC
+        EAFFA7CDEEFF2F6299FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF001F5C99FFBDD7EFFFA3C9EDFF9FC5E8FF74A1CDFF81B0
+        DDFFB7D3EBFF2365A4FF6AA0D2FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00103773FF7893B5FF8AB7E4FF6793C3FF11355BFF1539
+        5FFF1C3959FF103255FF58738EFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00375279FF0F498FFF0C3E76FF0C3E73FF0E3E73FF113F
+        70FF0F3661FF143050FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF005F6369FF284D7DFF0F498AFF0F4988FF0E4581FF0C3E
+        73FF1B3D60FF595E63FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00565D68FF133F7AFF0D3E7DFF0C3C76FF1239
+        69FF4E5663FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+    end
+    object MenuItem7: TMenuItem
+      Action = presPantGralCliente
+      Bitmap.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF008254
+        249F764919E1714415E1825424BAFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00875A29FF8254
+        24FF936839FF906536FF724516FF6D4011FF693C0DFF65380AFF613406FF5E31
+        03FF5B2E01FF5A2D001EFFFFFF00FFFFFF00FFFFFF00FFFFFF00B38B5DFFB38B
+        5DFF7D5121FF794C1DFFB38B5DFFB38B5DFFB38B5DFFB38B5DFFB38B5DFFB38B
+        5DFF683C0EFF5B2E011EFFFFFF00FFFFFF00FFFFFF00FFFFFF00875A29FF8254
+        24FFAB9074FFAA8F73FF724516FF6D4011FF693C0DFF65380AFF613406FF5E31
+        03FF6C3F12FF5F32041EFFFFFF00FFFFFF00FFFFFF00FFFFFF00F8F8F8FFF1F1
+        F1FFE3E3E3FFF3F3F3FFF8F8F8FFF9F9F9FFF8F8F8FFE9E9E9FFF8F8F8FF6235
+        07FF704416FF6336081E216324B81D5E2006FFFFFF00FFFFFF00E7E7E7FFD3D3
+        D3FFA5A5A5FFD7D7D7FFF4F4F4FFEEEEEEFFEAEAEAFFDCDCDCFFF8F8F8FF6639
+        0BFF74481AFF3C61254F256929F7216324D9FFFFFF00FFFFFF00C5C5C5FFD3D3
+        D3FFA6A6A6FFD8D8D8FFF4F4F4FF61BE6DFF5DB868FF58B162FF53A95CFF4DA1
+        56FF47994FFF419149FF59A15EFF448B49FF216324CFFFFFFF00E9E9E9FFD4D4
+        D4FFA6A6A6FFD8D8D8FFF5F5F5FF65C371FFA0D7A9FF9CD5A5FF98D3A1FF94D0
+        9DFF90CE98FF8BCB93FF7AC180FF76BE7CFF458C4AFF216324C4C5C5C5FFD4D4
+        D4FFA7A7A7FFD8D8D8FFF5F5F5FF68C774FFA5DAAEFFA2D8ABFF9ED6A7FF9AD4
+        A3FF96D29FFF93CF9AFF81C587FF7DC282FF4A9150FF256929C9EAEAEAFFD5D5
+        D5FFB5B5B5FFDFDFDFFFF5F5F5FF68C774FF68C774FF65C371FF61BE6DFF5DB8
+        68FF58B162FF53A95CFF5AA362FF559D5CFF2F7835D1FFFFFF00C6C6C6FFF2F2
+        F2FFDDD8D2FFEBE5DFFFFCFCFCFFCCCCCCFFC9C9C9FFBDBDBDFFF9F9F9FF8457
+        26FF916333FF8659281E419149F73B8842DBFFFFFF00FFFFFF00F8F8F8FFD9C6
+        B1FFB1834EE6AC7E4AE6D7C4AFFFF9F9F9FFF9F9F9FFF9F9F9FFF9F9F9FF8B5D
+        2CFF976938FF8D602E1E47994FBB41914906FFFFFF00FFFFFF00CBA67BFFC6A0
+        74FF9264336791633167BB956AFFB8946AFFB49066FFAF8B62FFAB875EFF9264
+        32FF996C393394663406FFFFFF00FFFFFF00FFFFFF00FFFFFF00C3955F33C092
+        5C33FFFFFF00FFFFFF00B3855033AE804C33A97B4733A37642339E703D33986B
+        3833FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+    end
+    object MenuItem12: TMenuItem
+      Action = OTPantGralCliente
+      Bitmap.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00A97151A9C38E68FFC08B66FFBE8864FFBB8561FFB983
+        5FFFB47E5CFFB17B58FFAE7957FFAD7656FFA97151FFA97151A9FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00C8926CFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA97251FFFFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00D8A279FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFEFEFFFFFFFFFFB7815EFFFFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00D9A379FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFEFFFFFEFEFFFEFEFEFFFFFFFFFFBA8560FFFFFFFF00FFFF
+        FF00A9715194C38E68E0DBA47AFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBD8763FFFFFFFF00FFFF
+        FF00C8926CE0FFFFFFE0DCA77BFFDCA77BFFDCA77BFFDCA77BFFDCA77BFFDCA7
+        7BFFDCA77BFFDCA77BFFDCA77BFFDCA77BFFDCA77BFFC08B66FFFFFFFF00FFFF
+        FF00D8A279E0FFFFFFE0DDAD86FFE8B992FFE8B992FFE8B992FFE8B992FFE8B9
+        92FFE8B992FFE8B992FFE8B992FFE8B992FFE8B992FFC1906FFDFFFFFF00FFFF
+        FF00D9A379E0FFFFFFE0D8BFB1EDDEB491FEDCA77BFFDCA67AFFDAA47AFFD8A2
+        79FFD5A076FFD29D73FFCF9A72FFCE9970FFC49A79FFA971516BA9715182C38E
+        68C4D8A278F8F9F3F0F8F8F3F0F8F8F2EFF8F7F2EFF8F7F2EFF8F7F2EFF8F7F2
+        EEF8F7F1EEF8F9F6F3F0FFFFFFE0BD8763E0FFFFFF00FFFFFF00C8926CC4FFFF
+        FFC4DFB088F8DFB088F8DFB088F8DFB088F8DFB088F8DFB088F8DFB088F8DFB0
+        88F8DFB088F8D7A277F8DCA77BE0C08B66E0FFFFFF00FFFFFF00D8A279C4FFFF
+        FFC4E0B491F7EAC09DF8EAC09DF8EAC09DF8EAC09DF8EAC09DF8EAC09DF8EAC0
+        9DF8EAC09DF8E3B48DF8E8B992E0C1906FDEFFFFFF00FFFFFF00D9A379C4FFFF
+        FFC4DAC2B4DAE1BB9CF6DFB088F8DFAF87F8DEAD87F8DCAB86F8D9A983F8D6A7
+        81F8D4A480F8CC976EF8C49A79E0A971515EFFFFFF00FFFFFF00DBA47AC4FFFF
+        FFC4FFFFFFC4FFFFFFC4FFFFFFC4FFFFFFC4FFFFFFC4FFFFFFC4FFFFFFC4FFFF
+        FFC4FFFFFFC4BD8763C4FFFFFF00FFFFFF00FFFFFF00FFFFFF00DCA77BC4DCA7
+        7BC4DCA77BC4DCA77BC4DCA77BC4DCA77BC4DCA77BC4DCA77BC4DCA77BC4DCA7
+        7BC4DCA77BC4C08B66C4FFFFFF00FFFFFF00FFFFFF00FFFFFF00DDAC85C2E8B9
+        92C4E8B992C4E8B992C4E8B992C4E8B992C4E8B992C4E8B992C4E8B992C4E8B9
+        92C4E8B992C4C1906FC2FFFFFF00FFFFFF00FFFFFF00FFFFFF00A9715152DDB1
+        8DBCDCA77BC4DCA67AC4DAA47AC4D5A076C4D49E75C4D29D73C4CF9A72C4CE99
+        70C4C49A79C4A9715152FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+    end
+  end
+end

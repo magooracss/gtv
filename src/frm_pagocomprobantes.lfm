@@ -1,0 +1,568 @@
+object frmPagoComprobante: TfrmPagoComprobante
+  Left = 274
+  Height = 529
+  Top = 104
+  Width = 795
+  Caption = 'Pago comprobante'
+  ClientHeight = 529
+  ClientWidth = 795
+  Font.CharSet = ANSI_CHARSET
+  Font.Color = clBlack
+  Font.Height = -13
+  Font.Name = 'Arial'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poOwnerFormCenter
+  LCLVersion = '0.9.30'
+  object Panel1: TPanel
+    Left = 0
+    Height = 50
+    Top = 479
+    Width = 795
+    Align = alBottom
+    ClientHeight = 50
+    ClientWidth = 795
+    TabOrder = 0
+    object btnSalir: TBitBtn
+      Left = 16
+      Height = 30
+      Top = 9
+      Width = 119
+      Caption = 'Grabar y Salir'
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000BA6A368FB969
+        35B5B86935EEB76835FFB56835FFB46734FFB26634FFB06533FFAE6433FFAC63
+        32FFAA6232FFA96132FFA86031FFA76031FEA66031F1A86131C4BA6A35DEEBC6
+        ADFFEAC5ADFFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFB
+        F8FFFEFBF8FFFEFBF8FFFEFBF8FFC89A7CFFC79879FFA76031EDBA6B37FEEDCA
+        B3FFE0A27AFFFEFAF7FF62C088FF62C088FF62C088FF62C088FF62C088FF62C0
+        88FF62C088FF62C088FFFDF9F6FFCA8D65FFC99B7CFFA76031FEBB6C38FFEECC
+        B6FFE1A27AFFFEFAF7FFBFDCC2FFBFDCC2FFBFDCC2FFBFDCC2FFBFDCC2FFBFDC
+        C2FFBFDCC2FFBFDCC2FFFDF9F6FFCD9068FFCC9E81FFA86132FFBB6B38FFEFCE
+        B8FFE1A279FFFEFAF7FF62C088FF62C088FF62C088FF62C088FF62C088FF62C0
+        88FF62C088FF62C088FFFDF9F6FFCF936AFFCEA384FFAA6132FFBA6A36FFEFD0
+        BBFFE2A27AFFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFB
+        F8FFFEFBF8FFFEFBF8FFFEFBF8FFD3966DFFD2A78AFFAB6232FFBB6A36FFF0D2
+        BEFFE2A37AFFE2A37AFFE1A37AFFE2A37BFFE1A37BFFE0A178FFDE9F77FFDD9F
+        76FFDC9D74FFD99B72FFD89971FFD69970FFD5AB8EFFAD6333FFBB6A36FFF2D5
+        C2FFE3A37AFFE3A37AFFE2A37BFFE2A37BFFE2A47BFFE1A279FFE0A178FFDEA0
+        77FFDE9E75FFDC9D74FFDA9B73FFD99B73FFDAB095FFAF6433FFBB6A36FFF2D8
+        C5FFE3A47BFFE3A37AFFE3A47AFFE2A47BFFE2A37BFFE1A37BFFE1A279FFDFA0
+        77FFDE9F76FFDD9E74FFDB9C72FFDC9D74FFDDB59AFFB16534FFBB6B36FFF4D9
+        C7FFE6A67DFFC88C64FFC98D65FFC98E67FFCB926CFFCB926DFFCA9069FFC88C
+        65FFC88C64FFC88C64FFC88C64FFDA9C74FFE1BA9FFFB36634FFBB6B36FEF4DC
+        C9FFE7A77DFFF9ECE1FFF9ECE1FFF9EDE3FFFCF4EEFFFDFAF7FFFDF7F3FFFAED
+        E5FFF7E7DBFFF7E5D9FFF6E5D8FFDEA077FFE4BEA4FFB46734FFBC6B36FAF5DD
+        CCFFE7A87EFFFAF0E8FFFAF0E8FFC98D66FFFAF0E9FFFDF8F3FFFEFAF8FFFCF4
+        EFFFF9E9DFFFF7E7DBFFF7E5D9FFE0A278FFE7C2A9FFB66835FFBC6B36F0F6DF
+        D0FFE8A87EFFFCF6F1FFFCF6F1FFC88C64FFFAF1E9FFFBF4EEFFFDFAF7FFFDF9
+        F6FFFAF0E8FFF8E8DDFFF7E6DBFFE1A37AFFEFD5C3FFB76935FEBC6B36D8F6DF
+        D1FFE9AA80FFFEFAF6FFFDFAF6FFC88C64FFFBF3EEFFFBF1EAFFFCF6F2FFFEFB
+        F8FFFCF6F1FFF9ECE2FFF8E7DBFFEED0BAFFECD0BDFFBB703EF8BC6B369BF6E0
+        D1FFF7E0D1FFFEFBF8FFFEFBF7FFFDF9F6FFFCF5F0FFFAF0EAFFFBF2EDFFFDF9
+        F6FFFDFAF7FFFBF1EBFFF8E9DFFEECD0BDFBC9895EECB5693563BC6B3671BC6B
+        3690BC6B36CCBC6B36EEBC6B36FABB6B36FEBB6B36FFBB6A36FFBB6A36FFBC6C
+        39FFBD6E3BFFBB6D3AFFBB6B38EFBB703ECBB6693554FFFFFF00
+      }
+      OnClick = btnSalirClick
+      TabOrder = 0
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 277
+    Top = 0
+    Width = 795
+    Align = alTop
+    ClientHeight = 277
+    ClientWidth = 795
+    TabOrder = 1
+    object Panel4: TPanel
+      Left = 445
+      Height = 275
+      Top = 1
+      Width = 349
+      Align = alRight
+      BevelInner = bvLowered
+      BevelOuter = bvLowered
+      ClientHeight = 275
+      ClientWidth = 349
+      TabOrder = 0
+      object Panel5: TPanel
+        Left = 2
+        Height = 121
+        Top = 152
+        Width = 345
+        Align = alClient
+        ClientHeight = 121
+        ClientWidth = 345
+        TabOrder = 0
+        object DBGrid2: TDBGrid
+          Left = 1
+          Height = 102
+          Top = 18
+          Width = 210
+          Align = alClient
+          Color = clWindow
+          Columns = <>
+          TabOrder = 0
+          TitleFont.CharSet = ANSI_CHARSET
+          TitleFont.Color = clBlack
+          TitleFont.Height = -13
+          TitleFont.Name = 'Arial'
+          TitleFont.Pitch = fpVariable
+          TitleFont.Quality = fqDraft
+        end
+        object Label2: TLabel
+          Left = 1
+          Height = 17
+          Top = 1
+          Width = 343
+          Align = alTop
+          Caption = 'Pendientes Asignación'
+          ParentColor = False
+        end
+        object Panel9: TPanel
+          Left = 211
+          Height = 102
+          Top = 18
+          Width = 133
+          Align = alRight
+          TabOrder = 1
+        end
+      end
+      object Panel6: TPanel
+        Left = 2
+        Height = 145
+        Top = 2
+        Width = 345
+        Align = alTop
+        ClientHeight = 145
+        ClientWidth = 345
+        TabOrder = 1
+        object DBGrid3: TDBGrid
+          Left = 1
+          Height = 126
+          Top = 18
+          Width = 343
+          Align = alClient
+          Color = clWindow
+          Columns = <>
+          TabOrder = 0
+          TitleFont.CharSet = ANSI_CHARSET
+          TitleFont.Color = clBlack
+          TitleFont.Height = -13
+          TitleFont.Name = 'Arial'
+          TitleFont.Pitch = fpVariable
+          TitleFont.Quality = fqDraft
+        end
+        object Label1: TLabel
+          Left = 1
+          Height = 17
+          Top = 1
+          Width = 343
+          Align = alTop
+          Caption = 'Totales en la orden de pago'
+          ParentColor = False
+        end
+      end
+      object Splitter2: TSplitter
+        Cursor = crVSplit
+        Left = 2
+        Height = 5
+        Top = 147
+        Width = 345
+        Align = alTop
+        ResizeAnchor = akTop
+      end
+    end
+    object Splitter1: TSplitter
+      Left = 440
+      Height = 275
+      Top = 1
+      Width = 5
+      Align = alRight
+      ResizeAnchor = akRight
+    end
+    object Panel7: TPanel
+      Left = 1
+      Height = 275
+      Top = 1
+      Width = 439
+      Align = alClient
+      ClientHeight = 275
+      ClientWidth = 439
+      TabOrder = 2
+      object GroupBox1: TGroupBox
+        Left = 11
+        Height = 88
+        Top = 18
+        Width = 413
+        Anchors = [akTop, akLeft, akRight]
+        Caption = 'Proveedor'
+        ClientHeight = 70
+        ClientWidth = 409
+        TabOrder = 0
+        object DBEdit1: TDBEdit
+          Left = 14
+          Height = 24
+          Top = 23
+          Width = 383
+          DataField = 'lxProveedor'
+          DataSource = ds_OrdenPago
+          ReadOnly = True
+          Anchors = [akTop, akLeft, akRight]
+          CharCase = ecNormal
+          Color = clSkyBlue
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          MaxLength = 0
+          ParentFont = False
+          TabOrder = 0
+        end
+      end
+      object GroupBox2: TGroupBox
+        Left = 12
+        Height = 114
+        Top = 128
+        Width = 412
+        Anchors = [akTop, akLeft, akRight]
+        Caption = 'Comprobante'
+        ClientHeight = 96
+        ClientWidth = 408
+        TabOrder = 1
+        object Label3: TLabel
+          Left = 13
+          Height = 17
+          Top = 21
+          Width = 37
+          Caption = 'Fecha'
+          ParentColor = False
+        end
+        object Label4: TLabel
+          Left = 153
+          Height = 17
+          Top = 21
+          Width = 46
+          Caption = 'Número'
+          ParentColor = False
+        end
+        object Label5: TLabel
+          Left = 294
+          Height = 17
+          Top = 21
+          Width = 37
+          Anchors = [akTop, akRight]
+          Caption = 'Monto'
+          ParentColor = False
+        end
+        object DBEdit2: TDBEdit
+          Left = 13
+          Height = 24
+          Top = 39
+          Width = 100
+          DataField = 'Fecha'
+          DataSource = ds_Comprobantes
+          ReadOnly = True
+          CharCase = ecNormal
+          Color = clSkyBlue
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          MaxLength = 0
+          ParentFont = False
+          TabOrder = 0
+        end
+        object DBEdit3: TDBEdit
+          Left = 152
+          Height = 24
+          Top = 40
+          Width = 117
+          DataField = 'NroComprobante'
+          DataSource = ds_Comprobantes
+          ReadOnly = True
+          Anchors = [akTop, akLeft, akRight]
+          CharCase = ecNormal
+          Color = clSkyBlue
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          MaxLength = 0
+          ParentFont = False
+          TabOrder = 1
+        end
+        object DBEdit4: TDBEdit
+          Left = 290
+          Height = 24
+          Top = 40
+          Width = 106
+          DataField = 'nTotal'
+          DataSource = ds_Comprobantes
+          ReadOnly = True
+          Anchors = [akTop, akRight]
+          CharCase = ecNormal
+          Color = clSkyBlue
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          MaxLength = 0
+          ParentFont = False
+          TabOrder = 2
+        end
+      end
+      object edMontoAPagar: TEdit
+        Left = 97
+        Height = 22
+        Top = 245
+        Width = 99
+        Alignment = taRightJustify
+        Color = clMoneyGreen
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 2
+        Text = 'edMontoAPagar'
+      end
+      object Label6: TLabel
+        Left = 17
+        Height = 17
+        Top = 248
+        Width = 84
+        Caption = 'Total a pagar: '
+        ParentColor = False
+      end
+      object lbFaltaCubrir: TLabel
+        Left = 234
+        Height = 17
+        Top = 248
+        Width = 70
+        Caption = 'Falta cubrir:'
+        ParentColor = False
+      end
+      object edFaltaCubrir: TEdit
+        Left = 307
+        Height = 22
+        Top = 245
+        Width = 99
+        Alignment = taRightJustify
+        Color = clMoneyGreen
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 3
+        Text = 'edMontoAPagar'
+      end
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Height = 197
+    Top = 282
+    Width = 795
+    Align = alClient
+    ClientHeight = 197
+    ClientWidth = 795
+    TabOrder = 2
+    object Panel8: TPanel
+      Left = 649
+      Height = 195
+      Top = 1
+      Width = 145
+      Align = alRight
+      ClientHeight = 195
+      ClientWidth = 145
+      TabOrder = 0
+      object btnValoresNuevo: TBitBtn
+        Left = 11
+        Height = 30
+        Top = 45
+        Width = 127
+        Caption = 'Nuevo'
+        Glyph.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+          FF0060A664315BA25FCC569F5A4BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00196B3788196B37F2196B37FF196B37F2196B3788FFFFFF00FFFFFF006AAE
+          6E0565AA69AF60A665FD6BAE6FFF4C9750FB529C56344E995222FFFFFF00196B
+          3784288C53FF64BA8DFF95D2B2FF64BA8DFF288C53FF196B378CFFFFFF006FB2
+          74277CBB81FCB7DEBBFF67AC6CFF75B67AFF4E9851FE539C57B84F99537A1B6C
+          39F762BA8BFF60BA87FFFFFFFFFF60B987FF67BC8FFF196B37F7FFFFFF0075B6
+          7A9B9CCDA0FF6FB273FF8DC792FFAADCAFFF76B67BFF519B55FF77B77BFF317B
+          4CFF9CD4B6FFFFFFFFFFFFFFFFFFFFFFFFFF95D2B2FF196B37FF7FBE84197BBB
+          80FF77B77CFF91CB97FFABDEB1FF9CD7A2FFAADDB0FF77B77CFF60AC65FF478A
+          60FF90D3B1FF92D6B1FFFFFFFFFF65BC8CFF67BC8FFF196B37F77FBD84A07FBD
+          84FF97CE9CFFADDFB3FF6FB374FF96D59DFF9DD8A3FFAADDB0FF78B87CFF61A4
+          6FFF61AB81FF95D4B4FFBAE6D0FF6ABB8FFF2D8F57FF1F7039A37BBB80FF8EC8
+          93FFAFDFB5FFA1DAA7FF98D79FFF97D69EFF7EC083FF82C187FFABDDB0FF79B9
+          7DFF5EA16BFF5E9873FF4F8E66FF46895EFF3F894EFF459249118DC9937D7DBB
+          82FF8FC894FFB0E0B6FFA2DAA8FF7FC185FFA4D0A7FFDDEEDFFF80B883FFABDE
+          B1FF7AB97FFF569F5AFFC4E7C8FF78B87CFF4E995284FFFFFF00FFFFFF008EC9
+          93257DBC82FA90C995FFB0E0B6FF85C28AFFF7FCF8FF95C297FFDDEEDFFF82C2
+          87FFABDEB1FF7BBA7FFF58A05CFF59A15DFF539C5704FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF007EBD83F691CA96FFB1E0B6FFD9F3DDFFF7FCF8FFA4D0A7FF7EC0
+          84FF9FD9A5FFACDEB2FF7BBB80FF569F5AFBFFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF007FBE85F592CB97FFB1E1B6FF85C38AFF80C185FF99D7
+          A0FF98D79FFF9FD9A5FFACDFB2FF7DBB81FF58A05CF6FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF0081BF86F593CC98FFB1E1B7FFA3DBA9FF9BD8
+          A2FF73B477FFAFDFB4FF87C38CFF65AA69FF5DA4610EFFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0082C087F594CC99FFB2E2B7FFA3DC
+          AAFFB0E0B6FF8CC692FF6EB173FF66AB6B0EFFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0083C188F594CD9AFFB3E2
+          B7FF93CB98FF77B77CFF70B2740EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0084C28AF596CD
+          9BFF80BE85FF79B97E0EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0086C3
+          8BF582C0870EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+        }
+        OnClick = btnValoresNuevoClick
+        TabOrder = 0
+      end
+      object btnQuitarValor: TBitBtn
+        Left = 11
+        Height = 30
+        Top = 101
+        Width = 127
+        Caption = 'Quitar'
+        Glyph.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+          FF0060A664315BA25FCC569F5A4BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF001D57C4780345B9DF0442BCFE0345B9E30345B87AFFFFFF00FFFFFF006AAE
+          6E0565AA69AF60A665FD6BAE6FFF4C9750FB529C56344E995222FFFFFF001A57
+          C3802564C9FB2177E6FF0579EAFF0164DDFF044DBDFC0345B87AFFFFFF006FB2
+          74277CBB81FCB7DEBBFF67AC6CFF75B67AFF4E9851FE539C57B84F99537A0345
+          B9E3639DF4FF187FFFFF0076F8FF0076EEFF0368E1FF0345B9E4FFFFFF0075B6
+          7A9B9CCDA0FF6FB273FF8DC792FFAADCAFFF76B67BFF519B55FF77B77BFF0442
+          BCFFAECDFEFFFFFFFFFFFFFFFFFFFFFFFFFF187FEFFF0442BCFE7FBE84197BBB
+          80FF77B77CFF91CB97FFABDEB1FF9CD7A2FFAADDB0FF77B77CFF60AC65FF1A58
+          B8FF8DB5F6FF4D92FFFF1177FFFF2186FFFF408AEBFF0344B9DE7FBD84A07FBD
+          84FF97CE9CFFADDFB3FF6FB374FF96D59DFF9DD8A3FFAADDB0FF78B87CFF4B8C
+          9AFF3B76D1FF8DB5F7FFB8D6FEFF72A8F5FF2D6BCAFD1153A18A7BBB80FF8EC8
+          93FFAFDFB5FFA1DAA7FF98D79FFF97D69EFF7EC083FF82C187FFABDDB0FF79B9
+          7DFF438693FF235FC1FF0543BCFF1857BAFF2B7283FF459249118DC9937D7DBB
+          82FF8FC894FFB0E0B6FFA2DAA8FF7FC185FFA4D0A7FFDDEEDFFF80B883FFABDE
+          B1FF7AB97FFF569F5AFFC4E7C8FF78B87CFF4E995284FFFFFF00FFFFFF008EC9
+          93257DBC82FA90C995FFB0E0B6FF85C28AFFF7FCF8FF95C297FFDDEEDFFF82C2
+          87FFABDEB1FF7BBA7FFF58A05CFF59A15DFF539C5704FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF007EBD83F691CA96FFB1E0B6FFD9F3DDFFF7FCF8FFA4D0A7FF7EC0
+          84FF9FD9A5FFACDEB2FF7BBB80FF569F5AFBFFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF007FBE85F592CB97FFB1E1B6FF85C38AFF80C185FF99D7
+          A0FF98D79FFF9FD9A5FFACDFB2FF7DBB81FF58A05CF6FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF0081BF86F593CC98FFB1E1B7FFA3DBA9FF9BD8
+          A2FF73B477FFAFDFB4FF87C38CFF65AA69FF5DA4610EFFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0082C087F594CC99FFB2E2B7FFA3DC
+          AAFFB0E0B6FF8CC692FF6EB173FF66AB6B0EFFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0083C188F594CD9AFFB3E2
+          B7FF93CB98FF77B77CFF70B2740EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0084C28AF596CD
+          9BFF80BE85FF79B97E0EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0086C3
+          8BF582C0870EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+        }
+        OnClick = btnQuitarValorClick
+        TabOrder = 1
+      end
+    end
+    object DBGrid1: TDBGrid
+      Left = 1
+      Height = 195
+      Top = 1
+      Width = 648
+      Align = alClient
+      AutoFillColumns = True
+      Color = clWindow
+      Columns = <      
+        item
+          Title.Alignment = taCenter
+          Title.Caption = 'Forma de Pago'
+          Width = 170
+          FieldName = 'lxFormaDePago'
+        end      
+        item
+          SizePriority = 0
+          Title.Alignment = taCenter
+          Title.Caption = 'Monto'
+          Width = 141
+          FieldName = 'nMonto'
+        end      
+        item
+          SizePriority = 0
+          Title.Alignment = taCenter
+          Title.Caption = 'Nro Cheque'
+          Width = 162
+          FieldName = 'lxNroCheque'
+        end      
+        item
+          Title.Alignment = taCenter
+          Title.Caption = 'Banco'
+          Width = 171
+          FieldName = 'lxBanco'
+        end>
+      DataSource = ds_ComprobantesPago
+      FixedCols = 0
+      Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+      Scrollbars = ssAutoVertical
+      TabOrder = 1
+      TitleFont.CharSet = ANSI_CHARSET
+      TitleFont.Color = clBlack
+      TitleFont.Height = -13
+      TitleFont.Name = 'Arial'
+      TitleFont.Pitch = fpVariable
+      TitleFont.Quality = fqDraft
+    end
+  end
+  object Splitter3: TSplitter
+    Cursor = crVSplit
+    Left = 0
+    Height = 5
+    Top = 277
+    Width = 795
+    Align = alTop
+    ResizeAnchor = akTop
+  end
+  object ds_OrdenPago: TDatasource
+    DataSet = DM_OrdenesDePago.tbOrdenesPago
+    left = 169
+    top = 106
+  end
+  object ds_Comprobantes: TDatasource
+    DataSet = DM_Compras.qComprasPorOP
+    left = 250
+    top = 109
+  end
+  object ds_ComprobantesPago: TDatasource
+    DataSet = DM_OrdenesDePago.tbOPFormasDePago
+    left = 138
+    top = 182
+  end
+end

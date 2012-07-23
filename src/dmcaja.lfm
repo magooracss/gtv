@@ -1,0 +1,928 @@
+object DM_CAJA: TDM_CAJA
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 475
+  HorizontalOffset = 482
+  VerticalOffset = 45
+  Width = 514
+  object tbCajaConceptos: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idCajaConcepto'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'fFecha'
+        DataType = ftDateTime
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'refConcepto'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'nMonto'
+        DataType = ftFloat
+        Precision = 2
+        Size = 0
+      end    
+      item
+        Name = 'refFormaPago'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'txDetallePago'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'txDetalle'
+        DataType = ftString
+        Precision = -1
+        Size = 3000
+      end    
+      item
+        Name = 'refEmpresa'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'refListaEmpresa'
+        DataType = ftString
+        Precision = -1
+        Size = 1
+      end    
+      item
+        Name = 'fModificacion'
+        DataType = ftDateTime
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end>
+    AfterInsert = tbCajaConceptosAfterInsert
+    left = 144
+    top = 16
+    object tbCajaConceptosidCajaConcepto: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idCajaConcepto'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbCajaConceptosfFecha: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fFecha'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object tbCajaConceptosrefConcepto: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refConcepto'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbCajaConceptosnMonto: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nMonto'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbCajaConceptosrefFormaPago: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refFormaPago'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbCajaConceptostxDetallePago: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'txDetallePago'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbCajaConceptostxDetalle: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'txDetalle'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbCajaConceptosrefEmpresa: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refEmpresa'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbCajaConceptosrefListaEmpresa: TStringField
+      DisplayWidth = 1
+      FieldKind = fkData
+      FieldName = 'refListaEmpresa'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1
+    end
+    object tbCajaConceptosfModificacion: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fModificacion'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbCajaConceptosbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object tbCajaConceptoSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbCajaConceptos'
+      'WHERE idCajaConcepto = :idCajaConcepto'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCajaConcepto'
+        ParamType = ptUnknown
+      end>
+    left = 144
+    top = 96
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCajaConcepto'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbCajaConceptoINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO  tbCajaConceptos'
+      '( idCajaConcepto'
+      ', fFecha'
+      ', refConcepto'
+      ', nMonto'
+      ', refFormaPago'
+      ', txDetallePago'
+      ', txDetalle'
+      ', refEmpresa'
+      ', refListaEmpresa'
+      ', fModificacion'
+      ', bVisible'
+      ')'
+      'VALUES'
+      '( :idCajaConcepto'
+      ', :fFecha'
+      ', :refConcepto'
+      ', :nMonto'
+      ', :refFormaPago'
+      ', :txDetallePago'
+      ', :txDetalle'
+      ', :refEmpresa'
+      ', :refListaEmpresa'
+      ', :fModificacion'
+      ', :bVisible'
+      ')'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCajaConcepto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fFecha'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refConcepto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nMonto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refFormaPago'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txDetallePago'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txDetalle'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refEmpresa'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refListaEmpresa'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fModificacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+    left = 144
+    top = 160
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCajaConcepto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fFecha'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refConcepto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nMonto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refFormaPago'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txDetallePago'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txDetalle'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refEmpresa'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refListaEmpresa'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fModificacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbCajaConceptoUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbCajaConceptos'
+      'SET '
+      '  fFecha = :fFecha'
+      ', refConcepto = :refConcepto'
+      ', nMonto = :nMonto'
+      ', refFormaPago = :refFormaPago'
+      ', txDetallePago = :txDetallePago'
+      ', txDetalle = :txDetalle'
+      ', refEmpresa = :refEmpresa'
+      ', refListaEmpresa = :refListaEmpresa'
+      ', fModificacion = :fModificacion'
+      ', bVisible = :bVisible'
+      'WHERE  idCajaConcepto = :idCajaConcepto'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'fFecha'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refConcepto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nMonto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refFormaPago'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txDetallePago'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txDetalle'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refEmpresa'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refListaEmpresa'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fModificacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idCajaConcepto'
+        ParamType = ptUnknown
+      end>
+    left = 144
+    top = 224
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'fFecha'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refConcepto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nMonto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refFormaPago'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txDetallePago'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txDetalle'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refEmpresa'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refListaEmpresa'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fModificacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idCajaConcepto'
+        ParamType = ptUnknown
+      end>
+  end
+  object qLevantarCaja: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT CC.idCajaConcepto, CC.fFecha, CC.nMonto, CC.refEmpresa, CC.refListaEmpresa, CC.txDetalle'
+      '            ,C.Concepto, C.Tipo'
+      '            ,P.cRazonSocial as Proveedor'
+      ''
+      'FROM tbCajaConceptos CC'
+      '           LEFT JOIN tugConceptos C ON  CC.refConcepto = C.idConcepto'
+      '           LEFT JOIN tbProveedores P ON CC.refEmpresa = P.idProveedor'
+      '      '
+      'WHERE (CC.fFecha >= :fechaIni) and (CC.fFecha <= :fechaFin) and (CC.bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'fechaIni'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaFin'
+        ParamType = ptUnknown
+      end>
+    left = 49
+    top = 360
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'fechaIni'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaFin'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbCaja: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idCajaConcepto'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'fFecha'
+        DataType = ftDateTime
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'nMonto'
+        DataType = ftFloat
+        Precision = 2
+        Size = 0
+      end    
+      item
+        Name = 'Tipo'
+        DataType = ftString
+        Precision = -1
+        Size = 1
+      end    
+      item
+        Name = 'lxTipo'
+        DataType = ftString
+        Precision = -1
+        Size = 20
+      end    
+      item
+        Name = 'refListaEmpresa'
+        DataType = ftString
+        Precision = -1
+        Size = 1
+      end    
+      item
+        Name = 'lxEmpresa'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'refEmpresa'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'Concepto'
+        DataType = ftString
+        Precision = -1
+        Size = 1000
+      end    
+      item
+        Name = 'txDetalle'
+        DataType = ftString
+        Precision = -1
+        Size = 3000
+      end    
+      item
+        Name = 'Proveedor'
+        DataType = ftString
+        Precision = -1
+        Size = 3000
+      end>
+    left = 49
+    top = 16
+    object tbCajaidCajaConcepto: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idCajaConcepto'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbCajafFecha: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fFecha'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbCajanMonto: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nMonto'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbCajaTipo: TStringField
+      DisplayWidth = 1
+      FieldKind = fkData
+      FieldName = 'Tipo'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1
+    end
+    object tbCajalxTipo: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'lxTipo'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbCajarefListaEmpresa: TStringField
+      DisplayWidth = 1
+      FieldKind = fkData
+      FieldName = 'refListaEmpresa'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1
+    end
+    object tbCajalxEmpresa: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'lxEmpresa'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbCajarefEmpresa: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refEmpresa'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbCajaConcepto: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'Concepto'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object tbCajatxDetalle: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'txDetalle'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbCajaProveedor: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'Proveedor'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+  end
+  object qLevantarSaldo: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT CC.nMonto, C.Tipo           '
+      'FROM tbCajaConceptos CC'
+      '           LEFT JOIN tugConceptos C ON  CC.refConcepto = C.idConcepto'
+      'WHERE (CC.fFecha <= :fechaIni) and (CC.bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'fechaIni'
+        ParamType = ptUnknown
+      end>
+    left = 49
+    top = 304
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'fechaIni'
+        ParamType = ptUnknown
+      end>
+  end
+  object qTugConceptos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugConceptos'
+      'WHERE bVisible = 1'
+      'ORDER BY Concepto'
+    )
+    Params = <>
+    left = 384
+    top = 96
+  end
+  object qTugformasPago: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugFormasPago'
+      'WHERE bVisible = 1'
+      'ORDER BY FormaPago'
+    )
+    Params = <>
+    left = 384
+    top = 160
+  end
+  object tugConceptos: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    SortedFields = 'CONCEPTO'
+    Filter = 'bvisible = 1'
+    Filtered = True
+    AfterInsert = tugConceptosAfterInsert
+    TableName = 'tugConceptos'
+    IndexFieldNames = 'CONCEPTO Asc'
+    left = 384
+    top = 232
+    object tugConceptosIDCONCEPTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDCONCEPTO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tugConceptosCONCEPTO: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'CONCEPTO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object tugConceptosTIPO: TStringField
+      DisplayWidth = 1
+      FieldKind = fkData
+      FieldName = 'TIPO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1
+    end
+    object tugConceptosMONTODEFECTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTODEFECTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tugConceptosBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qtugConceptoPorID: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugConceptos'
+      'WHERE idConcepto = :idConcepto'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idConcepto'
+        ParamType = ptUnknown
+      end>
+    left = 384
+    top = 296
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idConcepto'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbCajaConceptoDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbCajaConceptos'
+      'SET  bVisible = 0'
+      'WHERE  idCajaConcepto = :idCajaConcepto'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCajaConcepto'
+        ParamType = ptUnknown
+      end>
+    left = 144
+    top = 288
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCajaConcepto'
+        ParamType = ptUnknown
+      end>
+  end
+  object qLevantarCajaFiltrado: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT CC.idCajaConcepto, CC.fFecha, CC.nMonto, CC.refEmpresa, CC.refListaEmpresa, CC.txDetalle'
+      '            ,C.Concepto, C.Tipo'
+      '            ,P.cRazonSocial as Proveedor'
+      ''
+      'FROM tbCajaConceptos CC'
+      '           LEFT JOIN tugConceptos C ON  CC.refConcepto = C.idConcepto'
+      '           LEFT JOIN tbProveedores P ON CC.refEmpresa = P.idProveedor'
+      '      '
+      'WHERE (CC.fFecha >= :fechaIni) and (CC.fFecha <= :fechaFin) and (CC.bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'fechaIni'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaFin'
+        ParamType = ptUnknown
+      end>
+    left = 49
+    top = 424
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'fechaIni'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaFin'
+        ParamType = ptUnknown
+      end>
+  end
+end

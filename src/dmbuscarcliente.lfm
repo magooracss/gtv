@@ -1,0 +1,118 @@
+object DM_BuscarCliente: TDM_BuscarCliente
+  OldCreateOrder = False
+  Height = 249
+  HorizontalOffset = 381
+  VerticalOffset = 131
+  Width = 421
+  object qBusCliPorNombre: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT idCliente'
+      '            ,cCodigo'
+      '            ,cNombre'
+      '            ,cDomicilio'
+      'FROM tbClientes'
+      'WHERE     (bVisible = 1)'
+      '          and (UPPER(cNombre) LIKE ''%'' ||UPPER(:parametro) ||''%'')'
+      'ORDER BY cCodigo, cNombre'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 136
+    top = 16
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbResultados: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idCliente'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'cCodigo'
+        DataType = ftString
+        Precision = 0
+        Size = 10
+      end    
+      item
+        Name = 'cNombre'
+        DataType = ftString
+        Precision = 0
+        Size = 300
+      end    
+      item
+        Name = 'cDomicilio'
+        DataType = ftString
+        Precision = 0
+        Size = 1000
+      end>
+    left = 32
+    top = 16
+  end
+  object qBusCliPorCodigo: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT idCliente'
+      '            ,cCodigo'
+      '            ,cNombre'
+      '            ,cDomicilio'
+      'FROM tbClientes'
+      'WHERE     (bVisible = 1)'
+      '          and (UPPER(cCodigo) LIKE ''%'' ||UPPER(:parametro) ||''%'')'
+      'ORDER BY cCodigo, cNombre'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 137
+    top = 72
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusCliPorDomicilio: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT idCliente'
+      '            ,cCodigo'
+      '            ,cNombre'
+      '            ,cDomicilio'
+      'FROM tbClientes'
+      'WHERE     (bVisible = 1)'
+      '          and (UPPER(cDomicilio) LIKE ''%'' ||UPPER(:parametro) ||''%'')'
+      'ORDER BY cCodigo,cDomicilio'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 137
+    top = 136
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+end

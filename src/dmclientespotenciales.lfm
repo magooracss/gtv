@@ -1,0 +1,337 @@
+object DM_ClientesPotenciales: TDM_ClientesPotenciales
+  OldCreateOrder = False
+  Height = 440
+  HorizontalOffset = 506
+  VerticalOffset = 79
+  Width = 470
+  object tbClientesPotenciales: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idClientePotencial'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'cCodigo'
+        DataType = ftString
+        Precision = 0
+        Size = 20
+      end    
+      item
+        Name = 'cRazonSocial'
+        DataType = ftString
+        Precision = 0
+        Size = 1500
+      end    
+      item
+        Name = 'cDomicilio'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'cTelefono'
+        DataType = ftString
+        Precision = 0
+        Size = 200
+      end    
+      item
+        Name = 'cMail'
+        DataType = ftString
+        Precision = 0
+        Size = 200
+      end    
+      item
+        Name = 'txNotas'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'fAlta'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = tbClientesPotencialesAfterInsert
+    left = 56
+    top = 24
+  end
+  object tbClientesPotencialesSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbClientesPotenciales'
+      'WHERE idClientePotencial = :idClientePotencial'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idClientePotencial'
+        ParamType = ptUnknown
+      end>
+    left = 56
+    top = 88
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idClientePotencial'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbClientesPotencialesINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO  tbClientesPotenciales'
+      '(IDCLIENTEPOTENCIAL, CCODIGO, CRAZONSOCIAL, CTELEFONO, CDOMICILIO, CMAIL, TXNOTAS, FALTA, BVISIBLE)'
+      'VALUES'
+      '(:IDCLIENTEPOTENCIAL, :CCODIGO, :CRAZONSOCIAL, :CTELEFONO, :CDOMICILIO, :CMAIL, :TXNOTAS, :FALTA, :BVISIBLE)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCLIENTEPOTENCIAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CCODIGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CRAZONSOCIAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CTELEFONO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CDOMICILIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CMAIL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXNOTAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FALTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+    left = 56
+    top = 152
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCLIENTEPOTENCIAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CCODIGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CRAZONSOCIAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CTELEFONO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CDOMICILIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CMAIL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXNOTAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FALTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbClientesPotencialesUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbClientesPotenciales'
+      'SET '
+      '   CCODIGO = :cCodigo'
+      ', CRAZONSOCIAL = :cRazonSocial'
+      ', CTELEFONO = :cTelefono'
+      ', CDOMICILIO = :cDomicilio'
+      ', CMAIL = :cMail'
+      ', TXNOTAS = :txNotas'
+      ', FALTA = :fAlta'
+      ', BVISIBLE = :bVisible'
+      'WHERE IDCLIENTEPOTENCIAL = :IDCLIENTEPOTENCIAL'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'CCODIGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cRazonSocial'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cTelefono'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CDOMICILIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cMail'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txNotas'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fAlta'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDCLIENTEPOTENCIAL'
+        ParamType = ptUnknown
+      end>
+    left = 56
+    top = 216
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'CCODIGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cRazonSocial'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cTelefono'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CDOMICILIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cMail'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txNotas'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fAlta'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDCLIENTEPOTENCIAL'
+        ParamType = ptUnknown
+      end>
+  end
+  object qListaClientesPotenciales: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT tbClientesPotenciales.*'
+      'FROM tbClientesPotenciales'
+      'WHERE bVisible = 1'
+      'ORDER BY cRazonSocial'
+    )
+    Params = <>
+    left = 56
+    top = 352
+  end
+  object tbClientesPotencialesDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbClientesPotenciales'
+      'SET  BVISIBLE = 0'
+      'WHERE IDCLIENTEPOTENCIAL = :IDCLIENTEPOTENCIAL'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCLIENTEPOTENCIAL'
+        ParamType = ptUnknown
+      end>
+    left = 56
+    top = 288
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCLIENTEPOTENCIAL'
+        ParamType = ptUnknown
+      end>
+  end
+end

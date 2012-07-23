@@ -1,0 +1,12 @@
+object DM_EdicionTUGs: TDM_EdicionTUGs
+  OldCreateOrder = False
+  Height = 346
+  HorizontalOffset = 381
+  VerticalOffset = 131
+  Width = 510
+  object tbTabla: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    left = 40
+    top = 40
+  end
+end

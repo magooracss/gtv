@@ -1,0 +1,313 @@
+object frmListadoCheques: TfrmListadoCheques
+  Left = 36
+  Height = 421
+  Top = 111
+  Width = 1215
+  Caption = 'Listado de cheques'
+  ClientHeight = 421
+  ClientWidth = 1215
+  Font.CharSet = ANSI_CHARSET
+  Font.Color = clBlack
+  Font.Height = -13
+  Font.Name = 'Arial'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '0.9.30'
+  object Panel1: TPanel
+    Left = 0
+    Height = 68
+    Top = 0
+    Width = 1215
+    Align = alTop
+    ClientHeight = 68
+    ClientWidth = 1215
+    TabOrder = 0
+    object GroupBox1: TGroupBox
+      Left = 1
+      Height = 66
+      Top = 1
+      Width = 974
+      Align = alLeft
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = 'Buscar'
+      ClientHeight = 48
+      ClientWidth = 970
+      TabOrder = 0
+      object edBuscar: TEdit
+        Left = 10
+        Height = 24
+        Top = 11
+        Width = 583
+        Anchors = [akTop, akLeft, akRight]
+        TabOrder = 0
+        Text = 'edBuscar'
+      end
+      object cbCriterioBusqueda: TComboBox
+        Left = 696
+        Height = 24
+        Top = 11
+        Width = 265
+        Anchors = [akTop, akRight]
+        ItemHeight = 16
+        TabOrder = 1
+        Text = 'cbCriterioBusqueda'
+      end
+      object btnBuscar: TBitBtn
+        Left = 608
+        Height = 30
+        Top = 8
+        Width = 75
+        Action = panBuscar
+        Anchors = [akTop, akRight]
+        Glyph.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000FF00FF004A63
+          7BFFBD9494FFFF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF006B9CC6FF188C
+          E7FF4A7BA5FFC69494FFFF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF004AB5FFFF52B5
+          FFFF218CEFFF4A7BA5FFC69494FFFF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF0052B5
+          FFFF52B5FFFF1884E7FF4A7BA5FFC69494FFFF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF0052B5FFFF4AB5FFFF188CE7FF4A7BA5FFBD9494FFFF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF0052B5FFFF4AB5FFFF2184DEFF5A6B73FFFF00FF00AD7B73FFC6A5
+          9CFFD6B5A5FFCEA59CFFFF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF0052BDFFFFB5D6EFFFA5948CFFB59C8CFFF7E7CEFFFFFF
+          D6FFFFFFD6FFFFFFD6FFE7DEBDFFCEADA5FFFF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00CEB5B5FFD6B5A5FFFFEFC6FFFFFFD6FFFFFF
+          D6FFFFFFD6FFFFFFDEFFFFFFEFFFF7F7EFFFB58C8CFFFF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00C6948CFFF7DEB5FFF7D6A5FFFFF7CEFFFFFF
+          D6FFFFFFDEFFFFFFEFFFFFFFF7FFFFFFFFFFDED6BDFFFF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00DEBDA5FFFFE7ADFFF7CE94FFFFF7CEFFFFFF
+          DEFFFFFFE7FFFFFFF7FFFFFFF7FFFFFFEFFFF7EFD6FFC69C94FFFF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00E7C6ADFFFFDEADFFEFBD84FFF7E7B5FFFFFF
+          D6FFFFFFDEFFFFFFE7FFFFFFE7FFFFFFDEFFF7F7D6FFC6AD9CFFFF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00DEBDADFFFFE7B5FFEFBD84FFF7CE94FFFFEF
+          C6FFFFFFDEFFFFFFDEFFFFFFDEFFFFFFDEFFF7EFD6FFC6A59CFFFF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00C69C94FFFFEFC6FFFFEFC6FFF7D6A5FFF7CE
+          9CFFF7E7B5FFFFF7CEFFFFF7D6FFFFFFD6FFE7DEBDFFFF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00DEC6ADFFFFFFFFFFFFF7EFFFF7CE
+          94FFEFBD84FFF7CE9CFFFFE7B5FFFFF7C6FFBD9C8CFFFF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00D6BDBDFFF7EFD6FFFFEF
+          C6FFFFE7ADFFFFE7B5FFF7DEB5FFCEAD9CFFFF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00CEAD94FFCEAD
+          9CFFDEBDA5FFDEBDA5FFFF00FF00FF00FF00FF00FF00FF00FF00
+        }
+        TabOrder = 2
+      end
+    end
+    object GroupBox2: TGroupBox
+      Left = 978
+      Height = 66
+      Top = 1
+      Width = 236
+      Align = alRight
+      Caption = 'Ordenar'
+      ClientHeight = 48
+      ClientWidth = 232
+      TabOrder = 1
+      object cbCriterioOrden: TComboBox
+        Left = 10
+        Height = 24
+        Top = 11
+        Width = 208
+        ItemHeight = 16
+        OnChange = cbCriterioOrdenChange
+        TabOrder = 0
+        Text = 'cbCriterioOrden'
+      end
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 50
+    Top = 371
+    Width = 1215
+    Align = alBottom
+    ClientHeight = 50
+    ClientWidth = 1215
+    TabOrder = 1
+    object btnSalir: TBitBtn
+      Left = 12
+      Height = 30
+      Top = 11
+      Width = 105
+      Action = panSalir
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF001C811F231B7E1F7D1B7A1FDB1A731EF31A701EF31B71
+        1FDB1B711F7D1B6C1F23FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF001C8A21531B831FE642A052FF87CA9AFF9BD3ABFF9BD2ABFF83C7
+        96FF3D974CFF1A6E1EE61B701F53FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF001C912B531B8A20F46DBE83FFA8DBB5FF87CC98FF66BC7DFF64BA7CFF86CB
+        98FFA5D9B4FF66B77DFF1A6C1DF41B711F53FFFFFF00FFFFFF00FFFFFF001D9B
+        36221C962FE572C287FFA8DBB2FF60BC77FF5CBA73FF59B870FF59B56FFF58B5
+        6FFF5BB774FFA5D9B3FF69B87FFF1A711EE51B711F22FFFFFF00FFFFFF001EA4
+        3D7E4CB064FFAADDB4FF64C179FF5FBE71FF75C585FFD4ECD9FF8ACD99FF56B6
+        6CFF58B56EFF5CB774FFA6DAB4FF419B4EFF1B771F7EFFFFFF00FFFFFF001FA9
+        42DB91D29FFF8DD49AFF64C374FF79C987FFF2FAF4FFFFFFFFFFFDFEFDFF86CB
+        96FF57B76DFF5BB972FF85CC97FF87C79AFF1B781FDBFFFFFF00FFFFFF001FAD
+        42F6A6DCAFFF70CA7FFF73CA80FFF0F9F1FFFFFFFFFFEBF7EDFFFFFFFFFFFBFD
+        FCFF88CD96FF5BB971FF67BE7DFFA0D7AFFF1B7A1EF6FFFFFF00FFFFFF0026B4
+        4BF6A7DDB1FF72CC80FF66C773FFB0E1B7FFD2EED6FF63C170FFB8E3BFFFFFFF
+        FFFFFBFDFCFF8CD099FF69C17EFFA1D7AEFF1B7F1EF6FFFFFF00FFFFFF002DBB
+        54DB95D7A1FF91D79BFF69C976FF64C66FFF61C46EFF61C36FFF61C26FFFB9E4
+        C0FFFFFFFFFFE3F4E6FF8BD199FF8BCE9DFF1C8820DBFFFFFF00FFFFFF0034BE
+        597E57BF70FFAFE1B7FF6DCC7AFF68C872FF65C770FF63C56EFF62C46EFF63C4
+        71FFB6E3BEFF6FC77EFFACDFB5FF48A95EFF1C8F267EFFFFFF00FFFFFF0039C2
+        5C2234BE55E57FCE90FFAEE1B5FF6DCC7AFF6ACA76FF68C872FF68C874FF68C8
+        75FF6BC979FFACDFB4FF76C489FF1C962DE51C942D22FFFFFF00FFFFFF00FFFF
+        FF003BC55E5334C055F47FCE90FFAFE1B7FF92D89DFF77CE83FF77CE83FF92D8
+        9DFFAEE1B5FF78C88BFF1D9D32F41D9D3653FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF003DC7605336C259E659C274FF96D7A3FFA5DCAEFFA5DCAEFF95D6
+        A1FF50B96AFF1FAB42E61FA94253FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF0040C962233BC55E7D39C25BDB31BD54F32DBB52F32BB9
+        52DB2BB7527D28B44E23FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+      TabOrder = 0
+    end
+    object btnChequeNuevo: TBitBtn
+      Left = 770
+      Height = 30
+      Top = 10
+      Width = 121
+      Caption = 'Nuevo'
+      OnClick = btnChequeNuevoClick
+      TabOrder = 1
+    end
+    object btnModificarCheque: TBitBtn
+      Left = 904
+      Height = 30
+      Top = 10
+      Width = 121
+      Caption = 'Modificar'
+      OnClick = btnModificarChequeClick
+      TabOrder = 2
+    end
+    object btnBorrarCheque: TBitBtn
+      Left = 1038
+      Height = 30
+      Top = 10
+      Width = 121
+      Caption = 'Eliminar'
+      OnClick = btnBorrarChequeClick
+      TabOrder = 3
+    end
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 303
+    Top = 68
+    Width = 1215
+    Align = alClient
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <    
+      item
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Nro. Cheque'
+        Width = 102
+        FieldName = 'NroCheque'
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Banco'
+        Width = 150
+        FieldName = 'Banco'
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Cobro'
+        Width = 90
+        FieldName = 'fCobro'
+        DisplayFormat = 'dd/mm/yyyy'
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Monto'
+        Width = 90
+        FieldName = 'nMonto'
+        DisplayFormat = '$ #########0.00'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Recibido de'
+        Width = 291
+        FieldName = 'RecibidoDe'
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Recibido'
+        Width = 90
+        FieldName = 'fRecibido'
+        DisplayFormat = 'dd/mm/yyyy'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Entregado a'
+        Width = 291
+        FieldName = 'EntregadoA'
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Entregado'
+        Width = 90
+        FieldName = 'fEntrega'
+        DisplayFormat = 'dd/mm/yyyy'
+      end>
+    DataSource = DS_Resultados
+    FixedCols = 0
+    Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    TabOrder = 2
+    TitleFont.CharSet = ANSI_CHARSET
+    TitleFont.Color = clBlack
+    TitleFont.Height = -13
+    TitleFont.Name = 'Arial'
+    TitleFont.Pitch = fpVariable
+    TitleFont.Quality = fqDraft
+  end
+  object ActionList1: TActionList
+    Images = DM_General.ImgAcciones
+    left = 797
+    top = 186
+    object panSalir: TAction
+      Category = 'pantalla'
+      Caption = 'Aceptar'
+      ImageIndex = 3
+      OnExecute = panSalirExecute
+    end
+    object panBuscar: TAction
+      Category = 'pantalla'
+      Caption = 'Buscar'
+      Hint = 'Buscar según el criterio seleccionado'
+      ImageIndex = 23
+      OnExecute = panBuscarExecute
+    end
+  end
+  object DS_Resultados: TDatasource
+    DataSet = DM_Cheques.tbResultados
+    left = 810
+    top = 250
+  end
+end

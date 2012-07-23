@@ -1,0 +1,2963 @@
+object DM_Clientes: TDM_Clientes
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 573
+  HorizontalOffset = 47
+  VerticalOffset = 31
+  Width = 1177
+  object tbClientes: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idCliente'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'cCodigo'
+        DataType = ftString
+        Precision = 0
+        Size = 10
+      end    
+      item
+        Name = 'cNombre'
+        DataType = ftString
+        Precision = 0
+        Size = 300
+      end    
+      item
+        Name = 'fInicio'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refAbono'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refRespTecnico'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refGrupoFacturacion'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refCondicionFiscal'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'cCUIT'
+        DataType = ftString
+        Precision = 0
+        Size = 30
+      end    
+      item
+        Name = 'nIVA'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'cDomicilio'
+        DataType = ftString
+        Precision = 0
+        Size = 1000
+      end    
+      item
+        Name = 'cEntreCalle1'
+        DataType = ftString
+        Precision = 0
+        Size = 1000
+      end    
+      item
+        Name = 'cEntreCalle2'
+        DataType = ftString
+        Precision = 0
+        Size = 1000
+      end    
+      item
+        Name = 'cNroCasa'
+        DataType = ftString
+        Precision = 0
+        Size = 20
+      end    
+      item
+        Name = 'cSeccion'
+        DataType = ftString
+        Precision = 0
+        Size = 20
+      end    
+      item
+        Name = 'cManzana'
+        DataType = ftString
+        Precision = 0
+        Size = 20
+      end    
+      item
+        Name = 'cParcela'
+        DataType = ftString
+        Precision = 0
+        Size = 20
+      end    
+      item
+        Name = 'refLocalidad'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refDestino'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'UnidadFuncional'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refAdministrador'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refConservador'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nMontoAbono'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'HabilitacionFecha'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'HabilitacionExp'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end>
+    AfterInsert = tbClientesAfterInsert
+    left = 32
+    top = 24
+  end
+  object qtugDestinosCliente: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugDestinosCliente'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 120
+    top = 504
+  end
+  object tugDestinosCliente: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idDestinoCliente'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Destino'
+        DataType = ftString
+        Precision = 0
+        Size = 300
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = tugDestinosClienteAfterInsert
+    left = 120
+    top = 448
+  end
+  object qtugLocalidades: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugLocalidades'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 240
+    top = 504
+  end
+  object tugLocalidades: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idLocalidad'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Localidad'
+        DataType = ftString
+        Precision = 0
+        Size = 300
+      end    
+      item
+        Name = 'cPostal'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = tugLocalidadesAfterInsert
+    left = 240
+    top = 448
+  end
+  object qtugAbonos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugAbonos'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 360
+    top = 504
+  end
+  object tugAbonos: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idAbono'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Abono'
+        DataType = ftString
+        Precision = 0
+        Size = 300
+      end    
+      item
+        Name = 'Monto'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = tugAbonosAfterInsert
+    left = 360
+    top = 448
+  end
+  object qListadoRespTecnico: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbResponsablesTecnicos'
+      'WHERE bVisible =1'
+      'ORDER BY cNombre'
+    )
+    Params = <>
+    left = 928
+    top = 344
+  end
+  object tbRespTecnico: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idResponsableTecnico'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'cNombre'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'cDomicilio'
+        DataType = ftString
+        Precision = 0
+        Size = 1000
+      end    
+      item
+        Name = 'cTelefono'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end    
+      item
+        Name = 'HabilitacionExp'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end    
+      item
+        Name = 'HabilitacionFecha'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'CedulaIdentidad'
+        DataType = ftString
+        Precision = 0
+        Size = 30
+      end    
+      item
+        Name = 'refPolicia'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'DNI'
+        DataType = ftString
+        Precision = 0
+        Size = 30
+      end    
+      item
+        Name = 'Matricula'
+        DataType = ftString
+        Precision = 0
+        Size = 30
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = tbRespTecnicoAfterInsert
+    left = 928
+    top = 24
+  end
+  object qListadoConservadores: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbConservadores'
+      'WHERE bVisible =1'
+      'ORDER BY cRazonSocial'
+    )
+    Params = <>
+    left = 1040
+    top = 344
+  end
+  object tbConservadores: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idConservador'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'cRazonSocial'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'cDomicilio'
+        DataType = ftString
+        Precision = 0
+        Size = 1000
+      end    
+      item
+        Name = 'cCodPostal'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end    
+      item
+        Name = 'cTelefono'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end    
+      item
+        Name = 'NroPermiso'
+        DataType = ftString
+        Precision = 0
+        Size = 20
+      end    
+      item
+        Name = 'CUIT'
+        DataType = ftString
+        Precision = 0
+        Size = 20
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = tbConservadoresAfterInsert
+    left = 1040
+    top = 24
+  end
+  object qtugGruposFacturacion: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugGruposFacturacion'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 624
+    top = 504
+  end
+  object tugGruposFacturacion: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idGrupoFacturacion'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'GrupoFacturacion'
+        DataType = ftString
+        Precision = 0
+        Size = 300
+      end    
+      item
+        Name = 'DiaFacturacion'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = tugGruposFacturacionAfterInsert
+    left = 624
+    top = 448
+  end
+  object qtugCondicionesFiscales: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugCondicionesFiscales'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 720
+    top = 504
+  end
+  object tugCondicionesFiscales: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idCondicionFiscal'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'CondicionFiscal'
+        DataType = ftString
+        Precision = 0
+        Size = 300
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = tugCondicionesFiscalesAfterInsert
+    left = 720
+    top = 448
+  end
+  object tbClientesSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbClientes'
+      'WHERE idCliente = :idCliente'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCliente'
+        ParamType = ptUnknown
+      end>
+    left = 32
+    top = 88
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCliente'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbClientesINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO  tbClientes'
+      '(IDCLIENTE'
+      ',CCODIGO'
+      ',CNOMBRE'
+      ',FINICIO'
+      ',REFABONO'
+      ',REFRESPTECNICO'
+      ',REFGRUPOFACTURACION'
+      ',REFCONDICIONFISCAL'
+      ',CCUIT'
+      ',NIVA'
+      ',CDOMICILIO'
+      ',CENTRECALLE1'
+      ',CENTRECALLE2'
+      ',CNROCASA'
+      ',CSECCION'
+      ',CMANZANA'
+      ',CPARCELA'
+      ',REFLOCALIDAD'
+      ',REFDESTINO'
+      ',UNIDADFUNCIONAL'
+      ',REFADMINISTRADOR'
+      ',REFCONSERVADOR'
+      ',BVISIBLE'
+      ',NMONTOABONO'
+      ',HABILITACIONEXP'
+      ',HABILITACIONFECHA)'
+      'VALUES'
+      '(:IDCLIENTE'
+      ',:CCODIGO'
+      ',:CNOMBRE'
+      ',:FINICIO'
+      ',:REFABONO'
+      ',:REFRESPTECNICO'
+      ',:REFGRUPOFACTURACION'
+      ',:REFCONDICIONFISCAL'
+      ',:CCUIT'
+      ',:NIVA'
+      ',:CDOMICILIO'
+      ',:CENTRECALLE1'
+      ',:CENTRECALLE2'
+      ',:CNROCASA'
+      ',:CSECCION'
+      ',:CMANZANA'
+      ',:CPARCELA'
+      ',:REFLOCALIDAD'
+      ',:REFDESTINO'
+      ',:UNIDADFUNCIONAL'
+      ',:REFADMINISTRADOR'
+      ',:REFCONSERVADOR'
+      ',:BVISIBLE'
+      ',:NMONTOABONO'
+      ',:HABILITACIONEXP'
+      ',:HABILITACIONFECHA)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCliente'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CCODIGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CNOMBRE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FINICIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFABONO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFRESPTECNICO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFGRUPOFACTURACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONDICIONFISCAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CCUIT'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NIVA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CDOMICILIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CENTRECALLE1'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CENTRECALLE2'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CNROCASA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CSECCION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CMANZANA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CPARCELA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFLOCALIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFDESTINO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'UNIDADFUNCIONAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFADMINISTRADOR'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONSERVADOR'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTOABONO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'HABILITACIONEXP'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'HABILITACIONFECHA'
+        ParamType = ptUnknown
+      end>
+    left = 32
+    top = 152
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCliente'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CCODIGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CNOMBRE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FINICIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFABONO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFRESPTECNICO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFGRUPOFACTURACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONDICIONFISCAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CCUIT'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NIVA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CDOMICILIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CENTRECALLE1'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CENTRECALLE2'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CNROCASA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CSECCION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CMANZANA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CPARCELA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFLOCALIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFDESTINO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'UNIDADFUNCIONAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFADMINISTRADOR'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONSERVADOR'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTOABONO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'HABILITACIONEXP'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'HABILITACIONFECHA'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbClientesUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbClientes'
+      'SET '
+      ' CCODIGO = :CCODIGO'
+      ',CNOMBRE = :CNOMBRE'
+      ',FINICIO = :FINICIO'
+      ',REFABONO = :REFABONO'
+      ',REFRESPTECNICO = :REFRESPTECNICO'
+      ',REFGRUPOFACTURACION = :REFGRUPOFACTURACION'
+      ',REFCONDICIONFISCAL = :REFCONDICIONFISCAL'
+      ',CCUIT = :CCUIT'
+      ',NIVA = :NIVA'
+      ',CDOMICILIO = :CDOMICILIO'
+      ',CENTRECALLE1 = :CENTRECALLE1'
+      ',CENTRECALLE2 = :CENTRECALLE2'
+      ',CNROCASA = :CNROCASA'
+      ',CSECCION = :CSECCION'
+      ',CMANZANA = :CMANZANA'
+      ',CPARCELA = :CPARCELA'
+      ',REFLOCALIDAD = :REFLOCALIDAD'
+      ',REFDESTINO = :REFDESTINO'
+      ',UNIDADFUNCIONAL = :UNIDADFUNCIONAL'
+      ',REFADMINISTRADOR = :REFADMINISTRADOR'
+      ',REFCONSERVADOR = :REFCONSERVADOR'
+      ',BVISIBLE  = :BVISIBLE'
+      ',NMONTOABONO = :NMONTOABONO'
+      ',HABILITACIONEXP = :HabilitacionExp'
+      ',HABILITACIONFECHA = :HabilitacionFecha'
+      'WHERE idCliente = :idCliente'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'CCODIGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CNOMBRE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FINICIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFABONO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFRESPTECNICO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFGRUPOFACTURACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONDICIONFISCAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CCUIT'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NIVA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CDOMICILIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CENTRECALLE1'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CENTRECALLE2'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CNROCASA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CSECCION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CMANZANA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CPARCELA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFLOCALIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFDESTINO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'UNIDADFUNCIONAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFADMINISTRADOR'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONSERVADOR'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTOABONO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'HabilitacionExp'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'HabilitacionFecha'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idCliente'
+        ParamType = ptUnknown
+      end>
+    left = 32
+    top = 216
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'CCODIGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CNOMBRE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FINICIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFABONO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFRESPTECNICO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFGRUPOFACTURACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONDICIONFISCAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CCUIT'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NIVA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CDOMICILIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CENTRECALLE1'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CENTRECALLE2'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CNROCASA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CSECCION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CMANZANA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CPARCELA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFLOCALIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFDESTINO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'UNIDADFUNCIONAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFADMINISTRADOR'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONSERVADOR'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTOABONO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'HabilitacionExp'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'HabilitacionFecha'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idCliente'
+        ParamType = ptUnknown
+      end>
+  end
+  object qListaClientes: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT tbClientes.*'
+      '            ,( ''('' || cCodigo || '') '' || cNombre )  as Cliente'
+      'FROM tbClientes'
+      'WHERE bVisible = 1'
+      'ORDER BY cNombre'
+    )
+    Params = <>
+    left = 32
+    top = 296
+  end
+  object tbClientesDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbClientes'
+      'SET BVISIBLE  = 0'
+      'WHERE idCliente = :idCliente'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCliente'
+        ParamType = ptUnknown
+      end>
+    left = 32
+    top = 360
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCliente'
+        ParamType = ptUnknown
+      end>
+  end
+  object qtugTiposDocumento: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugTiposDocumento'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 856
+    top = 504
+  end
+  object qtugTiposContactoCliente: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugTiposContactoCliente'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 968
+    top = 504
+  end
+  object tbAdministradores: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idAdministrador'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'cRazonSocial'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'CUIT'
+        DataType = ftString
+        Precision = 0
+        Size = 20
+      end    
+      item
+        Name = 'refTipoDocumento'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'cDocumento'
+        DataType = ftString
+        Precision = 0
+        Size = 30
+      end    
+      item
+        Name = 'txNotas'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = tbAdministradoresAfterInsert
+    left = 144
+    top = 24
+  end
+  object tbAdministradoresSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbAdministradores'
+      'WHERE idAdministrador = :idAdministrador'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idAdministrador'
+        ParamType = ptUnknown
+      end>
+    left = 144
+    top = 88
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idAdministrador'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbAdministradoresINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO tbAdministradores'
+      '( idAdministrador'
+      ', cRazonSocial'
+      ', CUIT'
+      ', refTipoDocumento'
+      ', cDocumento'
+      ', txNotas'
+      ', bVisible)'
+      'VALUES'
+      '( :idAdministrador'
+      ', :cRazonSocial'
+      ', :CUIT'
+      ', :refTipoDocumento'
+      ', :cDocumento'
+      ', :txNotas'
+      ', :bVisible)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idAdministrador'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cRazonSocial'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUIT'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTipoDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txNotas'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+    left = 144
+    top = 152
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idAdministrador'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cRazonSocial'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUIT'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTipoDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txNotas'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbAdministradoresUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbAdministradores'
+      'SET '
+      ' cRazonSocial = :cRazonSocial'
+      ', CUIT = :CUIT'
+      ', refTipoDocumento = :refTipoDocumento'
+      ', cDocumento = :cDocumento'
+      ', txNotas = :txNotas'
+      ', bVisible = :bVisible '
+      'WHERE idAdministrador = :idAdministrador'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'cRazonSocial'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUIT'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTipoDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txNotas'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idAdministrador'
+        ParamType = ptUnknown
+      end>
+    left = 144
+    top = 216
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'cRazonSocial'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUIT'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTipoDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txNotas'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idAdministrador'
+        ParamType = ptUnknown
+      end>
+  end
+  object qtugTiposContacto: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugTiposContacto'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 800
+    top = 168
+  end
+  object tbAdmContactos: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idContacto'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refRelacion'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'Contacto'
+        DataType = ftString
+        Precision = 0
+        Size = 300
+      end    
+      item
+        Name = 'refTipoContacto'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'lxTipoContacto'
+        DataType = ftString
+        Precision = 0
+        Size = 200
+      end>
+    AfterInsert = tbAdmContactosAfterInsert
+    left = 264
+    top = 24
+  end
+  object tbContactosSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbContactos'
+      'WHERE idContacto = :idContacto'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContacto'
+        ParamType = ptUnknown
+      end>
+    left = 304
+    top = 88
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContacto'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContactosINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO tbContactos'
+      '( idContacto'
+      ', refRelacion'
+      ', Contacto'
+      ', refTipoContacto'
+      ', bVisible)'
+      'VALUES'
+      '( :idContacto'
+      ', :refRelacion'
+      ', :Contacto'
+      ', :refTipoContacto'
+      ', :bVisible)'
+      ''
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRelacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Contacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTipoContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+    left = 304
+    top = 152
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRelacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Contacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTipoContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContactosUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbContactos'
+      'SET '
+      ' refRelacion = :refRelacion'
+      ',Contacto = :Contacto'
+      ',refTipoContacto = :refTipoContacto'
+      ',bVisible = :bVisible'
+      'WHERE idContacto = :idContacto'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRelacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Contacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTipoContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idContacto'
+        ParamType = ptUnknown
+      end>
+    left = 304
+    top = 216
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRelacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Contacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTipoContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idContacto'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContactosPorRel: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbContactos'
+      'WHERE (refRelacion = :refRelacion) '
+      '         and (bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRelacion'
+        ParamType = ptUnknown
+      end>
+    left = 304
+    top = 280
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRelacion'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContactosDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE  tbContactos'
+      'SET bVisible = 0'
+      'WHERE idContacto = :idContacto'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContacto'
+        ParamType = ptUnknown
+      end>
+    left = 304
+    top = 352
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContacto'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbAdmDomicilios: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idDomicilio'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refRelacion'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'Domicilio'
+        DataType = ftString
+        Precision = 0
+        Size = 300
+      end    
+      item
+        Name = 'refLocalidad'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'lxLocalidad'
+        DataType = ftString
+        Precision = 0
+        Size = 300
+      end>
+    AfterInsert = tbAdmDomiciliosAfterInsert
+    left = 424
+    top = 24
+  end
+  object tbDomiciliosSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbDomicilios'
+      'WHERE idDomicilio = :idDomicilio'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idDomicilio'
+        ParamType = ptUnknown
+      end>
+    left = 424
+    top = 88
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idDomicilio'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbDomiciliosINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO tbDomicilios'
+      '( idDomicilio'
+      ', refRelacion'
+      ', Domicilio'
+      ', refLocalidad'
+      ', bVisible)'
+      'VALUES'
+      '( :idDomicilio'
+      ', :refRelacion'
+      ', :Domicilio'
+      ', :refLocalidad'
+      ', :bVisible)'
+      ''
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idDomicilio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRelacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Domicilio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refLocalidad'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+    left = 424
+    top = 152
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idDomicilio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRelacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Domicilio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refLocalidad'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbDomiciliosUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbDomicilios'
+      'SET '
+      ' refRelacion = :refRelacion'
+      ',Domicilio = :Domicilio'
+      ',refLocalidad = :refLocalidad'
+      ',bVisible = :bVisible'
+      'WHERE idDomicilio = :idDomicilio'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRelacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Domicilio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refLocalidad'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idDomicilio'
+        ParamType = ptUnknown
+      end>
+    left = 424
+    top = 216
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRelacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Domicilio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refLocalidad'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idDomicilio'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbDomiciliosPorRel: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbDomicilios'
+      'WHERE (refRelacion = :refRelacion) '
+      '         and (bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRelacion'
+        ParamType = ptUnknown
+      end>
+    left = 424
+    top = 280
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRelacion'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbDomiciliosDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE  tbDomicilios'
+      'SET bVisible = 0'
+      'WHERE idDomicilio = :idDomicilio'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idDomicilio'
+        ParamType = ptUnknown
+      end>
+    left = 424
+    top = 352
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idDomicilio'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContactosCliente: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idContactoCliente'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refCliente'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'Denominacion'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'refTipoContacto'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refTipoDocumento'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'cDocumento'
+        DataType = ftString
+        Precision = 0
+        Size = 30
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'cCargo'
+        DataType = ftString
+        Precision = 0
+        Size = 200
+      end>
+    AfterInsert = tbContactosClienteAfterInsert
+    left = 568
+    top = 24
+  end
+  object tbContClienteSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbContactosCliente'
+      'WHERE idContactoCliente = :idContactoCliente'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContactoCliente'
+        ParamType = ptUnknown
+      end>
+    left = 568
+    top = 88
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContactoCliente'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContClienteINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO tbContactosCliente'
+      '( idContactoCliente'
+      ', refCliente'
+      ', Denominacion'
+      ', refTipoContacto'
+      ', refTipoDocumento'
+      ', cDocumento'
+      ', cCargo'
+      ', bVisible)'
+      'VALUES'
+      '( :idContactoCliente'
+      ', :refCliente'
+      ', :Denominacion'
+      ', :refTipoContacto'
+      ', :refTipoDocumento'
+      ', :cDocumento'
+      ', :cCargo'
+      ', :bVisible)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContactoCliente'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refCliente'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Denominacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTipoContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTipoDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cCargo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+    left = 568
+    top = 152
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContactoCliente'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refCliente'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Denominacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTipoContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTipoDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cCargo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContClienteUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbContactosCliente'
+      'SET '
+      ' refCliente = :refCliente'
+      ', Denominacion = :Denominacion'
+      ', refTipoContacto = :refTipoContacto'
+      ', refTipoDocumento = :refTipoDocumento'
+      ', cDocumento = :cDocumento'
+      ', bVisible = :bVisible '
+      ', cCargo = :cCargo'
+      'WHERE idContactoCliente = :idContactoCliente'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refCliente'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Denominacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTipoContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTipoDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cCargo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idContactoCliente'
+        ParamType = ptUnknown
+      end>
+    left = 568
+    top = 216
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refCliente'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Denominacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTipoContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTipoDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cCargo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idContactoCliente'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContClienteRel: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbContactosCliente'
+      'WHERE  refCliente = :refCliente'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refCliente'
+        ParamType = ptUnknown
+      end>
+    left = 568
+    top = 280
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refCliente'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContCliContacto: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idContacto'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refRelacion'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'Contacto'
+        DataType = ftString
+        Precision = 0
+        Size = 300
+      end    
+      item
+        Name = 'refTipoContacto'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'lxTipoContacto'
+        DataType = ftString
+        Precision = 0
+        Size = 200
+      end>
+    AfterInsert = tbContCliContactoAfterInsert
+    left = 680
+    top = 24
+  end
+  object tbConservadoresSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbConservadores'
+      'WHERE idConservador = :idConservador'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idConservador'
+        ParamType = ptUnknown
+      end>
+    left = 1040
+    top = 88
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idConservador'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbConservadoresINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO tbConservadores'
+      '( idConservador'
+      ', cRazonSocial'
+      ', cDomicilio'
+      ', cCodPostal'
+      ', cTelefono'
+      ', nroPermiso'
+      ', Cuit'
+      ', bVisible'
+      ')'
+      'VALUES'
+      '( :idConservador'
+      ', :cRazonSocial'
+      ', :cDomicilio'
+      ', :cCodPostal'
+      ', :cTelefono'
+      ', :nroPermiso'
+      ', :Cuit'
+      ', :bVisible'
+      ')'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idConservador'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cRazonSocial'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cDomicilio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cCodPostal'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cTelefono'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nroPermiso'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Cuit'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+    left = 1040
+    top = 152
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idConservador'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cRazonSocial'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cDomicilio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cCodPostal'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cTelefono'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nroPermiso'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Cuit'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbConservadoresUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbConservadores'
+      'SET'
+      ' cRazonSocial = :cRazonSocial'
+      ', cDomicilio = :cDomicilio'
+      ', cCodPostal = :cCodPostal'
+      ', cTelefono = :cTelefono'
+      ', nroPermiso = :nroPermiso'
+      ', Cuit = :Cuit'
+      ', bVisible = :bVisible'
+      'WHERE  idConservador = :idConservador'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'cRazonSocial'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cDomicilio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cCodPostal'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cTelefono'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nroPermiso'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Cuit'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idConservador'
+        ParamType = ptUnknown
+      end>
+    left = 1040
+    top = 216
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'cRazonSocial'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cDomicilio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cCodPostal'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cTelefono'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nroPermiso'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Cuit'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idConservador'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbConservadoresDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE  tbConservadores'
+      'SET bVisible = 0'
+      'WHERE idConservador = :idConservador'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idConservador'
+        ParamType = ptUnknown
+      end>
+    left = 1040
+    top = 280
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idConservador'
+        ParamType = ptUnknown
+      end>
+  end
+  object qTugPolicias: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugPolicias'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 936
+    top = 408
+  end
+  object tbRespTecnicoSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TBRESPONSABLESTECNICOS'
+      'WHERE idResponsableTecnico = :idResponsableTecnico'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idResponsableTecnico'
+        ParamType = ptUnknown
+      end>
+    left = 928
+    top = 88
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idResponsableTecnico'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbRespTecnicosINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO tbResponsablesTecnicos'
+      '(IDRESPONSABLETECNICO'
+      ', CNOMBRE'
+      ', CDOMICILIO'
+      ', CTELEFONO'
+      ', HABILITACIONEXP'
+      ', HABILITACIONFECHA'
+      ', CEDULAIDENTIDAD'
+      ', REFPOLICIA'
+      ', DNI'
+      ', MATRICULA'
+      ', BVISIBLE)'
+      'VALUES'
+      '(:IDRESPONSABLETECNICO'
+      ', :CNOMBRE'
+      ', :CDOMICILIO'
+      ', :CTELEFONO'
+      ', :HABILITACIONEXP'
+      ', :HABILITACIONFECHA'
+      ', :CEDULAIDENTIDAD'
+      ', :REFPOLICIA'
+      ', :DNI'
+      ', :MATRICULA'
+      ', :BVISIBLE)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDRESPONSABLETECNICO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CNOMBRE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cDomicilio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cTelefono'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'HABILITACIONEXP'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'HABILITACIONFECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CEDULAIDENTIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPOLICIA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DNI'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'MATRICULA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+    left = 928
+    top = 152
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDRESPONSABLETECNICO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CNOMBRE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cDomicilio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cTelefono'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'HABILITACIONEXP'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'HABILITACIONFECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CEDULAIDENTIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPOLICIA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DNI'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'MATRICULA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbRespTecnicosUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbResponsablesTecnicos'
+      'SET'
+      '  CNOMBRE =:CNOMBRE '
+      ', CDOMICILIO =:CDOMICILIO '
+      ', CTELEFONO =:CTELEFONO '
+      ', HABILITACIONEXP =:HABILITACIONEXP '
+      ', HABILITACIONFECHA =:HABILITACIONFECHA '
+      ', CEDULAIDENTIDAD =:CEDULAIDENTIDAD '
+      ', REFPOLICIA =:REFPOLICIA '
+      ', DNI =:DNI '
+      ', MATRICULA =:MATRICULA '
+      ', BVISIBLE =:BVISIBLE '
+      'WHERE  IDRESPONSABLETECNICO = :IDRESPONSABLETECNICO'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'CNOMBRE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cDomicilio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cTelefono'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'HABILITACIONEXP'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'HABILITACIONFECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CEDULAIDENTIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPOLICIA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DNI'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'MATRICULA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDRESPONSABLETECNICO'
+        ParamType = ptUnknown
+      end>
+    left = 928
+    top = 216
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'CNOMBRE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cDomicilio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cTelefono'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'HABILITACIONEXP'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'HABILITACIONFECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CEDULAIDENTIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPOLICIA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DNI'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'MATRICULA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDRESPONSABLETECNICO'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbRespTecnicosDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE  tbResponsablesTecnicos'
+      'SET bVisible = 0'
+      'WHERE idResponsableTecnico = :idResponsableTecnico'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idResponsableTecnico'
+        ParamType = ptUnknown
+      end>
+    left = 928
+    top = 280
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idResponsableTecnico'
+        ParamType = ptUnknown
+      end>
+  end
+  object qAdministradorPorNombre: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbAdministradores'
+      'WHERE (UPPER(cRazonSocial) LIKE ''%'' || UPPER(:cRazonSocial) || ''%'')'
+      '            AND (bVisible = 1)'
+      'ORDER BY cRazonSocial'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'cRazonSocial'
+        ParamType = ptUnknown
+      end>
+    left = 144
+    top = 288
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'cRazonSocial'
+        ParamType = ptUnknown
+      end>
+  end
+  object qClienteCodigo: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbClientes'
+      'WHERE (UPPER(cCodigo) LIKE UPPER(:cCodigo)) '
+      '      and (idCliente <> :idCliente)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'cCodigo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idCliente'
+        ParamType = ptUnknown
+      end>
+    left = 32
+    top = 424
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'cCodigo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idCliente'
+        ParamType = ptUnknown
+      end>
+  end
+end

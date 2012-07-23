@@ -1,0 +1,841 @@
+object DM_OrdenesTrabajo: TDM_OrdenesTrabajo
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 521
+  HorizontalOffset = 424
+  VerticalOffset = 28
+  Width = 620
+  object tbOrdenesTrabajo: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idOrdenTrabajo'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refCliente'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'nNro'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fAlta'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'txTareas'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'bCumplida'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fCumplida'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bAnulada'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fAnulada'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'DETALLEANULADA'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'refPresupuesto'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'lxNroPresupuesto'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = tbOrdenesTrabajoAfterInsert
+    left = 56
+    top = 16
+  end
+  object trOrdenesTrabajoEquipos: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idOrdenTrabajoEquipo'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refOrdenTrabajo'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refEquipo'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'lxTipoEquipo'
+        DataType = ftString
+        Precision = 0
+        Size = 200
+      end    
+      item
+        Name = 'lxNombre'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'nNroEquipo'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = trOrdenesTrabajoEquiposAfterInsert
+    left = 184
+    top = 16
+  end
+  object tbOrdenesTrabajoSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT OT.*'
+      '           ,P.nPresupuesto as lxNroPresupuesto'
+      'FROM tbOrdenesTrabajo OT'
+      '          LEFT JOIN tbPresupuestos P ON P.idPresupuesto = OT.refPresupuesto'
+      'WHERE idOrdenTrabajo = :idOrdenTrabajo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idOrdenTrabajo'
+        ParamType = ptUnknown
+      end>
+    left = 56
+    top = 96
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idOrdenTrabajo'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbOrdenesTrabajoINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO  tbOrdenesTrabajo'
+      '(IDORDENTRABAJO'
+      ', REFCLIENTE'
+      ', NNRO'
+      ', FALTA'
+      ', REFPRESUPUESTO'
+      ', TXTAREAS'
+      ', BCUMPLIDA'
+      ', FCUMPLIDA'
+      ', BANULADA'
+      ', FANULADA'
+      ', DETALLEANULADA'
+      ', BVISIBLE)'
+      'VALUES'
+      '( :IDORDENTRABAJO'
+      ', :REFCLIENTE'
+      ', :NNRO'
+      ', :FALTA'
+      ', :REFPRESUPUESTO'
+      ', :TXTAREAS'
+      ', :BCUMPLIDA'
+      ', :FCUMPLIDA'
+      ', :BANULADA'
+      ', :FANULADA'
+      ', :DETALLEANULADA'
+      ', :BVISIBLE)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDORDENTRABAJO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCLIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NNRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FALTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPRESUPUESTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXTAREAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BCUMPLIDA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FCUMPLIDA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BANULADA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FANULADA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DETALLEANULADA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+    left = 56
+    top = 160
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDORDENTRABAJO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCLIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NNRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FALTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPRESUPUESTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXTAREAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BCUMPLIDA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FCUMPLIDA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BANULADA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FANULADA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DETALLEANULADA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbOrdenesTrabajoUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbOrdenesTrabajo'
+      'SET '
+      '  REFCLIENTE = :REFCLIENTE '
+      ', NNRO = :NNRO '
+      ', FALTA = :FALTA'
+      ', REFPRESUPUESTO = :REFPRESUPUESTO'
+      ', TXTAREAS = :TXTAREAS '
+      ', BCUMPLIDA = :BCUMPLIDA '
+      ', FCUMPLIDA = :FCUMPLIDA '
+      ', BANULADA = :BANULADA '
+      ', FANULADA = :FANULADA '
+      ', DETALLEANULADA = :DETALLEANULADA '
+      ', BVISIBLE = :BVISIBLE '
+      'WHERE IDORDENTRABAJO = :IDORDENTRABAJO'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFCLIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NNRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FALTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPRESUPUESTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXTAREAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BCUMPLIDA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FCUMPLIDA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BANULADA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FANULADA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DETALLEANULADA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDORDENTRABAJO'
+        ParamType = ptUnknown
+      end>
+    left = 56
+    top = 224
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFCLIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NNRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FALTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPRESUPUESTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXTAREAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BCUMPLIDA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FCUMPLIDA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BANULADA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FANULADA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DETALLEANULADA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDORDENTRABAJO'
+        ParamType = ptUnknown
+      end>
+  end
+  object qListaOrdenesTrabajo: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT OT.idOrdenTrabajo, OT.refCliente, OT.nNro, OT.txTareas, OT.bCumplida, OT.fCumplida, OT.bAnulada, OT.fAnulada, OT.Falta'
+      ',C.cNombre'
+      ' FROM tbOrdenesTrabajo OT '
+      '  LEFT JOIN tbClientes C ON OT.refCliente = C.idCliente'
+    )
+    Params = <>
+    left = 56
+    top = 352
+  end
+  object tbOrdenesTrabajoDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbOrdenesTrabajo'
+      'SET BVISIBLE  = 0'
+      'WHERE idOrdenTrabajo = :idOrdenTrabajo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idOrdenTrabajo'
+        ParamType = ptUnknown
+      end>
+    left = 56
+    top = 280
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idOrdenTrabajo'
+        ParamType = ptUnknown
+      end>
+  end
+  object trOrdenesTrabajoRemitos: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idOrdenTrabajoRemito'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refOrdenTrabajo'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refRemito'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'nRemito'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = trOrdenesTrabajoRemitosAfterInsert
+    left = 352
+    top = 16
+  end
+  object trOTEquiposSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TRORDENESTRABAJOEQUIPOS'
+      'WHERE idOrdenTrabajoEquipo = :idOrdenTrabajoEquipo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idOrdenTrabajoEquipo'
+        ParamType = ptUnknown
+      end>
+    left = 184
+    top = 96
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idOrdenTrabajoEquipo'
+        ParamType = ptUnknown
+      end>
+  end
+  object trOTEquiposINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO  trOrdenesTrabajoEquipos'
+      '(idOrdenTrabajoEquipo'
+      ',refEquipo'
+      ',refOrdenTrabajo)'
+      'VALUES'
+      '( :IdOrdenTrabajoEquipo'
+      ', :refEquipo'
+      ', :refOrdenTrabajo)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IdOrdenTrabajoEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refOrdenTrabajo'
+        ParamType = ptUnknown
+      end>
+    left = 184
+    top = 160
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IdOrdenTrabajoEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refOrdenTrabajo'
+        ParamType = ptUnknown
+      end>
+  end
+  object trOTEquiposUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE  trOrdenesTrabajoEquipos'
+      'SET refEquipo = :refEquipo'
+      ',refOrdenTrabajo = :refOrdenTrabajo'
+      'WHERE idOrdenTrabajoEquipo = :IdOrdenTrabajoEquipo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refOrdenTrabajo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IdOrdenTrabajoEquipo'
+        ParamType = ptUnknown
+      end>
+    left = 184
+    top = 224
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refOrdenTrabajo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IdOrdenTrabajoEquipo'
+        ParamType = ptUnknown
+      end>
+  end
+  object trOTEquiposDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM TRORDENESTRABAJOEQUIPOS'
+      'WHERE idOrdenTrabajoEquipo = :idOrdenTrabajoEquipo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idOrdenTrabajoEquipo'
+        ParamType = ptUnknown
+      end>
+    left = 184
+    top = 280
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idOrdenTrabajoEquipo'
+        ParamType = ptUnknown
+      end>
+  end
+  object qLevantarEquiposOT: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT TR.*'
+      '           , E.Nombre as lxNombre'
+      '           , TipEq.Equipo as lxTipoEquipo'
+      '           , E.nNroEquipo'
+      'FROM TRORDENESTRABAJOEQUIPOS TR'
+      '          LEFT JOIN tbEquipos E ON E.idEquipo = TR.refEquipo'
+      '          LEFT JOIN TUGTIPOSEQUIPOS TipEq ON E.refTipo = TipEq.idTipoEquipo'
+      'WHERE TR.refOrdenTrabajo = :refOrdenTrabajo'
+      'ORDER BY E.nNroEquipo, E.Nombre'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refOrdenTrabajo'
+        ParamType = ptUnknown
+      end>
+    left = 184
+    top = 352
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refOrdenTrabajo'
+        ParamType = ptUnknown
+      end>
+  end
+  object trOTRemitosSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TRORDENESTRABAJOREMITOS'
+      'WHERE idOrdenTrabajoRemito = :idOrdenTrabajoRemito'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idOrdenTrabajoRemito'
+        ParamType = ptUnknown
+      end>
+    left = 352
+    top = 96
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idOrdenTrabajoRemito'
+        ParamType = ptUnknown
+      end>
+  end
+  object trOTRemitosINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO  trOrdenesTrabajoRemitos'
+      '(idOrdenTrabajoRemito'
+      ',refRemito'
+      ',refOrdenTrabajo)'
+      'VALUES'
+      '( :IdOrdenTrabajoRemito'
+      ', :refRemito'
+      ', :refOrdenTrabajo)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IdOrdenTrabajoRemito'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refOrdenTrabajo'
+        ParamType = ptUnknown
+      end>
+    left = 352
+    top = 160
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IdOrdenTrabajoRemito'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refOrdenTrabajo'
+        ParamType = ptUnknown
+      end>
+  end
+  object trOTRemitosUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE  trOrdenesTrabajoRemitos'
+      'SET refRemito = :refRemito'
+      ',refOrdenTrabajo = :refOrdenTrabajo'
+      'WHERE idOrdenTrabajoRemito = :IdOrdenTrabajoRemito'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refOrdenTrabajo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IdOrdenTrabajoRemito'
+        ParamType = ptUnknown
+      end>
+    left = 352
+    top = 224
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refRemito'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refOrdenTrabajo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IdOrdenTrabajoRemito'
+        ParamType = ptUnknown
+      end>
+  end
+  object trOTRemitosDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM TRORDENESTRABAJOREMITOS'
+      'WHERE idOrdenTrabajoRemito = :idOrdenTrabajoRemito'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idOrdenTrabajoRemito'
+        ParamType = ptUnknown
+      end>
+    left = 352
+    top = 280
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idOrdenTrabajoRemito'
+        ParamType = ptUnknown
+      end>
+  end
+  object qLevantarRemitosOT: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT TR.*'
+      '           , R.*'
+      'FROM TRORDENESTRABAJOREMITOS TR'
+      '          LEFT JOIN tbRemitos R ON R.idRemito = TR.refRemito'
+      'WHERE TR.refOrdenTrabajo = :refOrdenTrabajo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refOrdenTrabajo'
+        ParamType = ptUnknown
+      end>
+    left = 352
+    top = 352
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refOrdenTrabajo'
+        ParamType = ptUnknown
+      end>
+  end
+end

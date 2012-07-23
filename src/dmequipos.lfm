@@ -1,0 +1,5411 @@
+object DM_Equipos: TDM_Equipos
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 497
+  HorizontalOffset = 344
+  VerticalOffset = 111
+  Width = 787
+  object tbEquipos: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idEquipo'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'refCliente'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'Nombre'
+        DataType = ftString
+        Precision = -1
+        Size = 300
+      end    
+      item
+        Name = 'refTipo'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TM_Traccion'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TM_PropHidraulica'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TM_Otras'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'CM_Ubicacion'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CM_Otras'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'M_Marca'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'M_Velocidad'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'M_PotenciaHP'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'M_NroIdentificadores'
+        DataType = ftString
+        Precision = -1
+        Size = 150
+      end    
+      item
+        Name = 'T_Tipo'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'T_AlternaControlada'
+        DataType = ftString
+        Precision = -1
+        Size = 150
+      end    
+      item
+        Name = 'T_FrecVariable'
+        DataType = ftString
+        Precision = -1
+        Size = 150
+      end    
+      item
+        Name = 'R_NroPisos'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'R_Paradas'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'R_Accesos'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'R_AccesosOpyAd'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'V_Unica'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'V_AltaBaja'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'TPCab_tipo'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TPCab_Otro'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'TPContr_tipo'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TPContr_Otro'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'P_Tipo'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'P_Otro'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'Tman_tipo'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TMan_Otra'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'SA_tipo'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'TC_tipo'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CT_Personas'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CT_KG'
+        DataType = ftFloat
+        Precision = 2
+        Size = 0
+      end    
+      item
+        Name = 'PC_Material'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PC_Manual'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PC_ManualTipo'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PC_ManualOtra'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'PC_Automatica'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PC_AutomaticaTipo'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PC_automaticaCorriente'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PC_AutomaticaOtra'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'PR_Material'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PR_Manual'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PR_ManualTipo'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PR_ManualOtra'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'PR_Automatica'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PR_AutomaticaTipoArrastre'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'Ph_PistonCentral'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PH_PistonLateral'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PH_PistonEnterrado'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PH_PistonTelescopico'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'PH_Relacion2_1'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'lxTipoEquipo'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'nNroEquipo'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'txObservaciones'
+        DataType = ftString
+        Precision = -1
+        Size = 3500
+      end>
+    AfterInsert = tbEquiposAfterInsert
+    left = 88
+    top = 32
+    object tbEquiposidEquipo: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idEquipo'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbEquiposrefCliente: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refCliente'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbEquiposNombre: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'Nombre'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object tbEquiposrefTipo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refTipo'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposTM_Traccion: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TM_Traccion'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposTM_PropHidraulica: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TM_PropHidraulica'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposTM_Otras: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'TM_Otras'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposCM_Ubicacion: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CM_Ubicacion'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposCM_Otras: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'CM_Otras'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposM_Marca: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'M_Marca'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposM_Velocidad: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'M_Velocidad'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposM_PotenciaHP: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'M_PotenciaHP'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposM_NroIdentificadores: TStringField
+      DisplayWidth = 150
+      FieldKind = fkData
+      FieldName = 'M_NroIdentificadores'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 150
+    end
+    object tbEquiposT_Tipo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'T_Tipo'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposT_AlternaControlada: TStringField
+      DisplayWidth = 150
+      FieldKind = fkData
+      FieldName = 'T_AlternaControlada'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 150
+    end
+    object tbEquiposT_FrecVariable: TStringField
+      DisplayWidth = 150
+      FieldKind = fkData
+      FieldName = 'T_FrecVariable'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 150
+    end
+    object tbEquiposR_NroPisos: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'R_NroPisos'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposR_Paradas: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'R_Paradas'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposR_Accesos: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'R_Accesos'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposR_AccesosOpyAd: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'R_AccesosOpyAd'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposV_Unica: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'V_Unica'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposV_AltaBaja: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'V_AltaBaja'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposTPCab_tipo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TPCab_tipo'
+      Index = 22
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposTPCab_Otro: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'TPCab_Otro'
+      Index = 23
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposTPContr_tipo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TPContr_tipo'
+      Index = 24
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposTPContr_Otro: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'TPContr_Otro'
+      Index = 25
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposP_Tipo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'P_Tipo'
+      Index = 26
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposP_Otro: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'P_Otro'
+      Index = 27
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposTman_tipo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Tman_tipo'
+      Index = 28
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposTMan_Otra: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'TMan_Otra'
+      Index = 29
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposSA_tipo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'SA_tipo'
+      Index = 30
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposTC_tipo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TC_tipo'
+      Index = 31
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposCT_Personas: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CT_Personas'
+      Index = 32
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposCT_KG: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CT_KG'
+      Index = 33
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '########.##'
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbEquiposPC_Material: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PC_Material'
+      Index = 34
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposPC_Manual: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PC_Manual'
+      Index = 35
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposPC_ManualTipo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PC_ManualTipo'
+      Index = 36
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposPC_ManualOtra: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'PC_ManualOtra'
+      Index = 37
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposPC_Automatica: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PC_Automatica'
+      Index = 38
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposPC_AutomaticaTipo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PC_AutomaticaTipo'
+      Index = 39
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposPC_automaticaCorriente: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PC_automaticaCorriente'
+      Index = 40
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposPC_AutomaticaOtra: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'PC_AutomaticaOtra'
+      Index = 41
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposPR_Material: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PR_Material'
+      Index = 42
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposPR_Manual: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PR_Manual'
+      Index = 43
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposPR_ManualTipo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PR_ManualTipo'
+      Index = 44
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposPR_ManualOtra: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'PR_ManualOtra'
+      Index = 45
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposPR_Automatica: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PR_Automatica'
+      Index = 46
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposPR_AutomaticaTipoArrastre: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PR_AutomaticaTipoArrastre'
+      Index = 47
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposPh_PistonCentral: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Ph_PistonCentral'
+      Index = 48
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposPH_PistonLateral: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PH_PistonLateral'
+      Index = 49
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposPH_PistonEnterrado: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PH_PistonEnterrado'
+      Index = 50
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposPH_PistonTelescopico: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PH_PistonTelescopico'
+      Index = 51
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposPH_Relacion2_1: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PH_Relacion2_1'
+      Index = 52
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 53
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposlxTipoEquipo: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'lxTipoEquipo'
+      Index = 54
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposnNroEquipo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nNroEquipo'
+      Index = 55
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquipostxObservaciones: TStringField
+      DisplayWidth = 3500
+      FieldKind = fkData
+      FieldName = 'txObservaciones'
+      Index = 56
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3500
+    end
+  end
+  object qtugTiposEquipos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugTiposEquipos'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 512
+    top = 8
+  end
+  object qtugTiposMaquinasTraccion: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TUGTIPOSMAQUINASTRACCION'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 512
+    top = 56
+  end
+  object qTUGTIPOSMAQPROPHIDRAULICA: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TUGTIPOSMAQPROPHIDRAULICA'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 512
+    top = 104
+  end
+  object qTUGMOTORESMARCAS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TUGMOTORESMARCAS'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 512
+    top = 160
+  end
+  object qTUGCUARTOMAQUBICACION: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TUGCUARTOMAQUBICACION'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 512
+    top = 216
+  end
+  object qTUGTENSIONESTIPO: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TUGTENSIONESTIPO'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 512
+    top = 272
+  end
+  object qTugTiposParacaidas: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TugTiposParacaidas'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 512
+    top = 328
+  end
+  object qTUGTIPOSPARAGOLPES: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TUGTIPOSPARAGOLPES'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 512
+    top = 384
+  end
+  object qTUGTIPOSMANIOBRASTIPOS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TUGTIPOSMANIOBRASTIPOS'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 512
+    top = 440
+  end
+  object qTUGSELECTIVAACUMULATIVATIPOS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TUGSELECTIVAACUMULATIVATIPOS'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 680
+    top = 8
+  end
+  object qTUGTIPOSCONTROLTIPOS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TUGTIPOSCONTROLTIPOS'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 680
+    top = 56
+  end
+  object qTUGPUERTASMANUALESTIPOS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TUGPUERTASMANUALESTIPOS'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 680
+    top = 104
+  end
+  object qTUGPUERTASAUTOMATICASTIPOS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TUGPUERTASAUTOMATICASTIPOS'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 680
+    top = 160
+  end
+  object qTUGPUERTASAUTOMATICASCORRIENTE: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TUGPUERTASAUTOMATICASCORRIENTE'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 680
+    top = 216
+  end
+  object qTUGPUERTASAUTOMATICASARRASTRE: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TUGPUERTASAUTOMATICASARRASTRE'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 680
+    top = 272
+  end
+  object tbEquiposSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbEquipos'
+      'WHERE idEquipo = :idEquipo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idEquipo'
+        ParamType = ptUnknown
+      end>
+    left = 88
+    top = 104
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idEquipo'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbEquiposINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO  tbEquipos'
+      '( IDEQUIPO'
+      ', REFCLIENTE'
+      ', NOMBRE'
+      ', REFTIPO'
+      ', TM_TRACCION'
+      ', TM_PROPHIDRAULICA'
+      ', TM_OTRAS'
+      ', CM_UBICACION'
+      ', CM_OTRAS'
+      ', M_MARCA'
+      ', M_VELOCIDAD'
+      ', M_POTENCIAHP'
+      ', M_NROIDENTIFICADORES'
+      ', T_TIPO'
+      ', T_ALTERNACONTROLADA'
+      ', T_FRECVARIABLE'
+      ', R_NROPISOS'
+      ', R_PARADAS'
+      ', R_ACCESOS'
+      ', R_ACCESOSOPYAD'
+      ', V_UNICA'
+      ', V_ALTABAJA'
+      ', TPCAB_TIPO'
+      ', TPCAB_OTRO'
+      ', TPCONTR_TIPO'
+      ', TPCONTR_OTRO'
+      ', P_TIPO'
+      ', P_OTRO'
+      ', TMAN_TIPO'
+      ', TMAN_OTRA'
+      ', SA_TIPO'
+      ', TC_TIPO'
+      ', CT_PERSONAS'
+      ', CT_KG'
+      ', PC_MATERIAL'
+      ', PC_MANUAL'
+      ', PC_MANUALTIPO'
+      ', PC_MANUALOTRA'
+      ', PC_AUTOMATICA'
+      ', PC_AUTOMATICATIPO'
+      ', PC_AUTOMATICACORRIENTE'
+      ', PC_AUTOMATICAOTRA'
+      ', PR_MATERIAL'
+      ', PR_MANUAL'
+      ', PR_MANUALTIPO'
+      ', PR_MANUALOTRA'
+      ', PR_AUTOMATICA'
+      ', PR_AUTOMATICATIPOARRASTRE'
+      ', PH_PISTONCENTRAL'
+      ', PH_PISTONLATERAL'
+      ', PH_PISTONENTERRADO'
+      ', PH_PISTONTELESCOPICO'
+      ', PH_RELACION2_1'
+      ', BVISIBLE'
+      ', nNroEquipo'
+      ', txObservaciones'
+      ')'
+      'VALUES'
+      '( :IDEQUIPO'
+      ', :REFCLIENTE'
+      ', :NOMBRE'
+      ', :REFTIPO'
+      ', :TM_TRACCION'
+      ', :TM_PROPHIDRAULICA'
+      ', :TM_OTRAS'
+      ', :CM_UBICACION'
+      ', :CM_OTRAS'
+      ', :M_MARCA'
+      ', :M_VELOCIDAD'
+      ', :M_POTENCIAHP'
+      ', :M_NROIDENTIFICADORES'
+      ', :T_TIPO'
+      ', :T_ALTERNACONTROLADA'
+      ', :T_FRECVARIABLE'
+      ', :R_NROPISOS'
+      ', :R_PARADAS'
+      ', :R_ACCESOS'
+      ', :R_ACCESOSOPYAD'
+      ', :V_UNICA'
+      ', :V_ALTABAJA'
+      ', :TPCAB_TIPO'
+      ', :TPCAB_OTRO'
+      ', :TPCONTR_TIPO'
+      ', :TPCONTR_OTRO'
+      ', :P_TIPO'
+      ', :P_OTRO'
+      ', :TMAN_TIPO'
+      ', :TMAN_OTRA'
+      ', :SA_TIPO'
+      ', :TC_TIPO'
+      ', :CT_PERSONAS'
+      ', :CT_KG'
+      ', :PC_MATERIAL'
+      ', :PC_MANUAL'
+      ', :PC_MANUALTIPO'
+      ', :PC_MANUALOTRA'
+      ', :PC_AUTOMATICA'
+      ', :PC_AUTOMATICATIPO'
+      ', :PC_AUTOMATICACORRIENTE'
+      ', :PC_AUTOMATICAOTRA'
+      ', :PR_MATERIAL'
+      ', :PR_MANUAL'
+      ', :PR_MANUALTIPO'
+      ', :PR_MANUALOTRA'
+      ', :PR_AUTOMATICA'
+      ', :PR_AUTOMATICATIPOARRASTRE'
+      ', :PH_PISTONCENTRAL'
+      ', :PH_PISTONLATERAL'
+      ', :PH_PISTONENTERRADO'
+      ', :PH_PISTONTELESCOPICO'
+      ', :PH_RELACION2_1'
+      ', :BVISIBLE'
+      ', :nNroEquipo'
+      ', :txObservaciones'
+      ')'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDEQUIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCLIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NOMBRE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TM_TRACCION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TM_PROPHIDRAULICA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TM_OTRAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CM_UBICACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CM_OTRAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'M_MARCA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'M_VELOCIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'M_POTENCIAHP'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'M_NROIDENTIFICADORES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'T_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'T_ALTERNACONTROLADA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'T_FRECVARIABLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'R_NROPISOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'R_PARADAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'R_ACCESOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'R_ACCESOSOPYAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'V_UNICA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'V_ALTABAJA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TPCAB_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TPCAB_OTRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TPCONTR_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TPCONTR_OTRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'P_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'P_OTRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TMAN_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TMAN_OTRA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'SA_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TC_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CT_PERSONAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CT_KG'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_MATERIAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_MANUAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_MANUALTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_MANUALOTRA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_AUTOMATICA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_AUTOMATICATIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_AUTOMATICACORRIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_AUTOMATICAOTRA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_MATERIAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_MANUAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_MANUALTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_MANUALOTRA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_AUTOMATICA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_AUTOMATICATIPOARRASTRE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_PISTONCENTRAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_PISTONLATERAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_PISTONENTERRADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_PISTONTELESCOPICO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_RELACION2_1'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nNroEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txObservaciones'
+        ParamType = ptUnknown
+      end>
+    left = 88
+    top = 160
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDEQUIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCLIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NOMBRE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TM_TRACCION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TM_PROPHIDRAULICA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TM_OTRAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CM_UBICACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CM_OTRAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'M_MARCA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'M_VELOCIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'M_POTENCIAHP'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'M_NROIDENTIFICADORES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'T_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'T_ALTERNACONTROLADA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'T_FRECVARIABLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'R_NROPISOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'R_PARADAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'R_ACCESOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'R_ACCESOSOPYAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'V_UNICA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'V_ALTABAJA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TPCAB_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TPCAB_OTRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TPCONTR_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TPCONTR_OTRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'P_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'P_OTRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TMAN_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TMAN_OTRA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'SA_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TC_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CT_PERSONAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CT_KG'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_MATERIAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_MANUAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_MANUALTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_MANUALOTRA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_AUTOMATICA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_AUTOMATICATIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_AUTOMATICACORRIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_AUTOMATICAOTRA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_MATERIAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_MANUAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_MANUALTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_MANUALOTRA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_AUTOMATICA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_AUTOMATICATIPOARRASTRE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_PISTONCENTRAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_PISTONLATERAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_PISTONENTERRADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_PISTONTELESCOPICO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_RELACION2_1'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nNroEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txObservaciones'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbEquiposUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbEquipos'
+      'SET '
+      'REFCLIENTE =  :REFCLIENTE'
+      ',NOMBRE = :NOMBRE'
+      ',REFTIPO = :REFTIPO'
+      ',TM_TRACCION = :TM_TRACCION'
+      ',TM_PROPHIDRAULICA = :TM_PROPHIDRAULICA'
+      ',TM_OTRAS = :TM_OTRAS'
+      ',CM_UBICACION = :CM_UBICACION'
+      ',CM_OTRAS = :CM_OTRAS'
+      ',M_MARCA = :M_MARCA'
+      ',M_VELOCIDAD = :M_VELOCIDAD'
+      ',M_POTENCIAHP = :M_POTENCIAHP'
+      ',M_NROIDENTIFICADORES = :M_NROIDENTIFICADORES'
+      ',T_TIPO = :T_TIPO'
+      ',T_ALTERNACONTROLADA = :T_ALTERNACONTROLADA'
+      ',T_FRECVARIABLE = :T_FRECVARIABLE'
+      ',R_NROPISOS = :R_NROPISOS'
+      ',R_PARADAS = :R_PARADAS'
+      ',R_ACCESOS = :R_ACCESOS'
+      ',R_ACCESOSOPYAD = :R_ACCESOSOPYAD'
+      ',V_UNICA = :V_UNICA'
+      ',V_ALTABAJA = :V_ALTABAJA'
+      ',TPCAB_TIPO = :TPCAB_TIPO'
+      ',TPCAB_OTRO = :TPCAB_OTRO'
+      ',TPCONTR_TIPO = :TPCONTR_TIPO'
+      ',TPCONTR_OTRO = :TPCONTR_OTRO'
+      ',P_TIPO = :P_TIPO'
+      ',P_OTRO = :P_OTRO'
+      ',TMAN_TIPO = :TMAN_TIPO'
+      ',TMAN_OTRA = :TMAN_OTRA'
+      ',SA_TIPO = :SA_TIPO'
+      ',TC_TIPO = :TC_TIPO'
+      ',CT_PERSONAS = :CT_PERSONAS'
+      ',CT_KG = :CT_KG'
+      ',PC_MATERIAL = :PC_MATERIAL'
+      ',PC_MANUAL = :PC_MANUAL'
+      ',PC_MANUALTIPO = :PC_MANUALTIPO'
+      ',PC_MANUALOTRA = :PC_MANUALOTRA'
+      ',PC_AUTOMATICA = :PC_AUTOMATICA'
+      ',PC_AUTOMATICATIPO = :PC_AUTOMATICATIPO'
+      ',PC_AUTOMATICACORRIENTE = :PC_AUTOMATICACORRIENTE'
+      ',PC_AUTOMATICAOTRA = :PC_AUTOMATICAOTRA'
+      ',PR_MATERIAL = :PR_MATERIAL'
+      ',PR_MANUAL = :PR_MANUAL'
+      ',PR_MANUALTIPO = :PR_MANUALTIPO'
+      ',PR_MANUALOTRA = :PR_MANUALOTRA'
+      ',PR_AUTOMATICA = :PR_AUTOMATICA'
+      ',PR_AUTOMATICATIPOARRASTRE = :PR_AUTOMATICATIPOARRASTRE'
+      ',PH_PISTONCENTRAL = :PH_PISTONCENTRAL'
+      ',PH_PISTONLATERAL = :PH_PISTONLATERAL'
+      ',PH_PISTONENTERRADO = :PH_PISTONENTERRADO'
+      ',PH_PISTONTELESCOPICO = :PH_PISTONTELESCOPICO'
+      ',PH_RELACION2_1 = :PH_RELACION2_1'
+      ',BVISIBLE = :BVISIBLE'
+      ',nNroEquipo = :nNroEquipo'
+      ',txObservaciones = :txObservaciones'
+      'WHERE IDEQUIPO = :IDEQUIPO'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFCLIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NOMBRE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TM_TRACCION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TM_PROPHIDRAULICA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TM_OTRAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CM_UBICACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CM_OTRAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'M_MARCA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'M_VELOCIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'M_POTENCIAHP'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'M_NROIDENTIFICADORES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'T_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'T_ALTERNACONTROLADA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'T_FRECVARIABLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'R_NROPISOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'R_PARADAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'R_ACCESOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'R_ACCESOSOPYAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'V_UNICA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'V_ALTABAJA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TPCAB_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TPCAB_OTRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TPCONTR_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TPCONTR_OTRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'P_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'P_OTRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TMAN_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TMAN_OTRA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'SA_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TC_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CT_PERSONAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CT_KG'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_MATERIAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_MANUAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_MANUALTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_MANUALOTRA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_AUTOMATICA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_AUTOMATICATIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_AUTOMATICACORRIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_AUTOMATICAOTRA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_MATERIAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_MANUAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_MANUALTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_MANUALOTRA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_AUTOMATICA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_AUTOMATICATIPOARRASTRE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_PISTONCENTRAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_PISTONLATERAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_PISTONENTERRADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_PISTONTELESCOPICO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_RELACION2_1'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nNroEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txObservaciones'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDEQUIPO'
+        ParamType = ptUnknown
+      end>
+    left = 88
+    top = 216
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFCLIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NOMBRE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TM_TRACCION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TM_PROPHIDRAULICA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TM_OTRAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CM_UBICACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CM_OTRAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'M_MARCA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'M_VELOCIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'M_POTENCIAHP'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'M_NROIDENTIFICADORES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'T_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'T_ALTERNACONTROLADA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'T_FRECVARIABLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'R_NROPISOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'R_PARADAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'R_ACCESOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'R_ACCESOSOPYAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'V_UNICA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'V_ALTABAJA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TPCAB_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TPCAB_OTRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TPCONTR_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TPCONTR_OTRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'P_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'P_OTRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TMAN_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TMAN_OTRA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'SA_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TC_TIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CT_PERSONAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CT_KG'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_MATERIAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_MANUAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_MANUALTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_MANUALOTRA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_AUTOMATICA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_AUTOMATICATIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_AUTOMATICACORRIENTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PC_AUTOMATICAOTRA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_MATERIAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_MANUAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_MANUALTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_MANUALOTRA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_AUTOMATICA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PR_AUTOMATICATIPOARRASTRE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_PISTONCENTRAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_PISTONLATERAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_PISTONENTERRADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_PISTONTELESCOPICO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PH_RELACION2_1'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nNroEquipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txObservaciones'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDEQUIPO'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbEquiposDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbEquipos'
+      'SET BVISIBLE  = 0'
+      'WHERE idEquipo = :idEquipo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idEquipo'
+        ParamType = ptUnknown
+      end>
+    left = 88
+    top = 272
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idEquipo'
+        ParamType = ptUnknown
+      end>
+  end
+  object qEquiposCliente: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT*'
+      'FROM  tbEquipos'
+      'WHERE (bVisible = 1)'
+      '         and (refCliente = :idCliente)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCliente'
+        ParamType = ptUnknown
+      end>
+    left = 88
+    top = 352
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCliente'
+        ParamType = ptUnknown
+      end>
+  end
+  object qAnexosEquipos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT  E.nNroEquipo'
+      '       ,E.Nombre'
+      '       ,TMT.TRACCION'
+      #9'   ,TMPH.PROPULSIONHIDRAULICA'
+      #9'   ,E.TM_OTRAS'
+      #9'   ,CMU.UBICACION'
+      #9'   ,E.CM_OTRAS'
+      #9'   ,MM.MARCA'
+      #9'   ,E.M_VELOCIDAD'
+      #9'   ,E.M_POTENCIAHP'
+      #9'   ,E.M_NROIDENTIFICADORES'
+      #9'   ,TTT.TENSIONTIPO'
+      #9'   ,E.T_ALTERNACONTROLADA'
+      #9'   ,E.T_FRECVARIABLE'
+      #9'   ,E.R_NROPISOS'
+      #9'   ,E.R_PARADAS'
+      #9'   ,E.R_ACCESOS'
+      #9'   ,E.R_ACCESOSOPYAD'
+      #9'   ,E.V_UNICA'
+      #9'   ,E.V_ALTABAJA'
+      #9'   ,TP.TIPOPARACAIDAS'
+      #9'   ,E.TPCAB_OTRO'
+      #9'   ,TPCP.TIPOPARACAIDAS as TipoParacaidasContrapeso'
+      #9'   ,E.TPCONTR_OTRO'
+      #9'   ,TPP.TIPOPARAGOLPE'
+      #9'   ,E.P_OTRO'
+      #9'   ,TMTi.TIPOMANIOBRA'
+      #9'   ,E.TMAN_OTRA'
+      #9'   ,SA.SELECTIVAACUMULATIVA '
+      #9'   ,TC.TIPOCONTROL'
+      #9'   ,E.CT_PERSONAS'
+      #9'   ,E.CT_KG'
+      #9'   ,E.PC_MATERIAL'
+      #9'   ,CASE E.PC_MANUAL '
+      #9'      WHEN 1 THEN ''SI'''
+      #9#9'  WHEN 0 THEN ''NO'''
+      #9#9'END as PCManual'
+      #9'   ,PCMT.TIPOPUERTAMANUAL as PCTipoPuertaManual'
+      #9'   ,E.PC_MANUALOTRA'
+      #9'   ,CASE E.PC_AUTOMATICA '
+      #9'      WHEN 1 THEN ''SI'''
+      #9#9'  WHEN 0 THEN ''NO'''
+      #9#9'END as PCAutoMatica'
+      #9'   ,PAT.PUERTAAUTOMATICATIPO'
+      #9'   ,PAC.PUERTAAUTOMATICACORRIENTE'
+      #9'   ,E.PC_AUTOMATICAOTRA'
+      #9'   ,E.PR_MATERIAL'
+      #9'   ,CASE E.PR_MANUAL'
+      #9'      WHEN 1 THEN ''SI'''
+      #9#9'  WHEN 0 THEN ''NO'''
+      #9#9'END as PRManual'
+      #9#9',PRMT.TIPOPUERTAMANUAL as PRTipoPuertaManual'
+      #9#9',PR_MANUALOTRA'
+      #9'   ,CASE E.PR_AUTOMATICA'
+      #9'      WHEN 1 THEN ''SI'''
+      #9#9'  WHEN 0 THEN ''NO'''
+      #9#9'END as PRAutomatica'
+      #9#9',PATA.PUERTAAUTOMATICAARRASTRE'
+      #9#9',CASE E.PH_PISTONCENTRAL'
+      #9'      WHEN 1 THEN ''SI'''
+      #9#9'  WHEN 0 THEN ''NO'''
+      #9#9'END as PHPISTONCENTRAL'
+      #9#9',CASE E.PH_PISTONLATERAL'
+      #9'      WHEN 1 THEN ''SI'''
+      #9#9'  WHEN 0 THEN ''NO'''
+      #9#9'END as PHPISTONLATERAL'
+      #9#9',CASE E.PH_PISTONENTERRADO'
+      #9'      WHEN 1 THEN ''SI'''
+      #9#9'  WHEN 0 THEN ''NO'''
+      #9#9'END as PHPISTONENTERRADO'
+      #9#9',CASE E.PH_PISTONTELESCOPICO'
+      #9'      WHEN 1 THEN ''SI'''
+      #9#9'  WHEN 0 THEN ''NO'''
+      #9#9'END as PHPISTONTELESCOPICO'
+      #9#9',CASE PH_RELACION2_1'
+      #9'      WHEN 1 THEN ''SI'''
+      #9#9'  WHEN 0 THEN ''NO'''
+      #9#9'END as PHRELACION2_1'
+      #9#9',TXOBSERVACIONES'
+      'FROM tbEquipos E'
+      '      LEFT JOIN TUGTIPOSMAQUINASTRACCION TMT ON TMT.IDTIPOMAQTRACCION = E.TM_TRACCION'
+      #9'  LEFT JOIN TUGTIPOSMAQPROPHIDRAULICA TMPH ON TMPH.IDTIPOMAQPROPHIDRAULICA = E.TM_PROPHIDRAULICA'
+      #9'  LEFT JOIN TUGCUARTOMAQUBICACION CMU ON CMU.IDCUARTOMAQUBICACION = E.CM_UBICACION'
+      #9'  LEFT JOIN TUGMOTORESMARCAS MM ON MM.IDMOTORMARCA = E.M_MARCA'
+      #9'  LEFT JOIN TUGTENSIONESTIPO TTT ON TTT.IDTENSIONTIPO = E.T_TIPO'
+      #9'  LEFT JOIN TUGTIPOSPARACAIDAS TP ON TP.IDTIPOPARACAIDAS = E.TPCAB_TIPO'
+      #9'  LEFT JOIN TUGTIPOSPARACAIDAS TPCP ON TPCP.IDTIPOPARACAIDAS = E.TPCONTR_TIPO'
+      #9'  LEFT JOIN TUGTIPOSPARAGOLPES TPP ON TPP.IDTIPOPARAGOLPE = E.P_TIPO'
+      #9'  LEFT JOIN TUGTIPOSMANIOBRASTIPOS TMTi ON TMTi.IDTIPOMANIOBRATIPO = E.TMAN_TIPO'
+      #9'  LEFT JOIN TUGSELECTIVAACUMULATIVATIPOS SA ON SA.IDSELECTIVAACUMULATIVATIPO = E.SA_TIPO'
+      #9'  LEFT JOIN TUGTIPOSCONTROLTIPOS TC ON TC.IDTIPOCONTROLTIPO = E.TC_TIPO'
+      #9'  LEFT JOIN TUGPUERTASMANUALESTIPOS PCMT ON PCMT.IDPUERTAMANUALTIPO = E.PC_MANUALTIPO'
+      #9'  LEFT JOIN TUGPUERTASAUTOMATICASTIPOS PAT ON PAT.IDPUERTAAUTOMATICATIPO = E.PC_AUTOMATICATIPO'
+      #9'  LEFT JOIN TUGPUERTASAUTOMATICASCORRIENTE PAC ON PAC.IDPUERTAAUTOMATICACORRIENTE = E.PC_AUTOMATICACORRIENTE'
+      #9'  LEFT JOIN TUGPUERTASMANUALESTIPOS PRMT ON PRMT.IDPUERTAMANUALTIPO = E.PR_MANUALTIPO'
+      #9'  LEFT JOIN TUGPUERTASAUTOMATICASARRASTRE PATA ON PATA.IDPUERTAAUTOMATICAARRASTRE = E.PR_AUTOMATICATIPOARRASTRE'
+      'WHERE (E.BVISIBLE = 1) AND (E.IDEQUIPO = :idEquipo)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idEquipo'
+        ParamType = ptUnknown
+      end>
+    left = 293
+    top = 380
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idEquipo'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbEquiposAnexos: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idEquipo01'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'Nombre01'
+        DataType = ftString
+        Precision = -1
+        Size = 300
+      end    
+      item
+        Name = 'refTipo01'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'Traccion01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PropulsionHidraulica01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'TM_Otras01'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'Ubicacion01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'CM_Otras01'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'Marca01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'M_Velocidad01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'M_PotenciaHP01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'M_NroIdentificadores01'
+        DataType = ftString
+        Precision = -1
+        Size = 150
+      end    
+      item
+        Name = 'TensionTipo01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'T_AlternaControlada01'
+        DataType = ftString
+        Precision = -1
+        Size = 150
+      end    
+      item
+        Name = 'T_FrecVariable01'
+        DataType = ftString
+        Precision = -1
+        Size = 150
+      end    
+      item
+        Name = 'R_NroPisos01'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'R_Paradas01'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'R_Accesos01'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'R_AccesosOpyAd01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'V_Unica01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'V_AltaBaja01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'TipoParacaidas01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'TPCab_Otro01'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'TipoParacaidasContrapeso01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'TPContr_Otro01'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'TipoParagolpe01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'P_Otro01'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'TipoManiobra01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'TMan_Otra01'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'SelectivaAcumulativa01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'TipoControl01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'CT_Personas01'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CT_KG01'
+        DataType = ftFloat
+        Precision = 2
+        Size = 0
+      end    
+      item
+        Name = 'PC_Material01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PCManual01'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PCTipoPuertaManual01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PC_ManualOtra01'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'PCAutomatica01'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PuertaAutomaticaTipo01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PuertaAutomaticaCorriente01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PC_AutomaticaOtra01'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'PR_Material01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PRManual01'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PRTipoPuertaManual01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PR_ManualOtra01'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'PRAutomatica01'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PuertaAutomaticaArrastre01'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PhPistonCentral01'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PHPistonLateral01'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PHPistonEnterrado01'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PHPistonTelescopico01'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PHRelacion2_101'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'bVisible01'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'nNroEquipo01'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'txObservaciones01'
+        DataType = ftString
+        Precision = -1
+        Size = 3500
+      end    
+      item
+        Name = 'idEquipo02'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'Nombre02'
+        DataType = ftString
+        Precision = -1
+        Size = 300
+      end    
+      item
+        Name = 'refTipo02'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'Traccion02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PropulsionHidraulica02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'TM_Otras02'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'Ubicacion02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'CM_Otras02'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'Marca02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'M_Velocidad02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'M_PotenciaHP02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'M_NroIdentificadores02'
+        DataType = ftString
+        Precision = -1
+        Size = 150
+      end    
+      item
+        Name = 'TensionTipo02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'T_AlternaControlada02'
+        DataType = ftString
+        Precision = -1
+        Size = 150
+      end    
+      item
+        Name = 'T_FrecVariable02'
+        DataType = ftString
+        Precision = -1
+        Size = 150
+      end    
+      item
+        Name = 'R_NroPisos02'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'R_Paradas02'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'R_Accesos02'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'R_AccesosOpyAd02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'V_Unica02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'V_AltaBaja02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'TipoParacaidas02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'TPCab_Otro02'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'TipoParacaidasContrapeso02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'TPContr_Otro02'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'TipoParagolpe02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'P_Otro02'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'TipoManiobra02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'TMan_Otra02'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'SelectivaAcumulativa02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'TipoControl02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'CT_Personas02'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CT_KG02'
+        DataType = ftFloat
+        Precision = 2
+        Size = 0
+      end    
+      item
+        Name = 'PC_Material02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PCManual02'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PCTipoPuertaManual02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PC_ManualOtra02'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'PCAutomatica02'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PuertaAutomaticaTipo02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PuertaAutomaticaCorriente02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PC_AutomaticaOtra02'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'PR_Material02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PRManual02'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PRTipoPuertaManual02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PR_ManualOtra02'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'PRAutomatica02'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PuertaAutomaticaArrastre02'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PhPistonCentral02'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PHPistonLateral02'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PHPistonEnterrado02'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PHPistonTelescopico02'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PHRelacion2_102'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'bVisible02'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'nNroEquipo02'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'txObservaciones02'
+        DataType = ftString
+        Precision = -1
+        Size = 3500
+      end    
+      item
+        Name = 'idEquipo03'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'Nombre03'
+        DataType = ftString
+        Precision = -1
+        Size = 300
+      end    
+      item
+        Name = 'refTipo03'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'Traccion03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PropulsionHidraulica03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'TM_Otras03'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'Ubicacion03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'CM_Otras03'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'Marca03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'M_Velocidad03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'M_PotenciaHP03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'M_NroIdentificadores03'
+        DataType = ftString
+        Precision = -1
+        Size = 150
+      end    
+      item
+        Name = 'TensionTipo03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'T_AlternaControlada03'
+        DataType = ftString
+        Precision = -1
+        Size = 150
+      end    
+      item
+        Name = 'T_FrecVariable03'
+        DataType = ftString
+        Precision = -1
+        Size = 150
+      end    
+      item
+        Name = 'R_NroPisos03'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'R_Paradas03'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'R_Accesos03'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'R_AccesosOpyAd03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'V_Unica03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'V_AltaBaja03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'TipoParacaidas03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'TPCab_Otro03'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'TipoParacaidasContrapeso03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'TPContr_Otro03'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'TipoParagolpe03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'P_Otro03'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'TipoManiobra03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'TMan_Otra03'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'SelectivaAcumulativa03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'TipoControl03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'CT_Personas03'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CT_KG03'
+        DataType = ftFloat
+        Precision = 2
+        Size = 0
+      end    
+      item
+        Name = 'PC_Material03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PCManual03'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PCTipoPuertaManual03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PC_ManualOtra03'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'PCAutomatica03'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PuertaAutomaticaTipo03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PuertaAutomaticaCorriente03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PC_AutomaticaOtra03'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'PR_Material03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PRManual03'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PRTipoPuertaManual03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PR_ManualOtra03'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'PRAutomatica03'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PuertaAutomaticaArrastre03'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'PhPistonCentral03'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PHPistonLateral03'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PHPistonEnterrado03'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PHPistonTelescopico03'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'PHRelacion2_103'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'bVisible03'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'nNroEquipo03'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'txObservaciones03'
+        DataType = ftString
+        Precision = -1
+        Size = 3500
+      end>
+    left = 292
+    top = 316
+    object tbEquiposAnexosidEquipo01: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idEquipo01'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbEquiposAnexosNombre01: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'Nombre01'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object tbEquiposAnexosrefTipo01: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refTipo01'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexosTraccion01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'Traccion01'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPropulsionHidraulica01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PropulsionHidraulica01'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosTM_Otras01: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'TM_Otras01'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosUbicacion01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'Ubicacion01'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosCM_Otras01: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'CM_Otras01'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosMarca01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'Marca01'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosM_Velocidad01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'M_Velocidad01'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosM_PotenciaHP01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'M_PotenciaHP01'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosM_NroIdentificadores01: TStringField
+      DisplayWidth = 150
+      FieldKind = fkData
+      FieldName = 'M_NroIdentificadores01'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 150
+    end
+    object tbEquiposAnexosTensionTipo01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TensionTipo01'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosT_AlternaControlada01: TStringField
+      DisplayWidth = 150
+      FieldKind = fkData
+      FieldName = 'T_AlternaControlada01'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 150
+    end
+    object tbEquiposAnexosT_FrecVariable01: TStringField
+      DisplayWidth = 150
+      FieldKind = fkData
+      FieldName = 'T_FrecVariable01'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 150
+    end
+    object tbEquiposAnexosR_NroPisos01: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'R_NroPisos01'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexosR_Paradas01: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'R_Paradas01'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexosR_Accesos01: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'R_Accesos01'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexosR_AccesosOpyAd01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'R_AccesosOpyAd01'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosV_Unica01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'V_Unica01'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosV_AltaBaja01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'V_AltaBaja01'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosTipoParacaidas01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TipoParacaidas01'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosTPCab_Otro01: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'TPCab_Otro01'
+      Index = 22
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosTipoParacaidasContrapeso01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TipoParacaidasContrapeso01'
+      Index = 23
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosTPContr_Otro01: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'TPContr_Otro01'
+      Index = 24
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosTipoParagolpe01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TipoParagolpe01'
+      Index = 25
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosP_Otro01: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'P_Otro01'
+      Index = 26
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosTipoManiobra01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TipoManiobra01'
+      Index = 27
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosTMan_Otra01: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'TMan_Otra01'
+      Index = 28
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosSelectivaAcumulativa01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'SelectivaAcumulativa01'
+      Index = 29
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosTipoControl01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TipoControl01'
+      Index = 30
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosCT_Personas01: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CT_Personas01'
+      Index = 31
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexosCT_KG01: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CT_KG01'
+      Index = 32
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbEquiposAnexosPC_Material01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PC_Material01'
+      Index = 33
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPCManual01: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PCManual01'
+      Index = 34
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPCTipoPuertaManual01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PCTipoPuertaManual01'
+      Index = 35
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPC_ManualOtra01: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'PC_ManualOtra01'
+      Index = 36
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosPCAutomatica01: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PCAutomatica01'
+      Index = 37
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPuertaAutomaticaTipo01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PuertaAutomaticaTipo01'
+      Index = 38
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPuertaAutomaticaCorriente01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PuertaAutomaticaCorriente01'
+      Index = 39
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPC_AutomaticaOtra01: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'PC_AutomaticaOtra01'
+      Index = 40
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosPR_Material01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PR_Material01'
+      Index = 41
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPRManual01: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PRManual01'
+      Index = 42
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPRTipoPuertaManual01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PRTipoPuertaManual01'
+      Index = 43
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPR_ManualOtra01: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'PR_ManualOtra01'
+      Index = 44
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosPRAutomatica01: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PRAutomatica01'
+      Index = 45
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPuertaAutomaticaArrastre01: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PuertaAutomaticaArrastre01'
+      Index = 46
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPhPistonCentral01: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PhPistonCentral01'
+      Index = 47
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPHPistonLateral01: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PHPistonLateral01'
+      Index = 48
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPHPistonEnterrado01: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PHPistonEnterrado01'
+      Index = 49
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPHPistonTelescopico01: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PHPistonTelescopico01'
+      Index = 50
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPHRelacion2_101: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PHRelacion2_101'
+      Index = 51
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosbVisible01: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible01'
+      Index = 52
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexosnNroEquipo01: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nNroEquipo01'
+      Index = 53
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexostxObservaciones01: TStringField
+      DisplayWidth = 3500
+      FieldKind = fkData
+      FieldName = 'txObservaciones01'
+      Index = 54
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3500
+    end
+    object tbEquiposAnexosidEquipo02: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idEquipo02'
+      Index = 55
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbEquiposAnexosNombre02: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'Nombre02'
+      Index = 56
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object tbEquiposAnexosrefTipo02: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refTipo02'
+      Index = 57
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexosTraccion02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'Traccion02'
+      Index = 58
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPropulsionHidraulica02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PropulsionHidraulica02'
+      Index = 59
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosTM_Otras02: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'TM_Otras02'
+      Index = 60
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosUbicacion02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'Ubicacion02'
+      Index = 61
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosCM_Otras02: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'CM_Otras02'
+      Index = 62
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosMarca02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'Marca02'
+      Index = 63
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosM_Velocidad02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'M_Velocidad02'
+      Index = 64
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosM_PotenciaHP02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'M_PotenciaHP02'
+      Index = 65
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosM_NroIdentificadores02: TStringField
+      DisplayWidth = 150
+      FieldKind = fkData
+      FieldName = 'M_NroIdentificadores02'
+      Index = 66
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 150
+    end
+    object tbEquiposAnexosTensionTipo02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TensionTipo02'
+      Index = 67
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosT_AlternaControlada02: TStringField
+      DisplayWidth = 150
+      FieldKind = fkData
+      FieldName = 'T_AlternaControlada02'
+      Index = 68
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 150
+    end
+    object tbEquiposAnexosT_FrecVariable02: TStringField
+      DisplayWidth = 150
+      FieldKind = fkData
+      FieldName = 'T_FrecVariable02'
+      Index = 69
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 150
+    end
+    object tbEquiposAnexosR_NroPisos02: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'R_NroPisos02'
+      Index = 70
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexosR_Paradas02: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'R_Paradas02'
+      Index = 71
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexosR_Accesos02: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'R_Accesos02'
+      Index = 72
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexosR_AccesosOpyAd02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'R_AccesosOpyAd02'
+      Index = 73
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosV_Unica02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'V_Unica02'
+      Index = 74
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosV_AltaBaja02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'V_AltaBaja02'
+      Index = 75
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosTipoParacaidas02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TipoParacaidas02'
+      Index = 76
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosTPCab_Otro02: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'TPCab_Otro02'
+      Index = 77
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosTipoParacaidasContrapeso02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TipoParacaidasContrapeso02'
+      Index = 78
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosTPContr_Otro02: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'TPContr_Otro02'
+      Index = 79
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosTipoParagolpe02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TipoParagolpe02'
+      Index = 80
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosP_Otro02: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'P_Otro02'
+      Index = 81
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosTipoManiobra02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TipoManiobra02'
+      Index = 82
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosTMan_Otra02: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'TMan_Otra02'
+      Index = 83
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosSelectivaAcumulativa02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'SelectivaAcumulativa02'
+      Index = 84
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosTipoControl02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TipoControl02'
+      Index = 85
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosCT_Personas02: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CT_Personas02'
+      Index = 86
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexosCT_KG02: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CT_KG02'
+      Index = 87
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbEquiposAnexosPC_Material02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PC_Material02'
+      Index = 88
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPCManual02: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PCManual02'
+      Index = 89
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPCTipoPuertaManual02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PCTipoPuertaManual02'
+      Index = 90
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPC_ManualOtra02: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'PC_ManualOtra02'
+      Index = 91
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosPCAutomatica02: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PCAutomatica02'
+      Index = 92
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPuertaAutomaticaTipo02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PuertaAutomaticaTipo02'
+      Index = 93
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPuertaAutomaticaCorriente02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PuertaAutomaticaCorriente02'
+      Index = 94
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPC_AutomaticaOtra02: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'PC_AutomaticaOtra02'
+      Index = 95
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosPR_Material02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PR_Material02'
+      Index = 96
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPRManual02: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PRManual02'
+      Index = 97
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPRTipoPuertaManual02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PRTipoPuertaManual02'
+      Index = 98
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPR_ManualOtra02: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'PR_ManualOtra02'
+      Index = 99
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosPRAutomatica02: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PRAutomatica02'
+      Index = 100
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPuertaAutomaticaArrastre02: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PuertaAutomaticaArrastre02'
+      Index = 101
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPhPistonCentral02: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PhPistonCentral02'
+      Index = 102
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPHPistonLateral02: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PHPistonLateral02'
+      Index = 103
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPHPistonEnterrado02: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PHPistonEnterrado02'
+      Index = 104
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPHPistonTelescopico02: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PHPistonTelescopico02'
+      Index = 105
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPHRelacion2_102: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PHRelacion2_102'
+      Index = 106
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosbVisible02: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible02'
+      Index = 107
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexosnNroEquipo02: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nNroEquipo02'
+      Index = 108
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexostxObservaciones02: TStringField
+      DisplayWidth = 3500
+      FieldKind = fkData
+      FieldName = 'txObservaciones02'
+      Index = 109
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3500
+    end
+    object tbEquiposAnexosidEquipo03: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idEquipo03'
+      Index = 110
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbEquiposAnexosNombre03: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'Nombre03'
+      Index = 111
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object tbEquiposAnexosrefTipo03: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refTipo03'
+      Index = 112
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexosTraccion03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'Traccion03'
+      Index = 113
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPropulsionHidraulica03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PropulsionHidraulica03'
+      Index = 114
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosTM_Otras03: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'TM_Otras03'
+      Index = 115
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosUbicacion03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'Ubicacion03'
+      Index = 116
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosCM_Otras03: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'CM_Otras03'
+      Index = 117
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosMarca03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'Marca03'
+      Index = 118
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosM_Velocidad03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'M_Velocidad03'
+      Index = 119
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosM_PotenciaHP03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'M_PotenciaHP03'
+      Index = 120
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosM_NroIdentificadores03: TStringField
+      DisplayWidth = 150
+      FieldKind = fkData
+      FieldName = 'M_NroIdentificadores03'
+      Index = 121
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 150
+    end
+    object tbEquiposAnexosTensionTipo03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TensionTipo03'
+      Index = 122
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosT_AlternaControlada03: TStringField
+      DisplayWidth = 150
+      FieldKind = fkData
+      FieldName = 'T_AlternaControlada03'
+      Index = 123
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 150
+    end
+    object tbEquiposAnexosT_FrecVariable03: TStringField
+      DisplayWidth = 150
+      FieldKind = fkData
+      FieldName = 'T_FrecVariable03'
+      Index = 124
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 150
+    end
+    object tbEquiposAnexosR_NroPisos03: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'R_NroPisos03'
+      Index = 125
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexosR_Paradas03: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'R_Paradas03'
+      Index = 126
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexosR_Accesos03: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'R_Accesos03'
+      Index = 127
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexosR_AccesosOpyAd03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'R_AccesosOpyAd03'
+      Index = 128
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosV_Unica03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'V_Unica03'
+      Index = 129
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosV_AltaBaja03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'V_AltaBaja03'
+      Index = 130
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosTipoParacaidas03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TipoParacaidas03'
+      Index = 131
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosTPCab_Otro03: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'TPCab_Otro03'
+      Index = 132
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosTipoParacaidasContrapeso03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TipoParacaidasContrapeso03'
+      Index = 133
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosTPContr_Otro03: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'TPContr_Otro03'
+      Index = 134
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosTipoParagolpe03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TipoParagolpe03'
+      Index = 135
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosP_Otro03: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'P_Otro03'
+      Index = 136
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosTipoManiobra03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TipoManiobra03'
+      Index = 137
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosTMan_Otra03: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'TMan_Otra03'
+      Index = 138
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosSelectivaAcumulativa03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'SelectivaAcumulativa03'
+      Index = 139
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosTipoControl03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TipoControl03'
+      Index = 140
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosCT_Personas03: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CT_Personas03'
+      Index = 141
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexosCT_KG03: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CT_KG03'
+      Index = 142
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbEquiposAnexosPC_Material03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PC_Material03'
+      Index = 143
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPCManual03: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PCManual03'
+      Index = 144
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPCTipoPuertaManual03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PCTipoPuertaManual03'
+      Index = 145
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPC_ManualOtra03: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'PC_ManualOtra03'
+      Index = 146
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosPCAutomatica03: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PCAutomatica03'
+      Index = 147
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPuertaAutomaticaTipo03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PuertaAutomaticaTipo03'
+      Index = 148
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPuertaAutomaticaCorriente03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PuertaAutomaticaCorriente03'
+      Index = 149
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPC_AutomaticaOtra03: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'PC_AutomaticaOtra03'
+      Index = 150
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosPR_Material03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PR_Material03'
+      Index = 151
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPRManual03: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PRManual03'
+      Index = 152
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPRTipoPuertaManual03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PRTipoPuertaManual03'
+      Index = 153
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPR_ManualOtra03: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'PR_ManualOtra03'
+      Index = 154
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEquiposAnexosPRAutomatica03: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PRAutomatica03'
+      Index = 155
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPuertaAutomaticaArrastre03: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PuertaAutomaticaArrastre03'
+      Index = 156
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbEquiposAnexosPhPistonCentral03: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PhPistonCentral03'
+      Index = 157
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPHPistonLateral03: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PHPistonLateral03'
+      Index = 158
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPHPistonEnterrado03: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PHPistonEnterrado03'
+      Index = 159
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPHPistonTelescopico03: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PHPistonTelescopico03'
+      Index = 160
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosPHRelacion2_103: TStringField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'PHRelacion2_103'
+      Index = 161
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2
+    end
+    object tbEquiposAnexosbVisible03: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible03'
+      Index = 162
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexosnNroEquipo03: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nNroEquipo03'
+      Index = 163
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposAnexostxObservaciones03: TStringField
+      DisplayWidth = 3500
+      FieldKind = fkData
+      FieldName = 'txObservaciones03'
+      Index = 164
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3500
+    end
+  end
+end

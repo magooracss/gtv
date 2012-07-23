@@ -1,0 +1,1426 @@
+object DM_Cheques: TDM_Cheques
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 615
+  HorizontalOffset = 450
+  VerticalOffset = 0
+  Width = 673
+  object tbResultados: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idCheque'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'NroCheque'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end    
+      item
+        Name = 'Banco'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'RecibidoDe'
+        DataType = ftString
+        Precision = 0
+        Size = 1000
+      end    
+      item
+        Name = 'EntregadoA'
+        DataType = ftString
+        Precision = 0
+        Size = 1000
+      end    
+      item
+        Name = 'fCobro'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fRecibido'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fEntrega'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nMonto'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end>
+    left = 33
+    top = 15
+    object tbResultadosidCheque: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idCheque'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbResultadosNroCheque: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'NroCheque'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object tbResultadosBanco: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'Banco'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbResultadosRecibidoDe: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'RecibidoDe'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object tbResultadosEntregadoA: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'EntregadoA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object tbResultadosfCobro: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fCobro'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = tbResultadosfCobroGetText
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object tbResultadosfRecibido: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fRecibido'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = tbResultadosfCobroGetText
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object tbResultadosfEntrega: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fEntrega'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = tbResultadosfCobroGetText
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object tbResultadosnMonto: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nMonto'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+  end
+  object qBusChequeNumero: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT  C.idCheque'
+      '      , C.NroCheque'
+      #9'  , B.Banco'
+      #9'  , CASE'
+      #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
+      #9#9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
+      '            END as RecibidoDe'
+      #9'  , CASE'
+      #9'      WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
+      #9#9'  WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9#9'  WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
+      #9'    END as EntregadoA'#9' '#9#9'  '
+      #9'  , C.fCobro'
+      '      , C.fRecibido'
+      '      , C.fEntrega'
+      '      , C.nMonto'#9'  '
+      #9#9'  '
+      'FROM tbCheques C'
+      '        LEFT JOIN tugBancos B ON B.idBanco = C.refBanco'
+      #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9
+      'WHERE (C.bVisible = 1)'
+      '       and (C.NroCheque = :parametro)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 124
+    top = 14
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusChequeBanco: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT  C.idCheque'
+      '      , C.NroCheque'
+      #9'  , B.Banco'
+      #9'  , CASE'
+      #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
+      #9#9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
+      '            END as RecibidoDe'
+      #9'  , CASE'
+      #9'      WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
+      #9#9'  WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9#9'  WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
+      #9'    END as EntregadoA'#9' '#9#9'  '
+      #9'  , C.fCobro'
+      '      , C.fRecibido'
+      '      , C.fEntrega'
+      '      , C.nMonto'#9'  '
+      #9#9'  '
+      'FROM tugBancos B          '
+      '        INNER JOIN tbCheques C ON B.idBanco = C.refBanco'
+      #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9
+      'WHERE (C.bVisible = 1)'
+      '       and (UPPER (B.Banco) LIKE UPPER(''%''|| :parametro || ''%''))'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 123
+    top = 72
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusChequefCobro: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT  C.idCheque'
+      '      , C.NroCheque'
+      #9'  , B.Banco'
+      #9'  , CASE'
+      #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
+      #9#9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
+      '            END as RecibidoDe'
+      #9'  , CASE'
+      #9'      WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
+      #9#9'  WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9#9'  WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
+      #9'    END as EntregadoA'#9' '#9#9'  '
+      #9'  , C.fCobro'
+      '      , C.fRecibido'
+      '      , C.fEntrega'
+      '      , C.nMonto'#9'  '
+      #9#9'  '
+      'FROM tbCheques C'
+      '        LEFT JOIN tugBancos B ON B.idBanco = C.refBanco'
+      #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9
+      'WHERE (C.bVisible = 1)'
+      '       and (C.fCobro = :parametro)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 119
+    top = 264
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusChequeEntregadoA: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT  C.idCheque'
+      '      , C.NroCheque'
+      '      , B.Banco'
+      '      , CASE'
+      #9'  WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
+      #9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
+      '        END as RecibidoDe'
+      '      , AdE.cRazonSocial as EntregadoA'#9' '#9#9'  '
+      '      , C.fCobro'
+      '      , C.fRecibido'
+      '      , C.fEntrega'
+      '      , C.nMonto'#9'  '#9#9'  '
+      'FROM tbCheques C '
+      '        LEFT JOIN tugBancos B ON B.idBanco = C.refBanco'
+      #9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
+      #9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
+      #9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
+      #9'INNER JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
+      #9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
+      #9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'#9
+      'WHERE (C.bVisible = 1)'
+      '       and '
+      '      (UPPER(AdE.cRazonSocial) LIKE UPPER(''%'' || :parametro || ''%''))'
+      ''
+      'UNION ALL'
+      ''
+      'SELECT  C.idCheque'
+      '      , C.NroCheque'
+      '      , B.Banco'
+      '      , CASE'
+      #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
+      #9'      WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9'      WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
+      '        END as RecibidoDe'
+      '      ,  ClE.cNombre as EntregadoA'#9' '#9#9'  '
+      '      , C.fCobro'
+      '      , C.fRecibido'
+      '      , C.fEntrega'
+      '      , C.nMonto'#9'  '
+      #9#9'  '
+      'FROM tbCheques C '
+      '                LEFT JOIN tugBancos B ON B.idBanco = C.refBanco'
+      #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9
+      'WHERE (C.bVisible = 1)'
+      '       and '
+      '      (UPPER(ClE.cNombre) LIKE UPPER(''%'' || :parametro || ''%''))'
+      ''
+      'UNION ALL'
+      ''
+      'SELECT  C.idCheque'
+      '      '#9', C.NroCheque'
+      ' '#9', B.Banco'
+      #9', CASE'
+      #9#9'WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
+      #9#9'WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
+      '          END as RecibidoDe'
+      #9', PrE.cRazonSocial as EntregadoA'#9' '#9#9'  '
+      #9', C.fCobro'
+      '        , C.fRecibido'
+      '        , C.fEntrega'
+      '        , C.nMonto'#9'  '
+      #9#9'  '
+      'FROM tbCheques C '
+      '                LEFT JOIN tugBancos B ON B.idBanco = C.refBanco'
+      #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
+      #9#9'INNER JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9
+      'WHERE (C.bVisible = 1)'
+      '       and '
+      '      (UPPER(PrE.cRazonSocial) LIKE UPPER(''%'' || :parametro || ''%''))'
+      ''
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 124
+    top = 208
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusChequeRecibidoDe: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT  C.idCheque'
+      '      , C.NroCheque'
+      '      , B.Banco'
+      '      , AdR.cRazonSocial as RecibidoDe'
+      '      , CASE'
+      ' '#9'   WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
+      #9'   WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9'   WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
+      #9'END as EntregadoA'#9' '#9#9'  '
+      '      , C.fCobro'
+      '      , C.fRecibido'
+      '      , C.fEntrega'
+      '      , C.nMonto'#9'  '#9#9'  '
+      'FROM tbCheques C '
+      '        LEFT JOIN tugBancos B ON B.idBanco = C.refBanco'
+      #9'INNER JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
+      #9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
+      #9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
+      #9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
+      #9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
+      #9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'#9
+      'WHERE (C.bVisible = 1)'
+      '       and '
+      '      (UPPER(AdR.cRazonSocial) LIKE UPPER(''%'' || :parametro || ''%''))'
+      ''
+      'UNION ALL'
+      ''
+      'SELECT  C.idCheque'
+      '      , C.NroCheque'
+      '      , B.Banco'
+      '      , ClR.cNombre as RecibidoDe'
+      '      , CASE'
+      '         WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
+      '  '#9' WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9' WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
+      '         END as EntregadoA'#9' '#9#9'  '
+      '      , C.fCobro'
+      '      , C.fRecibido'
+      '      , C.fEntrega'
+      '      , C.nMonto'#9'  '
+      #9#9'  '
+      'FROM tbCheques C '
+      '                LEFT JOIN tugBancos B ON B.idBanco = C.refBanco'
+      #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
+      #9#9'INNER JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9
+      'WHERE (C.bVisible = 1)'
+      '       and '
+      '      (UPPER(ClR.cNombre) LIKE UPPER(''%'' || :parametro || ''%''))'
+      ''
+      'UNION ALL'
+      ''
+      'SELECT  C.idCheque'
+      '      '#9', C.NroCheque'
+      ' '#9', B.Banco'
+      #9', PrR.cRazonSocial as RecibidoDe'
+      #9', CASE'
+      #9' '#9' WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
+      #9' '#9' WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9'  '#9'WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
+      #9'  END as EntregadoA'#9' '#9#9'  '
+      #9', C.fCobro'
+      '        , C.fRecibido'
+      '        , C.fEntrega'
+      '        , C.nMonto'#9'  '
+      #9#9'  '
+      'FROM tbCheques C '
+      '                LEFT JOIN tugBancos B ON B.idBanco = C.refBanco'
+      #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
+      #9#9'INNER JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9
+      'WHERE (C.bVisible = 1)'
+      '       and '
+      '         (UPPER(PrR.cRazonSocial) LIKE UPPER(''%'' || :parametro || ''%''))'
+      ''
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 123
+    top = 133
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusChequeMontoMayor: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT  C.idCheque'
+      '      , C.NroCheque'
+      #9'  , B.Banco'
+      #9'  , CASE'
+      #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
+      #9#9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
+      '            END as RecibidoDe'
+      #9'  , CASE'
+      #9'      WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
+      #9#9'  WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9#9'  WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
+      #9'    END as EntregadoA'#9' '#9#9'  '
+      #9'  , C.fCobro'
+      '      , C.fRecibido'
+      '      , C.fEntrega'
+      '      , C.nMonto'#9'  '
+      #9#9'  '
+      'FROM tbCheques C'
+      '        LEFT JOIN tugBancos B ON B.idBanco = C.refBanco'
+      #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9
+      'WHERE (C.bVisible = 1)'
+      '       and (C.nMonto > :parametro)'
+    )
+    Params = <    
+      item
+        DataType = ftFloat
+        Name = 'parametro'
+        ParamType = ptInput
+      end>
+    left = 120
+    top = 563
+    ParamData = <    
+      item
+        DataType = ftFloat
+        Name = 'parametro'
+        ParamType = ptInput
+      end>
+  end
+  object qBusChequeMontoMenor: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT  C.idCheque'
+      '      , C.NroCheque'
+      #9'  , B.Banco'
+      #9'  , CASE'
+      #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
+      #9#9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
+      '            END as RecibidoDe'
+      #9'  , CASE'
+      #9'      WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
+      #9#9'  WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9#9'  WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
+      #9'    END as EntregadoA'#9' '#9#9'  '
+      #9'  , C.fCobro'
+      '      , C.fRecibido'
+      '      , C.fEntrega'
+      '      , C.nMonto'#9'  '
+      #9#9'  '
+      'FROM tbCheques C'
+      '        LEFT JOIN tugBancos B ON B.idBanco = C.refBanco'
+      #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9
+      'WHERE (C.bVisible = 1)'
+      '       and (C.nMonto < :parametro)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 120
+    top = 498
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusChequeMontoIgual: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT  C.idCheque'
+      '      , C.NroCheque'
+      #9'  , B.Banco'
+      #9'  , CASE'
+      #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
+      #9#9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
+      '            END as RecibidoDe'
+      #9'  , CASE'
+      #9'      WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
+      #9#9'  WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9#9'  WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
+      #9'    END as EntregadoA'#9' '#9#9'  '
+      #9'  , C.fCobro'
+      '      , C.fRecibido'
+      '      , C.fEntrega'
+      '      , C.nMonto'#9'  '
+      #9#9'  '
+      'FROM tbCheques C'
+      '        LEFT JOIN tugBancos B ON B.idBanco = C.refBanco'
+      #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9
+      'WHERE (C.bVisible = 1)'
+      '       and (C.nMonto = :parametro)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 122
+    top = 441
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusChequefEntrega: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT  C.idCheque'
+      '      , C.NroCheque'
+      #9'  , B.Banco'
+      #9'  , CASE'
+      #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
+      #9#9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
+      '            END as RecibidoDe'
+      #9'  , CASE'
+      #9'      WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
+      #9#9'  WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9#9'  WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
+      #9'    END as EntregadoA'#9' '#9#9'  '
+      #9'  , C.fCobro'
+      '      , C.fRecibido'
+      '      , C.fEntrega'
+      '      , C.nMonto'#9'  '
+      #9#9'  '
+      'FROM tbCheques C'
+      '        LEFT JOIN tugBancos B ON B.idBanco = C.refBanco'
+      #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9
+      'WHERE (C.bVisible = 1)'
+      '       and (C.fEntrega = :parametro)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 125
+    top = 337
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusChequefRecibido: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT  C.idCheque'
+      '      , C.NroCheque'
+      #9'  , B.Banco'
+      #9'  , CASE'
+      #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
+      #9#9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
+      '            END as RecibidoDe'
+      #9'  , CASE'
+      #9'      WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
+      #9#9'  WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9#9'  WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
+      #9'    END as EntregadoA'#9' '#9#9'  '
+      #9'  , C.fCobro'
+      '      , C.fRecibido'
+      '      , C.fEntrega'
+      '      , C.nMonto'#9'  '
+      #9#9'  '
+      'FROM tbCheques C'
+      '        LEFT JOIN tugBancos B ON B.idBanco = C.refBanco'
+      #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9
+      'WHERE (C.bVisible = 1)'
+      '       and (C.fRecibido = :parametro)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 124
+    top = 387
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbCheques: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idCheque'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'NroCheque'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end    
+      item
+        Name = 'fCobro'
+        DataType = ftDate
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fVencimiento'
+        DataType = ftDate
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refBanco'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refEstado'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refRecibidoDe'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'fRecibido'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'txNotas'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'fEntrega'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refEntregadoA'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'nMonto'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'lxBanco'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'lxRecibidoDe'
+        DataType = ftString
+        Precision = 0
+        Size = 1000
+      end    
+      item
+        Name = 'lxEntregadoA'
+        DataType = ftString
+        Precision = 0
+        Size = 1000
+      end>
+    AfterInsert = tbChequesAfterInsert
+    left = 320
+    top = 9
+    object tbChequesidCheque: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idCheque'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbChequesNroCheque: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'NroCheque'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object tbChequesfCobro: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fCobro'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object tbChequesfVencimiento: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fVencimiento'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object tbChequesrefBanco: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refBanco'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbChequesrefEstado: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refEstado'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbChequesrefRecibidoDe: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refRecibidoDe'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbChequesfRecibido: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fRecibido'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object tbChequestxNotas: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'txNotas'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbChequesfEntrega: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fEntrega'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object tbChequesrefEntregadoA: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refEntregadoA'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbChequesnMonto: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nMonto'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbChequesbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbChequeslxBanco: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'lxBanco'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbChequeslxRecibidoDe: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'lxRecibidoDe'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object tbChequeslxEntregadoA: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'lxEntregadoA'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+  end
+  object qTugBancos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugBancos'
+      'WHERE bVisible = 1'
+    )
+    Params = <>
+    left = 502
+    top = 53
+  end
+  object qTugChequesEstados: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugChequesEstados'
+      'WHERE bVisible = 1'
+    )
+    Params = <>
+    left = 503
+    top = 112
+  end
+  object tbChequesSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT tbCheques.*'
+      'FROM tbCheques'
+      'WHERE idCheque = :idCheque '
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCheque'
+        ParamType = ptUnknown
+      end>
+    left = 320
+    top = 68
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCheque'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbChequesINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO  tbCheques'
+      '( IDCHEQUE'
+      ', NROCHEQUE'
+      ', FCOBRO '
+      ', FVENCIMIENTO'
+      ', REFBANCO  '
+      ', REFESTADO'
+      ', REFRECIBIDODE'
+      ', FRECIBIDO   '
+      ', TXNOTAS  '
+      ', FENTREGA'
+      ', REFENTREGADOA '
+      ', NMONTO '
+      ', BVISIBLE  )'
+      'VALUES'
+      '( :IDCHEQUE'
+      ', :NROCHEQUE'
+      ', :FCOBRO '
+      ', :FVENCIMIENTO'
+      ', :REFBANCO  '
+      ', :REFESTADO'
+      ', :REFRECIBIDODE'
+      ', :FRECIBIDO   '
+      ', :TXNOTAS  '
+      ', :FENTREGA'
+      ', :REFENTREGADOA '
+      ', :NMONTO '
+      ', :BVISIBLE  )'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCHEQUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NROCHEQUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FCOBRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FVENCIMIENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFBANCO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFRECIBIDODE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FRECIBIDO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXNOTAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FENTREGA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFENTREGADOA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+    left = 320
+    top = 132
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCHEQUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NROCHEQUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FCOBRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FVENCIMIENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFBANCO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFRECIBIDODE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FRECIBIDO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXNOTAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FENTREGA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFENTREGADOA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbChequesUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbCheques'
+      'SET '
+      '  NROCHEQUE = :NROCHEQUE '
+      ', FCOBRO = :FCOBRO  '
+      ', FVENCIMIENTO = :FVENCIMIENTO '
+      ', REFBANCO   = :REFBANCO   '
+      ', REFESTADO = :REFESTADO '
+      ', REFRECIBIDODE  = :REFRECIBIDODE  '
+      ', FRECIBIDO  = :FRECIBIDO    '
+      ', TXNOTAS  = :TXNOTAS   '
+      ', FENTREGA  = :FENTREGA  '
+      ', REFENTREGADOA  = :REFENTREGADOA  '
+      ', NMONTO  = :NMONTO  '
+      ', BVISIBLE   = :BVISIBLE   '
+      ''
+      'WHERE IDCHEQUE = :IDCHEQUE'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'NROCHEQUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FCOBRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FVENCIMIENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFBANCO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFRECIBIDODE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FRECIBIDO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXNOTAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FENTREGA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFENTREGADOA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDCHEQUE'
+        ParamType = ptUnknown
+      end>
+    left = 320
+    top = 196
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'NROCHEQUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FCOBRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FVENCIMIENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFBANCO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFRECIBIDODE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FRECIBIDO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXNOTAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FENTREGA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFENTREGADOA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDCHEQUE'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbChequesDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbCheques'
+      'SET  BVISIBLE   = 0'
+      'WHERE IDCHEQUE = :IDCHEQUE'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCHEQUE'
+        ParamType = ptUnknown
+      end>
+    left = 321
+    top = 263
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCHEQUE'
+        ParamType = ptUnknown
+      end>
+  end
+end

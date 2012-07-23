@@ -1,0 +1,373 @@
+object DM_BuscarPersonaEmpresa: TDM_BuscarPersonaEmpresa
+  OldCreateOrder = False
+  Height = 373
+  HorizontalOffset = 483
+  VerticalOffset = 150
+  Width = 398
+  object tbResultados: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idResultado'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'Nombre'
+        DataType = ftString
+        Precision = 0
+        Size = 1500
+      end    
+      item
+        Name = 'refTabla'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'lxTabla'
+        DataType = ftString
+        Precision = 0
+        Size = 30
+      end>
+    left = 45
+    top = 19
+    object tbResultadosidResultado: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idResultado'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbResultadosNombre: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'Nombre'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+    object tbResultadosrefTabla: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refTabla'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbResultadoslxTabla: TStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'lxTabla'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+  end
+  object qBusAdministradores: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT idAdministrador as idResultado'
+      '            ,cRazonSocial as Nombre'
+      '            ,1 as refTabla'
+      'FROM tbAdministradores'
+      'WHERE UPPER(cRazonSocial) LIKE UPPER (''%''||:parametro ||''%'')'
+      '           and (bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 152
+    top = 19
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusClientes: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT idCliente as idResultado'
+      '            ,cNombre as Nombre'
+      '            ,2 as refTabla'
+      'FROM tbClientes'
+      'WHERE UPPER(cNombre) LIKE UPPER (''%''||:parametro ||''%'')'
+      '           and (bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 153
+    top = 74
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusClientesPotenciales: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT idClientePotencial as idResultado'
+      '            ,cRazonSocial as Nombre'
+      '            ,3 as refTabla'
+      'FROM tbClientesPotenciales'
+      'WHERE UPPER(cRazonSocial) LIKE UPPER (''%''||:parametro ||''%'')'
+      '           and (bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 152
+    top = 134
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusConservadores: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT idConservador as idResultado'
+      '            ,cRazonSocial as Nombre'
+      '            ,4 as refTabla'
+      'FROM tbConservadores'
+      'WHERE UPPER(cRazonSocial) LIKE UPPER (''%''||:parametro ||''%'')'
+      '           and (bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 155
+    top = 193
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusProveedores: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT idProveedor as idResultado'
+      '            ,cRazonSocial as Nombre'
+      '            ,5 as refTabla'
+      'FROM tbProveedores'
+      'WHERE UPPER(cRazonSocial) LIKE UPPER (''%''||:parametro ||''%'')'
+      '           and (bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 155
+    top = 254
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusResponsablesTecnicos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT idResponsableTecnico as idResultado'
+      '            ,cNombre as Nombre'
+      '            ,6 as refTabla'
+      'FROM tbResponsablesTecnicos'
+      'WHERE UPPER(cNombre) LIKE UPPER (''%''||:parametro ||''%'')'
+      '           and (bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 153
+    top = 312
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusAdministradoresPorID: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT idAdministrador as idResultado'
+      '            ,cRazonSocial as Nombre'
+      '            ,1 as refTabla'
+      'FROM tbAdministradores'
+      'WHERE idAdministrador = :parametro'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 265
+    top = 17
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusClientesPorID: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT idCliente as idResultado'
+      '            ,cNombre as Nombre'
+      '            ,2 as refTabla'
+      'FROM tbClientes'
+      'WHERE IdCliente = :parametro'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 266
+    top = 72
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusClientesPotencialesPorID: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT idClientePotencial as idResultado'
+      '            ,cRazonSocial as Nombre'
+      '            ,3 as refTabla'
+      'FROM tbClientesPotenciales'
+      'WHERE idClientePotencial = :parametro'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 265
+    top = 133
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusConservadoresPorID: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT idConservador as idResultado'
+      '            ,cRazonSocial as Nombre'
+      '            ,4 as refTabla'
+      'FROM tbConservadores'
+      'WHERE idConservador = :parametro'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 268
+    top = 192
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusProveedoresPorID: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT idProveedor as idResultado'
+      '            ,cRazonSocial as Nombre'
+      '            ,5 as refTabla'
+      'FROM tbProveedores'
+      'WHERE idProveedor = :parametro'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 268
+    top = 254
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusResponsablesTecnicosPorID: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT idResponsableTecnico as idResultado'
+      '            ,cNombre as Nombre'
+      '            ,6 as refTabla'
+      'FROM tbResponsablesTecnicos'
+      'WHERE idResponsableTecnico = :Parametro'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'Parametro'
+        ParamType = ptUnknown
+      end>
+    left = 266
+    top = 312
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'Parametro'
+        ParamType = ptUnknown
+      end>
+  end
+end
