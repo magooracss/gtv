@@ -61,7 +61,7 @@
         <PackageName Value="LCL"/>
       </Item6>
     </RequiredPackages>
-    <Units Count="75">
+    <Units Count="69">
       <Unit0>
         <Filename Value="gtv.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -77,15 +77,11 @@
         <ComponentName Value="frmPrincipal"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_principal"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="364"/>
+        <TopLine Value="352"/>
         <CursorPos X="86" Y="387"/>
         <UsageCount Value="205"/>
-        <Bookmarks Count="1">
-          <Item0 X="1" Y="373" ID="1"/>
-        </Bookmarks>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -108,7 +104,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmgeneral"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
         <TopLine Value="254"/>
         <CursorPos X="26" Y="258"/>
@@ -178,29 +174,14 @@
         <UsageCount Value="203"/>
       </Unit9>
       <Unit10>
-        <Filename Value="..\..\..\Utiles\lazarus\fpc\2.4.2\source\rtl\objpas\classes\classesh.inc"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="566"/>
-        <CursorPos X="14" Y="580"/>
-        <UsageCount Value="1"/>
-      </Unit10>
-      <Unit11>
-        <Filename Value="..\..\..\Utiles\lazarus\lcl\dbgrids.pas"/>
-        <UnitName Value="DBGrids"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="228"/>
-        <CursorPos X="25" Y="246"/>
-        <UsageCount Value="2"/>
-      </Unit11>
-      <Unit12>
         <Filename Value="..\..\..\Utiles\lazarus\fpc\2.4.2\source\packages\fcl-db\src\base\db.pas"/>
         <UnitName Value="db"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1286"/>
         <CursorPos X="18" Y="1304"/>
-        <UsageCount Value="8"/>
-      </Unit12>
-      <Unit13>
+        <UsageCount Value="3"/>
+      </Unit10>
+      <Unit11>
         <Filename Value="frm_busquedaclientes.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmBuscarCliente"/>
@@ -210,8 +191,8 @@
         <TopLine Value="81"/>
         <CursorPos X="96" Y="110"/>
         <UsageCount Value="200"/>
-      </Unit13>
-      <Unit14>
+      </Unit11>
+      <Unit12>
         <Filename Value="dmbuscarcliente.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_BuscarCliente"/>
@@ -221,8 +202,8 @@
         <TopLine Value="1"/>
         <CursorPos X="1" Y="84"/>
         <UsageCount Value="200"/>
-      </Unit14>
-      <Unit15>
+      </Unit12>
+      <Unit13>
         <Filename Value="frm_contactosae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmContactosAE"/>
@@ -232,8 +213,8 @@
         <TopLine Value="17"/>
         <CursorPos X="1" Y="45"/>
         <UsageCount Value="200"/>
-      </Unit15>
-      <Unit16>
+      </Unit13>
+      <Unit14>
         <Filename Value="frm_domicilioae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frm_DomiciliosAE"/>
@@ -243,8 +224,8 @@
         <TopLine Value="73"/>
         <CursorPos X="14" Y="77"/>
         <UsageCount Value="204"/>
-      </Unit16>
-      <Unit17>
+      </Unit14>
+      <Unit15>
         <Filename Value="frm_equipocliente.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmEquipoCliente"/>
@@ -257,8 +238,8 @@
         <Bookmarks Count="1">
           <Item0 X="1" Y="260" ID="2"/>
         </Bookmarks>
-      </Unit17>
-      <Unit18>
+      </Unit15>
+      <Unit16>
         <Filename Value="dmequipos.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Equipos"/>
@@ -268,8 +249,8 @@
         <TopLine Value="513"/>
         <CursorPos X="53" Y="547"/>
         <UsageCount Value="200"/>
-      </Unit18>
-      <Unit19>
+      </Unit16>
+      <Unit17>
         <Filename Value="frm_presupuestoslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmPresupuestosListados"/>
@@ -279,8 +260,8 @@
         <TopLine Value="96"/>
         <CursorPos X="27" Y="114"/>
         <UsageCount Value="200"/>
-      </Unit19>
-      <Unit20>
+      </Unit17>
+      <Unit18>
         <Filename Value="dmpresupuestos.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Presupuestos"/>
@@ -290,8 +271,8 @@
         <TopLine Value="21"/>
         <CursorPos X="15" Y="57"/>
         <UsageCount Value="200"/>
-      </Unit20>
-      <Unit21>
+      </Unit18>
+      <Unit19>
         <Filename Value="frm_presupuestoae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmPresupuestoAE"/>
@@ -301,8 +282,8 @@
         <TopLine Value="165"/>
         <CursorPos X="146" Y="177"/>
         <UsageCount Value="200"/>
-      </Unit21>
-      <Unit22>
+      </Unit19>
+      <Unit20>
         <Filename Value="frm_altamasivacuotas.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmAltaMasivaCuotas"/>
@@ -312,8 +293,8 @@
         <TopLine Value="104"/>
         <CursorPos X="8" Y="116"/>
         <UsageCount Value="200"/>
-      </Unit22>
-      <Unit23>
+      </Unit20>
+      <Unit21>
         <Filename Value="frm_cuotaae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmCuotaAE"/>
@@ -323,8 +304,8 @@
         <TopLine Value="127"/>
         <CursorPos X="48" Y="153"/>
         <UsageCount Value="200"/>
-      </Unit23>
-      <Unit24>
+      </Unit21>
+      <Unit22>
         <Filename Value="dmordenestrabajo.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_OrdenesTrabajo"/>
@@ -334,8 +315,8 @@
         <TopLine Value="124"/>
         <CursorPos X="3" Y="137"/>
         <UsageCount Value="201"/>
-      </Unit24>
-      <Unit25>
+      </Unit22>
+      <Unit23>
         <Filename Value="frm_ordenestrabajolistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmOrdenesTrabajoListado"/>
@@ -348,8 +329,8 @@
         <Bookmarks Count="1">
           <Item0 X="3" Y="87" ID="1"/>
         </Bookmarks>
-      </Unit25>
-      <Unit26>
+      </Unit23>
+      <Unit24>
         <Filename Value="frm_ordentrabajoae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmOrdenTrabajoAE"/>
@@ -359,8 +340,8 @@
         <TopLine Value="141"/>
         <CursorPos X="1" Y="145"/>
         <UsageCount Value="200"/>
-      </Unit26>
-      <Unit27>
+      </Unit24>
+      <Unit25>
         <Filename Value="frm_equiposeleccion.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmEquipoSeleccion"/>
@@ -370,8 +351,8 @@
         <TopLine Value="33"/>
         <CursorPos X="34" Y="57"/>
         <UsageCount Value="200"/>
-      </Unit27>
-      <Unit28>
+      </Unit25>
+      <Unit26>
         <Filename Value="frm_presupuestoseleccion.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FrmPresupuestoSeleccion"/>
@@ -381,8 +362,8 @@
         <TopLine Value="25"/>
         <CursorPos X="32" Y="31"/>
         <UsageCount Value="201"/>
-      </Unit28>
-      <Unit29>
+      </Unit26>
+      <Unit27>
         <Filename Value="frm_conservadorae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmConservadorAE"/>
@@ -392,8 +373,8 @@
         <TopLine Value="48"/>
         <CursorPos X="48" Y="52"/>
         <UsageCount Value="200"/>
-      </Unit29>
-      <Unit30>
+      </Unit27>
+      <Unit28>
         <Filename Value="frm_conservadoreslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FrmConservadoresListado"/>
@@ -403,15 +384,8 @@
         <TopLine Value="72"/>
         <CursorPos X="3" Y="92"/>
         <UsageCount Value="202"/>
-      </Unit30>
-      <Unit31>
-        <Filename Value="..\..\..\Utiles\lazarus\fpc\2.4.2\source\rtl\objpas\classes\stringl.inc"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="321"/>
-        <CursorPos X="104" Y="341"/>
-        <UsageCount Value="2"/>
-      </Unit31>
-      <Unit32>
+      </Unit28>
+      <Unit29>
         <Filename Value="frm_resptecnicoslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmResponsablesTecnicosListado"/>
@@ -421,8 +395,8 @@
         <TopLine Value="57"/>
         <CursorPos X="26" Y="62"/>
         <UsageCount Value="200"/>
-      </Unit32>
-      <Unit33>
+      </Unit29>
+      <Unit30>
         <Filename Value="frm_resptecnicoae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmResponsableTecnicoAE"/>
@@ -432,8 +406,8 @@
         <TopLine Value="2"/>
         <CursorPos X="36" Y="26"/>
         <UsageCount Value="200"/>
-      </Unit33>
-      <Unit34>
+      </Unit30>
+      <Unit31>
         <Filename Value="frm_administradoressel.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmAdministradoresSel"/>
@@ -443,51 +417,48 @@
         <TopLine Value="67"/>
         <CursorPos X="69" Y="95"/>
         <UsageCount Value="201"/>
-      </Unit34>
-      <Unit35>
+      </Unit31>
+      <Unit32>
         <Filename Value="frm_reclamosam.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmReclamosAM"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_reclamosam"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
         <TopLine Value="277"/>
         <CursorPos X="20" Y="281"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
-      </Unit35>
-      <Unit36>
+      </Unit32>
+      <Unit33>
         <Filename Value="dmreclamos.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="dm_reclamos"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmreclamos"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
         <TopLine Value="235"/>
         <CursorPos X="40" Y="277"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
-      </Unit36>
-      <Unit37>
+      </Unit33>
+      <Unit34>
         <Filename Value="frm_reclamoslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmReclamosListado"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_reclamoslistado"/>
-        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
         <TopLine Value="125"/>
         <CursorPos X="27" Y="131"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
-      </Unit37>
-      <Unit38>
+      </Unit34>
+      <Unit35>
         <Filename Value="frm_remitoslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmRemitosListado"/>
@@ -497,8 +468,8 @@
         <TopLine Value="168"/>
         <CursorPos X="27" Y="170"/>
         <UsageCount Value="201"/>
-      </Unit38>
-      <Unit39>
+      </Unit35>
+      <Unit36>
         <Filename Value="dmremitos.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Remitos"/>
@@ -508,8 +479,8 @@
         <TopLine Value="241"/>
         <CursorPos X="41" Y="166"/>
         <UsageCount Value="200"/>
-      </Unit39>
-      <Unit40>
+      </Unit36>
+      <Unit37>
         <Filename Value="frm_remitosae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmRemitosAE"/>
@@ -522,8 +493,8 @@
         <Bookmarks Count="1">
           <Item0 X="1" Y="153" ID="1"/>
         </Bookmarks>
-      </Unit40>
-      <Unit41>
+      </Unit37>
+      <Unit38>
         <Filename Value="frm_listadopersonal.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmListadoPersonal"/>
@@ -533,8 +504,8 @@
         <TopLine Value="37"/>
         <CursorPos X="6" Y="88"/>
         <UsageCount Value="200"/>
-      </Unit41>
-      <Unit42>
+      </Unit38>
+      <Unit39>
         <Filename Value="frm_cajalistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmCajaListado"/>
@@ -544,8 +515,8 @@
         <TopLine Value="1"/>
         <CursorPos X="59" Y="23"/>
         <UsageCount Value="204"/>
-      </Unit42>
-      <Unit43>
+      </Unit39>
+      <Unit40>
         <Filename Value="dmcaja.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_CAJA"/>
@@ -555,8 +526,8 @@
         <TopLine Value="136"/>
         <CursorPos X="37" Y="144"/>
         <UsageCount Value="204"/>
-      </Unit43>
-      <Unit44>
+      </Unit40>
+      <Unit41>
         <Filename Value="frm_cajaconceptoae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmCajaConceptoAE"/>
@@ -566,8 +537,8 @@
         <TopLine Value="50"/>
         <CursorPos X="28" Y="68"/>
         <UsageCount Value="201"/>
-      </Unit44>
-      <Unit45>
+      </Unit41>
+      <Unit42>
         <Filename Value="frm_conceptoae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmConceptoAE"/>
@@ -577,8 +548,8 @@
         <TopLine Value="46"/>
         <CursorPos X="68" Y="66"/>
         <UsageCount Value="200"/>
-      </Unit45>
-      <Unit46>
+      </Unit42>
+      <Unit43>
         <Filename Value="frm_tugconceptoslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmTugConceptosListado"/>
@@ -588,8 +559,8 @@
         <TopLine Value="39"/>
         <CursorPos X="14" Y="53"/>
         <UsageCount Value="209"/>
-      </Unit46>
-      <Unit47>
+      </Unit43>
+      <Unit44>
         <Filename Value="dmproveedores.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Proveedores"/>
@@ -599,8 +570,8 @@
         <TopLine Value="91"/>
         <CursorPos X="52" Y="120"/>
         <UsageCount Value="202"/>
-      </Unit47>
-      <Unit48>
+      </Unit44>
+      <Unit45>
         <Filename Value="frm_proveedoreslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmProveedoresListado"/>
@@ -610,8 +581,8 @@
         <TopLine Value="2"/>
         <CursorPos X="27" Y="70"/>
         <UsageCount Value="202"/>
-      </Unit48>
-      <Unit49>
+      </Unit45>
+      <Unit46>
         <Filename Value="frm_proveedoresae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmProveedorAE"/>
@@ -621,16 +592,8 @@
         <TopLine Value="44"/>
         <CursorPos X="8" Y="70"/>
         <UsageCount Value="201"/>
-      </Unit49>
-      <Unit50>
-        <Filename Value="..\..\..\Utiles\lazarus\lcl\forms.pp"/>
-        <UnitName Value="Forms"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="593"/>
-        <CursorPos X="14" Y="607"/>
-        <UsageCount Value="2"/>
-      </Unit50>
-      <Unit51>
+      </Unit46>
+      <Unit47>
         <Filename Value="frm_clientespotencialeslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmClientesPotencialesListado"/>
@@ -640,8 +603,8 @@
         <TopLine Value="65"/>
         <CursorPos X="105" Y="91"/>
         <UsageCount Value="200"/>
-      </Unit51>
-      <Unit52>
+      </Unit47>
+      <Unit48>
         <Filename Value="dmclientespotenciales.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_ClientesPotenciales"/>
@@ -651,8 +614,8 @@
         <TopLine Value="103"/>
         <CursorPos X="4" Y="105"/>
         <UsageCount Value="200"/>
-      </Unit52>
-      <Unit53>
+      </Unit48>
+      <Unit49>
         <Filename Value="frm_clientespotencialesae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmClientesPotencialesAE"/>
@@ -662,8 +625,8 @@
         <TopLine Value="28"/>
         <CursorPos X="81" Y="40"/>
         <UsageCount Value="200"/>
-      </Unit53>
-      <Unit54>
+      </Unit49>
+      <Unit50>
         <Filename Value="frm_listadocheques.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmListadoCheques"/>
@@ -673,8 +636,8 @@
         <TopLine Value="172"/>
         <CursorPos X="19" Y="180"/>
         <UsageCount Value="200"/>
-      </Unit54>
-      <Unit55>
+      </Unit50>
+      <Unit51>
         <Filename Value="dmcheques.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Cheques"/>
@@ -684,8 +647,8 @@
         <TopLine Value="1"/>
         <CursorPos X="37" Y="2"/>
         <UsageCount Value="200"/>
-      </Unit55>
-      <Unit56>
+      </Unit51>
+      <Unit52>
         <Filename Value="frm_chequesae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmChequeAE"/>
@@ -695,15 +658,8 @@
         <TopLine Value="87"/>
         <CursorPos X="1" Y="88"/>
         <UsageCount Value="211"/>
-      </Unit56>
-      <Unit57>
-        <Filename Value="..\..\..\Utiles\lazarus\fpc\2.4.2\source\rtl\objpas\sysutils\sysutilh.inc"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="179"/>
-        <CursorPos X="14" Y="173"/>
-        <UsageCount Value="5"/>
-      </Unit57>
-      <Unit58>
+      </Unit52>
+      <Unit53>
         <Filename Value="dmbuscarpersonaempresa.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_BuscarPersonaEmpresa"/>
@@ -713,8 +669,8 @@
         <TopLine Value="104"/>
         <CursorPos X="43" Y="106"/>
         <UsageCount Value="205"/>
-      </Unit58>
-      <Unit59>
+      </Unit53>
+      <Unit54>
         <Filename Value="frm_busquedapersonasempresas.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmBusquedaPersonasEmpresas"/>
@@ -724,41 +680,54 @@
         <TopLine Value="56"/>
         <CursorPos X="20" Y="67"/>
         <UsageCount Value="204"/>
-      </Unit59>
-      <Unit60>
+      </Unit54>
+      <Unit55>
         <Filename Value="dmcompras.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Compras"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmcompras"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="520"/>
-        <CursorPos X="137" Y="412"/>
-        <UsageCount Value="194"/>
-      </Unit60>
-      <Unit61>
+        <TopLine Value="597"/>
+        <CursorPos X="17" Y="665"/>
+        <UsageCount Value="200"/>
+        <Bookmarks Count="1">
+          <Item0 X="14" Y="326" ID="1"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit55>
+      <Unit56>
         <Filename Value="frm_compraslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmComprasListado"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_compraslistado"/>
+        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="166"/>
-        <CursorPos X="27" Y="193"/>
-        <UsageCount Value="194"/>
-      </Unit61>
-      <Unit62>
+        <TopLine Value="22"/>
+        <CursorPos X="31" Y="49"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit56>
+      <Unit57>
         <Filename Value="frm_comprasae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmComprasAE"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_comprasae"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="158"/>
-        <CursorPos X="34" Y="168"/>
-        <UsageCount Value="187"/>
-      </Unit62>
-      <Unit63>
+        <TopLine Value="125"/>
+        <CursorPos X="20" Y="152"/>
+        <UsageCount Value="238"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit57>
+      <Unit58>
         <Filename Value="dmplandecuentas.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_PlanDeCuentas"/>
@@ -767,9 +736,9 @@
         <WindowIndex Value="0"/>
         <TopLine Value="31"/>
         <CursorPos X="3" Y="115"/>
-        <UsageCount Value="182"/>
-      </Unit63>
-      <Unit64>
+        <UsageCount Value="233"/>
+      </Unit58>
+      <Unit59>
         <Filename Value="frm_plandecuentaslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmPlanDeCuentasListado"/>
@@ -778,9 +747,9 @@
         <WindowIndex Value="0"/>
         <TopLine Value="87"/>
         <CursorPos X="32" Y="92"/>
-        <UsageCount Value="181"/>
-      </Unit64>
-      <Unit65>
+        <UsageCount Value="232"/>
+      </Unit59>
+      <Unit60>
         <Filename Value="frm_plandecuentasae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmPlanDeCuentasAE"/>
@@ -789,9 +758,9 @@
         <WindowIndex Value="0"/>
         <TopLine Value="35"/>
         <CursorPos X="55" Y="64"/>
-        <UsageCount Value="180"/>
-      </Unit65>
-      <Unit66>
+        <UsageCount Value="231"/>
+      </Unit60>
+      <Unit61>
         <Filename Value="frm_ordenespagolistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmOrdenesPagoListado"/>
@@ -800,9 +769,9 @@
         <WindowIndex Value="0"/>
         <TopLine Value="135"/>
         <CursorPos X="18" Y="141"/>
-        <UsageCount Value="154"/>
-      </Unit66>
-      <Unit67>
+        <UsageCount Value="205"/>
+      </Unit61>
+      <Unit62>
         <Filename Value="dmordenesdepago.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_OrdenesDePago"/>
@@ -811,12 +780,12 @@
         <WindowIndex Value="0"/>
         <TopLine Value="286"/>
         <CursorPos X="33" Y="295"/>
-        <UsageCount Value="154"/>
+        <UsageCount Value="205"/>
         <Bookmarks Count="1">
           <Item0 X="3" Y="270" ID="1"/>
         </Bookmarks>
-      </Unit67>
-      <Unit68>
+      </Unit62>
+      <Unit63>
         <Filename Value="frm_ordenpagoae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmOrdenDePagoAE"/>
@@ -825,9 +794,9 @@
         <WindowIndex Value="0"/>
         <TopLine Value="165"/>
         <CursorPos X="36" Y="172"/>
-        <UsageCount Value="143"/>
-      </Unit68>
-      <Unit69>
+        <UsageCount Value="194"/>
+      </Unit63>
+      <Unit64>
         <Filename Value="frm_cargavalores.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmCargaValores"/>
@@ -836,9 +805,9 @@
         <WindowIndex Value="0"/>
         <TopLine Value="147"/>
         <CursorPos X="7" Y="166"/>
-        <UsageCount Value="135"/>
-      </Unit69>
-      <Unit70>
+        <UsageCount Value="186"/>
+      </Unit64>
+      <Unit65>
         <Filename Value="dmvalores.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Valores"/>
@@ -847,18 +816,9 @@
         <WindowIndex Value="0"/>
         <TopLine Value="107"/>
         <CursorPos X="64" Y="143"/>
-        <UsageCount Value="134"/>
-      </Unit70>
-      <Unit71>
-        <Filename Value="..\..\..\Utiles\lazarus\components\zeos\src\component\ZAbstractRODataset.pas"/>
-        <UnitName Value="ZAbstractRODataset"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="61"/>
-        <CursorPos X="41" Y="79"/>
-        <UsageCount Value="1"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit71>
-      <Unit72>
+        <UsageCount Value="185"/>
+      </Unit65>
+      <Unit66>
         <Filename Value="frm_pagocomprobantes.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmPagoComprobante"/>
@@ -867,128 +827,140 @@
         <WindowIndex Value="0"/>
         <TopLine Value="154"/>
         <CursorPos X="44" Y="188"/>
-        <UsageCount Value="117"/>
-      </Unit72>
-      <Unit73>
+        <UsageCount Value="168"/>
+      </Unit66>
+      <Unit67>
         <Filename Value="..\..\..\Utiles\lazarus\fpc\2.4.2\source\rtl\objpas\sysutils\sysstrh.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="192"/>
         <CursorPos X="10" Y="210"/>
-        <UsageCount Value="8"/>
-      </Unit73>
-      <Unit74>
+        <UsageCount Value="3"/>
+      </Unit67>
+      <Unit68>
         <Filename Value="..\..\..\Utiles\lazarus\fpc\2.4.2\source\packages\fcl-db\src\base\dataset.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1714"/>
         <CursorPos X="4" Y="1718"/>
-        <UsageCount Value="8"/>
-      </Unit74>
+        <UsageCount Value="3"/>
+      </Unit68>
     </Units>
-    <JumpHistory Count="26" HistoryIndex="25">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
-        <Filename Value="dmgeneral.pas"/>
-        <Caret Line="428" Column="3" TopLine="426"/>
+        <Filename Value="dmcompras.pas"/>
+        <Caret Line="528" Column="17" TopLine="498"/>
       </Position1>
       <Position2>
-        <Filename Value="frm_principal.pas"/>
-        <Caret Line="427" Column="29" TopLine="410"/>
+        <Filename Value="dmcompras.pas"/>
+        <Caret Line="106" Column="1" TopLine="106"/>
       </Position2>
       <Position3>
-        <Filename Value="frm_principal.pas"/>
-        <Caret Line="428" Column="29" TopLine="411"/>
+        <Filename Value="dmcompras.pas"/>
+        <Caret Line="115" Column="14" TopLine="106"/>
       </Position3>
       <Position4>
-        <Filename Value="frm_principal.pas"/>
-        <Caret Line="429" Column="29" TopLine="412"/>
+        <Filename Value="dmcompras.pas"/>
+        <Caret Line="127" Column="45" TopLine="106"/>
       </Position4>
       <Position5>
-        <Filename Value="frm_principal.pas"/>
-        <Caret Line="436" Column="29" TopLine="419"/>
+        <Filename Value="dmcompras.pas"/>
+        <Caret Line="326" Column="14" TopLine="301"/>
       </Position5>
       <Position6>
-        <Filename Value="frm_principal.pas"/>
-        <Caret Line="187" Column="131" TopLine="181"/>
+        <Filename Value="dmcompras.pas"/>
+        <Caret Line="349" Column="24" TopLine="401"/>
       </Position6>
       <Position7>
-        <Filename Value="frm_principal.pas"/>
-        <Caret Line="183" Column="3" TopLine="181"/>
+        <Filename Value="dmcompras.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
       </Position7>
       <Position8>
-        <Filename Value="frm_principal.pas"/>
-        <Caret Line="118" Column="32" TopLine="92"/>
+        <Filename Value="dmcompras.pas"/>
+        <Caret Line="163" Column="29" TopLine="138"/>
       </Position8>
       <Position9>
-        <Filename Value="frm_principal.pas"/>
-        <Caret Line="361" Column="48" TopLine="349"/>
+        <Filename Value="dmcompras.pas"/>
+        <Caret Line="313" Column="37" TopLine="288"/>
       </Position9>
       <Position10>
-        <Filename Value="dmgeneral.pas"/>
-        <Caret Line="18" Column="18" TopLine="1"/>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="325" Column="91" TopLine="310"/>
       </Position10>
       <Position11>
-        <Filename Value="dmgeneral.pas"/>
-        <Caret Line="7" Column="33" TopLine="1"/>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="165" Column="4" TopLine="343"/>
       </Position11>
       <Position12>
-        <Filename Value="dmgeneral.pas"/>
-        <Caret Line="10" Column="13" TopLine="1"/>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="152" Column="3" TopLine="141"/>
       </Position12>
       <Position13>
-        <Filename Value="dmgeneral.pas"/>
-        <Caret Line="15" Column="15" TopLine="1"/>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
       </Position13>
       <Position14>
-        <Filename Value="frm_principal.pas"/>
-        <Caret Line="187" Column="20" TopLine="185"/>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="59" Column="11" TopLine="34"/>
       </Position14>
       <Position15>
-        <Filename Value="frm_principal.pas"/>
-        <Caret Line="375" Column="45" TopLine="345"/>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="323" Column="9" TopLine="301"/>
       </Position15>
       <Position16>
-        <Filename Value="frm_principal.pas"/>
-        <Caret Line="374" Column="45" TopLine="344"/>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="313" Column="1" TopLine="283"/>
       </Position16>
       <Position17>
-        <Filename Value="frm_principal.pas"/>
-        <Caret Line="375" Column="45" TopLine="345"/>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
       </Position17>
       <Position18>
-        <Filename Value="frm_reclamosam.pas"/>
-        <Caret Line="292" Column="25" TopLine="161"/>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="25" Column="21" TopLine="1"/>
       </Position18>
       <Position19>
-        <Filename Value="frm_reclamosam.pas"/>
-        <Caret Line="313" Column="23" TopLine="294"/>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="26" Column="21" TopLine="1"/>
       </Position19>
       <Position20>
-        <Filename Value="frm_reclamoslistado.pas"/>
-        <Caret Line="156" Column="27" TopLine="62"/>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="27" Column="21" TopLine="2"/>
       </Position20>
       <Position21>
-        <Filename Value="frm_reclamoslistado.pas"/>
-        <Caret Line="71" Column="24" TopLine="64"/>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="28" Column="26" TopLine="3"/>
       </Position21>
       <Position22>
-        <Filename Value="frm_reclamoslistado.pas"/>
-        <Caret Line="131" Column="27" TopLine="125"/>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="29" Column="24" TopLine="4"/>
       </Position22>
       <Position23>
-        <Filename Value="frm_reclamosam.pas"/>
-        <Caret Line="313" Column="23" TopLine="294"/>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="30" Column="24" TopLine="5"/>
       </Position23>
       <Position24>
-        <Filename Value="frm_reclamosam.pas"/>
-        <Caret Line="281" Column="20" TopLine="277"/>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="31" Column="29" TopLine="6"/>
       </Position24>
       <Position25>
-        <Filename Value="dmreclamos.pas"/>
-        <Caret Line="253" Column="24" TopLine="247"/>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="32" Column="29" TopLine="7"/>
       </Position25>
       <Position26>
-        <Filename Value="frm_principal.pas"/>
-        <Caret Line="238" Column="27" TopLine="238"/>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="33" Column="24" TopLine="8"/>
       </Position26>
+      <Position27>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="39" Column="21" TopLine="14"/>
+      </Position27>
+      <Position28>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="40" Column="21" TopLine="15"/>
+      </Position28>
+      <Position29>
+        <Filename Value="frm_comprasae.pas"/>
+        <Caret Line="101" Column="11" TopLine="76"/>
+      </Position29>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>

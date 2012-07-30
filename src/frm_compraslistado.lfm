@@ -357,7 +357,7 @@ object frmComprasListado: TfrmComprasListado
         Title.Alignment = taCenter
         Title.Caption = 'Comprobante'
         Width = 120
-        FieldName = 'NroComprobante'
+        FieldName = 'nroFactura'
       end    
       item
         Title.Alignment = taCenter

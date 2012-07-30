@@ -22,6 +22,9 @@ type
     btnBuscarProv: TBitBtn;
     cbTipoComprobante: TComboBox;
     Compra: TDatasource;
+    DBEdit1: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
     dbMontoTotal: TDBEdit;
     dbCantidad: TDBEdit;
     dbConcepto: TDBEdit;
@@ -30,9 +33,9 @@ type
     dbMontoIVA: TDBEdit;
     DBGrid1: TDBGrid;
     edImputacion: TEdit;
+    GroupBox3: TGroupBox;
     Items: TDatasource;
     DBDateEdit1: TDBDateEdit;
-    DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
     DBEdit3: TDBEdit;
     DBEdit4: TDBEdit;
@@ -40,11 +43,11 @@ type
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     Label1: TLabel;
-    Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
     Label6: TLabel;
+    Label7: TLabel;
     Panel1: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
@@ -64,6 +67,7 @@ type
     procedure dbCantidadExit(Sender: TObject);
     procedure dbCantidadKeyPress(Sender: TObject; var Key: char);
     procedure dbConceptoKeyPress(Sender: TObject; var Key: char);
+    procedure DBEdit3Exit(Sender: TObject);
     procedure DBGrid1SelectEditor(Sender: TObject; Column: TColumn;
       var Editor: TWinControl);
     procedure dbMontoIVAExit(Sender: TObject);
@@ -141,6 +145,11 @@ begin
   begin
     edImputacion.SetFocus;
   end;
+end;
+
+procedure TfrmComprasAE.DBEdit3Exit(Sender: TObject);
+begin
+  ActualizarMontos;
 end;
 
 
@@ -314,7 +323,7 @@ begin
   DM_Compras.actualizarMontosItem;
   DM_Compras.ActualizarMontoTotal;
   stIVA.Caption:= 'Total IVA ' +FormatFloat ('$ ###########0.00', DM_Compras.TotalIVA);
-  stNeto.Caption:= 'Total Neto ' +FormatFloat ('$ ###########0.00', DM_Compras.TotalNeto);;
+  stNeto.Caption:= 'Total Neto ' +FormatFloat ('$ ###########0.00', DM_Compras.TotalNeto);
 end;
 
 procedure TfrmComprasAE.AltaItem;

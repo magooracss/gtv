@@ -101,7 +101,7 @@ object frmComprasAE: TfrmComprasAE
     object GroupBox2: TGroupBox
       Left = 12
       Height = 64
-      Top = 73
+      Top = 81
       Width = 407
       Caption = 'Comprobante'
       ClientHeight = 46
@@ -125,7 +125,7 @@ object frmComprasAE: TfrmComprasAE
         ParentColor = False
       end
       object btnTugTiposComprobantes: TSpeedButton
-        Left = 154
+        Left = 153
         Height = 25
         Top = 18
         Width = 27
@@ -168,24 +168,37 @@ object frmComprasAE: TfrmComprasAE
         NumGlyphs = 0
         OnClick = btnTugTiposComprobantesClick
       end
-      object DBEdit1: TDBEdit
-        Left = 191
-        Height = 24
-        Top = 19
-        Width = 205
-        DataField = 'NroComprobante'
-        DataSource = Compra
-        CharCase = ecNormal
-        MaxLength = 0
+      object GroupBox3: TGroupBox
+        Left = 199
+        Height = 47
+        Top = -4
+        Width = 197
+        Caption = 'Factura'
+        ClientHeight = 29
+        ClientWidth = 193
         TabOrder = 1
-      end
-      object Label2: TLabel
-        Left = 195
-        Height = 17
-        Top = 3
-        Width = 46
-        Caption = 'Número'
-        ParentColor = False
+        object DBEdit1: TDBEdit
+          Left = 6
+          Height = 24
+          Top = 4
+          Width = 70
+          DataField = 'nroPtoVenta'
+          DataSource = Compra
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 0
+        end
+        object DBEdit5: TDBEdit
+          Left = 88
+          Height = 24
+          Top = 4
+          Width = 97
+          DataField = 'nroFactura'
+          DataSource = Compra
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 1
+        end
       end
     end
     object DBDateEdit1: TDBDateEdit
@@ -272,26 +285,28 @@ object frmComprasAE: TfrmComprasAE
       TabOrder = 0
     end
     object DBEdit3: TDBEdit
-      Left = 363
+      Left = 346
       Height = 24
       Top = 24
-      Width = 122
+      Width = 107
       DataField = 'PercepCapital'
       DataSource = Compra
       CharCase = ecNormal
       MaxLength = 0
       TabOrder = 1
+      OnExit = DBEdit3Exit
     end
     object DBEdit4: TDBEdit
-      Left = 507
+      Left = 459
       Height = 24
       Top = 24
-      Width = 131
+      Width = 100
       DataField = 'PercepProvincia'
       DataSource = Compra
       CharCase = ecNormal
       MaxLength = 0
       TabOrder = 2
+      OnExit = DBEdit3Exit
     end
     object Label4: TLabel
       Left = 17
@@ -302,19 +317,19 @@ object frmComprasAE: TfrmComprasAE
       ParentColor = False
     end
     object Label5: TLabel
-      Left = 363
+      Left = 346
       Height = 17
       Top = 6
-      Width = 124
-      Caption = 'Percepciones Capital'
+      Width = 90
+      Caption = 'Percep. Capital'
       ParentColor = False
     end
     object Label6: TLabel
-      Left = 504
+      Left = 459
       Height = 17
       Top = 7
-      Width = 136
-      Caption = 'Percepciones Provincia'
+      Width = 102
+      Caption = 'Percep. Provincia'
       ParentColor = False
     end
     object stNeto: TStaticText
@@ -350,6 +365,26 @@ object frmComprasAE: TfrmComprasAE
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 4
+    end
+    object DBEdit6: TDBEdit
+      Left = 565
+      Height = 24
+      Top = 24
+      Width = 107
+      DataField = 'PercepIVA'
+      DataSource = Compra
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 5
+      OnExit = DBEdit3Exit
+    end
+    object Label7: TLabel
+      Left = 568
+      Height = 17
+      Top = 7
+      Width = 71
+      Caption = 'Percep. IVA'
+      ParentColor = False
     end
   end
   object Panel3: TPanel

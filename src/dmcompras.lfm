@@ -2,15 +2,15 @@ object DM_Compras: TDM_Compras
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 626
-  HorizontalOffset = 282
-  VerticalOffset = 0
+  HorizontalOffset = 448
+  VerticalOffset = -2
   Width = 839
   object qBusComprasProv: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'SELECT C.idCompra'
       '            ,C.Fecha'
-      '            ,C.NroComprobante'
+      '            ,C.NroFactura '
       '           ,P.cRazonSocial as Proveedor'
       '           ,C.nTotal as Monto'
       '           ,C.bPagada'
@@ -62,12 +62,6 @@ object DM_Compras: TDM_Compras
         Size = 0
       end    
       item
-        Name = 'NroComprobante'
-        DataType = ftString
-        Precision = 0
-        Size = 30
-      end    
-      item
         Name = 'Proveedor'
         DataType = ftString
         Precision = 0
@@ -81,6 +75,12 @@ object DM_Compras: TDM_Compras
       end    
       item
         Name = 'bPagada'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nroFactura'
         DataType = ftInteger
         Precision = 0
         Size = 0
@@ -109,22 +109,11 @@ object DM_Compras: TDM_Compras
       Required = False
       DisplayFormat = 'dd/mm/yyyy'
     end
-    object tbResultadosNroComprobante: TStringField
-      DisplayWidth = 30
-      FieldKind = fkData
-      FieldName = 'NroComprobante'
-      Index = 2
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 30
-    end
     object tbResultadosProveedor: TStringField
       DisplayWidth = 1500
       FieldKind = fkData
       FieldName = 'Proveedor'
-      Index = 3
+      Index = 2
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -135,7 +124,7 @@ object DM_Compras: TDM_Compras
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'Monto'
-      Index = 4
+      Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -149,11 +138,22 @@ object DM_Compras: TDM_Compras
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'bPagada'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbResultadosnroFactura: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nroFactura'
       Index = 5
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      DisplayFormat = '00000000'
     end
   end
   object qBusComprasComprob: TZQuery
@@ -161,14 +161,14 @@ object DM_Compras: TDM_Compras
     SQL.Strings = (
       'SELECT C.idCompra'
       '            ,C.Fecha'
-      '            ,C.NroComprobante'
+      '            ,C.NroFactura'
       '           ,P.cRazonSocial as Proveedor'
       '           ,C.nTotal as Monto'
       '           ,C.bPagada'
       'FROM tbCompras as C'
       '           LEFT JOIN tbProveedores P ON P.idProveedor = C.refProveedor'
       'WHERE  (C.bVisible = 1)'
-      '             and (UPPER(C.NroComprobante) LIKE UPPER(''%''|| :parametro || ''%'' ))'
+      '             and (UPPER(C.NroFactura) LIKE UPPER(''%''|| :parametro || ''%'' ))'
       '             and (C.bPagada = :filtro)'
       'ORDER BY C.NroComprobante'
     )
@@ -202,7 +202,7 @@ object DM_Compras: TDM_Compras
     SQL.Strings = (
       'SELECT C.idCompra'
       '            ,C.Fecha'
-      '            ,C.NroComprobante'
+      '            ,C.NroFactura'
       '           ,P.cRazonSocial as Proveedor'
       '           ,C.nTotal as Monto'
       '           ,C.bPagada'
@@ -243,7 +243,7 @@ object DM_Compras: TDM_Compras
     SQL.Strings = (
       'SELECT C.idCompra'
       '            ,C.Fecha'
-      '            ,C.NroComprobante'
+      '            ,C.NroFactura'
       '           ,P.cRazonSocial as Proveedor'
       '           ,C.nTotal as Monto'
       '           ,C.bPagada'
@@ -284,7 +284,7 @@ object DM_Compras: TDM_Compras
     SQL.Strings = (
       'SELECT C.idCompra'
       '            ,C.Fecha'
-      '            ,C.NroComprobante'
+      '            ,C.NroFactura'
       '           ,P.cRazonSocial as Proveedor'
       '           ,C.nTotal as Monto'
       '           ,C.bPagada'
@@ -347,12 +347,6 @@ object DM_Compras: TDM_Compras
         Size = 0
       end    
       item
-        Name = 'NroComprobante'
-        DataType = ftString
-        Precision = 0
-        Size = 30
-      end    
-      item
         Name = 'nTotal'
         DataType = ftFloat
         Precision = 0
@@ -387,10 +381,28 @@ object DM_Compras: TDM_Compras
         DataType = ftString
         Precision = 0
         Size = 38
+      end    
+      item
+        Name = 'nroPtoVenta'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nroFactura'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'PercepIVA'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
       end>
     AfterInsert = tbComprasAfterInsert
     left = 230
-    top = 42
+    top = 46
     object tbComprasidCompra: TStringField
       DisplayWidth = 38
       FieldKind = fkData
@@ -434,22 +446,11 @@ object DM_Compras: TDM_Compras
       ReadOnly = False
       Required = False
     end
-    object tbComprasNroComprobante: TStringField
-      DisplayWidth = 30
-      FieldKind = fkData
-      FieldName = 'NroComprobante'
-      Index = 4
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 30
-    end
     object tbComprasnTotal: TFloatField
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'nTotal'
-      Index = 5
+      Index = 4
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -463,7 +464,7 @@ object DM_Compras: TDM_Compras
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'PercepCapital'
-      Index = 6
+      Index = 5
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -477,7 +478,7 @@ object DM_Compras: TDM_Compras
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'PercepProvincia'
-      Index = 7
+      Index = 6
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -491,7 +492,7 @@ object DM_Compras: TDM_Compras
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'bPagada'
-      Index = 8
+      Index = 7
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -501,7 +502,7 @@ object DM_Compras: TDM_Compras
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'bVisible'
-      Index = 9
+      Index = 8
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -511,12 +512,48 @@ object DM_Compras: TDM_Compras
       DisplayWidth = 38
       FieldKind = fkData
       FieldName = 'refOrdenPago'
-      Index = 10
+      Index = 9
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
       Size = 38
+    end
+    object tbComprasnroPtoVenta: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nroPtoVenta'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '0000'
+    end
+    object tbComprasnroFactura: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nroFactura'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '00000000'
+    end
+    object tbComprasPercepIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PercepIVA'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
     end
   end
   object tbComprasItems: TRxMemoryData
@@ -1024,9 +1061,9 @@ object DM_Compras: TDM_Compras
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'INSERT INTO  tbCompras'
-      '(IDCOMPRA, FECHA, REFPROVEEDOR, REFTIPOCOMPROBANTE, NROCOMPROBANTE, NTOTAL, PERCEPCAPITAL, PERCEPPROVINCIA, BPAGADA, BVISIBLE, refOrdenPago)'
+      '(IDCOMPRA, FECHA, REFPROVEEDOR, REFTIPOCOMPROBANTE, NTOTAL, PERCEPCAPITAL, PERCEPPROVINCIA, BPAGADA, BVISIBLE, refOrdenPago, nroPtoVenta, nroFactura, percepIVA)'
       'VALUES'
-      '(:IDCOMPRA, :FECHA, :REFPROVEEDOR, :REFTIPOCOMPROBANTE, :NROCOMPROBANTE, :NTOTAL, :PERCEPCAPITAL, :PERCEPPROVINCIA, :BPAGADA, :BVISIBLE, :refOrdenPago)'
+      '(:IDCOMPRA, :FECHA, :REFPROVEEDOR, :REFTIPOCOMPROBANTE, :NTOTAL, :PERCEPCAPITAL, :PERCEPPROVINCIA, :BPAGADA, :BVISIBLE, :refOrdenPago, :nroPtoVenta, :nroFactura, :percepIVA)'
     )
     Params = <    
       item
@@ -1047,11 +1084,6 @@ object DM_Compras: TDM_Compras
       item
         DataType = ftUnknown
         Name = 'REFTIPOCOMPROBANTE'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'NROCOMPROBANTE'
         ParamType = ptUnknown
       end    
       item
@@ -1082,6 +1114,21 @@ object DM_Compras: TDM_Compras
       item
         DataType = ftUnknown
         Name = 'refOrdenPago'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nroPtoVenta'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nroFactura'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'percepIVA'
         ParamType = ptUnknown
       end>
     left = 233
@@ -1109,11 +1156,6 @@ object DM_Compras: TDM_Compras
       end    
       item
         DataType = ftUnknown
-        Name = 'NROCOMPROBANTE'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
         Name = 'NTOTAL'
         ParamType = ptUnknown
       end    
@@ -1141,6 +1183,21 @@ object DM_Compras: TDM_Compras
         DataType = ftUnknown
         Name = 'refOrdenPago'
         ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nroPtoVenta'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nroFactura'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'percepIVA'
+        ParamType = ptUnknown
       end>
   end
   object tbComprasUPD: TZQuery
@@ -1151,13 +1208,15 @@ object DM_Compras: TDM_Compras
       ' FECHA = :FECHA'
       ', REFPROVEEDOR = :REFPROVEEDOR'
       ', REFTIPOCOMPROBANTE = :REFTIPOCOMPROBANTE'
-      ', NROCOMPROBANTE = :NROCOMPROBANTE'
       ', NTOTAL =  :NTOTAL'
       ', PERCEPCAPITAL = :PERCEPCAPITAL'
       ', PERCEPPROVINCIA = :PERCEPPROVINCIA'
       ', BPAGADA = :BPAGADA'
       ', BVISIBLE = :BVISIBLE'
       ', refOrdenPago = :refOrdenPago'
+      ', nroPtoVenta = :nroPtoVenta'
+      ', nroFactura = :nroFactura'
+      ', percepIVA = :percepIVA'
       'WHERE IDCOMPRA = :IDCOMPRA'
     )
     Params = <    
@@ -1178,11 +1237,6 @@ object DM_Compras: TDM_Compras
       end    
       item
         DataType = ftUnknown
-        Name = 'NROCOMPROBANTE'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
         Name = 'NTOTAL'
         ParamType = ptUnknown
       end    
@@ -1209,6 +1263,21 @@ object DM_Compras: TDM_Compras
       item
         DataType = ftUnknown
         Name = 'refOrdenPago'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nroPtoVenta'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nroFactura'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'percepIVA'
         ParamType = ptUnknown
       end    
       item
@@ -1236,11 +1305,6 @@ object DM_Compras: TDM_Compras
       end    
       item
         DataType = ftUnknown
-        Name = 'NROCOMPROBANTE'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
         Name = 'NTOTAL'
         ParamType = ptUnknown
       end    
@@ -1267,6 +1331,21 @@ object DM_Compras: TDM_Compras
       item
         DataType = ftUnknown
         Name = 'refOrdenPago'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nroPtoVenta'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nroFactura'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'percepIVA'
         ParamType = ptUnknown
       end    
       item
@@ -1302,7 +1381,7 @@ object DM_Compras: TDM_Compras
     SQL.Strings = (
       'SELECT C.idCompra'
       '            ,C.Fecha'
-      '            ,C.NroComprobante'
+      '            ,C.NroFactura'
       '           ,P.cRazonSocial as Proveedor'
       '           ,C.nTotal as Monto'
       '           ,C.bPagada'
@@ -1375,7 +1454,7 @@ object DM_Compras: TDM_Compras
         ParamType = ptUnknown
       end>
     left = 235
-    top = 417
+    top = 421
     ParamData = <    
       item
         DataType = ftUnknown

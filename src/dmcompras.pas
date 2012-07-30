@@ -53,6 +53,9 @@ type
     tbComprasItemsSEL: TZQuery;
     tbComprasItemsINS: TZQuery;
     qItemsPorCompra: TZQuery;
+    tbComprasnroFactura: TLongintField;
+    tbComprasnroPtoVenta: TLongintField;
+    tbComprasPercepIVA: TFloatField;
     tbComprasrefOrdenPago: TStringField;
     tbComprasSEL: TZQuery;
     tbComprasItemsUPD: TZQuery;
@@ -67,7 +70,6 @@ type
     tbComprasItemsrefImputacion: TLongintField;
     qComprasPorOP: TZQuery;
     tbComprasUPD: TZQuery;
-    tbComprasNroComprobante: TStringField;
     tbComprasnTotal: TFloatField;
     tbComprasPercepCapital: TFloatField;
     tbComprasPercepProvincia: TFloatField;
@@ -101,7 +103,7 @@ type
     tbResultadosFecha: TDateTimeField;
     tbResultadosidCompra: TStringField;
     tbResultadosMonto: TFloatField;
-    tbResultadosNroComprobante: TStringField;
+    tbResultadosnroFactura: TLongintField;
     tbResultadosProveedor: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure tbComprasAfterInsert(DataSet: TDataSet);
@@ -125,6 +127,8 @@ type
     property TotalIVA: double read _TotalIVA;
     property TotalNeto: double read _TotalNeto;
     property Fecha: TDateTime read getFechaCompra;
+
+
     property NroComprobante: string read getNroComprobante;
 
     property CodigoImputacion: string read getCodImputacion;
@@ -187,11 +191,14 @@ begin
     FieldByName('refTipoComprobante').asInteger:=0;
     FieldByName('nTotal').asFloat:= 0;
     FieldByName('PercepCapital').asFloat:= 0;
+    FieldByName('PercepIVA').asFloat:= 0;
     FieldByName('Fecha').AsDateTime:= Now;
     FieldByName('PercepProvincia').asFloat:= 0;
     FieldByName('bPagada').AsInteger:= 0;
     FieldByName('bVisible').AsInteger:= 1;
     FieldByName('refOrdenPago').asString:= GUIDNULO;
+    FieldByName('nroPtoVenta').asInteger:= 1;
+    FieldByName ('nroFactura').asInteger:= 1;
   end;
 end;
 
@@ -294,10 +301,12 @@ function TDM_Compras.getNroComprobante: string;
 begin
   with tbCompras do
   begin
-    if FieldByName('NroComprobante').IsNull then
+    if FieldByName('nroFactura').IsNull then
       Result:= EmptyStr
     else
-      Result:= FieldByName('NroComprobante').asString;
+      Result:=rightStr('0000'+ IntToStr(FieldByName('nroPtoVenta').AsInteger), 4 )
+             + '-'
+             + rightStr('00000000'+ IntToStr(FieldByName('nroFactura').AsInteger), 8 );
   end;
 end;
 
@@ -340,6 +349,10 @@ begin
     end;
     GotoBookmark(marca);
     FreeBookmark(marca);
+    _TotalIVA:= _TotalIVA + tbCompras.FieldByName('percepIVA').asFloat;
+    _TotalCompra:= _TotalCompra
+                   + tbCompras.FieldByName('percepCapital').asFloat
+                   + tbCompras.FieldByName('percepProvincia').asFloat;
     EnableControls;
   end;
 end;
