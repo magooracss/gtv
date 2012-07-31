@@ -2,8 +2,8 @@ object DM_Compras: TDM_Compras
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 626
-  HorizontalOffset = 448
-  VerticalOffset = -2
+  HorizontalOffset = 446
+  VerticalOffset = 0
   Width = 839
   object qBusComprasProv: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -1958,6 +1958,7 @@ object DM_Compras: TDM_Compras
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      Currency = True
       MaxValue = 0
       MinValue = 0
       Precision = 2
@@ -1971,6 +1972,7 @@ object DM_Compras: TDM_Compras
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      Currency = True
       MaxValue = 0
       MinValue = 0
       Precision = 2
@@ -2008,6 +2010,42 @@ object DM_Compras: TDM_Compras
       ReadOnly = False
       Required = False
       Size = 38
+    end
+    object qComprasPorOPNROPTOVENTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROPTOVENTA'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '0000'
+    end
+    object qComprasPorOPNROFACTURA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROFACTURA'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '00000000'
+    end
+    object qComprasPorOPPERCEPIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PERCEPIVA'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
     end
   end
   object qCompraTotalPagada: TZQuery

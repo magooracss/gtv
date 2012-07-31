@@ -16,6 +16,7 @@ uses
 const
   _PRN_ORDENTRABAJO_ = 'ordentrabajo.lrf';
   _PRN_ANEXO_ = 'anexo.lrf';
+  _PRN_ORDENPAGO_ = 'ordenpago.lrf';
 
 type
 

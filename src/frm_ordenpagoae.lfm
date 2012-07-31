@@ -1,5 +1,5 @@
 object frmOrdenDePagoAE: TfrmOrdenDePagoAE
-  Left = 425
+  Left = 424
   Height = 554
   Top = 60
   Width = 644
@@ -361,8 +361,8 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
         FF00FFFFFF00C17D4460C88B4DBBC88C4FFEC88C4FFFC88D4FF7C98C4FF7C589
         4CFEC4763B94FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
+      OnClick = btnImprimirClick
       TabOrder = 2
-      Visible = False
     end
   end
   object Panel3: TPanel
@@ -517,6 +517,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
         }
         OnClick = btnPagarComprobanteClick
         TabOrder = 2
+        Visible = False
       end
       object BitBtn2: TBitBtn
         Left = 10
@@ -525,6 +526,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
         Width = 127
         Caption = 'Ver'
         TabOrder = 3
+        Visible = False
       end
     end
     object DBGrid1: TDBGrid
@@ -548,7 +550,8 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
           Title.Alignment = taCenter
           Title.Caption = 'Comprobante'
           Width = 180
-          FieldName = 'NROCOMPROBANTE'
+          FieldName = 'nroFactura'
+          DisplayFormat = '00000000'
         end      
         item
           Title.Alignment = taCenter
@@ -649,7 +652,6 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
         }
         OnClick = btnValoresNuevoClick
         TabOrder = 0
-        Visible = False
       end
       object btnQuitarValor: TBitBtn
         Left = 10
@@ -695,7 +697,6 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
         }
         OnClick = btnQuitarValorClick
         TabOrder = 1
-        Visible = False
       end
       object edSumaValores: TEdit
         Left = 1
@@ -741,14 +742,14 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
           Title.Alignment = taCenter
           Title.Caption = 'Forma de Pago'
           Width = 120
-          FieldName = 'lxFormaPago'
+          FieldName = 'lxFormaDePago'
         end      
         item
           SizePriority = 0
           Title.Alignment = taCenter
           Title.Caption = 'Cheque'
           Width = 120
-          FieldName = 'NroCheque'
+          FieldName = 'lxNroCheque'
         end      
         item
           Title.Alignment = taCenter
@@ -792,10 +793,12 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
   end
   object DS_OPComprobantes: TDatasource
     DataSet = DM_Compras.qComprasPorOP
+    OnDataChange = DS_OPComprobantesDataChange
     left = 120
     top = 221
   end
   object DS_OPFormasDePago: TDatasource
+    DataSet = DM_OrdenesDePago.tbOPFormasDePago
     left = 122
     top = 276
   end

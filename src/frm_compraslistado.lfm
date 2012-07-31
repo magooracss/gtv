@@ -1,5 +1,5 @@
 object frmComprasListado: TfrmComprasListado
-  Left = 269
+  Left = 268
   Height = 468
   Top = 147
   Width = 878

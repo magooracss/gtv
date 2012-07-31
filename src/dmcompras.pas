@@ -27,6 +27,9 @@ type
     qBusComprasFechaMayor: TZQuery;
     qComprasIDProveedor: TZQuery;
     MarcarCompra: TZQuery;
+    qComprasPorOPNROFACTURA: TLongintField;
+    qComprasPorOPNROPTOVENTA: TLongintField;
+    qComprasPorOPPERCEPIVA: TFloatField;
     qCompraTotalPagada: TZQuery;
     qComprasPorOPBPAGADA: TFloatField;
     qComprasPorOPBVISIBLE: TSmallintField;
@@ -352,7 +355,8 @@ begin
     _TotalIVA:= _TotalIVA + tbCompras.FieldByName('percepIVA').asFloat;
     _TotalCompra:= _TotalCompra
                    + tbCompras.FieldByName('percepCapital').asFloat
-                   + tbCompras.FieldByName('percepProvincia').asFloat;
+                   + tbCompras.FieldByName('percepProvincia').asFloat
+                   + tbCompras.FieldByName('percepIVA').asFloat;
     EnableControls;
   end;
 end;

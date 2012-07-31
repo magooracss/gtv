@@ -5,7 +5,7 @@ unit dmordenesdepago;
 interface
 
 uses
-  Classes, SysUtils, db, FileUtil, rxmemds, ZDataset
+  Classes, SysUtils, db, FileUtil, rxmemds, LR_DBSet, LR_Class, ZDataset
   ,dmgeneral
   ;
 
@@ -14,6 +14,10 @@ type
   { TDM_OrdenesDePago }
 
   TDM_OrdenesDePago = class(TDataModule)
+    elReporte: TfrReport;
+    frComprobantes: TfrDBDataSet;
+    frOrdenPago: TfrDBDataSet;
+    frFormasPago: TfrDBDataSet;
     qBusOPProv: TZQuery;
     qBusOPNumero: TZQuery;
     qBusOPFechaIgual: TZQuery;
@@ -21,13 +25,19 @@ type
     qBusOPFechaMayor: TZQuery;
     qtugBancos: TZQuery;
     qtugFormasPago: TZQuery;
+    qtbCheques: TZQuery;
+    tbOPFormasDePagoDEL: TZQuery;
     tbComprasPagosidCompraPago: TStringField;
+    qOPFormasPago: TZQuery;
+    tbOPFormasDePagoINS: TZQuery;
     tbComprasPagoslxBanco: TStringField;
     tbComprasPagoslxFormaPago: TStringField;
     tbComprasPagosnMonto: TFloatField;
     tbComprasPagosNroCheque: TStringField;
     tbComprasPagosrefCompra: TStringField;
     tbComprasPagosrefOPFormaDePago: TStringField;
+    tbOPFormasDePagoSEL: TZQuery;
+    tbOPFormasDePagoUPD: TZQuery;
     tbComprobantesDEL: TZQuery;
     tbComprasPagosDel: TZQuery;
     tbComprobantesINS: TZQuery;
@@ -122,6 +132,7 @@ type
 
     function ObtenerBanco (refBanco: integer): string;
     function ObtenerFormaPago (refFormaPago: integer): string;
+    function ObtenerNroCheque (refCheque: string):string;
 
     procedure EliminarValorSeleccionado;
   end;
@@ -157,7 +168,7 @@ begin
   with DataSet do
   begin
     FieldByName('idOPFormaDePago').asString:= DM_General.CrearGUID;
-    FieldByName('refFormaDePago').AsInteger:= 0;
+    FieldByName('refFormaPago').AsInteger:= 0;
     FieldByName('refCheque').asString:= GUIDNULO;
     FieldByName('refBanco').asInteger:= 0;
     FieldByName('nMonto').asFloat:= 0;
@@ -165,7 +176,7 @@ begin
     FieldByName('bVisible').asInteger:= 1;
     FieldByName('lxFormaDePago').asString:= EmptyStr;
     FieldByName('lxNroCheque').asString:= '0';
-   // FieldByName('lxBanco').asString:= EmptyStr;
+    FieldByName('lxBanco').asString:= '---';
   end;
 end;
 
@@ -207,7 +218,7 @@ begin
     begin
       Edit;
       FieldByName('lxFormaPago').asString:= DM_Valores.FormaPago (FieldByName('refOPFormaDePago').asString);
-      FieldByName('NroCheque').AsString:= DM_Valores.NroCheque (FieldByName('refCheque').asString);
+      FieldByName('NroCheque').AsString:,frm_cargavalores    = DM_Valores.NroCheque (FieldByName('refCheque').asString);
       FieldByName('lxBanco').AsString:= DM_Valores.Banco (FieldByName('refBanco').AsInteger, FieldByName('refCheque').asString);
       Post;
     end;
@@ -283,6 +294,20 @@ begin
   end;
 end;
 
+function TDM_OrdenesDePago.ObtenerNroCheque(refCheque: string): string;
+begin
+  with qtbCheques do
+  begin
+    if active then close;
+    ParamByName('idCheque').asString:= refCheque;
+    Open;
+    if RecordCount > 0 then
+      Result:= FieldByName('NroCheque').asString
+    else
+      Result:= '***';
+  end;
+end;
+
 procedure TDM_OrdenesDePago.EliminarValorSeleccionado;
 begin
   with tbOPFormasDePago do
@@ -347,8 +372,23 @@ begin
 end;
 
 function TDM_OrdenesDePago.CalcularValores: double;
+var
+  acum: double;
 begin
-  Result:= DM_Compras.SumaComprasOP (tbOrdenesPago.FieldByName('idOrdenPago').asString);
+ // Result:= DM_Compras.SumaComprasOP (tbOrdenesPago.FieldByName('idOrdenPago').asString);
+  with tbOPFormasDePago do
+  begin
+    DisableControls;
+    First;
+    acum:= 0;
+    While NOT eof do
+    begin
+      acum:= acum + FieldByName('nMonto').asFloat;
+      Next;
+    end;
+    EnableControls;
+    Result:= acum;
+  end;
 end;
 
 procedure TDM_OrdenesDePago.EliminarComprobante(refCompra: string);
@@ -361,7 +401,6 @@ end;
 
 procedure TDM_OrdenesDePago.EliminarValor;
 begin
-(*
   if (tbOPFormasDePago.RecordCount > 0) then
   begin
     with tbOPFormasDePagoDEL do
@@ -371,7 +410,6 @@ begin
     end;
     tbOPFormasDePago.Delete;
   end;
-*)
 end;
 
 function TDM_OrdenesDePago.CargarValor(refFormaPago: integer;
@@ -385,7 +423,7 @@ begin
   begin
     Insert;
     FieldByName('idOPFormaDePago').asString:= elID;
-    FieldByName('refFormaDePago').asInteger:= refFormaPago;
+    FieldByName('refFormaPago').asInteger:= refFormaPago;
     FieldByName('refCheque').asString:= refCheque;
     FieldByName('refBanco').asInteger:= refBanco;
     FieldByName('nMonto').asFloat:= Monto;
@@ -415,6 +453,7 @@ begin
   MarcarComprobantes;
   DM_General.GrabarDatos(tbOrdenesPagoSEL, tbOrdenesPagoINS, tbOrdenesPagoUPD, tbOrdenesPago, 'idOrdenPago');
   DM_General.GrabarDatos(tbOPComprobantesSEL, tbComprobantesINS, tbComprobantesUPD, tbOPComprobantes, 'idOPComprobante');
+  DM_General.GrabarDatos(tbOPFormasDePagoSEL, tbOPFormasDePagoINS, tbOPFormasDePagoUPD, tbOPFormasDePago, 'idOpFormaDePago');
 end;
 
 procedure TDM_OrdenesDePago.LevantarOP(refOP: GUID_ID);
@@ -422,6 +461,7 @@ begin
   DM_General.ReiniciarTabla(tbOrdenesPago);
   DM_General.ReiniciarTabla(tbOPComprobantes);
   DM_General.ReiniciarTabla(tbResultados);
+  DM_General.ReiniciarTabla(tbOPFormasDePago);
 
   with tbOrdenesPagoSEL do
   begin
@@ -441,16 +481,29 @@ begin
     tbOPComprobantes.LoadFromDataSet(qComprobantesPorOP, 0, lmAppend);
   end;
 
-(*
-  with qFormaPagoPorOP do
+  with qOPFormasPago do
   begin
     if active then close;
     ParamByName('refOrdenPago').asString:= refOP;
     Open;
 
-    tbOPFormasDePago.LoadFromDataSet(qFormaPagoPorOP, 0, lmAppend);
+    tbOPFormasDePago.LoadFromDataSet(qOPFormasPago, 0, lmAppend);
   end;
-*)
+  with tbOPFormasDePago do
+  begin
+    if RecordCount > 0 then
+      First;
+    While NOT eof do
+    begin
+      Edit;
+      FieldByName('lxNroCheque').asString:= ObtenerNroCheque (FieldByName('refCheque').asString);
+      FieldByName('lxBanco').asString:= ObtenerBanco (FieldByName('refBanco').asInteger);
+      FieldByName('lxFormaDePago').asString:= ObtenerFormaPago (FieldByName('refFormaPago').asInteger);
+      Post;
+      Next;
+    end;
+
+  end;
   DM_Compras.LevantarComprasPorOP(refOP);
 end;
 

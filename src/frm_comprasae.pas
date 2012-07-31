@@ -56,6 +56,7 @@ type
     SpeedButton1: TSpeedButton;
     btnTugTiposComprobantes: TSpeedButton;
     SpeedButton2: TSpeedButton;
+    stTotalNI: TStaticText;
     stNeto: TStaticText;
     stIVA: TStaticText;
     stImputacion: TStaticText;
@@ -324,6 +325,7 @@ begin
   DM_Compras.ActualizarMontoTotal;
   stIVA.Caption:= 'Total IVA ' +FormatFloat ('$ ###########0.00', DM_Compras.TotalIVA);
   stNeto.Caption:= 'Total Neto ' +FormatFloat ('$ ###########0.00', DM_Compras.TotalNeto);
+  stTotalNI.Caption:= 'Neto + IVA ' +FormatFloat ('$ ###########0.00', DM_Compras.TotalIVA + DM_Compras.TotalNeto);
 end;
 
 procedure TfrmComprasAE.AltaItem;

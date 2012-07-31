@@ -1,5 +1,5 @@
 object frmComprasAE: TfrmComprasAE
-  Left = 503
+  Left = 501
   Height = 487
   Top = 98
   Width = 687
@@ -335,7 +335,7 @@ object frmComprasAE: TfrmComprasAE
     object stNeto: TStaticText
       Left = 160
       Height = 15
-      Top = 21
+      Top = 3
       Width = 75
       AutoSize = True
       Caption = 'Monto Neto: $'
@@ -352,7 +352,7 @@ object frmComprasAE: TfrmComprasAE
     object stIVA: TStaticText
       Left = 160
       Height = 15
-      Top = 35
+      Top = 17
       Width = 66
       AutoSize = True
       Caption = 'Monto IVA $'
@@ -385,6 +385,23 @@ object frmComprasAE: TfrmComprasAE
       Width = 71
       Caption = 'Percep. IVA'
       ParentColor = False
+    end
+    object stTotalNI: TStaticText
+      Left = 160
+      Height = 15
+      Top = 32
+      Width = 65
+      AutoSize = True
+      Caption = 'Neto + IVA $'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 6
     end
   end
   object Panel3: TPanel

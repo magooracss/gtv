@@ -49,6 +49,7 @@ type
     StaticText2: TStaticText;
     StaticText3: TStaticText;
     procedure btnGrabarClick(Sender: TObject);
+    procedure btnImprimirClick(Sender: TObject);
     procedure btnPagarComprobanteClick(Sender: TObject);
     procedure btnQuitarValorClick(Sender: TObject);
     procedure btnValoresNuevoClick(Sender: TObject);
@@ -56,6 +57,7 @@ type
     procedure btnAgregarComprobanteClick(Sender: TObject);
     procedure btnBuscarProveedorClick(Sender: TObject);
     procedure btnSalirClick(Sender: TObject);
+    procedure DS_OPComprobantesDataChange(Sender: TObject; Field: TField);
     procedure FormShow(Sender: TObject);
   private
     _idOrdenPago: GUID_ID;
@@ -75,6 +77,9 @@ uses
   ,frm_compraslistado
   ,frm_pagocomprobantes
   ,dmcompras
+  ,frm_cargavalores
+  ,SD_Configuracion
+  , LR_Class
   ;
 
 { TfrmOrdenDePagoAE }
@@ -147,10 +152,9 @@ begin
 end;
 
 procedure TfrmOrdenDePagoAE.btnValoresNuevoClick(Sender: TObject);
-//var
- // pant: TfrmCargaValores;
+var
+  pant: TfrmCargaValores;
 begin
-(*
   pant:= TfrmCargaValores.Create (Self);
   try
     if pant.ShowModal = mrOK then
@@ -167,7 +171,6 @@ begin
   finally
     pant.Free;
   end;
- *)
 end;
 
 procedure TfrmOrdenDePagoAE.btnQuitarValorClick(Sender: TObject);
@@ -183,6 +186,21 @@ procedure TfrmOrdenDePagoAE.btnGrabarClick(Sender: TObject);
 begin
   DM_OrdenesDePago.CalcularMontoTotal;
   DM_OrdenesDePago.Grabar;
+  if  (DM_OrdenesDePago.CalcularValores < DM_OrdenesDePago.tbOrdenesPago.FieldByName('nTotalAPagar').asFloat) then
+   ShowMessage ('Esta queriendo pagar menos que el total de la orden de pago!!!');
+end;
+
+procedure TfrmOrdenDePagoAE.btnImprimirClick(Sender: TObject);
+var
+  ruta: string;
+begin
+  with DM_OrdenesDePago, elReporte do
+  begin
+    ruta:= LeerDato (SECCION_APP ,RUTA_LISTADOS) ;
+    LoadFromFile(ruta+ _PRN_ORDENPAGO_);
+    frVariables ['TotalPagos']:= FormatFloat('$ ############0.00', DM_OrdenesDePago.CalcularValores);
+    DesignReport;
+  end;
 end;
 
 procedure TfrmOrdenDePagoAE.btnPagarComprobanteClick(Sender: TObject);
@@ -207,6 +225,12 @@ begin
    ModalResult:= mrOK
   else
     ShowMessage('Se realizaron cambios que no han sido registrados');
+end;
+
+procedure TfrmOrdenDePagoAE.DS_OPComprobantesDataChange(Sender: TObject;
+  Field: TField);
+begin
+
 end;
 
 end.

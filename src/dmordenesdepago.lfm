@@ -2,7 +2,7 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 430
-  HorizontalOffset = 438
+  HorizontalOffset = 437
   VerticalOffset = 88
   Width = 792
   object tbResultados: TRxMemoryData
@@ -876,7 +876,7 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
         Size = 38
       end    
       item
-        Name = 'refFormaDePago'
+        Name = 'refFormaPago'
         DataType = ftInteger
         Precision = 0
         Size = 0
@@ -946,7 +946,7 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
     object tbOPFormasDePagorefFormaDePago: TLongintField
       DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'refFormaDePago'
+      FieldName = 'refFormaPago'
       Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
@@ -1392,5 +1392,294 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
         Name = 'idFormaPago'
         ParamType = ptUnknown
       end>
+  end
+  object tbOPFormasDePagoSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbOpFormasDePago'
+      'WHERE idOpFormaDePago = :idOPFormaDePago'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idOPFormaDePago'
+        ParamType = ptUnknown
+      end>
+    left = 458
+    top = 96
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idOPFormaDePago'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbOPFormasDePagoINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO tbOPFormasDePago'
+      '(IDOPFORMADEPAGO, REFORDENPAGO, REFFORMAPAGO, REFCHEQUE, REFBANCO, NMONTO, BVISIBLE)'
+      'VALUES'
+      '(:IDOPFORMADEPAGO,:REFORDENPAGO, :REFFORMAPAGO, :REFCHEQUE, :REFBANCO, :NMONTO, :BVISIBLE)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDOPFORMADEPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFORDENPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFFORMAPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCHEQUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFBANCO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+    left = 457
+    top = 153
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDOPFORMADEPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFORDENPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFFORMAPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCHEQUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFBANCO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbOPFormasDePagoUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbOPFormasDePago'
+      'SET '
+      '     REFORDENPAGO = :REFORDENPAGO'
+      '   , REFFORMAPAGO = :REFFORMAPAGO'
+      '   , REFCHEQUE = :REFCHEQUE'
+      '   , REFBANCO = :REFBANCO'
+      '   , NMONTO = :NMONTO'
+      '   , BVISIBLE = :BVISIBLE'
+      'WHERE IDOPFORMADEPAGO = :IDOPFORMADEPAGO'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFORDENPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFFORMAPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCHEQUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFBANCO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDOPFORMADEPAGO'
+        ParamType = ptUnknown
+      end>
+    left = 458
+    top = 209
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFORDENPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFFORMAPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCHEQUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFBANCO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDOPFORMADEPAGO'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbOPFormasDePagoDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbOPFormasDePago'
+      'SET bVisible = 0'
+      'WHERE idOpFormaDePago = :idOpFormaDePago'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idOpFormaDePago'
+        ParamType = ptUnknown
+      end>
+    left = 458
+    top = 267
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idOpFormaDePago'
+        ParamType = ptUnknown
+      end>
+  end
+  object qOPFormasPago: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbOPFormasDePago'
+      'WHERE (refOrdenPago = :refOrdenPago)'
+      '      and (bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refOrdenPago'
+        ParamType = ptUnknown
+      end>
+    left = 465
+    top = 339
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refOrdenPago'
+        ParamType = ptUnknown
+      end>
+  end
+  object qtbCheques: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbCheques'
+      'WHERE idCheque = :idCheque'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCheque'
+        ParamType = ptUnknown
+      end>
+    left = 710
+    top = 152
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCheque'
+        ParamType = ptUnknown
+      end>
+  end
+  object frOrdenPago: TfrDBDataSet
+    DataSet = tbOrdenesPago
+    left = 685
+    top = 309
+  end
+  object elReporte: TfrReport
+    Dataset = frOrdenPago
+    InitialZoom = pzPageWidth
+    Options = []
+    PreviewButtons = [pbZoom, pbPrint, pbExit]
+    ReportType = rtMultiple
+    DataType = dtDataSet
+    Title = 'Listado'
+    left = 709
+    top = 241
+    ReportForm = {
+      19000000
+    }
+  end
+  object frFormasPago: TfrDBDataSet
+    DataSet = tbOPFormasDePago
+    left = 685
+    top = 369
+  end
+  object frComprobantes: TfrDBDataSet
+    DataSet = DM_Compras.qComprasPorOP
+    left = 754
+    top = 314
   end
 end
