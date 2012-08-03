@@ -1,11 +1,11 @@
 object frmProveedorAE: TfrmProveedorAE
-  Left = 361
-  Height = 439
-  Top = 122
-  Width = 601
+  Left = 355
+  Height = 678
+  Top = 38
+  Width = 633
   Caption = 'Proveedor'
-  ClientHeight = 439
-  ClientWidth = 601
+  ClientHeight = 678
+  ClientWidth = 633
   Font.CharSet = ANSI_CHARSET
   Font.Color = clBlack
   Font.Height = -13
@@ -20,7 +20,7 @@ object frmProveedorAE: TfrmProveedorAE
     Left = 8
     Height = 24
     Top = 24
-    Width = 584
+    Width = 613
     DataField = 'cRazonSocial'
     DataSource = ds_proveedor
     CharCase = ecNormal
@@ -28,10 +28,10 @@ object frmProveedorAE: TfrmProveedorAE
     TabOrder = 0
   end
   object DBEdit2: TDBEdit
-    Left = 8
+    Left = 316
     Height = 24
-    Top = 80
-    Width = 160
+    Top = 115
+    Width = 136
     DataField = 'cCUIT'
     DataSource = ds_proveedor
     CharCase = ecNormal
@@ -39,45 +39,23 @@ object frmProveedorAE: TfrmProveedorAE
     TabOrder = 1
   end
   object cbCondicionFiscal: TComboBox
-    Left = 216
+    Left = 9
     Height = 24
-    Top = 80
-    Width = 336
+    Top = 115
+    Width = 255
     ItemHeight = 16
     Style = csDropDownList
     TabOrder = 2
   end
-  object DBEdit3: TDBEdit
-    Left = 8
-    Height = 24
-    Top = 134
-    Width = 584
-    DataField = 'cContacto'
-    DataSource = ds_proveedor
-    CharCase = ecNormal
-    MaxLength = 2000
-    TabOrder = 3
-  end
-  object DBEdit4: TDBEdit
-    Left = 8
-    Height = 24
-    Top = 184
-    Width = 584
-    DataField = 'cDomicilio'
-    DataSource = ds_proveedor
-    CharCase = ecNormal
-    MaxLength = 3000
-    TabOrder = 4
-  end
   object Panel1: TPanel
     Left = 0
     Height = 50
-    Top = 389
-    Width = 601
+    Top = 628
+    Width = 633
     Align = alBottom
     ClientHeight = 50
-    ClientWidth = 601
-    TabOrder = 5
+    ClientWidth = 633
+    TabOrder = 3
     object btnAceptar: TBitBtn
       Left = 24
       Height = 30
@@ -171,14 +149,14 @@ object frmProveedorAE: TfrmProveedorAE
   end
   object DBMemo1: TDBMemo
     Left = 0
-    Height = 141
-    Top = 248
-    Width = 601
+    Height = 125
+    Top = 503
+    Width = 633
     Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
     DataField = 'txNotas'
     DataSource = ds_proveedor
-    TabOrder = 6
+    TabOrder = 4
   end
   object Label1: TLabel
     Left = 8
@@ -189,49 +167,33 @@ object frmProveedorAE: TfrmProveedorAE
     ParentColor = False
   end
   object Label2: TLabel
-    Left = 8
+    Left = 316
     Height = 17
-    Top = 64
+    Top = 99
     Width = 29
     Caption = 'CUIT'
     ParentColor = False
   end
   object Label3: TLabel
-    Left = 216
+    Left = 9
     Height = 17
-    Top = 64
+    Top = 99
     Width = 97
     Caption = 'Condición Fiscal'
     ParentColor = False
   end
-  object Label4: TLabel
-    Left = 8
-    Height = 17
-    Top = 116
-    Width = 53
-    Caption = 'Contacto'
-    ParentColor = False
-  end
-  object Label5: TLabel
-    Left = 8
-    Height = 17
-    Top = 167
-    Width = 54
-    Caption = 'Domicilio'
-    ParentColor = False
-  end
   object Label6: TLabel
-    Left = 3
+    Left = 8
     Height = 17
-    Top = 229
+    Top = 485
     Width = 35
     Caption = 'Notas'
     ParentColor = False
   end
   object SpeedButton7: TSpeedButton
-    Left = 569
+    Left = 272
     Height = 22
-    Top = 82
+    Top = 117
     Width = 23
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
@@ -272,9 +234,362 @@ object frmProveedorAE: TfrmProveedorAE
     NumGlyphs = 0
     OnClick = SpeedButton7Click
   end
+  object DBEdit5: TDBEdit
+    Left = 8
+    Height = 24
+    Top = 68
+    Width = 613
+    DataField = 'cIngresosBrutos'
+    DataSource = ds_proveedor
+    CharCase = ecNormal
+    MaxLength = 1500
+    TabOrder = 5
+  end
+  object Label7: TLabel
+    Left = 8
+    Height = 17
+    Top = 52
+    Width = 100
+    Caption = 'Nombre Fantasía'
+    ParentColor = False
+  end
+  object DBEdit6: TDBEdit
+    Left = 461
+    Height = 24
+    Top = 115
+    Width = 160
+    DataField = 'cIngresosBrutos'
+    DataSource = ds_proveedor
+    CharCase = ecNormal
+    MaxLength = 25
+    TabOrder = 6
+  end
+  object Label8: TLabel
+    Left = 461
+    Height = 17
+    Top = 99
+    Width = 92
+    Caption = 'Ingresos Brutos'
+    ParentColor = False
+  end
+  object SpeedButton8: TSpeedButton
+    Left = 192
+    Height = 22
+    Top = 164
+    Width = 23
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00113D55F7285F87FB4988BDFB428DBCC12D77B322FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D69E
+      72C4D3996EF4D19668FF2E6682FF94C7F9FF91C9F9FF4185C9FF2466A6FFA882
+      65FFC38452FFC38452FFC38452FFC38452FFBB7742B0FFFFFF00FFFFFF00D7A1
+      75FFF8F2EDFFF7F0EAFF4389AAFFE0F2FFFF549AD8FF1A7ABEFF4998C5FF478C
+      C3FFD0D2D7FFF0E2D8FFF0E2D8FFF0E2D8FFC58A5DFDFFFFFF00FFFFFF00D9A4
+      7AFFF9F3EEFFEBD2BEFFA7C5D9FF7AB6D5FF90B7D1FF55C9E4FF5BDFF5FF78D0
+      EDFF519DDDFFE4F0FAFFFFFFFFFFF0E2D8FFC68C5FFFFFFFFF00FFFFFF00DDA8
+      7EFFF9F3EFFFEBD0BAFFEBD0BBFFA7B7B9FF76B9D5FFC2F6FDFF63DFF7FF5DE2
+      F8FF79D3F0FF4997DAFFD4C5B9FFF0E2D8FFC68A5CFFFFFFFF00FFFFFF00DFAA
+      82FFF9F3EFFFEACEB7FFFFFFFFFFEBD0BBFFB1D6E7FF77CBE7FFC7F7FDFF5EDC
+      F5FF5AE1F7FF7BD4F1FF4C9ADEFFCAD0D8FFC88D5FFFFFFFFF00FFFFFF00E1AE
+      87FFFAF4F0FFEACBB2FFEACCB3FFEACCB3FFEACCB3FFB0C4BFFF79D3EEFFC7F7
+      FDFF5FDCF5FF5BE2F7FF7AD6F2FF50A0DEFFAC876BFFFFFFFF00FFFFFF00E3B1
+      8CFFFAF6F1FFEAC9AEFFFFFFFFFFEAC9B0FFFFFFFFFFFFFFFFFFC1EBF7FF7DD4
+      EDFFC4F6FDFF6CDDF6FF6DCAEDFF63A3D7FF6599C9FF5192CA26FFFFFF00E5B4
+      8FFFFAF6F2FFE9C6AAFFE9C6ACFFEAC7ACFFE9C7ADFFE9C9AEFFE9C9B0FFA6C1
+      BEFF81D5EDFFB2E3F9FF8BC0E7FFAED3F6FFC4E0FCFF669FD3F7FFFFFF00E7B7
+      94FFFBF7F4FFE9C3A6FFFFFFFFFFE8C4A9FFFFFFFFFFFFFFFFFFFFFFFFFFE8C7
+      ACFFB1E6F5FF77BEE7FFB4D2F0FFE5F3FFFFACD2EFFF488CC7E8FFFFFF00E9BA
+      98FFFBF7F4FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3
+      A6FFE9C3A6FFADBDB8FF58A5D8FF85B1DBFF469DD0FF2B95D15EFFFFFF00EBBD
+      9BFFFBF7F4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFBF7F4FFD1976AFFFFFFFF00FFFFFF00ECBF
+      9EFFFBF7F4FF9CD5A5FF98D3A1FF94D09DFF90CE98FF8BCB93FF87C98EFF82C6
+      89FF7EC384FF7AC180FF76BE7CFFFBF7F4FFD49B6FFFFFFFFF00FFFFFF00EEC1
+      A1EBFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7
+      F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFD7A074F8FFFFFF00FFFFFF00EFC2
+      A37EEFC1A2E3EDC09FFFEBBE9DFFEBBC9AFFE9BA96FFE7B793FFE6B590FFE4B2
+      8CFFE2AF88FFE0AC84FFDDA980FFDCA57DFFDAA37ACAFFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+    }
+    NumGlyphs = 0
+    OnClick = SpeedButton8Click
+  end
+  object cbCondicionPago: TComboBox
+    Left = 9
+    Height = 24
+    Top = 162
+    Width = 175
+    ItemHeight = 16
+    Style = csDropDownList
+    TabOrder = 7
+  end
+  object Label9: TLabel
+    Left = 9
+    Height = 17
+    Top = 146
+    Width = 90
+    Caption = 'Condición pago'
+    ParentColor = False
+  end
+  object Label10: TLabel
+    Left = 232
+    Height = 17
+    Top = 146
+    Width = 95
+    Caption = 'Tiempo de Pago'
+    ParentColor = False
+  end
+  object cbTiempoPago: TComboBox
+    Left = 232
+    Height = 24
+    Top = 162
+    Width = 183
+    ItemHeight = 16
+    Style = csDropDownList
+    TabOrder = 8
+  end
+  object SpeedButton9: TSpeedButton
+    Left = 421
+    Height = 22
+    Top = 164
+    Width = 23
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00113D55F7285F87FB4988BDFB428DBCC12D77B322FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D69E
+      72C4D3996EF4D19668FF2E6682FF94C7F9FF91C9F9FF4185C9FF2466A6FFA882
+      65FFC38452FFC38452FFC38452FFC38452FFBB7742B0FFFFFF00FFFFFF00D7A1
+      75FFF8F2EDFFF7F0EAFF4389AAFFE0F2FFFF549AD8FF1A7ABEFF4998C5FF478C
+      C3FFD0D2D7FFF0E2D8FFF0E2D8FFF0E2D8FFC58A5DFDFFFFFF00FFFFFF00D9A4
+      7AFFF9F3EEFFEBD2BEFFA7C5D9FF7AB6D5FF90B7D1FF55C9E4FF5BDFF5FF78D0
+      EDFF519DDDFFE4F0FAFFFFFFFFFFF0E2D8FFC68C5FFFFFFFFF00FFFFFF00DDA8
+      7EFFF9F3EFFFEBD0BAFFEBD0BBFFA7B7B9FF76B9D5FFC2F6FDFF63DFF7FF5DE2
+      F8FF79D3F0FF4997DAFFD4C5B9FFF0E2D8FFC68A5CFFFFFFFF00FFFFFF00DFAA
+      82FFF9F3EFFFEACEB7FFFFFFFFFFEBD0BBFFB1D6E7FF77CBE7FFC7F7FDFF5EDC
+      F5FF5AE1F7FF7BD4F1FF4C9ADEFFCAD0D8FFC88D5FFFFFFFFF00FFFFFF00E1AE
+      87FFFAF4F0FFEACBB2FFEACCB3FFEACCB3FFEACCB3FFB0C4BFFF79D3EEFFC7F7
+      FDFF5FDCF5FF5BE2F7FF7AD6F2FF50A0DEFFAC876BFFFFFFFF00FFFFFF00E3B1
+      8CFFFAF6F1FFEAC9AEFFFFFFFFFFEAC9B0FFFFFFFFFFFFFFFFFFC1EBF7FF7DD4
+      EDFFC4F6FDFF6CDDF6FF6DCAEDFF63A3D7FF6599C9FF5192CA26FFFFFF00E5B4
+      8FFFFAF6F2FFE9C6AAFFE9C6ACFFEAC7ACFFE9C7ADFFE9C9AEFFE9C9B0FFA6C1
+      BEFF81D5EDFFB2E3F9FF8BC0E7FFAED3F6FFC4E0FCFF669FD3F7FFFFFF00E7B7
+      94FFFBF7F4FFE9C3A6FFFFFFFFFFE8C4A9FFFFFFFFFFFFFFFFFFFFFFFFFFE8C7
+      ACFFB1E6F5FF77BEE7FFB4D2F0FFE5F3FFFFACD2EFFF488CC7E8FFFFFF00E9BA
+      98FFFBF7F4FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3
+      A6FFE9C3A6FFADBDB8FF58A5D8FF85B1DBFF469DD0FF2B95D15EFFFFFF00EBBD
+      9BFFFBF7F4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFBF7F4FFD1976AFFFFFFFF00FFFFFF00ECBF
+      9EFFFBF7F4FF9CD5A5FF98D3A1FF94D09DFF90CE98FF8BCB93FF87C98EFF82C6
+      89FF7EC384FF7AC180FF76BE7CFFFBF7F4FFD49B6FFFFFFFFF00FFFFFF00EEC1
+      A1EBFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7
+      F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFD7A074F8FFFFFF00FFFFFF00EFC2
+      A37EEFC1A2E3EDC09FFFEBBE9DFFEBBC9AFFE9BA96FFE7B793FFE6B590FFE4B2
+      8CFFE2AF88FFE0AC84FFDDA980FFDCA57DFFDAA37ACAFFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+    }
+    NumGlyphs = 0
+    OnClick = SpeedButton9Click
+  end
+  object Label11: TLabel
+    Left = 455
+    Height = 17
+    Top = 143
+    Width = 64
+    Caption = 'Imputación'
+    ParentColor = False
+  end
+  object DBEdit7: TDBEdit
+    Left = 455
+    Height = 24
+    Top = 159
+    Width = 100
+    DataField = 'cCUIT'
+    DataSource = ds_proveedor
+    CharCase = ecNormal
+    MaxLength = 25
+    TabOrder = 9
+  end
+  object BitBtn1: TBitBtn
+    Left = 561
+    Height = 30
+    Top = 155
+    Width = 60
+    Caption = 'BitBtn1'
+    TabOrder = 10
+  end
+  object GroupBox1: TGroupBox
+    Left = 8
+    Height = 166
+    Top = 192
+    Width = 613
+    Caption = 'Contacto'
+    ClientHeight = 148
+    ClientWidth = 609
+    TabOrder = 11
+    object Label4: TLabel
+      Left = 10
+      Height = 17
+      Top = 5
+      Width = 56
+      Caption = 'Teléfonos'
+      ParentColor = False
+    end
+    object DBEdit3: TDBEdit
+      Left = 10
+      Height = 24
+      Top = 24
+      Width = 587
+      DataField = 'cTelefonos'
+      DataSource = ds_proveedor
+      CharCase = ecNormal
+      MaxLength = 2000
+      TabOrder = 0
+    end
+    object Label12: TLabel
+      Left = 10
+      Height = 17
+      Top = 51
+      Width = 106
+      Caption = 'Correo electrónico'
+      ParentColor = False
+    end
+    object DBEdit8: TDBEdit
+      Left = 10
+      Height = 24
+      Top = 70
+      Width = 586
+      DataField = 'cCorreos'
+      DataSource = ds_proveedor
+      CharCase = ecNormal
+      MaxLength = 2000
+      TabOrder = 1
+    end
+    object Label13: TLabel
+      Left = 10
+      Height = 17
+      Top = 97
+      Width = 82
+      Caption = 'Dirección web'
+      ParentColor = False
+    end
+    object DBEdit9: TDBEdit
+      Left = 10
+      Height = 24
+      Top = 116
+      Width = 586
+      DataField = 'cWeb'
+      DataSource = ds_proveedor
+      CharCase = ecNormal
+      MaxLength = 2000
+      TabOrder = 2
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 8
+    Height = 121
+    Top = 359
+    Width = 613
+    Caption = 'Domicilio'
+    ClientHeight = 103
+    ClientWidth = 609
+    TabOrder = 12
+    OnClick = GroupBox2Click
+    object DBEdit4: TDBEdit
+      Left = 10
+      Height = 24
+      Top = 7
+      Width = 587
+      DataField = 'cDomicilio'
+      DataSource = ds_proveedor
+      CharCase = ecNormal
+      MaxLength = 3000
+      TabOrder = 0
+    end
+    object Label14: TLabel
+      Left = 12
+      Height = 17
+      Top = 35
+      Width = 56
+      Caption = 'Localidad'
+      ParentColor = False
+    end
+    object cbLocalidades: TComboBox
+      Left = 10
+      Height = 24
+      Top = 53
+      Width = 557
+      ItemHeight = 16
+      OnChange = cbLocalidadesChange
+      Style = csDropDownList
+      TabOrder = 1
+    end
+    object SpeedButton10: TSpeedButton
+      Left = 575
+      Height = 22
+      Top = 54
+      Width = 23
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00113D55F7285F87FB4988BDFB428DBCC12D77B322FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D69E
+        72C4D3996EF4D19668FF2E6682FF94C7F9FF91C9F9FF4185C9FF2466A6FFA882
+        65FFC38452FFC38452FFC38452FFC38452FFBB7742B0FFFFFF00FFFFFF00D7A1
+        75FFF8F2EDFFF7F0EAFF4389AAFFE0F2FFFF549AD8FF1A7ABEFF4998C5FF478C
+        C3FFD0D2D7FFF0E2D8FFF0E2D8FFF0E2D8FFC58A5DFDFFFFFF00FFFFFF00D9A4
+        7AFFF9F3EEFFEBD2BEFFA7C5D9FF7AB6D5FF90B7D1FF55C9E4FF5BDFF5FF78D0
+        EDFF519DDDFFE4F0FAFFFFFFFFFFF0E2D8FFC68C5FFFFFFFFF00FFFFFF00DDA8
+        7EFFF9F3EFFFEBD0BAFFEBD0BBFFA7B7B9FF76B9D5FFC2F6FDFF63DFF7FF5DE2
+        F8FF79D3F0FF4997DAFFD4C5B9FFF0E2D8FFC68A5CFFFFFFFF00FFFFFF00DFAA
+        82FFF9F3EFFFEACEB7FFFFFFFFFFEBD0BBFFB1D6E7FF77CBE7FFC7F7FDFF5EDC
+        F5FF5AE1F7FF7BD4F1FF4C9ADEFFCAD0D8FFC88D5FFFFFFFFF00FFFFFF00E1AE
+        87FFFAF4F0FFEACBB2FFEACCB3FFEACCB3FFEACCB3FFB0C4BFFF79D3EEFFC7F7
+        FDFF5FDCF5FF5BE2F7FF7AD6F2FF50A0DEFFAC876BFFFFFFFF00FFFFFF00E3B1
+        8CFFFAF6F1FFEAC9AEFFFFFFFFFFEAC9B0FFFFFFFFFFFFFFFFFFC1EBF7FF7DD4
+        EDFFC4F6FDFF6CDDF6FF6DCAEDFF63A3D7FF6599C9FF5192CA26FFFFFF00E5B4
+        8FFFFAF6F2FFE9C6AAFFE9C6ACFFEAC7ACFFE9C7ADFFE9C9AEFFE9C9B0FFA6C1
+        BEFF81D5EDFFB2E3F9FF8BC0E7FFAED3F6FFC4E0FCFF669FD3F7FFFFFF00E7B7
+        94FFFBF7F4FFE9C3A6FFFFFFFFFFE8C4A9FFFFFFFFFFFFFFFFFFFFFFFFFFE8C7
+        ACFFB1E6F5FF77BEE7FFB4D2F0FFE5F3FFFFACD2EFFF488CC7E8FFFFFF00E9BA
+        98FFFBF7F4FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3
+        A6FFE9C3A6FFADBDB8FF58A5D8FF85B1DBFF469DD0FF2B95D15EFFFFFF00EBBD
+        9BFFFBF7F4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFBF7F4FFD1976AFFFFFFFF00FFFFFF00ECBF
+        9EFFFBF7F4FF9CD5A5FF98D3A1FF94D09DFF90CE98FF8BCB93FF87C98EFF82C6
+        89FF7EC384FF7AC180FF76BE7CFFFBF7F4FFD49B6FFFFFFFFF00FFFFFF00EEC1
+        A1EBFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7
+        F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFD7A074F8FFFFFF00FFFFFF00EFC2
+        A37EEFC1A2E3EDC09FFFEBBE9DFFEBBC9AFFE9BA96FFE7B793FFE6B590FFE4B2
+        8CFFE2AF88FFE0AC84FFDDA980FFDCA57DFFDAA37ACAFFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+      NumGlyphs = 0
+    end
+    object lbProvincia: TLabel
+      Left = 19
+      Height = 16
+      Top = 79
+      Width = 89
+      Caption = '----------------------'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+  end
   object ds_proveedor: TDatasource
     DataSet = DM_Proveedores.tbProveedores
-    left = 225
-    top = 228
+    left = 229
+    top = 209
   end
 end

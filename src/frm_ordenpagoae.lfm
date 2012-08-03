@@ -1,7 +1,7 @@
 object frmOrdenDePagoAE: TfrmOrdenDePagoAE
-  Left = 424
+  Left = 435
   Height = 554
-  Top = 60
+  Top = 66
   Width = 644
   Caption = 'Orden de Pago'
   ClientHeight = 554

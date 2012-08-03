@@ -1,10 +1,10 @@
 object frmComprasAE: TfrmComprasAE
-  Left = 501
-  Height = 487
-  Top = 98
+  Left = 407
+  Height = 505
+  Top = 27
   Width = 687
   Caption = 'Compra'
-  ClientHeight = 487
+  ClientHeight = 505
   ClientWidth = 687
   Font.CharSet = ANSI_CHARSET
   Font.Color = clBlack
@@ -96,6 +96,14 @@ object frmComprasAE: TfrmComprasAE
         }
         OnClick = btnBuscarProvClick
         TabOrder = 0
+      end
+      object Label9: TLabel
+        Left = 21
+        Height = 17
+        Top = 290
+        Width = 39
+        Caption = 'Label9'
+        ParentColor = False
       end
     end
     object GroupBox2: TGroupBox
@@ -267,25 +275,26 @@ object frmComprasAE: TfrmComprasAE
   object Panel2: TPanel
     Left = 0
     Height = 52
-    Top = 389
+    Top = 407
     Width = 687
     Align = alBottom
     ClientHeight = 52
     ClientWidth = 687
     TabOrder = 2
     object DBEdit2: TDBEdit
-      Left = 15
+      Left = 392
       Height = 24
       Top = 24
-      Width = 130
+      Width = 124
       DataField = 'nTotal'
       DataSource = Compra
+      Anchors = [akTop, akRight]
       CharCase = ecNormal
       MaxLength = 0
-      TabOrder = 0
+      TabOrder = 3
     end
     object DBEdit3: TDBEdit
-      Left = 346
+      Left = 7
       Height = 24
       Top = 24
       Width = 107
@@ -293,11 +302,11 @@ object frmComprasAE: TfrmComprasAE
       DataSource = Compra
       CharCase = ecNormal
       MaxLength = 0
-      TabOrder = 1
+      TabOrder = 0
       OnExit = DBEdit3Exit
     end
     object DBEdit4: TDBEdit
-      Left = 459
+      Left = 120
       Height = 24
       Top = 24
       Width = 100
@@ -305,19 +314,20 @@ object frmComprasAE: TfrmComprasAE
       DataSource = Compra
       CharCase = ecNormal
       MaxLength = 0
-      TabOrder = 2
+      TabOrder = 1
       OnExit = DBEdit3Exit
     end
     object Label4: TLabel
-      Left = 17
+      Left = 394
       Height = 17
       Top = 8
       Width = 69
+      Anchors = [akTop, akRight]
       Caption = 'Monto Total'
       ParentColor = False
     end
     object Label5: TLabel
-      Left = 346
+      Left = 7
       Height = 17
       Top = 6
       Width = 90
@@ -325,7 +335,7 @@ object frmComprasAE: TfrmComprasAE
       ParentColor = False
     end
     object Label6: TLabel
-      Left = 459
+      Left = 120
       Height = 17
       Top = 7
       Width = 102
@@ -333,10 +343,11 @@ object frmComprasAE: TfrmComprasAE
       ParentColor = False
     end
     object stNeto: TStaticText
-      Left = 160
+      Left = 545
       Height = 15
       Top = 3
       Width = 75
+      Anchors = [akTop, akRight]
       AutoSize = True
       Caption = 'Monto Neto: $'
       Font.CharSet = ANSI_CHARSET
@@ -347,13 +358,14 @@ object frmComprasAE: TfrmComprasAE
       Font.Quality = fqDraft
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 3
+      TabOrder = 4
     end
     object stIVA: TStaticText
-      Left = 160
+      Left = 545
       Height = 15
-      Top = 17
+      Top = 19
       Width = 66
+      Anchors = [akTop, akRight]
       AutoSize = True
       Caption = 'Monto IVA $'
       Font.CharSet = ANSI_CHARSET
@@ -364,10 +376,10 @@ object frmComprasAE: TfrmComprasAE
       Font.Quality = fqDraft
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 4
+      TabOrder = 5
     end
     object DBEdit6: TDBEdit
-      Left = 565
+      Left = 226
       Height = 24
       Top = 24
       Width = 107
@@ -375,11 +387,11 @@ object frmComprasAE: TfrmComprasAE
       DataSource = Compra
       CharCase = ecNormal
       MaxLength = 0
-      TabOrder = 5
+      TabOrder = 2
       OnExit = DBEdit3Exit
     end
     object Label7: TLabel
-      Left = 568
+      Left = 229
       Height = 17
       Top = 7
       Width = 71
@@ -387,10 +399,11 @@ object frmComprasAE: TfrmComprasAE
       ParentColor = False
     end
     object stTotalNI: TStaticText
-      Left = 160
+      Left = 545
       Height = 15
-      Top = 32
+      Top = 33
       Width = 65
+      Anchors = [akTop, akRight]
       AutoSize = True
       Caption = 'Neto + IVA $'
       Font.CharSet = ANSI_CHARSET
@@ -407,7 +420,7 @@ object frmComprasAE: TfrmComprasAE
   object Panel3: TPanel
     Left = 0
     Height = 46
-    Top = 441
+    Top = 459
     Width = 687
     Align = alBottom
     ClientHeight = 46
@@ -507,16 +520,16 @@ object frmComprasAE: TfrmComprasAE
   end
   object Panel4: TPanel
     Left = 0
-    Height = 241
+    Height = 259
     Top = 148
     Width = 687
     Align = alClient
-    ClientHeight = 241
+    ClientHeight = 259
     ClientWidth = 687
     TabOrder = 1
     object DBGrid1: TDBGrid
       Left = 1
-      Height = 147
+      Height = 159
       Top = 1
       Width = 685
       Align = alClient
@@ -587,19 +600,20 @@ object frmComprasAE: TfrmComprasAE
     end
     object Panel5: TPanel
       Left = 1
-      Height = 92
-      Top = 148
+      Height = 98
+      Top = 160
       Width = 685
       Align = alBottom
       BevelInner = bvLowered
       BevelOuter = bvLowered
-      ClientHeight = 92
+      ClientHeight = 98
       ClientWidth = 685
       TabOrder = 0
+      OnClick = Panel5Click
       object dbCantidad: TDBEdit
         Left = 5
         Height = 24
-        Top = 11
+        Top = 20
         Width = 59
         DataField = 'nCantidad'
         DataSource = Items
@@ -612,7 +626,7 @@ object frmComprasAE: TfrmComprasAE
       object dbConcepto: TDBEdit
         Left = 67
         Height = 24
-        Top = 11
+        Top = 20
         Width = 167
         DataField = 'Concepto'
         DataSource = Items
@@ -625,7 +639,7 @@ object frmComprasAE: TfrmComprasAE
       object edImputacion: TEdit
         Left = 238
         Height = 24
-        Top = 11
+        Top = 20
         Width = 68
         Anchors = [akTop, akRight]
         OnKeyPress = edImputacionKeyPress
@@ -633,9 +647,9 @@ object frmComprasAE: TfrmComprasAE
       end
       object SpeedButton1: TSpeedButton
         Left = 310
-        Height = 25
+        Height = 23
         Hint = 'Elige una cuenta desde el Plan de Cuentas'
-        Top = 12
+        Top = 20
         Width = 34
         Anchors = [akTop, akRight]
         Glyph.Data = {
@@ -682,7 +696,7 @@ object frmComprasAE: TfrmComprasAE
       object dbMontoUnitario: TDBEdit
         Left = 353
         Height = 24
-        Top = 11
+        Top = 20
         Width = 87
         DataField = 'nMontoUnitario'
         DataSource = Items
@@ -696,7 +710,7 @@ object frmComprasAE: TfrmComprasAE
       object dbPorcentajeIVA: TDBEdit
         Left = 443
         Height = 24
-        Top = 11
+        Top = 20
         Width = 63
         DataField = 'nPorcentajeIVA'
         DataSource = Items
@@ -710,7 +724,7 @@ object frmComprasAE: TfrmComprasAE
       object dbMontoIVA: TDBEdit
         Left = 509
         Height = 24
-        Top = 11
+        Top = 20
         Width = 82
         DataField = 'nMontoIVA'
         DataSource = Items
@@ -724,7 +738,7 @@ object frmComprasAE: TfrmComprasAE
       object dbMontoTotal: TDBEdit
         Left = 596
         Height = 24
-        Top = 11
+        Top = 20
         Width = 80
         DataField = 'nMontoTotal'
         DataSource = Items
@@ -735,9 +749,9 @@ object frmComprasAE: TfrmComprasAE
         OnKeyPress = dbMontoTotalKeyPress
       end
       object btnAgregarItem: TBitBtn
-        Left = 175
-        Height = 30
-        Top = 58
+        Left = 7
+        Height = 28
+        Top = 64
         Width = 105
         Caption = 'Agregar'
         Glyph.Data = {
@@ -780,9 +794,9 @@ object frmComprasAE: TfrmComprasAE
         TabOrder = 7
       end
       object btnModificarItem: TBitBtn
-        Left = 282
-        Height = 30
-        Top = 58
+        Left = 121
+        Height = 28
+        Top = 64
         Width = 105
         Caption = 'Modificar'
         Glyph.Data = {
@@ -824,9 +838,9 @@ object frmComprasAE: TfrmComprasAE
         TabOrder = 8
       end
       object btnEliminarItem: TBitBtn
-        Left = 389
-        Height = 30
-        Top = 58
+        Left = 233
+        Height = 28
+        Top = 64
         Width = 105
         Caption = 'Eliminar'
         Glyph.Data = {
@@ -869,13 +883,76 @@ object frmComprasAE: TfrmComprasAE
         TabOrder = 9
       end
       object stImputacion: TStaticText
-        Left = 241
+        Left = 201
         Height = 17
-        Top = 35
-        Width = 48
+        Top = 45
+        Width = 144
+        Anchors = [akTop, akRight]
         AutoSize = True
-        Caption = '------------'
+        Caption = '------------------------------------'
+        OnClick = stImputacionClick
         TabOrder = 10
+      end
+      object Label2: TLabel
+        Left = 7
+        Height = 17
+        Top = 3
+        Width = 52
+        Caption = 'Cantidad'
+        ParentColor = False
+      end
+      object Label10: TLabel
+        Left = 68
+        Height = 17
+        Top = 3
+        Width = 56
+        Caption = 'Concepto'
+        ParentColor = False
+      end
+      object Label12: TLabel
+        Left = 355
+        Height = 17
+        Top = 3
+        Width = 85
+        Anchors = [akTop, akRight]
+        Caption = 'Monto Unitario'
+        ParentColor = False
+      end
+      object Label13: TLabel
+        Left = 445
+        Height = 17
+        Top = 3
+        Width = 57
+        Anchors = [akTop, akRight]
+        Caption = 'Porc. IVA'
+        ParentColor = False
+      end
+      object Label14: TLabel
+        Left = 516
+        Height = 17
+        Top = 3
+        Width = 62
+        Anchors = [akTop, akRight]
+        Caption = 'Monto IVA'
+        ParentColor = False
+      end
+      object Label15: TLabel
+        Left = 598
+        Height = 17
+        Top = 3
+        Width = 69
+        Anchors = [akTop, akRight]
+        Caption = 'Monto Total'
+        ParentColor = False
+      end
+      object Label11: TLabel
+        Left = 239
+        Height = 17
+        Top = 3
+        Width = 64
+        Anchors = [akTop, akRight]
+        Caption = 'Imputación'
+        ParentColor = False
       end
     end
     object SpeedButton2: TSpeedButton
@@ -884,6 +961,14 @@ object frmComprasAE: TfrmComprasAE
       Top = 109
       Width = 23
       NumGlyphs = 0
+    end
+    object Label8: TLabel
+      Left = 228
+      Height = 17
+      Top = 142
+      Width = 39
+      Caption = 'Label8'
+      ParentColor = False
     end
   end
   object Compra: TDatasource

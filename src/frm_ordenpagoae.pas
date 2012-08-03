@@ -199,7 +199,7 @@ begin
     ruta:= LeerDato (SECCION_APP ,RUTA_LISTADOS) ;
     LoadFromFile(ruta+ _PRN_ORDENPAGO_);
     frVariables ['TotalPagos']:= FormatFloat('$ ############0.00', DM_OrdenesDePago.CalcularValores);
-    DesignReport;
+    ShowReport;
   end;
 end;
 

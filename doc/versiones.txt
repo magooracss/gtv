@@ -1,3 +1,9 @@
+Version 0.17
+============
+	*	Compras: Número de factura, dividirlo entre código de punto de venta y número de factura
+	*	Compras: Completar con 0 los números de factura
+===>	gtv.exe
+===>	tablas14.sql
 
 
 Versión 0.16

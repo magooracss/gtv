@@ -15,10 +15,30 @@ type
   TDM_Proveedores = class(TDataModule)
     qListaProveedores: TZQuery;
     qtugCondicionesFiscales: TZQuery;
+    qtugCondicionesPago: TZQuery;
+    qtugCondicionPagoTiempo: TZQuery;
+    qtugLocalidades: TZQuery;
+    qtugProvinciaLocalidadID: TZQuery;
     tbProveedores: TRxMemoryData;
+    tbProveedoresbVisible: TLongintField;
+    tbProveedorescCorreos: TStringField;
+    tbProveedorescCUIT: TStringField;
+    tbProveedorescDomicilio: TStringField;
+    tbProveedorescIngresosBrutos: TStringField;
+    tbProveedorescNombreFantasia: TStringField;
+    tbProveedorescRazonSocial: TStringField;
+    tbProveedorescTelefonos: TStringField;
+    tbProveedorescWeb: TStringField;
     tbProveedoresDEL: TZQuery;
+    tbProveedoresidProveedor: TStringField;
     tbProveedoresINS: TZQuery;
+    tbProveedoresrefCondicionFiscal: TLongintField;
+    tbProveedoresrefCondicionPago: TLongintField;
+    tbProveedoresrefCondicionPagoTiempo: TLongintField;
+    tbProveedoresrefImputacion: TLongintField;
+    tbProveedoresrefLocalidad: TLongintField;
     tbProveedoresSEL: TZQuery;
+    tbProveedorestxNotas: TStringField;
     tbProveedoresUPD: TZQuery;
     procedure tbProveedoresAfterInsert(DataSet: TDataSet);
   private
@@ -33,6 +53,8 @@ type
     procedure EliminarProveedorLista;
 
     function ProveedorNombre (refProveedor: GUID_ID): string;
+
+    function NombreProvinciaPorLocalidad (idLocalidad: integer): string;
   end; 
 
 var
@@ -51,10 +73,18 @@ begin
     FieldByName('cRazonSocial').asString:= EmptyStr;
     FieldByName('cCUIT').asString:= EmptyStr;
     FieldByName('refCondicionFiscal').asInteger:= 0;
-    FieldByName('cContacto').asString:= EmptyStr;
     FieldByName('cDomicilio').asString:= EmptyStr;
     FieldByName('txNotas').asString:= EmptyStr;
     FieldByName('bVisible').asInteger:= 1;
+    FieldByName('CNOMBREFANTASIA').asString:= EmptyStr;
+    FieldByName('REFLOCALIDAD').asInteger:= 0;
+    FieldByName('CTELEFONOS').asString:= EmptyStr;
+    FieldByName('CCORREOS').asString:= EmptyStr;
+    FieldByName('CWEB').asString:= EmptyStr;
+    FieldByName('REFIMPUTACION').asInteger:= 0;
+    FieldByName('CINGRESOSBRUTOS').asString:= EmptyStr;
+    FieldByName('REFCONDICIONPAGO').asInteger:= 0;
+    FieldByName('REFCONDICIONPAGOTIEMPO').asInteger:= 0;
   end;
 end;
 
@@ -118,6 +148,22 @@ begin
     Open;
     if RecordCount > 0 then
       Result:= FieldByName('cRazonSocial').asString
+    else
+      Result:= EmptyStr;
+  end;
+end;
+
+function TDM_Proveedores.NombreProvinciaPorLocalidad(idLocalidad: integer
+  ): string;
+begin
+
+  with qtugProvinciaLocalidadID do
+  begin
+    if active then close;
+    ParamByName('idLocalidad').asInteger:= idLocalidad;
+    Open;
+    if RecordCount > 0 then
+      Result:= FieldByName('Provincia').asString
     else
       Result:= EmptyStr;
   end;

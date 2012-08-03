@@ -1,8 +1,8 @@
 object DM_Compras: TDM_Compras
   OnCreate = DataModuleCreate
   OldCreateOrder = False
-  Height = 626
-  HorizontalOffset = 446
+  Height = 550
+  HorizontalOffset = 319
   VerticalOffset = 0
   Width = 839
   object qBusComprasProv: TZQuery

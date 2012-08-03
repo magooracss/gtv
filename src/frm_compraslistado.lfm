@@ -1,7 +1,7 @@
 object frmComprasListado: TfrmComprasListado
-  Left = 268
+  Left = 275
   Height = 468
-  Top = 147
+  Top = 160
   Width = 878
   Caption = 'Compras'
   ClientHeight = 468

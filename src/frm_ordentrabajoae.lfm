@@ -1,10 +1,10 @@
 object frmOrdenTrabajoAE: TfrmOrdenTrabajoAE
-  Left = 258
-  Height = 604
+  Left = 265
+  Height = 585
   Top = 2
   Width = 732
   Caption = 'Orden de Trabajo'
-  ClientHeight = 604
+  ClientHeight = 585
   ClientWidth = 732
   Font.Height = -13
   OnShow = FormShow

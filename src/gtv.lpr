@@ -25,7 +25,7 @@ uses
   frm_busquedapersonasempresas, dmcompras, frm_compraslistado, frm_comprasae,
   dmplandecuentas, frm_plandecuentaslistado, frm_plandecuentasae,
   frm_ordenespagolistado, dmordenesdepago, frm_ordenpagoae, frm_cargavalores,
-  dmvalores, frm_pagocomprobantes;
+  dmvalores, frm_pagocomprobantes, frm_tuglocalidades;
 
 {$R *.res}
 

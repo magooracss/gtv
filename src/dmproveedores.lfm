@@ -1,8 +1,8 @@
 object DM_Proveedores: TDM_Proveedores
   OldCreateOrder = False
   Height = 460
-  HorizontalOffset = 579
-  VerticalOffset = 105
+  HorizontalOffset = 947
+  VerticalOffset = 52
   Width = 412
   object tbProveedores: TRxMemoryData
     Active = True
@@ -10,54 +10,272 @@ object DM_Proveedores: TDM_Proveedores
       item
         Name = 'idProveedor'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'cRazonSocial'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 1500
       end    
       item
         Name = 'cCUIT'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 25
       end    
       item
         Name = 'refCondicionFiscal'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
-      end    
-      item
-        Name = 'cContacto'
-        DataType = ftString
-        Precision = 0
-        Size = 2000
       end    
       item
         Name = 'cDomicilio'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 3000
       end    
       item
         Name = 'txNotas'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 3000
       end    
       item
         Name = 'bVisible'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'cNombreFantasia'
+        DataType = ftString
+        Precision = -1
+        Size = 3000
+      end    
+      item
+        Name = 'refLocalidad'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'cTelefonos'
+        DataType = ftString
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'cCorreos'
+        DataType = ftString
+        Precision = -1
+        Size = 2000
+      end    
+      item
+        Name = 'cWeb'
+        DataType = ftString
+        Precision = -1
+        Size = 2000
+      end    
+      item
+        Name = 'refImputacion'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'cIngresosBrutos'
+        DataType = ftString
+        Precision = -1
+        Size = 25
+      end    
+      item
+        Name = 'refCondicionPago'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'refCondicionPagoTiempo'
+        DataType = ftInteger
+        Precision = -1
         Size = 0
       end>
     AfterInsert = tbProveedoresAfterInsert
     left = 40
     top = 24
+    object tbProveedoresidProveedor: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idProveedor'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbProveedorescRazonSocial: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'cRazonSocial'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+    object tbProveedorescCUIT: TStringField
+      DisplayWidth = 25
+      FieldKind = fkData
+      FieldName = 'cCUIT'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 25
+    end
+    object tbProveedoresrefCondicionFiscal: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refCondicionFiscal'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbProveedorescDomicilio: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'cDomicilio'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbProveedorestxNotas: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'txNotas'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbProveedoresbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbProveedorescNombreFantasia: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'cNombreFantasia'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbProveedoresrefLocalidad: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refLocalidad'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbProveedorescTelefonos: TStringField
+      DisplayWidth = 0
+      FieldKind = fkData
+      FieldName = 'cTelefonos'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 0
+    end
+    object tbProveedorescCorreos: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'cCorreos'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object tbProveedorescWeb: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'cWeb'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object tbProveedoresrefImputacion: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refImputacion'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbProveedorescIngresosBrutos: TStringField
+      DisplayWidth = 25
+      FieldKind = fkData
+      FieldName = 'cIngresosBrutos'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 25
+    end
+    object tbProveedoresrefCondicionPago: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refCondicionPago'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbProveedoresrefCondicionPagoTiempo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refCondicionPagoTiempo'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object tbProveedoresSEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -93,6 +311,15 @@ object DM_Proveedores: TDM_Proveedores
       ',cDomicilio'
       ',txNotas'
       ',bVisible'
+      ', CNOMBREFANTASIA'
+      ', REFLOCALIDAD'
+      ', CTELEFONOS'
+      ', CCORREOS'
+      ', CWEB'
+      ', REFIMPUTACION'
+      ', CINGRESOSBRUTOS'
+      ', REFCONDICIONPAGO'
+      ', REFCONDICIONPAGOTIEMPO'
       ')'
       'VALUES'
       '('
@@ -104,6 +331,15 @@ object DM_Proveedores: TDM_Proveedores
       ', :cDomicilio'
       ', :txNotas'
       ', :bVisible'
+      ', :CNOMBREFANTASIA'
+      ', :REFLOCALIDAD'
+      ', :CTELEFONOS'
+      ', :CCORREOS'
+      ', :CWEB'
+      ', :REFIMPUTACION'
+      ', :CINGRESOSBRUTOS'
+      ', :REFCONDICIONPAGO'
+      ', :REFCONDICIONPAGOTIEMPO'
       ')'
     )
     Params = <    
@@ -145,6 +381,51 @@ object DM_Proveedores: TDM_Proveedores
       item
         DataType = ftUnknown
         Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CNOMBREFANTASIA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFLOCALIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CTELEFONOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CCORREOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CWEB'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFIMPUTACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CINGRESOSBRUTOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONDICIONPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONDICIONPAGOTIEMPO'
         ParamType = ptUnknown
       end>
     left = 40
@@ -189,6 +470,51 @@ object DM_Proveedores: TDM_Proveedores
         DataType = ftUnknown
         Name = 'BVISIBLE'
         ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CNOMBREFANTASIA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFLOCALIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CTELEFONOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CCORREOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CWEB'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFIMPUTACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CINGRESOSBRUTOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONDICIONPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONDICIONPAGOTIEMPO'
+        ParamType = ptUnknown
       end>
   end
   object tbProveedoresUPD: TZQuery
@@ -203,6 +529,15 @@ object DM_Proveedores: TDM_Proveedores
       ',cDomicilio = :cDomicilio'
       ',txNotas = :txNotas'
       ',bVisible = :bVisible'
+      ', CNOMBREFANTASIA = :CNOMBREFANTASIA'
+      ', REFLOCALIDAD = :REFLOCALIDAD'
+      ', CTELEFONOS = :CTELEFONOS'
+      ', CCORREOS = :CCORREOS'
+      ', CWEB = :CWEB'
+      ', REFIMPUTACION = :REFIMPUTACION'
+      ', CINGRESOSBRUTOS = :CINGRESOSBRUTOS'
+      ', REFCONDICIONPAGO = :REFCONDICIONPAGO'
+      ', REFCONDICIONPAGOTIEMPO = :REFCONDICIONPAGOTIEMPO'
       'WHERE idProveedor = :idProveedor'
     )
     Params = <    
@@ -239,6 +574,51 @@ object DM_Proveedores: TDM_Proveedores
       item
         DataType = ftUnknown
         Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CNOMBREFANTASIA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFLOCALIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CTELEFONOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CCORREOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CWEB'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFIMPUTACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CINGRESOSBRUTOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONDICIONPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONDICIONPAGOTIEMPO'
         ParamType = ptUnknown
       end    
       item
@@ -282,6 +662,51 @@ object DM_Proveedores: TDM_Proveedores
       item
         DataType = ftUnknown
         Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CNOMBREFANTASIA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFLOCALIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CTELEFONOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CCORREOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CWEB'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFIMPUTACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CINGRESOSBRUTOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONDICIONPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONDICIONPAGOTIEMPO'
         ParamType = ptUnknown
       end    
       item
@@ -334,5 +759,61 @@ object DM_Proveedores: TDM_Proveedores
     Params = <>
     left = 256
     top = 56
+  end
+  object qtugCondicionesPago: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugCondicionesPago'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 256
+    top = 124
+  end
+  object qtugCondicionPagoTiempo: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugCondicionPagoTiempos'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 256
+    top = 196
+  end
+  object qtugLocalidades: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugLocalidades'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 256
+    top = 259
+  end
+  object qtugProvinciaLocalidadID: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugProvincias P'
+      '      inner join tugLocalidades L ON L.refProvincia = P.idProvincia'
+      'WHERE  L.idLocalidad = :idLocalidad'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idLocalidad'
+        ParamType = ptUnknown
+      end>
+    left = 256
+    top = 357
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idLocalidad'
+        ParamType = ptUnknown
+      end>
   end
 end

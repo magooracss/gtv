@@ -337,6 +337,7 @@ procedure TDM_OrdenesDePago.Nueva;
 begin
   DM_General.ReiniciarTabla(tbOrdenesPago);
   DM_General.ReiniciarTabla(tbOPComprobantes);
+  DM_General.ReiniciarTabla(tbOPFormasDePago);
   tbOrdenesPago.Insert;
 end;
 
