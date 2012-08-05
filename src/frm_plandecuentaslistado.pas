@@ -38,9 +38,13 @@ type
     procedure FormShow(Sender: TObject);
   private
     function getCodigoSeleccionado: String;
+    function getIdCuenta: integer;
+    function getNombreCuenta: String;
     procedure pantPlanDeCuentas(operacion: TOperacion);
   public
      property CodigoSeleccionado: String read getCodigoSeleccionado;
+     property NombreCuentaSeleccionado: String read getNombreCuenta;
+     property idCuenta: integer read getIdCuenta;
   end; 
 
 var
@@ -87,6 +91,16 @@ end;
 function TfrmPlanDeCuentasListado.getCodigoSeleccionado: String;
 begin
   Result:= DM_PlanDeCuentas.Codigo;
+end;
+
+function TfrmPlanDeCuentasListado.getIdCuenta: integer;
+begin
+  Result:= DM_PlanDeCuentas.idCuenta;
+end;
+
+function TfrmPlanDeCuentasListado.getNombreCuenta: String;
+begin
+  Result:= DM_PlanDeCuentas.Concepto;
 end;
 
 procedure TfrmPlanDeCuentasListado.pantPlanDeCuentas(operacion: TOperacion);

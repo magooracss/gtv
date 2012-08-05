@@ -14,7 +14,7 @@ type
   { TfrmProveedorAE }
 
   TfrmProveedorAE = class(TForm)
-    BitBtn1: TBitBtn;
+    btnImputacion: TBitBtn;
     btnAceptar: TBitBtn;
     btnCancelar: TBitBtn;
     cbCondicionFiscal: TComboBox;
@@ -25,13 +25,13 @@ type
     DBEdit4: TDBEdit;
     DBEdit5: TDBEdit;
     DBEdit6: TDBEdit;
-    DBEdit7: TDBEdit;
     DBEdit8: TDBEdit;
     DBEdit9: TDBEdit;
     ds_proveedor: TDatasource;
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
     DBMemo1: TDBMemo;
+    edImputacion: TEdit;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     Label1: TLabel;
@@ -43,6 +43,7 @@ type
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
+    lbImputacion: TLabel;
     lbProvincia: TLabel;
     Label6: TLabel;
     Label7: TLabel;
@@ -55,9 +56,12 @@ type
     SpeedButton9: TSpeedButton;
     procedure btnAceptarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
+    procedure btnImputacionClick(Sender: TObject);
     procedure cbLocalidadesChange(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure GroupBox2Click(Sender: TObject);
+    procedure SpeedButton10Click(Sender: TObject);
     procedure SpeedButton7Click(Sender: TObject);
     procedure SpeedButton8Click(Sender: TObject);
     procedure SpeedButton9Click(Sender: TObject);
@@ -77,6 +81,9 @@ uses
   dmproveedores
   ,dmediciontugs
   ,frm_ediciontugs
+  ,frm_tuglocalidades
+  ,frm_plandecuentaslistado
+  ,dmplandecuentas
   ;
 
 { TfrmProveedorAE }
@@ -86,9 +93,32 @@ begin
   ModalResult:= mrCancel;
 end;
 
+procedure TfrmProveedorAE.btnImputacionClick(Sender: TObject);
+var
+  pant:TfrmPlanDeCuentasListado;
+begin
+  pant:= TfrmPlanDeCuentasListado.Create(self);
+  try
+    if pant.ShowModal = mrOK then
+    begin
+       edImputacion.Text:= pant.CodigoSeleccionado;
+       lbImputacion.Caption:= pant.NombreCuentaSeleccionado;
+       DM_Proveedores.EditarImputacion (pant.idCuenta);
+    end;
+  finally
+    pant.Free;
+  end;
+
+end;
+
 procedure TfrmProveedorAE.cbLocalidadesChange(Sender: TObject);
 begin
   lbProvincia.Caption:= DM_Proveedores.NombreProvinciaPorLocalidad(DM_General.obtenerIDIntComboBox(cbLocalidades));
+end;
+
+procedure TfrmProveedorAE.FormCreate(Sender: TObject);
+begin
+
 end;
 
 procedure TfrmProveedorAE.FormShow(Sender: TObject);
@@ -99,6 +129,22 @@ end;
 procedure TfrmProveedorAE.GroupBox2Click(Sender: TObject);
 begin
 
+end;
+
+procedure TfrmProveedorAE.SpeedButton10Click(Sender: TObject);
+var
+  pantalla: TfrmTugLocalidades;
+begin
+   pantalla:= TfrmTugLocalidades.Create (self);
+   try
+     if pantalla.showmodal = mrOK then
+     begin
+        DM_General.CargarComboBox(cbLocalidades, 'Localidad', 'idLocalidad', DM_Proveedores.qtugLocalidades);
+        cbLocalidades.ItemIndex:= DM_General.obtenerIdxCombo(cbLocalidades, DM_Proveedores.tbProveedores.FieldByName('refLocalidad').asInteger);
+     end;
+   finally
+     pantalla.free;
+   end;
 end;
 
 procedure TfrmProveedorAE.SpeedButton7Click(Sender: TObject);
@@ -183,12 +229,21 @@ begin
 
   DM_General.CargarComboBox(cbLocalidades, 'Localidad', 'idLocalidad', DM_Proveedores.qtugLocalidades);
   cbLocalidades.ItemIndex:= DM_General.obtenerIdxCombo(cbLocalidades, DM_Proveedores.tbProveedores.FieldByName('refLocalidad').asInteger);
+  lbProvincia.Caption:= DM_Proveedores.NombreProvinciaPorLocalidad(DM_General.obtenerIDIntComboBox(cbLocalidades));
+
+   DM_PlanDeCuentas.CuentaPorID(DM_Proveedores.tbProveedores.FieldByName('refImputacion').asInteger);
+   edImputacion.Text:= DM_PlanDeCuentas.Codigo;
+   lbImputacion.Caption:= DM_PlanDeCuentas.Concepto;
 
 end;
 
 procedure TfrmProveedorAE.btnAceptarClick(Sender: TObject);
 begin
-  DM_Proveedores.CargarValores (DM_General.obtenerIDIntComboBox(cbCondicionFiscal));
+  DM_Proveedores.CargarValores (DM_General.obtenerIDIntComboBox(cbCondicionFiscal)
+                                ,DM_General.obtenerIDIntComboBox(cbCondicionPago)
+                                ,DM_General.obtenerIDIntComboBox(cbTiempoPago)
+                                ,DM_General.obtenerIDIntComboBox(cbLocalidades)
+                                );
   DM_Proveedores.Grabar;
   ModalResult:= mrOK;
 end;

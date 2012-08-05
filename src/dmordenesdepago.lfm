@@ -2,8 +2,8 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 430
-  HorizontalOffset = 368
-  VerticalOffset = 96
+  HorizontalOffset = 372
+  VerticalOffset = 97
   Width = 792
   object tbResultados: TRxMemoryData
     FieldDefs = <    

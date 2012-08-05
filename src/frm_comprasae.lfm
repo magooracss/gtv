@@ -1,5 +1,5 @@
 object frmComprasAE: TfrmComprasAE
-  Left = 407
+  Left = 412
   Height = 505
   Top = 27
   Width = 687
@@ -282,10 +282,10 @@ object frmComprasAE: TfrmComprasAE
     ClientWidth = 687
     TabOrder = 2
     object DBEdit2: TDBEdit
-      Left = 392
+      Left = 567
       Height = 24
       Top = 24
-      Width = 124
+      Width = 111
       DataField = 'nTotal'
       DataSource = Compra
       Anchors = [akTop, akRight]
@@ -318,7 +318,7 @@ object frmComprasAE: TfrmComprasAE
       OnExit = DBEdit3Exit
     end
     object Label4: TLabel
-      Left = 394
+      Left = 569
       Height = 17
       Top = 8
       Width = 69
@@ -343,7 +343,7 @@ object frmComprasAE: TfrmComprasAE
       ParentColor = False
     end
     object stNeto: TStaticText
-      Left = 545
+      Left = 476
       Height = 15
       Top = 3
       Width = 75
@@ -361,7 +361,7 @@ object frmComprasAE: TfrmComprasAE
       TabOrder = 4
     end
     object stIVA: TStaticText
-      Left = 545
+      Left = 485
       Height = 15
       Top = 19
       Width = 66
@@ -399,7 +399,7 @@ object frmComprasAE: TfrmComprasAE
       ParentColor = False
     end
     object stTotalNI: TStaticText
-      Left = 545
+      Left = 486
       Height = 15
       Top = 33
       Width = 65

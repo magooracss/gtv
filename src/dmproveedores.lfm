@@ -1,11 +1,10 @@
 object DM_Proveedores: TDM_Proveedores
   OldCreateOrder = False
   Height = 460
-  HorizontalOffset = 947
-  VerticalOffset = 52
+  HorizontalOffset = 958
+  VerticalOffset = 53
   Width = 412
   object tbProveedores: TRxMemoryData
-    Active = True
     FieldDefs = <    
       item
         Name = 'idProveedor'
@@ -203,7 +202,7 @@ object DM_Proveedores: TDM_Proveedores
       Required = False
     end
     object tbProveedorescTelefonos: TStringField
-      DisplayWidth = 0
+      DisplayWidth = 2000
       FieldKind = fkData
       FieldName = 'cTelefonos'
       Index = 9
@@ -211,7 +210,7 @@ object DM_Proveedores: TDM_Proveedores
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      Size = 0
+      Size = 2000
     end
     object tbProveedorescCorreos: TStringField
       DisplayWidth = 2000
@@ -307,7 +306,6 @@ object DM_Proveedores: TDM_Proveedores
       ',cRazonSocial'
       ',cCUIT'
       ',refCondicionFiscal'
-      ',cContacto'
       ',cDomicilio'
       ',txNotas'
       ',bVisible'
@@ -327,7 +325,6 @@ object DM_Proveedores: TDM_Proveedores
       ', :cRazonSocial'
       ', :cCUIT'
       ', :refCondicionFiscal'
-      ', :cContacto'
       ', :cDomicilio'
       ', :txNotas'
       ', :bVisible'
@@ -361,11 +358,6 @@ object DM_Proveedores: TDM_Proveedores
       item
         DataType = ftUnknown
         Name = 'REFCONDICIONFISCAL'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'cContacto'
         ParamType = ptUnknown
       end    
       item
@@ -453,11 +445,6 @@ object DM_Proveedores: TDM_Proveedores
       end    
       item
         DataType = ftUnknown
-        Name = 'cContacto'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
         Name = 'CDOMICILIO'
         ParamType = ptUnknown
       end    
@@ -525,7 +512,6 @@ object DM_Proveedores: TDM_Proveedores
       'cRazonSocial = :cRazonSocial'
       ',cCUIT = :cCUIT'
       ',refCondicionFiscal = :refCondicionFiscal'
-      ',cContacto = :cContacto'
       ',cDomicilio = :cDomicilio'
       ',txNotas = :txNotas'
       ',bVisible = :bVisible'
@@ -554,11 +540,6 @@ object DM_Proveedores: TDM_Proveedores
       item
         DataType = ftUnknown
         Name = 'REFCONDICIONFISCAL'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'cContacto'
         ParamType = ptUnknown
       end    
       item
@@ -642,11 +623,6 @@ object DM_Proveedores: TDM_Proveedores
       item
         DataType = ftUnknown
         Name = 'REFCONDICIONFISCAL'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'cContacto'
         ParamType = ptUnknown
       end    
       item

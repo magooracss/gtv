@@ -25,7 +25,8 @@ uses
   frm_busquedapersonasempresas, dmcompras, frm_compraslistado, frm_comprasae,
   dmplandecuentas, frm_plandecuentaslistado, frm_plandecuentasae,
   frm_ordenespagolistado, dmordenesdepago, frm_ordenpagoae, frm_cargavalores,
-  dmvalores, frm_pagocomprobantes, frm_tuglocalidades;
+  dmvalores, frm_pagocomprobantes, frm_tuglocalidades, dmlocalidades, 
+frm_localidadae;
 
 {$R *.res}
 
@@ -51,6 +52,7 @@ begin
   Application.CreateForm(TDM_PlanDeCuentas, DM_PlanDeCuentas);
   Application.CreateForm(TDM_OrdenesDePago, DM_OrdenesDePago);
   Application.CreateForm(TDM_Valores, DM_Valores);
+  Application.CreateForm(TDM_Localidades, DM_Localidades);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.Run;
 end.

@@ -112,12 +112,12 @@ end;
 
 procedure TDM_PlanDeCuentas.CuentaPorID(refCuenta: integer);
 begin
+  DM_General.ReiniciarTabla(tbPlanDeCuentas);
   with tugPlanDeCuentasSEL do
   begin
     if active then close;
     ParamByName('idCuenta').asInteger:= refCuenta;
     Open;
-    DM_General.ReiniciarTabla(tbPlanDeCuentas);
     tbPlanDeCuentas.LoadFromDataSet(tugPlanDeCuentasSEL,0, lmAppend);
     close;
   end;

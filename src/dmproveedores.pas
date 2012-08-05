@@ -46,7 +46,7 @@ type
   public
     procedure LevantarProveedores;
     procedure Grabar;
-    procedure CargarValores (refCondicionFiscal: integer);
+    procedure CargarValores (refCondicionFiscal, refCondicionPago, refTiempoPago, refLocalidad: integer);
 
     procedure NuevoProveedor;
     procedure EditarProveedorLista;
@@ -55,6 +55,7 @@ type
     function ProveedorNombre (refProveedor: GUID_ID): string;
 
     function NombreProvinciaPorLocalidad (idLocalidad: integer): string;
+    procedure EditarImputacion (refCuenta: integer);
   end; 
 
 var
@@ -102,12 +103,16 @@ begin
   DM_General.GrabarDatos(tbProveedoresSEL, tbProveedoresINS, tbProveedoresUPD, tbProveedores, 'idProveedor');
 end;
 
-procedure TDM_Proveedores.CargarValores(refCondicionFiscal: integer);
+procedure TDM_Proveedores.CargarValores(refCondicionFiscal, refCondicionPago,
+  refTiempoPago, refLocalidad: integer);
 begin
   with tbProveedores do
   begin
     Edit;
     FieldByName('refCondicionFiscal').asInteger:= refCondicionFiscal;
+    FieldByName('refCondicionPago').asInteger:= refCondicionPago;
+    FieldByName('refCondicionPagoTiempo').asInteger:= refTiempoPago;
+    FieldByName('refLocalidad').asInteger:= refLocalidad;
     Post;
   end;
 end;
@@ -166,6 +171,16 @@ begin
       Result:= FieldByName('Provincia').asString
     else
       Result:= EmptyStr;
+  end;
+end;
+
+procedure TDM_Proveedores.EditarImputacion(refCuenta: integer);
+begin
+  with tbProveedores do
+  begin
+    Edit;
+    FieldByName('refImputacion').asInteger:= refCuenta;
+    Post;
   end;
 end;
 

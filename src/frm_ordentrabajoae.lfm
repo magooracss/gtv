@@ -1,5 +1,5 @@
 object frmOrdenTrabajoAE: TfrmOrdenTrabajoAE
-  Left = 265
+  Left = 268
   Height = 585
   Top = 2
   Width = 732

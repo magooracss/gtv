@@ -1,5 +1,5 @@
 object frmProveedorAE: TfrmProveedorAE
-  Left = 355
+  Left = 359
   Height = 678
   Top = 38
   Width = 633
@@ -12,6 +12,7 @@ object frmProveedorAE: TfrmProveedorAE
   Font.Name = 'Arial'
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
+  OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
   ShowHint = True
@@ -19,7 +20,7 @@ object frmProveedorAE: TfrmProveedorAE
   object DBEdit1: TDBEdit
     Left = 8
     Height = 24
-    Top = 24
+    Top = 18
     Width = 613
     DataField = 'cRazonSocial'
     DataSource = ds_proveedor
@@ -30,18 +31,18 @@ object frmProveedorAE: TfrmProveedorAE
   object DBEdit2: TDBEdit
     Left = 316
     Height = 24
-    Top = 115
+    Top = 109
     Width = 136
     DataField = 'cCUIT'
     DataSource = ds_proveedor
     CharCase = ecNormal
     MaxLength = 25
-    TabOrder = 1
+    TabOrder = 3
   end
   object cbCondicionFiscal: TComboBox
     Left = 9
     Height = 24
-    Top = 115
+    Top = 109
     Width = 255
     ItemHeight = 16
     Style = csDropDownList
@@ -55,7 +56,7 @@ object frmProveedorAE: TfrmProveedorAE
     Align = alBottom
     ClientHeight = 50
     ClientWidth = 633
-    TabOrder = 3
+    TabOrder = 12
     object btnAceptar: TBitBtn
       Left = 24
       Height = 30
@@ -156,12 +157,12 @@ object frmProveedorAE: TfrmProveedorAE
     Anchors = [akTop, akLeft, akRight, akBottom]
     DataField = 'txNotas'
     DataSource = ds_proveedor
-    TabOrder = 4
+    TabOrder = 11
   end
   object Label1: TLabel
     Left = 8
     Height = 17
-    Top = 8
+    Top = 2
     Width = 78
     Caption = 'Razón Social'
     ParentColor = False
@@ -169,7 +170,7 @@ object frmProveedorAE: TfrmProveedorAE
   object Label2: TLabel
     Left = 316
     Height = 17
-    Top = 99
+    Top = 93
     Width = 29
     Caption = 'CUIT'
     ParentColor = False
@@ -177,7 +178,7 @@ object frmProveedorAE: TfrmProveedorAE
   object Label3: TLabel
     Left = 9
     Height = 17
-    Top = 99
+    Top = 93
     Width = 97
     Caption = 'Condición Fiscal'
     ParentColor = False
@@ -193,7 +194,7 @@ object frmProveedorAE: TfrmProveedorAE
   object SpeedButton7: TSpeedButton
     Left = 272
     Height = 22
-    Top = 117
+    Top = 111
     Width = 23
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
@@ -237,18 +238,18 @@ object frmProveedorAE: TfrmProveedorAE
   object DBEdit5: TDBEdit
     Left = 8
     Height = 24
-    Top = 68
+    Top = 62
     Width = 613
-    DataField = 'cIngresosBrutos'
+    DataField = 'cNombreFantasia'
     DataSource = ds_proveedor
     CharCase = ecNormal
     MaxLength = 1500
-    TabOrder = 5
+    TabOrder = 1
   end
   object Label7: TLabel
     Left = 8
     Height = 17
-    Top = 52
+    Top = 46
     Width = 100
     Caption = 'Nombre Fantasía'
     ParentColor = False
@@ -256,18 +257,18 @@ object frmProveedorAE: TfrmProveedorAE
   object DBEdit6: TDBEdit
     Left = 461
     Height = 24
-    Top = 115
+    Top = 109
     Width = 160
     DataField = 'cIngresosBrutos'
     DataSource = ds_proveedor
     CharCase = ecNormal
     MaxLength = 25
-    TabOrder = 6
+    TabOrder = 4
   end
   object Label8: TLabel
     Left = 461
     Height = 17
-    Top = 99
+    Top = 93
     Width = 92
     Caption = 'Ingresos Brutos'
     ParentColor = False
@@ -275,7 +276,7 @@ object frmProveedorAE: TfrmProveedorAE
   object SpeedButton8: TSpeedButton
     Left = 192
     Height = 22
-    Top = 164
+    Top = 158
     Width = 23
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
@@ -319,16 +320,16 @@ object frmProveedorAE: TfrmProveedorAE
   object cbCondicionPago: TComboBox
     Left = 9
     Height = 24
-    Top = 162
+    Top = 156
     Width = 175
     ItemHeight = 16
     Style = csDropDownList
-    TabOrder = 7
+    TabOrder = 5
   end
   object Label9: TLabel
     Left = 9
     Height = 17
-    Top = 146
+    Top = 140
     Width = 90
     Caption = 'Condición pago'
     ParentColor = False
@@ -336,7 +337,7 @@ object frmProveedorAE: TfrmProveedorAE
   object Label10: TLabel
     Left = 232
     Height = 17
-    Top = 146
+    Top = 140
     Width = 95
     Caption = 'Tiempo de Pago'
     ParentColor = False
@@ -344,16 +345,16 @@ object frmProveedorAE: TfrmProveedorAE
   object cbTiempoPago: TComboBox
     Left = 232
     Height = 24
-    Top = 162
-    Width = 183
+    Top = 156
+    Width = 190
     ItemHeight = 16
     Style = csDropDownList
-    TabOrder = 8
+    TabOrder = 6
   end
   object SpeedButton9: TSpeedButton
-    Left = 421
+    Left = 429
     Height = 22
-    Top = 164
+    Top = 158
     Width = 23
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
@@ -395,31 +396,56 @@ object frmProveedorAE: TfrmProveedorAE
     OnClick = SpeedButton9Click
   end
   object Label11: TLabel
-    Left = 455
+    Left = 465
     Height = 17
-    Top = 143
+    Top = 137
     Width = 64
     Caption = 'Imputación'
     ParentColor = False
   end
-  object DBEdit7: TDBEdit
-    Left = 455
-    Height = 24
-    Top = 159
-    Width = 100
-    DataField = 'cCUIT'
-    DataSource = ds_proveedor
-    CharCase = ecNormal
-    MaxLength = 25
-    TabOrder = 9
-  end
-  object BitBtn1: TBitBtn
-    Left = 561
+  object btnImputacion: TBitBtn
+    Left = 578
     Height = 30
-    Top = 155
-    Width = 60
-    Caption = 'BitBtn1'
-    TabOrder = 10
+    Top = 153
+    Width = 43
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00ABABAB38AAAA
+      AA1EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00AFAFAF38ADADADF6B6B6
+      B6FFAAAAAA21FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00B2B2B238B1B1B1F6E0E0E0FFD8D8
+      D8FFB6B6B6FFABABAB21FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00B6B6B63BB4B4B4F6E2E2E2FFFDFDFDFFFDFD
+      FDFFD9D9D9FFB6B6B6FFABABAB21FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00BABABA3BB8B8B8F6E4E4E4FFFDFDFDFFFBECD5FFFDD2
+      97FFFDFBF7FFD9D9D9FFB7B7B7FFABABAB21FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00BDBDBD3BBCBCBCF6E5E5E5FFFDFDFDFFFBECD6FFFDCD86FFFFCF
+      8CFFFAD197FFF9F7F3FFD9D9D9FFB7B7B7FFACACAC21FFFFFF00FFFFFF00FFFF
+      FF00C1C1C13BC0C0C0F6E7E7E7FFFDFDFDFFFBECD6FFFDCD88FFFFD598FFFFD6
+      9CFFFFD08EFFF7CC8DFFFDFCFBFFD9D9D9FFB7B7B7FFACACAC1FFFFFFF00C5C5
+      C53BC3C3C3F6E8E8E8FFFDFDFDFFFBECD6FFFDCD88FFFFD598FFFFD79EFFFFD6
+      9BFFFFCE89FFFDE1BAFFFDFDFDFFD7D7D7FFB5B5B5FFAEAEAE15C9C9C93DC7C7
+      C7F6E9E9E9FFFDFDFDFFFBEBD3FFFFCC83FFFFD498FFFFD79EFFFFD69BFFFFCF
+      8BFFFDE2BCFFFDFDFDFFD9D9D9FFB9B9B9FFB1B1B115FFFFFF00CBCBCBF6EBEB
+      EBFFFDFDFDFFFAFAFAFFFBF3E7FFFECE89FFFFD496FFFFD59AFFFFCF8BFFFDE2
+      BCFFFDFDFDFFDADADAFFBDBDBDFFB5B5B515FFFFFF00FFFFFF00CDCDCDFFFDFD
+      FDFFFDFDFDFFFCFCFCFFF7F7F7FFFDF5EAFFFECF8AFFFFCC83FFFDE2BCFFFDFD
+      FDFFDCDCDCFFC0C0C0FFB9B9B915FFFFFF00FFFFFF00FFFFFF00CECECEFFFDFD
+      FDFFE0E0E0FFCACACAF9C8C8C8E2F7F7F7FFFBF3E8FFFDE3BDFFFDFDFDFFDEDE
+      DEFFC3C3C3FFBDBDBD15FFFFFF00FFFFFF00FFFFFF00FFFFFF00D0D0D0FFFDFD
+      FDFFCDCDCDFFFFFFFF00CACACACDF3F3F3FFFBFBFBFFFDFDFDFFE0E0E0FFC7C7
+      C7FFC0C0C015FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D2D2D2FFFDFD
+      FDFFE2E2E2FFCECECEFFE0E0E0FFFDFDFDFFFDFDFDFFE2E2E2FFCBCBCBFFC4C4
+      C415FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D3D3D3FFFDFD
+      FDFFFDFDFDFFFDFDFDFFFDFDFDFFFDFDFDFFE4E4E4FFCDCDCDFFC8C8C815FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D5D5D5FFD4D4
+      D4FFD2D2D2FFD1D1D1FFD0D0D0FFCECECEFFCDCDCDFFCBCBCB15FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+    }
+    OnClick = btnImputacionClick
+    TabOrder = 8
   end
   object GroupBox1: TGroupBox
     Left = 8
@@ -429,7 +455,7 @@ object frmProveedorAE: TfrmProveedorAE
     Caption = 'Contacto'
     ClientHeight = 148
     ClientWidth = 609
-    TabOrder = 11
+    TabOrder = 9
     object Label4: TLabel
       Left = 10
       Height = 17
@@ -496,7 +522,7 @@ object frmProveedorAE: TfrmProveedorAE
     Caption = 'Domicilio'
     ClientHeight = 103
     ClientWidth = 609
-    TabOrder = 12
+    TabOrder = 10
     OnClick = GroupBox2Click
     object DBEdit4: TDBEdit
       Left = 10
@@ -569,6 +595,7 @@ object frmProveedorAE: TfrmProveedorAE
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
       NumGlyphs = 0
+      OnClick = SpeedButton10Click
     end
     object lbProvincia: TLabel
       Left = 19
@@ -586,6 +613,44 @@ object frmProveedorAE: TfrmProveedorAE
       ParentColor = False
       ParentFont = False
     end
+  end
+  object lbImputacion: TLabel
+    Left = 460
+    Height = 15
+    Top = 181
+    Width = 113
+    Alignment = taRightJustify
+    Anchors = [akTop, akRight]
+    Caption = '----------------------------'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object edImputacion: TEdit
+    Left = 461
+    Height = 24
+    Top = 156
+    Width = 110
+    Alignment = taCenter
+    Anchors = [akTop, akRight]
+    Color = clMoneyGreen
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+    ReadOnly = True
+    TabStop = False
+    TabOrder = 7
   end
   object ds_proveedor: TDatasource
     DataSet = DM_Proveedores.tbProveedores
