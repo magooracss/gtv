@@ -1,3 +1,4 @@
+
 unit frm_comprasae;
 
 {$mode objfpc}{$H+}
@@ -5,9 +6,9 @@ unit frm_comprasae;
 interface
 
 uses
-  Classes, SysUtils, db, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, Buttons, DbCtrls, DBGrids, dbdateedit
-  ,dmgeneral, Grids;
+  Classes, SysUtils, DB, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
+  StdCtrls, Buttons, DBCtrls, DBGrids, dbdateedit
+  , dmgeneral, Grids;
 
 type
 
@@ -20,64 +21,72 @@ type
     btnAceptar: TBitBtn;
     btnCancelar: TBitBtn;
     btnBuscarProv: TBitBtn;
+    btnTugTiposComprobantes1: TSpeedButton;
+    btnTugTiposComprobantes2: TSpeedButton;
     cbTipoComprobante: TComboBox;
-    Compra: TDatasource;
-    DBEdit1: TDBEdit;
-    DBEdit5: TDBEdit;
-    DBEdit6: TDBEdit;
+    cbCondPago: TComboBox;
+    cbCondPagoTiempo: TComboBox;
+    Compra:     TDatasource;
+    DBEdit1:    TDBEdit;
+    DBEdit5:    TDBEdit;
+    DBEdit6:    TDBEdit;
     dbMontoTotal: TDBEdit;
     dbCantidad: TDBEdit;
     dbConcepto: TDBEdit;
     dbMontoUnitario: TDBEdit;
     dbPorcentajeIVA: TDBEdit;
     dbMontoIVA: TDBEdit;
-    DBGrid1: TDBGrid;
+    DBGrid1:    TDBGrid;
     edImputacion: TEdit;
-    GroupBox3: TGroupBox;
-    Items: TDatasource;
+    GroupBox3:  TGroupBox;
+    GroupBox4:  TGroupBox;
+    Items:      TDatasource;
     DBDateEdit1: TDBDateEdit;
-    DBEdit2: TDBEdit;
-    DBEdit3: TDBEdit;
-    DBEdit4: TDBEdit;
+    DBEdit2:    TDBEdit;
+    DBEdit3:    TDBEdit;
+    DBEdit4:    TDBEdit;
     edProveedor: TEdit;
-    GroupBox1: TGroupBox;
-    GroupBox2: TGroupBox;
-    Label1: TLabel;
-    Label10: TLabel;
-    Label11: TLabel;
-    Label12: TLabel;
-    Label13: TLabel;
-    Label14: TLabel;
-    Label15: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
-    Label7: TLabel;
-    Label8: TLabel;
-    Label9: TLabel;
-    Panel1: TPanel;
-    Panel2: TPanel;
-    Panel3: TPanel;
-    Panel4: TPanel;
-    Panel5: TPanel;
+    GroupBox1:  TGroupBox;
+    GroupBox2:  TGroupBox;
+    Label1:     TLabel;
+    Label10:    TLabel;
+    Label11:    TLabel;
+    Label12:    TLabel;
+    Label13:    TLabel;
+    Label14:    TLabel;
+    Label15:    TLabel;
+    Label2:     TLabel;
+    Label3:     TLabel;
+    Label4:     TLabel;
+    Label5:     TLabel;
+    Label6:     TLabel;
+    Label7:     TLabel;
+    Label8:     TLabel;
+    Label9:     TLabel;
+    Panel1:     TPanel;
+    Panel2:     TPanel;
+    Panel3:     TPanel;
+    Panel4:     TPanel;
+    Panel5:     TPanel;
     SpeedButton1: TSpeedButton;
     btnTugTiposComprobantes: TSpeedButton;
     SpeedButton2: TSpeedButton;
-    stTotalNI: TStaticText;
-    stNeto: TStaticText;
-    stIVA: TStaticText;
+    stTotalNI:  TStaticText;
+    stNeto:     TStaticText;
+    stIVA:      TStaticText;
     stImputacion: TStaticText;
     procedure btnAceptarClick(Sender: TObject);
     procedure btnAgregarItemClick(Sender: TObject);
     procedure btnBuscarProvClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure btnEliminarItemClick(Sender: TObject);
+    procedure btnTugTiposComprobantes1Click(Sender: TObject);
+    procedure btnTugTiposComprobantes2Click(Sender: TObject);
     procedure dbCantidadExit(Sender: TObject);
     procedure dbCantidadKeyPress(Sender: TObject; var Key: char);
     procedure dbConceptoKeyPress(Sender: TObject; var Key: char);
     procedure DBEdit3Exit(Sender: TObject);
+    procedure DBEdit5Exit(Sender: TObject);
     procedure DBGrid1SelectEditor(Sender: TObject; Column: TColumn;
       var Editor: TWinControl);
     procedure dbMontoIVAExit(Sender: TObject);
@@ -103,38 +112,91 @@ type
     procedure ActualizarMontos;
     procedure AltaItem;
     procedure CargarImputacion;
+    procedure ActualizarCombos;
+
+    function ValidarCompra: boolean;
+    procedure VAlidarNumeroFactura;
   public
-    property idCompra: GUID_ID read getIdCompra write _idCompra;
-  end; 
+    property idCompra: GUID_ID Read getIdCompra Write _idCompra;
+  end;
 
 var
   frmComprasAE: TfrmComprasAE;
 
 implementation
+
 {$R *.lfm}
 uses
-   dmcompras
-   ,frm_plandecuentaslistado
-   ,dmplandecuentas
-   ,frm_ediciontugs
-   ,dmediciontugs
-   ,frm_proveedoreslistado
-   ,dmproveedores
-   ;
+  dmcompras
+  , frm_plandecuentaslistado
+  , dmplandecuentas
+  , frm_ediciontugs
+  , dmediciontugs
+  , frm_proveedoreslistado
+  , dmproveedores;
 
 { TfrmComprasAE }
 
 procedure TfrmComprasAE.btnCancelarClick(Sender: TObject);
 begin
-  ModalResult:= mrCancel;
+  ModalResult := mrCancel;
 end;
 
 procedure TfrmComprasAE.btnEliminarItemClick(Sender: TObject);
 begin
-  if (MessageDlg ('CONFIRMACION', '¿Elimino el renglón seleccionado?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+  if (MessageDlg('CONFIRMACION', '¿Elimino el renglón seleccionado?',
+    mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
   begin
     DM_Compras.EliminarItem;
     ActualizarMontos;
+  end;
+end;
+
+procedure TfrmComprasAE.btnTugTiposComprobantes1Click(Sender: TObject);
+var
+  pantalla: TfrmEdicionTugs;
+  datos:    TTablaTUG;
+begin
+  pantalla := TfrmEdicionTugs.Create(self);
+  datos    := TTablaTUG.Create;
+  try
+    with datos do
+    begin
+      nombre := 'TugCondicionesPago';
+      titulo := 'Condiciones de Pago';
+      AgregarCampo('CondicionPago', 'Tipo de Condición de Pago');
+    end;
+    pantalla.laTUG := datos;
+    pantalla.ShowModal;
+    DM_General.CargarComboBox(cbCondPago, 'CondicionPago',
+      'idCondicionPago', DM_Compras.qtugCondicionesPago);
+  finally
+    datos.Free;
+    pantalla.Free;
+  end;
+end;
+
+procedure TfrmComprasAE.btnTugTiposComprobantes2Click(Sender: TObject);
+var
+  pantalla: TfrmEdicionTugs;
+  datos:    TTablaTUG;
+begin
+  pantalla := TfrmEdicionTugs.Create(self);
+  datos    := TTablaTUG.Create;
+  try
+    with datos do
+    begin
+      nombre := 'TugCondicionPagoTiempos';
+      titulo := 'Tiempos de condiciones de Pago';
+      AgregarCampo('CondicionPagoTiempo', 'Tiempo de la Condición de Pago');
+    end;
+    pantalla.laTUG := datos;
+    pantalla.ShowModal;
+    DM_General.CargarComboBox(cbCondPagoTiempo, 'CondicionPagoTiempo',
+      'idCondicionPagoTiempo', DM_Compras.qtugCondicionPagoTiempo);
+  finally
+    datos.Free;
+    pantalla.Free;
   end;
 end;
 
@@ -164,6 +226,11 @@ begin
   ActualizarMontos;
 end;
 
+procedure TfrmComprasAE.DBEdit5Exit(Sender: TObject);
+begin
+  ValidarNumeroFactura;
+end;
+
 
 procedure TfrmComprasAE.DBGrid1SelectEditor(Sender: TObject; Column: TColumn;
   var Editor: TWinControl);
@@ -189,19 +256,20 @@ begin
   if Key = #13 then
   begin
     ActualizarMontos;
-    if (MessageDlg ('CONSULTA', '¿Carga otro renglón?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+    if (MessageDlg('CONSULTA', '¿Carga otro renglón?', mtConfirmation,
+      [mbYes, mbNo], 0) = mrYes) then
     begin
       AltaItem;
       dbCantidad.SetFocus;
     end
     else
-     btnAceptar.SetFocus;
+      btnAceptar.SetFocus;
   end;
 end;
 
 procedure TfrmComprasAE.dbMontoUnitarioExit(Sender: TObject);
 begin
-   ActualizarMontos;
+  ActualizarMontos;
 end;
 
 procedure TfrmComprasAE.dbMontoUnitarioKeyPress(Sender: TObject; var Key: char);
@@ -250,10 +318,11 @@ begin
   end
   else
   begin
-    DM_Compras.LevantarCompra (_idCompra);
+    DM_Compras.LevantarCompra(_idCompra);
+    DM_Proveedores.LevantarProveedorID(DM_Compras.idProveedor);
     ActualizarMontos;
     ActualizarProveedor;
-    cbTipoComprobante.ItemIndex:= DM_General.obtenerIdxCombo(cbTipoComprobante,DM_Compras.idTipoComprobante);
+    ActualizarCombos;
   end;
 end;
 
@@ -265,13 +334,13 @@ end;
 
 procedure TfrmComprasAE.SpeedButton1Click(Sender: TObject);
 var
-  pant:TfrmPlanDeCuentasListado;
+  pant: TfrmPlanDeCuentasListado;
 begin
-  pant:= TfrmPlanDeCuentasListado.Create(self);
+  pant := TfrmPlanDeCuentasListado.Create(self);
   try
-    if pant.ShowModal = mrOK then
+    if pant.ShowModal = mrOk then
     begin
-      edImputacion.Text:= pant.CodigoSeleccionado;
+      edImputacion.Text := pant.CodigoSeleccionado;
       ActualizarImputacion;
     end;
   finally
@@ -283,20 +352,21 @@ end;
 procedure TfrmComprasAE.btnTugTiposComprobantesClick(Sender: TObject);
 var
   pantalla: TfrmEdicionTugs;
-  datos: TTablaTUG;
+  datos:    TTablaTUG;
 begin
-  pantalla:=TfrmEdicionTugs.Create(self);
-  datos:= TTablaTUG.Create;
+  pantalla := TfrmEdicionTugs.Create(self);
+  datos    := TTablaTUG.Create;
   try
     with datos do
     begin
-      nombre:= 'tugTiposComprobantes';
-      titulo:= 'Tipos de Comprobantes';
-      AgregarCampo('TipoComprobante','Nombre del comprobante');
+      nombre := 'tugTiposComprobantes';
+      titulo := 'Tipos de Comprobantes';
+      AgregarCampo('TipoComprobante', 'Nombre del comprobante');
     end;
-    pantalla.laTUG:= datos;
+    pantalla.laTUG := datos;
     pantalla.ShowModal;
-    DM_General.CargarComboBox(cbTipoComprobante, 'TipoComprobante', 'idTipoComprobante',DM_Compras.qtugTiposComprobantes);
+    DM_General.CargarComboBox(cbTipoComprobante, 'TipoComprobante',
+      'idTipoComprobante', DM_Compras.qtugTiposComprobantes);
   finally
     datos.Free;
     pantalla.Free;
@@ -310,31 +380,44 @@ end;
 
 procedure TfrmComprasAE.Inicializar;
 begin
-  DM_General.CargarComboBox(cbTipoComprobante, 'TipoComprobante', 'idTipoComprobante',DM_Compras.qtugTiposComprobantes);
+  DM_General.CargarComboBox(cbTipoComprobante, 'TipoComprobante',
+    'idTipoComprobante', DM_Compras.qtugTiposComprobantes);
+  DM_General.CargarComboBox(cbCondPagoTiempo, 'CondicionPagoTiempo',
+    'idCondicionPagoTiempo', DM_Compras.qtugCondicionPagoTiempo);
+  DM_General.CargarComboBox(cbCondPago, 'CondicionPago',
+    'idCondicionPago', DM_Compras.qtugCondicionesPago);
   btnBuscarProv.SetFocus;
 end;
 
 
 function TfrmComprasAE.getIdCompra: GUID_ID;
 begin
-  Result:= DM_Compras.idCompraEdicion;
+  Result := DM_Compras.idCompraEdicion;
 end;
 
 procedure TfrmComprasAE.ActualizarProveedor;
 begin
-  edProveedor.Text:= DM_Proveedores.ProveedorNombre(DM_Compras.idProveedor);
+ //  edProveedor.Text := DM_Proveedores.ProveedorNombre(DM_Compras.idProveedor);
+    edProveedor.Text := DM_Proveedores.Nombre;
+
+  //Levanto los defaults
+    DM_Compras.cargarTipoComprobante(DM_Proveedores.idTipoComprobante);
+    DM_Compras.cargarCondPago(DM_Proveedores.idCondPago);
+    DM_Compras.cargarCondPagoTiempo(DM_Proveedores.idConPagoTiempo);
+
+    ActualizarCombos;
 end;
 
 procedure TfrmComprasAE.ActualizarImputacion;
 begin
-  if DM_PlanDeCuentas.ExisteCodigoImputacion (TRIM(edImputacion.Text)) then
+  if DM_PlanDeCuentas.ExisteCodigoImputacion(TRIM(edImputacion.Text)) then
   begin
-    stImputacion.Caption:= DM_PlanDeCuentas.Concepto;
-    DM_Compras.CargarImputacion (DM_PlanDeCuentas.idCuenta, DM_PlanDeCuentas.Concepto);
+    stImputacion.Caption := DM_PlanDeCuentas.Concepto;
+    DM_Compras.CargarImputacion(DM_PlanDeCuentas.idCuenta, DM_PlanDeCuentas.Concepto);
   end
   else
   begin
-    ShowMessage ('El código ' + TRIM(edImputacion.Text) + ' no existe');
+    ShowMessage('El código ' + TRIM(edImputacion.Text) + ' no existe');
     edImputacion.Clear;
     edImputacion.SetFocus;
   end;
@@ -344,22 +427,65 @@ procedure TfrmComprasAE.ActualizarMontos;
 begin
   DM_Compras.actualizarMontosItem;
   DM_Compras.ActualizarMontoTotal;
-  stIVA.Caption:= 'Total IVA ' +FormatFloat ('$ ###########0.00', DM_Compras.TotalIVA);
-  stNeto.Caption:= 'Total Neto ' +FormatFloat ('$ ###########0.00', DM_Compras.TotalNeto);
-  stTotalNI.Caption:= 'Neto + IVA ' +FormatFloat ('$ ###########0.00', DM_Compras.TotalIVA + DM_Compras.TotalNeto);
+  stIVA.Caption     := 'Total IVA ' + FormatFloat('$ ###########0.00', DM_Compras.TotalIVA);
+  stNeto.Caption    := 'Total Neto ' + FormatFloat('$ ###########0.00',
+    DM_Compras.TotalNeto);
+  stTotalNI.Caption := 'Neto + IVA ' + FormatFloat('$ ###########0.00',
+    DM_Compras.TotalIVA + DM_Compras.TotalNeto);
 end;
 
 procedure TfrmComprasAE.AltaItem;
 begin
   edImputacion.Clear;
-  stImputacion.Caption:= '-----------';
+  stImputacion.Caption := '-----------';
   DM_Compras.AgregarItem;
+  DM_PlanDeCuentas.CuentaPorID(DM_General.TablaValoresInt(_VAL_IMP_CMPR));
+  edImputacion.Caption:= DM_PlanDeCuentas.Codigo;
+  ActualizarImputacion;
 end;
 
 procedure TfrmComprasAE.CargarImputacion;
 begin
-  edImputacion.Text:= DM_Compras.CodigoImputacion;
+  edImputacion.Text := DM_Compras.CodigoImputacion;
   ActualizarImputacion;
+end;
+
+procedure TfrmComprasAE.ActualizarCombos;
+begin
+  cbTipoComprobante.ItemIndex := DM_General.obtenerIdxCombo(cbTipoComprobante, DM_Compras.idTipoComprobante);
+  cbCondPago.ItemIndex := DM_General.obtenerIdxCombo(cbCondPago, DM_Compras.idCondPago);
+  cbCondPagoTiempo.ItemIndex :=DM_General.obtenerIdxCombo(cbTipoComprobante, DM_Compras.idCondPagoTiempo);
+end;
+
+function TfrmComprasAE.ValidarCompra: boolean;
+begin //Ya se que es una funcion y que saco valores por pantalla :-P
+  Result:= true;
+
+  if DM_Compras.TotalIVA = 0 then
+    Result:= (MessageDlg('ATENCION', 'No hay ningún IVA cargado. ¿Eso es correcto?', mtConfirmation, [mbYes, mbNo], 0) = mrYes);
+
+  if (TRIM(DBEdit1.Text)=EmptyStr)
+     or (TRIM(DBEdit5.Text)=EmptyStr) then
+  begin
+     Result:= false;
+     ShowMessage('Falta completar el número de factura');
+  end;
+
+end;
+
+procedure TfrmComprasAE.VAlidarNumeroFactura;
+var
+  suc, nro: integer;
+begin
+  suc:= StrToIntDef(TRIM(DBEdit1.Text), 0);
+  nro:= StrToIntDef(TRIM(DBEdit5.Text), 0);
+  if (suc <> 0) and (nro <> 0) then
+  begin
+    if  DM_Compras.FacturaExistente (suc, nro, DM_Proveedores.idProveedor) then
+     ShowMessage ('La factura ' + IntToStr(suc) + ' - ' + IntToStr(nro) + ' ya esta cargada en este proveedor');
+  end;
+
+
 end;
 
 procedure TfrmComprasAE.btnAgregarItemClick(Sender: TObject);
@@ -369,20 +495,26 @@ end;
 
 procedure TfrmComprasAE.btnAceptarClick(Sender: TObject);
 begin
-  DM_Compras.cargarTipoComprobante (DM_General.obtenerIDIntComboBox(cbTipoComprobante));
-  DM_Compras.Grabar;
-  ModalResult:= mrOK;
+  IF ValidarCompra then
+  begin
+    DM_Compras.cargarTipoComprobante(DM_General.obtenerIDIntComboBox(cbTipoComprobante));
+    DM_Compras.cargarCondPago(DM_General.obtenerIDIntComboBox(cbCondPago));
+    DM_Compras.cargarCondPagoTiempo(DM_General.obtenerIDIntComboBox(cbCondPagoTiempo));
+    DM_Compras.Grabar;
+    ModalResult := mrOk;
+  end;
 end;
 
 procedure TfrmComprasAE.btnBuscarProvClick(Sender: TObject);
 var
   provBus: TfrmProveedoresListado;
 begin
-  provBus:= TfrmProveedoresListado.Create (Self);
+  provBus := TfrmProveedoresListado.Create(Self);
   try
-    if provBus.ShowModal = mrOK then
+    if provBus.ShowModal = mrOk then
     begin
-      DM_Compras.cargarProveedor (provBus.idProveedor);
+      DM_Compras.cargarProveedor(provBus.idProveedor);
+      DM_Proveedores.LevantarProveedorID(provBus.idProveedor);
       ActualizarProveedor;
     end;
   finally

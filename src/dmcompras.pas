@@ -44,6 +44,8 @@ type
     qComprasPorOPREFTIPOCOMPROBANTE: TLongintField;
     qCompraTotalPagadaTOTAL: TFloatField;
     qFormaPagoPorCompra: TZQuery;
+    qtugCondicionesPago: TZQuery;
+    qtugCondicionPagoTiempo: TZQuery;
     tbComprasItemsDEL: TZQuery;
     qtugTiposComprobantes: TZQuery;
     tbComprasbPagada: TLongintField;
@@ -59,6 +61,8 @@ type
     tbComprasnroFactura: TLongintField;
     tbComprasnroPtoVenta: TLongintField;
     tbComprasPercepIVA: TFloatField;
+    tbComprasrefCondPago: TLongintField;
+    tbComprasrefCondPagoTiempo: TLongintField;
     tbComprasrefOrdenPago: TStringField;
     tbComprasSEL: TZQuery;
     tbComprasItemsUPD: TZQuery;
@@ -72,6 +76,7 @@ type
     tbComprasItemsrefCompra: TStringField;
     tbComprasItemsrefImputacion: TLongintField;
     qComprasPorOP: TZQuery;
+    qFacturaExistente: TZQuery;
     tbComprasUPD: TZQuery;
     tbComprasnTotal: TFloatField;
     tbComprasPercepCapital: TFloatField;
@@ -119,6 +124,8 @@ type
     _TotalCompra: double;
     function getCodImputacion: string;
     function getFechaCompra: TDateTime;
+    function getIdCondPago: integer;
+    function getIdCondPagoTiempo: integer;
     function getIdProveedor: string;
     function getIdTipoComprobante: integer;
     function getNroComprobante: string;
@@ -138,6 +145,9 @@ type
 
     property idProveedor: string read getIdProveedor;
     property idTipoComprobante: integer read getIdTipoComprobante;
+
+    property idCondPago: integer read getIdCondPago;
+    property idCondPagoTiempo: integer read getIdCondPagoTiempo;
 
 
     procedure Buscar (criterio, consulta: string;filtro: integer);
@@ -162,6 +172,9 @@ type
 
     procedure CargarProveedor (refProveedor: GUID_ID);
     procedure CargarTipoComprobante (refTipoComprobante: integer);
+    procedure CargarCondPago (refCondPago: integer);
+    procedure CargarCondPagoTiempo (refCondPagoTiempo: integer);
+
 
     procedure ObtenerTotales;
 
@@ -171,6 +184,7 @@ type
     procedure DesmarcarComprobantePagado (refCompra: GUID_ID);
 
     function MontoPagado (refCompra: GUID_ID): double;
+    function FacturaExistente (suc, nro: integer; proveedor: GUID_ID): boolean;
   end; 
 
 var
@@ -201,7 +215,9 @@ begin
     FieldByName('bVisible').AsInteger:= 1;
     FieldByName('refOrdenPago').asString:= GUIDNULO;
     FieldByName('nroPtoVenta').asInteger:= 1;
-    FieldByName ('nroFactura').asInteger:= 1;
+    FieldByName('nroFactura').asInteger:= 1;
+    FieldByName('refCondPago').asInteger:= 0;
+    FieldByName('refCondPagoTiempo').asInteger:= 0;
   end;
 end;
 
@@ -246,15 +262,22 @@ begin
 end;
 
 procedure TDM_Compras.tbComprasItemsAfterInsert(DataSet: TDataSet);
+var
+  refImputacion: integer;
+  refIva: double;
 begin
+  refIVA:= DM_General.TablaValoresInt(_VAL_IVA);
+  refImputacion:= DM_General.TablaValoresInt(_VAL_IMP_CMPR);
+
+
   with DataSet do
   begin
     FieldByName('idCompraItem').asString:= DM_General.CrearGUID;
     FieldByName('refCompra').asString:= tbCompras.FieldByName('idCompra').asString;
-    FieldByName('nCantidad').asFloat:= 0;
-    FieldByName('refImputacion').asInteger:= 0;
+    FieldByName('nCantidad').asFloat:= 1;
+    FieldByName('refImputacion').asInteger:= refImputacion;
     FieldByName('nMontoUnitario').asFloat:= 0;
-    FieldByName('nPorcentajeIVA').asFloat:= 0;
+    FieldByName('nPorcentajeIVA').asFloat:= refIVA;
     FieldByName('nMontoIVA').asFloat:= 0;
     FieldByName('nMontoTotal').asFloat:= 0;
   end;
@@ -279,6 +302,28 @@ begin
       Result:= FieldByName('Fecha').AsDateTime;
   end;
 
+end;
+
+function TDM_Compras.getIdCondPago: integer;
+begin
+  with tbCompras do
+  begin
+    if FieldByName('refCondPago').IsNull then
+      Result:= 0
+    else
+      Result:= FieldByName('refCondPago').asInteger;
+  end;
+end;
+
+function TDM_Compras.getIdCondPagoTiempo: integer;
+begin
+  with tbCompras do
+  begin
+    if FieldByName('refCondPagoTiempo').IsNull then
+      Result:= 0
+    else
+      Result:= FieldByName('refCondPagoTiempo').asInteger;
+  end;
 end;
 
 function TDM_Compras.getIdProveedor: string;
@@ -416,6 +461,22 @@ begin
        Result:= FieldByName('TOTAL').asFloat
     else
       Result:= 0;
+  end;
+end;
+
+function TDM_Compras.FacturaExistente(suc, nro: integer; proveedor: GUID_ID
+  ): boolean;
+begin
+  with qFacturaExistente do
+  begin
+    if active then close;
+    ParamByName('refProveedor').asString:= proveedor;
+    ParamByName('nroPtoVenta').asInteger:= suc;
+    ParamByName('nroFactura').asInteger:= nro;
+    Open;
+
+    Result:= (RecordCount > 0);
+    close;
   end;
 end;
 
@@ -582,7 +643,6 @@ end;
 procedure TDM_Compras.AgregarItem;
 begin
   tbComprasItems.Insert;
-
 end;
 
 procedure TDM_Compras.EliminarItem;
@@ -677,6 +737,27 @@ begin
   begin
     Edit;
     FieldByName('refTipoComprobante').AsInteger:= refTipoComprobante;
+    Post;
+  end;
+end;
+
+procedure TDM_Compras.CargarCondPago(refCondPago: integer);
+begin
+  with tbCompras do
+  begin
+    Edit;
+    FieldByName('refCondPago').AsInteger:= refCondPago;
+    Post;
+  end;
+
+end;
+
+procedure TDM_Compras.CargarCondPagoTiempo(refCondPagoTiempo: integer);
+begin
+  with tbCompras do
+  begin
+    Edit;
+    FieldByName('refCondPagoTiempo').AsInteger:= refCondPagoTiempo;
     Post;
   end;
 end;

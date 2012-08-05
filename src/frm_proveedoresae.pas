@@ -58,6 +58,8 @@ type
     procedure btnCancelarClick(Sender: TObject);
     procedure btnImputacionClick(Sender: TObject);
     procedure cbLocalidadesChange(Sender: TObject);
+    procedure DBEdit2Exit(Sender: TObject);
+    procedure DBEdit6Exit(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure GroupBox2Click(Sender: TObject);
@@ -114,6 +116,18 @@ end;
 procedure TfrmProveedorAE.cbLocalidadesChange(Sender: TObject);
 begin
   lbProvincia.Caption:= DM_Proveedores.NombreProvinciaPorLocalidad(DM_General.obtenerIDIntComboBox(cbLocalidades));
+end;
+
+procedure TfrmProveedorAE.DBEdit2Exit(Sender: TObject);
+begin
+  if NOT DM_General.CuitValido(DBEdit2.Text) then
+     ShowMessage('Atención, el cuit ingresado podria no ser válido');
+end;
+
+procedure TfrmProveedorAE.DBEdit6Exit(Sender: TObject);
+begin
+   if NOT DM_General.CuitValido(DBEdit6.Text) then
+     ShowMessage('Atención, el número ingresado podria no ser válido');
 end;
 
 procedure TfrmProveedorAE.FormCreate(Sender: TObject);

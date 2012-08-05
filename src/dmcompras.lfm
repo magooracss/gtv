@@ -399,6 +399,18 @@ object DM_Compras: TDM_Compras
         DataType = ftFloat
         Precision = 0
         Size = 0
+      end    
+      item
+        Name = 'refCondPago'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refCondPagoTiempo'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
       end>
     AfterInsert = tbComprasAfterInsert
     left = 230
@@ -554,6 +566,26 @@ object DM_Compras: TDM_Compras
       MaxValue = 0
       MinValue = 0
       Precision = 2
+    end
+    object tbComprasrefCondPago: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refCondPago'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbComprasrefCondPagoTiempo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refCondPagoTiempo'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
     end
   end
   object tbComprasItems: TRxMemoryData
@@ -754,7 +786,7 @@ object DM_Compras: TDM_Compras
       'WHERE bVisible = 1'
     )
     Params = <>
-    left = 626
+    left = 646
     top = 40
   end
   object tbComprasItemsDEL: TZQuery
@@ -1061,9 +1093,9 @@ object DM_Compras: TDM_Compras
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'INSERT INTO  tbCompras'
-      '(IDCOMPRA, FECHA, REFPROVEEDOR, REFTIPOCOMPROBANTE, NTOTAL, PERCEPCAPITAL, PERCEPPROVINCIA, BPAGADA, BVISIBLE, refOrdenPago, nroPtoVenta, nroFactura, percepIVA)'
+      '(IDCOMPRA, FECHA, REFPROVEEDOR, REFTIPOCOMPROBANTE, NTOTAL, PERCEPCAPITAL, PERCEPPROVINCIA, BPAGADA, BVISIBLE, refOrdenPago, nroPtoVenta, nroFactura, percepIVA, refCondPago, refCondPagoTiempo)'
       'VALUES'
-      '(:IDCOMPRA, :FECHA, :REFPROVEEDOR, :REFTIPOCOMPROBANTE, :NTOTAL, :PERCEPCAPITAL, :PERCEPPROVINCIA, :BPAGADA, :BVISIBLE, :refOrdenPago, :nroPtoVenta, :nroFactura, :percepIVA)'
+      '(:IDCOMPRA, :FECHA, :REFPROVEEDOR, :REFTIPOCOMPROBANTE, :NTOTAL, :PERCEPCAPITAL, :PERCEPPROVINCIA, :BPAGADA, :BVISIBLE, :refOrdenPago, :nroPtoVenta, :nroFactura, :percepIVA, :refCondPago, :refCondPagoTiempo)'
     )
     Params = <    
       item
@@ -1129,6 +1161,16 @@ object DM_Compras: TDM_Compras
       item
         DataType = ftUnknown
         Name = 'percepIVA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refCondPago'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refCondPagoTiempo'
         ParamType = ptUnknown
       end>
     left = 233
@@ -1198,6 +1240,16 @@ object DM_Compras: TDM_Compras
         DataType = ftUnknown
         Name = 'percepIVA'
         ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refCondPago'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refCondPagoTiempo'
+        ParamType = ptUnknown
       end>
   end
   object tbComprasUPD: TZQuery
@@ -1217,6 +1269,8 @@ object DM_Compras: TDM_Compras
       ', nroPtoVenta = :nroPtoVenta'
       ', nroFactura = :nroFactura'
       ', percepIVA = :percepIVA'
+      ', refCondPago = :refCondPago'
+      ', refCondPagoTiempo = :refCondPagoTiempo'
       'WHERE IDCOMPRA = :IDCOMPRA'
     )
     Params = <    
@@ -1278,6 +1332,16 @@ object DM_Compras: TDM_Compras
       item
         DataType = ftUnknown
         Name = 'percepIVA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refCondPago'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refCondPagoTiempo'
         ParamType = ptUnknown
       end    
       item
@@ -1346,6 +1410,16 @@ object DM_Compras: TDM_Compras
       item
         DataType = ftUnknown
         Name = 'percepIVA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refCondPago'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refCondPagoTiempo'
         ParamType = ptUnknown
       end    
       item
@@ -2083,5 +2157,71 @@ object DM_Compras: TDM_Compras
       MinValue = 0
       Precision = 2
     end
+  end
+  object qtugCondicionesPago: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugCondicionesPago'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 647
+    top = 111
+  end
+  object qtugCondicionPagoTiempo: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugCondicionPagoTiempos'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 647
+    top = 183
+  end
+  object qFacturaExistente: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM  tbCompras'
+      'WHERE (refProveedor = :refProveedor)'
+      '            and (nroPtoVenta = :nroPtoVenta)'
+      '            and (nroFactura = :nroFactura)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nroPtoVenta'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nroFactura'
+        ParamType = ptUnknown
+      end>
+    left = 708
+    top = 430
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nroPtoVenta'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nroFactura'
+        ParamType = ptUnknown
+      end>
   end
 end

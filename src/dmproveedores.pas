@@ -15,6 +15,7 @@ type
   TDM_Proveedores = class(TDataModule)
     qListaProveedores: TZQuery;
     qtugCondicionesFiscales: TZQuery;
+    qTugComprobantePorID: TZQuery;
     qtugCondicionesPago: TZQuery;
     qtugCondicionPagoTiempo: TZQuery;
     qtugLocalidades: TZQuery;
@@ -32,6 +33,8 @@ type
     tbProveedoresDEL: TZQuery;
     tbProveedoresidProveedor: TStringField;
     tbProveedoresINS: TZQuery;
+    tbProveedoresrefComprEntrega: TLongintField;
+    tbProveedoresrefComprRecibe: TLongintField;
     tbProveedoresrefCondicionFiscal: TLongintField;
     tbProveedoresrefCondicionPago: TLongintField;
     tbProveedoresrefCondicionPagoTiempo: TLongintField;
@@ -42,9 +45,21 @@ type
     tbProveedoresUPD: TZQuery;
     procedure tbProveedoresAfterInsert(DataSet: TDataSet);
   private
+    function getIdCondPago: integer;
+    function getIdCondPagoTiempo: integer;
+    function getIdProveedor: string;
+    function getIdTipoComprobante: integer;
+    function getNombre: string;
     { private declarations }
   public
+    property idTipoComprobante: integer read getIdTipoComprobante;
+    property idCondPago: integer read getIdCondPago;
+    property idConPagoTiempo: integer read getIdCondPagoTiempo;
+    property Nombre: string read getNombre;
+    property idProveedor: string read getIdProveedor;
+
     procedure LevantarProveedores;
+    procedure LevantarProveedorID (refProveedor: string);
     procedure Grabar;
     procedure CargarValores (refCondicionFiscal, refCondicionPago, refTiempoPago, refLocalidad: integer);
 
@@ -89,12 +104,82 @@ begin
   end;
 end;
 
+function TDM_Proveedores.getIdCondPago: integer;
+begin
+  with tbProveedores do
+  begin
+    if FieldByName('refCondicionPago').IsNull then
+      result:= 0
+    else
+      result:= FieldByName('refCondicionPago').AsInteger;
+  end;
+end;
+
+function TDM_Proveedores.getIdCondPagoTiempo: integer;
+begin
+  with tbProveedores do
+  begin
+    if FieldByName('refCondicionPagoTiempo').IsNull then
+      result:= 0
+    else
+      result:= FieldByName('refCondicionPagoTiempo').AsInteger;
+  end;
+end;
+
+function TDM_Proveedores.getIdProveedor: string;
+begin
+  with tbProveedores do
+  begin
+    if FieldByName('idProveedor').IsNull then
+      result:= GUIDNULO
+    else
+      result:= FieldByName('idProveedor').AsString;
+  end;
+end;
+
+function TDM_Proveedores.getIdTipoComprobante: integer;
+begin
+  with qTugComprobantePorID do
+  begin
+    if active then close;
+    ParamByName('idCondicionFiscal').asInteger:= tbProveedores.FieldByName('refCondicionFiscal').asInteger;
+    Open;
+    if RecordCount > 0 then
+      Result:= FieldByName('comprRecibe').AsInteger
+    else
+      Result:= 0;
+  end;
+end;
+
+function TDM_Proveedores.getNombre: string;
+begin
+  with tbProveedores do
+  begin
+    if FieldByName('cRazonSocial').IsNull then
+      result:= EmptyStr
+    else
+      result:= FieldByName('cRazonSocial').AsString;
+  end;
+end;
+
 procedure TDM_Proveedores.LevantarProveedores;
 begin
   with qListaProveedores do
   begin
     if active then close;
     open;
+  end;
+end;
+
+procedure TDM_Proveedores.LevantarProveedorID(refProveedor: string);
+begin
+  DM_General.ReiniciarTabla(tbProveedores);
+  with tbProveedoresSEL do
+  begin
+    if active then close;
+    ParamByName('idProveedor').asString:= refProveedor;
+    Open;
+    tbProveedores.LoadFromDataSet(tbProveedoresSEL, 0, lmAppend);
   end;
 end;
 

@@ -1,11 +1,11 @@
 object frmComprasAE: TfrmComprasAE
-  Left = 412
+  Left = 275
   Height = 505
-  Top = 27
-  Width = 687
+  Top = 65
+  Width = 1027
   Caption = 'Compra'
   ClientHeight = 505
-  ClientWidth = 687
+  ClientWidth = 1027
   Font.CharSet = ANSI_CHARSET
   Font.Color = clBlack
   Font.Height = -13
@@ -20,26 +20,26 @@ object frmComprasAE: TfrmComprasAE
     Left = 0
     Height = 148
     Top = 0
-    Width = 687
+    Width = 1027
     Align = alTop
     ClientHeight = 148
-    ClientWidth = 687
+    ClientWidth = 1027
     TabOrder = 0
     object GroupBox1: TGroupBox
       Left = 12
       Height = 61
       Top = 8
-      Width = 660
+      Width = 1000
       Anchors = [akTop, akLeft, akRight]
       Caption = 'Proveedor'
       ClientHeight = 43
-      ClientWidth = 656
+      ClientWidth = 996
       TabOrder = 0
       object edProveedor: TEdit
         Left = 112
         Height = 24
         Top = 13
-        Width = 535
+        Width = 875
         Anchors = [akTop, akLeft, akRight]
         Color = clMoneyGreen
         TabOrder = 1
@@ -195,6 +195,7 @@ object frmComprasAE: TfrmComprasAE
           CharCase = ecNormal
           MaxLength = 0
           TabOrder = 0
+          OnExit = DBEdit5Exit
         end
         object DBEdit5: TDBEdit
           Left = 88
@@ -206,13 +207,14 @@ object frmComprasAE: TfrmComprasAE
           CharCase = ecNormal
           MaxLength = 0
           TabOrder = 1
+          OnExit = DBEdit5Exit
         end
       end
     end
     object DBDateEdit1: TDBDateEdit
-      Left = 502
+      Left = 877
       Height = 24
-      Top = 103
+      Top = 115
       Width = 111
       CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
       OKCaption = 'OK'
@@ -259,30 +261,146 @@ object frmComprasAE: TfrmComprasAE
       NumGlyphs = 0
       Enabled = False
       MaxLength = 0
-      TabOrder = 2
+      TabOrder = 3
       DataField = 'Fecha'
       DataSource = Compra
     end
     object Label3: TLabel
-      Left = 504
+      Left = 879
       Height = 17
-      Top = 84
+      Top = 96
       Width = 37
       Caption = 'Fecha'
       ParentColor = False
+    end
+    object GroupBox4: TGroupBox
+      Left = 427
+      Height = 64
+      Top = 81
+      Width = 438
+      Caption = 'Condición de pago'
+      ClientHeight = 46
+      ClientWidth = 434
+      TabOrder = 2
+      object cbCondPago: TComboBox
+        Left = 5
+        Height = 24
+        Top = 18
+        Width = 179
+        ItemHeight = 16
+        TabOrder = 0
+        Text = 'cbCondPago'
+      end
+      object cbCondPagoTiempo: TComboBox
+        Left = 240
+        Height = 24
+        Top = 18
+        Width = 160
+        ItemHeight = 16
+        TabOrder = 1
+        Text = 'cbCondPagoTiempo'
+      end
+      object btnTugTiposComprobantes1: TSpeedButton
+        Left = 189
+        Height = 25
+        Top = 18
+        Width = 27
+        Glyph.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00113D55F7285F87FB4988BDFB428DBCC12D77B322FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D69E
+          72C4D3996EF4D19668FF2E6682FF94C7F9FF91C9F9FF4185C9FF2466A6FFA882
+          65FFC38452FFC38452FFC38452FFC38452FFBB7742B0FFFFFF00FFFFFF00D7A1
+          75FFF8F2EDFFF7F0EAFF4389AAFFE0F2FFFF549AD8FF1A7ABEFF4998C5FF478C
+          C3FFD0D2D7FFF0E2D8FFF0E2D8FFF0E2D8FFC58A5DFDFFFFFF00FFFFFF00D9A4
+          7AFFF9F3EEFFEBD2BEFFA7C5D9FF7AB6D5FF90B7D1FF55C9E4FF5BDFF5FF78D0
+          EDFF519DDDFFE4F0FAFFFFFFFFFFF0E2D8FFC68C5FFFFFFFFF00FFFFFF00DDA8
+          7EFFF9F3EFFFEBD0BAFFEBD0BBFFA7B7B9FF76B9D5FFC2F6FDFF63DFF7FF5DE2
+          F8FF79D3F0FF4997DAFFD4C5B9FFF0E2D8FFC68A5CFFFFFFFF00FFFFFF00DFAA
+          82FFF9F3EFFFEACEB7FFFFFFFFFFEBD0BBFFB1D6E7FF77CBE7FFC7F7FDFF5EDC
+          F5FF5AE1F7FF7BD4F1FF4C9ADEFFCAD0D8FFC88D5FFFFFFFFF00FFFFFF00E1AE
+          87FFFAF4F0FFEACBB2FFEACCB3FFEACCB3FFEACCB3FFB0C4BFFF79D3EEFFC7F7
+          FDFF5FDCF5FF5BE2F7FF7AD6F2FF50A0DEFFAC876BFFFFFFFF00FFFFFF00E3B1
+          8CFFFAF6F1FFEAC9AEFFFFFFFFFFEAC9B0FFFFFFFFFFFFFFFFFFC1EBF7FF7DD4
+          EDFFC4F6FDFF6CDDF6FF6DCAEDFF63A3D7FF6599C9FF5192CA26FFFFFF00E5B4
+          8FFFFAF6F2FFE9C6AAFFE9C6ACFFEAC7ACFFE9C7ADFFE9C9AEFFE9C9B0FFA6C1
+          BEFF81D5EDFFB2E3F9FF8BC0E7FFAED3F6FFC4E0FCFF669FD3F7FFFFFF00E7B7
+          94FFFBF7F4FFE9C3A6FFFFFFFFFFE8C4A9FFFFFFFFFFFFFFFFFFFFFFFFFFE8C7
+          ACFFB1E6F5FF77BEE7FFB4D2F0FFE5F3FFFFACD2EFFF488CC7E8FFFFFF00E9BA
+          98FFFBF7F4FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3
+          A6FFE9C3A6FFADBDB8FF58A5D8FF85B1DBFF469DD0FF2B95D15EFFFFFF00EBBD
+          9BFFFBF7F4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFBF7F4FFD1976AFFFFFFFF00FFFFFF00ECBF
+          9EFFFBF7F4FF9CD5A5FF98D3A1FF94D09DFF90CE98FF8BCB93FF87C98EFF82C6
+          89FF7EC384FF7AC180FF76BE7CFFFBF7F4FFD49B6FFFFFFFFF00FFFFFF00EEC1
+          A1EBFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7
+          F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFD7A074F8FFFFFF00FFFFFF00EFC2
+          A37EEFC1A2E3EDC09FFFEBBE9DFFEBBC9AFFE9BA96FFE7B793FFE6B590FFE4B2
+          8CFFE2AF88FFE0AC84FFDDA980FFDCA57DFFDAA37ACAFFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+        }
+        NumGlyphs = 0
+        OnClick = btnTugTiposComprobantes1Click
+      end
+      object btnTugTiposComprobantes2: TSpeedButton
+        Left = 403
+        Height = 25
+        Top = 18
+        Width = 27
+        Glyph.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00113D55F7285F87FB4988BDFB428DBCC12D77B322FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D69E
+          72C4D3996EF4D19668FF2E6682FF94C7F9FF91C9F9FF4185C9FF2466A6FFA882
+          65FFC38452FFC38452FFC38452FFC38452FFBB7742B0FFFFFF00FFFFFF00D7A1
+          75FFF8F2EDFFF7F0EAFF4389AAFFE0F2FFFF549AD8FF1A7ABEFF4998C5FF478C
+          C3FFD0D2D7FFF0E2D8FFF0E2D8FFF0E2D8FFC58A5DFDFFFFFF00FFFFFF00D9A4
+          7AFFF9F3EEFFEBD2BEFFA7C5D9FF7AB6D5FF90B7D1FF55C9E4FF5BDFF5FF78D0
+          EDFF519DDDFFE4F0FAFFFFFFFFFFF0E2D8FFC68C5FFFFFFFFF00FFFFFF00DDA8
+          7EFFF9F3EFFFEBD0BAFFEBD0BBFFA7B7B9FF76B9D5FFC2F6FDFF63DFF7FF5DE2
+          F8FF79D3F0FF4997DAFFD4C5B9FFF0E2D8FFC68A5CFFFFFFFF00FFFFFF00DFAA
+          82FFF9F3EFFFEACEB7FFFFFFFFFFEBD0BBFFB1D6E7FF77CBE7FFC7F7FDFF5EDC
+          F5FF5AE1F7FF7BD4F1FF4C9ADEFFCAD0D8FFC88D5FFFFFFFFF00FFFFFF00E1AE
+          87FFFAF4F0FFEACBB2FFEACCB3FFEACCB3FFEACCB3FFB0C4BFFF79D3EEFFC7F7
+          FDFF5FDCF5FF5BE2F7FF7AD6F2FF50A0DEFFAC876BFFFFFFFF00FFFFFF00E3B1
+          8CFFFAF6F1FFEAC9AEFFFFFFFFFFEAC9B0FFFFFFFFFFFFFFFFFFC1EBF7FF7DD4
+          EDFFC4F6FDFF6CDDF6FF6DCAEDFF63A3D7FF6599C9FF5192CA26FFFFFF00E5B4
+          8FFFFAF6F2FFE9C6AAFFE9C6ACFFEAC7ACFFE9C7ADFFE9C9AEFFE9C9B0FFA6C1
+          BEFF81D5EDFFB2E3F9FF8BC0E7FFAED3F6FFC4E0FCFF669FD3F7FFFFFF00E7B7
+          94FFFBF7F4FFE9C3A6FFFFFFFFFFE8C4A9FFFFFFFFFFFFFFFFFFFFFFFFFFE8C7
+          ACFFB1E6F5FF77BEE7FFB4D2F0FFE5F3FFFFACD2EFFF488CC7E8FFFFFF00E9BA
+          98FFFBF7F4FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3
+          A6FFE9C3A6FFADBDB8FF58A5D8FF85B1DBFF469DD0FF2B95D15EFFFFFF00EBBD
+          9BFFFBF7F4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFBF7F4FFD1976AFFFFFFFF00FFFFFF00ECBF
+          9EFFFBF7F4FF9CD5A5FF98D3A1FF94D09DFF90CE98FF8BCB93FF87C98EFF82C6
+          89FF7EC384FF7AC180FF76BE7CFFFBF7F4FFD49B6FFFFFFFFF00FFFFFF00EEC1
+          A1EBFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7
+          F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFD7A074F8FFFFFF00FFFFFF00EFC2
+          A37EEFC1A2E3EDC09FFFEBBE9DFFEBBC9AFFE9BA96FFE7B793FFE6B590FFE4B2
+          8CFFE2AF88FFE0AC84FFDDA980FFDCA57DFFDAA37ACAFFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+        }
+        NumGlyphs = 0
+        OnClick = btnTugTiposComprobantes2Click
+      end
     end
   end
   object Panel2: TPanel
     Left = 0
     Height = 52
     Top = 407
-    Width = 687
+    Width = 1027
     Align = alBottom
     ClientHeight = 52
-    ClientWidth = 687
+    ClientWidth = 1027
     TabOrder = 2
     object DBEdit2: TDBEdit
-      Left = 567
+      Left = 907
       Height = 24
       Top = 24
       Width = 111
@@ -291,7 +409,7 @@ object frmComprasAE: TfrmComprasAE
       Anchors = [akTop, akRight]
       CharCase = ecNormal
       MaxLength = 0
-      TabOrder = 3
+      TabOrder = 6
     end
     object DBEdit3: TDBEdit
       Left = 7
@@ -318,7 +436,7 @@ object frmComprasAE: TfrmComprasAE
       OnExit = DBEdit3Exit
     end
     object Label4: TLabel
-      Left = 569
+      Left = 909
       Height = 17
       Top = 8
       Width = 69
@@ -343,7 +461,7 @@ object frmComprasAE: TfrmComprasAE
       ParentColor = False
     end
     object stNeto: TStaticText
-      Left = 476
+      Left = 816
       Height = 15
       Top = 3
       Width = 75
@@ -358,10 +476,10 @@ object frmComprasAE: TfrmComprasAE
       Font.Quality = fqDraft
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 4
+      TabOrder = 3
     end
     object stIVA: TStaticText
-      Left = 485
+      Left = 825
       Height = 15
       Top = 19
       Width = 66
@@ -376,7 +494,7 @@ object frmComprasAE: TfrmComprasAE
       Font.Quality = fqDraft
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 5
+      TabOrder = 4
     end
     object DBEdit6: TDBEdit
       Left = 226
@@ -399,7 +517,7 @@ object frmComprasAE: TfrmComprasAE
       ParentColor = False
     end
     object stTotalNI: TStaticText
-      Left = 486
+      Left = 826
       Height = 15
       Top = 33
       Width = 65
@@ -414,17 +532,17 @@ object frmComprasAE: TfrmComprasAE
       Font.Quality = fqDraft
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 6
+      TabOrder = 5
     end
   end
   object Panel3: TPanel
     Left = 0
     Height = 46
     Top = 459
-    Width = 687
+    Width = 1027
     Align = alBottom
     ClientHeight = 46
-    ClientWidth = 687
+    ClientWidth = 1027
     TabOrder = 3
     object btnAceptar: TBitBtn
       Left = 25
@@ -472,7 +590,7 @@ object frmComprasAE: TfrmComprasAE
       TabOrder = 0
     end
     object btnCancelar: TBitBtn
-      Left = 533
+      Left = 873
       Height = 30
       Top = 8
       Width = 125
@@ -522,16 +640,16 @@ object frmComprasAE: TfrmComprasAE
     Left = 0
     Height = 259
     Top = 148
-    Width = 687
+    Width = 1027
     Align = alClient
     ClientHeight = 259
-    ClientWidth = 687
+    ClientWidth = 1027
     TabOrder = 1
     object DBGrid1: TDBGrid
       Left = 1
       Height = 159
       Top = 1
-      Width = 685
+      Width = 1025
       Align = alClient
       AutoFillColumns = True
       Color = clWindow
@@ -545,7 +663,7 @@ object frmComprasAE: TfrmComprasAE
         item
           Title.Alignment = taCenter
           Title.Caption = 'Concepto'
-          Width = 163
+          Width = 503
           FieldName = 'Concepto'
         end      
         item
@@ -602,12 +720,12 @@ object frmComprasAE: TfrmComprasAE
       Left = 1
       Height = 98
       Top = 160
-      Width = 685
+      Width = 1025
       Align = alBottom
       BevelInner = bvLowered
       BevelOuter = bvLowered
       ClientHeight = 98
-      ClientWidth = 685
+      ClientWidth = 1025
       TabOrder = 0
       OnClick = Panel5Click
       object dbCantidad: TDBEdit
@@ -627,7 +745,7 @@ object frmComprasAE: TfrmComprasAE
         Left = 67
         Height = 24
         Top = 20
-        Width = 167
+        Width = 507
         DataField = 'Concepto'
         DataSource = Items
         Anchors = [akTop, akLeft, akRight]
@@ -637,7 +755,7 @@ object frmComprasAE: TfrmComprasAE
         OnKeyPress = dbConceptoKeyPress
       end
       object edImputacion: TEdit
-        Left = 238
+        Left = 578
         Height = 24
         Top = 20
         Width = 68
@@ -646,7 +764,7 @@ object frmComprasAE: TfrmComprasAE
         TabOrder = 2
       end
       object SpeedButton1: TSpeedButton
-        Left = 310
+        Left = 650
         Height = 23
         Hint = 'Elige una cuenta desde el Plan de Cuentas'
         Top = 20
@@ -694,7 +812,7 @@ object frmComprasAE: TfrmComprasAE
         ParentShowHint = False
       end
       object dbMontoUnitario: TDBEdit
-        Left = 353
+        Left = 693
         Height = 24
         Top = 20
         Width = 87
@@ -708,7 +826,7 @@ object frmComprasAE: TfrmComprasAE
         OnKeyPress = dbMontoUnitarioKeyPress
       end
       object dbPorcentajeIVA: TDBEdit
-        Left = 443
+        Left = 783
         Height = 24
         Top = 20
         Width = 63
@@ -722,7 +840,7 @@ object frmComprasAE: TfrmComprasAE
         OnKeyPress = dbPorcentajeIVAKeyPress
       end
       object dbMontoIVA: TDBEdit
-        Left = 509
+        Left = 849
         Height = 24
         Top = 20
         Width = 82
@@ -736,7 +854,7 @@ object frmComprasAE: TfrmComprasAE
         OnKeyPress = dbMontoIVAKeyPress
       end
       object dbMontoTotal: TDBEdit
-        Left = 596
+        Left = 936
         Height = 24
         Top = 20
         Width = 80
@@ -883,7 +1001,7 @@ object frmComprasAE: TfrmComprasAE
         TabOrder = 9
       end
       object stImputacion: TStaticText
-        Left = 201
+        Left = 541
         Height = 17
         Top = 45
         Width = 144
@@ -910,7 +1028,7 @@ object frmComprasAE: TfrmComprasAE
         ParentColor = False
       end
       object Label12: TLabel
-        Left = 355
+        Left = 695
         Height = 17
         Top = 3
         Width = 85
@@ -919,7 +1037,7 @@ object frmComprasAE: TfrmComprasAE
         ParentColor = False
       end
       object Label13: TLabel
-        Left = 445
+        Left = 785
         Height = 17
         Top = 3
         Width = 57
@@ -928,7 +1046,7 @@ object frmComprasAE: TfrmComprasAE
         ParentColor = False
       end
       object Label14: TLabel
-        Left = 516
+        Left = 856
         Height = 17
         Top = 3
         Width = 62
@@ -937,7 +1055,7 @@ object frmComprasAE: TfrmComprasAE
         ParentColor = False
       end
       object Label15: TLabel
-        Left = 598
+        Left = 938
         Height = 17
         Top = 3
         Width = 69
@@ -946,7 +1064,7 @@ object frmComprasAE: TfrmComprasAE
         ParentColor = False
       end
       object Label11: TLabel
-        Left = 239
+        Left = 579
         Height = 17
         Top = 3
         Width = 64

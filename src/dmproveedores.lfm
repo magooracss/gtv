@@ -101,6 +101,18 @@ object DM_Proveedores: TDM_Proveedores
         DataType = ftInteger
         Precision = -1
         Size = 0
+      end    
+      item
+        Name = 'refComprRecibe'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refComprEntrega'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
       end>
     AfterInsert = tbProveedoresAfterInsert
     left = 40
@@ -270,6 +282,26 @@ object DM_Proveedores: TDM_Proveedores
       FieldKind = fkData
       FieldName = 'refCondicionPagoTiempo'
       Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbProveedoresrefComprRecibe: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refComprRecibe'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbProveedoresrefComprEntrega: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refComprEntrega'
+      Index = 17
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -789,6 +821,28 @@ object DM_Proveedores: TDM_Proveedores
       item
         DataType = ftUnknown
         Name = 'idLocalidad'
+        ParamType = ptUnknown
+      end>
+  end
+  object qTugComprobantePorID: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugCondicionesFiscales'
+      'WHERE idCondicionFiscal = :idCondicionFiscal'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCondicionFiscal'
+        ParamType = ptUnknown
+      end>
+    left = 254
+    top = 4
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCondicionFiscal'
         ParamType = ptUnknown
       end>
   end

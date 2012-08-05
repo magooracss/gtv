@@ -837,4 +837,26 @@ object DM_General: TDM_General
       19000000
     }
   end
+  object qLevantarValores: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbValores'
+      'WHERE Nombre = :Nombre'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'Nombre'
+        ParamType = ptUnknown
+      end>
+    left = 274
+    top = 88
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'Nombre'
+        ParamType = ptUnknown
+      end>
+  end
 end

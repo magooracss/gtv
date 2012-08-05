@@ -18,6 +18,9 @@ const
   _PRN_ANEXO_ = 'anexo.lrf';
   _PRN_ORDENPAGO_ = 'ordenpago.lrf';
 
+  _VAL_IVA = 'IVA';
+  _VAL_IMP_CMPR = 'IMP_CMPRAS';
+
 type
 
   GUID_ID = string[38];
@@ -32,6 +35,7 @@ type
     frShapeObject1: TfrShapeObject;
     ImgAcciones: TImageList;
     RxMemoryData1: TRxMemoryData;
+    qLevantarValores: TZQuery;
   private
     { private declarations }
   public
@@ -77,6 +81,8 @@ type
     function FechaNula: TDateTime;
 
     procedure OrdenarTitulo (var Columna: TColumn);
+
+    function TablaValoresInt (TipoValor: string): integer;
 
   end;
 
@@ -462,6 +468,8 @@ function TDM_General.CuitValido(S: String): Boolean;
 var
    v2,v3 : Integer;
 Begin
+    if Length(S) >= 10 then
+    begin
      S:= Trim(DelChars(S,'-'));
      v2 := (StrToIntDef(S[1], 0)  * 5 +
             StrToIntDef(S[2], 0)  * 4 +
@@ -479,6 +487,9 @@ Begin
           10 : v3 := 9;
      end;
      Result:=  strtoint(s[11]) = v3;
+    end
+    else
+      Result:= False;
 End;
 
 function TDM_General.FechaNula: TDateTime;
@@ -495,6 +506,23 @@ begin
   else
     if (Columna.Field.DataSet is TRxMemoryData) then
      (Columna.Field.DataSet as TRxMemoryData).SortOnFields(Columna.FieldName);
+end;
+
+
+//Levanta datos de la tabla general de valores tbValores
+
+function TDM_General.TablaValoresInt(TipoValor: string): integer;
+begin
+  with qLevantarValores do
+  begin
+    if active then close;
+    ParamByName('Nombre').asString:= TipoValor;
+    Open;
+    if RecordCount > 0 then
+      Result:= FieldByName('VALORINT').asInteger
+    else
+      Result:= 0;
+  end;
 end;
 
 

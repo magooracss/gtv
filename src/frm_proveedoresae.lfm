@@ -38,6 +38,7 @@ object frmProveedorAE: TfrmProveedorAE
     CharCase = ecNormal
     MaxLength = 25
     TabOrder = 3
+    OnExit = DBEdit2Exit
   end
   object cbCondicionFiscal: TComboBox
     Left = 9
@@ -264,6 +265,7 @@ object frmProveedorAE: TfrmProveedorAE
     CharCase = ecNormal
     MaxLength = 25
     TabOrder = 4
+    OnExit = DBEdit6Exit
   end
   object Label8: TLabel
     Left = 461
