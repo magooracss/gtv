@@ -1,7 +1,7 @@
 object frmCajaConceptoAE: TfrmCajaConceptoAE
-  Left = 248
+  Left = 246
   Height = 348
-  Top = 77
+  Top = 72
   Width = 809
   Caption = 'Concepto Caja'
   ClientHeight = 348

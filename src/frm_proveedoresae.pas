@@ -126,13 +126,12 @@ end;
 
 procedure TfrmProveedorAE.DBEdit6Exit(Sender: TObject);
 begin
-   if NOT DM_General.CuitValido(DBEdit6.Text) then
-     ShowMessage('Atención, el número ingresado podria no ser válido');
+   if (TRIM((Sender as TDBEdit).Text) = EmptyStr) then
+       ShowMessage('Atención, no debería ingresar un número de Ingresos Brutos?');
 end;
 
 procedure TfrmProveedorAE.FormCreate(Sender: TObject);
 begin
-
 end;
 
 procedure TfrmProveedorAE.FormShow(Sender: TObject);
@@ -248,7 +247,6 @@ begin
    DM_PlanDeCuentas.CuentaPorID(DM_Proveedores.tbProveedores.FieldByName('refImputacion').asInteger);
    edImputacion.Text:= DM_PlanDeCuentas.Codigo;
    lbImputacion.Caption:= DM_PlanDeCuentas.Concepto;
-
 end;
 
 procedure TfrmProveedorAE.btnAceptarClick(Sender: TObject);
@@ -260,6 +258,7 @@ begin
                                 );
   DM_Proveedores.Grabar;
   ModalResult:= mrOK;
+  DM_Proveedores.tbProveedores.Close;
 end;
 
 end.

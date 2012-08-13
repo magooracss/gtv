@@ -265,7 +265,6 @@ object frmProveedorAE: TfrmProveedorAE
     CharCase = ecNormal
     MaxLength = 25
     TabOrder = 4
-    OnExit = DBEdit6Exit
   end
   object Label8: TLabel
     Left = 461

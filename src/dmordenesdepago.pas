@@ -96,6 +96,7 @@ type
     procedure tbOPFormasDePagoAfterInsert(DataSet: TDataSet);
   private
     function getIdOPBusqueda: GUID_ID;
+    function getIdOrdenPago: GUID_ID;
     function getIdProveedor: GUID_ID;
 
     procedure MarcarComprobantes;
@@ -103,6 +104,7 @@ type
 
   public
     property idOPBusqueda: GUID_ID read getIdOPBusqueda;
+    property idOrdenPago: GUID_ID read getIdOrdenPago;
     property idProveedor: GUID_ID read getIdProveedor;
 
     procedure Buscar (criterio, consulta: string);
@@ -232,6 +234,14 @@ function TDM_OrdenesDePago.getIdOPBusqueda: GUID_ID;
 begin
   if ((tbResultados.Active) and (tbResultados.RecordCount > 0)) then
     Result:= tbResultados.FieldByName('idOrdenPago').AsString
+  else
+    Result:= GUIDNULO;
+end;
+
+function TDM_OrdenesDePago.getIdOrdenPago: GUID_ID;
+begin
+  if ((tbOrdenesPago.Active) and (tbOrdenesPago.RecordCount > 0)) then
+    Result:= tbOrdenesPago.FieldByName('idOrdenPago').AsString
   else
     Result:= GUIDNULO;
 end;

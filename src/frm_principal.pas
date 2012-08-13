@@ -14,6 +14,7 @@ type
   { TfrmPrincipal }
 
   TfrmPrincipal = class(TForm)
+    cajaEgresosVarios: TAction;
     appListados: TAction;
     cajaOPListado: TAction;
     cajaCompraNueva: TAction;
@@ -36,6 +37,8 @@ type
     MenuItem24: TMenuItem;
     MenuItem25: TMenuItem;
     MenuItem26: TMenuItem;
+    MenuItem27: TMenuItem;
+    MenuItem28: TMenuItem;
     RemitosPantGralCliente: TAction;
     RemitoPantGral: TAction;
     ReclPantGralCliente: TAction;
@@ -61,6 +64,7 @@ type
     ToolButton12: TToolButton;
     ToolButton13: TToolButton;
     ToolButton14: TToolButton;
+    ToolButton15: TToolButton;
     ToolButton6: TToolButton;
     ToolButton7: TToolButton;
     ToolButton8: TToolButton;
@@ -92,6 +96,7 @@ type
     procedure cajaChequesExecute(Sender: TObject);
     procedure cajaCompraNuevaExecute(Sender: TObject);
     procedure cajaComprasListadoExecute(Sender: TObject);
+    procedure cajaEgresosVariosExecute(Sender: TObject);
     procedure cajaMovimientosExecute(Sender: TObject);
     procedure cajaOPListadoExecute(Sender: TObject);
     procedure cajaPlanDeCuentasExecute(Sender: TObject);
@@ -145,6 +150,7 @@ uses
   ,frm_comprasae
   ,frm_ordenespagolistado
   , Process
+  ,frm_egresosvarioslistado
   ;
 
 { TfrmPrincipal }
@@ -469,6 +475,17 @@ begin
   end;
 end;
 
+procedure TfrmPrincipal.cajaEgresosVariosExecute(Sender: TObject);
+var
+  pant: TfrmEgresosVariosListado;
+begin
+  pant:= TfrmEgresosVariosListado.Create (self);
+  try
+    pant.ShowModal;
+  finally
+    pant.Free;
+  end;
+end;
 
 procedure TfrmPrincipal.cajaOPListadoExecute(Sender: TObject);
 var

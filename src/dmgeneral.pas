@@ -298,7 +298,7 @@ begin
   for indice:= 0 to laConsulta.Params.Count -1 do
   begin
     laConsulta.Params[indice].DataType:= laTabla.fieldByName(laConsulta.Params[indice].Name).DataType;
-    if NOT laTabla.fieldByName(laConsulta.Params[indice].Name).IsNull then
+//    if NOT laTabla.fieldByName(laConsulta.Params[indice].Name).IsNull then
       laConsulta.Params[indice].Value:= laTabla.fieldByName(laConsulta.Params[indice].Name).value;
   end;
 end;
@@ -486,7 +486,7 @@ Begin
           11 : v3 := 0;
           10 : v3 := 9;
      end;
-     Result:=  strtoint(s[11]) = v3;
+     Result:=  StrToIntDef(s[11],0) = v3;
     end
     else
       Result:= False;

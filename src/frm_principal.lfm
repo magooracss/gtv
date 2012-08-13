@@ -1,11 +1,11 @@
 object frmPrincipal: TfrmPrincipal
-  Left = 174
+  Left = 173
   Height = 477
-  Top = 112
-  Width = 907
+  Top = 105
+  Width = 1097
   Caption = 'Gestión de Transportes Verticales'
   ClientHeight = 458
-  ClientWidth = 907
+  ClientWidth = 1097
   Menu = MenuPpal
   OnCreate = FormCreate
   Position = poScreenCenter
@@ -16,7 +16,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 0
     Height = 20
     Top = 438
-    Width = 907
+    Width = 1097
     Panels = <    
       item
         Width = 100
@@ -31,7 +31,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 0
     Height = 61
     Top = 0
-    Width = 907
+    Width = 1097
     AutoSize = True
     ButtonHeight = 59
     ButtonWidth = 69
@@ -96,33 +96,38 @@ object frmPrincipal: TfrmPrincipal
       Action = ReclPantGral
     end
     object ToolButton12: TToolButton
-      Left = 547
+      Left = 625
       Top = 2
       Action = cajaComprasListado
     end
     object ToolButton10: TToolButton
-      Left = 616
+      Left = 694
       Top = 2
       Action = cajaOPListado
     end
     object ToolButton13: TToolButton
-      Left = 707
+      Left = 785
       Top = 2
       Width = 8
       Caption = 'ToolButton13'
       Style = tbsSeparator
     end
     object ToolButton14: TToolButton
-      Left = 715
+      Left = 793
       Top = 2
       Action = appListados
+    end
+    object ToolButton15: TToolButton
+      Left = 547
+      Top = 2
+      Action = cajaEgresosVarios
     end
   end
   object DBGrid1: TDBGrid
     Left = 0
     Height = 377
     Top = 61
-    Width = 907
+    Width = 1097
     Align = alClient
     AutoFillColumns = True
     Color = clWindow
@@ -130,7 +135,7 @@ object frmPrincipal: TfrmPrincipal
       item
         Title.Alignment = taCenter
         Title.Caption = 'Listado de Clientes'
-        Width = 875
+        Width = 1065
         FieldName = 'Cliente'
       end>
     DataSource = ds_Clientes
@@ -195,6 +200,13 @@ object frmPrincipal: TfrmPrincipal
       end
       object MenuItem23: TMenuItem
         Action = cajaCompraNueva
+      end
+      object MenuItem28: TMenuItem
+        Caption = '-'
+        Enabled = False
+      end
+      object MenuItem27: TMenuItem
+        Action = cajaEgresosVarios
       end
       object MenuItem19: TMenuItem
         Caption = '-'
@@ -373,6 +385,13 @@ object frmPrincipal: TfrmPrincipal
       Caption = 'Listados'
       ImageIndex = 24
       OnExecute = appListadosExecute
+    end
+    object cajaEgresosVarios: TAction
+      Category = 'Caja'
+      Caption = 'Egresos Varios'
+      Hint = 'Agrega un egreso que no corresponde a un proveedor'
+      ImageIndex = 25
+      OnExecute = cajaEgresosVariosExecute
     end
   end
   object XMLPropiedades: TXMLPropStorage

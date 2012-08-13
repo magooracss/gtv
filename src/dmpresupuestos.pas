@@ -83,8 +83,8 @@ begin
     FieldByName('REFEMPLEADO').asInteger:= 0;
     FieldByName('REFESTADO').asInteger:= 0;
     FieldByName('FCAMBIOESTADO').asDateTime:= Now;
-    FieldByName('TXMOTIVO').asString:= ' ';
-    FieldByName('TXOBSERVACIONES').asString:= ' ';
+    FieldByName('TXMOTIVO').asString:= '';
+    FieldByName('TXOBSERVACIONES').asString:= '';
     FieldByName('BACEPTADO').asInteger:= 0;
     FieldByName('BVISIBLE').asInteger:= 1;
   end;

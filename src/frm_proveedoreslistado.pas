@@ -25,6 +25,7 @@ type
     procedure btnModificarClick(Sender: TObject);
     procedure btnNuevoClick(Sender: TObject);
     procedure btnSalirClick(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);
     procedure FormShow(Sender: TObject);
   private
     _idProveedor: GUID_ID;
@@ -55,6 +56,11 @@ begin
     _RazonSocial:= DM_Proveedores.qListaProveedores.FieldByName('cRazonSocial').asString;
   end;
   ModalResult:= mrOK;
+end;
+
+procedure TfrmProveedoresListado.DBGrid1TitleClick(Column: TColumn);
+begin
+  DM_General.OrdenarTitulo(Column);
 end;
 
 procedure TfrmProveedoresListado.btnNuevoClick(Sender: TObject);

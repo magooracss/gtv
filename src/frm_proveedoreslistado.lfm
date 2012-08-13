@@ -1,7 +1,7 @@
 object frmProveedoresListado: TfrmProveedoresListado
-  Left = 330
+  Left = 327
   Height = 543
-  Top = 49
+  Top = 47
   Width = 678
   Caption = 'Proveedores'
   ClientHeight = 543
@@ -217,13 +217,27 @@ object frmProveedoresListado: TfrmProveedoresListado
     Columns = <    
       item
         Title.Alignment = taCenter
+        Title.Caption = 'Nombre Fantasía'
+        Width = 271
+        FieldName = 'cNombreFantasia'
+      end    
+      item
+        Title.Alignment = taCenter
         Title.Caption = 'Razón Social'
-        Width = 658
+        Width = 271
         FieldName = 'cRazonSocial'
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'CUIT'
+        Width = 132
+        FieldName = 'cCUIT'
       end>
     DataSource = ds_ListaProveedores
     FixedCols = 0
     Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    Scrollbars = ssAutoVertical
     TabOrder = 1
     TitleFont.CharSet = ANSI_CHARSET
     TitleFont.Color = clBlack
@@ -231,6 +245,7 @@ object frmProveedoresListado: TfrmProveedoresListado
     TitleFont.Name = 'Arial'
     TitleFont.Pitch = fpVariable
     TitleFont.Quality = fqDraft
+    OnTitleClick = DBGrid1TitleClick
   end
   object ds_ListaProveedores: TDatasource
     DataSet = DM_Proveedores.qListaProveedores

@@ -183,11 +183,15 @@ begin
 end;
 
 procedure TfrmOrdenDePagoAE.btnGrabarClick(Sender: TObject);
+var
+  idOP: GUID_ID;
 begin
+  idOP:= DM_OrdenesDePago.idOrdenPago;
   DM_OrdenesDePago.CalcularMontoTotal;
   DM_OrdenesDePago.Grabar;
   if  (DM_OrdenesDePago.CalcularValores < DM_OrdenesDePago.tbOrdenesPago.FieldByName('nTotalAPagar').asFloat) then
    ShowMessage ('Esta queriendo pagar menos que el total de la orden de pago!!!');
+  DM_OrdenesDePago.LevantarOP(DM_OrdenesDePago.idOrdenPago);
 end;
 
 procedure TfrmOrdenDePagoAE.btnImprimirClick(Sender: TObject);

@@ -26,7 +26,7 @@ uses
   dmplandecuentas, frm_plandecuentaslistado, frm_plandecuentasae,
   frm_ordenespagolistado, dmordenesdepago, frm_ordenpagoae, frm_cargavalores,
   dmvalores, frm_pagocomprobantes, frm_tuglocalidades, dmlocalidades, 
-frm_localidadae;
+frm_localidadae, frm_egresosvarioslistado, dmegresosvarios;
 
 {$R *.res}
 

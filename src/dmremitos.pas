@@ -94,7 +94,7 @@ begin
     FieldByName('fFecha').asDateTime:= DateOf(Now);
     FieldByName('refOrdenTrabajo').asString:= GUIDNULO;
     FieldByName('refMotivo').AsInteger:= 0;
-    FieldByName('txDetalles').asString:= ' ';
+    FieldByName('txDetalles').asString:= '';
     FieldByName('refFactura').asString:= GUIDNULO;
     FieldByName('bFacturar').asInteger:= 0;
     FieldByName('bFacturado').asInteger:= 0;

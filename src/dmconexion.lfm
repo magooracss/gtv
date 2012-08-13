@@ -11,7 +11,7 @@ object DM_Conexion: TDM_Conexion
     Database = 'C:\prg\simas\GTV.FDB'
     User = 'SYSDBA'
     Password = 'masterkey'
-    TransactIsolationLevel = tiRepeatableRead
+    TransactIsolationLevel = tiReadCommitted
     left = 96
     top = 96
   end
