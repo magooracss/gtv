@@ -741,20 +741,39 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
           SizePriority = 0
           Title.Alignment = taCenter
           Title.Caption = 'Forma de Pago'
-          Width = 120
+          Width = 114
           FieldName = 'lxFormaDePago'
         end      
         item
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
           SizePriority = 0
           Title.Alignment = taCenter
           Title.Caption = 'Cheque'
-          Width = 120
+          Width = 90
           FieldName = 'lxNroCheque'
+        end      
+        item
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          SizePriority = 0
+          Title.Alignment = taCenter
+          Title.Caption = 'Vto'
+          Width = 72
+          FieldName = 'lxFechaCheque'
         end      
         item
           Title.Alignment = taCenter
           Title.Caption = 'Banco'
-          Width = 119
+          Width = 83
           FieldName = 'lxBanco'
         end      
         item

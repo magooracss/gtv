@@ -28,6 +28,8 @@ type
 
 
     procedure pantallaRemitos (refListado: integer; rutaReporte: string);
+    procedure pantallaCuentas (refListado: integer; rutaReporte: string);
+
   public
     { public declarations }
   end; 
@@ -40,6 +42,7 @@ implementation
 uses
   dmseleccionlistado
   ,frm_gruporemitos
+  ,frm_grupocuentas
   ;
 
 { TfrmSeleccionListado }
@@ -51,7 +54,7 @@ end;
 
 procedure TfrmSeleccionListado.btnSeleccionarClick(Sender: TObject);
 begin
-  MostrarPantalla(DS_Grupos.DataSet.FieldByName('idListadoGrupo').asInteger
+  MostrarPantalla(DS_Listados.DataSet.FieldByName('refGrupo').asString
                  ,DS_Listados.DataSet.FieldByName('refFormulario').asInteger
                  ,DS_Listados.DataSet.FieldByName('rutaReporte').asString
                  );
@@ -62,6 +65,7 @@ procedure TfrmSeleccionListado.MostrarPantalla(refGrupo, refListado: integer;
 begin
   case refGrupo of
        _GRP_REMITOS_ : PantallaRemitos (refListado, rutaReporte);
+       _GRP_CONTABILIDAD_ : PantallaCuentas(refListado, rutaReporte);
   end;
 end;
 
@@ -78,6 +82,22 @@ begin
   finally
     pantalla.Free;
   end;
+end;
+
+procedure TfrmSeleccionListado.pantallaCuentas(refListado: integer;
+  rutaReporte: string);
+var
+  pantalla: TfrmGrupoCuentas;
+begin
+  pantalla:= TfrmGrupoCuentas.Create (self);
+  pantalla.rutaReporte:= rutaReporte;
+  pantalla.tipoListado:= refListado;
+  try
+    pantalla.ShowModal;
+  finally
+    pantalla.Free;
+  end;
+
 end;
 
 

@@ -26,6 +26,7 @@ type
     procedure Buscar (consulta, dato: string);
 
     function BuscarClientePorCodigo (codCliente: string): boolean;
+    function BuscarClientePorNombre (nombre: string): boolean;
   end; 
 
 var
@@ -85,6 +86,12 @@ end;
 function TDM_BuscarCliente.BuscarClientePorCodigo(codCliente: string): boolean;
 begin
   Buscar ('qBusCliPorCodigo', codCliente);
+  Result := (tbResultados.RecordCount > 0 );
+end;
+
+function TDM_BuscarCliente.BuscarClientePorNombre(nombre: string): boolean;
+begin
+  Buscar ('qBusCliPorNombre', nombre);
   Result := (tbResultados.RecordCount > 0 );
 end;
 

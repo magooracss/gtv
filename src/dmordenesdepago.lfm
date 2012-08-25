@@ -4,7 +4,7 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
   Height = 430
   HorizontalOffset = 372
   VerticalOffset = 97
-  Width = 792
+  Width = 832
   object tbResultados: TRxMemoryData
     FieldDefs = <    
       item
@@ -928,6 +928,12 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
         DataType = ftString
         Precision = 0
         Size = 500
+      end    
+      item
+        Name = 'lxFechaCheque'
+        DataType = ftString
+        Precision = 0
+        Size = 10
       end>
     AfterInsert = tbOPFormasDePagoAfterInsert
     left = 456
@@ -1040,6 +1046,17 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
       ReadOnly = False
       Required = False
       Size = 50
+    end
+    object tbOPFormasDePagolxFechaCheque: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'lxFechaCheque'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
     end
   end
   object tbComprasPagos: TRxMemoryData
@@ -1679,7 +1696,7 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
   end
   object frComprobantes: TfrDBDataSet
     DataSet = DM_Compras.qComprasPorOP
-    left = 754
+    left = 761
     top = 314
   end
 end

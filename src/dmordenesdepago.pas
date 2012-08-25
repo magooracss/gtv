@@ -36,6 +36,7 @@ type
     tbComprasPagosNroCheque: TStringField;
     tbComprasPagosrefCompra: TStringField;
     tbComprasPagosrefOPFormaDePago: TStringField;
+    tbOPFormasDePagolxFechaCheque: TStringField;
     tbOPFormasDePagoSEL: TZQuery;
     tbOPFormasDePagoUPD: TZQuery;
     tbComprobantesDEL: TZQuery;
@@ -135,6 +136,7 @@ type
     function ObtenerBanco (refBanco: integer): string;
     function ObtenerFormaPago (refFormaPago: integer): string;
     function ObtenerNroCheque (refCheque: string):string;
+    function ObtenerfVtoCheque (refCheque: string):string;
 
     procedure EliminarValorSeleccionado;
   end;
@@ -318,6 +320,20 @@ begin
   end;
 end;
 
+function TDM_OrdenesDePago.ObtenerfVtoCheque(refCheque: string): string;
+begin
+  with qtbCheques do
+  begin
+    if active then close;
+    ParamByName('idCheque').asString:= refCheque;
+    Open;
+    if RecordCount > 0 then
+      Result:= DateToStr(FieldByName('fVencimiento').AsDateTime)
+    else
+      Result:= '***';
+  end;
+end;
+
 procedure TDM_OrdenesDePago.EliminarValorSeleccionado;
 begin
   with tbOPFormasDePago do
@@ -441,6 +457,7 @@ begin
     FieldByName('lxBanco').asString:= ObtenerBanco (refBanco);
     FieldByName('lxFormaDePago').AsString:= ObtenerFormaPago (refFormaPago);
     FieldByName('lxNroCheque').asString:= NroCheque;
+    FieldByName('lxFechaCheque').asString:= ObtenerfVtoCheque (FieldByName('refCheque').asString);
     Post;
   end;
   Result:= elID;
@@ -508,6 +525,7 @@ begin
     begin
       Edit;
       FieldByName('lxNroCheque').asString:= ObtenerNroCheque (FieldByName('refCheque').asString);
+      FieldByName('lxFechaCheque').asString:= ObtenerfVtoCheque (FieldByName('refCheque').asString);
       FieldByName('lxBanco').asString:= ObtenerBanco (FieldByName('refBanco').asInteger);
       FieldByName('lxFormaDePago').asString:= ObtenerFormaPago (FieldByName('refFormaPago').asInteger);
       Post;

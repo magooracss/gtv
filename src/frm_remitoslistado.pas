@@ -174,7 +174,7 @@ procedure TfrmRemitosListado.edClienteKeyPress(Sender: TObject; var Key: char);
 begin
    if Key = #13 then
   begin
-    if ( DM_BuscarCliente.BuscarClientePorCodigo(TRIM(edCliente.Text)))then
+    if ( DM_BuscarCliente.BuscarClientePorNombre(TRIM(edCliente.Text)))then
      begin
       _idCliente:=  DM_BuscarCliente.DevolverIdCliente;
       edCliente.Text:= DM_Clientes.ClienteNombre (_idCliente);

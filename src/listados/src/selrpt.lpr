@@ -10,7 +10,7 @@ uses
   Forms, rxnew, pack_powerpdf, lazreport, lazreportpdfexport, zcomponent,
   frm_sellistado, dmconexion, SD_Configuracion, frm_busquedaclientes,
   dmbuscarcliente, dmgeneral, dmseleccionlistado, frm_gruporemitos,
-  dmgruporemitos;
+  dmgruporemitos, dmgrupocuentas, frm_grupocuentas;
 
 {$R *.res}
 

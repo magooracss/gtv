@@ -81,12 +81,12 @@ begin
     FieldByName('IDORDENTRABAJO').asString:= DM_General.CrearGUID;
     FieldByName('REFCLIENTE').asString:= GUIDNULO;
     FieldByName('NNRO').asInteger:= -1;
-    FieldByName('TXTAREAS').asString:= ' ';
+    FieldByName('TXTAREAS').asString:= '';
     FieldByName('BCUMPLIDA').AsInteger:= 0;
     FieldByName('FCUMPLIDA').asDateTime:= 0;
     FieldByName('BANULADA').asInteger:= 0;
     FieldByName('FANULADA').asDateTime:= 0;
-    FieldByName('DETALLEANULADA').asString:= ' ';
+    FieldByName('DETALLEANULADA').asString:= '';
     FieldByName('BVISIBLE').asInteger:= 1;
     FieldByName('refPresupuesto').asString:= GUIDNULO;
     FieldByName('FALTA').asDateTime:= Now;
