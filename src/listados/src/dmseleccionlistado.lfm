@@ -66,6 +66,12 @@ object DM_SeleccionListado: TDM_SeleccionListado
         DataType = ftString
         Precision = 0
         Size = 500
+      end    
+      item
+        Name = 'refGrupo'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
       end>
     left = 193
     top = 18

@@ -79,6 +79,7 @@ begin
       Open;
       tbListados.LoadFromDataSet(qListadoPorGrupo,0,lmAppend);
       Close;
+      tbListados.SortOnFields('NombreListado');
     end;
     GrupoAnterior:= refGrupo;
   end;

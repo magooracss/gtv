@@ -54,7 +54,7 @@ end;
 
 procedure TfrmSeleccionListado.btnSeleccionarClick(Sender: TObject);
 begin
-  MostrarPantalla(DS_Listados.DataSet.FieldByName('refGrupo').asString
+  MostrarPantalla(DS_Listados.DataSet.FieldByName('refGrupo').AsInteger
                  ,DS_Listados.DataSet.FieldByName('refFormulario').asInteger
                  ,DS_Listados.DataSet.FieldByName('rutaReporte').asString
                  );
