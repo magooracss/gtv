@@ -85,6 +85,8 @@ type
 
     function TablaValoresInt (TipoValor: string): integer;
 
+    function CmpIgualdadFloat(valor1, valor2: double): boolean;
+
   end;
 
 Const
@@ -524,6 +526,17 @@ begin
     else
       Result:= 0;
   end;
+end;
+
+function TDM_General.CmpIgualdadFloat(valor1, valor2: double): boolean;
+var
+  resultado: double;
+begin
+  resultado:= valor1 - valor2;
+  if abs(resultado) > 0.1 then
+   Result:= False
+  else
+    Result:= true;
 end;
 
 

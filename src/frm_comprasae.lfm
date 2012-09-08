@@ -1,7 +1,7 @@
 object frmComprasAE: TfrmComprasAE
-  Left = 275
+  Left = 129
   Height = 505
-  Top = 65
+  Top = 66
   Width = 1027
   Caption = 'Compra'
   ClientHeight = 505

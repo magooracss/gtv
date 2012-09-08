@@ -105,6 +105,8 @@ type
     procedure stImputacionClick(Sender: TObject);
   private
     _idCompra: GUID_ID;
+    flagModificando: boolean; //Esto es un invento para que deje de salir el cartel en todo momento
+    flagEsItem: boolean; //Seguimos con la chanchada, esto m«as que deuda técnica es papelón
     procedure Inicializar;
     function getIdCompra: GUID_ID;
     procedure ActualizarProveedor;
@@ -223,6 +225,7 @@ end;
 
 procedure TfrmComprasAE.DBEdit3Exit(Sender: TObject);
 begin
+  flagEsItem:= false;
   ActualizarMontos;
 end;
 
@@ -240,6 +243,7 @@ end;
 
 procedure TfrmComprasAE.dbMontoIVAExit(Sender: TObject);
 begin
+  flagModificando:= true;
   ActualizarMontos;
 end;
 
@@ -247,6 +251,7 @@ procedure TfrmComprasAE.dbMontoIVAKeyPress(Sender: TObject; var Key: char);
 begin
   if key = #13 then
   begin
+    flagModificando:= true;
     dbMontoTotal.SetFocus;
   end;
 end;
@@ -255,7 +260,7 @@ procedure TfrmComprasAE.dbMontoTotalKeyPress(Sender: TObject; var Key: char);
 begin
   if Key = #13 then
   begin
-    ActualizarMontos;
+    //ActualizarMontos;
     if (MessageDlg('CONSULTA', '¿Carga otro renglón?', mtConfirmation,
       [mbYes, mbNo], 0) = mrYes) then
     begin
@@ -320,6 +325,7 @@ begin
   begin
     DM_Compras.LevantarCompra(_idCompra);
     DM_Proveedores.LevantarProveedorID(DM_Compras.idProveedor);
+    flagEsItem:= false;
     ActualizarMontos;
     ActualizarProveedor;
     ActualizarCombos;
@@ -387,6 +393,8 @@ begin
   DM_General.CargarComboBox(cbCondPago, 'CondicionPago',
     'idCondicionPago', DM_Compras.qtugCondicionesPago);
   btnBuscarProv.SetFocus;
+  flagModificando:= false;
+  flagEsItem:= true;
 end;
 
 
@@ -424,14 +432,40 @@ begin
 end;
 
 procedure TfrmComprasAE.ActualizarMontos;
+var
+  ivaAct, totalAct, iva, total: double;
 begin
-  DM_Compras.actualizarMontosItem;
+  ivaAct:= StrToFloatDef(dbMontoIVA.Field.Value,0);
+  totalAct:= StrToFloatDef(dbMontoTotal.Field.Value,0);
+  iva:= 0;
+  total:= 0;
+  if flagEsItem then
+  begin
+    DM_Compras.ActualizarMontosItem(iva, total);
+    if ( (flagModificando) and ( iva <> ivaAct) ) then
+     begin
+          if (MessageDlg('CONFIRMACION', 'El iva calculado difiere del iva cargado. Se toma el iva cargado?',
+              mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+          begin
+              DM_Compras.ActualizarMontosItems (ivaAct, totalAct);
+              iva:= ivaAct;
+              DM_Compras.ActualizarMontosItem (ivaAct, total);
+              DM_Compras.ActualizarMontosItems (iva, total);
+           end
+           else
+               DM_Compras.ActualizarMontosItems (iva, total);
+     end
+  else
+    DM_Compras.ActualizarMontosItems (iva, total);
+  end;
   DM_Compras.ActualizarMontoTotal;
   stIVA.Caption     := 'Total IVA ' + FormatFloat('$ ###########0.00', DM_Compras.TotalIVA);
   stNeto.Caption    := 'Total Neto ' + FormatFloat('$ ###########0.00',
     DM_Compras.TotalNeto);
   stTotalNI.Caption := 'Neto + IVA ' + FormatFloat('$ ###########0.00',
     DM_Compras.TotalIVA + DM_Compras.TotalNeto);
+  flagModificando:= False;
+  flagEsItem:= true;
 end;
 
 procedure TfrmComprasAE.AltaItem;

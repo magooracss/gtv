@@ -14,6 +14,7 @@ uses
 const
   _GRP_REMITOS_ = 1;
   _GRP_CONTABILIDAD_ = 2;
+  _GRP_PROVEEDORES_ = 3;
 
 
 type

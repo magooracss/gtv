@@ -233,6 +233,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
       Top = 11
       Width = 119
       Caption = 'Salir'
+      Enabled = False
       Glyph.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
         2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -543,7 +544,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
           Title.Alignment = taCenter
           Title.Caption = 'Fecha'
           Width = 120
-          FieldName = 'FECHA'
+          FieldName = 'Fecha'
         end      
         item
           SizePriority = 0
@@ -556,8 +557,14 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
         item
           Title.Alignment = taCenter
           Title.Caption = 'Monto'
-          Width = 191
-          FieldName = 'NTOTAL'
+          Width = 95
+          FieldName = 'nTotal'
+        end      
+        item
+          Title.Alignment = taCenter
+          Title.Caption = 'Pagado'
+          Width = 96
+          FieldName = 'Pagado'
         end>
       DataSource = DS_OPComprobantes
       FixedCols = 0
@@ -811,7 +818,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
     top = 164
   end
   object DS_OPComprobantes: TDatasource
-    DataSet = DM_Compras.qComprasPorOP
+    DataSet = DM_Compras.tbComprasPorOP
     OnDataChange = DS_OPComprobantesDataChange
     left = 120
     top = 221

@@ -73,6 +73,7 @@ type
     tbOrdenesPagofFecha: TDateField;
     tbOrdenesPagoidOrdenPago: TStringField;
     tbOrdenesPagolxProveedor1: TStringField;
+    tbOrdenesPagonPagado: TFloatField;
     tbOrdenesPagonTotalAPagar: TFloatField;
     tbOrdenesPagoNumeroOrdenPago: TLongintField;
     tbOrdenesPagorefProveedor: TStringField;
@@ -363,6 +364,7 @@ procedure TDM_OrdenesDePago.Nueva;
 begin
   DM_General.ReiniciarTabla(tbOrdenesPago);
   DM_General.ReiniciarTabla(tbOPComprobantes);
+  DM_General.ReiniciarTabla(DM_Compras.tbComprasPorOP);
   DM_General.ReiniciarTabla(tbOPFormasDePago);
   tbOrdenesPago.Insert;
 end;
@@ -394,6 +396,7 @@ begin
   begin
     Edit;
     FieldByName('nTotalAPagar').asFloat:= acumular;
+    FieldByName('nPagado').asFloat:= CalcularValores;
     Post;
   end;
 end;

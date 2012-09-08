@@ -27,25 +27,19 @@ type
     qBusComprasFechaMayor: TZQuery;
     qComprasIDProveedor: TZQuery;
     MarcarCompra: TZQuery;
-    qComprasPorOPNROFACTURA: TLongintField;
-    qComprasPorOPNROPTOVENTA: TLongintField;
-    qComprasPorOPPERCEPIVA: TFloatField;
     qCompraTotalPagada: TZQuery;
-    qComprasPorOPBPAGADA: TFloatField;
-    qComprasPorOPBVISIBLE: TSmallintField;
-    qComprasPorOPFECHA: TDateField;
-    qComprasPorOPIDCOMPRA: TStringField;
-    qComprasPorOPNROCOMPROBANTE: TStringField;
-    qComprasPorOPNTOTAL: TFloatField;
-    qComprasPorOPPERCEPCAPITAL: TFloatField;
-    qComprasPorOPPERCEPPROVINCIA: TFloatField;
-    qComprasPorOPREFORDENPAGO: TStringField;
-    qComprasPorOPREFPROVEEDOR: TStringField;
-    qComprasPorOPREFTIPOCOMPROBANTE: TLongintField;
     qCompraTotalPagadaTOTAL: TFloatField;
     qFormaPagoPorCompra: TZQuery;
     qtugCondicionesPago: TZQuery;
     qtugCondicionPagoTiempo: TZQuery;
+    tbComprasPorOPidCompraPago: TStringField;
+    tbComprasPorOPINS: TZQuery;
+    tbComprasPorOPnMonto: TFloatField;
+    tbComprasPorOPrefCompra: TStringField;
+    tbComprasPorOPrefOP: TStringField;
+    tbComprasPorOPSEL: TZQuery;
+    tbComprasPorOPUPD: TZQuery;
+    tbComprasPorOP: TRxMemoryData;
     tbComprasItemsDEL: TZQuery;
     qtugTiposComprobantes: TZQuery;
     tbComprasbPagada: TLongintField;
@@ -61,6 +55,13 @@ type
     tbComprasnroFactura: TLongintField;
     tbComprasnroPtoVenta: TLongintField;
     tbComprasPercepIVA: TFloatField;
+    tbComprasPorOPAPagar: TFloatField;
+    tbComprasPorOPFecha: TDateField;
+    tbComprasPorOPnroFactura: TLongintField;
+    tbComprasPorOPnTotal: TFloatField;
+    tbComprasPorOPPagado: TFloatField;
+    tbComprasPorOPResta: TFloatField;
+    qBuscarCompraPago: TZQuery;
     tbComprasrefCondPago: TLongintField;
     tbComprasrefCondPagoTiempo: TLongintField;
     tbComprasrefOrdenPago: TStringField;
@@ -118,6 +119,7 @@ type
     procedure tbComprasFormasDePagoAfterInsert(DataSet: TDataSet);
     procedure tbComprasFormasDePagoAfterPost(DataSet: TDataSet);
     procedure tbComprasItemsAfterInsert(DataSet: TDataSet);
+    procedure tbComprasPorOPAfterInsert(DataSet: TDataSet);
   private
     _TotalNeto: double;
     _TotalIVA: double;
@@ -129,7 +131,6 @@ type
     function getIdProveedor: string;
     function getIdTipoComprobante: integer;
     function getNroComprobante: string;
-
 
 
   public
@@ -167,7 +168,10 @@ type
     procedure EliminarItem;
 
     procedure CargarImputacion (idCuenta: integer; Concepto: string);
-    procedure ActualizarMontosItem;
+
+    procedure ActualizarMontosItem (var montoIVA, montoTotal: double);
+    procedure ActualizarMontosItems (montoIVA, montoTotal: double);
+
     procedure ActualizarMontoTotal;
 
     procedure CargarProveedor (refProveedor: GUID_ID);
@@ -185,6 +189,16 @@ type
 
     function MontoPagado (refCompra: GUID_ID): double;
     function FacturaExistente (suc, nro: integer; proveedor: GUID_ID): boolean;
+
+    function MontoCubiertoFacturas: double;
+
+    procedure LimpiarBlancos;
+    function ComprasPorOPMontosOK: boolean;
+
+    procedure GrabarPagosParciales (refOP: GUID_ID);
+    function obtenerIdPagoParcial (refCompra, refOP: GUID_ID): GUID_ID;
+    procedure GrabarPagosTotales (refOP: GUID_ID);
+
   end; 
 
 var
@@ -283,6 +297,17 @@ begin
   end;
 end;
 
+procedure TDM_Compras.tbComprasPorOPAfterInsert(DataSet: TDataSet);
+begin
+  With DataSet do
+  begin
+    FieldByName('nTotal').asFloat:= 0;
+    FieldByName('Pagado').asFloat:= 0;
+    FieldByName('Resta').asFloat:= 0;
+    FieldByName('APagar').asFloat:= 0;
+  end;
+end;
+
 function TDM_Compras.getCodImputacion: string;
 begin
   with tbComprasItems do
@@ -357,6 +382,72 @@ begin
              + rightStr('00000000'+ IntToStr(FieldByName('nroFactura').AsInteger), 8 );
   end;
 end;
+
+
+function TDM_Compras.obtenerIdPagoParcial(refCompra, refOP: GUID_ID): GUID_ID;
+begin
+ with qBuscarCompraPago do
+ begin
+   if active then close;
+   ParamByName('refCompra').AsString:= refCompra;
+   ParamByName('refOp').asString:= refOP;
+   Open;
+   if RecordCount > 0 then
+      Result:= FieldByName('idCompraPago').asString
+   else
+     Result:= DM_General.CrearGUID;
+ end;
+end;
+
+procedure TDM_Compras.GrabarPagosTotales(refOP: GUID_ID);
+var
+  refID: GUID_ID;
+begin
+  with tbComprasPorOP do
+  begin
+    DisableControls;
+    First;
+    While Not EOF do
+    begin
+      refId:= ObtenerIdPagoParcial (FieldByName('refCompra').asString, refOP);
+      Edit;
+      FieldByName('idCompraPago').asString:= refId;
+      FieldByName('refOP').asString:= refOP;
+      FieldByName('nMonto').asFloat:= FieldByName('resta').asFloat;
+      Post;
+      MarcarComprobantePagado(FieldByName('refCompra').asString);
+      Next;
+    end;
+    DM_General.GrabarDatos(tbComprasPorOPSEL, tbComprasPorOPINS, tbComprasPorOPUPD, tbComprasPorOP, 'idCompraPago');
+    EnableControls;
+  end;
+end;
+
+procedure TDM_Compras.GrabarPagosParciales (refOP: GUID_ID);
+var
+  refID: GUID_ID;
+begin
+  with tbComprasPorOP do
+  begin
+    DisableControls;
+    First;
+    While Not EOF do
+    begin
+      refId:= ObtenerIdPagoParcial (FieldByName('refCompra').asString, refOP);
+      Edit;
+      FieldByName('idCompraPago').asString:= refId;
+      FieldByName('refOP').asString:= refOP;
+      FieldByName('nMonto').asFloat:= FieldByName('APagar').asFloat;
+      Post;
+      if DM_General.CmpIgualdadFloat(FieldByName('APagar').asFloat, FieldByName('resta').asFloat) then
+         MarcarComprobantePagado(FieldByName('refCompra').asString);
+      Next;
+    end;
+    DM_General.GrabarDatos(tbComprasPorOPSEL, tbComprasPorOPINS, tbComprasPorOPUPD, tbComprasPorOP, 'idCompraPago');
+    EnableControls;
+  end;
+end;
+
 
 procedure TDM_Compras.ObtenerTotales;
 var
@@ -480,6 +571,61 @@ begin
   end;
 end;
 
+function TDM_Compras.MontoCubiertoFacturas: double;
+var
+  marca: TBookmark;
+  suma: double;
+begin
+  with tbComprasPorOP do
+  begin
+    marca:= GetBookmark;
+    First;
+    suma:= 0;
+    while not eof do
+    begin
+      suma:= suma + FieldByName('APagar').asFloat;
+      Next;
+    end;
+    GotoBookmark(marca);
+    FreeBookmark(marca);
+  end;
+  Result:= suma;
+end;
+
+procedure TDM_Compras.LimpiarBlancos;
+begin
+  with tbComprasPorOP do
+  begin
+    First;
+    While not eof do
+    begin
+      if FieldByName('refCompra').asString = EmptyStr then
+        Delete
+      else
+        Next;
+    end;
+  end;
+end;
+
+function TDM_Compras.ComprasPorOPMontosOK: boolean;
+var
+  montoOK: Boolean;
+begin
+  with tbComprasPorOP do
+  begin
+    First;
+    montoOK:= true;
+    While ((montoOK) and (not eof)) do
+    begin
+      montoOK:= ( (FloattoCurr(FieldByName('Resta').asFloat) > FloattoCurr(FieldByName('APagar').asFloat))
+                 or (DM_General.CmpIgualdadFloat (FieldByName('Resta').asFloat, FieldByName('APagar').asFloat))
+                  );
+
+      Next;
+    end;
+  end;
+  Result:= montoOK;
+end;
 
 procedure TDM_Compras.Buscar(criterio, consulta: string;
   filtro: integer);
@@ -582,13 +728,48 @@ begin
 end;
 
 procedure TDM_Compras.LevantarComprasPorOP(refOP: GUID_ID);
+var
+ idCompra: string;
+ fFecha: TDate;
+ NroFactura: integer;
+ Monto, Pagado: double;
 begin
+  DM_General.ReiniciarTabla(tbComprasPorOP);
   with qComprasPorOP do
   begin
     if active then close;
     ParamByName('refOP').AsString:= refOP;
     Open;
+
+    while not EOF do
+    begin
+
+      idCompra:= FieldByName('refCompra').asString;
+      fFecha:= FieldByName('Fecha').asDateTime;
+      NroFactura:= FieldByName('nroFactura').asInteger;
+      Monto:= FieldByName('nTotal').asFloat;
+      Pagado:= 0;
+
+      While ((idCompra = FieldByName('refCompra').asString)
+              and (not EOF)) do
+      begin
+        Pagado:= Pagado + FieldByName('nMonto').AsFloat;
+        Next;
+      end;
+
+      tbComprasPorOP.Insert;
+      tbComprasPorOP.FieldByName('refCompra').asString:= idCompra;
+      tbComprasPorOP.FieldByName('Fecha').AsDateTime:= fFecha;
+      tbComprasPorOP.FieldByName('nroFactura').asInteger:= NroFactura;
+      tbComprasPorOP.FieldByName('nTotal').asFloat:= Monto;
+      tbComprasPorOP.FieldByName('Pagado').asFloat:= Pagado;
+      tbComprasPorOP.FieldByName('Resta').asFloat:= Monto - Pagado;
+
+      tbComprasPorOP.Post;
+
+    end;
   end;
+
 end;
 
 procedure TDM_Compras.AsociarOP(refCompra,refOP: GUID_ID);
@@ -618,10 +799,11 @@ end;
 
 function TDM_Compras.SumaComprasOP(refOP: GUID_ID): double;
 var
-  suma: double;
+  sumaTotal, sumaPagada: double;
 begin
-  suma:= 0;
-  with qComprasPorOP do
+  sumaTotal:= 0;
+  sumaPagada:= 0;
+  with tbComprasPorOP do
   begin
     DisableControls;
 
@@ -631,13 +813,14 @@ begin
 
     while (not eof) do
     begin
-      suma:= suma + FieldByName('nTotal').asFloat;
+      sumaTotal:= sumaTotal + FieldByName('nTotal').asFloat;
+      sumaPagada:= sumaPagada + FieldByName('Pagado').asFloat;
       Next;
     end;
 
     EnableControls;
   end;
-  Result:= suma;
+  Result:= (sumaTotal - sumaPagada);
 end;
 
 procedure TDM_Compras.AgregarItem;
@@ -669,14 +852,15 @@ begin
   end;
 end;
 
-procedure TDM_Compras.ActualizarMontosItem;
-var
-  cantidad, costoUnitario, porcIVA, MontoIVA, MontoNeto
-  ,MontoTotal: double;
+procedure TDM_Compras.ActualizarMontosItem (var montoIVA, montoTotal: double);
+var   //TODO: Ojo, modificaciones en el camino para poder facturar
+  cantidad, costoUnitario, porcIVA, MontoNeto, bakIVA: double;
 begin
+  bakIVA:= montoIVA;
   MontoNeto:= 0;
   MontoTotal:= 0;
   MontoIVA:= 0;
+
 
   with tbComprasItems do
   begin
@@ -698,13 +882,22 @@ begin
 
     MontoNeto:= cantidad * costoUnitario;
     MontoIVA:= MontoNeto * (porcIVA / 100);
-    MontoTotal:= MontoNeto + MontoIVA;
 
+    if bakIVA > 0 then
+      MontoTotal:= MontoNeto + bakIVA
+    else
+      MontoTotal:= MontoNeto + MontoIVA;
+  end;
+end;
+
+procedure TDM_Compras.ActualizarMontosItems (montoIVA, montoTotal: double);
+begin
+  with tbComprasItems do
+  begin
     Edit;
     FieldByName('nMontoIVA').AsFloat:= MontoIVA;
     FieldByName('nMontoTotal').AsFloat:= MontoTotal;
     Post;
-
   end;
 end;
 

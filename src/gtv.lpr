@@ -27,7 +27,7 @@ uses
   frm_ordenespagolistado, dmordenesdepago, frm_ordenpagoae, frm_cargavalores,
   dmvalores, frm_pagocomprobantes, frm_tuglocalidades, dmlocalidades,
   frm_localidadae, frm_egresosvarioslistado, dmegresosvarios,
-  frm_egresosvariosae, frm_egresoae;
+  frm_egresosvariosae, frm_egresoae, frm_asignarpagofactura;
 
 {$R *.res}
 

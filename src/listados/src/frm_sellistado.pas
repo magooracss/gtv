@@ -29,6 +29,7 @@ type
 
     procedure pantallaRemitos (refListado: integer; rutaReporte: string);
     procedure pantallaCuentas (refListado: integer; rutaReporte: string);
+    procedure pantallaProveedores (refListado: integer; rutaReporte: string);
 
   public
     { public declarations }
@@ -43,6 +44,7 @@ uses
   dmseleccionlistado
   ,frm_gruporemitos
   ,frm_grupocuentas
+  ,frm_grupoproveedores
   ;
 
 { TfrmSeleccionListado }
@@ -66,6 +68,7 @@ begin
   case refGrupo of
        _GRP_REMITOS_ : PantallaRemitos (refListado, rutaReporte);
        _GRP_CONTABILIDAD_ : PantallaCuentas(refListado, rutaReporte);
+       _GRP_PROVEEDORES_ : PantallaProveedores (refListado, rutaReporte);
   end;
 end;
 
@@ -90,6 +93,22 @@ var
   pantalla: TfrmGrupoCuentas;
 begin
   pantalla:= TfrmGrupoCuentas.Create (self);
+  pantalla.rutaReporte:= rutaReporte;
+  pantalla.tipoListado:= refListado;
+  try
+    pantalla.ShowModal;
+  finally
+    pantalla.Free;
+  end;
+
+end;
+
+procedure TfrmSeleccionListado.pantallaProveedores(refListado: integer;
+  rutaReporte: string);
+var
+  pantalla: TfrmGrupoProveedores;
+begin
+  pantalla:= TfrmGrupoProveedores.Create (self);
   pantalla.rutaReporte:= rutaReporte;
   pantalla.tipoListado:= refListado;
   try

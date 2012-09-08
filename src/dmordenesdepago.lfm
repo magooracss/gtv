@@ -104,7 +104,7 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
       '       ,O.fFecha as Fecha '
       '       ,O.NumeroOrdenPago'
       '       ,P.cRazonSocial as Proveedor'
-      '       ,O.nTotalAPagar as Monto'
+      '       ,O.nPagado as Monto'
       'FROM tbOrdenesPago O'
       '     LEFT JOIN tbProveedores P ON P.idProveedor = O.refProveedor'
       'WHERE  (O.bVisible = 1)'
@@ -134,7 +134,7 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
       '       ,O.fFecha as Fecha '
       '       ,O.NumeroOrdenPago'
       '       ,P.cRazonSocial as Proveedor'
-      '       ,O.nTotalAPagar as Monto'
+      '       ,O.nPagado as Monto'
       'FROM tbOrdenesPago O'
       '     LEFT JOIN tbProveedores P ON P.idProveedor = O.refProveedor'
       'WHERE  (O.bVisible = 1)'
@@ -163,7 +163,7 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
       '       ,O.fFecha as Fecha '
       '       ,O.NumeroOrdenPago'
       '       ,P.cRazonSocial as Proveedor'
-      '       ,O.nTotalAPagar as Monto'
+      '       ,O.nPagado as Monto'
       'FROM tbOrdenesPago O'
       '     LEFT JOIN tbProveedores P ON P.idProveedor = O.refProveedor'
       'WHERE  (O.bVisible = 1)'
@@ -193,7 +193,7 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
       '       ,O.fFecha as Fecha '
       '       ,O.NumeroOrdenPago'
       '       ,P.cRazonSocial as Proveedor'
-      '       ,O.nTotalAPagar as Monto'
+      '       ,O.nPagado as Monto'
       'FROM tbOrdenesPago O'
       '     LEFT JOIN tbProveedores P ON P.idProveedor = O.refProveedor'
       'WHERE  (O.bVisible = 1)'
@@ -223,7 +223,7 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
       '       ,O.fFecha as Fecha '
       '       ,O.NumeroOrdenPago'
       '       ,P.cRazonSocial as Proveedor'
-      '       ,O.nTotalAPagar as Monto'
+      '       ,O.nPagado as Monto'
       'FROM tbOrdenesPago O'
       '     LEFT JOIN tbProveedores P ON P.idProveedor = O.refProveedor'
       'WHERE  (O.bVisible = 1)'
@@ -294,6 +294,12 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
         DataType = ftString
         Precision = -1
         Size = 1500
+      end    
+      item
+        Name = 'nPagado'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
       end>
     AfterInsert = tbOrdenesPagoAfterInsert
     left = 202
@@ -386,6 +392,20 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
       Required = False
       Size = 1500
     end
+    object tbOrdenesPagonPagado: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nPagado'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
   end
   object tbOrdenesPagoSEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -415,9 +435,9 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'INSERT INTO tbOrdenesPago'
-      '(IDORDENPAGO, NUMEROORDENPAGO, REFPROVEEDOR, FFECHA, TXOBSERVACIONES, NTOTALAPAGAR, BVISIBLE)'
+      '(IDORDENPAGO, NUMEROORDENPAGO, REFPROVEEDOR, FFECHA, TXOBSERVACIONES, NTOTALAPAGAR, BVISIBLE, NPAGADO)'
       'VALUES'
-      '(:IDORDENPAGO, :NUMEROORDENPAGO, :REFPROVEEDOR, :FFECHA, :TXOBSERVACIONES, :NTOTALAPAGAR, :BVISIBLE)'
+      '(:IDORDENPAGO, :NUMEROORDENPAGO, :REFPROVEEDOR, :FFECHA, :TXOBSERVACIONES, :NTOTALAPAGAR, :BVISIBLE, :NPAGADO)'
     )
     Params = <    
       item
@@ -453,6 +473,11 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
       item
         DataType = ftUnknown
         Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NPAGADO'
         ParamType = ptUnknown
       end>
     left = 201
@@ -492,6 +517,11 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
         DataType = ftUnknown
         Name = 'BVISIBLE'
         ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NPAGADO'
+        ParamType = ptUnknown
       end>
   end
   object tbOrdenesPagoUPD: TZQuery
@@ -505,6 +535,7 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
       ', TXOBSERVACIONES = :TXOBSERVACIONES '
       ', NTOTALAPAGAR = :NTOTALAPAGAR '
       ', BVISIBLE = :BVISIBLE '
+      ', NPAGADO = :NPAGADO'
       'WHERE IDORDENPAGO = :IDORDENPAGO'
     )
     Params = <    
@@ -536,6 +567,11 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
       item
         DataType = ftUnknown
         Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NPAGADO'
         ParamType = ptUnknown
       end    
       item
@@ -574,6 +610,11 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
       item
         DataType = ftUnknown
         Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NPAGADO'
         ParamType = ptUnknown
       end    
       item

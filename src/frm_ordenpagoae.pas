@@ -80,6 +80,7 @@ uses
   ,frm_cargavalores
   ,SD_Configuracion
   , LR_Class
+  ,frm_asignarpagofactura
   ;
 
 { TfrmOrdenDePagoAE }
@@ -185,13 +186,33 @@ end;
 procedure TfrmOrdenDePagoAE.btnGrabarClick(Sender: TObject);
 var
   idOP: GUID_ID;
+  pant: TfrmAsignarPagoFacturas;
+  mnt: double;
 begin
   idOP:= DM_OrdenesDePago.idOrdenPago;
+  pant:= TfrmAsignarPagoFacturas.Create(self);
   DM_OrdenesDePago.CalcularMontoTotal;
   DM_OrdenesDePago.Grabar;
-  if  (DM_OrdenesDePago.CalcularValores < DM_OrdenesDePago.tbOrdenesPago.FieldByName('nTotalAPagar').asFloat) then
-   ShowMessage ('Esta queriendo pagar menos que el total de la orden de pago!!!');
+  mnt:=DM_OrdenesDePago.CalcularValores;
+  if  ((mnt < DM_OrdenesDePago.tbOrdenesPago.FieldByName('nTotalAPagar').asFloat)
+        and (NOT DM_General.CmpIgualdadFloat(mnt, DM_OrdenesDePago.tbOrdenesPago.FieldByName('nTotalAPagar').asFloat))
+       ) then
+  begin
+    try
+      pant.idOP:= idOP;
+      pant.MontoACubrir:= DM_OrdenesDePago.CalcularValores;
+      pant.ShowModal;
+    finally
+      pant.Free;
+    end;
+  end
+  else
+  begin
+    DM_Compras.GrabarPagosTotales (idOP);
+  end;
   DM_OrdenesDePago.LevantarOP(DM_OrdenesDePago.idOrdenPago);
+  btnSalir.Enabled:= True;
+  btnImprimir.Enabled:= True;
 end;
 
 procedure TfrmOrdenDePagoAE.btnImprimirClick(Sender: TObject);
@@ -225,10 +246,10 @@ end;
 
 procedure TfrmOrdenDePagoAE.btnSalirClick(Sender: TObject);
 begin
-  if ValidarTotales then
+//  if ValidarTotales then
    ModalResult:= mrOK
-  else
-    ShowMessage('Se realizaron cambios que no han sido registrados');
+//  else
+//    ShowMessage('Se realizaron cambios que no han sido registrados');
 end;
 
 procedure TfrmOrdenDePagoAE.DS_OPComprobantesDataChange(Sender: TObject;
