@@ -1,0 +1,499 @@
+object DM_GrupoProveedores: TDM_GrupoProveedores
+  OldCreateOrder = False
+  Height = 431
+  HorizontalOffset = 468
+  VerticalOffset = 93
+  Width = 394
+  object tbResultados: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'RazonSocial'
+        DataType = ftString
+        Precision = 0
+        Size = 1500
+      end    
+      item
+        Name = 'NombreFantasia'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'cCuit'
+        DataType = ftString
+        Precision = 0
+        Size = 20
+      end    
+      item
+        Name = 'FechaCompra'
+        DataType = ftDate
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'NroPtoVenta'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'NroFactura'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'PercepCapital'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'PercepProvincia'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'PercepIVA'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'MontoFactura'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'NroOP'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'FechaOP'
+        DataType = ftDate
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'MontoPagado'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'FormaPago'
+        DataType = ftString
+        Precision = 0
+        Size = 100
+      end>
+    left = 63
+    top = 54
+    object tbResultadosRazonSocial: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'RazonSocial'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+    object tbResultadosNombreFantasia: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'NombreFantasia'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbResultadoscCuit: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'cCuit'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbResultadosFechaCompra: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FechaCompra'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbResultadosNroPtoVenta: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NroPtoVenta'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbResultadosNroFactura: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NroFactura'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbResultadosPercepCapital: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PercepCapital'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbResultadosPercepProvincia: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PercepProvincia'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbResultadosPercepIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PercepIVA'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbResultadosMontoFactura: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MontoFactura'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbResultadosNroOP: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NroOP'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbResultadosFechaOP: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FechaOP'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbResultadosMontoPagado: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MontoPagado'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbResultadosFormaPago: TStringField
+      DisplayWidth = 100
+      FieldKind = fkData
+      FieldName = 'FormaPago'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+  end
+  object qFiltrado: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT C.Fecha as FechaCompra, C.PercepCapital, C.PercepProvincia, C.PercepIVA, C.NroPtoVenta, C.NroFactura, C.nTotal as montoFactura'
+      '       ,P.cRazonsocial as RazonSocial, P.cNombreFantasia as NombreFantasia, P.cCuit'
+      '       ,OP.NumeroOrdenPago as NroOP, OP.fFecha as FechaOP'
+      '       ,OPFP.nMonto as MontoPagado, FP.FormaPago'
+      'FROM tbCompras C'
+      '      INNER JOIN tbProveedores P ON P.idProveedor = C.refProveedor'
+      '      LEFT JOIN tbOrdenesPago OP ON OP.idOrdenPago = C.refOrdenPago'
+      '      LEFT JOIN tbOPFormasDePago OPFP ON OPFP.refOrdenPago = OP.idOrdenPago'
+      '      LEFT JOIN tugFormasPago FP ON FP.idFormaPago = OPFP.refFormaPago'
+      'ORDER BY P.cRazonSocial, C.Fecha'
+    )
+    Params = <>
+    left = 68
+    top = 147
+  end
+  object tbComposicionSaldo: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'FechaFactura'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'Factura'
+        DataType = ftString
+        Precision = -1
+        Size = 13
+      end    
+      item
+        Name = 'TotalFactura'
+        DataType = ftFloat
+        Precision = 2
+        Size = 0
+      end    
+      item
+        Name = 'numeroOrdenPago'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'fechaOP'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'MontoPagado'
+        DataType = ftFloat
+        Precision = 2
+        Size = 0
+      end    
+      item
+        Name = 'Proveedor'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'Saldo'
+        DataType = ftFloat
+        Precision = 2
+        Size = 0
+      end    
+      item
+        Name = 'idCompra'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end>
+    AfterInsert = tbComposicionSaldoAfterInsert
+    left = 237
+    top = 58
+    object tbComposicionSaldoFechaFactura: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FechaFactura'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object tbComposicionSaldoFactura: TStringField
+      DisplayWidth = 13
+      FieldKind = fkData
+      FieldName = 'Factura'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 13
+    end
+    object tbComposicionSaldoTotalFactura: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TotalFactura'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbComposicionSaldonumeroOrdenPago: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'numeroOrdenPago'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbComposicionSaldofechaOP: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fechaOP'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object tbComposicionSaldoMontoPagado: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MontoPagado'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbComposicionSaldoProveedor: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'Proveedor'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbComposicionSaldoSaldo: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Saldo'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbComposicionSaldoidCompra: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idCompra'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+  end
+  object qComSaldo: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT C.Fecha as FechaFactura'
+      '       ,(C.nroPtoVenta || ''-''|| C.nroFactura) as Factura'
+      '       ,C.nTotal as TotalFactura'
+      '       ,OP.numeroOrdenPago'
+      '       ,OP.fFecha  as FechaOP'
+      '       ,CP.nMonto as MontoPagado            '
+      '       ,P.cRazonSocial as Proveedor'
+      '       ,C.idCompra'
+      'FROM  tbCompras C'
+      '        LEFT JOIN tbComprasPagos CP ON CP.refCompra = C.idCompra'
+      '        LEFT JOIN tbOrdenesPago OP ON CP.refOP = OP.idOrdenPago'
+      '        LEFT JOIN tbProveedores P ON P.idProveedor = C.refProveedor'
+      'WHERE (C.bVisible = 1)  and (C.refProveedor = :refProveedor)'
+      'ORDER BY  C.Fecha, C.nroPtoVenta, C.nroFactura,  OP.fFecha'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end>
+    left = 198
+    top = 146
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end>
+  end
+  object qPendientes: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT C.Fecha as FechaFactura'
+      '       ,(C.nroPtoVenta || ''-''|| C.nroFactura) as Factura'
+      '       ,C.nTotal as TotalFactura'
+      '       ,OP.numeroOrdenPago'
+      '       ,OP.fFecha  as FechaOP'
+      '       ,CP.nMonto as MontoPagado            '
+      '       ,P.cRazonSocial as Proveedor'
+      '       ,C.idCompra'
+      'FROM  tbCompras C'
+      '        LEFT JOIN tbComprasPagos CP ON CP.refCompra = C.idCompra'
+      '        LEFT JOIN tbOrdenesPago OP ON CP.refOP = OP.idOrdenPago'
+      '        LEFT JOIN tbProveedores P ON P.idProveedor = C.refProveedor'
+      'WHERE (C.bVisible = 1)  and (C.bPagada = 0)'
+      'ORDER BY  P.cRazonSocial, C.Fecha, C.nroPtoVenta, C.nroFactura,  OP.fFecha'
+    )
+    Params = <>
+    left = 289
+    top = 147
+  end
+end

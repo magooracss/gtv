@@ -1,0 +1,181 @@
+object DM_GrupoCuentas: TDM_GrupoCuentas
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 305
+  HorizontalOffset = 751
+  VerticalOffset = 169
+  Width = 366
+  object tbResultados: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'Fecha'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'CodigoCuenta'
+        DataType = ftString
+        Precision = -1
+        Size = 10
+      end    
+      item
+        Name = 'NombreCuenta'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'cRazonSocial'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'cNombreFantasia'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'cCuit'
+        DataType = ftString
+        Precision = -1
+        Size = 20
+      end    
+      item
+        Name = 'Ingreso'
+        DataType = ftFloat
+        Precision = 2
+        Size = 0
+      end    
+      item
+        Name = 'Egreso'
+        DataType = ftFloat
+        Precision = 2
+        Size = 0
+      end    
+      item
+        Name = 'Factura_OP'
+        DataType = ftString
+        Precision = -1
+        Size = 13
+      end>
+    AfterInsert = tbResultadosAfterInsert
+    left = 35
+    top = 26
+    object tbResultadosFecha: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Fecha'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbResultadosCodigoCuenta: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CodigoCuenta'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object tbResultadosNombreCuenta: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'NombreCuenta'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object tbResultadoscRazonSocial: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'cRazonSocial'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbResultadoscNombreFantasia: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'cNombreFantasia'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbResultadoscCuit: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'cCuit'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbResultadosIngreso: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Ingreso'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbResultadosEgreso: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Egreso'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbResultadosFactura_OP: TStringField
+      DisplayWidth = 13
+      FieldKind = fkData
+      FieldName = 'Factura_OP'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 13
+    end
+  end
+  object qFiltrado: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'select *'
+      'from tugPlanDeCuentas'
+    )
+    Params = <>
+    left = 36
+    top = 119
+  end
+end
