@@ -78,6 +78,8 @@ type
     tbComprasItemsrefImputacion: TLongintField;
     qComprasPorOP: TZQuery;
     qFacturaExistente: TZQuery;
+    qTotalCompras: TZQuery;
+    qTotalPagos: TZQuery;
     tbComprasUPD: TZQuery;
     tbComprasnTotal: TFloatField;
     tbComprasPercepCapital: TFloatField;
@@ -198,6 +200,8 @@ type
     procedure GrabarPagosParciales (refOP: GUID_ID);
     function obtenerIdPagoParcial (refCompra, refOP: GUID_ID): GUID_ID;
     procedure GrabarPagosTotales (refOP: GUID_ID);
+
+    function SaldoProveedor (refProveedor: GUID_ID): double;
 
   end; 
 
@@ -421,6 +425,37 @@ begin
     DM_General.GrabarDatos(tbComprasPorOPSEL, tbComprasPorOPINS, tbComprasPorOPUPD, tbComprasPorOP, 'idCompraPago');
     EnableControls;
   end;
+end;
+
+function TDM_Compras.SaldoProveedor(refProveedor: GUID_ID): double;
+var
+  compras, pagos: double;
+begin
+  with qTotalCompras do
+  begin
+    if active then close;
+    ParamByName('refProveedor').asString:= refProveedor;
+    Open;
+    if RecordCount > 0 then
+       compras:= FieldByName('Total').asFloat
+    else
+        compras:= 0;
+    close;
+  end;
+
+  with qTotalPagos do
+  begin
+    if active then close;
+    ParamByName('refProveedor').asString:= refProveedor;
+    Open;
+    if RecordCount > 0 then
+       pagos:= FieldByName('Pagado').asFloat
+    else
+        pagos:= 0;
+    close;
+  end;
+
+  Result:= pagos - compras;
 end;
 
 procedure TDM_Compras.GrabarPagosParciales (refOP: GUID_ID);

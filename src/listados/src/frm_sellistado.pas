@@ -29,6 +29,10 @@ type
 
     procedure pantallaRemitos (refListado: integer; rutaReporte: string);
     procedure pantallaCuentas (refListado: integer; rutaReporte: string);
+
+
+    procedure pantComposicionSaldos(refListado: integer; rutaReporte: string);
+    procedure pantPendientes (refListado: integer; rutaReporte: string);
     procedure pantallaProveedores (refListado: integer; rutaReporte: string);
 
   public
@@ -45,6 +49,7 @@ uses
   ,frm_gruporemitos
   ,frm_grupocuentas
   ,frm_grupoproveedores
+  ,frm_grupoprovpendientes
   ;
 
 { TfrmSeleccionListado }
@@ -103,7 +108,7 @@ begin
 
 end;
 
-procedure TfrmSeleccionListado.pantallaProveedores(refListado: integer;
+procedure TfrmSeleccionListado.pantComposicionSaldos(refListado: integer;
   rutaReporte: string);
 var
   pantalla: TfrmGrupoProveedores;
@@ -116,10 +121,32 @@ begin
   finally
     pantalla.Free;
   end;
+end;
+
+procedure TfrmSeleccionListado.pantPendientes(refListado: integer;
+  rutaReporte: string);
+var
+  pantalla: TfrmGrupoProveedoresPendientes;
+begin
+  pantalla:= TfrmGrupoProveedoresPendientes.Create(self);
+  pantalla.rutaReporte:= rutaReporte;
+  pantalla.tipoListado:= refListado;
+  try
+    pantalla.ShowModal;
+  finally
+    pantalla.Free;
+  end;
 
 end;
 
-
+procedure TfrmSeleccionListado.pantallaProveedores(refListado: integer;
+  rutaReporte: string);
+begin
+  case refListado of
+       1: pantComposicionSaldos(refListado,rutaReporte);
+       2: pantPendientes(refListado, rutaReporte);
+  end;
+end;
 
 end.
 

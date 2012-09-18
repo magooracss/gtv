@@ -1,7 +1,7 @@
 object DM_OrdenesDePago: TDM_OrdenesDePago
   OnCreate = DataModuleCreate
   OldCreateOrder = False
-  Height = 430
+  Height = 519
   HorizontalOffset = 372
   VerticalOffset = 97
   Width = 832
@@ -1739,5 +1739,36 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
     DataSet = DM_Compras.qComprasPorOP
     left = 761
     top = 314
+  end
+  object qEliminarPago: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM tbComprasPagos'
+      'WHERE ((refCompra = :refCompra) AND (refOP = :refOP))'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refCompra'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refOP'
+        ParamType = ptUnknown
+      end>
+    left = 252
+    top = 426
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refCompra'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refOP'
+        ParamType = ptUnknown
+      end>
   end
 end

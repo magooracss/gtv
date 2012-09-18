@@ -12,7 +12,8 @@ uses
   dmbuscarcliente, dmgeneral, frm_proveedoreslistado, frm_proveedoresae,
   dmproveedores, frm_plandecuentasae, dmplandecuentas, frm_plandecuentaslistado,
   dmseleccionlistado, frm_gruporemitos, dmgruporemitos, dmgrupocuentas,
-  frm_grupocuentas, frm_grupoproveedores, dmgrupoproveedores;
+  frm_grupocuentas, frm_grupoproveedores, dmgrupoproveedores,
+frm_grupoprovpendientes;
 
 {$R *.res}
 
@@ -25,7 +26,8 @@ begin
   Application.CreateForm(TDM_Proveedores, DM_Proveedores);
   Application.CreateForm(TDM_GrupoProveedores, DM_GrupoProveedores);
   Application.CreateForm(TfrmSeleccionListado, frmSeleccionListado);
-
+  Application.CreateForm(TfrmGrupoProveedoresPendientes,
+    frmGrupoProveedoresPendientes);
   Application.Run;
 end.
 

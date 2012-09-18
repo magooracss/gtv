@@ -186,7 +186,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
       ParentColor = False
     end
     object DBEdit3: TDBEdit
-      Left = 428
+      Left = 346
       Height = 27
       Top = 24
       Width = 150
@@ -209,13 +209,34 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
       TabStop = False
     end
     object Label4: TLabel
-      Left = 430
+      Left = 348
       Height = 17
       Top = 5
       Width = 78
       Anchors = [akTop, akRight]
       Caption = 'Total a Pagar'
       ParentColor = False
+    end
+    object Label5: TLabel
+      Left = 511
+      Height = 17
+      Top = 5
+      Width = 93
+      Anchors = [akTop, akRight]
+      Caption = 'Saldo proveedor'
+      ParentColor = False
+    end
+    object edSaldoCliente: TEdit
+      Left = 506
+      Height = 24
+      Top = 26
+      Width = 123
+      Alignment = taRightJustify
+      Anchors = [akTop, akRight]
+      ReadOnly = True
+      TabStop = False
+      TabOrder = 5
+      Text = '0'
     end
   end
   object Panel2: TPanel

@@ -33,11 +33,13 @@ type
     DBEdit2: TDBEdit;
     DBGrid1: TDBGrid;
     DBGrid2: TDBGrid;
+    edSaldoCliente: TEdit;
     edSumaValores: TEdit;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
+    Label5: TLabel;
     Panel1: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
@@ -62,6 +64,7 @@ type
   private
     _idOrdenPago: GUID_ID;
     function ValidarTotales: boolean;
+    procedure SaldoProveedor;
   public
     property idOrdenPago: GUID_ID read _idOrdenPago write _idOrdenPago;
   end; 
@@ -95,6 +98,7 @@ begin
   begin
     DM_OrdenesDePago.LevantarOP (_idOrdenPago);
     edSumaValores.Text:= FormatFloat('$ ############0.00', DM_OrdenesDePago.CalcularValores);
+    SaldoProveedor;
   end;
 end;
 
@@ -109,6 +113,19 @@ begin
   Result:= (totalOP = SumaCompras);
 end;
 
+procedure TfrmOrdenDePagoAE.SaldoProveedor;
+var
+  elSaldo: double;
+begin
+  elSaldo:=  DM_Compras.SaldoProveedor (DM_OrdenesDePago.idProveedor);
+  if elSaldo < 0 then
+     edSaldoCliente.Font.Color:= clRed
+  else
+     edSaldoCliente.Font.Color:= clBlack;
+
+  edSaldoCliente.Text:= FormatFloat('$ #########0.00', elSaldo);
+end;
+
 procedure TfrmOrdenDePagoAE.btnBuscarProveedorClick(Sender: TObject);
 var
  pant: TfrmProveedoresListado;
@@ -118,6 +135,7 @@ begin
     if pant.ShowModal = mrOK then
     begin
       DM_OrdenesDePago.VincularProveedor (pant.idProveedor);
+      SaldoProveedor;
     end;
   finally
     pant.Free;

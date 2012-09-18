@@ -63,16 +63,16 @@
         <PackageName Value="LCL"/>
       </Item7>
     </RequiredPackages>
-    <Units Count="25">
+    <Units Count="26">
       <Unit0>
         <Filename Value="selrpt.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="selrpt"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="16" Y="1"/>
-        <UsageCount Value="89"/>
+        <UsageCount Value="98"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -83,9 +83,9 @@
         <UnitName Value="frm_sellistado"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="89"/>
-        <CursorPos X="25" Y="111"/>
-        <UsageCount Value="89"/>
+        <TopLine Value="117"/>
+        <CursorPos X="12" Y="132"/>
+        <UsageCount Value="98"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -99,7 +99,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="22"/>
         <CursorPos X="86" Y="30"/>
-        <UsageCount Value="74"/>
+        <UsageCount Value="83"/>
         <Bookmarks Count="1">
           <Item0 X="25" Y="454" ID="1"/>
         </Bookmarks>
@@ -114,7 +114,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="22"/>
         <CursorPos X="29" Y="53"/>
-        <UsageCount Value="89"/>
+        <UsageCount Value="98"/>
       </Unit3>
       <Unit4>
         <Filename Value="..\..\SD_Configuracion.pas"/>
@@ -123,7 +123,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="28"/>
         <CursorPos X="36" Y="39"/>
-        <UsageCount Value="89"/>
+        <UsageCount Value="98"/>
       </Unit4>
       <Unit5>
         <Filename Value="dmseleccionlistado.pas"/>
@@ -133,10 +133,11 @@
         <UnitName Value="dmseleccionlistado"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="20" Y="17"/>
-        <UsageCount Value="89"/>
+        <TopLine Value="123"/>
+        <CursorPos X="56" Y="126"/>
+        <UsageCount Value="98"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="frm_gruporemitos.pas"/>
@@ -147,7 +148,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="148"/>
         <CursorPos X="37" Y="148"/>
-        <UsageCount Value="83"/>
+        <UsageCount Value="92"/>
       </Unit6>
       <Unit7>
         <Filename Value="dmgruporemitos.pas"/>
@@ -158,7 +159,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="110"/>
         <CursorPos X="70" Y="156"/>
-        <UsageCount Value="83"/>
+        <UsageCount Value="92"/>
       </Unit7>
       <Unit8>
         <Filename Value="..\..\frm_busquedaclientes.pas"/>
@@ -170,7 +171,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="21"/>
         <CursorPos X="3" Y="56"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="87"/>
       </Unit8>
       <Unit9>
         <Filename Value="..\..\dmbuscarcliente.pas"/>
@@ -179,7 +180,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmbuscarcliente"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="87"/>
       </Unit9>
       <Unit10>
         <Filename Value="..\..\..\..\..\Utiles\lazarus\lcl\controls.pp"/>
@@ -187,7 +188,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="99"/>
         <CursorPos X="3" Y="129"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="4"/>
       </Unit10>
       <Unit11>
         <Filename Value="..\..\..\..\..\Utiles\lazarus\components\fpspreadsheet\uvirtuallayer_types.pas"/>
@@ -195,7 +196,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="62"/>
         <CursorPos X="24" Y="77"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="5"/>
       </Unit11>
       <Unit12>
         <Filename Value="..\..\..\..\..\Utiles\lazarus\components\lazreport\source\lr_class.pas"/>
@@ -203,7 +204,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="965"/>
         <CursorPos X="58" Y="978"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
       </Unit12>
       <Unit13>
         <Filename Value="dmgrupocuentas.pas"/>
@@ -214,9 +215,9 @@
         <UnitName Value="dmgrupocuentas"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="13" Y="1"/>
-        <UsageCount Value="67"/>
+        <TopLine Value="188"/>
+        <CursorPos X="62" Y="182"/>
+        <UsageCount Value="76"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit13>
@@ -227,11 +228,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_grupocuentas"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="159"/>
-        <CursorPos X="1" Y="186"/>
-        <UsageCount Value="67"/>
+        <TopLine Value="115"/>
+        <CursorPos X="3" Y="118"/>
+        <UsageCount Value="76"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit14>
@@ -240,14 +242,14 @@
         <WindowIndex Value="0"/>
         <TopLine Value="121"/>
         <CursorPos X="19" Y="132"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="5"/>
       </Unit15>
       <Unit16>
         <Filename Value="..\..\..\..\..\Utiles\lazarus\fpc\2.4.2\source\rtl\objpas\sysutils\sysinth.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="30"/>
         <CursorPos X="3" Y="33"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="5"/>
       </Unit16>
       <Unit17>
         <Filename Value="..\..\frm_proveedoreslistado.pas"/>
@@ -259,14 +261,14 @@
         <WindowIndex Value="0"/>
         <TopLine Value="37"/>
         <CursorPos X="42" Y="20"/>
-        <UsageCount Value="36"/>
+        <UsageCount Value="45"/>
       </Unit17>
       <Unit18>
         <Filename Value="..\..\frm_proveedoresae.pas"/>
         <IsPartOfProject Value="True"/>
         <HasResources Value="True"/>
         <UnitName Value="frm_proveedoresae"/>
-        <UsageCount Value="36"/>
+        <UsageCount Value="45"/>
       </Unit18>
       <Unit19>
         <Filename Value="..\..\dmproveedores.pas"/>
@@ -275,14 +277,17 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmproveedores"/>
-        <UsageCount Value="36"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="79" Y="9"/>
+        <UsageCount Value="45"/>
       </Unit19>
       <Unit20>
         <Filename Value="..\..\frm_plandecuentasae.pas"/>
         <IsPartOfProject Value="True"/>
         <HasResources Value="True"/>
         <UnitName Value="frm_plandecuentasae"/>
-        <UsageCount Value="36"/>
+        <UsageCount Value="45"/>
       </Unit20>
       <Unit21>
         <Filename Value="..\..\dmplandecuentas.pas"/>
@@ -292,14 +297,14 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="45" Y="17"/>
-        <UsageCount Value="36"/>
+        <UsageCount Value="45"/>
       </Unit21>
       <Unit22>
         <Filename Value="..\..\frm_plandecuentaslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <HasResources Value="True"/>
         <UnitName Value="frm_plandecuentaslistado"/>
-        <UsageCount Value="36"/>
+        <UsageCount Value="45"/>
       </Unit22>
       <Unit23>
         <Filename Value="frm_grupoproveedores.pas"/>
@@ -307,13 +312,10 @@
         <ComponentName Value="frmGrupoProveedores"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_grupoproveedores"/>
-        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="39"/>
-        <CursorPos X="56" Y="48"/>
-        <UsageCount Value="32"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <TopLine Value="30"/>
+        <CursorPos X="3" Y="50"/>
+        <UsageCount Value="41"/>
       </Unit23>
       <Unit24>
         <Filename Value="dmgrupoproveedores.pas"/>
@@ -321,137 +323,111 @@
         <ComponentName Value="DM_GrupoProveedores"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmgrupoproveedores"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="33"/>
-        <CursorPos X="1" Y="63"/>
-        <UsageCount Value="32"/>
+        <TopLine Value="73"/>
+        <CursorPos X="98" Y="126"/>
+        <UsageCount Value="41"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit24>
+      <Unit25>
+        <Filename Value="frm_grupoprovpendientes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmGrupoProveedoresPendientes"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frm_grupoprovpendientes"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="40"/>
+        <CursorPos X="32" Y="66"/>
+        <UsageCount Value="22"/>
+      </Unit25>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="21" HistoryIndex="20">
       <Position1>
         <Filename Value="dmgrupoproveedores.pas"/>
-        <Caret Line="25" Column="103" TopLine="1"/>
+        <Caret Line="57" Column="19" TopLine="52"/>
       </Position1>
       <Position2>
         <Filename Value="dmgrupoproveedores.pas"/>
-        <Caret Line="26" Column="103" TopLine="1"/>
+        <Caret Line="49" Column="30" TopLine="27"/>
       </Position2>
       <Position3>
         <Filename Value="dmgrupoproveedores.pas"/>
-        <Caret Line="27" Column="103" TopLine="1"/>
+        <Caret Line="46" Column="20" TopLine="37"/>
       </Position3>
       <Position4>
         <Filename Value="dmgrupoproveedores.pas"/>
-        <Caret Line="28" Column="103" TopLine="1"/>
+        <Caret Line="69" Column="7" TopLine="55"/>
       </Position4>
       <Position5>
         <Filename Value="dmgrupoproveedores.pas"/>
-        <Caret Line="29" Column="103" TopLine="1"/>
+        <Caret Line="76" Column="7" TopLine="57"/>
       </Position5>
       <Position6>
         <Filename Value="dmgrupoproveedores.pas"/>
-        <Caret Line="30" Column="103" TopLine="1"/>
+        <Caret Line="88" Column="26" TopLine="66"/>
       </Position6>
       <Position7>
-        <Filename Value="dmgrupoproveedores.pas"/>
-        <Caret Line="31" Column="103" TopLine="1"/>
+        <Filename Value="frm_sellistado.pas"/>
+        <Caret Line="35" Column="73" TopLine="19"/>
       </Position7>
       <Position8>
-        <Filename Value="dmgrupoproveedores.pas"/>
-        <Caret Line="32" Column="103" TopLine="2"/>
+        <Filename Value="frm_sellistado.pas"/>
+        <Caret Line="52" Column="17" TopLine="37"/>
       </Position8>
       <Position9>
-        <Filename Value="frm_grupoproveedores.pas"/>
-        <Caret Line="1" Column="1" TopLine="1"/>
+        <Filename Value="frm_sellistado.pas"/>
+        <Caret Line="117" Column="1" TopLine="102"/>
       </Position9>
       <Position10>
-        <Filename Value="frm_grupoproveedores.pas"/>
-        <Caret Line="15" Column="125" TopLine="1"/>
+        <Filename Value="frm_sellistado.pas"/>
+        <Caret Line="52" Column="27" TopLine="39"/>
       </Position10>
       <Position11>
-        <Filename Value="frm_grupoproveedores.pas"/>
-        <Caret Line="29" Column="55" TopLine="1"/>
+        <Filename Value="frm_sellistado.pas"/>
+        <Caret Line="131" Column="16" TopLine="114"/>
       </Position11>
       <Position12>
-        <Filename Value="frm_grupoproveedores.pas"/>
-        <Caret Line="30" Column="55" TopLine="1"/>
+        <Filename Value="dmgrupoproveedores.pas"/>
+        <Caret Line="49" Column="110" TopLine="34"/>
       </Position12>
       <Position13>
-        <Filename Value="frm_grupoproveedores.pas"/>
-        <Caret Line="32" Column="55" TopLine="2"/>
+        <Filename Value="dmgrupoproveedores.pas"/>
+        <Caret Line="59" Column="110" TopLine="44"/>
       </Position13>
       <Position14>
-        <Filename Value="frm_grupoproveedores.pas"/>
-        <Caret Line="40" Column="21" TopLine="14"/>
+        <Filename Value="dmgrupoproveedores.pas"/>
+        <Caret Line="62" Column="26" TopLine="46"/>
       </Position14>
       <Position15>
-        <Filename Value="frm_grupoproveedores.pas"/>
-        <Caret Line="41" Column="21" TopLine="14"/>
+        <Filename Value="dmgrupoproveedores.pas"/>
+        <Caret Line="140" Column="3" TopLine="114"/>
       </Position15>
       <Position16>
-        <Filename Value="frm_grupoproveedores.pas"/>
-        <Caret Line="43" Column="21" TopLine="14"/>
+        <Filename Value="dmgrupoproveedores.pas"/>
+        <Caret Line="160" Column="22" TopLine="157"/>
       </Position16>
       <Position17>
-        <Filename Value="frm_grupoproveedores.pas"/>
-        <Caret Line="49" Column="3" TopLine="22"/>
+        <Filename Value="dmgrupocuentas.pas"/>
+        <Caret Line="141" Column="59" TopLine="128"/>
       </Position17>
       <Position18>
-        <Filename Value="dmgrupoproveedores.pas"/>
-        <Caret Line="34" Column="23" TopLine="15"/>
+        <Filename Value="dmgrupocuentas.pas"/>
+        <Caret Line="140" Column="19" TopLine="129"/>
       </Position18>
       <Position19>
-        <Filename Value="dmgrupoproveedores.pas"/>
-        <Caret Line="42" Column="22" TopLine="27"/>
+        <Filename Value="frm_grupocuentas.pas"/>
+        <Caret Line="52" Column="134" TopLine="41"/>
       </Position19>
       <Position20>
-        <Filename Value="dmgrupoproveedores.pas"/>
-        <Caret Line="10" Column="3" TopLine="1"/>
+        <Filename Value="dmgrupocuentas.pas"/>
+        <Caret Line="182" Column="59" TopLine="164"/>
       </Position20>
       <Position21>
-        <Filename Value="dmgrupoproveedores.pas"/>
-        <Caret Line="50" Column="30" TopLine="31"/>
+        <Filename Value="dmgrupocuentas.pas"/>
+        <Caret Line="168" Column="70" TopLine="163"/>
       </Position21>
-      <Position22>
-        <Filename Value="dmseleccionlistado.pas"/>
-        <Caret Line="53" Column="39" TopLine="88"/>
-      </Position22>
-      <Position23>
-        <Filename Value="dmgrupoproveedores.pas"/>
-        <Caret Line="53" Column="41" TopLine="31"/>
-      </Position23>
-      <Position24>
-        <Filename Value="frm_sellistado.pas"/>
-        <Caret Line="68" Column="72" TopLine="59"/>
-      </Position24>
-      <Position25>
-        <Filename Value="frm_sellistado.pas"/>
-        <Caret Line="32" Column="76" TopLine="16"/>
-      </Position25>
-      <Position26>
-        <Filename Value="frm_sellistado.pas"/>
-        <Caret Line="47" Column="24" TopLine="24"/>
-      </Position26>
-      <Position27>
-        <Filename Value="frm_grupoproveedores.pas"/>
-        <Caret Line="63" Column="6" TopLine="35"/>
-      </Position27>
-      <Position28>
-        <Filename Value="frm_grupocuentas.pas"/>
-        <Caret Line="61" Column="1" TopLine="46"/>
-      </Position28>
-      <Position29>
-        <Filename Value="dmgrupoproveedores.pas"/>
-        <Caret Line="13" Column="100" TopLine="1"/>
-      </Position29>
-      <Position30>
-        <Filename Value="frm_grupoproveedores.pas"/>
-        <Caret Line="58" Column="95" TopLine="36"/>
-      </Position30>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>

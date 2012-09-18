@@ -2393,4 +2393,48 @@ object DM_Compras: TDM_Compras
         ParamType = ptUnknown
       end>
   end
+  object qTotalCompras: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT SUM (nTotal) as Total'
+      'FROM  tbCompras'
+      'WHERE refProveedor = :refProveedor'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end>
+    left = 468
+    top = 521
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end>
+  end
+  object qTotalPagos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT SUM (nPagado) as Pagado'
+      'FROM  tbOrdenesPago'
+      'WHERE refProveedor = :refProveedor'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end>
+    left = 466
+    top = 584
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end>
+  end
 end

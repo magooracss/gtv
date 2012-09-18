@@ -23,6 +23,7 @@ type
     qBusOPFechaIgual: TZQuery;
     qBusOPFechaMenor: TZQuery;
     qBusOPFechaMayor: TZQuery;
+    qEliminarPago: TZQuery;
     qtugBancos: TZQuery;
     qtugFormasPago: TZQuery;
     qtbCheques: TZQuery;
@@ -140,6 +141,7 @@ type
     function ObtenerfVtoCheque (refCheque: string):string;
 
     procedure EliminarValorSeleccionado;
+    procedure EliminarPago (refOP, refCompra: GUID_ID);
   end;
 
 var
@@ -342,6 +344,16 @@ begin
     if RecordCount > 0 then
       Delete;
 
+  end;
+end;
+
+procedure TDM_OrdenesDePago.EliminarPago(refOP, refCompra: GUID_ID);
+begin
+  with qEliminarPago do
+  begin
+    FieldByName('refOP').asString:= refOP;
+    FieldByName('refCompra').asString:= refCompra;
+    ExecSQL;
   end;
 end;
 
@@ -549,6 +561,7 @@ begin
     While NOT EOF do
     begin
       DM_Compras.DesmarcarComprobantePagado(FieldByName('refCompra').asString);
+      EliminarPago(refOP, FieldByName('refCompra').asString);
       Next;
     end;
   end;
