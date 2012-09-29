@@ -13,7 +13,7 @@ uses
   dmproveedores, frm_plandecuentasae, dmplandecuentas, frm_plandecuentaslistado,
   dmseleccionlistado, frm_gruporemitos, dmgruporemitos, dmgrupocuentas,
   frm_grupocuentas, frm_grupoproveedores, dmgrupoproveedores,
-frm_grupoprovpendientes;
+ frm_grupoprovpendientes, frm_subdiariocompras, frm_subdiariopagos;
 
 {$R *.res}
 
@@ -25,9 +25,10 @@ begin
   Application.CreateForm(TDM_PlanDeCuentas, DM_PlanDeCuentas);
   Application.CreateForm(TDM_Proveedores, DM_Proveedores);
   Application.CreateForm(TDM_GrupoProveedores, DM_GrupoProveedores);
+  Application.CreateForm(TDM_GrupoCuentas, DM_GrupoCuentas);
+  Application.CreateForm(TDM_BuscarCliente, DM_BuscarCliente);
+  Application.CreateForm(TDM_GrupoRemitos, DM_GrupoRemitos);
   Application.CreateForm(TfrmSeleccionListado, frmSeleccionListado);
-  Application.CreateForm(TfrmGrupoProveedoresPendientes,
-    frmGrupoProveedoresPendientes);
   Application.Run;
 end.
 

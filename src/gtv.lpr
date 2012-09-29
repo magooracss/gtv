@@ -27,13 +27,23 @@ uses
   frm_ordenespagolistado, dmordenesdepago, frm_ordenpagoae, frm_cargavalores,
   dmvalores, frm_pagocomprobantes, frm_tuglocalidades, dmlocalidades,
   frm_localidadae, frm_egresosvarioslistado, dmegresosvarios,
-  frm_egresosvariosae, frm_egresoae, frm_asignarpagofactura;
+  frm_egresosvariosae, frm_egresoae, frm_asignarpagofactura
+  ,sysutils;
 
 {$R *.res}
 
 begin
   Application.Title:='Gestión de Transportes Verticales';
   Application.Initialize;
+
+  if SD_Configuracion.LeerDato(SECCION_APP,CFG_SEP_DECIMAL) = ERROR_CFG then
+  begin
+    SD_Configuracion.EscribirDato(SECCION_APP,CFG_SEP_DECIMAL,'.');
+    SD_Configuracion.EscribirDato(SECCION_APP,CFG_SEP_MILES,',');
+  end;
+  SysUtils.DefaultFormatSettings.DecimalSeparator:= SD_Configuracion.LeerDato(SECCION_APP,CFG_SEP_DECIMAL)[1];
+  SysUtils.DefaultFormatSettings.ThousandSeparator:= SD_Configuracion.LeerDato(SECCION_APP,CFG_SEP_MILES)[1];
+
   Application.CreateForm(TDM_Conexion, DM_Conexion);
   Application.CreateForm(TDM_General, DM_General);
   Application.CreateForm(TDM_Clientes, DM_Clientes);
@@ -55,6 +65,7 @@ begin
   Application.CreateForm(TDM_Valores, DM_Valores);
   Application.CreateForm(TDM_Localidades, DM_Localidades);
   Application.CreateForm(TDM_EgresosVarios, DM_EgresosVarios);
+
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.Run;
 end.

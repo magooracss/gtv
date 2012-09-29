@@ -35,6 +35,10 @@ type
     procedure pantPendientes (refListado: integer; rutaReporte: string);
     procedure pantallaProveedores (refListado: integer; rutaReporte: string);
 
+    procedure MostrarSubdiarioCompras (refListado: integer; rutaReporte: string);
+    procedure MostrarCuentas (refListado: integer; rutaReporte: string);
+    procedure MostrarSubDiarioPagos (refListado: integer; rutaReporte: string);
+
   public
     { public declarations }
   end; 
@@ -50,6 +54,8 @@ uses
   ,frm_grupocuentas
   ,frm_grupoproveedores
   ,frm_grupoprovpendientes
+  ,frm_subdiariocompras
+  ,frm_subdiariopagos
   ;
 
 { TfrmSeleccionListado }
@@ -94,16 +100,13 @@ end;
 
 procedure TfrmSeleccionListado.pantallaCuentas(refListado: integer;
   rutaReporte: string);
-var
-  pantalla: TfrmGrupoCuentas;
 begin
-  pantalla:= TfrmGrupoCuentas.Create (self);
-  pantalla.rutaReporte:= rutaReporte;
-  pantalla.tipoListado:= refListado;
-  try
-    pantalla.ShowModal;
-  finally
-    pantalla.Free;
+
+  case refListado of
+       5: MostrarSubdiarioCompras (refListado, rutaReporte);
+       6: MostrarSubdiarioPagos (refListado, rutaReporte);
+  else
+    MostrarCuentas(refListado, rutaReporte);
   end;
 
 end;
@@ -146,6 +149,51 @@ begin
        1: pantComposicionSaldos(refListado,rutaReporte);
        2: pantPendientes(refListado, rutaReporte);
   end;
+end;
+
+procedure TfrmSeleccionListado.MostrarSubdiarioCompras(refListado: integer;
+  rutaReporte: string);
+var
+  pantalla: TfrmSubdiarioCompras;
+begin
+  pantalla:= TfrmSubdiarioCompras.Create (self);
+  pantalla.rutaReporte:= rutaReporte;
+  pantalla.tipoListado:= refListado;
+  try
+    pantalla.ShowModal;
+  finally
+    pantalla.Free;
+  end;
+end;
+
+procedure TfrmSeleccionListado.MostrarCuentas(refListado: integer;
+  rutaReporte: string);
+var
+  pantalla: TfrmGrupoCuentas;
+begin
+    pantalla:= TfrmGrupoCuentas.Create (self);
+    pantalla.rutaReporte:= rutaReporte;
+    pantalla.tipoListado:= refListado;
+    try
+      pantalla.ShowModal;
+    finally
+      pantalla.Free;
+    end;
+end;
+
+procedure TfrmSeleccionListado.MostrarSubDiarioPagos(refListado: integer;
+  rutaReporte: string);
+var
+  pantalla: TfrmSubdiarioDePagos;
+begin
+    pantalla:= TfrmSubdiarioDePagos.Create (self);
+    pantalla.rutaReporte:= rutaReporte;
+    pantalla.tipoListado:= refListado;
+    try
+      pantalla.ShowModal;
+    finally
+      pantalla.Free;
+    end;
 end;
 
 end.

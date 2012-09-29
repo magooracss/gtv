@@ -19,6 +19,11 @@ type
     qPendientes: TZQuery;
     qFiltrado: TZQuery;
     qComSaldo: TZQuery;
+    qSaldoComprobante: TZQuery;
+    qTotalCompra: TZQuery;
+    qSaldoComprobanteTOTALCOMPROBANTE: TFloatField;
+    qSaldoComprobanteTOTALPAGO: TFloatField;
+    qTotalCompraNTOTAL: TFloatField;
     tbComposicionSaldoFactura: TStringField;
     tbComposicionSaldoFactura1: TStringField;
     tbComposicionSaldoFechaFactura: TDateField;
@@ -35,6 +40,7 @@ type
     tbComposicionSaldoProveedor1: TStringField;
     tbComposicionSaldoSaldo: TFloatField;
     tbComposicionSaldoSaldo1: TFloatField;
+    tbComposicionSaldoSaldoComprobante: TFloatField;
     tbComposicionSaldoTotalFactura: TFloatField;
     tbComposicionSaldoTotalFactura1: TFloatField;
     tbResultados: TRxMemoryData;
@@ -56,6 +62,7 @@ type
     procedure tbComposicionSaldoAfterInsert(DataSet: TDataSet);
   private
     procedure CalcularSaldos;
+    function CalcularSaldoComprobante(refComprobante: GUID_ID): double;
   public
     procedure Filtrar;
     procedure ComposicionSaldo (refProveedor: GUID_ID);
@@ -79,13 +86,16 @@ begin
     FieldByName('Saldo').asFloat:= 0;
     FieldByName('MontoPagado').asFloat:= 0;
     FieldByName('TotalFactura').asFloat:= 0;
+    FieldByName('SaldoComprobante').asFloat:= 0;
   end;
 end;
 
 procedure TDM_GrupoProveedores.CalcularSaldos;
 var
   refCompra: GUID_ID;
-  elSaldo: Double;
+  elSaldo
+  ,saldoComprobante: Double;
+
 begin
   with tbComposicionSaldo do
   begin
@@ -99,14 +109,46 @@ begin
       begin
         refCompra:= FieldByName('idCompra').asString;
         elSaldo:= elSaldo - FieldByName('TotalFactura').asFloat;
+        saldoComprobante:= CalcularSaldoComprobante(refCompra);
       end;
       elSaldo:= elSaldo + FieldByName('MontoPagado').asFloat;
+
       Edit;
       FieldByName('Saldo').asFloat:= elSaldo;
+      FieldByName('SaldoComprobante').asFloat:= saldoComprobante;
       Post;
       Next;
     end;
     EnableControls;
+  end;
+end;
+
+function TDM_GrupoProveedores.CalcularSaldoComprobante(refComprobante: GUID_ID
+  ): double;
+var
+  totalComprobante
+  , pagado: double;
+begin
+  with qSaldoComprobante do
+  begin
+    if active then close;
+    ParamByName('refCompra').asString:= refComprobante;
+    Open;
+    if qSaldoComprobanteTOTALPAGO.IsNull then
+     pagado:= 0
+    else
+      pagado:= qSaldoComprobanteTOTALPAGO.AsFloat;
+    if qSaldoComprobanteTOTALCOMPROBANTE.IsNull then
+    begin
+      if qTotalCompra.Active then qTotalCompra.Close;
+      qTotalCompra.ParamByName('refCompra').asString:= refComprobante;
+      qTotalCompra.Open;
+      totalComprobante:= qTotalCompraNTOTAL.AsFloat;
+      qTotalCompra.Close;
+    end
+    else
+      totalComprobante:= qSaldoComprobanteTOTALCOMPROBANTE.AsFloat;
+    Result:= totalComprobante - pagado;
   end;
 end;
 
@@ -140,7 +182,8 @@ procedure TDM_GrupoProveedores.Pendientes;
 var
   proveedor
   ,refCompra: string;
-  saldo: double;
+  saldo
+  ,saldoComprobante: double;
 begin
   DM_General.ReiniciarTabla(tbComposicionSaldo);
   with qPendientes do
@@ -170,11 +213,14 @@ begin
       begin
         saldo:= saldo - FieldByName('TotalFactura').asFloat;
         refCompra:= FieldByName('idCompra').asString;
+        saldoComprobante:= CalcularSaldoComprobante(refCompra);
+
       end;
 
       saldo:= saldo + FieldByName('MontoPagado').asFloat;
       Edit;
       FieldByName('Saldo').asFloat:= saldo;
+      FieldByName('SaldoComprobante').asFloat:= saldoComprobante;
       Post;
 
       Next;

@@ -1,11 +1,11 @@
 object frmComprasListado: TfrmComprasListado
-  Left = 278
-  Height = 468
-  Top = 162
-  Width = 878
+  Left = 2
+  Height = 451
+  Top = 2
+  Width = 630
   Caption = 'Compras'
-  ClientHeight = 468
-  ClientWidth = 878
+  ClientHeight = 451
+  ClientWidth = 630
   Font.CharSet = ANSI_CHARSET
   Font.Color = clBlack
   Font.Height = -13
@@ -20,16 +20,16 @@ object frmComprasListado: TfrmComprasListado
     Left = 0
     Height = 61
     Top = 0
-    Width = 878
+    Width = 630
     Align = alTop
     ClientHeight = 61
-    ClientWidth = 878
+    ClientWidth = 630
     TabOrder = 0
     object edDato: TEdit
       Left = 286
       Height = 24
       Top = 22
-      Width = 299
+      Width = 51
       Anchors = [akTop, akLeft, akRight]
       OnKeyPress = edDatoKeyPress
       TabOrder = 0
@@ -45,7 +45,7 @@ object frmComprasListado: TfrmComprasListado
       Text = 'cbCriterio'
     end
     object btnBuscar: TBitBtn
-      Left = 593
+      Left = 345
       Height = 30
       Top = 18
       Width = 90
@@ -99,7 +99,7 @@ object frmComprasListado: TfrmComprasListado
       TabOrder = 2
     end
     object rgPagadas: TRadioGroup
-      Left = 692
+      Left = 444
       Height = 59
       Top = 1
       Width = 185
@@ -145,11 +145,11 @@ object frmComprasListado: TfrmComprasListado
   object Panel2: TPanel
     Left = 0
     Height = 50
-    Top = 418
-    Width = 878
+    Top = 401
+    Width = 630
     Align = alBottom
     ClientHeight = 50
-    ClientWidth = 878
+    ClientWidth = 630
     TabOrder = 1
     object btnAceptar: TBitBtn
       Left = 26
@@ -197,7 +197,7 @@ object frmComprasListado: TfrmComprasListado
       TabOrder = 0
     end
     object btnNuevaCompra: TBitBtn
-      Left = 457
+      Left = 209
       Height = 30
       Top = 11
       Width = 127
@@ -243,7 +243,7 @@ object frmComprasListado: TfrmComprasListado
       TabOrder = 1
     end
     object btnModificarCompra: TBitBtn
-      Left = 593
+      Left = 345
       Height = 30
       Top = 11
       Width = 127
@@ -289,7 +289,7 @@ object frmComprasListado: TfrmComprasListado
       TabOrder = 2
     end
     object btnEliminarCompra: TBitBtn
-      Left = 727
+      Left = 479
       Height = 30
       Top = 11
       Width = 127
@@ -337,9 +337,9 @@ object frmComprasListado: TfrmComprasListado
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Height = 357
+    Height = 340
     Top = 61
-    Width = 878
+    Width = 630
     Align = alClient
     AutoFillColumns = True
     Color = clWindow
@@ -362,7 +362,7 @@ object frmComprasListado: TfrmComprasListado
       item
         Title.Alignment = taCenter
         Title.Caption = 'Proveedor'
-        Width = 490
+        Width = 242
         FieldName = 'Proveedor'
       end    
       item

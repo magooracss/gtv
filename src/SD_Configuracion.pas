@@ -16,7 +16,11 @@ const
 
   DIR_SERVIDOR = 'SERVIDOR';        //Ruta al archivo ejecutable
   RUTA_LISTADOS = 'RUTA_LISTADOS';
+
   CFG_FONDO = 'FONDO_PANTALLA';
+  CFG_SEP_DECIMAL = 'SEP_DECIMAL';
+  CFG_SEP_MILES='SEP_MILES';
+
 
   function AbrirArchivo: TIniFile;
   function LeerDato (Clave, Etiqueta: string): string;

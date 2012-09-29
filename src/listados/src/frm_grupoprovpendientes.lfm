@@ -2,10 +2,10 @@ object frmGrupoProveedoresPendientes: TfrmGrupoProveedoresPendientes
   Left = 275
   Height = 504
   Top = 159
-  Width = 893
+  Width = 1036
   Caption = 'Pendientes'
   ClientHeight = 504
-  ClientWidth = 893
+  ClientWidth = 1036
   Font.CharSet = ANSI_CHARSET
   Font.Color = clBlack
   Font.Height = -13
@@ -18,7 +18,7 @@ object frmGrupoProveedoresPendientes: TfrmGrupoProveedoresPendientes
     Left = 0
     Height = 454
     Top = 0
-    Width = 893
+    Width = 1036
     Align = alClient
     AutoFillColumns = True
     Color = clWindow
@@ -26,7 +26,7 @@ object frmGrupoProveedoresPendientes: TfrmGrupoProveedoresPendientes
       item
         Title.Alignment = taCenter
         Title.Caption = 'Proveedor'
-        Width = 109
+        Width = 126
         FieldName = 'Proveedor'
       end    
       item
@@ -49,6 +49,12 @@ object frmGrupoProveedoresPendientes: TfrmGrupoProveedoresPendientes
         Title.Caption = 'Total Factura'
         Width = 109
         FieldName = 'TotalFactura'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Saldo Comprobante'
+        Width = 126
+        FieldName = 'SaldoComprobante'
       end    
       item
         SizePriority = 0
@@ -93,10 +99,10 @@ object frmGrupoProveedoresPendientes: TfrmGrupoProveedoresPendientes
     Left = 0
     Height = 50
     Top = 454
-    Width = 893
+    Width = 1036
     Align = alBottom
     ClientHeight = 50
-    ClientWidth = 893
+    ClientWidth = 1036
     TabOrder = 1
     object btnExportarExcel: TBitBtn
       Left = 413

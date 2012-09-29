@@ -1,11 +1,11 @@
 object frmComprasAE: TfrmComprasAE
-  Left = 129
-  Height = 505
-  Top = 66
-  Width = 1027
+  Left = 2
+  Height = 451
+  Top = 2
+  Width = 630
   Caption = 'Compra'
-  ClientHeight = 505
-  ClientWidth = 1027
+  ClientHeight = 451
+  ClientWidth = 630
   Font.CharSet = ANSI_CHARSET
   Font.Color = clBlack
   Font.Height = -13
@@ -20,26 +20,26 @@ object frmComprasAE: TfrmComprasAE
     Left = 0
     Height = 148
     Top = 0
-    Width = 1027
+    Width = 630
     Align = alTop
     ClientHeight = 148
-    ClientWidth = 1027
+    ClientWidth = 630
     TabOrder = 0
     object GroupBox1: TGroupBox
       Left = 12
       Height = 61
       Top = 8
-      Width = 1000
+      Width = 603
       Anchors = [akTop, akLeft, akRight]
       Caption = 'Proveedor'
       ClientHeight = 43
-      ClientWidth = 996
+      ClientWidth = 599
       TabOrder = 0
       object edProveedor: TEdit
         Left = 112
         Height = 24
         Top = 13
-        Width = 875
+        Width = 478
         Anchors = [akTop, akLeft, akRight]
         Color = clMoneyGreen
         TabOrder = 1
@@ -393,14 +393,14 @@ object frmComprasAE: TfrmComprasAE
   object Panel2: TPanel
     Left = 0
     Height = 52
-    Top = 407
-    Width = 1027
+    Top = 353
+    Width = 630
     Align = alBottom
     ClientHeight = 52
-    ClientWidth = 1027
+    ClientWidth = 630
     TabOrder = 2
     object DBEdit2: TDBEdit
-      Left = 907
+      Left = 510
       Height = 24
       Top = 24
       Width = 111
@@ -436,7 +436,7 @@ object frmComprasAE: TfrmComprasAE
       OnExit = DBEdit3Exit
     end
     object Label4: TLabel
-      Left = 909
+      Left = 512
       Height = 17
       Top = 8
       Width = 69
@@ -461,7 +461,7 @@ object frmComprasAE: TfrmComprasAE
       ParentColor = False
     end
     object stNeto: TStaticText
-      Left = 816
+      Left = 419
       Height = 15
       Top = 3
       Width = 75
@@ -479,7 +479,7 @@ object frmComprasAE: TfrmComprasAE
       TabOrder = 3
     end
     object stIVA: TStaticText
-      Left = 825
+      Left = 428
       Height = 15
       Top = 19
       Width = 66
@@ -517,7 +517,7 @@ object frmComprasAE: TfrmComprasAE
       ParentColor = False
     end
     object stTotalNI: TStaticText
-      Left = 826
+      Left = 429
       Height = 15
       Top = 33
       Width = 65
@@ -538,11 +538,11 @@ object frmComprasAE: TfrmComprasAE
   object Panel3: TPanel
     Left = 0
     Height = 46
-    Top = 459
-    Width = 1027
+    Top = 405
+    Width = 630
     Align = alBottom
     ClientHeight = 46
-    ClientWidth = 1027
+    ClientWidth = 630
     TabOrder = 3
     object btnAceptar: TBitBtn
       Left = 25
@@ -590,7 +590,7 @@ object frmComprasAE: TfrmComprasAE
       TabOrder = 0
     end
     object btnCancelar: TBitBtn
-      Left = 873
+      Left = 476
       Height = 30
       Top = 8
       Width = 125
@@ -638,18 +638,18 @@ object frmComprasAE: TfrmComprasAE
   end
   object Panel4: TPanel
     Left = 0
-    Height = 259
+    Height = 205
     Top = 148
-    Width = 1027
+    Width = 630
     Align = alClient
-    ClientHeight = 259
-    ClientWidth = 1027
+    ClientHeight = 205
+    ClientWidth = 630
     TabOrder = 1
     object DBGrid1: TDBGrid
       Left = 1
-      Height = 159
+      Height = 105
       Top = 1
-      Width = 1025
+      Width = 628
       Align = alClient
       AutoFillColumns = True
       Color = clWindow
@@ -663,7 +663,7 @@ object frmComprasAE: TfrmComprasAE
         item
           Title.Alignment = taCenter
           Title.Caption = 'Concepto'
-          Width = 503
+          Width = 106
           FieldName = 'Concepto'
         end      
         item
@@ -719,13 +719,13 @@ object frmComprasAE: TfrmComprasAE
     object Panel5: TPanel
       Left = 1
       Height = 98
-      Top = 160
-      Width = 1025
+      Top = 106
+      Width = 628
       Align = alBottom
       BevelInner = bvLowered
       BevelOuter = bvLowered
       ClientHeight = 98
-      ClientWidth = 1025
+      ClientWidth = 628
       TabOrder = 0
       OnClick = Panel5Click
       object dbCantidad: TDBEdit
@@ -745,7 +745,7 @@ object frmComprasAE: TfrmComprasAE
         Left = 67
         Height = 24
         Top = 20
-        Width = 507
+        Width = 110
         DataField = 'Concepto'
         DataSource = Items
         Anchors = [akTop, akLeft, akRight]
@@ -755,7 +755,7 @@ object frmComprasAE: TfrmComprasAE
         OnKeyPress = dbConceptoKeyPress
       end
       object edImputacion: TEdit
-        Left = 578
+        Left = 181
         Height = 24
         Top = 20
         Width = 68
@@ -764,7 +764,7 @@ object frmComprasAE: TfrmComprasAE
         TabOrder = 2
       end
       object SpeedButton1: TSpeedButton
-        Left = 650
+        Left = 253
         Height = 23
         Hint = 'Elige una cuenta desde el Plan de Cuentas'
         Top = 20
@@ -812,7 +812,7 @@ object frmComprasAE: TfrmComprasAE
         ParentShowHint = False
       end
       object dbMontoUnitario: TDBEdit
-        Left = 693
+        Left = 296
         Height = 24
         Top = 20
         Width = 87
@@ -826,7 +826,7 @@ object frmComprasAE: TfrmComprasAE
         OnKeyPress = dbMontoUnitarioKeyPress
       end
       object dbPorcentajeIVA: TDBEdit
-        Left = 783
+        Left = 386
         Height = 24
         Top = 20
         Width = 63
@@ -840,7 +840,7 @@ object frmComprasAE: TfrmComprasAE
         OnKeyPress = dbPorcentajeIVAKeyPress
       end
       object dbMontoIVA: TDBEdit
-        Left = 849
+        Left = 452
         Height = 24
         Top = 20
         Width = 82
@@ -854,7 +854,7 @@ object frmComprasAE: TfrmComprasAE
         OnKeyPress = dbMontoIVAKeyPress
       end
       object dbMontoTotal: TDBEdit
-        Left = 936
+        Left = 539
         Height = 24
         Top = 20
         Width = 80
@@ -1001,7 +1001,7 @@ object frmComprasAE: TfrmComprasAE
         TabOrder = 9
       end
       object stImputacion: TStaticText
-        Left = 541
+        Left = 144
         Height = 17
         Top = 45
         Width = 144
@@ -1028,7 +1028,7 @@ object frmComprasAE: TfrmComprasAE
         ParentColor = False
       end
       object Label12: TLabel
-        Left = 695
+        Left = 298
         Height = 17
         Top = 3
         Width = 85
@@ -1037,7 +1037,7 @@ object frmComprasAE: TfrmComprasAE
         ParentColor = False
       end
       object Label13: TLabel
-        Left = 785
+        Left = 388
         Height = 17
         Top = 3
         Width = 57
@@ -1046,7 +1046,7 @@ object frmComprasAE: TfrmComprasAE
         ParentColor = False
       end
       object Label14: TLabel
-        Left = 856
+        Left = 459
         Height = 17
         Top = 3
         Width = 62
@@ -1055,7 +1055,7 @@ object frmComprasAE: TfrmComprasAE
         ParentColor = False
       end
       object Label15: TLabel
-        Left = 938
+        Left = 541
         Height = 17
         Top = 3
         Width = 69
@@ -1064,7 +1064,7 @@ object frmComprasAE: TfrmComprasAE
         ParentColor = False
       end
       object Label11: TLabel
-        Left = 579
+        Left = 182
         Height = 17
         Top = 3
         Width = 64

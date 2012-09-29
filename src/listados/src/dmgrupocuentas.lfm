@@ -178,4 +178,433 @@ object DM_GrupoCuentas: TDM_GrupoCuentas
     left = 36
     top = 119
   end
+  object tbSubdiarioCompras: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idCompra'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'Fecha'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'Comprobante'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end    
+      item
+        Name = 'RazonSocial'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'Cuit'
+        DataType = ftString
+        Precision = -1
+        Size = 20
+      end    
+      item
+        Name = 'ImpNoGravado'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'iva'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'PercepCapital'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'PercepProvincia'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'PercepIVA'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'ImporteTotal'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = tbSubdiarioComprasAfterInsert
+    left = 135
+    top = 27
+    object tbSubdiarioComprasidCompra: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idCompra'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbSubdiarioComprasFecha: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Fecha'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbSubdiarioComprasComprobante: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'Comprobante'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object tbSubdiarioComprasRazonSocial: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'RazonSocial'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbSubdiarioComprasCuit: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'Cuit'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbSubdiarioComprasImpNoGravado: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ImpNoGravado'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbSubdiarioComprasiva: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'iva'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbSubdiarioComprasPercepCapital: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PercepCapital'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbSubdiarioComprasPercepProvincia: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PercepProvincia'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbSubdiarioComprasPercepIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PercepIVA'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbSubdiarioComprasImporteTotal: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ImporteTotal'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+  end
+  object qSubdiarioCompras: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT C.idCompra'
+      '       , C.Fecha'
+      '      , (TC.TipoComprobante || '' '' || C.NroPtoVenta || ''-'' || C.NroFactura) as Comprobante'
+      #9'  ,Pr.cRazonSocial as RazonSocial'
+      #9'  ,Pr.cCuit as Cuit'
+      #9'  , 0 as ImpNoGravado '
+      #9'  , 0 as IVA'
+      #9'  ,C.PercepIVA as PercepIVA'
+      #9'  ,C.PercepCapital as PercepCapital'
+      ' '#9'  ,C.PercepProvincia as PercepProvincia'
+      #9'  ,C.nTotal as ImporteTotal        '
+      'FROM tbCompras C '
+      '       LEFT JOIN tugTiposComprobantes TC ON TC.idTipoComprobante = C.refTipoComprobante'
+      #9'   INNER JOIN tbProveedores Pr ON Pr.idProveedor = C.refProveedor'
+      'WHERE (C.bVisible = 1)'
+      '             and (C.Fecha >= :fIni)'
+      '            and (C.Fecha <= :fFin)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'fIni'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fFin'
+        ParamType = ptUnknown
+      end>
+    left = 136
+    top = 121
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'fIni'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fFin'
+        ParamType = ptUnknown
+      end>
+  end
+  object qTotalesCompra: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT SUM (nMontoTotal) as montoTotal, SUM(nMontoIVA) as IVA'
+      'FROM tbComprasItems'
+      'WHERE  (refCompra = :refCompra)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refCompra'
+        ParamType = ptUnknown
+      end>
+    left = 140
+    top = 189
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refCompra'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbSubdiarioPagos: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idCompra'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'Fecha'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'Comprobante'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end    
+      item
+        Name = 'RazonSocial'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'Cuit'
+        DataType = ftString
+        Precision = -1
+        Size = 20
+      end    
+      item
+        Name = 'ImporteTotal'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end>
+    left = 251
+    top = 27
+    object tbSubdiarioComprasidCompra1: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idCompra'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbSubdiarioComprasFecha1: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Fecha'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbSubdiarioComprasComprobante1: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'Comprobante'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object tbSubdiarioComprasRazonSocial1: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'RazonSocial'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbSubdiarioComprasCuit1: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'Cuit'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbSubdiarioComprasImporteTotal1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ImporteTotal'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+  end
+  object qSubdiarioPagos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT '
+      '        OP.fFecha as Fecha'
+      '      , (TC.TipoComprobante || '' '' || C.NroPtoVenta || ''-'' || C.NroFactura) as Comprobante'
+      '       ,Pr.cRazonSocial as RazonSocial'
+      '       ,SUM (CP.nMonto) as ImporteTotal'
+      ''
+      'FROM  tbOrdenesPago OP'
+      '            INNER JOIN tbComprasPagos CP ON OP.idOrdenPago = CP.refOP'
+      '            INNER JOIN tbCompras C ON C.idCompra = CP.refCompra '
+      '                 LEFT JOIN tugTiposComprobantes TC ON TC.idTipoComprobante = C.refTipoComprobante'
+      '            INNER JOIN tbProveedores Pr ON Pr.idProveedor = C.refProveedor'
+      'WHERE (OP.bVisible = 1)'
+      '             and (OP.fFecha >= :fIni)'
+      '            and (OP.fFecha <= :fFin)'
+      'GROUP BY    OP.fFecha, TC.TipoComprobante, C.NroPtoVenta, C.NroFactura ,Pr.cRazonSocial '
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'fIni'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fFin'
+        ParamType = ptUnknown
+      end>
+    left = 251
+    top = 119
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'fIni'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fFin'
+        ParamType = ptUnknown
+      end>
+  end
 end

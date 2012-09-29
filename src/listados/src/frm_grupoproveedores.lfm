@@ -1,11 +1,11 @@
 object frmGrupoProveedores: TfrmGrupoProveedores
-  Left = 270
+  Left = 167
   Height = 449
-  Top = 201
-  Width = 767
+  Top = 188
+  Width = 1046
   Caption = 'Proveedores'
   ClientHeight = 449
-  ClientWidth = 767
+  ClientWidth = 1046
   Font.CharSet = ANSI_CHARSET
   Font.Color = clBlack
   Font.Height = -13
@@ -18,13 +18,13 @@ object frmGrupoProveedores: TfrmGrupoProveedores
     Left = 0
     Height = 111
     Top = 0
-    Width = 767
+    Width = 1046
     Align = alTop
     ClientHeight = 111
-    ClientWidth = 767
+    ClientWidth = 1046
     TabOrder = 0
     object GroupBox5: TGroupBox
-      Left = 661
+      Left = 940
       Height = 105
       Top = 0
       Width = 106
@@ -82,11 +82,11 @@ object frmGrupoProveedores: TfrmGrupoProveedores
       Left = 68
       Height = 105
       Top = 0
-      Width = 489
+      Width = 768
       Anchors = [akTop, akLeft, akRight]
       Caption = 'Proveedor'
       ClientHeight = 87
-      ClientWidth = 485
+      ClientWidth = 764
       TabOrder = 1
       object btnBuscarEmpresa: TBitBtn
         Left = 9
@@ -145,7 +145,7 @@ object frmGrupoProveedores: TfrmGrupoProveedores
         Left = 97
         Height = 24
         Top = 32
-        Width = 383
+        Width = 662
         Anchors = [akTop, akLeft, akRight]
         Color = clMoneyGreen
         TabOrder = 1
@@ -157,13 +157,13 @@ object frmGrupoProveedores: TfrmGrupoProveedores
     Left = 0
     Height = 50
     Top = 399
-    Width = 767
+    Width = 1046
     Align = alBottom
     ClientHeight = 50
-    ClientWidth = 767
+    ClientWidth = 1046
     TabOrder = 1
     object btnExportarExcel: TBitBtn
-      Left = 413
+      Left = 513
       Height = 30
       Top = 12
       Width = 102
@@ -257,7 +257,7 @@ object frmGrupoProveedores: TfrmGrupoProveedores
     Left = 0
     Height = 288
     Top = 111
-    Width = 767
+    Width = 1046
     Align = alClient
     AutoFillColumns = True
     Color = clWindow
@@ -265,43 +265,49 @@ object frmGrupoProveedores: TfrmGrupoProveedores
       item
         Title.Alignment = taCenter
         Title.Caption = 'Fecha Factura'
-        Width = 106
+        Width = 128
         FieldName = 'FechaFactura'
       end    
       item
         Title.Alignment = taCenter
         Title.Caption = 'Factura'
-        Width = 106
+        Width = 128
         FieldName = 'Factura'
       end    
       item
         Title.Alignment = taCenter
         Title.Caption = 'Total Factura'
-        Width = 106
+        Width = 128
         FieldName = 'TotalFactura'
       end    
       item
         Title.Alignment = taCenter
+        Title.Caption = 'Saldo Comprobante'
+        Width = 128
+        FieldName = 'SaldoComprobante'
+      end    
+      item
+        Title.Alignment = taCenter
         Title.Caption = 'Orden  Pago'
-        Width = 106
+        Width = 128
         FieldName = 'numeroOrdenPago'
       end    
       item
         Title.Alignment = taCenter
         Title.Caption = 'Fecha Ord. Pago'
-        Width = 106
+        Width = 128
         FieldName = 'fechaOP'
       end    
       item
         Title.Alignment = taCenter
         Title.Caption = 'Pagado'
-        Width = 106
+        Width = 128
         FieldName = 'MontoPagado'
       end    
       item
         Title.Alignment = taCenter
         Title.Caption = 'Saldo'
-        Width = 111
+        Width = 130
         FieldName = 'Saldo'
       end>
     DataSource = ds_proveedores

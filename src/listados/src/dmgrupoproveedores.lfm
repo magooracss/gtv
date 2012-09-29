@@ -295,6 +295,12 @@ object DM_GrupoProveedores: TDM_GrupoProveedores
         Size = 0
       end    
       item
+        Name = 'SaldoComprobante'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
         Name = 'numeroOrdenPago'
         DataType = ftInteger
         Precision = -1
@@ -334,6 +340,7 @@ object DM_GrupoProveedores: TDM_GrupoProveedores
     left = 237
     top = 58
     object tbComposicionSaldoFechaFactura: TDateField
+      DisplayLabel = 'Fecha Comprobante'
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'FechaFactura'
@@ -356,6 +363,7 @@ object DM_GrupoProveedores: TDM_GrupoProveedores
       Size = 13
     end
     object tbComposicionSaldoTotalFactura: TFloatField
+      DisplayLabel = 'Total Comprobante'
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'TotalFactura'
@@ -369,11 +377,27 @@ object DM_GrupoProveedores: TDM_GrupoProveedores
       MinValue = 0
       Precision = 2
     end
+    object tbComposicionSaldoSaldoComprobante: TFloatField
+      DisplayLabel = 'Saldo Comprobante'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'SaldoComprobante'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
     object tbComposicionSaldonumeroOrdenPago: TLongintField
+      DisplayLabel = 'Nro OP'
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'numeroOrdenPago'
-      Index = 3
+      Index = 4
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -383,7 +407,7 @@ object DM_GrupoProveedores: TDM_GrupoProveedores
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'fechaOP'
-      Index = 4
+      Index = 5
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -391,10 +415,11 @@ object DM_GrupoProveedores: TDM_GrupoProveedores
       DisplayFormat = 'dd/mm/yyyy'
     end
     object tbComposicionSaldoMontoPagado: TFloatField
+      DisplayLabel = 'Pagado'
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'MontoPagado'
-      Index = 5
+      Index = 6
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -408,7 +433,7 @@ object DM_GrupoProveedores: TDM_GrupoProveedores
       DisplayWidth = 500
       FieldKind = fkData
       FieldName = 'Proveedor'
-      Index = 6
+      Index = 7
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -419,7 +444,7 @@ object DM_GrupoProveedores: TDM_GrupoProveedores
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'Saldo'
-      Index = 7
+      Index = 8
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -433,7 +458,7 @@ object DM_GrupoProveedores: TDM_GrupoProveedores
       DisplayWidth = 38
       FieldKind = fkData
       FieldName = 'idCompra'
-      Index = 8
+      Index = 9
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -495,5 +520,97 @@ object DM_GrupoProveedores: TDM_GrupoProveedores
     Params = <>
     left = 289
     top = 147
+  end
+  object qSaldoComprobante: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT SUM (nMonto) as TotalPago, nTotal as TotalComprobante'
+      'FROM tbComprasPagos'
+      '         INNER JOIN tbCompras ON idCompra = refCompra'
+      'WHERE refCompra = :refCompra'
+      'GROUP By nTotal'
+      ''
+      ''
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refCompra'
+        ParamType = ptUnknown
+      end>
+    left = 255
+    top = 226
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refCompra'
+        ParamType = ptUnknown
+      end>
+    object qSaldoComprobanteTOTALPAGO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TOTALPAGO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qSaldoComprobanteTOTALCOMPROBANTE: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TOTALCOMPROBANTE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+  end
+  object qTotalCompra: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT nTotal'
+      'FROM  tbCompras'
+      'WHERE idCompra = :refCompra'
+      ''
+      ''
+      ''
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refCompra'
+        ParamType = ptUnknown
+      end>
+    left = 252
+    top = 285
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refCompra'
+        ParamType = ptUnknown
+      end>
+    object qTotalCompraNTOTAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NTOTAL'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
   end
 end

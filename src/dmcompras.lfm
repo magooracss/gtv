@@ -1,10 +1,10 @@
 object DM_Compras: TDM_Compras
   OnCreate = DataModuleCreate
   OldCreateOrder = False
-  Height = 723
-  HorizontalOffset = 310
-  VerticalOffset = 55
-  Width = 894
+  Height = 729
+  HorizontalOffset = 67
+  VerticalOffset = 65
+  Width = 1155
   object qBusComprasProv: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
@@ -1937,7 +1937,7 @@ object DM_Compras: TDM_Compras
   object qComprasPorOP: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      'SELECT C.idCompra as refCompra'
+      'SELECT DISTINCT C.idCompra as refCompra'
       '            ,C.*'
       '            ,CP.nMonto          '
       'FROM  tbCompras C'
@@ -2418,8 +2418,9 @@ object DM_Compras: TDM_Compras
   object qTotalPagos: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      'SELECT SUM (nPagado) as Pagado'
-      'FROM  tbOrdenesPago'
+      'SELECT SUM (nMonto) as Pagado'
+      'FROM tbComprasPagos'
+      '            INNER JOIN  tbOrdenesPago ON refOP = idOrdenPago           '
       'WHERE refProveedor = :refProveedor'
     )
     Params = <    
