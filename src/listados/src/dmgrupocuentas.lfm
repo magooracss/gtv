@@ -2,7 +2,7 @@ object DM_GrupoCuentas: TDM_GrupoCuentas
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 305
-  HorizontalOffset = 751
+  HorizontalOffset = 745
   VerticalOffset = 169
   Width = 366
   object tbResultados: TRxMemoryData
@@ -570,6 +570,7 @@ object DM_GrupoCuentas: TDM_GrupoCuentas
       '        OP.fFecha as Fecha'
       '      , (TC.TipoComprobante || '' '' || C.NroPtoVenta || ''-'' || C.NroFactura) as Comprobante'
       '       ,Pr.cRazonSocial as RazonSocial'
+      '       , Pr.cCuit as Cuit '
       '       ,SUM (CP.nMonto) as ImporteTotal'
       ''
       'FROM  tbOrdenesPago OP'
@@ -580,7 +581,7 @@ object DM_GrupoCuentas: TDM_GrupoCuentas
       'WHERE (OP.bVisible = 1)'
       '             and (OP.fFecha >= :fIni)'
       '            and (OP.fFecha <= :fFin)'
-      'GROUP BY    OP.fFecha, TC.TipoComprobante, C.NroPtoVenta, C.NroFactura ,Pr.cRazonSocial '
+      'GROUP BY    OP.fFecha, TC.TipoComprobante, C.NroPtoVenta, C.NroFactura ,Pr.cRazonSocial, Pr.cCUIT'
     )
     Params = <    
       item

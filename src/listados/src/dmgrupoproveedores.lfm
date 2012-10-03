@@ -1,7 +1,7 @@
 object DM_GrupoProveedores: TDM_GrupoProveedores
   OldCreateOrder = False
   Height = 431
-  HorizontalOffset = 468
+  HorizontalOffset = 464
   VerticalOffset = 93
   Width = 394
   object tbResultados: TRxMemoryData

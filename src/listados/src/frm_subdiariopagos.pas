@@ -13,6 +13,7 @@ type
   { TfrmSubdiarioDePagos }
 
   TfrmSubdiarioDePagos = class(TForm)
+    btnListado: TBitBtn;
     btnExportarExcel: TBitBtn;
     btnFiltrar: TBitBtn;
     btnSalir: TBitBtn;
@@ -23,6 +24,7 @@ type
     Panel1: TPanel;
     Panel2: TPanel;
     SD: TSaveDialog;
+    procedure btnListadoClick(Sender: TObject);
     procedure btnExportarExcelClick(Sender: TObject);
     procedure btnFiltrarClick(Sender: TObject);
     procedure btnSalirClick(Sender: TObject);
@@ -51,8 +53,6 @@ uses
 
 { TfrmSubdiarioDePagos }
 
-{ TfrmSubdiarioDePagos }
-
 procedure TfrmSubdiarioDePagos.btnFiltrarClick(Sender: TObject);
 begin
   DM_GrupoCuentas.filtrarSubdiarioPagos (edFIni.Date, edFFin.Date);
@@ -62,6 +62,13 @@ procedure TfrmSubdiarioDePagos.btnExportarExcelClick(Sender: TObject);
 begin
   if SD.Execute then
     DM_SeleccionListado.ExportarXLS(DM_GrupoCuentas.tbSubdiarioCompras, SD.FileName, 'SubdiarioPagos');
+end;
+
+procedure TfrmSubdiarioDePagos.btnListadoClick(Sender: TObject);
+begin
+  DM_General.LevantarReporte(_rutaReporte,ds_subdiarioPagos.DataSet);
+  DM_General.AgregarVariableReporte('Periodo', DateToStr(edFIni.Date) + ' - ' + DateToStr(edFFin.Date));
+  DM_General.EjecutarReporte;
 end;
 
 procedure TfrmSubdiarioDePagos.btnSalirClick(Sender: TObject);

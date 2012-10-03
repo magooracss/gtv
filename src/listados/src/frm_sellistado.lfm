@@ -1,5 +1,5 @@
 object frmSeleccionListado: TfrmSeleccionListado
-  Left = 262
+  Left = 260
   Height = 437
   Top = 132
   Width = 718

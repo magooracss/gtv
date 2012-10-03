@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Dialogs, StdCtrls,
   ZConnection, ZDataset, rxmemds, StrHolder, LR_Class, LR_DBSet, LR_Shape,
-  LR_E_HTM, db
+  LR_E_HTM, lr_e_pdf, db
   //, LR_Class
     ,rxdbcomb
   ,dbgrids, ZAbstractRODataset
@@ -460,7 +460,7 @@ end;
 procedure TDM_General.ReporteAPDF(elArchivo: string);
 begin
 //  if elREporte.PrepareReport then
-//   elREporte.ExportTo(expPDF,elArchivo);
+ //  elREporte.ExportTo(expPDF,elArchivo);
 end;
 
 function TDM_General.CuitValido(S: String): Boolean;

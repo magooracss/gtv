@@ -1,7 +1,7 @@
 object DM_General: TDM_General
   OldCreateOrder = False
   Height = 314
-  HorizontalOffset = 276
+  HorizontalOffset = 275
   VerticalOffset = 133
   Width = 662
   object ImgAcciones: TImageList
