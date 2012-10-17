@@ -1,10 +1,10 @@
 object frmSubdiarioDePagos: TfrmSubdiarioDePagos
-  Left = 368
-  Height = 412
-  Top = 185
+  Left = 383
+  Height = 409
+  Top = 188
   Width = 749
   Caption = 'Subdiario de Pagos'
-  ClientHeight = 412
+  ClientHeight = 409
   ClientWidth = 749
   Font.CharSet = ANSI_CHARSET
   Font.Color = clBlack
@@ -17,7 +17,7 @@ object frmSubdiarioDePagos: TfrmSubdiarioDePagos
   object Panel2: TPanel
     Left = 0
     Height = 50
-    Top = 362
+    Top = 359
     Width = 749
     Align = alBottom
     ClientHeight = 50
@@ -318,7 +318,7 @@ object frmSubdiarioDePagos: TfrmSubdiarioDePagos
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Height = 304
+    Height = 301
     Top = 58
     Width = 749
     Align = alClient

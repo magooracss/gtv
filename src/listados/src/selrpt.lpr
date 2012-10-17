@@ -13,7 +13,9 @@ uses
   dmproveedores, frm_plandecuentasae, dmplandecuentas, frm_plandecuentaslistado,
   dmseleccionlistado, frm_gruporemitos, dmgruporemitos, dmgrupocuentas,
   frm_grupocuentas, frm_grupoproveedores, dmgrupoproveedores,
- frm_grupoprovpendientes, frm_subdiariocompras, frm_subdiariopagos;
+  frm_grupoprovpendientes, frm_subdiariocompras, frm_subdiariopagos,
+  frm_detallepagos, dmdetallepagos, frm_lstdetallegastos, frm_compsaldoscompras,
+  dmsaldoscompras;
 
 {$R *.res}
 
@@ -29,6 +31,8 @@ begin
   Application.CreateForm(TDM_BuscarCliente, DM_BuscarCliente);
   Application.CreateForm(TDM_GrupoRemitos, DM_GrupoRemitos);
   Application.CreateForm(TfrmSeleccionListado, frmSeleccionListado);
+  Application.CreateForm(TfrmCompSaldosCompras, frmCompSaldosCompras);
+  Application.CreateForm(TDM_SaldosCompras, DM_SaldosCompras);
   Application.Run;
 end.
 

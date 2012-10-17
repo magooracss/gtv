@@ -77,13 +77,13 @@ uses
 
 procedure TfrmGrupoCuentas.FormCreate(Sender: TObject);
 begin
-  Application.CreateForm(TDM_GrupoCuentas, DM_GrupoCuentas);
+//  Application.CreateForm(TDM_GrupoCuentas, DM_GrupoCuentas);
   Inicializar;
 end;
 
 procedure TfrmGrupoCuentas.FormDestroy(Sender: TObject);
 begin
-  DM_GrupoCuentas.Free;
+ // DM_GrupoCuentas.Free;
 end;
 
 procedure TfrmGrupoCuentas.Inicializar;
@@ -134,7 +134,6 @@ begin
     stTotalIngresos.Caption:= 'Total Ingresos: $ ' + FormatFloat('#############0.00', DM_GrupoCuentas.TotalIngresos);
     stTotalEgresos.Caption:= 'Total Egresos: $ '+ FormatFloat('#############0.00', DM_GrupoCuentas.TotalEgresos);
     stTotalSaldo.Caption:= 'Total Saldo: $ ' + FormatFloat('#############0.00', DM_GrupoCuentas.TotalIngresos - DM_GrupoCuentas.TotalEgresos);
-
   end;
 end;
 

@@ -1,7 +1,7 @@
 object DM_Proveedores: TDM_Proveedores
   OldCreateOrder = False
   Height = 460
-  HorizontalOffset = 958
+  HorizontalOffset = 954
   VerticalOffset = 53
   Width = 412
   object tbProveedores: TRxMemoryData

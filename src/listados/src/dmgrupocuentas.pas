@@ -23,8 +23,8 @@ type
     qSubdiarioCompras: TZQuery;
     qSubdiarioPagos: TZQuery;
     qTotalesCompra: TZQuery;
-    tbResultados: TRxMemoryData;
     qFiltrado: TZQuery;
+    tbResultados: TRxMemoryData;
     tbSubdiarioCompras: TRxMemoryData;
     tbResultadoscCuit: TStringField;
     tbResultadoscNombreFantasia: TStringField;
@@ -259,6 +259,7 @@ begin
 
     Open;
   end;
+  DM_General.ReiniciarTabla(tbResultados);
   tbResultados.LoadFromDataSet(qFiltrado, 0, lmAppend);
 end;
 

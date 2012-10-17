@@ -3,6 +3,7 @@ object frmProveedoresListado: TfrmProveedoresListado
   Height = 543
   Top = 47
   Width = 678
+  ActiveControl = edBusRazonSocial
   Caption = 'Proveedores'
   ClientHeight = 543
   ClientWidth = 678
@@ -208,8 +209,8 @@ object frmProveedoresListado: TfrmProveedoresListado
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Height = 493
-    Top = 0
+    Height = 443
+    Top = 50
     Width = 678
     Align = alClient
     AutoFillColumns = True
@@ -246,6 +247,26 @@ object frmProveedoresListado: TfrmProveedoresListado
     TitleFont.Pitch = fpVariable
     TitleFont.Quality = fqDraft
     OnTitleClick = DBGrid1TitleClick
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 50
+    Top = 0
+    Width = 678
+    Align = alTop
+    ClientHeight = 50
+    ClientWidth = 678
+    TabOrder = 2
+    object edBusRazonSocial: TEdit
+      Left = 125
+      Height = 24
+      Top = 11
+      Width = 429
+      Anchors = [akTop, akLeft, akRight]
+      Color = clSkyBlue
+      OnKeyPress = edBusRazonSocialKeyPress
+      TabOrder = 0
+    end
   end
   object ds_ListaProveedores: TDatasource
     DataSet = DM_Proveedores.qListaProveedores

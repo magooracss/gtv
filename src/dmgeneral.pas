@@ -7,7 +7,9 @@ interface
 uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Dialogs, StdCtrls,
   ZConnection, ZDataset, rxmemds, StrHolder, LR_Class, LR_DBSet, LR_Shape,
-  LR_E_HTM, lr_e_pdf, db
+  LR_E_HTM
+  //,lr_e_pdf
+  , db
   //, LR_Class
     ,rxdbcomb
   ,dbgrids, ZAbstractRODataset

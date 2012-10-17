@@ -1,5 +1,5 @@
 object frmGrupoProveedores: TfrmGrupoProveedores
-  Left = 167
+  Left = 174
   Height = 449
   Top = 188
   Width = 1046

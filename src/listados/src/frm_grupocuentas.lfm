@@ -1,5 +1,5 @@
 object frmGrupoCuentas: TfrmGrupoCuentas
-  Left = 135
+  Left = 141
   Height = 553
   Top = 31
   Width = 1030

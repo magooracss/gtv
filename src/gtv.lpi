@@ -18,8 +18,8 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <MinorVersionNr Value="23"/>
-      <BuildNr Value="31"/>
+      <MinorVersionNr Value="24"/>
+      <BuildNr Value="32"/>
       <Language Value="080A"/>
       <StringTable CompanyName="RACSS Programación" InternalName="gtv" LegalCopyright="RACSS de Carlos Enrique Rodriguez" LegalTrademarks="Carlos Enrique Rodriguez" ProductName="Gestión de Transportes Verticales" ProductVersion=""/>
     </VersionInfo>
@@ -89,13 +89,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmConexion"/>
-        <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
         <TopLine Value="22"/>
         <CursorPos X="131" Y="26"/>
         <UsageCount Value="205"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="dmgeneral.pas"/>
@@ -104,23 +101,19 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmgeneral"/>
-        <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="513"/>
-        <CursorPos X="38" Y="531"/>
+        <TopLine Value="1"/>
+        <CursorPos X="5" Y="11"/>
         <UsageCount Value="205"/>
-        <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="SD_Configuracion.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SD_Configuracion"/>
-        <EditorIndex Value="9"/>
         <WindowIndex Value="0"/>
         <TopLine Value="16"/>
         <CursorPos X="6" Y="20"/>
         <UsageCount Value="205"/>
-        <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="versioninfo.pas"/>
@@ -555,8 +548,8 @@
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmproveedores"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="226"/>
-        <CursorPos X="85" Y="242"/>
+        <TopLine Value="266"/>
+        <CursorPos X="46" Y="271"/>
         <UsageCount Value="202"/>
       </Unit43>
       <Unit44>
@@ -566,8 +559,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_proveedoreslistado"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="4"/>
-        <CursorPos X="17" Y="66"/>
+        <TopLine Value="21"/>
+        <CursorPos X="17" Y="73"/>
         <UsageCount Value="202"/>
       </Unit44>
       <Unit45>
@@ -634,10 +627,13 @@
         <ComponentName Value="DM_Cheques"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmcheques"/>
+        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
-        <CursorPos X="37" Y="2"/>
+        <CursorPos X="25" Y="31"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit50>
       <Unit51>
         <Filename Value="frm_chequesae.pas"/>
@@ -645,10 +641,14 @@
         <ComponentName Value="frmChequeAE"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_chequesae"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="87"/>
-        <CursorPos X="9" Y="91"/>
+        <TopLine Value="1"/>
+        <CursorPos X="29" Y="168"/>
         <UsageCount Value="211"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit51>
       <Unit52>
         <Filename Value="dmbuscarpersonaempresa.pas"/>
@@ -678,17 +678,13 @@
         <ComponentName Value="DM_Compras"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmcompras"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="429"/>
-        <CursorPos X="58" Y="444"/>
+        <CursorPos X="62" Y="435"/>
         <UsageCount Value="200"/>
         <Bookmarks Count="1">
           <Item0 X="30" Y="604" ID="9"/>
         </Bookmarks>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit54>
       <Unit55>
         <Filename Value="frm_compraslistado.pas"/>
@@ -696,13 +692,10 @@
         <ComponentName Value="frmComprasListado"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_compraslistado"/>
-        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
         <TopLine Value="139"/>
         <CursorPos X="2" Y="149"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit55>
       <Unit56>
         <Filename Value="frm_comprasae.pas"/>
@@ -710,13 +703,10 @@
         <ComponentName Value="frmComprasAE"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_comprasae"/>
-        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
         <TopLine Value="115"/>
         <CursorPos X="65" Y="122"/>
         <UsageCount Value="238"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit56>
       <Unit57>
         <Filename Value="dmplandecuentas.pas"/>
@@ -757,13 +747,10 @@
         <ComponentName Value="frmOrdenesPagoListado"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_ordenespagolistado"/>
-        <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
         <TopLine Value="66"/>
         <CursorPos X="35" Y="70"/>
         <UsageCount Value="205"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit60>
       <Unit61>
         <Filename Value="dmordenesdepago.pas"/>
@@ -771,13 +758,10 @@
         <ComponentName Value="DM_OrdenesDePago"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmordenesdepago"/>
-        <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
         <TopLine Value="340"/>
         <CursorPos X="13" Y="357"/>
         <UsageCount Value="205"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit61>
       <Unit62>
         <Filename Value="frm_ordenpagoae.pas"/>
@@ -785,7 +769,6 @@
         <ComponentName Value="frmOrdenDePagoAE"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_ordenpagoae"/>
-        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
         <TopLine Value="108"/>
         <CursorPos X="35" Y="120"/>
@@ -793,8 +776,6 @@
         <Bookmarks Count="1">
           <Item0 X="12" Y="211" ID="1"/>
         </Bookmarks>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit62>
       <Unit63>
         <Filename Value="frm_cargavalores.pas"/>
@@ -838,7 +819,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="106"/>
         <CursorPos X="37" Y="110"/>
-        <UsageCount Value="127"/>
+        <UsageCount Value="128"/>
       </Unit66>
       <Unit67>
         <Filename Value="dmlocalidades.pas"/>
@@ -849,7 +830,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="71"/>
         <CursorPos X="67" Y="87"/>
-        <UsageCount Value="123"/>
+        <UsageCount Value="124"/>
       </Unit67>
       <Unit68>
         <Filename Value="frm_localidadae.pas"/>
@@ -860,7 +841,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="18"/>
         <CursorPos X="77" Y="18"/>
-        <UsageCount Value="121"/>
+        <UsageCount Value="122"/>
       </Unit68>
       <Unit69>
         <Filename Value="..\..\..\Utiles\lazarus\fpc\2.4.2\source\rtl\objpas\strutils.pp"/>
@@ -879,7 +860,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="76"/>
         <CursorPos X="37" Y="105"/>
-        <UsageCount Value="91"/>
+        <UsageCount Value="92"/>
       </Unit70>
       <Unit71>
         <Filename Value="dmegresosvarios.pas"/>
@@ -890,7 +871,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="380"/>
         <CursorPos X="39" Y="381"/>
-        <UsageCount Value="90"/>
+        <UsageCount Value="91"/>
         <Bookmarks Count="1">
           <Item0 X="3" Y="394" ID="1"/>
         </Bookmarks>
@@ -904,7 +885,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="32"/>
         <CursorPos X="118" Y="41"/>
-        <UsageCount Value="89"/>
+        <UsageCount Value="90"/>
       </Unit72>
       <Unit73>
         <Filename Value="frm_egresoae.pas"/>
@@ -915,7 +896,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="98"/>
         <CursorPos X="42" Y="129"/>
-        <UsageCount Value="86"/>
+        <UsageCount Value="87"/>
       </Unit73>
       <Unit74>
         <Filename Value="..\..\..\Utiles\lazarus\fpc\2.4.2\source\rtl\objpas\sysutils\sysutilh.inc"/>
@@ -930,132 +911,25 @@
         <ComponentName Value="frmAsignarPagoFacturas"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_asignarpagofactura"/>
-        <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
         <TopLine Value="98"/>
         <CursorPos X="21" Y="115"/>
-        <UsageCount Value="49"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="50"/>
       </Unit75>
     </Units>
-    <JumpHistory Count="29" HistoryIndex="28">
+    <JumpHistory Count="3" HistoryIndex="2">
       <Position1>
-        <Filename Value="frm_ordenpagoae.pas"/>
-        <Caret Line="92" Column="3" TopLine="90"/>
+        <Filename Value="frm_chequesae.pas"/>
+        <Caret Line="91" Column="9" TopLine="87"/>
       </Position1>
       <Position2>
-        <Filename Value="frm_ordenpagoae.pas"/>
-        <Caret Line="67" Column="28" TopLine="46"/>
+        <Filename Value="frm_chequesae.pas"/>
+        <Caret Line="153" Column="33" TopLine="139"/>
       </Position2>
       <Position3>
-        <Filename Value="frm_ordenpagoae.pas"/>
-        <Caret Line="103" Column="18" TopLine="91"/>
+        <Filename Value="frm_chequesae.pas"/>
+        <Caret Line="168" Column="29" TopLine="163"/>
       </Position3>
-      <Position4>
-        <Filename Value="frm_ordenpagoae.pas"/>
-        <Caret Line="130" Column="20" TopLine="107"/>
-      </Position4>
-      <Position5>
-        <Filename Value="frm_ordenpagoae.pas"/>
-        <Caret Line="1" Column="1" TopLine="1"/>
-      </Position5>
-      <Position6>
-        <Filename Value="frm_ordenpagoae.pas"/>
-        <Caret Line="36" Column="11" TopLine="11"/>
-      </Position6>
-      <Position7>
-        <Filename Value="frm_ordenpagoae.pas"/>
-        <Caret Line="67" Column="19" TopLine="42"/>
-      </Position7>
-      <Position8>
-        <Filename Value="frm_ordenpagoae.pas"/>
-        <Caret Line="101" Column="9" TopLine="76"/>
-      </Position8>
-      <Position9>
-        <Filename Value="dmcompras.pas"/>
-        <Caret Line="402" Column="57" TopLine="401"/>
-      </Position9>
-      <Position10>
-        <Filename Value="dmcompras.pas"/>
-        <Caret Line="202" Column="61" TopLine="172"/>
-      </Position10>
-      <Position11>
-        <Filename Value="frm_ordenpagoae.pas"/>
-        <Caret Line="67" Column="29" TopLine="55"/>
-      </Position11>
-      <Position12>
-        <Filename Value="frm_ordenpagoae.pas"/>
-        <Caret Line="101" Column="19" TopLine="76"/>
-      </Position12>
-      <Position13>
-        <Filename Value="frm_ordenpagoae.pas"/>
-        <Caret Line="115" Column="112" TopLine="91"/>
-      </Position13>
-      <Position14>
-        <Filename Value="frm_ordenpagoae.pas"/>
-        <Caret Line="118" Column="81" TopLine="93"/>
-      </Position14>
-      <Position15>
-        <Filename Value="dmcompras.pas"/>
-        <Caret Line="430" Column="3" TopLine="407"/>
-      </Position15>
-      <Position16>
-        <Filename Value="dmcompras.pas"/>
-        <Caret Line="431" Column="3" TopLine="408"/>
-      </Position16>
-      <Position17>
-        <Filename Value="frm_ordenespagolistado.pas"/>
-        <Caret Line="106" Column="10" TopLine="87"/>
-      </Position17>
-      <Position18>
-        <Filename Value="frm_ordenespagolistado.pas"/>
-        <Caret Line="70" Column="35" TopLine="66"/>
-      </Position18>
-      <Position19>
-        <Filename Value="dmordenesdepago.pas"/>
-        <Caret Line="551" Column="38" TopLine="542"/>
-      </Position19>
-      <Position20>
-        <Filename Value="dmordenesdepago.pas"/>
-        <Caret Line="552" Column="20" TopLine="528"/>
-      </Position20>
-      <Position21>
-        <Filename Value="dmordenesdepago.pas"/>
-        <Caret Line="143" Column="56" TopLine="121"/>
-      </Position21>
-      <Position22>
-        <Filename Value="dmordenesdepago.pas"/>
-        <Caret Line="353" Column="10" TopLine="349"/>
-      </Position22>
-      <Position23>
-        <Filename Value="dmordenesdepago.pas"/>
-        <Caret Line="351" Column="8" TopLine="336"/>
-      </Position23>
-      <Position24>
-        <Filename Value="dmconexion.pas"/>
-        <Caret Line="29" Column="16" TopLine="13"/>
-      </Position24>
-      <Position25>
-        <Filename Value="frm_ordenpagoae.pas"/>
-        <Caret Line="102" Column="73" TopLine="102"/>
-      </Position25>
-      <Position26>
-        <Filename Value="frm_ordenpagoae.pas"/>
-        <Caret Line="262" Column="48" TopLine="248"/>
-      </Position26>
-      <Position27>
-        <Filename Value="frm_ordenpagoae.pas"/>
-        <Caret Line="1" Column="1" TopLine="1"/>
-      </Position27>
-      <Position28>
-        <Filename Value="frm_ordenpagoae.pas"/>
-        <Caret Line="36" Column="12" TopLine="16"/>
-      </Position28>
-      <Position29>
-        <Filename Value="frm_ordenpagoae.pas"/>
-        <Caret Line="120" Column="35" TopLine="108"/>
-      </Position29>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>

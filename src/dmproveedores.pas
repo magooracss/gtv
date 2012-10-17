@@ -71,6 +71,8 @@ type
 
     function NombreProvinciaPorLocalidad (idLocalidad: integer): string;
     procedure EditarImputacion (refCuenta: integer);
+
+    procedure FiltrarRazonSocial (elNombre: string);
   end; 
 
 var
@@ -266,6 +268,19 @@ begin
     Edit;
     FieldByName('refImputacion').asInteger:= refCuenta;
     Post;
+  end;
+end;
+
+procedure TDM_Proveedores.FiltrarRazonSocial(elNombre: string);
+begin
+  with qListaProveedores do
+  begin
+    SQL.Clear;
+    SQL.Add ('SELECT *');
+    SQL.Add ('FROM tbProveedores');
+    SQL.Add ('WHERE (bVisible = 1) AND (UPPER (cRazonSocial) LIKE ''%'' || UPPER(''' + elNombre +''') || ''%'' )');
+    SQL.Add ('ORDER BY cRazonSocial');
+    Open;
   end;
 end;
 

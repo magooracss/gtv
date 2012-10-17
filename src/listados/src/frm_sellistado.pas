@@ -38,6 +38,9 @@ type
     procedure MostrarSubdiarioCompras (refListado: integer; rutaReporte: string);
     procedure MostrarCuentas (refListado: integer; rutaReporte: string);
     procedure MostrarSubDiarioPagos (refListado: integer; rutaReporte: string);
+    procedure MostrarDetallesPagos (refListado: integer; rutaReporte: string);
+    procedure MostrarComposicionSaldosVentas (refListado: integer; rutaReporte: string);
+
 
   public
     { public declarations }
@@ -56,6 +59,8 @@ uses
   ,frm_grupoprovpendientes
   ,frm_subdiariocompras
   ,frm_subdiariopagos
+  ,frm_detallepagos
+  ,frm_compsaldoscompras
   ;
 
 { TfrmSeleccionListado }
@@ -105,6 +110,8 @@ begin
   case refListado of
        5: MostrarSubdiarioCompras (refListado, rutaReporte);
        6: MostrarSubdiarioPagos (refListado, rutaReporte);
+       7: MostrarDetallesPagos (refListado, rutaReporte);
+       8: MostrarComposicionSaldosVentas(refListado, rutaReporte);
   else
     MostrarCuentas(refListado, rutaReporte);
   end;
@@ -194,6 +201,38 @@ begin
     finally
       pantalla.Free;
     end;
+end;
+
+procedure TfrmSeleccionListado.MostrarDetallesPagos(refListado: integer;
+  rutaReporte: string);
+var
+  pantalla: TfrmDetallePagos;
+begin
+  pantalla:= TfrmDetallePagos.Create(self);
+
+  pantalla.rutaReporte:= rutaReporte;
+  pantalla.tipoListado:= refListado;
+  try
+    pantalla.ShowModal;
+  finally
+    pantalla.Free;
+  end;
+end;
+
+procedure TfrmSeleccionListado.MostrarComposicionSaldosVentas(
+  refListado: integer; rutaReporte: string);
+var
+  pantalla: TfrmCompSaldosCompras;
+begin
+  pantalla:= TfrmCompSaldosCompras.Create(self);
+
+  pantalla.rutaReporte:= rutaReporte;
+  pantalla.tipoListado:= refListado;
+  try
+    pantalla.ShowModal;
+  finally
+    pantalla.Free;
+  end;
 end;
 
 end.

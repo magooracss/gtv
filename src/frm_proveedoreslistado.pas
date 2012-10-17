@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, db, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  DBGrids, Buttons
+  DBGrids, Buttons, StdCtrls
   ,dmgeneral;
 
 type
@@ -20,12 +20,15 @@ type
     btnEliminar: TBitBtn;
     ds_ListaProveedores: TDatasource;
     DBGrid1: TDBGrid;
+    edBusRazonSocial: TEdit;
     Panel1: TPanel;
+    Panel2: TPanel;
     procedure btnEliminarClick(Sender: TObject);
     procedure btnModificarClick(Sender: TObject);
     procedure btnNuevoClick(Sender: TObject);
     procedure btnSalirClick(Sender: TObject);
     procedure DBGrid1TitleClick(Column: TColumn);
+    procedure edBusRazonSocialKeyPress(Sender: TObject; var Key: char);
     procedure FormShow(Sender: TObject);
   private
     _idProveedor: GUID_ID;
@@ -61,6 +64,13 @@ end;
 procedure TfrmProveedoresListado.DBGrid1TitleClick(Column: TColumn);
 begin
   DM_General.OrdenarTitulo(Column);
+end;
+
+procedure TfrmProveedoresListado.edBusRazonSocialKeyPress(Sender: TObject;
+  var Key: char);
+begin
+  if key = #13 then
+     DM_Proveedores.FiltrarRazonSocial(edBusRazonSocial.Text);
 end;
 
 procedure TfrmProveedoresListado.btnNuevoClick(Sender: TObject);
