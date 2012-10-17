@@ -1,0 +1,251 @@
+object DM_Localidades: TDM_Localidades
+  OldCreateOrder = False
+  Height = 476
+  HorizontalOffset = 708
+  VerticalOffset = 157
+  Width = 441
+  object qtugProvincias: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugProvincias'
+      'WHERE bVisible = 1'
+    )
+    Params = <>
+    left = 182
+    top = 36
+  end
+  object tugLocalidades: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idLocalidad'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Localidad'
+        DataType = ftString
+        Precision = 0
+        Size = 300
+      end    
+      item
+        Name = 'cPostal'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refProvincia'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = tugLocalidadesAfterInsert
+    left = 46
+    top = 40
+  end
+  object tugLocalidadesINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO tugLocalidades'
+      '(IDLOCALIDAD, LOCALIDAD, CPOSTAL, BVISIBLE, REFPROVINCIA)'
+      'VALUES'
+      '(:IDLOCALIDAD, :LOCALIDAD, :CPOSTAL, :BVISIBLE, :REFPROVINCIA)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDLOCALIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'LOCALIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CPOSTAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPROVINCIA'
+        ParamType = ptUnknown
+      end>
+    left = 46
+    top = 153
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDLOCALIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'LOCALIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CPOSTAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPROVINCIA'
+        ParamType = ptUnknown
+      end>
+  end
+  object tugLocalidadesUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tugLocalidades'
+      'SET'
+      '  LOCALIDAD = :LOCALIDAD'
+      ', CPOSTAL = :CPOSTAL'
+      ', BVISIBLE = :BVISIBLE'
+      ', REFPROVINCIA = :REFPROVINCIA'
+      'WHERE IDLOCALIDAD = :IDLOCALIDAD'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'LOCALIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CPOSTAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPROVINCIA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDLOCALIDAD'
+        ParamType = ptUnknown
+      end>
+    left = 46
+    top = 208
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'LOCALIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CPOSTAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPROVINCIA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDLOCALIDAD'
+        ParamType = ptUnknown
+      end>
+  end
+  object tugLocalidadesSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugLocalidades'
+      'WHERE idLocalidad = :idLocalidad'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idLocalidad'
+        ParamType = ptUnknown
+      end>
+    left = 46
+    top = 98
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idLocalidad'
+        ParamType = ptUnknown
+      end>
+  end
+  object qLocalidadesProv: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugLocalidades'
+      'WHERE (bVisible = 1)'
+      '      and (refProvincia = :refProvincia)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProvincia'
+        ParamType = ptUnknown
+      end>
+    left = 46
+    top = 346
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProvincia'
+        ParamType = ptUnknown
+      end>
+  end
+  object tugLocalidadesDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tugLocalidades'
+      'SET  BVISIBLE = 0 '
+      'WHERE IDLOCALIDAD = :IDLOCALIDAD'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDLOCALIDAD'
+        ParamType = ptUnknown
+      end>
+    left = 46
+    top = 272
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDLOCALIDAD'
+        ParamType = ptUnknown
+      end>
+  end
+end

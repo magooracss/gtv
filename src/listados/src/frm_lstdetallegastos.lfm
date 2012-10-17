@@ -1,0 +1,67 @@
+object Form1: TForm1
+  Left = 503
+  Height = 322
+  Top = 252
+  Width = 599
+  Caption = 'frmLstDetalleGastos'
+  ClientHeight = 322
+  ClientWidth = 599
+  LCLVersion = '0.9.30'
+  object PRPage1: TPRPage
+    Left = 11
+    Height = 842
+    Top = 13
+    Width = 596
+    OnPrintPage = PRPage1PrintPage
+    MarginTop = 32
+    MarginLeft = 32
+    MarginRight = 32
+    MarginBottom = 32
+    object PRLayoutPanel1: TPRLayoutPanel
+      Left = 33
+      Height = 64
+      Top = 33
+      Width = 530
+      Align = alTop
+      object PRLabel1: TPRLabel
+        Left = 0
+        Height = 30
+        Top = 0
+        Width = 530
+        Align = alTop
+        FontName = fnArial
+        FontSize = 16
+        FontBold = True
+        CharSpace = 0
+        WordSpace = 0
+        Caption = 'Detalle de Gastos'
+        Alignment = taCenter
+      end
+      object edPeriodo: TPRLabel
+        Left = 0
+        Height = 30
+        Top = 30
+        Width = 530
+        Align = alTop
+        FontName = fnArial
+        FontSize = 14
+        FontBold = True
+        CharSpace = 0
+        WordSpace = 0
+        Caption = 'Detalle de Gastos'
+        Alignment = taCenter
+      end
+    end
+  end
+  object pdfDetalleGastos: TPReport
+    FileName = 'default.pdf'
+    CreationDate = 41197.8055304165
+    Creator = 'GTV'
+    ModDate = 0
+    Title = 'Detalle de gastos'
+    UseOutlines = False
+    ViewerPreference = []
+    left = 32
+    top = 14
+  end
+end

@@ -1,0 +1,896 @@
+object DM_DetallePagos: TDM_DetallePagos
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 343
+  HorizontalOffset = 343
+  VerticalOffset = 344
+  Width = 403
+  object qOP: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbOrdenesPago OP'
+      '           LEFT JOIN  tbProveedores P ON P.idProveedor = OP.refProveedor'
+      'WHERE  (OP.bVisible = 1)'
+      '       and (OP.fFecha >= :fechaIni)'
+      '       and (OP.fFecha <= :fechaFin)'
+      'ORDER BY OP.NumeroOrdenPago'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'fechaIni'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaFin'
+        ParamType = ptUnknown
+      end>
+    left = 58
+    top = 40
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'fechaIni'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaFin'
+        ParamType = ptUnknown
+      end>
+    object qOPIDORDENPAGO: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'IDORDENPAGO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object qOPNUMEROORDENPAGO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NUMEROORDENPAGO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qOPREFPROVEEDOR: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'REFPROVEEDOR'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object qOPFFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FFECHA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qOPTXOBSERVACIONES: TBlobField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TXOBSERVACIONES'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftBlob
+    end
+    object qOPNTOTALAPAGAR: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NTOTALAPAGAR'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qOPBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qOPNPAGADO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NPAGADO'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qOPIDPROVEEDOR: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'IDPROVEEDOR'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object qOPCRAZONSOCIAL: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'CRAZONSOCIAL'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+    object qOPCCUIT: TStringField
+      DisplayWidth = 25
+      FieldKind = fkData
+      FieldName = 'CCUIT'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 25
+    end
+    object qOPREFCONDICIONFISCAL: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCONDICIONFISCAL'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qOPCCONTACTO: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'CCONTACTO'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object qOPCDOMICILIO: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'CDOMICILIO'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qOPTXNOTAS: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXNOTAS'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qOPBVISIBLE_1: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE_1'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qOPCNOMBREFANTASIA: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'CNOMBREFANTASIA'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qOPREFLOCALIDAD: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFLOCALIDAD'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qOPCTELEFONOS: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'CTELEFONOS'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object qOPCCORREOS: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'CCORREOS'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object qOPCWEB: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'CWEB'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object qOPREFIMPUTACION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFIMPUTACION'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qOPCINGRESOSBRUTOS: TStringField
+      DisplayWidth = 25
+      FieldKind = fkData
+      FieldName = 'CINGRESOSBRUTOS'
+      Index = 22
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 25
+    end
+    object qOPREFCONDICIONPAGO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCONDICIONPAGO'
+      Index = 23
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qOPREFCONDICIONPAGOTIEMPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCONDICIONPAGOTIEMPO'
+      Index = 24
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qFacturas: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'select *'
+      'from tbCompras C'
+      '          INNER JOIN tbComprasPagos CP'
+      '                        ON CP.refCompra = C.idCompra'
+      '          LEFT JOIN tugTiposComprobantes tTC'
+      '                        ON Ttc.idTipoComprobante = C.refTipoComprobante'
+      'ORDER BY NroPtoVenta, NroFactura'
+      '         '
+    )
+    Params = <>
+    MasterFields = 'IDORDENPAGO'
+    MasterSource = ds_qOP
+    LinkedFields = 'REFOP'
+    left = 127
+    top = 41
+    object qFacturasIDCOMPRA: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'IDCOMPRA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object qFacturasFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qFacturasREFPROVEEDOR: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'REFPROVEEDOR'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object qFacturasREFTIPOCOMPROBANTE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFTIPOCOMPROBANTE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qFacturasNTOTAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NTOTAL'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qFacturasPERCEPCAPITAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PERCEPCAPITAL'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qFacturasPERCEPPROVINCIA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PERCEPPROVINCIA'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qFacturasBPAGADA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BPAGADA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qFacturasBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qFacturasREFORDENPAGO: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'REFORDENPAGO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object qFacturasNROPTOVENTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROPTOVENTA'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qFacturasNROFACTURA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROFACTURA'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qFacturasPERCEPIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PERCEPIVA'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qFacturasREFCONDPAGO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCONDPAGO'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qFacturasREFCONDPAGOTIEMPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCONDPAGOTIEMPO'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qFacturasIDCOMPRAPAGO: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'IDCOMPRAPAGO'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object qFacturasREFCOMPRA: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'REFCOMPRA'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object qFacturasNMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTO'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qFacturasREFOP: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'REFOP'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object qFacturasIDTIPOCOMPROBANTE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDTIPOCOMPROBANTE'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qFacturasTIPOCOMPROBANTE: TStringField
+      DisplayWidth = 100
+      FieldKind = fkData
+      FieldName = 'TIPOCOMPROBANTE'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object qFacturasBVISIBLE_1: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE_1'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qPagos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbOPFormasDePago FP'
+      '           LEFT JOIN tugFormasPago tFP ON  FP.refFormaPago = tFP.idFormaPago'
+      '           LEFT JOIN tbCheques Ch ON Ch.idCheque = FP.refCheque'
+      '           LEFT JOIN tugBancos tB ON tB.idBanco = Ch.refBanco'
+      '       '
+    )
+    Params = <>
+    MasterFields = 'IDORDENPAGO'
+    MasterSource = ds_qOP
+    LinkedFields = 'REFORDENPAGO'
+    left = 198
+    top = 43
+    object qPagosIDOPFORMADEPAGO: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'IDOPFORMADEPAGO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object qPagosREFORDENPAGO: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'REFORDENPAGO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object qPagosREFFORMAPAGO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFFORMAPAGO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPagosREFCHEQUE: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'REFCHEQUE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object qPagosREFBANCO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFBANCO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPagosNMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qPagosBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPagosIDFORMAPAGO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDFORMAPAGO'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPagosFORMAPAGO: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'FORMAPAGO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object qPagosBVISIBLE_1: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE_1'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPagosAGRUPAMIENTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'AGRUPAMIENTO'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPagosREFCUENTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCUENTA'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPagosIDCHEQUE: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'IDCHEQUE'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object qPagosNROCHEQUE: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'NROCHEQUE'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object qPagosFCOBRO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCOBRO'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPagosFVENCIMIENTO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FVENCIMIENTO'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPagosREFBANCO_1: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFBANCO_1'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPagosREFESTADO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFESTADO'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPagosREFRECIBIDODE: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'REFRECIBIDODE'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object qPagosFRECIBIDO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FRECIBIDO'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPagosTXNOTAS: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXNOTAS'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qPagosFENTREGA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FENTREGA'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPagosREFENTREGADOA: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'REFENTREGADOA'
+      Index = 22
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object qPagosNMONTO_1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTO_1'
+      Index = 23
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qPagosBVISIBLE_2: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE_2'
+      Index = 24
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPagosIDBANCO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDBANCO'
+      Index = 25
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPagosBANCO: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'BANCO'
+      Index = 26
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object qPagosBVISIBLE_3: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE_3'
+      Index = 27
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object ds_qOP: TDatasource
+    DataSet = qOP
+    left = 57
+    top = 101
+  end
+end

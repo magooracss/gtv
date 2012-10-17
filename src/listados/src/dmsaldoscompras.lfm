@@ -1,0 +1,177 @@
+object DM_SaldosCompras: TDM_SaldosCompras
+  OldCreateOrder = False
+  Height = 394
+  HorizontalOffset = 508
+  VerticalOffset = 226
+  Width = 540
+  object qComprasImpagas: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbCompras C'
+      '           LEFT JOIN tbProveedores P ON P.idProveedor = C.refProveedor'
+      '           LEFT JOIN tugTiposComprobantes tTC ON tTC.idTipoComprobante = C.refTipoComprobante'
+      'WHERE (C.bPagada = 0)'
+      ' and (C.bVisible = 1)'
+      'ORDER BY P.cRazonSocial, C.Fecha'
+    )
+    Params = <>
+    left = 80
+    top = 102
+  end
+  object tbResultados: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'Proveedor'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'Fecha'
+        DataType = ftDate
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Comprobante'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end    
+      item
+        Name = 'ImpComprobante'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Saldo'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'idCompra'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'ImpPagado'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end>
+    left = 78
+    top = 29
+    object tbResultadosProveedor: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'Proveedor'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbResultadosFecha: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Fecha'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object tbResultadosComprobante: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'Comprobante'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object tbResultadosImpComprobante: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ImpComprobante'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbResultadosImpPagado: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ImpPagado'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbResultadosSaldo: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Saldo'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbResultadosidCompra: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idCompra'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+  end
+  object qComprasPagadas: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT SUM(nMonto) as Total'
+      'FROM tbComprasPagos'
+      'WHERE (refCompra = :refCompra)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refCompra'
+        ParamType = ptUnknown
+      end>
+    left = 75
+    top = 175
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refCompra'
+        ParamType = ptUnknown
+      end>
+  end
+end

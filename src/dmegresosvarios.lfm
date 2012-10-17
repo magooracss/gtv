@@ -1,0 +1,1138 @@
+object DM_EgresosVarios: TDM_EgresosVarios
+  OldCreateOrder = False
+  Height = 443
+  HorizontalOffset = 509
+  VerticalOffset = 173
+  Width = 865
+  object tbEgresosVarios: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idEgresoVario'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'nroEgreso'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'fecha'
+        DataType = ftDate
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'titulo'
+        DataType = ftString
+        Precision = -1
+        Size = 2000
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'lxMonto'
+        DataType = ftFloat
+        Precision = 2
+        Size = 0
+      end>
+    AfterInsert = tbEgresosVariosAfterInsert
+    left = 42
+    top = 13
+    object tbEgresosVariosidEgresoVario: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idEgresoVario'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbEgresosVariosnroEgreso: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nroEgreso'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEgresosVariosfecha: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fecha'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object tbEgresosVariostitulo: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'titulo'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object tbEgresosVariosbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEgresosVarioslxMonto: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'lxMonto'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+  end
+  object tbEgresosVariosItems: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idEgresoVarioItem'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'refEgresoVario'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'refImputacion'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'Leyenda'
+        DataType = ftString
+        Precision = -1
+        Size = 3000
+      end    
+      item
+        Name = 'nMonto'
+        DataType = ftFloat
+        Precision = 2
+        Size = 0
+      end    
+      item
+        Name = 'lxCodigo'
+        DataType = ftString
+        Precision = -1
+        Size = 10
+      end    
+      item
+        Name = 'lxCuenta'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end>
+    AfterInsert = tbEgresosVariosItemsAfterInsert
+    left = 166
+    top = 14
+    object tbEgresosVariosItemsidEgresoVarioItem: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idEgresoVarioItem'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbEgresosVariosItemsrefEgresoVario: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refEgresoVario'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbEgresosVariosItemsrefImputacion: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refImputacion'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEgresosVariosItemsLeyenda: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'Leyenda'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbEgresosVariosItemsnMonto: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nMonto'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbEgresosVariosItemslxCodigo: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'lxCodigo'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object tbEgresosVariosItemslxCuenta: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'lxCuenta'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+  end
+  object tbEVFormasPago: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idEVFormaPago'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'refFormaPago'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'refCheque'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'refBanco'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'nMonto'
+        DataType = ftFloat
+        Precision = 2
+        Size = 0
+      end    
+      item
+        Name = 'lxCheque'
+        DataType = ftString
+        Precision = -1
+        Size = 20
+      end    
+      item
+        Name = 'lxBanco'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end    
+      item
+        Name = 'lxFormaPago'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'refEgresoVario'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'lxFechaCheque'
+        DataType = ftString
+        Precision = 0
+        Size = 10
+      end>
+    AfterInsert = tbEVFormasPagoAfterInsert
+    left = 294
+    top = 14
+    object tbEVFormasPagoidEVFormaPago: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idEVFormaPago'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbEVFormasPagorefFormaPago: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refFormaPago'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEVFormasPagorefCheque: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refCheque'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbEVFormasPagorefBanco: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refBanco'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEVFormasPagonMonto: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nMonto'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbEVFormasPagolxCheque: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'lxCheque'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEVFormasPagolxBanco: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'lxBanco'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbEVFormasPagolxFormaPago: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'lxFormaPago'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object tbEVFormasPagorefEgresoVario: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refEgresoVario'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbEVFormasPagolxFechaCheque: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'lxFechaCheque'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+  end
+  object qPlanCuenta: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugPlanDeCuentas'
+      'WHERE idCuenta = :idCuenta'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCuenta'
+        ParamType = ptUnknown
+      end>
+    left = 430
+    top = 67
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCuenta'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbEVISEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT EV.*'
+      '            ,P.Codigo as lxCodigo'
+      '            ,P.Cuenta as lxCuenta'
+      'FROM tbEgresosVariosItems EV'
+      '          LEFT JOIN tugPlanDeCuentas P ON P.idCuenta = EV.refImputacion'
+      'WHERE EV.idEgresoVarioItem = :idEgresoVarioItem'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idEgresoVarioItem'
+        ParamType = ptUnknown
+      end>
+    left = 167
+    top = 75
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idEgresoVarioItem'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbEVIINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO tbEgresosVariosItems'
+      '(IDEGRESOVARIOITEM, REFEGRESOVARIO, REFIMPUTACION, LEYENDA, NMONTO)'
+      'VALUES'
+      '(:IDEGRESOVARIOITEM, :REFEGRESOVARIO, :REFIMPUTACION, :LEYENDA, :NMONTO)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDEGRESOVARIOITEM'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFEGRESOVARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFIMPUTACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'LEYENDA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end>
+    left = 166
+    top = 132
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDEGRESOVARIOITEM'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFEGRESOVARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFIMPUTACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'LEYENDA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbEVIUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbEgresosVariosItems'
+      'SET'
+      '  REFEGRESOVARIO = :REFEGRESOVARIO '
+      ', REFIMPUTACION = :REFIMPUTACION '
+      ', LEYENDA = :LEYENDA '
+      ', NMONTO = :NMONTO '
+      'WHERE IDEGRESOVARIOITEM = :IDEGRESOVARIOITEM'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFEGRESOVARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFIMPUTACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'LEYENDA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDEGRESOVARIOITEM'
+        ParamType = ptUnknown
+      end>
+    left = 167
+    top = 188
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFEGRESOVARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFIMPUTACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'LEYENDA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDEGRESOVARIOITEM'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbEVIDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM tbEgresosVariosITems'
+      'WHERE idEgresoVarioItem = :idEgresoVarioItem'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idEgresoVarioItem'
+        ParamType = ptUnknown
+      end>
+    left = 166
+    top = 245
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idEgresoVarioItem'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbEVSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT EV.*'
+      'FROM tbEgresosVarios EV'
+      'WHERE EV.idEgresoVario = :idEgresoVario'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idEgresoVario'
+        ParamType = ptUnknown
+      end>
+    left = 43
+    top = 75
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idEgresoVario'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbEVINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO tbEgresosVarios'
+      '(IDEGRESOVARIO, NROEGRESO, FECHA, TITULO, BVISIBLE)'
+      'VALUES'
+      '(:IDEGRESOVARIO, :NROEGRESO, :FECHA, :TITULO, :BVISIBLE)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDEGRESOVARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NROEGRESO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TITULO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+    left = 42
+    top = 132
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDEGRESOVARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NROEGRESO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TITULO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbEVUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbEgresosVarios'
+      'SET'
+      '    NROEGRESO = :NROEGRESO'
+      '  , FECHA = :FECHA'
+      '  , TITULO = :TITULO'
+      '  , BVISIBLE  = :BVISIBLE'
+      'WHERE IDEGRESOVARIO = :IDEGRESOVARIO'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'NROEGRESO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TITULO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDEGRESOVARIO'
+        ParamType = ptUnknown
+      end>
+    left = 43
+    top = 188
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'NROEGRESO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TITULO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDEGRESOVARIO'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbEVDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbEgresosVarios'
+      'SET BVISIBLE  = 0'
+      'WHERE IDEGRESOVARIO = :IDEGRESOVARIO'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDEGRESOVARIO'
+        ParamType = ptUnknown
+      end>
+    left = 42
+    top = 245
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDEGRESOVARIO'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbEVFPSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *   '
+      'FROM tbEVFormasPago'
+      'WHERE idEVFormaPago = :idEVFormaPago'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idEVFormaPago'
+        ParamType = ptUnknown
+      end>
+    left = 294
+    top = 75
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idEVFormaPago'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbEVFPINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO tbEVFormasPago'
+      '(IDEVFORMAPAGO, REFEGRESOVARIO, REFFORMAPAGO, REFCHEQUE, REFBANCO, NMONTO)'
+      'VALUES'
+      '(:IDEVFORMAPAGO, :REFEGRESOVARIO, :REFFORMAPAGO, :REFCHEQUE, :REFBANCO, :NMONTO)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDEVFORMAPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFEGRESOVARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFFORMAPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCHEQUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFBANCO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end>
+    left = 293
+    top = 132
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDEVFORMAPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFEGRESOVARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFFORMAPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCHEQUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFBANCO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbEVFPUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbEVFormasPago'
+      'SET'
+      ' REFEGRESOVARIO = :REFEGRESOVARIO '
+      ', REFFORMAPAGO = :REFFORMAPAGO '
+      ', REFCHEQUE = :REFCHEQUE '
+      ', REFBANCO = :REFBANCO '
+      ', NMONTO = :NMONTO '
+      'WHERE IDEVFORMAPAGO = :IDEVFORMAPAGO'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFEGRESOVARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFFORMAPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCHEQUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFBANCO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDEVFORMAPAGO'
+        ParamType = ptUnknown
+      end>
+    left = 294
+    top = 188
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFEGRESOVARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFFORMAPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCHEQUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFBANCO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDEVFORMAPAGO'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbEVFPDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM tbEVFormasPago'
+      'WHERE idEVFormaPago = :idEVFormaPago'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idEVFormaPago'
+        ParamType = ptUnknown
+      end>
+    left = 293
+    top = 245
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idEVFormaPago'
+        ParamType = ptUnknown
+      end>
+  end
+  object qLevantarItems: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT EV.*'
+      '            ,P.Codigo as lxCodigo'
+      '            ,P.Cuenta as lxCuenta'
+      'FROM tbEgresosVariosItems EV'
+      '          LEFT JOIN tugPlanDeCuentas P ON P.idCuenta = EV.refImputacion'
+      'WHERE EV.refEgresoVario = :refEgresoVario'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refEgresoVario'
+        ParamType = ptUnknown
+      end>
+    left = 172
+    top = 317
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refEgresoVario'
+        ParamType = ptUnknown
+      end>
+  end
+  object qLevantarFormasPago: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *   '
+      'FROM tbEVFormasPago'
+      'WHERE refEgresoVario = :refEgresoVario'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refEgresoVario'
+        ParamType = ptUnknown
+      end>
+    left = 293
+    top = 317
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refEgresoVario'
+        ParamType = ptUnknown
+      end>
+  end
+  object qLevantarEgresos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT EV.*'
+      'FROM tbEgresosVarios EV'
+      'WHERE EV.bVisible = 1'
+      'ORDER BY NroEgreso'
+    )
+    Params = <>
+    left = 43
+    top = 323
+  end
+  object qCalcularMonto: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT SUM(EV.nMonto) as Total      '
+      'FROM tbEgresosVariosItems EV'
+      'WHERE EV.refEgresoVario = :refEgresoVario'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refEgresoVario'
+        ParamType = ptUnknown
+      end>
+    left = 173
+    top = 385
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refEgresoVario'
+        ParamType = ptUnknown
+      end>
+  end
+  object frEgresosVarios: TfrDBDataSet
+    DataSet = tbEgresosVarios
+    left = 479
+    top = 246
+  end
+  object elReporte: TfrReport
+    Dataset = frEgresosVarios
+    InitialZoom = pzPageWidth
+    Options = []
+    PreviewButtons = [pbZoom, pbPrint, pbExit]
+    ReportType = rtMultiple
+    DataType = dtDataSet
+    Title = 'Listado'
+    left = 503
+    top = 178
+    ReportForm = {
+      19000000
+    }
+  end
+  object frFormasPago: TfrDBDataSet
+    DataSet = tbEVFormasPago
+    left = 479
+    top = 306
+  end
+  object frEgresosVariosItems: TfrDBDataSet
+    DataSet = tbEgresosVariosItems
+    left = 574
+    top = 251
+  end
+  object qCalcularMontoPago: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT SUM(EV.nMonto) as Total      '
+      'FROM tbEVFormasPago EV'
+      'WHERE EV.refEgresoVario = :refEgresoVario'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refEgresoVario'
+        ParamType = ptUnknown
+      end>
+    left = 294
+    top = 385
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refEgresoVario'
+        ParamType = ptUnknown
+      end>
+  end
+  object qtbCheques: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbCheques'
+      'WHERE idCheque = :idCheque'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCheque'
+        ParamType = ptUnknown
+      end>
+    left = 513
+    top = 98
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCheque'
+        ParamType = ptUnknown
+      end>
+  end
+end
