@@ -18,13 +18,20 @@ type
 
   TDM_Equipos = class(TDataModule)
     qAnexosEquipos: TZQuery;
+    qtugCabParacContrOtro: TZQuery;
+    qtugFrecuenciaVariable: TZQuery;
     qTUGCUARTOMAQUBICACION: TZQuery;
+    qTUGAlternaControlada: TZQuery;
+    qTugNroAccesoOpAdy: TZQuery;
+    qtugCabParaidasOtro: TZQuery;
     qTUGPUERTASAUTOMATICASARRASTRE: TZQuery;
     qTUGPUERTASAUTOMATICASTIPOS: TZQuery;
     qTUGPUERTASAUTOMATICASCORRIENTE: TZQuery;
     qTUGSELECTIVAACUMULATIVATIPOS: TZQuery;
+    qTUGCuartosMaquinasOtra: TZQuery;
     qTUGTIPOSCONTROLTIPOS: TZQuery;
     qTUGPUERTASMANUALESTIPOS: TZQuery;
+    qTUGTIPOMANIOBRAOTRA: TZQuery;
     qTugTiposParacaidas: TZQuery;
     qtugTiposEquipos: TZQuery;
     qTUGMOTORESMARCAS: TZQuery;
@@ -199,12 +206,14 @@ type
     tbEquiposAnexosV_Unica02: TStringField;
     tbEquiposAnexosV_Unica03: TStringField;
     tbEquiposbVisible: TLongintField;
-    tbEquiposCM_Otras: TStringField;
     tbEquiposCM_Ubicacion: TLongintField;
     tbEquiposCT_KG: TFloatField;
     tbEquiposCT_Personas: TLongintField;
     tbEquiposDEL: TZQuery;
     qEquiposCliente: TZQuery;
+    tbEquiposexpConservador: TStringField;
+    tbEquiposexpHabilitacion: TStringField;
+    tbEquiposfHabilitacion: TDateField;
     tbEquiposidEquipo: TStringField;
     tbEquiposINS: TZQuery;
     tbEquiposlxTipoEquipo: TStringField;
@@ -236,9 +245,15 @@ type
     tbEquiposP_Otro: TStringField;
     tbEquiposP_Tipo: TLongintField;
     tbEquiposrefCliente: TStringField;
+    tbEquiposrefCMOtras: TLongintField;
+    tbEquiposrefFrecVariable: TLongintField;
+    tbEquiposrefRaccOpAdy: TLongintField;
+    tbEquiposreftAltControlada: TLongintField;
     tbEquiposrefTipo: TLongintField;
+    tbEquiposrefTmOtras: TLongintField;
+    tbEquiposrefTPCabOtro: TLongintField;
+    tbEquiposrefTPContrOtro: TLongintField;
     tbEquiposR_Accesos: TLongintField;
-    tbEquiposR_AccesosOpyAd: TStringField;
     tbEquiposR_NroPisos: TLongintField;
     tbEquiposR_Paradas: TLongintField;
     tbEquiposSA_tipo: TLongintField;
@@ -249,13 +264,9 @@ type
     tbEquiposTM_Otras: TStringField;
     tbEquiposTM_PropHidraulica: TLongintField;
     tbEquiposTM_Traccion: TLongintField;
-    tbEquiposTPCab_Otro: TStringField;
     tbEquiposTPCab_tipo: TLongintField;
-    tbEquiposTPContr_Otro: TStringField;
     tbEquiposTPContr_tipo: TLongintField;
     tbEquipostxObservaciones: TStringField;
-    tbEquiposT_AlternaControlada: TStringField;
-    tbEquiposT_FrecVariable: TStringField;
     tbEquiposT_Tipo: TLongintField;
     tbEquiposUPD: TZQuery;
     tbEquipos: TRxMemoryData;
@@ -279,7 +290,9 @@ type
                               , cbTPCONTRTipo, cbPTipo, cbTManTipo, cbSATipo
                               , cbTCTipo, cbPCManualTipo, cbPRManualTipo
                               , cbPCAutomaticaTipo, cbPCAutomaticaCorriente
-                              , cbPRAutomaticaArrastre  : integer);
+                              , cbPRAutomaticaArrastre, cbtmOtras, cbCMOtras
+                              , cbAltControlada, cbFrecVariable, cbRAccOpAdy
+                              , cbTPCAbOtro, cbTPContrOtro: integer);
     procedure Grabar;
 
     procedure LevantarEquiposCliente (refCliente: GUID_ID);
@@ -318,26 +331,19 @@ begin
     FieldByName('REFTIPO').asInteger:= 0;
     FieldByName('TM_TRACCION').asInteger:= 0;
     FieldByName('TM_PROPHIDRAULICA').asInteger:= 0;
-    FieldByName('TM_OTRAS').asInteger:= 0;
     FieldByName('CM_UBICACION').asInteger:= 0;
-    FieldByName('CM_OTRAS').asString:= EmptyStr;
     FieldByName('M_MARCA').asInteger:= 0;
     FieldByName('M_VELOCIDAD').asString:= '';
     FieldByName('M_POTENCIAHP').AsString:= '';
     FieldByName('M_NROIDENTIFICADORES').asString:= '';
     FieldByName('T_TIPO').asInteger:= 0;
-    FieldByName('T_ALTERNACONTROLADA').AsString:= '';
-    FieldByName('T_FRECVARIABLE').AsString:='';
     FieldByName('R_NROPISOS').asInteger:= 0;
     FieldByName('R_PARADAS').asInteger:= 0;
     FieldByName('R_ACCESOS').asInteger:= 0;
-    FieldByName('R_ACCESOSOPYAD').asString:= '';
     FieldByName('V_UNICA').AsString:= '';
     FieldByName('V_ALTABAJA').AsString:= '';
     FieldByName('TPCAB_TIPO').asInteger:= 0;
-    FieldByName('TPCAB_OTRO').aSString:= '';
     FieldByName('TPCONTR_TIPO').asInteger:= 0;
-    FieldByName('TPCONTR_OTRO').AsString:= '';
     FieldByName('P_TIPO').asInteger:= 0;
     FieldByName('P_OTRO').asString:='';
     FieldByName('TMAN_TIPO').asInteger:= 0;
@@ -386,7 +392,9 @@ end;
 procedure TDM_Equipos.ActualizarValores(cbTipoEquipo, cbTMTraccion,
   cbTMPropHidr, cbMMarca, cbCMUbicacion, cbTTipo, cbTPCABTipo, cbTPCONTRTipo,
   cbPTipo, cbTManTipo, cbSATipo, cbTCTipo, cbPCManualTipo, cbPRManualTipo,
-  cbPCAutomaticaTipo, cbPCAutomaticaCorriente, cbPRAutomaticaArrastre: integer);
+  cbPCAutomaticaTipo, cbPCAutomaticaCorriente, cbPRAutomaticaArrastre
+  ,cbtmOtras, cbCMOtras, cbAltControlada, cbFrecVariable, cbRAccOpAdy
+  ,cbTPCAbOtro, cbTPContrOtro: integer);
 begin
   with tbEquipos do
   begin
@@ -408,6 +416,14 @@ begin
     FieldByName('PC_AutomaticaTipo').asInteger:= cbPCAutomaticaTipo ;
     FieldByName('PC_AutomaticaCorriente').asInteger:= cbPCAutomaticaCorriente;
     FieldByName('PR_AutomaticaTipoArrastre').asInteger:= cbPRAutomaticaArrastre;
+
+    FieldByName('refTMOtras').asInteger:= cbtmOtras;
+    FieldByName('refCMOtras').asInteger:= cbCMOtras;
+    FieldByName('refTAltControlada').asInteger:= cbAltControlada;
+    FieldByName('refFrecVariable').asInteger:= cbFrecVariable;
+    FieldByName('refRaccOpAdy').asInteger:= cbRAccOpAdy;
+    FieldByName('refTPCabOtro').asInteger:= cbTPCAbOtro;
+    FieldByName('refTPContrOtro').asInteger:= cbTPContrOtro;
     Post;
   end;
 end;

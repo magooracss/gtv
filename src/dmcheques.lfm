@@ -195,12 +195,13 @@ object DM_Cheques: TDM_Cheques
       #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
       #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
       #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      ''
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refEntregadoA'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente =  C.refEntregadoA'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor =  C.refEntregadoA'
       #9#9
       'WHERE (C.bVisible = 1)'
-      '       and (C.NroCheque = :parametro)'
+      '       and (UPPER (C.NroCheque) LIKE UPPER(''%''|| :parametro || ''%''))'
     )
     Params = <    
       item
@@ -243,9 +244,9 @@ object DM_Cheques: TDM_Cheques
       #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
       #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
       #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refEntregadoA'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refEntregadoA'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.reEntregadoA'
       #9#9
       'WHERE (C.bVisible = 1)'
       '       and (UPPER (B.Banco) LIKE UPPER(''%''|| :parametro || ''%''))'

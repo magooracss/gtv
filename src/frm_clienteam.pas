@@ -7,42 +7,43 @@ interface
 uses
   Classes, SysUtils, db, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
   ExtCtrls, Buttons, DbCtrls, StdCtrls, EditBtn, DBGrids, dbdateedit, rxdbcomb
-  , dmgeneral,dmediciontugs;
+  , dmgeneral,dmediciontugs, types;
 
 type
 
   { Tfrm_ClientesAM }
 
   Tfrm_ClientesAM = class(TForm)
-    btnBuscar: TBitBtn;
-    btnAdmNuevo: TBitBtn;
     btnAdmContactoAlta: TBitBtn;
     btnAdmContactoEliminar: TBitBtn;
     btnAdmContactoModificar: TBitBtn;
     btnAdmDomicilioAlta: TBitBtn;
     btnAdmDomicilioEliminar: TBitBtn;
     btnAdmDomicilioModificar: TBitBtn;
+    btnAdmNuevo: TBitBtn;
+    btnAnexos: TBitBtn;
+    btnBuscar: TBitBtn;
     btnContClienteAgregar: TBitBtn;
     btnContClienteBorrar: TBitBtn;
     btnContClienteModificar: TBitBtn;
-    btnAnexos: TBitBtn;
     btnGrabarSalir: TBitBtn;
     btnModificarEquipo: TBitBtn;
     btnAgregarEquipo: TBitBtn;
     btnEliminarEquipo: TBitBtn;
     cbAdmDoc: TComboBox;
     cbConservadorRX: TRxDBComboBox;
+    cbContDoc: TComboBox;
+    cbContTipo: TComboBox;
     cbDestino: TComboBox;
     cbLocalidad: TComboBox;
     cbRespTecnicoRX: TRxDBComboBox;
     cbTipoAbono: TComboBox;
     cbGrupoFacturacion: TComboBox;
     cbCondicionIVA: TComboBox;
-    cbContTipo: TComboBox;
-    cbContDoc: TComboBox;
-    DBDateEdit2: TDBDateEdit;
+    DBEdit16: TDBEdit;
+    DBEdit17: TDBEdit;
+    DBEdit18: TDBEdit;
     DBEdit20: TDBEdit;
-    DBEdit21: TDBEdit;
     DBEdit22: TDBEdit;
     DBEdit23: TDBEdit;
     DBEdit24: TDBEdit;
@@ -54,9 +55,6 @@ type
     DS_ContactosADM: TDatasource;
     ds_administrador: TDatasource;
     DBDateEdit1: TDBDateEdit;
-    DBEdit16: TDBEdit;
-    DBEdit17: TDBEdit;
-    DBEdit18: TDBEdit;
     ds_cliente: TDatasource;
     DBEdit1: TDBEdit;
     DBEdit10: TDBEdit;
@@ -101,8 +99,6 @@ type
     Label29: TLabel;
     Label3: TLabel;
     Label31: TLabel;
-    Label32: TLabel;
-    Label33: TLabel;
     Label34: TLabel;
     Label35: TLabel;
     Label36: TLabel;
@@ -119,12 +115,12 @@ type
     Panel5: TPanel;
     Panel6: TPanel;
     Panel7: TPanel;
+    Panel8: TPanel;
+    Panel9: TPanel;
     PCPantalla: TPageControl;
     Panel1: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
-    Panel8: TPanel;
-    Panel9: TPanel;
     SpeedButton1: TSpeedButton;
     SpeedButton10: TSpeedButton;
     SpeedButton2: TSpeedButton;
@@ -136,8 +132,10 @@ type
     SpeedButton8: TSpeedButton;
     SpeedButton9: TSpeedButton;
     StaticText3: TStaticText;
-    TabSheet1: TTabSheet;
-    TabSheet2: TTabSheet;
+    tabEdificio: TTabSheet;
+    tabPropietario: TTabSheet;
+    tabAdministrador: TTabSheet;
+    tabContactoCliente: TTabSheet;
     TabSheet3: TTabSheet;
     TabSheet4: TTabSheet;
     TabSheet5: TTabSheet;
@@ -171,6 +169,8 @@ type
     procedure SpeedButton6Click(Sender: TObject);
     procedure SpeedButton7Click(Sender: TObject);
     procedure SpeedButton9Click(Sender: TObject);
+    procedure tabPropietarioContextPopup(Sender: TObject; MousePos: TPoint;
+      var Handled: Boolean);
   private
     _idCliente: GUID_ID;
     _operacion: TOperacion;
@@ -267,7 +267,7 @@ begin
   DM_General.CargarComboBox(cbContDoc,'TipoDocumento' ,'idTipoDocumento', DM_Clientes.qtugTiposDocumento);
   DM_General.CargarComboBox(cbContTipo, 'TipoContactoCliente' ,'idTipoContactoCliente', DM_Clientes.qtugTiposContactoCliente);
 
-  PCPantalla.ActivePageIndex:= 0;
+  PCPantalla.ActivePage:= tabEdificio;
 end;
 
 procedure Tfrm_ClientesAM.AjustarCombos;
@@ -519,6 +519,12 @@ begin
     datos.Free;
     pantalla.Free;
   end;
+end;
+
+procedure Tfrm_ClientesAM.tabPropietarioContextPopup(Sender: TObject;
+  MousePos: TPoint; var Handled: Boolean);
+begin
+
 end;
 
 (*******************************************************************************

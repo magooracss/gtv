@@ -1,12 +1,11 @@
 object DM_Equipos: TDM_Equipos
   OnCreate = DataModuleCreate
   OldCreateOrder = False
-  Height = 497
+  Height = 585
   HorizontalOffset = 344
   VerticalOffset = 111
-  Width = 787
+  Width = 975
   object tbEquipos: TRxMemoryData
-    Active = True
     FieldDefs = <    
       item
         Name = 'idEquipo'
@@ -45,22 +44,10 @@ object DM_Equipos: TDM_Equipos
         Size = 0
       end    
       item
-        Name = 'TM_Otras'
-        DataType = ftString
-        Precision = -1
-        Size = 500
-      end    
-      item
         Name = 'CM_Ubicacion'
         DataType = ftInteger
         Precision = -1
         Size = 0
-      end    
-      item
-        Name = 'CM_Otras'
-        DataType = ftString
-        Precision = -1
-        Size = 500
       end    
       item
         Name = 'M_Marca'
@@ -93,18 +80,6 @@ object DM_Equipos: TDM_Equipos
         Size = 0
       end    
       item
-        Name = 'T_AlternaControlada'
-        DataType = ftString
-        Precision = -1
-        Size = 150
-      end    
-      item
-        Name = 'T_FrecVariable'
-        DataType = ftString
-        Precision = -1
-        Size = 150
-      end    
-      item
         Name = 'R_NroPisos'
         DataType = ftInteger
         Precision = -1
@@ -121,12 +96,6 @@ object DM_Equipos: TDM_Equipos
         DataType = ftInteger
         Precision = -1
         Size = 0
-      end    
-      item
-        Name = 'R_AccesosOpyAd'
-        DataType = ftString
-        Precision = -1
-        Size = 200
       end    
       item
         Name = 'V_Unica'
@@ -147,22 +116,10 @@ object DM_Equipos: TDM_Equipos
         Size = 0
       end    
       item
-        Name = 'TPCab_Otro'
-        DataType = ftString
-        Precision = -1
-        Size = 500
-      end    
-      item
         Name = 'TPContr_tipo'
         DataType = ftInteger
         Precision = -1
         Size = 0
-      end    
-      item
-        Name = 'TPContr_Otro'
-        DataType = ftString
-        Precision = -1
-        Size = 500
       end    
       item
         Name = 'P_Tipo'
@@ -349,9 +306,75 @@ object DM_Equipos: TDM_Equipos
         DataType = ftString
         Precision = -1
         Size = 3500
+      end    
+      item
+        Name = 'TM_Otras'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end    
+      item
+        Name = 'refTmOtras'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refCMOtras'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'reftAltControlada'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refFrecVariable'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refRaccOpAdy'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refTPCabOtro'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refTPContrOtro'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fHabilitacion'
+        DataType = ftDate
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'expConservador'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end    
+      item
+        Name = 'expHabilitacion'
+        DataType = ftString
+        Precision = 0
+        Size = 50
       end>
     AfterInsert = tbEquiposAfterInsert
-    left = 88
+    left = 85
     top = 32
     object tbEquiposidEquipo: TStringField
       DisplayWidth = 38
@@ -416,43 +439,21 @@ object DM_Equipos: TDM_Equipos
       ReadOnly = False
       Required = False
     end
-    object tbEquiposTM_Otras: TStringField
-      DisplayWidth = 500
+    object tbEquiposCM_Ubicacion: TLongintField
+      DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'TM_Otras'
+      FieldName = 'CM_Ubicacion'
       Index = 6
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      Size = 500
-    end
-    object tbEquiposCM_Ubicacion: TLongintField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'CM_Ubicacion'
-      Index = 7
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object tbEquiposCM_Otras: TStringField
-      DisplayWidth = 500
-      FieldKind = fkData
-      FieldName = 'CM_Otras'
-      Index = 8
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 500
     end
     object tbEquiposM_Marca: TLongintField
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'M_Marca'
-      Index = 9
+      Index = 7
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -462,7 +463,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 200
       FieldKind = fkData
       FieldName = 'M_Velocidad'
-      Index = 10
+      Index = 8
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -473,7 +474,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 200
       FieldKind = fkData
       FieldName = 'M_PotenciaHP'
-      Index = 11
+      Index = 9
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -484,7 +485,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 150
       FieldKind = fkData
       FieldName = 'M_NroIdentificadores'
-      Index = 12
+      Index = 10
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -495,39 +496,17 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'T_Tipo'
-      Index = 13
+      Index = 11
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-    end
-    object tbEquiposT_AlternaControlada: TStringField
-      DisplayWidth = 150
-      FieldKind = fkData
-      FieldName = 'T_AlternaControlada'
-      Index = 14
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 150
-    end
-    object tbEquiposT_FrecVariable: TStringField
-      DisplayWidth = 150
-      FieldKind = fkData
-      FieldName = 'T_FrecVariable'
-      Index = 15
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 150
     end
     object tbEquiposR_NroPisos: TLongintField
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'R_NroPisos'
-      Index = 16
+      Index = 12
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -537,7 +516,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'R_Paradas'
-      Index = 17
+      Index = 13
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -547,28 +526,17 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'R_Accesos'
-      Index = 18
+      Index = 14
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-    end
-    object tbEquiposR_AccesosOpyAd: TStringField
-      DisplayWidth = 200
-      FieldKind = fkData
-      FieldName = 'R_AccesosOpyAd'
-      Index = 19
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 200
     end
     object tbEquiposV_Unica: TStringField
       DisplayWidth = 200
       FieldKind = fkData
       FieldName = 'V_Unica'
-      Index = 20
+      Index = 15
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -579,7 +547,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 200
       FieldKind = fkData
       FieldName = 'V_AltaBaja'
-      Index = 21
+      Index = 16
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -590,49 +558,27 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'TPCab_tipo'
-      Index = 22
+      Index = 17
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-    end
-    object tbEquiposTPCab_Otro: TStringField
-      DisplayWidth = 500
-      FieldKind = fkData
-      FieldName = 'TPCab_Otro'
-      Index = 23
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 500
     end
     object tbEquiposTPContr_tipo: TLongintField
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'TPContr_tipo'
-      Index = 24
+      Index = 18
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-    end
-    object tbEquiposTPContr_Otro: TStringField
-      DisplayWidth = 500
-      FieldKind = fkData
-      FieldName = 'TPContr_Otro'
-      Index = 25
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 500
     end
     object tbEquiposP_Tipo: TLongintField
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'P_Tipo'
-      Index = 26
+      Index = 19
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -642,7 +588,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 500
       FieldKind = fkData
       FieldName = 'P_Otro'
-      Index = 27
+      Index = 20
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -653,7 +599,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'Tman_tipo'
-      Index = 28
+      Index = 21
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -663,7 +609,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 500
       FieldKind = fkData
       FieldName = 'TMan_Otra'
-      Index = 29
+      Index = 22
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -674,7 +620,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'SA_tipo'
-      Index = 30
+      Index = 23
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -684,7 +630,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'TC_tipo'
-      Index = 31
+      Index = 24
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -694,7 +640,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'CT_Personas'
-      Index = 32
+      Index = 25
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -704,7 +650,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'CT_KG'
-      Index = 33
+      Index = 26
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -718,7 +664,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 200
       FieldKind = fkData
       FieldName = 'PC_Material'
-      Index = 34
+      Index = 27
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -729,7 +675,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'PC_Manual'
-      Index = 35
+      Index = 28
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -739,7 +685,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'PC_ManualTipo'
-      Index = 36
+      Index = 29
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -749,7 +695,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 500
       FieldKind = fkData
       FieldName = 'PC_ManualOtra'
-      Index = 37
+      Index = 30
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -760,7 +706,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'PC_Automatica'
-      Index = 38
+      Index = 31
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -770,7 +716,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'PC_AutomaticaTipo'
-      Index = 39
+      Index = 32
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -780,7 +726,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'PC_automaticaCorriente'
-      Index = 40
+      Index = 33
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -790,7 +736,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 500
       FieldKind = fkData
       FieldName = 'PC_AutomaticaOtra'
-      Index = 41
+      Index = 34
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -801,7 +747,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 200
       FieldKind = fkData
       FieldName = 'PR_Material'
-      Index = 42
+      Index = 35
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -812,7 +758,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'PR_Manual'
-      Index = 43
+      Index = 36
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -822,7 +768,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'PR_ManualTipo'
-      Index = 44
+      Index = 37
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -832,7 +778,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 500
       FieldKind = fkData
       FieldName = 'PR_ManualOtra'
-      Index = 45
+      Index = 38
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -843,7 +789,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'PR_Automatica'
-      Index = 46
+      Index = 39
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -853,7 +799,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'PR_AutomaticaTipoArrastre'
-      Index = 47
+      Index = 40
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -863,7 +809,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'Ph_PistonCentral'
-      Index = 48
+      Index = 41
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -873,7 +819,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'PH_PistonLateral'
-      Index = 49
+      Index = 42
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -883,7 +829,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'PH_PistonEnterrado'
-      Index = 50
+      Index = 43
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -893,7 +839,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'PH_PistonTelescopico'
-      Index = 51
+      Index = 44
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -903,7 +849,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'PH_Relacion2_1'
-      Index = 52
+      Index = 45
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -913,7 +859,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'bVisible'
-      Index = 53
+      Index = 46
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -923,7 +869,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 200
       FieldKind = fkData
       FieldName = 'lxTipoEquipo'
-      Index = 54
+      Index = 47
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -934,7 +880,7 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'nNroEquipo'
-      Index = 55
+      Index = 48
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -944,12 +890,125 @@ object DM_Equipos: TDM_Equipos
       DisplayWidth = 3500
       FieldKind = fkData
       FieldName = 'txObservaciones'
-      Index = 56
+      Index = 49
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
       Size = 3500
+    end
+    object tbEquiposTM_Otras: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'TM_Otras'
+      Index = 50
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object tbEquiposrefTmOtras: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refTmOtras'
+      Index = 51
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposrefCMOtras: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refCMOtras'
+      Index = 52
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposrefFrecVariable: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refFrecVariable'
+      Index = 53
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposrefRaccOpAdy: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refRaccOpAdy'
+      Index = 54
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposrefTPCabOtro: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refTPCabOtro'
+      Index = 55
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposrefTPContrOtro: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refTPContrOtro'
+      Index = 56
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposreftAltControlada: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'reftAltControlada'
+      Index = 57
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposfHabilitacion: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fHabilitacion'
+      Index = 58
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbEquiposexpConservador: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'expConservador'
+      Index = 59
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object tbEquiposexpHabilitacion: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'expHabilitacion'
+      Index = 60
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
     end
   end
   object qtugTiposEquipos: TZQuery
@@ -1149,26 +1208,19 @@ object DM_Equipos: TDM_Equipos
       ', REFTIPO'
       ', TM_TRACCION'
       ', TM_PROPHIDRAULICA'
-      ', TM_OTRAS'
       ', CM_UBICACION'
-      ', CM_OTRAS'
       ', M_MARCA'
       ', M_VELOCIDAD'
       ', M_POTENCIAHP'
       ', M_NROIDENTIFICADORES'
       ', T_TIPO'
-      ', T_ALTERNACONTROLADA'
-      ', T_FRECVARIABLE'
       ', R_NROPISOS'
       ', R_PARADAS'
       ', R_ACCESOS'
-      ', R_ACCESOSOPYAD'
       ', V_UNICA'
       ', V_ALTABAJA'
       ', TPCAB_TIPO'
-      ', TPCAB_OTRO'
       ', TPCONTR_TIPO'
-      ', TPCONTR_OTRO'
       ', P_TIPO'
       ', P_OTRO'
       ', TMAN_TIPO'
@@ -1199,6 +1251,16 @@ object DM_Equipos: TDM_Equipos
       ', BVISIBLE'
       ', nNroEquipo'
       ', txObservaciones'
+      ', refTMOtras'
+      ', refCMOtras'
+      ', refTAltControlada'
+      ', refFrecVariable'
+      ', refRAccOpAdy'
+      ', refTPCabOtro'
+      ', refTPContrOtro'
+      ', fHabilitacion'
+      ', expConservador'
+      ', expHabilitacion'
       ')'
       'VALUES'
       '( :IDEQUIPO'
@@ -1207,26 +1269,19 @@ object DM_Equipos: TDM_Equipos
       ', :REFTIPO'
       ', :TM_TRACCION'
       ', :TM_PROPHIDRAULICA'
-      ', :TM_OTRAS'
       ', :CM_UBICACION'
-      ', :CM_OTRAS'
       ', :M_MARCA'
       ', :M_VELOCIDAD'
       ', :M_POTENCIAHP'
       ', :M_NROIDENTIFICADORES'
       ', :T_TIPO'
-      ', :T_ALTERNACONTROLADA'
-      ', :T_FRECVARIABLE'
       ', :R_NROPISOS'
       ', :R_PARADAS'
       ', :R_ACCESOS'
-      ', :R_ACCESOSOPYAD'
       ', :V_UNICA'
       ', :V_ALTABAJA'
       ', :TPCAB_TIPO'
-      ', :TPCAB_OTRO'
       ', :TPCONTR_TIPO'
-      ', :TPCONTR_OTRO'
       ', :P_TIPO'
       ', :P_OTRO'
       ', :TMAN_TIPO'
@@ -1257,6 +1312,17 @@ object DM_Equipos: TDM_Equipos
       ', :BVISIBLE'
       ', :nNroEquipo'
       ', :txObservaciones'
+      ', :refTMOtras'
+      ', :refCMOtras'
+      ', :refTAltControlada'
+      ', :refFrecVariable'
+      ', :refRAccOpAdy'
+      ', :refTPCabOtro'
+      ', :refTPContrOtro'
+      ', :fHabilitacion'
+      ', :expConservador'
+      ', :expHabilitacion'
+      ''
       ')'
     )
     Params = <    
@@ -1292,17 +1358,7 @@ object DM_Equipos: TDM_Equipos
       end    
       item
         DataType = ftUnknown
-        Name = 'TM_OTRAS'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
         Name = 'CM_UBICACION'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'CM_OTRAS'
         ParamType = ptUnknown
       end    
       item
@@ -1332,16 +1388,6 @@ object DM_Equipos: TDM_Equipos
       end    
       item
         DataType = ftUnknown
-        Name = 'T_ALTERNACONTROLADA'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'T_FRECVARIABLE'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
         Name = 'R_NROPISOS'
         ParamType = ptUnknown
       end    
@@ -1353,11 +1399,6 @@ object DM_Equipos: TDM_Equipos
       item
         DataType = ftUnknown
         Name = 'R_ACCESOS'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'R_ACCESOSOPYAD'
         ParamType = ptUnknown
       end    
       item
@@ -1377,17 +1418,7 @@ object DM_Equipos: TDM_Equipos
       end    
       item
         DataType = ftUnknown
-        Name = 'TPCAB_OTRO'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
         Name = 'TPCONTR_TIPO'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'TPCONTR_OTRO'
         ParamType = ptUnknown
       end    
       item
@@ -1538,6 +1569,56 @@ object DM_Equipos: TDM_Equipos
       item
         DataType = ftUnknown
         Name = 'txObservaciones'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTMOtras'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refCMOtras'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTAltControlada'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refFrecVariable'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRAccOpAdy'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTPCabOtro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTPContrOtro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fHabilitacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'expConservador'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'expHabilitacion'
         ParamType = ptUnknown
       end>
     left = 88
@@ -1575,17 +1656,7 @@ object DM_Equipos: TDM_Equipos
       end    
       item
         DataType = ftUnknown
-        Name = 'TM_OTRAS'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
         Name = 'CM_UBICACION'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'CM_OTRAS'
         ParamType = ptUnknown
       end    
       item
@@ -1615,16 +1686,6 @@ object DM_Equipos: TDM_Equipos
       end    
       item
         DataType = ftUnknown
-        Name = 'T_ALTERNACONTROLADA'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'T_FRECVARIABLE'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
         Name = 'R_NROPISOS'
         ParamType = ptUnknown
       end    
@@ -1636,11 +1697,6 @@ object DM_Equipos: TDM_Equipos
       item
         DataType = ftUnknown
         Name = 'R_ACCESOS'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'R_ACCESOSOPYAD'
         ParamType = ptUnknown
       end    
       item
@@ -1660,17 +1716,7 @@ object DM_Equipos: TDM_Equipos
       end    
       item
         DataType = ftUnknown
-        Name = 'TPCAB_OTRO'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
         Name = 'TPCONTR_TIPO'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'TPCONTR_OTRO'
         ParamType = ptUnknown
       end    
       item
@@ -1822,6 +1868,56 @@ object DM_Equipos: TDM_Equipos
         DataType = ftUnknown
         Name = 'txObservaciones'
         ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTMOtras'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refCMOtras'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTAltControlada'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refFrecVariable'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRAccOpAdy'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTPCabOtro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTPContrOtro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fHabilitacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'expConservador'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'expHabilitacion'
+        ParamType = ptUnknown
       end>
   end
   object tbEquiposUPD: TZQuery
@@ -1834,26 +1930,19 @@ object DM_Equipos: TDM_Equipos
       ',REFTIPO = :REFTIPO'
       ',TM_TRACCION = :TM_TRACCION'
       ',TM_PROPHIDRAULICA = :TM_PROPHIDRAULICA'
-      ',TM_OTRAS = :TM_OTRAS'
       ',CM_UBICACION = :CM_UBICACION'
-      ',CM_OTRAS = :CM_OTRAS'
       ',M_MARCA = :M_MARCA'
       ',M_VELOCIDAD = :M_VELOCIDAD'
       ',M_POTENCIAHP = :M_POTENCIAHP'
       ',M_NROIDENTIFICADORES = :M_NROIDENTIFICADORES'
       ',T_TIPO = :T_TIPO'
-      ',T_ALTERNACONTROLADA = :T_ALTERNACONTROLADA'
-      ',T_FRECVARIABLE = :T_FRECVARIABLE'
       ',R_NROPISOS = :R_NROPISOS'
       ',R_PARADAS = :R_PARADAS'
       ',R_ACCESOS = :R_ACCESOS'
-      ',R_ACCESOSOPYAD = :R_ACCESOSOPYAD'
       ',V_UNICA = :V_UNICA'
       ',V_ALTABAJA = :V_ALTABAJA'
       ',TPCAB_TIPO = :TPCAB_TIPO'
-      ',TPCAB_OTRO = :TPCAB_OTRO'
       ',TPCONTR_TIPO = :TPCONTR_TIPO'
-      ',TPCONTR_OTRO = :TPCONTR_OTRO'
       ',P_TIPO = :P_TIPO'
       ',P_OTRO = :P_OTRO'
       ',TMAN_TIPO = :TMAN_TIPO'
@@ -1884,6 +1973,17 @@ object DM_Equipos: TDM_Equipos
       ',BVISIBLE = :BVISIBLE'
       ',nNroEquipo = :nNroEquipo'
       ',txObservaciones = :txObservaciones'
+      ', refTMOtras = :refTMOtras'
+      ', refCMOtras = :refCMOtras'
+      ', refTAltControlada = :refTAltControlada'
+      ', refFrecVariable = :refFrecVariable'
+      ', refRAccOpAdy = :refRAccOpAdy'
+      ', refTPCabOtro = :refTPCabOtro'
+      ', refTPContrOtro = :refTPContrOtro'
+      ', fHabilitacion = :fHabilitacion'
+      ', expConservador = :expConservador'
+      ', expHabilitacion = :expHabilitacion'
+      ''
       'WHERE IDEQUIPO = :IDEQUIPO'
     )
     Params = <    
@@ -1914,17 +2014,7 @@ object DM_Equipos: TDM_Equipos
       end    
       item
         DataType = ftUnknown
-        Name = 'TM_OTRAS'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
         Name = 'CM_UBICACION'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'CM_OTRAS'
         ParamType = ptUnknown
       end    
       item
@@ -1954,16 +2044,6 @@ object DM_Equipos: TDM_Equipos
       end    
       item
         DataType = ftUnknown
-        Name = 'T_ALTERNACONTROLADA'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'T_FRECVARIABLE'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
         Name = 'R_NROPISOS'
         ParamType = ptUnknown
       end    
@@ -1975,11 +2055,6 @@ object DM_Equipos: TDM_Equipos
       item
         DataType = ftUnknown
         Name = 'R_ACCESOS'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'R_ACCESOSOPYAD'
         ParamType = ptUnknown
       end    
       item
@@ -1999,17 +2074,7 @@ object DM_Equipos: TDM_Equipos
       end    
       item
         DataType = ftUnknown
-        Name = 'TPCAB_OTRO'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
         Name = 'TPCONTR_TIPO'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'TPCONTR_OTRO'
         ParamType = ptUnknown
       end    
       item
@@ -2160,6 +2225,56 @@ object DM_Equipos: TDM_Equipos
       item
         DataType = ftUnknown
         Name = 'txObservaciones'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTMOtras'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refCMOtras'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTAltControlada'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refFrecVariable'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRAccOpAdy'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTPCabOtro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTPContrOtro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fHabilitacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'expConservador'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'expHabilitacion'
         ParamType = ptUnknown
       end    
       item
@@ -2197,17 +2312,7 @@ object DM_Equipos: TDM_Equipos
       end    
       item
         DataType = ftUnknown
-        Name = 'TM_OTRAS'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
         Name = 'CM_UBICACION'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'CM_OTRAS'
         ParamType = ptUnknown
       end    
       item
@@ -2237,16 +2342,6 @@ object DM_Equipos: TDM_Equipos
       end    
       item
         DataType = ftUnknown
-        Name = 'T_ALTERNACONTROLADA'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'T_FRECVARIABLE'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
         Name = 'R_NROPISOS'
         ParamType = ptUnknown
       end    
@@ -2258,11 +2353,6 @@ object DM_Equipos: TDM_Equipos
       item
         DataType = ftUnknown
         Name = 'R_ACCESOS'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'R_ACCESOSOPYAD'
         ParamType = ptUnknown
       end    
       item
@@ -2282,17 +2372,7 @@ object DM_Equipos: TDM_Equipos
       end    
       item
         DataType = ftUnknown
-        Name = 'TPCAB_OTRO'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
         Name = 'TPCONTR_TIPO'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'TPCONTR_OTRO'
         ParamType = ptUnknown
       end    
       item
@@ -2443,6 +2523,56 @@ object DM_Equipos: TDM_Equipos
       item
         DataType = ftUnknown
         Name = 'txObservaciones'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTMOtras'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refCMOtras'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTAltControlada'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refFrecVariable'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refRAccOpAdy'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTPCabOtro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refTPContrOtro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fHabilitacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'expConservador'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'expHabilitacion'
         ParamType = ptUnknown
       end    
       item
@@ -5407,5 +5537,82 @@ object DM_Equipos: TDM_Equipos
       Required = False
       Size = 3500
     end
+  end
+  object qTUGTIPOMANIOBRAOTRA: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TUGTIPOSMANIOBRASOTRA'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 680
+    top = 338
+  end
+  object qTUGCuartosMaquinasOtra: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TUGCuartosMaquinasOtra'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 680
+    top = 392
+  end
+  object qTUGAlternaControlada: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TUGAlternaControlada'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 680
+    top = 449
+  end
+  object qtugFrecuenciaVariable: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM TUGFrecuenciasVariables'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 850
+    top = 10
+  end
+  object qTugNroAccesoOpAdy: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM  tugNroAccesoOpAdy'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 850
+    top = 65
+  end
+  object qtugCabParaidasOtro: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugCabParacaidasOtro'
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 852
+    top = 122
+  end
+  object qtugCabParacContrOtro: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugCabParacaidasContrapesoOtro '
+      'WHERE bVisible =1'
+    )
+    Params = <>
+    left = 849
+    top = 184
   end
 end

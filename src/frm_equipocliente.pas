@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, db, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, Buttons, DbCtrls
+  StdCtrls, Buttons, DbCtrls, dbdateedit
   , dmgeneral,dmediciontugs;
 
 type
@@ -15,6 +15,8 @@ type
 
   TfrmEquipoCliente = class(TForm)
     btnGrabarySalir: TBitBtn;
+    cbFrecuenciaVariable: TComboBox;
+    cbNroAccesoOpAdy: TComboBox;
     cbPCAutomaticaTipo: TComboBox;
     cbPCAutomaticaCorriente: TComboBox;
     cbPRAutomaticaArrastre: TComboBox;
@@ -29,12 +31,17 @@ type
     cbMMarca: TComboBox;
     cbTManTipo: TComboBox;
     cbPCManualTipo: TComboBox;
+    cbCabParacOtro: TComboBox;
     cbTPCONTRTipo: TComboBox;
     cbPTipo: TComboBox;
+    cbCabParContrOtro: TComboBox;
     cbTTipo: TComboBox;
     ckPH_PistonLateral1: TCheckBox;
     ckPH_Relacion2_1: TCheckBox;
     ckPH_PistonTelescopico: TCheckBox;
+    cbTipoManiobraOtra: TComboBox;
+    cbCuartoMaqOtra: TComboBox;
+    cbAlternaControlada: TComboBox;
     DBCheckBox1: TDBCheckBox;
     DBCheckBox10: TDBCheckBox;
     DBCheckBox2: TDBCheckBox;
@@ -45,13 +52,14 @@ type
     DBCheckBox7: TDBCheckBox;
     DBCheckBox8: TDBCheckBox;
     DBCheckBox9: TDBCheckBox;
+    DBDateEdit2: TDBDateEdit;
     DBEdit20: TDBEdit;
+    DBEdit26: TDBEdit;
+    DBEdit27: TDBEdit;
     DBMemo1: TDBMemo;
     DS_Equipo: TDatasource;
     DBEdit1: TDBEdit;
-    DBEdit10: TDBEdit;
     DBEdit11: TDBEdit;
-    DBEdit12: TDBEdit;
     DBEdit13: TDBEdit;
     DBEdit14: TDBEdit;
     DBEdit15: TDBEdit;
@@ -65,14 +73,9 @@ type
     DBEdit23: TDBEdit;
     DBEdit24: TDBEdit;
     DBEdit25: TDBEdit;
-    DBEdit26: TDBEdit;
-    DBEdit3: TDBEdit;
     DBEdit4: TDBEdit;
-    DBEdit5: TDBEdit;
-    DBEdit6: TDBEdit;
     DBEdit7: TDBEdit;
     DBEdit8: TDBEdit;
-    DBEdit9: TDBEdit;
     GroupBox1: TGroupBox;
     GroupBox10: TGroupBox;
     GroupBox11: TGroupBox;
@@ -86,6 +89,7 @@ type
     GroupBox19: TGroupBox;
     GroupBox2: TGroupBox;
     GroupBox20: TGroupBox;
+    GroupBox21: TGroupBox;
     GroupBox3: TGroupBox;
     GroupBox4: TGroupBox;
     GroupBox5: TGroupBox;
@@ -131,6 +135,9 @@ type
     Label41: TLabel;
     Label42: TLabel;
     Label43: TLabel;
+    Label44: TLabel;
+    Label45: TLabel;
+    Label46: TLabel;
     Label5: TLabel;
     Label6: TLabel;
     Label7: TLabel;
@@ -141,7 +148,11 @@ type
     SpeedButton11: TSpeedButton;
     SpeedButton12: TSpeedButton;
     SpeedButton13: TSpeedButton;
+    SpeedButton14: TSpeedButton;
     SpeedButton16: TSpeedButton;
+    SpeedButton17: TSpeedButton;
+    SpeedButton18: TSpeedButton;
+    SpeedButton19: TSpeedButton;
     SpeedButton21: TSpeedButton;
     SpeedButton22: TSpeedButton;
     SpeedButton23: TSpeedButton;
@@ -153,6 +164,9 @@ type
     SpeedButton29: TSpeedButton;
     SpeedButton30: TSpeedButton;
     SpeedButton31: TSpeedButton;
+    SpeedButton32: TSpeedButton;
+    SpeedButton33: TSpeedButton;
+    SpeedButton34: TSpeedButton;
     SpeedButton9: TSpeedButton;
     procedure btnGrabarySalirClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -161,7 +175,11 @@ type
     procedure SpeedButton11Click(Sender: TObject);
     procedure SpeedButton12Click(Sender: TObject);
     procedure SpeedButton13Click(Sender: TObject);
+    procedure SpeedButton14Click(Sender: TObject);
     procedure SpeedButton16Click(Sender: TObject);
+    procedure SpeedButton17Click(Sender: TObject);
+    procedure SpeedButton18Click(Sender: TObject);
+    procedure SpeedButton19Click(Sender: TObject);
     procedure SpeedButton21Click(Sender: TObject);
     procedure SpeedButton23Click(Sender: TObject);
     procedure SpeedButton24Click(Sender: TObject);
@@ -171,6 +189,9 @@ type
     procedure SpeedButton28Click(Sender: TObject);
     procedure SpeedButton30Click(Sender: TObject);
     procedure SpeedButton31Click(Sender: TObject);
+    procedure SpeedButton32Click(Sender: TObject);
+    procedure SpeedButton33Click(Sender: TObject);
+    procedure SpeedButton34Click(Sender: TObject);
     procedure SpeedButton9Click(Sender: TObject);
   private
     _idCliente: GUID_ID;
@@ -292,6 +313,29 @@ begin
   end;
 end;
 
+procedure TfrmEquipoCliente.SpeedButton14Click(Sender: TObject);
+var
+  pantalla: TfrmEdicionTugs;
+  datos: TTablaTUG;
+begin
+  pantalla:=TfrmEdicionTugs.Create(self);
+  datos:= TTablaTUG.Create;
+  try
+    with datos do
+    begin
+      nombre:= 'TUGCUARTOSMAQUINASOTRA';
+      titulo:= 'Cuarto de máquinas - Otros';
+      AgregarCampo('CuartoMaquinaOtra','Otro dato cuarto de máquina');
+    end;
+    pantalla.laTUG:= datos;
+    pantalla.ShowModal;
+    DM_General.CargarComboBox(cbCuartoMaqOtra, 'CuartoMaquinaOtra', 'idCuartoMaquinaOtra',DM_Equipos.qTUGCuartosMaquinasOtra);
+  finally
+    datos.Free;
+    pantalla.Free;
+  end;
+end;
+
 
 procedure TfrmEquipoCliente.SpeedButton12Click(Sender: TObject);
 var
@@ -338,6 +382,77 @@ begin
     pantalla.Free;
   end;
 end;
+
+procedure TfrmEquipoCliente.SpeedButton17Click(Sender: TObject);
+var
+  pantalla: TfrmEdicionTugs;
+  datos: TTablaTUG;
+begin
+  pantalla:=TfrmEdicionTugs.Create(self);
+  datos:= TTablaTUG.Create;
+  try
+    with datos do
+    begin
+      nombre:= 'TUGALTERNACONTROLADA';
+      titulo:= 'Alterna/Controlada';
+      AgregarCampo('alternaControlada','Datos alterna/Controlada');
+    end;
+    pantalla.laTUG:= datos;
+    pantalla.ShowModal;
+    DM_General.CargarComboBox(cbAlternaControlada, 'alternaControlada', 'IDalternaControlada',DM_Equipos.qTUGAlternaControlada);
+  finally
+    datos.Free;
+    pantalla.Free;
+  end;
+end;
+
+procedure TfrmEquipoCliente.SpeedButton18Click(Sender: TObject);
+var
+  pantalla: TfrmEdicionTugs;
+  datos: TTablaTUG;
+begin
+  pantalla:=TfrmEdicionTugs.Create(self);
+  datos:= TTablaTUG.Create;
+  try
+    with datos do
+    begin
+      nombre:= 'TUGFrecuenciasVariables';
+      titulo:= 'Frecuencia Variable';
+      AgregarCampo('FrecuenciaVariable','Frecuencia variable');
+    end;
+    pantalla.laTUG:= datos;
+    pantalla.ShowModal;
+    DM_General.CargarComboBox(cbFrecuenciaVariable, 'FrecuenciaVariable', 'IDFrecuenciaVariable',DM_Equipos.qtugFrecuenciaVariable);
+  finally
+    datos.Free;
+    pantalla.Free;
+  end;
+end;
+
+procedure TfrmEquipoCliente.SpeedButton19Click(Sender: TObject);
+var
+  pantalla: TfrmEdicionTugs;
+  datos: TTablaTUG;
+begin
+  pantalla:=TfrmEdicionTugs.Create(self);
+  datos:= TTablaTUG.Create;
+  try
+    with datos do
+    begin
+      nombre:= 'tugNroAccesoOpAdy';
+      titulo:= 'Accesos Opuestos/Adyacentes';
+      AgregarCampo('NroAccesoOpAdy','Número de accesos opuestos/adyacentes');
+    end;
+    pantalla.laTUG:= datos;
+    pantalla.ShowModal;
+    DM_General.CargarComboBox(cbNroAccesoOpAdy, 'NroAccesoOpAdy', 'IDNroAccesoOpAdy',DM_Equipos.qTugNroAccesoOpAdy);
+  finally
+    datos.Free;
+    pantalla.Free;
+  end;
+end;
+
+
 
 procedure TfrmEquipoCliente.SpeedButton21Click(Sender: TObject);
 var
@@ -526,6 +641,76 @@ begin
   end;
 end;
 
+procedure TfrmEquipoCliente.SpeedButton32Click(Sender: TObject);
+var
+  pantalla: TfrmEdicionTugs;
+  datos: TTablaTUG;
+begin
+  pantalla:=TfrmEdicionTugs.Create(self);
+  datos:= TTablaTUG.Create;
+  try
+    with datos do
+    begin
+      nombre:= 'TUGTIPOSMANIOBRASOTRA';
+      titulo:= 'Otros tipos de maniobras';
+      AgregarCampo('TipoManiobraOtra','Nombre de Maniobra');
+    end;
+    pantalla.laTUG:= datos;
+    pantalla.ShowModal;
+    DM_General.CargarComboBox(cbTipoManiobraOtra, 'TipoManiobraOtra', 'IdTipoManiobraOtra',DM_Equipos.qtugTipoManiobraOtra);
+  finally
+    datos.Free;
+    pantalla.Free;
+  end;
+end;
+
+procedure TfrmEquipoCliente.SpeedButton33Click(Sender: TObject);
+var
+  pantalla: TfrmEdicionTugs;
+  datos: TTablaTUG;
+begin
+  pantalla:=TfrmEdicionTugs.Create(self);
+  datos:= TTablaTUG.Create;
+  try
+    with datos do
+    begin
+      nombre:= 'TUGCabParacaidasOtro';
+      titulo:= 'Paracaídas de cabina / Otro';
+      AgregarCampo('cabParacaidasOtro','Detalle');
+    end;
+    pantalla.laTUG:= datos;
+    pantalla.ShowModal;
+    DM_General.CargarComboBox(cbCabParacOtro, 'cabParacaidasOtro', 'idCabParacaidasOtro',DM_Equipos.qtugCabParaidasOtro);
+  finally
+    datos.Free;
+    pantalla.Free;
+  end;
+end;
+
+procedure TfrmEquipoCliente.SpeedButton34Click(Sender: TObject);
+var
+  pantalla: TfrmEdicionTugs;
+  datos: TTablaTUG;
+begin
+  pantalla:=TfrmEdicionTugs.Create(self);
+  datos:= TTablaTUG.Create;
+  try
+    with datos do
+    begin
+      nombre:= 'TUGCabParacaidasContrapesoOtro';
+      titulo:= 'Paracaidas de cabina contrapeso ';
+      AgregarCampo('cabParacaidasContrapesoOtro','Detalle');
+    end;
+    pantalla.laTUG:= datos;
+    pantalla.ShowModal;
+    DM_General.CargarComboBox(cbCabParContrOtro, 'cabParacaidasContrapesoOtro', 'idCabParacaidasContrapesoOtro',DM_Equipos.qtugCabParacContrOtro);
+  finally
+    datos.Free;
+    pantalla.Free;
+  end;
+end;
+
+
 procedure TfrmEquipoCliente.SpeedButton30Click(Sender: TObject);
 var
   pantalla: TfrmEdicionTugs;
@@ -572,6 +757,13 @@ begin
   DM_General.CargarComboBox(cbPCAutomaticaTipo, 'PUERTAAUTOMATICATIPO', 'IDPUERTAAUTOMATICATIPO',DM_Equipos.qTUGPUERTASAUTOMATICASTIPOS);
   DM_General.CargarComboBox(cbPCAutomaticaCorriente, 'PUERTAAUTOMATICACORRIENTE', 'IDPUERTAAUTOMATICACORRIENTE',DM_Equipos.qTUGPUERTASAUTOMATICASCORRIENTE);
   DM_General.CargarComboBox(cbPRAutomaticaArrastre, 'PUERTAAUTOMATICAARRASTRE', 'IDPUERTAAUTOMATICAARRASTRE',DM_Equipos.qTUGPUERTASAUTOMATICASARRASTRE);
+  DM_General.CargarComboBox(cbTipoManiobraOtra, 'TIPOMANIOBRAOTRA', 'IDTIPOMANIOBRAOTRA',DM_Equipos.qTUGTIPOMANIOBRAOTRA);
+  DM_General.CargarComboBox(cbCuartoMaqOtra, 'CUARTOMAQUINAOTRA', 'IDCUARTOMAQUINAOTRA',DM_Equipos.qTUGCuartosMaquinasOtra);
+  DM_General.CargarComboBox(cbAlternaControlada, 'alternaControlada', 'IDAlternaControlada',DM_Equipos.qTUGAlternaControlada);
+  DM_General.CargarComboBox(cbFrecuenciaVariable, 'FrecuenciaVariable', 'IDFrecuenciaVariable',DM_Equipos.qtugFrecuenciaVariable);
+  DM_General.CargarComboBox(cbNroAccesoOpAdy, 'NroAccesoOpAdy', 'IDNroAccesoOpAdy',DM_Equipos.qTugNroAccesoOpAdy);
+  DM_General.CargarComboBox(cbCabParacOtro, 'cabParacaidasOtro', 'IDCabParacaidasOtro',DM_Equipos.qtugCabParaidasOtro);
+  DM_General.CargarComboBox(cbCabParContrOtro, 'cabParacaidasContrapesoOtro', 'idCabParacaidasContrapesoOtro',DM_Equipos.qtugCabParacContrOtro);
 end;
 
 procedure TfrmEquipoCliente.PosicionarCombos;
@@ -593,6 +785,13 @@ begin
   cbPCAutomaticaTipo.ItemIndex:= DM_General.obtenerIdxCombo(cbPCAutomaticaTipo,DM_Equipos.tbEquipos.FieldByName('PC_AutomaticaTipo').asInteger );
   cbPCAutomaticaCorriente.ItemIndex:= DM_General.obtenerIdxCombo(cbPCAutomaticaCorriente,DM_Equipos.tbEquipos.FieldByName('PC_AutomaticaCorriente').asInteger );
   cbPRAutomaticaArrastre.ItemIndex:= DM_General.obtenerIdxCombo(cbPRAutomaticaArrastre,DM_Equipos.tbEquipos.FieldByName('PR_AutomaticaTipoArrastre').asInteger );
+  cbTipoManiobraOtra.ItemIndex:= DM_General.obtenerIdxCombo(cbTipoManiobraOtra,DM_Equipos.tbEquipos.FieldByName('refTMOtras').asInteger );
+  cbCuartoMaqOtra.ItemIndex:= DM_General.obtenerIdxCombo(cbCuartoMaqOtra,DM_Equipos.tbEquipos.FieldByName('refCmOtras').asInteger );
+  cbAlternaControlada.ItemIndex:= DM_General.obtenerIdxCombo(cbAlternaControlada,DM_Equipos.tbEquipos.FieldByName('reftAltControlada').asInteger );
+  cbFrecuenciaVariable.ItemIndex:= DM_General.obtenerIdxCombo(cbFrecuenciaVariable,DM_Equipos.tbEquipos.FieldByName('refFrecVariable').asInteger );
+  cbNroAccesoOpAdy.ItemIndex:= DM_General.obtenerIdxCombo(cbNroAccesoOpAdy,DM_Equipos.tbEquipos.FieldByName('refRAccOpAdy').asInteger );
+  cbCabParacOtro.ItemIndex:= DM_General.obtenerIdxCombo(cbCabParacOtro,DM_Equipos.tbEquipos.FieldByName('refTPCabOtro').asInteger );
+  cbCabParContrOtro.ItemIndex:= DM_General.obtenerIdxCombo(cbCabParContrOtro,DM_Equipos.tbEquipos.FieldByName('refTPContrOtro').asInteger );
 end;
 
 procedure TfrmEquipoCliente.btnGrabarySalirClick(Sender: TObject);
@@ -615,6 +814,13 @@ begin
                               ,DM_General.obtenerIDIntComboBox(cbPCAutomaticaTipo)
                               ,DM_General.obtenerIDIntComboBox(cbPCAutomaticaCorriente)
                               ,DM_General.obtenerIDIntComboBox(cbPRAutomaticaArrastre)
+                              ,DM_General.obtenerIDIntComboBox(cbTipoManiobraOtra)
+                              ,DM_General.obtenerIDIntComboBox(cbCuartoMaqOtra)
+                              ,DM_General.obtenerIDIntComboBox(cbAlternaControlada)
+                              ,DM_General.obtenerIDIntComboBox(cbFrecuenciaVariable)
+                              ,DM_General.obtenerIDIntComboBox(cbNroAccesoOpAdy)
+                              ,DM_General.obtenerIDIntComboBox(cbCabParacOtro)
+                              ,DM_General.obtenerIDIntComboBox(cbCabParContrOtro)
                               );
   DM_Equipos.Grabar;
 
