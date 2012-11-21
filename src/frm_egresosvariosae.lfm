@@ -14,7 +14,7 @@ object frmEgresoVarioAE: TfrmEgresoVarioAE
   Font.Quality = fqDraft
   OnShow = FormShow
   Position = poOwnerFormCenter
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.0.2.0'
   object Panel1: TPanel
     Left = 0
     Height = 125
@@ -55,13 +55,11 @@ object frmEgresoVarioAE: TfrmEgresoVarioAE
       Height = 24
       Top = 27
       Width = 95
-      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
-      OKCaption = 'OK'
-      CancelCaption = 'Cancel'
-      DateOrder = doNone
-      ButtonWidth = 23
       Anchors = [akTop, akRight]
+      ButtonWidth = 23
+      CancelCaption = 'Cancel'
       CharCase = ecNormal
+      DialogTitle = 'Seleccionar Fecha'
       Glyph.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
         2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -98,9 +96,12 @@ object frmEgresoVarioAE: TfrmEgresoVarioAE
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
+      MaxLength = 10
       NumGlyphs = 0
-      MaxLength = 0
+      OKCaption = 'OK'
+      PopupColor = clWindow
       TabOrder = 1
+      Text = '  /  /    '
       DataField = 'fecha'
       DataSource = ds_egresosvarios
     end

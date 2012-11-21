@@ -61,6 +61,7 @@ object DM_Cheques: TDM_Cheques
         Precision = 0
         Size = 0
       end>
+    PacketRecords = 0
     left = 33
     top = 15
     object tbResultadosidCheque: TStringField
@@ -857,6 +858,7 @@ object DM_Cheques: TDM_Cheques
         Size = 1000
       end>
     AfterInsert = tbChequesAfterInsert
+    PacketRecords = 0
     left = 320
     top = 9
     object tbChequesidCheque: TStringField

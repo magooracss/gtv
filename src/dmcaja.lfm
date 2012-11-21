@@ -75,6 +75,7 @@ object DM_CAJA: TDM_CAJA
         Size = 0
       end>
     AfterInsert = tbCajaConceptosAfterInsert
+    PacketRecords = 0
     left = 144
     top = 16
     object tbCajaConceptosidCajaConcepto: TStringField
@@ -604,6 +605,7 @@ object DM_CAJA: TDM_CAJA
         Precision = -1
         Size = 3000
       end>
+    PacketRecords = 0
     left = 49
     top = 16
     object tbCajaidCajaConcepto: TStringField
@@ -857,7 +859,7 @@ object DM_CAJA: TDM_CAJA
         ParamType = ptUnknown
       end>
     left = 384
-    top = 296
+    top = 312
     ParamData = <    
       item
         DataType = ftUnknown

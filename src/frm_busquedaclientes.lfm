@@ -1,7 +1,7 @@
 object frmBuscarCliente: TfrmBuscarCliente
-  Left = 254
+  Left = 350
   Height = 426
-  Top = 113
+  Top = 33
   Width = 824
   ActiveControl = edDato
   Caption = 'Búsqueda de clientes'
@@ -16,7 +16,7 @@ object frmBuscarCliente: TfrmBuscarCliente
   OnCreate = FormCreate
   Position = poOwnerFormCenter
   ShowHint = True
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.0.2.0'
   object Panel1: TPanel
     Left = 0
     Height = 73
@@ -249,7 +249,7 @@ object frmBuscarCliente: TfrmBuscarCliente
   end
   object DS_Resultados: TDatasource
     DataSet = DM_BuscarCliente.tbResultados
-    left = 169
-    top = 154
+    left = 185
+    top = 105
   end
 end

@@ -30,6 +30,50 @@ object DM_BuscarCliente: TDM_BuscarCliente
         Name = 'parametro'
         ParamType = ptUnknown
       end>
+    object qBusCliPorNombreIDCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCLIENTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qBusCliPorNombreCCODIGO: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CCODIGO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object qBusCliPorNombreCNOMBRE: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'CNOMBRE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qBusCliPorNombreCDOMICILIO: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'CDOMICILIO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
   end
   object tbResultados: TRxMemoryData
     Active = True
@@ -37,29 +81,74 @@ object DM_BuscarCliente: TDM_BuscarCliente
       item
         Name = 'idCliente'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'cCodigo'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 10
       end    
       item
         Name = 'cNombre'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 300
       end    
       item
         Name = 'cDomicilio'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 1000
       end>
+    PacketRecords = 0
     left = 32
     top = 16
+    object tbResultadosidCliente: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idCliente'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbResultadoscCodigo: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'cCodigo'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object tbResultadoscNombre: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'cNombre'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object tbResultadoscDomicilio: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'cDomicilio'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
   end
   object qBusCliPorCodigo: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -87,6 +176,50 @@ object DM_BuscarCliente: TDM_BuscarCliente
         Name = 'parametro'
         ParamType = ptUnknown
       end>
+    object qBusCliPorCodigoIDCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCLIENTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qBusCliPorCodigoCCODIGO: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CCODIGO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object qBusCliPorCodigoCNOMBRE: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'CNOMBRE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qBusCliPorCodigoCDOMICILIO: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'CDOMICILIO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
   end
   object qBusCliPorDomicilio: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -114,5 +247,49 @@ object DM_BuscarCliente: TDM_BuscarCliente
         Name = 'parametro'
         ParamType = ptUnknown
       end>
+    object qBusCliPorDomicilioIDCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCLIENTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qBusCliPorDomicilioCCODIGO: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CCODIGO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object qBusCliPorDomicilioCNOMBRE: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'CNOMBRE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qBusCliPorDomicilioCDOMICILIO: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'CDOMICILIO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
   end
 end

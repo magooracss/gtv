@@ -14,10 +14,26 @@ type
   { TDM_BuscarCliente }
 
   TDM_BuscarCliente = class(TDataModule)
+    qBusCliPorCodigoCCODIGO: TStringField;
+    qBusCliPorCodigoCDOMICILIO: TStringField;
+    qBusCliPorCodigoCNOMBRE: TStringField;
+    qBusCliPorCodigoIDCLIENTE: TStringField;
+    qBusCliPorDomicilioCCODIGO: TStringField;
+    qBusCliPorDomicilioCDOMICILIO: TStringField;
+    qBusCliPorDomicilioCNOMBRE: TStringField;
+    qBusCliPorDomicilioIDCLIENTE: TStringField;
+    qBusCliPorNombreCCODIGO: TStringField;
+    qBusCliPorNombreCDOMICILIO: TStringField;
+    qBusCliPorNombreCNOMBRE: TStringField;
+    qBusCliPorNombreIDCLIENTE: TStringField;
     tbResultados: TRxMemoryData;
     qBusCliPorNombre: TZQuery;
     qBusCliPorCodigo: TZQuery;
     qBusCliPorDomicilio: TZQuery;
+    tbResultadoscCodigo: TStringField;
+    tbResultadoscDomicilio: TStringField;
+    tbResultadoscNombre: TStringField;
+    tbResultadosidCliente: TStringField;
   private
     { private declarations }
   public
@@ -76,6 +92,7 @@ begin
          ParamByName('parametro').Value:= TRIM(dato);
       end;
       Open;
+      First;
       if Not EOF then
        tbResultados.LoadFromDataSet((laConsulta as TZQuery), 0, lmAppend);
       Close;

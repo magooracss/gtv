@@ -105,7 +105,7 @@ uses
 
 procedure TDM_Cheques.DataModuleCreate(Sender: TObject);
 begin
-  DM_General.ConectarConexiones(DM_Cheques);
+  DM_General.ConectarConexiones(TDataModule(DM_Cheques));
 end;
 
 procedure TDM_Cheques.tbChequesAfterInsert(DataSet: TDataSet);

@@ -2247,10 +2247,8 @@ object frmEquipoCliente: TfrmEquipoCliente
       Height = 21
       Top = 23
       Width = 96
-      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
       OKCaption = 'OK'
       CancelCaption = 'Cancela'
-      DateOrder = doNone
       ButtonWidth = 23
       CharCase = ecNormal
       Glyph.Data = {

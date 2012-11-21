@@ -1,16 +1,16 @@
 object frmOrdenTrabajoAE: TfrmOrdenTrabajoAE
-  Left = 268
-  Height = 585
-  Top = 2
-  Width = 732
+  Left = 473
+  Height = 608
+  Top = 128
+  Width = 734
   Caption = 'Orden de Trabajo'
-  ClientHeight = 585
-  ClientWidth = 732
+  ClientHeight = 608
+  ClientWidth = 734
   Font.Height = -13
   OnShow = FormShow
   Position = poScreenCenter
   ShowHint = True
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.0.2.0'
   object DBEdit1: TDBEdit
     Left = 16
     Height = 24
@@ -313,12 +313,10 @@ object frmOrdenTrabajoAE: TfrmOrdenTrabajoAE
       Height = 24
       Top = 16
       Width = 96
-      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
-      OKCaption = 'OK'
-      CancelCaption = 'Cancel'
-      DateOrder = doNone
       ButtonWidth = 23
+      CancelCaption = 'Cancel'
       CharCase = ecNormal
+      DialogTitle = 'Seleccionar Fecha'
       Glyph.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
         2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -355,9 +353,12 @@ object frmOrdenTrabajoAE: TfrmOrdenTrabajoAE
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
+      MaxLength = 10
       NumGlyphs = 0
-      MaxLength = 0
+      OKCaption = 'OK'
+      PopupColor = clWindow
       TabOrder = 0
+      Text = '  /  /    '
       DataField = 'fAnulada'
       DataSource = DS_OrdenTrabajo
     end
@@ -441,13 +442,11 @@ object frmOrdenTrabajoAE: TfrmOrdenTrabajoAE
     Height = 24
     Top = 64
     Width = 110
-    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
-    OKCaption = 'OK'
-    CancelCaption = 'Cancel'
-    DefaultToday = True
-    DateOrder = doNone
     ButtonWidth = 23
+    CancelCaption = 'Cancel'
     CharCase = ecNormal
+    DefaultToday = True
+    DialogTitle = 'Seleccionar Fecha'
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -484,9 +483,12 @@ object frmOrdenTrabajoAE: TfrmOrdenTrabajoAE
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
+    MaxLength = 10
     NumGlyphs = 0
-    MaxLength = 0
+    OKCaption = 'OK'
+    PopupColor = clWindow
     TabOrder = 11
+    Text = '  /  /    '
     DataField = 'fAlta'
     DataSource = DS_OrdenTrabajo
   end

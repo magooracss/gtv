@@ -38,10 +38,8 @@ object frmPresupuestoAE: TfrmPresupuestoAE
       Height = 24
       Top = 32
       Width = 89
-      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
       OKCaption = 'OK'
       CancelCaption = 'Cancel'
-      DateOrder = doNone
       ButtonWidth = 23
       CharCase = ecNormal
       Glyph.Data = {
@@ -172,11 +170,9 @@ object frmPresupuestoAE: TfrmPresupuestoAE
         Height = 24
         Top = 22
         Width = 89
-        CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
         OKCaption = 'OK'
         CancelCaption = 'Cancel'
         DefaultToday = True
-        DateOrder = doNone
         ButtonWidth = 23
         CharCase = ecNormal
         Glyph.Data = {

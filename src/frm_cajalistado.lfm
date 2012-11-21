@@ -30,10 +30,8 @@ object frmCajaListado: TfrmCajaListado
       Height = 24
       Top = 35
       Width = 112
-      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
       OKCaption = 'OK'
       CancelCaption = 'Cancel'
-      DateOrder = doNone
       ButtonWidth = 23
       CharCase = ecNormal
       Glyph.Data = {
@@ -81,10 +79,8 @@ object frmCajaListado: TfrmCajaListado
       Height = 24
       Top = 35
       Width = 112
-      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
       OKCaption = 'OK'
       CancelCaption = 'Cancel'
-      DateOrder = doNone
       ButtonWidth = 23
       CharCase = ecNormal
       Glyph.Data = {

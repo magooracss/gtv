@@ -83,7 +83,7 @@ uses
 
 procedure TfrmGrupoRemitos.FormCreate(Sender: TObject);
 begin
-  Application.CreateForm(TDM_GrupoRemitos, DM_GrupoRemitos);
+//  Application.CreateForm(TDM_GrupoRemitos, DM_GrupoRemitos);
   idEdificio:= GUIDNULO;
 end;
 
@@ -92,7 +92,7 @@ var
   pant: TfrmBuscarCliente;
 begin
   try
-    Application.CreateForm(TDM_BuscarCliente, DM_BuscarCliente);
+//    Application.CreateForm(TDM_BuscarCliente, DM_BuscarCliente);
     pant:= TfrmBuscarCliente.Create(self);
     try
       if pant.ShowModal = mrOK then
@@ -104,7 +104,7 @@ begin
       pant.Free;
     end;
   finally
-    DM_BuscarCliente.Free;
+   // DM_BuscarCliente.Free;
   end;
 end;
 
@@ -160,7 +160,7 @@ end;
 
 procedure TfrmGrupoRemitos.FormDestroy(Sender: TObject);
 begin
-  DM_GrupoRemitos.Free;
+//  DM_GrupoRemitos.Free;
 end;
 
 procedure TfrmGrupoRemitos.FormShow(Sender: TObject);

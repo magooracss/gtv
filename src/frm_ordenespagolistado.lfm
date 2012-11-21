@@ -2,10 +2,10 @@ object frmOrdenesPagoListado: TfrmOrdenesPagoListado
   Left = 0
   Height = 447
   Top = 11
-  Width = 632
+  Width = 894
   Caption = 'Listado Ordenes de Pago'
   ClientHeight = 447
-  ClientWidth = 632
+  ClientWidth = 894
   Font.CharSet = ANSI_CHARSET
   Font.Color = clBlack
   Font.Height = -13
@@ -15,21 +15,21 @@ object frmOrdenesPagoListado: TfrmOrdenesPagoListado
   OnShow = FormShow
   Position = poOwnerFormCenter
   ShowHint = True
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.0.2.0'
   object Panel1: TPanel
     Left = 0
     Height = 61
     Top = 0
-    Width = 632
+    Width = 894
     Align = alTop
     ClientHeight = 61
-    ClientWidth = 632
+    ClientWidth = 894
     TabOrder = 0
     object edDato: TEdit
       Left = 316
       Height = 24
       Top = 22
-      Width = 182
+      Width = 444
       Anchors = [akTop, akLeft, akRight]
       OnKeyPress = edDatoKeyPress
       TabOrder = 0
@@ -45,7 +45,7 @@ object frmOrdenesPagoListado: TfrmOrdenesPagoListado
       Text = 'cbCriterio'
     end
     object btnBuscar: TBitBtn
-      Left = 509
+      Left = 771
       Height = 30
       Top = 18
       Width = 90
@@ -119,13 +119,13 @@ object frmOrdenesPagoListado: TfrmOrdenesPagoListado
     Left = 0
     Height = 50
     Top = 397
-    Width = 632
+    Width = 894
     Align = alBottom
     ClientHeight = 50
-    ClientWidth = 632
+    ClientWidth = 894
     TabOrder = 1
     object btnNuevaOP: TBitBtn
-      Left = 232
+      Left = 431
       Height = 30
       Top = 11
       Width = 127
@@ -171,7 +171,7 @@ object frmOrdenesPagoListado: TfrmOrdenesPagoListado
       TabOrder = 0
     end
     object btnModificarOP: TBitBtn
-      Left = 372
+      Left = 571
       Height = 30
       Top = 11
       Width = 127
@@ -217,7 +217,7 @@ object frmOrdenesPagoListado: TfrmOrdenesPagoListado
       TabOrder = 1
     end
     object btnEliminarOP: TBitBtn
-      Left = 505
+      Left = 704
       Height = 30
       Top = 11
       Width = 127
@@ -312,7 +312,7 @@ object frmOrdenesPagoListado: TfrmOrdenesPagoListado
     Left = 0
     Height = 336
     Top = 61
-    Width = 632
+    Width = 894
     Align = alClient
     AutoFillColumns = True
     Color = clWindow
@@ -336,7 +336,7 @@ object frmOrdenesPagoListado: TfrmOrdenesPagoListado
       item
         Title.Alignment = taCenter
         Title.Caption = 'Proveedor'
-        Width = 286
+        Width = 548
         FieldName = 'Proveedor'
       end    
       item

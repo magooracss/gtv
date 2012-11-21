@@ -15,18 +15,16 @@ object frmCajaConceptoAE: TfrmCajaConceptoAE
   OnShow = FormShow
   Position = poOwnerFormCenter
   ShowHint = True
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.0.2.0'
   object DBDateEdit1: TDBDateEdit
     Left = 9
     Height = 24
     Top = 24
     Width = 96
-    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
-    OKCaption = 'OK'
-    CancelCaption = 'Cancel'
-    DateOrder = doNone
     ButtonWidth = 23
+    CancelCaption = 'Cancel'
     CharCase = ecNormal
+    DialogTitle = 'Seleccionar Fecha'
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -63,9 +61,12 @@ object frmCajaConceptoAE: TfrmCajaConceptoAE
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
+    MaxLength = 10
     NumGlyphs = 0
-    MaxLength = 0
+    OKCaption = 'OK'
+    PopupColor = clWindow
     TabOrder = 0
+    Text = '  /  /    '
     DataField = 'fFecha'
     DataSource = DS_CajaConcepto
   end
@@ -483,7 +484,7 @@ object frmCajaConceptoAE: TfrmCajaConceptoAE
   end
   object DS_CajaConcepto: TDatasource
     DataSet = DM_CAJA.tbCajaConceptos
-    left = 260
-    top = 301
+    left = 265
+    top = 286
   end
 end

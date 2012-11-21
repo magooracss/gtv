@@ -1,7 +1,7 @@
 object frmGrupoRemitos: TfrmGrupoRemitos
-  Left = 67
+  Left = 233
   Height = 484
-  Top = 87
+  Top = 214
   Width = 1111
   Caption = 'Remitos'
   ClientHeight = 484
@@ -16,7 +16,7 @@ object frmGrupoRemitos: TfrmGrupoRemitos
   OnDestroy = FormDestroy
   OnShow = FormShow
   Position = poOwnerFormCenter
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.0.2.0'
   object Panel1: TPanel
     Left = 0
     Height = 128
@@ -85,7 +85,7 @@ object frmGrupoRemitos: TfrmGrupoRemitos
         CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
         OKCaption = 'OK'
         CancelCaption = 'Cancel'
-        DateOrder = doDMY
+        DateOrder = doNone
         ButtonWidth = 23
         CharCase = ecNormal
         Glyph.Data = {
@@ -137,7 +137,7 @@ object frmGrupoRemitos: TfrmGrupoRemitos
         OKCaption = 'OK'
         CancelCaption = 'Cancel'
         DefaultToday = True
-        DateOrder = doDMY
+        DateOrder = doNone
         ButtonWidth = 23
         CharCase = ecNormal
         Glyph.Data = {

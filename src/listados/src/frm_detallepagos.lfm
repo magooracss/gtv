@@ -30,10 +30,8 @@ object frmDetallePagos: TfrmDetallePagos
       Height = 24
       Top = 16
       Width = 100
-      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
       OKCaption = 'OK'
       CancelCaption = 'Cancel'
-      DateOrder = doNone
       ButtonWidth = 23
       CharCase = ecNormal
       Glyph.Data = {
@@ -81,10 +79,8 @@ object frmDetallePagos: TfrmDetallePagos
       Height = 24
       Top = 16
       Width = 100
-      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
       OKCaption = 'OK'
       CancelCaption = 'Cancel'
-      DateOrder = doNone
       ButtonWidth = 23
       CharCase = ecNormal
       Glyph.Data = {

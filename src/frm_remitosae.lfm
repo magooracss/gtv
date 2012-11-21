@@ -108,11 +108,9 @@ object frmRemitosAE: TfrmRemitosAE
     Height = 24
     Top = 72
     Width = 110
-    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
     OKCaption = 'OK'
     CancelCaption = 'Cancel'
     DefaultToday = True
-    DateOrder = doDMY
     ButtonWidth = 23
     CharCase = ecNormal
     Glyph.Data = {

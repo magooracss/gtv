@@ -20,6 +20,12 @@ type
     qLevantarPlanDeCuentas: TZQuery;
     qFiltrarCodigo: TZQuery;
     qFiltrarCuenta: TZQuery;
+    qLevantarPlanDeCuentasBVISIBLE: TSmallintField;
+    qLevantarPlanDeCuentasCODIGO: TStringField;
+    qLevantarPlanDeCuentasCUENTA: TStringField;
+    qLevantarPlanDeCuentasIDCUENTA: TLongintField;
+    qLevantarPlanDeCuentasOPERACION: TStringField;
+    qLevantarPlanDeCuentasPORCIVA: TFloatField;
     tugPlanDeCuentasSEL: TZQuery;
     tbPlanDeCuentas: TRxMemoryData;
     tbPlanDeCuentasbVisible: TLongintField;
@@ -30,8 +36,20 @@ type
     tbPlanDeCuentasPorcIVA: TFloatField;
     tugPlanDeCuentasINS: TZQuery;
     qCuentaPorCodigo: TZQuery;
+    tugPlanDeCuentasSELBVISIBLE: TSmallintField;
+    tugPlanDeCuentasSELCODIGO: TStringField;
+    tugPlanDeCuentasSELCUENTA: TStringField;
+    tugPlanDeCuentasSELIDCUENTA: TLongintField;
+    tugPlanDeCuentasSELOPERACION: TStringField;
+    tugPlanDeCuentasSELPORCIVA: TFloatField;
     tugPlanDeCuentasUPD: TZQuery;
     tugPlanDeCuentasDEL: TZQuery;
+    ZQuery1BVISIBLE: TSmallintField;
+    ZQuery1CODIGO: TStringField;
+    ZQuery1CUENTA: TStringField;
+    ZQuery1IDCUENTA: TLongintField;
+    ZQuery1OPERACION: TStringField;
+    ZQuery1PORCIVA: TFloatField;
     procedure tbPlanDeCuentasAfterInsert(DataSet: TDataSet);
   private
     function getCodigo: string;

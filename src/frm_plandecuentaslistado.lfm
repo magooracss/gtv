@@ -1,11 +1,11 @@
 object frmPlanDeCuentasListado: TfrmPlanDeCuentasListado
-  Left = 432
-  Height = 307
-  Top = 250
-  Width = 725
+  Left = 435
+  Height = 516
+  Top = 245
+  Width = 901
   Caption = 'Plan de Cuentas'
-  ClientHeight = 307
-  ClientWidth = 725
+  ClientHeight = 516
+  ClientWidth = 901
   Font.CharSet = ANSI_CHARSET
   Font.Color = clBlack
   Font.Height = -13
@@ -14,25 +14,25 @@ object frmPlanDeCuentasListado: TfrmPlanDeCuentasListado
   Font.Quality = fqDraft
   OnShow = FormShow
   Position = poOwnerFormCenter
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.0.2.0'
   object Panel1: TPanel
     Left = 0
     Height = 79
     Top = 0
-    Width = 725
+    Width = 901
     Align = alTop
     ClientHeight = 79
-    ClientWidth = 725
+    ClientWidth = 901
     TabOrder = 0
     object GroupBox1: TGroupBox
       Left = 1
       Height = 77
       Top = 1
-      Width = 723
+      Width = 899
       Align = alClient
       Caption = 'Filtrar'
       ClientHeight = 59
-      ClientWidth = 719
+      ClientWidth = 895
       TabOrder = 0
       object Label1: TLabel
         Left = 12
@@ -54,7 +54,7 @@ object frmPlanDeCuentasListado: TfrmPlanDeCuentasListado
         Left = 163
         Height = 24
         Top = 18
-        Width = 391
+        Width = 567
         Anchors = [akTop, akLeft, akRight]
         OnKeyPress = edConceptoKeyPress
         TabOrder = 1
@@ -68,10 +68,11 @@ object frmPlanDeCuentasListado: TfrmPlanDeCuentasListado
         ParentColor = False
       end
       object btnQuitarFiltros: TBitBtn
-        Left = 593
+        Left = 772
         Height = 30
-        Top = 17
+        Top = 13
         Width = 111
+        Anchors = [akTop, akRight]
         Caption = 'Quitar Filtros'
         Glyph.Data = {
           36040000424D3604000000000000360000002800000010000000100000000100
@@ -117,11 +118,11 @@ object frmPlanDeCuentasListado: TfrmPlanDeCuentasListado
   object Panel2: TPanel
     Left = 0
     Height = 50
-    Top = 257
-    Width = 725
+    Top = 466
+    Width = 901
     Align = alBottom
     ClientHeight = 50
-    ClientWidth = 725
+    ClientWidth = 901
     TabOrder = 1
     object btnAceptar: TBitBtn
       Left = 13
@@ -169,7 +170,7 @@ object frmPlanDeCuentasListado: TfrmPlanDeCuentasListado
       TabOrder = 0
     end
     object btnNueva: TBitBtn
-      Left = 374
+      Left = 550
       Height = 30
       Top = 10
       Width = 98
@@ -215,7 +216,7 @@ object frmPlanDeCuentasListado: TfrmPlanDeCuentasListado
       TabOrder = 1
     end
     object btnModificar: TBitBtn
-      Left = 485
+      Left = 661
       Height = 30
       Top = 10
       Width = 98
@@ -261,7 +262,7 @@ object frmPlanDeCuentasListado: TfrmPlanDeCuentasListado
       TabOrder = 2
     end
     object btnEliminar: TBitBtn
-      Left = 597
+      Left = 773
       Height = 30
       Top = 10
       Width = 98
@@ -309,9 +310,9 @@ object frmPlanDeCuentasListado: TfrmPlanDeCuentasListado
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Height = 178
+    Height = 387
     Top = 79
-    Width = 725
+    Width = 901
     Align = alClient
     AutoFillColumns = True
     Color = clWindow
@@ -326,7 +327,7 @@ object frmPlanDeCuentasListado: TfrmPlanDeCuentasListado
       item
         Title.Alignment = taCenter
         Title.Caption = 'Cuenta'
-        Width = 503
+        Width = 679
         FieldName = 'Cuenta'
       end    
       item

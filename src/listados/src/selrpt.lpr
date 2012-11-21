@@ -7,15 +7,16 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, rxnew, pack_powerpdf, lazreport, lazreportpdfexport, zcomponent,
-  frm_sellistado, dmconexion, SD_Configuracion, frm_busquedaclientes,
-  dmbuscarcliente, dmgeneral, frm_proveedoreslistado, frm_proveedoresae,
-  dmproveedores, frm_plandecuentasae, dmplandecuentas, frm_plandecuentaslistado,
-  dmseleccionlistado, frm_gruporemitos, dmgruporemitos, dmgrupocuentas,
-  frm_grupocuentas, frm_grupoproveedores, dmgrupoproveedores,
-  frm_grupoprovpendientes, frm_subdiariocompras, frm_subdiariopagos,
-  frm_detallepagos, dmdetallepagos, frm_lstdetallegastos, frm_compsaldoscompras,
-  dmsaldoscompras;
+  Forms, rxnew, pack_powerpdf, memdslaz, zmsql, lazreport, lazreportpdfexport,
+  zcomponent, frm_sellistado, dmconexion, SD_Configuracion,
+  frm_busquedaclientes, dmbuscarcliente, dmgeneral, frm_proveedoreslistado,
+  frm_proveedoresae, dmproveedores, frm_plandecuentasae, dmplandecuentas,
+  frm_plandecuentaslistado, dmseleccionlistado, frm_gruporemitos,
+  dmgruporemitos, dmgrupocuentas, frm_grupocuentas, frm_grupoproveedores,
+  dmgrupoproveedores, frm_grupoprovpendientes, frm_subdiariocompras,
+  frm_subdiariopagos, frm_detallepagos, dmdetallepagos, frm_lstdetallegastos,
+  frm_compsaldoscompras, dmsaldoscompras, frm_proveedorcuentacorriente,
+  dmproveedorcc;
 
 {$R *.res}
 
@@ -31,8 +32,10 @@ begin
   Application.CreateForm(TDM_BuscarCliente, DM_BuscarCliente);
   Application.CreateForm(TDM_GrupoRemitos, DM_GrupoRemitos);
   Application.CreateForm(TfrmSeleccionListado, frmSeleccionListado);
-  Application.CreateForm(TfrmCompSaldosCompras, frmCompSaldosCompras);
-  Application.CreateForm(TDM_SaldosCompras, DM_SaldosCompras);
+//  Application.CreateForm(TfrmCompSaldosCompras, frmCompSaldosCompras);
+//  Application.CreateForm(TDM_SaldosCompras, DM_SaldosCompras);
+//  Application.CreateForm(TfrmProveedorCuentaCorriente, frmProveedorCuentaCorriente);
+  Application.CreateForm(TDM_ProveedorCC, DM_ProveedorCC);
   Application.Run;
 end.
 

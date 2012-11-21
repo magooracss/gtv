@@ -6,12 +6,17 @@ object DM_Conexion: TDM_Conexion
   VerticalOffset = 154
   Width = 400
   object cnxGeneral: TZConnection
-    Protocol = 'firebird-2.1'
+    UTF8StringsAsWideField = False
+    Properties.Strings = (
+      'PreprepareSQL=ON'
+    )
+    TransactIsolationLevel = tiReadCommitted
     HostName = 'localhost'
+    Port = 0
     Database = 'C:\prg\simas\GTV.FDB'
     User = 'SYSDBA'
     Password = 'masterkey'
-    TransactIsolationLevel = tiReadCommitted
+    Protocol = 'firebird-2.1'
     left = 96
     top = 96
   end

@@ -252,7 +252,7 @@ end;
 procedure Tfrm_ClientesAM.Inicializar;
 begin
   _idCliente:= GUIDNULO;
-  DM_General.LevantarTugsATablas(DM_Clientes);
+  DM_General.LevantarTugsATablas(TDataModule(DM_Clientes));
   DM_Clientes.LevantarConservadores;
   DM_Clientes.LevantarResponstablesTecnicos;
   DM_General.CargarComboBox(cbDestino,'Destino', 'idDestinoCliente', DM_Clientes.qtugDestinosCliente);

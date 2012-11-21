@@ -37,6 +37,10 @@ type
     frDataset: TfrDBDataSet;
     frShapeObject1: TfrShapeObject;
     ImgAcciones: TImageList;
+    qLevantarValoresIDVALOR: TLongintField;
+    qLevantarValoresNOMBRE: TStringField;
+    qLevantarValoresVALORINT: TLongintField;
+    qLevantarValoresVALORSTR: TStringField;
     RxMemoryData1: TRxMemoryData;
     qLevantarValores: TZQuery;
   private
@@ -88,6 +92,8 @@ type
     function TablaValoresInt (TipoValor: string): integer;
 
     function CmpIgualdadFloat(valor1, valor2: double): boolean;
+
+
 
   end;
 

@@ -318,7 +318,7 @@ uses
 
 procedure TDM_Equipos.DataModuleCreate(Sender: TObject);
 begin
-  DM_General.CambiarEstadoTablas(self, true);
+  DM_General.CambiarEstadoTablas(TDataModule(self), true);
 end;
 
 procedure TDM_Equipos.tbEquiposAfterInsert(DataSet: TDataSet);

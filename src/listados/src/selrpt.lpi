@@ -17,7 +17,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MinorVersionNr Value="2"/>
-      <BuildNr Value="4"/>
+      <BuildNr Value="16"/>
       <Language Value="080A"/>
       <StringTable ProductVersion=""/>
     </VersionInfo>
@@ -34,45 +34,51 @@
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="7">
+    <RequiredPackages Count="9">
       <Item1>
-        <PackageName Value="pack_powerpdf"/>
-        <MinVersion Minor="9" Release="7" Build="1" Valid="True"/>
+        <PackageName Value="zmsql"/>
       </Item1>
       <Item2>
-        <PackageName Value="lazreportpdfexport"/>
-        <MinVersion Minor="7" Valid="True"/>
+        <PackageName Value="MemDSLaz"/>
       </Item2>
       <Item3>
-        <PackageName Value="lazreport"/>
-        <MinVersion Minor="9" Release="8" Valid="True"/>
+        <PackageName Value="pack_powerpdf"/>
+        <MinVersion Minor="9" Release="7" Build="1" Valid="True"/>
       </Item3>
       <Item4>
-        <PackageName Value="rxnew"/>
-        <MinVersion Major="1" Minor="1" Release="4" Build="93" Valid="True"/>
+        <PackageName Value="lazreportpdfexport"/>
+        <MinVersion Minor="7" Valid="True"/>
       </Item4>
       <Item5>
-        <PackageName Value="zcomponent"/>
-        <MinVersion Major="6" Minor="6" Release="6" Valid="True"/>
+        <PackageName Value="lazreport"/>
+        <MinVersion Minor="9" Release="8" Valid="True"/>
       </Item5>
       <Item6>
-        <PackageName Value="FCL"/>
-        <MinVersion Major="1" Valid="True"/>
+        <PackageName Value="rxnew"/>
+        <MinVersion Major="1" Minor="1" Release="4" Build="93" Valid="True"/>
       </Item6>
       <Item7>
-        <PackageName Value="LCL"/>
+        <PackageName Value="zcomponent"/>
+        <MinVersion Major="6" Minor="6" Release="6" Valid="True"/>
       </Item7>
+      <Item8>
+        <PackageName Value="FCL"/>
+        <MinVersion Major="1" Valid="True"/>
+      </Item8>
+      <Item9>
+        <PackageName Value="LCL"/>
+      </Item9>
     </RequiredPackages>
-    <Units Count="37">
+    <Units Count="53">
       <Unit0>
         <Filename Value="selrpt.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="selrpt"/>
-        <EditorIndex Value="12"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="6"/>
-        <CursorPos X="46" Y="21"/>
-        <UsageCount Value="135"/>
+        <TopLine Value="3"/>
+        <CursorPos X="58" Y="32"/>
+        <UsageCount Value="151"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -81,13 +87,10 @@
         <ComponentName Value="frmSeleccionListado"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_sellistado"/>
-        <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="216"/>
-        <CursorPos X="35" Y="227"/>
-        <UsageCount Value="135"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <TopLine Value="219"/>
+        <CursorPos X="18" Y="226"/>
+        <UsageCount Value="151"/>
       </Unit1>
       <Unit2>
         <Filename Value="..\..\dmgeneral.pas"/>
@@ -96,13 +99,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmgeneral"/>
-        <EditorIndex Value="11"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="440"/>
-        <CursorPos X="4" Y="463"/>
-        <UsageCount Value="120"/>
+        <TopLine Value="66"/>
+        <CursorPos X="30" Y="82"/>
+        <UsageCount Value="136"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="..\..\dmconexion.pas"/>
@@ -111,12 +114,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmConexion"/>
-        <EditorIndex Value="13"/>
         <WindowIndex Value="0"/>
         <TopLine Value="17"/>
         <CursorPos X="48" Y="45"/>
-        <UsageCount Value="135"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="151"/>
       </Unit3>
       <Unit4>
         <Filename Value="..\..\SD_Configuracion.pas"/>
@@ -125,7 +126,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="28"/>
         <CursorPos X="36" Y="39"/>
-        <UsageCount Value="135"/>
+        <UsageCount Value="151"/>
       </Unit4>
       <Unit5>
         <Filename Value="dmseleccionlistado.pas"/>
@@ -133,35 +134,39 @@
         <ComponentName Value="DM_SeleccionListado"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmseleccionlistado"/>
-        <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
         <TopLine Value="117"/>
         <CursorPos X="66" Y="151"/>
-        <UsageCount Value="135"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="151"/>
       </Unit5>
       <Unit6>
         <Filename Value="frm_gruporemitos.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmGrupoRemitos"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_gruporemitos"/>
+        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="148"/>
-        <CursorPos X="37" Y="148"/>
-        <UsageCount Value="129"/>
+        <TopLine Value="132"/>
+        <CursorPos X="3" Y="163"/>
+        <UsageCount Value="145"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="dmgruporemitos.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_GrupoRemitos"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmgruporemitos"/>
+        <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="110"/>
-        <CursorPos X="70" Y="156"/>
-        <UsageCount Value="129"/>
+        <TopLine Value="27"/>
+        <CursorPos X="72" Y="43"/>
+        <UsageCount Value="145"/>
+        <Loaded Value="True"/>
       </Unit7>
       <Unit8>
         <Filename Value="..\..\frm_busquedaclientes.pas"/>
@@ -170,10 +175,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_busquedaclientes"/>
+        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="21"/>
-        <CursorPos X="3" Y="56"/>
-        <UsageCount Value="124"/>
+        <TopLine Value="25"/>
+        <CursorPos X="122" Y="35"/>
+        <UsageCount Value="140"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit8>
       <Unit9>
         <Filename Value="..\..\dmbuscarcliente.pas"/>
@@ -182,7 +190,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmbuscarcliente"/>
-        <UsageCount Value="124"/>
+        <EditorIndex Value="5"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="72"/>
+        <CursorPos X="6" Y="98"/>
+        <UsageCount Value="140"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit9>
       <Unit10>
         <Filename Value="..\..\..\..\..\Utiles\lazarus\lcl\controls.pp"/>
@@ -190,7 +204,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="99"/>
         <CursorPos X="3" Y="129"/>
-        <UsageCount Value="2"/>
+        <UsageCount Value="1"/>
       </Unit10>
       <Unit11>
         <Filename Value="..\..\..\..\..\Utiles\lazarus\components\fpspreadsheet\uvirtuallayer_types.pas"/>
@@ -198,7 +212,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="62"/>
         <CursorPos X="24" Y="77"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit11>
       <Unit12>
         <Filename Value="..\..\..\..\..\Utiles\lazarus\components\lazreport\source\lr_class.pas"/>
@@ -206,7 +220,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="965"/>
         <CursorPos X="58" Y="978"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
       </Unit12>
       <Unit13>
         <Filename Value="dmgrupocuentas.pas"/>
@@ -215,13 +229,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmgrupocuentas"/>
-        <EditorIndex Value="9"/>
         <WindowIndex Value="0"/>
         <TopLine Value="142"/>
         <CursorPos X="40" Y="150"/>
-        <UsageCount Value="113"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="129"/>
       </Unit13>
       <Unit14>
         <Filename Value="frm_grupocuentas.pas"/>
@@ -230,27 +241,24 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_grupocuentas"/>
-        <EditorIndex Value="10"/>
         <WindowIndex Value="0"/>
         <TopLine Value="83"/>
         <CursorPos X="43" Y="110"/>
-        <UsageCount Value="113"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="129"/>
       </Unit14>
       <Unit15>
         <Filename Value="..\..\..\..\..\Utiles\lazarus\fpc\2.4.2\source\rtl\objpas\sysutils\datih.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="121"/>
         <CursorPos X="19" Y="132"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit15>
       <Unit16>
         <Filename Value="..\..\..\..\..\Utiles\lazarus\fpc\2.4.2\source\rtl\objpas\sysutils\sysinth.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="30"/>
         <CursorPos X="3" Y="33"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit16>
       <Unit17>
         <Filename Value="..\..\frm_proveedoreslistado.pas"/>
@@ -262,14 +270,14 @@
         <WindowIndex Value="0"/>
         <TopLine Value="37"/>
         <CursorPos X="42" Y="20"/>
-        <UsageCount Value="82"/>
+        <UsageCount Value="98"/>
       </Unit17>
       <Unit18>
         <Filename Value="..\..\frm_proveedoresae.pas"/>
         <IsPartOfProject Value="True"/>
         <HasResources Value="True"/>
         <UnitName Value="frm_proveedoresae"/>
-        <UsageCount Value="82"/>
+        <UsageCount Value="98"/>
       </Unit18>
       <Unit19>
         <Filename Value="..\..\dmproveedores.pas"/>
@@ -281,14 +289,14 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="79" Y="9"/>
-        <UsageCount Value="82"/>
+        <UsageCount Value="98"/>
       </Unit19>
       <Unit20>
         <Filename Value="..\..\frm_plandecuentasae.pas"/>
         <IsPartOfProject Value="True"/>
         <HasResources Value="True"/>
         <UnitName Value="frm_plandecuentasae"/>
-        <UsageCount Value="82"/>
+        <UsageCount Value="98"/>
       </Unit20>
       <Unit21>
         <Filename Value="..\..\dmplandecuentas.pas"/>
@@ -298,45 +306,38 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="45" Y="17"/>
-        <UsageCount Value="82"/>
+        <UsageCount Value="98"/>
       </Unit21>
       <Unit22>
         <Filename Value="..\..\frm_plandecuentaslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <HasResources Value="True"/>
         <UnitName Value="frm_plandecuentaslistado"/>
-        <UsageCount Value="82"/>
+        <UsageCount Value="98"/>
       </Unit22>
       <Unit23>
         <Filename Value="frm_grupoproveedores.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmGrupoProveedores"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_grupoproveedores"/>
-        <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="62"/>
-        <CursorPos X="1" Y="66"/>
-        <UsageCount Value="78"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <TopLine Value="28"/>
+        <CursorPos X="123" Y="44"/>
+        <UsageCount Value="94"/>
       </Unit23>
       <Unit24>
         <Filename Value="dmgrupoproveedores.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_GrupoProveedores"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmgrupoproveedores"/>
-        <EditorIndex Value="14"/>
         <WindowIndex Value="0"/>
         <TopLine Value="203"/>
         <CursorPos X="65" Y="223"/>
-        <UsageCount Value="78"/>
-        <Bookmarks Count="1">
-          <Item0 X="79" Y="112" ID="1"/>
-        </Bookmarks>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="94"/>
       </Unit24>
       <Unit25>
         <Filename Value="frm_grupoprovpendientes.pas"/>
@@ -347,7 +348,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="47"/>
         <CursorPos X="48" Y="61"/>
-        <UsageCount Value="59"/>
+        <UsageCount Value="75"/>
       </Unit25>
       <Unit26>
         <Filename Value="frm_subdiariocompras.pas"/>
@@ -358,7 +359,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="71"/>
         <CursorPos X="29" Y="75"/>
-        <UsageCount Value="51"/>
+        <UsageCount Value="67"/>
       </Unit26>
       <Unit27>
         <Filename Value="..\..\..\..\..\Utiles\lazarus\fpc\2.4.2\source\rtl\objpas\dateutils.pp"/>
@@ -366,28 +367,26 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="8" Y="1"/>
-        <UsageCount Value="15"/>
+        <UsageCount Value="14"/>
       </Unit27>
       <Unit28>
         <Filename Value="..\..\..\..\..\Utiles\lazarus\fpc\2.4.2\source\rtl\objpas\dateutil.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="131"/>
         <CursorPos X="10" Y="143"/>
-        <UsageCount Value="15"/>
+        <UsageCount Value="14"/>
       </Unit28>
       <Unit29>
         <Filename Value="frm_subdiariopagos.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmSubdiarioDePagos"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_subdiariopagos"/>
-        <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="67"/>
+        <TopLine Value="59"/>
         <CursorPos X="1" Y="69"/>
-        <UsageCount Value="47"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="63"/>
       </Unit29>
       <Unit30>
         <Filename Value="..\..\..\..\..\Utiles\lazarus\components\lazreport\source\addons\pdfexport\lr_e_pdf.pas"/>
@@ -395,7 +394,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="24"/>
         <CursorPos X="25" Y="32"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit30>
       <Unit31>
         <Filename Value="frm_detallepagos.pas"/>
@@ -403,13 +402,10 @@
         <ComponentName Value="frmDetallePagos"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_detallepagos"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="24" Y="8"/>
-        <UsageCount Value="40"/>
-        <Loaded Value="True"/>
+        <TopLine Value="49"/>
+        <CursorPos X="3" Y="71"/>
+        <UsageCount Value="56"/>
       </Unit31>
       <Unit32>
         <Filename Value="dmdetallepagos.pas"/>
@@ -417,27 +413,22 @@
         <ComponentName Value="DM_DetallePagos"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmdetallepagos"/>
-        <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
         <TopLine Value="92"/>
         <CursorPos X="31" Y="85"/>
-        <UsageCount Value="40"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="56"/>
       </Unit32>
       <Unit33>
         <Filename Value="frm_lstdetallegastos.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_lstdetallegastos"/>
-        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="8"/>
+        <TopLine Value="1"/>
         <CursorPos X="49" Y="20"/>
-        <UsageCount Value="29"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="45"/>
       </Unit33>
       <Unit34>
         <Filename Value="..\..\..\..\..\Utiles\lazarus\fpc\2.4.2\source\rtl\objpas\strutils.pp"/>
@@ -445,162 +436,296 @@
         <WindowIndex Value="0"/>
         <TopLine Value="139"/>
         <CursorPos X="28" Y="145"/>
-        <UsageCount Value="12"/>
+        <UsageCount Value="11"/>
       </Unit34>
       <Unit35>
         <Filename Value="frm_compsaldoscompras.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmCompSaldosCompras"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_compsaldoscompras"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="72"/>
-        <CursorPos X="59" Y="75"/>
-        <UsageCount Value="24"/>
+        <TopLine Value="37"/>
+        <CursorPos X="16" Y="51"/>
+        <UsageCount Value="40"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit35>
       <Unit36>
         <Filename Value="dmsaldoscompras.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_SaldosCompras"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmsaldoscompras"/>
-        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="59"/>
-        <CursorPos X="29" Y="68"/>
-        <UsageCount Value="24"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <TopLine Value="34"/>
+        <CursorPos X="50" Y="40"/>
+        <UsageCount Value="40"/>
       </Unit36>
+      <Unit37>
+        <Filename Value="frm_proveedorcuentacorriente.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmProveedorCuentaCorriente"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frm_proveedorcuentacorriente"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="108"/>
+        <CursorPos X="47" Y="76"/>
+        <UsageCount Value="35"/>
+        <Loaded Value="True"/>
+      </Unit37>
+      <Unit38>
+        <Filename Value="dmproveedorcc.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DM_ProveedorCC"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="dmproveedorcc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="203"/>
+        <CursorPos X="87" Y="204"/>
+        <UsageCount Value="35"/>
+      </Unit38>
+      <Unit39>
+        <Filename Value="..\..\..\..\..\Utiles\lazarus\components\rxfpc\rxmemds.pas"/>
+        <UnitName Value="rxmemds"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="11"/>
+        <Bookmarks Count="1">
+          <Item0 X="3" Y="1354" ID="1"/>
+        </Bookmarks>
+      </Unit39>
+      <Unit40>
+        <Filename Value="..\..\..\..\..\Utiles\lazarus\components\zeos\src\component\ZDataset.pas"/>
+        <UnitName Value="ZDataset"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="66"/>
+        <CursorPos X="3" Y="85"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit40>
+      <Unit41>
+        <Filename Value="..\..\..\..\..\Utiles\lazarus\fpc\2.4.2\source\packages\fcl-db\src\base\db.pas"/>
+        <UnitName Value="db"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1142"/>
+        <CursorPos X="17" Y="1161"/>
+        <UsageCount Value="11"/>
+      </Unit41>
+      <Unit42>
+        <Filename Value="..\..\..\..\..\Utiles\lazarus\fpc\2.4.2\source\packages\fcl-db\src\base\dataset.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1100"/>
+        <CursorPos X="1" Y="1108"/>
+        <UsageCount Value="11"/>
+      </Unit42>
+      <Unit43>
+        <Filename Value="..\..\..\..\..\Utiles\lazarus\components\rxnew\folderlister.pas"/>
+        <UnitName Value="folderlister"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="162"/>
+        <CursorPos X="49" Y="170"/>
+        <UsageCount Value="10"/>
+      </Unit43>
+      <Unit44>
+        <Filename Value="..\..\..\..\..\Utiles\lazarus\components\rxnew\rxmemds.pas"/>
+        <UnitName Value="rxmemds"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1633"/>
+        <CursorPos X="3" Y="1614"/>
+        <UsageCount Value="10"/>
+      </Unit44>
+      <Unit45>
+        <Filename Value="..\..\..\..\..\Utiles\lazarus\components\fpspreadsheet\laz_fpspreadsheet.pas"/>
+        <UnitName Value="laz_fpspreadsheet"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="43" Y="10"/>
+        <UsageCount Value="10"/>
+      </Unit45>
+      <Unit46>
+        <Filename Value="dmproveedorcc.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="49" Y="17"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit46>
+      <Unit47>
+        <Filename Value="E:\Trabajo\Utiles\lazarus\lcl\include\control.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="2094"/>
+        <CursorPos X="1" Y="2112"/>
+        <UsageCount Value="10"/>
+      </Unit47>
+      <Unit48>
+        <Filename Value="E:\Trabajo\Utiles\lazarus\lcl\include\buttoncontrol.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="8"/>
+        <CursorPos X="1" Y="22"/>
+        <UsageCount Value="10"/>
+      </Unit48>
+      <Unit49>
+        <Filename Value="E:\Trabajo\Utiles\lazarus\lcl\include\buttons.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="157"/>
+        <CursorPos X="1" Y="176"/>
+        <UsageCount Value="10"/>
+      </Unit49>
+      <Unit50>
+        <Filename Value="E:\Trabajo\Utiles\lazarus\lcl\include\bitbtn.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="40"/>
+        <CursorPos X="1" Y="59"/>
+        <UsageCount Value="10"/>
+      </Unit50>
+      <Unit51>
+        <Filename Value="E:\Trabajo\Utiles\lazarus\lcl\include\wincontrol.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="5314"/>
+        <CursorPos X="1" Y="5323"/>
+        <UsageCount Value="10"/>
+      </Unit51>
+      <Unit52>
+        <Filename Value="E:\Trabajo\Utiles\lazarus\lcl\lclmessageglue.pas"/>
+        <UnitName Value="LCLMessageGlue"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="106"/>
+        <CursorPos X="1" Y="124"/>
+        <UsageCount Value="10"/>
+      </Unit52>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="frm_compsaldoscompras.pas"/>
-        <Caret Line="80" Column="3" TopLine="75"/>
+        <Filename Value="..\..\dmbuscarcliente.pas"/>
+        <Caret Line="84" Column="1" TopLine="75"/>
       </Position1>
       <Position2>
-        <Filename Value="frm_compsaldoscompras.pas"/>
-        <Caret Line="61" Column="17" TopLine="49"/>
+        <Filename Value="..\..\dmbuscarcliente.pas"/>
+        <Caret Line="86" Column="1" TopLine="75"/>
       </Position2>
       <Position3>
-        <Filename Value="dmsaldoscompras.pas"/>
-        <Caret Line="21" Column="47" TopLine="7"/>
+        <Filename Value="..\..\dmbuscarcliente.pas"/>
+        <Caret Line="88" Column="1" TopLine="75"/>
       </Position3>
       <Position4>
-        <Filename Value="dmsaldoscompras.pas"/>
-        <Caret Line="19" Column="50" TopLine="16"/>
+        <Filename Value="..\..\dmbuscarcliente.pas"/>
+        <Caret Line="92" Column="1" TopLine="75"/>
       </Position4>
       <Position5>
-        <Filename Value="dmsaldoscompras.pas"/>
-        <Caret Line="43" Column="26" TopLine="10"/>
+        <Filename Value="..\..\dmbuscarcliente.pas"/>
+        <Caret Line="94" Column="1" TopLine="75"/>
       </Position5>
       <Position6>
-        <Filename Value="dmsaldoscompras.pas"/>
-        <Caret Line="44" Column="26" TopLine="21"/>
+        <Filename Value="..\..\dmbuscarcliente.pas"/>
+        <Caret Line="95" Column="1" TopLine="75"/>
       </Position6>
       <Position7>
-        <Filename Value="dmsaldoscompras.pas"/>
-        <Caret Line="45" Column="26" TopLine="22"/>
+        <Filename Value="..\..\dmbuscarcliente.pas"/>
+        <Caret Line="96" Column="1" TopLine="75"/>
       </Position7>
       <Position8>
-        <Filename Value="dmsaldoscompras.pas"/>
-        <Caret Line="46" Column="26" TopLine="23"/>
+        <Filename Value="..\..\dmbuscarcliente.pas"/>
+        <Caret Line="97" Column="1" TopLine="75"/>
       </Position8>
       <Position9>
-        <Filename Value="dmsaldoscompras.pas"/>
-        <Caret Line="47" Column="26" TopLine="24"/>
+        <Filename Value="..\..\dmbuscarcliente.pas"/>
+        <Caret Line="100" Column="1" TopLine="75"/>
       </Position9>
       <Position10>
-        <Filename Value="frm_compsaldoscompras.pas"/>
-        <Caret Line="80" Column="20" TopLine="53"/>
+        <Filename Value="..\..\frm_busquedaclientes.pas"/>
+        <Caret Line="98" Column="47" TopLine="86"/>
       </Position10>
       <Position11>
-        <Filename Value="dmsaldoscompras.pas"/>
-        <Caret Line="49" Column="21" TopLine="37"/>
+        <Filename Value="..\..\frm_busquedaclientes.pas"/>
+        <Caret Line="68" Column="3" TopLine="66"/>
       </Position11>
       <Position12>
-        <Filename Value="dmsaldoscompras.pas"/>
-        <Caret Line="64" Column="16" TopLine="44"/>
+        <Filename Value="..\..\frm_busquedaclientes.pas"/>
+        <Caret Line="118" Column="3" TopLine="86"/>
       </Position12>
       <Position13>
-        <Filename Value="dmsaldoscompras.pas"/>
-        <Caret Line="26" Column="28" TopLine="8"/>
+        <Filename Value="frm_gruporemitos.pas"/>
+        <Caret Line="150" Column="41" TopLine="159"/>
       </Position13>
       <Position14>
-        <Filename Value="dmsaldoscompras.pas"/>
-        <Caret Line="71" Column="85" TopLine="51"/>
+        <Filename Value="frm_gruporemitos.pas"/>
+        <Caret Line="100" Column="34" TopLine="90"/>
       </Position14>
       <Position15>
-        <Filename Value="dmsaldoscompras.pas"/>
-        <Caret Line="72" Column="85" TopLine="52"/>
+        <Filename Value="..\..\frm_busquedaclientes.pas"/>
+        <Caret Line="62" Column="44" TopLine="35"/>
       </Position15>
       <Position16>
-        <Filename Value="dmsaldoscompras.pas"/>
-        <Caret Line="75" Column="1" TopLine="68"/>
+        <Filename Value="frm_gruporemitos.pas"/>
+        <Caret Line="100" Column="34" TopLine="90"/>
       </Position16>
       <Position17>
-        <Filename Value="dmsaldoscompras.pas"/>
-        <Caret Line="74" Column="1" TopLine="61"/>
+        <Filename Value="..\..\frm_busquedaclientes.pas"/>
+        <Caret Line="40" Column="122" TopLine="30"/>
       </Position17>
       <Position18>
-        <Filename Value="frm_compsaldoscompras.pas"/>
-        <Caret Line="106" Column="36" TopLine="89"/>
+        <Filename Value="..\..\frm_busquedaclientes.pas"/>
+        <Caret Line="39" Column="122" TopLine="29"/>
       </Position18>
       <Position19>
-        <Filename Value="frm_grupoproveedores.pas"/>
-        <Caret Line="40" Column="62" TopLine="40"/>
+        <Filename Value="..\..\frm_busquedaclientes.pas"/>
+        <Caret Line="38" Column="122" TopLine="28"/>
       </Position19>
       <Position20>
-        <Filename Value="frm_compsaldoscompras.pas"/>
-        <Caret Line="31" Column="19" TopLine="21"/>
+        <Filename Value="..\..\frm_busquedaclientes.pas"/>
+        <Caret Line="37" Column="122" TopLine="27"/>
       </Position20>
       <Position21>
-        <Filename Value="frm_compsaldoscompras.pas"/>
-        <Caret Line="32" Column="19" TopLine="22"/>
+        <Filename Value="..\..\frm_busquedaclientes.pas"/>
+        <Caret Line="36" Column="122" TopLine="26"/>
       </Position21>
       <Position22>
-        <Filename Value="frm_compsaldoscompras.pas"/>
-        <Caret Line="31" Column="19" TopLine="21"/>
+        <Filename Value="..\..\frm_busquedaclientes.pas"/>
+        <Caret Line="35" Column="122" TopLine="25"/>
       </Position22>
       <Position23>
-        <Filename Value="frm_compsaldoscompras.pas"/>
-        <Caret Line="32" Column="19" TopLine="21"/>
+        <Filename Value="frm_gruporemitos.pas"/>
+        <Caret Line="107" Column="6" TopLine="90"/>
       </Position23>
       <Position24>
-        <Filename Value="frm_compsaldoscompras.pas"/>
-        <Caret Line="82" Column="3" TopLine="80"/>
+        <Filename Value="frm_gruporemitos.pas"/>
+        <Caret Line="125" Column="4" TopLine="123"/>
       </Position24>
       <Position25>
-        <Filename Value="frm_compsaldoscompras.pas"/>
-        <Caret Line="76" Column="18" TopLine="62"/>
+        <Filename Value="frm_gruporemitos.pas"/>
+        <Caret Line="86" Column="3" TopLine="69"/>
       </Position25>
       <Position26>
-        <Filename Value="frm_compsaldoscompras.pas"/>
-        <Caret Line="84" Column="1" TopLine="80"/>
+        <Filename Value="frm_gruporemitos.pas"/>
+        <Caret Line="191" Column="1" TopLine="160"/>
       </Position26>
       <Position27>
-        <Filename Value="frm_compsaldoscompras.pas"/>
-        <Caret Line="82" Column="8" TopLine="70"/>
+        <Filename Value="frm_gruporemitos.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
       </Position27>
       <Position28>
-        <Filename Value="frm_compsaldoscompras.pas"/>
-        <Caret Line="83" Column="8" TopLine="71"/>
+        <Filename Value="frm_gruporemitos.pas"/>
+        <Caret Line="104" Column="16" TopLine="73"/>
       </Position28>
       <Position29>
-        <Filename Value="frm_lstdetallegastos.pas"/>
-        <Caret Line="11" Column="31" TopLine="5"/>
+        <Filename Value="frm_gruporemitos.pas"/>
+        <Caret Line="107" Column="28" TopLine="76"/>
       </Position29>
       <Position30>
-        <Filename Value="frm_detallepagos.pas"/>
-        <Caret Line="46" Column="1" TopLine="29"/>
+        <Filename Value="..\..\dmgeneral.pas"/>
+        <Caret Line="16" Column="3" TopLine="1"/>
       </Position30>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
-    <Version Value="9"/>
+    <Version Value="11"/>
     <PathDelim Value="\"/>
     <Target>
       <Filename Value="selrpt"/>

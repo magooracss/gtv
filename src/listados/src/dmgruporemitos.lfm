@@ -1,8 +1,8 @@
 object DM_GrupoRemitos: TDM_GrupoRemitos
   OldCreateOrder = False
   Height = 305
-  HorizontalOffset = 442
-  VerticalOffset = 57
+  HorizontalOffset = 474
+  VerticalOffset = 159
   Width = 401
   object qGruposFacturacion: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -85,6 +85,7 @@ object DM_GrupoRemitos: TDM_GrupoRemitos
         Precision = 0
         Size = 300
       end>
+    PacketRecords = 0
     left = 63
     top = 24
   end

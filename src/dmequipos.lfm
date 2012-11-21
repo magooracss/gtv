@@ -374,6 +374,7 @@ object DM_Equipos: TDM_Equipos
         Size = 50
       end>
     AfterInsert = tbEquiposAfterInsert
+    PacketRecords = 0
     left = 85
     top = 32
     object tbEquiposidEquipo: TStringField
@@ -3735,6 +3736,7 @@ object DM_Equipos: TDM_Equipos
         Precision = -1
         Size = 3500
       end>
+    PacketRecords = 0
     left = 292
     top = 316
     object tbEquiposAnexosidEquipo01: TStringField

@@ -105,7 +105,7 @@ begin
   end;
 
   //Limpio las tablas de resultados
-  DM_General.CambiarEstadoTablas(DM_BuscarCliente, false);
+  DM_General.CambiarEstadoTablas(TDataModule(DM_BuscarCliente), false);
 end;
 
 procedure TfrmBuscarCliente.Buscar;

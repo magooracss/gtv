@@ -2,8 +2,8 @@ object DM_Compras: TDM_Compras
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 726
-  HorizontalOffset = 67
-  VerticalOffset = 0
+  HorizontalOffset = 261
+  VerticalOffset = 104
   Width = 1155
   object qBusComprasProv: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -85,6 +85,7 @@ object DM_Compras: TDM_Compras
         Precision = 0
         Size = 0
       end>
+    PacketRecords = 0
     left = 61
     top = 43
     object tbResultadosidCompra: TStringField
@@ -413,6 +414,7 @@ object DM_Compras: TDM_Compras
         Size = 0
       end>
     AfterInsert = tbComprasAfterInsert
+    PacketRecords = 0
     left = 230
     top = 46
     object tbComprasidCompra: TStringField
@@ -651,6 +653,7 @@ object DM_Compras: TDM_Compras
         Size = 500
       end>
     AfterInsert = tbComprasItemsAfterInsert
+    PacketRecords = 0
     left = 332
     top = 45
     object tbComprasItemsidCompraItem: TStringField
@@ -1600,6 +1603,7 @@ object DM_Compras: TDM_Compras
       end>
     AfterInsert = tbComprasFormasDePagoAfterInsert
     AfterPost = tbComprasFormasDePagoAfterPost
+    PacketRecords = 0
     left = 463
     top = 49
     object tbComprasFormasDePagoidOPFormaDePago: TStringField
@@ -1714,6 +1718,7 @@ object DM_Compras: TDM_Compras
     end
   end
   object tbCFormasDePagoSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'SELECT *'
       'FROM tbComprasFormasDePago '
@@ -1735,6 +1740,7 @@ object DM_Compras: TDM_Compras
       end>
   end
   object tbCFormasDePagoINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'INSERT INTO tbComprasFormasDePago'
       '(IDCompraFORMADEPAGO, REFCompra,  REFFORMAPAGO, REFCHEQUE, REFBANCO, NMONTO, BVISIBLE)'
@@ -1817,6 +1823,7 @@ object DM_Compras: TDM_Compras
       end>
   end
   object tbCFormasDePagoUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'UPDATE tbComprasFormasDePago'
       'SET'
@@ -1893,6 +1900,7 @@ object DM_Compras: TDM_Compras
       end>
   end
   object tbCFormasDePagoDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'UPDATE tbComprasFormasDePago'
       'SET bVisible = 0'
@@ -1914,6 +1922,7 @@ object DM_Compras: TDM_Compras
       end>
   end
   object qFormaPagoPorCompra: TZQuery
+    Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'SELECT *'
       'FROM tbComprasFormasDePago '
@@ -2126,6 +2135,7 @@ object DM_Compras: TDM_Compras
         Size = 0
       end>
     AfterInsert = tbComprasPorOPAfterInsert
+    PacketRecords = 0
     left = 800
     top = 43
     object tbComprasPorOPFecha: TDateField

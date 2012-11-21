@@ -213,7 +213,7 @@ end;
 
 procedure TDM_OrdenesDePago.DataModuleCreate(Sender: TObject);
 begin
-  DM_General.CambiarEstadoTablas(DM_OrdenesDePago, true);
+  DM_General.CambiarEstadoTablas(TDataModule(DM_OrdenesDePago), true);
 end;
 
 procedure TDM_OrdenesDePago.tbComprasPagosAfterPost(DataSet: TDataSet);

@@ -78,10 +78,8 @@ object frmCuotaAE: TfrmCuotaAE
     Height = 24
     Top = 43
     Width = 96
-    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
     OKCaption = 'OK'
     CancelCaption = 'Cancel'
-    DateOrder = doNone
     ButtonWidth = 23
     CharCase = ecNormal
     Glyph.Data = {
@@ -313,10 +311,8 @@ object frmCuotaAE: TfrmCuotaAE
     Height = 24
     Top = 43
     Width = 96
-    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
     OKCaption = 'OK'
     CancelCaption = 'Cancel'
-    DateOrder = doNone
     ButtonWidth = 23
     CharCase = ecNormal
     Glyph.Data = {

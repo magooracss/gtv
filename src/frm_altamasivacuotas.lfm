@@ -140,10 +140,8 @@ object frmAltaMasivaCuotas: TfrmAltaMasivaCuotas
     Height = 24
     Top = 80
     Width = 96
-    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
     OKCaption = 'OK'
     CancelCaption = 'Cancel'
-    DateOrder = doNone
     ButtonWidth = 23
     CharCase = ecNormal
     Glyph.Data = {

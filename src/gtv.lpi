@@ -10,7 +10,6 @@
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
       <Icon Value="0"/>
-      <ActiveWindowIndexAtStart Value="0"/>
     </General>
     <i18n>
       <EnableI18N LFM="False"/>
@@ -18,9 +17,8 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <MinorVersionNr Value="24"/>
-      <RevisionNr Value="1"/>
-      <BuildNr Value="35"/>
+      <MinorVersionNr Value="25"/>
+      <BuildNr Value="56"/>
       <Language Value="080A"/>
       <StringTable CompanyName="RACSS Programación" InternalName="gtv" LegalCopyright="RACSS de Carlos Enrique Rodriguez" LegalTrademarks="Carlos Enrique Rodriguez" ProductName="Gestión de Transportes Verticales" ProductVersion=""/>
     </VersionInfo>
@@ -62,7 +60,7 @@
         <PackageName Value="LCL"/>
       </Item6>
     </RequiredPackages>
-    <Units Count="76">
+    <Units Count="105">
       <Unit0>
         <Filename Value="gtv.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -76,10 +74,11 @@
         <Filename Value="frm_principal.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmPrincipal"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_principal"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="474"/>
+        <TopLine Value="467"/>
         <CursorPos X="3" Y="482"/>
         <UsageCount Value="205"/>
       </Unit1>
@@ -92,7 +91,7 @@
         <UnitName Value="dmConexion"/>
         <WindowIndex Value="0"/>
         <TopLine Value="22"/>
-        <CursorPos X="131" Y="26"/>
+        <CursorPos X="50" Y="39"/>
         <UsageCount Value="205"/>
       </Unit2>
       <Unit3>
@@ -103,8 +102,8 @@
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmgeneral"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="5" Y="11"/>
+        <TopLine Value="511"/>
+        <CursorPos X="18" Y="534"/>
         <UsageCount Value="205"/>
       </Unit3>
       <Unit4>
@@ -121,39 +120,39 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="versioninfo"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="49"/>
-        <CursorPos X="110" Y="54"/>
+        <TopLine Value="4"/>
+        <CursorPos X="65" Y="56"/>
         <UsageCount Value="204"/>
       </Unit5>
       <Unit6>
         <Filename Value="frm_clienteam.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frm_ClientesAM"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_clienteam"/>
-        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="116" Y="9"/>
+        <TopLine Value="155"/>
+        <CursorPos X="11" Y="173"/>
         <UsageCount Value="202"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="dmclientes.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Clientes"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmclientes"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="55" Y="1"/>
+        <TopLine Value="225"/>
+        <CursorPos X="58" Y="244"/>
         <UsageCount Value="202"/>
       </Unit7>
       <Unit8>
         <Filename Value="dmediciontugs.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_EdicionTUGs"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmediciontugs"/>
         <WindowIndex Value="0"/>
@@ -165,6 +164,7 @@
         <Filename Value="frm_ediciontugs.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmEdicionTugs"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_ediciontugs"/>
         <WindowIndex Value="0"/>
@@ -176,6 +176,7 @@
         <Filename Value="frm_busquedaclientes.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmBuscarCliente"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_busquedaclientes"/>
         <WindowIndex Value="0"/>
@@ -187,17 +188,19 @@
         <Filename Value="dmbuscarcliente.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_BuscarCliente"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmbuscarcliente"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="68"/>
-        <CursorPos X="31" Y="69"/>
+        <TopLine Value="61"/>
+        <CursorPos X="68" Y="62"/>
         <UsageCount Value="200"/>
       </Unit11>
       <Unit12>
         <Filename Value="frm_contactosae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmContactosAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_contactosAE"/>
         <WindowIndex Value="0"/>
@@ -209,10 +212,11 @@
         <Filename Value="frm_domicilioae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frm_DomiciliosAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_domicilioae"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="73"/>
+        <TopLine Value="65"/>
         <CursorPos X="14" Y="77"/>
         <UsageCount Value="204"/>
       </Unit13>
@@ -220,37 +224,34 @@
         <Filename Value="frm_equipocliente.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmEquipoCliente"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_equipocliente"/>
-        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
         <TopLine Value="373"/>
-        <CursorPos X="128" Y="418"/>
+        <CursorPos X="127" Y="404"/>
         <UsageCount Value="201"/>
         <Bookmarks Count="1">
           <Item0 X="1" Y="281" ID="2"/>
         </Bookmarks>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit14>
       <Unit15>
         <Filename Value="dmequipos.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Equipos"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmEquipos"/>
-        <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
+        <TopLine Value="302"/>
+        <CursorPos X="51" Y="321"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit15>
       <Unit16>
         <Filename Value="frm_presupuestoslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmPresupuestosListados"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_presupuestoslistado"/>
         <WindowIndex Value="0"/>
@@ -262,6 +263,7 @@
         <Filename Value="dmpresupuestos.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Presupuestos"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmpresupuestos"/>
         <WindowIndex Value="0"/>
@@ -273,17 +275,19 @@
         <Filename Value="frm_presupuestoae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmPresupuestoAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_presupuestoae"/>
         <WindowIndex Value="0"/>
         <TopLine Value="165"/>
-        <CursorPos X="146" Y="177"/>
+        <CursorPos X="136" Y="175"/>
         <UsageCount Value="200"/>
       </Unit18>
       <Unit19>
         <Filename Value="frm_altamasivacuotas.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmAltaMasivaCuotas"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_altamasivacuotas"/>
         <WindowIndex Value="0"/>
@@ -295,6 +299,7 @@
         <Filename Value="frm_cuotaae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmCuotaAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_cuotaae"/>
         <WindowIndex Value="0"/>
@@ -306,10 +311,11 @@
         <Filename Value="dmordenestrabajo.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_OrdenesTrabajo"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmordenestrabajo"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="299"/>
+        <TopLine Value="292"/>
         <CursorPos X="55" Y="307"/>
         <UsageCount Value="201"/>
       </Unit21>
@@ -317,6 +323,7 @@
         <Filename Value="frm_ordenestrabajolistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmOrdenesTrabajoListado"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_ordenestrabajolistado"/>
         <WindowIndex Value="0"/>
@@ -331,6 +338,7 @@
         <Filename Value="frm_ordentrabajoae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmOrdenTrabajoAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_ordentrabajoae"/>
         <WindowIndex Value="0"/>
@@ -342,10 +350,11 @@
         <Filename Value="frm_equiposeleccion.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmEquipoSeleccion"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_equiposeleccion"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="33"/>
+        <TopLine Value="24"/>
         <CursorPos X="34" Y="57"/>
         <UsageCount Value="200"/>
       </Unit24>
@@ -353,6 +362,7 @@
         <Filename Value="frm_presupuestoseleccion.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FrmPresupuestoSeleccion"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_presupuestoseleccion"/>
         <WindowIndex Value="0"/>
@@ -364,10 +374,11 @@
         <Filename Value="frm_conservadorae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmConservadorAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_conservadorae"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="48"/>
+        <TopLine Value="39"/>
         <CursorPos X="48" Y="52"/>
         <UsageCount Value="200"/>
       </Unit26>
@@ -375,10 +386,11 @@
         <Filename Value="frm_conservadoreslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FrmConservadoresListado"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_conservadoreslistado"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="72"/>
+        <TopLine Value="63"/>
         <CursorPos X="3" Y="92"/>
         <UsageCount Value="202"/>
       </Unit27>
@@ -386,6 +398,7 @@
         <Filename Value="frm_resptecnicoslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmResponsablesTecnicosListado"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_resptecnicoslistado"/>
         <WindowIndex Value="0"/>
@@ -397,6 +410,7 @@
         <Filename Value="frm_resptecnicoae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmResponsableTecnicoAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_resptecnicoae"/>
         <WindowIndex Value="0"/>
@@ -408,10 +422,11 @@
         <Filename Value="frm_administradoressel.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmAdministradoresSel"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_administradoressel"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="67"/>
+        <TopLine Value="58"/>
         <CursorPos X="69" Y="95"/>
         <UsageCount Value="201"/>
       </Unit30>
@@ -431,6 +446,7 @@
         <Filename Value="dmreclamos.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="dm_reclamos"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmreclamos"/>
         <WindowIndex Value="0"/>
@@ -442,6 +458,7 @@
         <Filename Value="frm_reclamoslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmReclamosListado"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_reclamoslistado"/>
         <WindowIndex Value="0"/>
@@ -453,6 +470,7 @@
         <Filename Value="frm_remitoslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmRemitosListado"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_remitoslistado"/>
         <WindowIndex Value="0"/>
@@ -464,6 +482,7 @@
         <Filename Value="dmremitos.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Remitos"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmremitos"/>
         <WindowIndex Value="0"/>
@@ -475,20 +494,19 @@
         <Filename Value="frm_remitosae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmRemitosAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_remitosae"/>
         <WindowIndex Value="0"/>
         <TopLine Value="331"/>
         <CursorPos X="115" Y="335"/>
         <UsageCount Value="200"/>
-        <Bookmarks Count="1">
-          <Item0 X="1" Y="153" ID="1"/>
-        </Bookmarks>
       </Unit36>
       <Unit37>
         <Filename Value="frm_listadopersonal.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmListadoPersonal"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_listadopersonal"/>
         <WindowIndex Value="0"/>
@@ -500,6 +518,7 @@
         <Filename Value="frm_cajalistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmCajaListado"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_cajalistado"/>
         <WindowIndex Value="0"/>
@@ -511,6 +530,7 @@
         <Filename Value="dmcaja.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_CAJA"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmcaja"/>
         <WindowIndex Value="0"/>
@@ -522,28 +542,31 @@
         <Filename Value="frm_cajaconceptoae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmCajaConceptoAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_cajaconceptoae"/>
         <WindowIndex Value="0"/>
         <TopLine Value="50"/>
-        <CursorPos X="28" Y="66"/>
+        <CursorPos X="84" Y="80"/>
         <UsageCount Value="201"/>
       </Unit40>
       <Unit41>
         <Filename Value="frm_conceptoae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmConceptoAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_conceptoae"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="46"/>
-        <CursorPos X="68" Y="66"/>
+        <TopLine Value="37"/>
+        <CursorPos X="74" Y="58"/>
         <UsageCount Value="200"/>
       </Unit41>
       <Unit42>
         <Filename Value="frm_tugconceptoslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmTugConceptosListado"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_tugconceptoslistado"/>
         <WindowIndex Value="0"/>
@@ -555,10 +578,11 @@
         <Filename Value="dmproveedores.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Proveedores"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmproveedores"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="266"/>
+        <TopLine Value="252"/>
         <CursorPos X="46" Y="271"/>
         <UsageCount Value="202"/>
       </Unit43>
@@ -566,6 +590,7 @@
         <Filename Value="frm_proveedoreslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmProveedoresListado"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_proveedoreslistado"/>
         <WindowIndex Value="0"/>
@@ -577,24 +602,23 @@
         <Filename Value="frm_proveedoresae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmProveedorAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_proveedoresae"/>
         <WindowIndex Value="0"/>
         <TopLine Value="114"/>
         <CursorPos X="49" Y="129"/>
         <UsageCount Value="201"/>
-        <Bookmarks Count="1">
-          <Item0 X="4" Y="247" ID="2"/>
-        </Bookmarks>
       </Unit45>
       <Unit46>
         <Filename Value="frm_clientespotencialeslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmClientesPotencialesListado"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_clientespotencialeslistado"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="65"/>
+        <TopLine Value="60"/>
         <CursorPos X="105" Y="91"/>
         <UsageCount Value="200"/>
       </Unit46>
@@ -602,10 +626,11 @@
         <Filename Value="dmclientespotenciales.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_ClientesPotenciales"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmclientespotenciales"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="103"/>
+        <TopLine Value="98"/>
         <CursorPos X="4" Y="105"/>
         <UsageCount Value="200"/>
       </Unit47>
@@ -613,10 +638,11 @@
         <Filename Value="frm_clientespotencialesae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmClientesPotencialesAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_clientespotencialesae"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="28"/>
+        <TopLine Value="20"/>
         <CursorPos X="81" Y="40"/>
         <UsageCount Value="200"/>
       </Unit48>
@@ -624,35 +650,31 @@
         <Filename Value="frm_listadocheques.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmListadoCheques"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_listadocheques"/>
-        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
         <TopLine Value="172"/>
         <CursorPos X="58" Y="202"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit49>
       <Unit50>
         <Filename Value="dmcheques.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Cheques"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmcheques"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="135"/>
-        <CursorPos X="21" Y="154"/>
+        <TopLine Value="89"/>
+        <CursorPos X="56" Y="108"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit50>
       <Unit51>
         <Filename Value="frm_chequesae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmChequeAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_chequesae"/>
         <WindowIndex Value="0"/>
@@ -664,10 +686,11 @@
         <Filename Value="dmbuscarpersonaempresa.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_BuscarPersonaEmpresa"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmbuscarpersonaempresa"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="104"/>
+        <TopLine Value="103"/>
         <CursorPos X="43" Y="106"/>
         <UsageCount Value="205"/>
       </Unit52>
@@ -675,10 +698,11 @@
         <Filename Value="frm_busquedapersonasempresas.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmBusquedaPersonasEmpresas"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_busquedapersonasempresas"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="56"/>
+        <TopLine Value="49"/>
         <CursorPos X="20" Y="67"/>
         <UsageCount Value="204"/>
       </Unit53>
@@ -686,136 +710,142 @@
         <Filename Value="dmcompras.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Compras"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmcompras"/>
-        <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="425"/>
-        <CursorPos X="25" Y="429"/>
+        <TopLine Value="314"/>
+        <CursorPos X="1" Y="319"/>
         <UsageCount Value="200"/>
         <Bookmarks Count="1">
           <Item0 X="30" Y="604" ID="9"/>
         </Bookmarks>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit54>
       <Unit55>
         <Filename Value="frm_compraslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmComprasListado"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_compraslistado"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="139"/>
-        <CursorPos X="2" Y="149"/>
+        <TopLine Value="140"/>
+        <CursorPos X="119" Y="143"/>
         <UsageCount Value="200"/>
       </Unit55>
       <Unit56>
         <Filename Value="frm_comprasae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmComprasAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_comprasae"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="115"/>
-        <CursorPos X="65" Y="122"/>
+        <TopLine Value="458"/>
+        <CursorPos X="28" Y="490"/>
         <UsageCount Value="238"/>
       </Unit56>
       <Unit57>
         <Filename Value="dmplandecuentas.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_PlanDeCuentas"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmplandecuentas"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="37"/>
-        <CursorPos X="23" Y="47"/>
+        <TopLine Value="130"/>
+        <CursorPos X="36" Y="163"/>
         <UsageCount Value="233"/>
       </Unit57>
       <Unit58>
         <Filename Value="frm_plandecuentaslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmPlanDeCuentasListado"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_plandecuentaslistado"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="85"/>
-        <CursorPos X="134" Y="92"/>
+        <TopLine Value="75"/>
+        <CursorPos X="38" Y="78"/>
         <UsageCount Value="232"/>
       </Unit58>
       <Unit59>
         <Filename Value="frm_plandecuentasae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmPlanDeCuentasAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_plandecuentasae"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="35"/>
-        <CursorPos X="55" Y="64"/>
+        <TopLine Value="33"/>
+        <CursorPos X="71" Y="24"/>
         <UsageCount Value="231"/>
       </Unit59>
       <Unit60>
         <Filename Value="frm_ordenespagolistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmOrdenesPagoListado"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_ordenespagolistado"/>
         <WindowIndex Value="0"/>
         <TopLine Value="66"/>
-        <CursorPos X="35" Y="70"/>
+        <CursorPos X="94" Y="89"/>
         <UsageCount Value="205"/>
       </Unit60>
       <Unit61>
         <Filename Value="dmordenesdepago.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_OrdenesDePago"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmordenesdepago"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="95"/>
-        <CursorPos X="35" Y="103"/>
+        <TopLine Value="106"/>
+        <CursorPos X="45" Y="126"/>
         <UsageCount Value="205"/>
       </Unit61>
       <Unit62>
         <Filename Value="frm_ordenpagoae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmOrdenDePagoAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_ordenpagoae"/>
         <WindowIndex Value="0"/>
         <TopLine Value="120"/>
         <CursorPos X="48" Y="121"/>
         <UsageCount Value="201"/>
-        <Bookmarks Count="1">
-          <Item0 X="12" Y="211" ID="1"/>
-        </Bookmarks>
       </Unit62>
       <Unit63>
         <Filename Value="frm_cargavalores.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmCargaValores"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_cargavalores"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="76"/>
-        <CursorPos X="37" Y="78"/>
+        <TopLine Value="143"/>
+        <CursorPos X="9" Y="162"/>
         <UsageCount Value="200"/>
       </Unit63>
       <Unit64>
         <Filename Value="dmvalores.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Valores"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmvalores"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="13"/>
-        <CursorPos X="25" Y="16"/>
+        <TopLine Value="91"/>
+        <CursorPos X="30" Y="110"/>
         <UsageCount Value="200"/>
       </Unit64>
       <Unit65>
         <Filename Value="frm_pagocomprobantes.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmPagoComprobante"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_pagocomprobantes"/>
         <WindowIndex Value="0"/>
@@ -827,34 +857,37 @@
         <Filename Value="frm_tuglocalidades.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmTugLocalidades"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_tuglocalidades"/>
         <WindowIndex Value="0"/>
         <TopLine Value="106"/>
         <CursorPos X="37" Y="110"/>
-        <UsageCount Value="143"/>
+        <UsageCount Value="148"/>
       </Unit66>
       <Unit67>
         <Filename Value="dmlocalidades.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Localidades"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmlocalidades"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="71"/>
+        <TopLine Value="68"/>
         <CursorPos X="67" Y="87"/>
-        <UsageCount Value="139"/>
+        <UsageCount Value="144"/>
       </Unit67>
       <Unit68>
         <Filename Value="frm_localidadae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmLocalidadAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_localidadae"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="18"/>
+        <TopLine Value="14"/>
         <CursorPos X="77" Y="18"/>
-        <UsageCount Value="137"/>
+        <UsageCount Value="142"/>
       </Unit68>
       <Unit69>
         <Filename Value="..\..\..\Utiles\lazarus\fpc\2.4.2\source\rtl\objpas\strutils.pp"/>
@@ -868,23 +901,25 @@
         <Filename Value="frm_egresosvarioslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmEgresosVariosListado"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_egresosvarioslistado"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="76"/>
+        <TopLine Value="73"/>
         <CursorPos X="37" Y="105"/>
-        <UsageCount Value="107"/>
+        <UsageCount Value="112"/>
       </Unit70>
       <Unit71>
         <Filename Value="dmegresosvarios.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_EgresosVarios"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmegresosvarios"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="380"/>
-        <CursorPos X="39" Y="381"/>
-        <UsageCount Value="106"/>
+        <TopLine Value="69"/>
+        <CursorPos X="23" Y="86"/>
+        <UsageCount Value="111"/>
         <Bookmarks Count="1">
           <Item0 X="3" Y="394" ID="1"/>
         </Bookmarks>
@@ -893,23 +928,25 @@
         <Filename Value="frm_egresosvariosae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmEgresoVarioAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_egresosvariosae"/>
         <WindowIndex Value="0"/>
         <TopLine Value="32"/>
-        <CursorPos X="118" Y="41"/>
-        <UsageCount Value="105"/>
+        <CursorPos X="109" Y="38"/>
+        <UsageCount Value="110"/>
       </Unit72>
       <Unit73>
         <Filename Value="frm_egresoae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmEgresoAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_egresoae"/>
         <WindowIndex Value="0"/>
         <TopLine Value="98"/>
         <CursorPos X="42" Y="129"/>
-        <UsageCount Value="102"/>
+        <UsageCount Value="107"/>
       </Unit73>
       <Unit74>
         <Filename Value="..\..\..\Utiles\lazarus\fpc\2.4.2\source\rtl\objpas\sysutils\sysutilh.inc"/>
@@ -922,139 +959,254 @@
         <Filename Value="frm_asignarpagofactura.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmAsignarPagoFacturas"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_asignarpagofactura"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="98"/>
-        <CursorPos X="21" Y="115"/>
-        <UsageCount Value="65"/>
+        <TopLine Value="93"/>
+        <CursorPos X="75" Y="124"/>
+        <UsageCount Value="70"/>
       </Unit75>
+      <Unit76>
+        <Filename Value="frm_egresosvariosae.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="36" Y="120"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit76>
+      <Unit77>
+        <Filename Value="frm_conservadorae.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit77>
+      <Unit78>
+        <Filename Value="frm_comprasae.lfm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="243"/>
+        <CursorPos X="36" Y="214"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit78>
+      <Unit79>
+        <Filename Value="frm_altamasivacuotas.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="124"/>
+        <CursorPos X="120" Y="127"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit79>
+      <Unit80>
+        <Filename Value="frm_cajaconceptoae.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="50" Y="3"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit80>
+      <Unit81>
+        <Filename Value="frm_cajalistado.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="16"/>
+        <CursorPos X="7" Y="35"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit81>
+      <Unit82>
+        <Filename Value="frm_presupuestoae.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="78" Y="5"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit82>
+      <Unit83>
+        <Filename Value="frm_remitosae.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="102"/>
+        <CursorPos X="65" Y="109"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit83>
+      <Unit84>
+        <Filename Value="frm_chequesae.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="401"/>
+        <CursorPos X="1" Y="432"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit84>
+      <Unit85>
+        <Filename Value="frm_cuotaae.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="64"/>
+        <CursorPos X="5" Y="83"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit85>
+      <Unit86>
+        <Filename Value="frm_equipocliente.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="2229"/>
+        <CursorPos X="1" Y="2252"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit86>
+      <Unit87>
+        <Filename Value="frm_ordenpagoae.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="21"/>
+        <CursorPos X="22" Y="58"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit87>
+      <Unit88>
+        <Filename Value="frm_ordentrabajoae.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="465"/>
+        <CursorPos X="84" Y="497"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit88>
+      <Unit89>
+        <Filename Value="frm_reclamosam.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="155"/>
+        <CursorPos X="93" Y="161"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit89>
+      <Unit90>
+        <Filename Value="listados\src\frm_detallepagos.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="17"/>
+        <CursorPos X="1" Y="33"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit90>
+      <Unit91>
+        <Filename Value="listados\src\frm_subdiariopagos.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="211"/>
+        <CursorPos X="7" Y="230"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit91>
+      <Unit92>
+        <Filename Value="listados\src\frm_gruporemitos.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="121"/>
+        <CursorPos X="9" Y="140"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit92>
+      <Unit93>
+        <Filename Value="listados\src\frm_proveedorcuentacorriente.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="108"/>
+        <CursorPos X="1" Y="124"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit93>
+      <Unit94>
+        <Filename Value="listados\src\frm_subdiariocompras.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="66"/>
+        <CursorPos X="1" Y="80"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit94>
+      <Unit95>
+        <Filename Value="listados\src\frm_grupocuentas.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="76"/>
+        <CursorPos X="1" Y="90"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit95>
+      <Unit96>
+        <Filename Value="listados\src\lib\i386-win32\frm_detallepagos.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="68"/>
+        <CursorPos X="1" Y="84"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit96>
+      <Unit97>
+        <Filename Value="listados\src\lib\i386-win32\frm_subdiariopagos.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="211"/>
+        <CursorPos X="1" Y="227"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit97>
+      <Unit98>
+        <Filename Value="listados\src\lib\i386-win32\frm_gruporemitos.lfm"/>
+        <IsVisibleTab Value="True"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="121"/>
+        <CursorPos X="1" Y="137"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit98>
+      <Unit99>
+        <Filename Value="listados\src\lib\i386-win32\frm_proveedorcuentacorriente.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="108"/>
+        <CursorPos X="1" Y="124"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit99>
+      <Unit100>
+        <Filename Value="listados\src\lib\i386-win32\frm_subdiariocompras.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="66"/>
+        <CursorPos X="1" Y="82"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit100>
+      <Unit101>
+        <Filename Value="listados\src\lib\i386-win32\frm_grupocuentas.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="76"/>
+        <CursorPos X="1" Y="92"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit101>
+      <Unit102>
+        <Filename Value="lib\i386-win32\frm_chequesae.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="416"/>
+        <CursorPos X="1" Y="432"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit102>
+      <Unit103>
+        <Filename Value="lib\i386-win32\frm_cajalistado.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="13"/>
+        <CursorPos X="1" Y="35"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit103>
+      <Unit104>
+        <Filename Value="lib\i386-win32\frm_cuotaae.lfm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="298"/>
+        <CursorPos X="78" Y="313"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit104>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
-      <Position1>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="83" Column="32" TopLine="52"/>
-      </Position1>
-      <Position2>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="125" Column="31" TopLine="94"/>
-      </Position2>
-      <Position3>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="186" Column="29" TopLine="155"/>
-      </Position3>
-      <Position4>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="198" Column="40" TopLine="167"/>
-      </Position4>
-      <Position5>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="203" Column="31" TopLine="172"/>
-      </Position5>
-      <Position6>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="204" Column="30" TopLine="173"/>
-      </Position6>
-      <Position7>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="229" Column="57" TopLine="199"/>
-      </Position7>
-      <Position8>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="1" Column="1" TopLine="1"/>
-      </Position8>
-      <Position9>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="31" Column="25" TopLine="1"/>
-      </Position9>
-      <Position10>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="46" Column="26" TopLine="15"/>
-      </Position10>
-      <Position11>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="51" Column="27" TopLine="20"/>
-      </Position11>
-      <Position12>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="63" Column="27" TopLine="32"/>
-      </Position12>
-      <Position13>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="83" Column="32" TopLine="52"/>
-      </Position13>
-      <Position14>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="125" Column="31" TopLine="94"/>
-      </Position14>
-      <Position15>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="204" Column="29" TopLine="174"/>
-      </Position15>
-      <Position16>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="1" Column="1" TopLine="1"/>
-      </Position16>
-      <Position17>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="59" Column="10" TopLine="28"/>
-      </Position17>
-      <Position18>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="62" Column="10" TopLine="31"/>
-      </Position18>
-      <Position19>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="63" Column="10" TopLine="32"/>
-      </Position19>
-      <Position20>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="64" Column="10" TopLine="33"/>
-      </Position20>
-      <Position21>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="65" Column="10" TopLine="34"/>
-      </Position21>
-      <Position22>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="66" Column="10" TopLine="35"/>
-      </Position22>
-      <Position23>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="67" Column="10" TopLine="36"/>
-      </Position23>
-      <Position24>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="68" Column="10" TopLine="37"/>
-      </Position24>
-      <Position25>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="69" Column="10" TopLine="38"/>
-      </Position25>
-      <Position26>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="70" Column="10" TopLine="39"/>
-      </Position26>
-      <Position27>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="73" Column="20" TopLine="42"/>
-      </Position27>
-      <Position28>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="131" Column="28" TopLine="100"/>
-      </Position28>
-      <Position29>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="144" Column="38" TopLine="113"/>
-      </Position29>
-      <Position30>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="145" Column="19" TopLine="114"/>
-      </Position30>
-    </JumpHistory>
+    <JumpHistory Count="0" HistoryIndex="-1"/>
   </ProjectOptions>
   <CompilerOptions>
-    <Version Value="9"/>
+    <Version Value="11"/>
     <PathDelim Value="\"/>
     <Target>
       <Filename Value="gtv"/>

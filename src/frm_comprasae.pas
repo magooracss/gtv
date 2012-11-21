@@ -1,4 +1,3 @@
-
 unit frm_comprasae;
 
 {$mode objfpc}{$H+}
@@ -87,6 +86,7 @@ type
     procedure dbConceptoKeyPress(Sender: TObject; var Key: char);
     procedure DBEdit3Exit(Sender: TObject);
     procedure DBEdit5Exit(Sender: TObject);
+    procedure DBGrid1CellClick(Column: TColumn);
     procedure DBGrid1SelectEditor(Sender: TObject; Column: TColumn;
       var Editor: TWinControl);
     procedure dbMontoIVAExit(Sender: TObject);
@@ -234,11 +234,16 @@ begin
   ValidarNumeroFactura;
 end;
 
+procedure TfrmComprasAE.DBGrid1CellClick(Column: TColumn);
+begin
+  CargarImputacion
+end;
+
 
 procedure TfrmComprasAE.DBGrid1SelectEditor(Sender: TObject; Column: TColumn;
   var Editor: TWinControl);
 begin
-  CargarImputacion;
+
 end;
 
 procedure TfrmComprasAE.dbMontoIVAExit(Sender: TObject);

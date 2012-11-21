@@ -142,10 +142,8 @@ object frmChequeAE: TfrmChequeAE
     Height = 24
     Top = 31
     Width = 80
-    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
     OKCaption = 'OK'
     CancelCaption = 'Cancel'
-    DateOrder = doNone
     ButtonWidth = 23
     CharCase = ecNormal
     Glyph.Data = {
@@ -196,10 +194,8 @@ object frmChequeAE: TfrmChequeAE
     Height = 24
     Top = 30
     Width = 80
-    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
     OKCaption = 'OK'
     CancelCaption = 'Cancel'
-    DateOrder = doNone
     ButtonWidth = 23
     CharCase = ecNormal
     Glyph.Data = {
@@ -324,10 +320,8 @@ object frmChequeAE: TfrmChequeAE
     Height = 24
     Top = 142
     Width = 80
-    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
     OKCaption = 'OK'
     CancelCaption = 'Cancel'
-    DateOrder = doNone
     ButtonWidth = 23
     Anchors = [akTop, akRight]
     CharCase = ecNormal
@@ -433,10 +427,8 @@ object frmChequeAE: TfrmChequeAE
     Height = 24
     Top = 204
     Width = 80
-    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
     OKCaption = 'OK'
     CancelCaption = 'Cancel'
-    DateOrder = doNone
     ButtonWidth = 23
     Anchors = [akTop, akRight]
     CharCase = ecNormal

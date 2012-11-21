@@ -17,7 +17,7 @@ object frm_ClientesAM: Tfrm_ClientesAM
   Position = poScreenCenter
   SessionProperties = 'Top;Left;Height;Width'
   ShowHint = True
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.0.2.0'
   object PCPantalla: TPageControl
     Left = 0
     Height = 621
@@ -605,12 +605,10 @@ object frm_ClientesAM: Tfrm_ClientesAM
           Height = 22
           Top = 194
           Width = 96
-          CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
-          OKCaption = 'OK'
-          CancelCaption = 'Cancela'
-          DateOrder = doNone
           ButtonWidth = 23
+          CancelCaption = 'Cancela'
           CharCase = ecNormal
+          DialogTitle = 'Seleccionar Fecha'
           Glyph.Data = {
             36040000424D3604000000000000360000002800000010000000100000000100
             2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -647,9 +645,12 @@ object frm_ClientesAM: Tfrm_ClientesAM
             FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
             FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
           }
+          MaxLength = 10
           NumGlyphs = 0
-          MaxLength = 0
+          OKCaption = 'OK'
+          PopupColor = clWindow
           TabOrder = 4
+          Text = '  /  /    '
           DataField = 'fInicio'
           DataSource = ds_cliente
         end
@@ -1062,23 +1063,23 @@ object frm_ClientesAM: Tfrm_ClientesAM
     end
     object tabAdministrador: TTabSheet
       Caption = 'Administrador'
-      ClientHeight = 567
-      ClientWidth = 958
+      ClientHeight = 594
+      ClientWidth = 966
       object GroupBox4: TGroupBox
         Left = 0
         Height = 177
         Top = 0
-        Width = 958
+        Width = 966
         Align = alTop
         Caption = 'Administración'
         ClientHeight = 159
-        ClientWidth = 954
+        ClientWidth = 962
         TabOrder = 0
         object PageControl1: TPageControl
           Left = 0
           Height = 159
           Top = 0
-          Width = 954
+          Width = 962
           ActivePage = TabSheet3
           Align = alClient
           TabIndex = 0
@@ -1086,7 +1087,7 @@ object frm_ClientesAM: Tfrm_ClientesAM
           object TabSheet3: TTabSheet
             Caption = 'Información'
             ClientHeight = 132
-            ClientWidth = 946
+            ClientWidth = 954
             object Label34: TLabel
               Left = 131
               Height = 15
@@ -1110,7 +1111,7 @@ object frm_ClientesAM: Tfrm_ClientesAM
               Left = 131
               Height = 22
               Top = 90
-              Width = 806
+              Width = 814
               DataField = 'txNotas'
               DataSource = ds_administrador
               Anchors = [akTop, akLeft, akRight]
@@ -1705,17 +1706,17 @@ object frm_ClientesAM: Tfrm_ClientesAM
     end
     object tabContactoCliente: TTabSheet
       Caption = 'Contacto Cliente'
-      ClientHeight = 567
-      ClientWidth = 958
+      ClientHeight = 594
+      ClientWidth = 966
       object GroupBox5: TGroupBox
         Left = 0
-        Height = 567
+        Height = 594
         Top = 0
-        Width = 958
+        Width = 966
         Align = alClient
         Caption = 'Contacto en el cliente'
-        ClientHeight = 549
-        ClientWidth = 954
+        ClientHeight = 576
+        ClientWidth = 962
         TabOrder = 0
         object Label25: TLabel
           Left = 13
@@ -1898,14 +1899,14 @@ object frm_ClientesAM: Tfrm_ClientesAM
         object Panel8: TPanel
           Left = 0
           Height = 260
-          Top = 289
-          Width = 954
+          Top = 316
+          Width = 962
           Align = alBottom
           ClientHeight = 260
-          ClientWidth = 954
+          ClientWidth = 962
           TabOrder = 5
           object Panel9: TPanel
-            Left = 783
+            Left = 791
             Height = 241
             Top = 18
             Width = 170
@@ -2053,7 +2054,7 @@ object frm_ClientesAM: Tfrm_ClientesAM
             Left = 1
             Height = 17
             Top = 1
-            Width = 952
+            Width = 960
             Align = alTop
             Caption = '     Formas de contacto'
             TabOrder = 1
@@ -2062,7 +2063,7 @@ object frm_ClientesAM: Tfrm_ClientesAM
             Left = 1
             Height = 241
             Top = 18
-            Width = 782
+            Width = 790
             Align = alClient
             Color = clWindow
             Columns = <            

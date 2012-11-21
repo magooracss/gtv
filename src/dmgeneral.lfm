@@ -845,6 +845,7 @@ object DM_General: TDM_General
   end
   object RxMemoryData1: TRxMemoryData
     FieldDefs = <>
+    PacketRecords = 0
     left = 40
     top = 104
   end
@@ -890,5 +891,47 @@ object DM_General: TDM_General
         Name = 'Nombre'
         ParamType = ptUnknown
       end>
+    object qLevantarValoresIDVALOR: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDVALOR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qLevantarValoresNOMBRE: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object qLevantarValoresVALORINT: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VALORINT'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qLevantarValoresVALORSTR: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'VALORSTR'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
   end
 end

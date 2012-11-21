@@ -241,7 +241,7 @@ end;
 
 procedure TDM_Clientes.DataModuleCreate(Sender: TObject);
 begin
-  DM_General.CambiarEstadoTablas(DM_Clientes, true);
+  DM_General.CambiarEstadoTablas(TDatamodule(DM_Clientes), true);
 end;
 
 procedure TDM_Clientes.tbContCliContactoAfterInsert(DataSet: TDataSet);
