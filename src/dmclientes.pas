@@ -25,6 +25,40 @@ type
     qtugTiposContactoCliente: TZQuery;
     qAdministradorPorNombre: TZQuery;
     qClienteCodigo: TZQuery;
+    tbContactosClientebVisible: TLongintField;
+    tbContactosClientecCargo: TStringField;
+    tbContactosClientecContacto: TStringField;
+    tbContactosClientecDocumento: TStringField;
+    tbContactosClienteDenominacion: TStringField;
+    tbContactosClienteidContactoCliente: TStringField;
+    tbContactosClientelxFormaContacto: TStringField;
+    tbContactosClientelxTipoContacto: TStringField;
+    tbContactosClientelxTipoDoc: TStringField;
+    tbContactosClienterefCliente: TStringField;
+    tbContactosClienterefFormaContacto: TLongintField;
+    tbContactosClienterefTipoContacto: TLongintField;
+    tbContactosClienterefTipoDocumento: TLongintField;
+    tbContClienteRelBVISIBLE: TSmallintField;
+    tbContClienteRelCCARGO: TStringField;
+    tbContClienteRelCCONTACTO: TStringField;
+    tbContClienteRelCDOCUMENTO: TStringField;
+    tbContClienteRelDENOMINACION: TStringField;
+    tbContClienteRelIDCONTACTOCLIENTE: TStringField;
+    tbContClienteRelREFCLIENTE: TStringField;
+    tbContClienteRelREFFORMACONTACTO: TLongintField;
+    tbContClienteRelREFTIPOCONTACTO: TLongintField;
+    tbContClienteRelREFTIPODOCUMENTO: TLongintField;
+    tbContClienteSELBVISIBLE: TSmallintField;
+    tbContClienteSELCCARGO: TStringField;
+    tbContClienteSELCCONTACTO: TStringField;
+    tbContClienteSELCDOCUMENTO: TStringField;
+    tbContClienteSELDENOMINACION: TStringField;
+    tbContClienteSELIDCONTACTOCLIENTE: TStringField;
+    tbContClienteSELREFCLIENTE: TStringField;
+    tbContClienteSELREFFORMACONTACTO: TLongintField;
+    tbContClienteSELREFTIPOCONTACTO: TLongintField;
+    tbContClienteSELREFTIPODOCUMENTO: TLongintField;
+    tbContClienteDEL: TZQuery;
     tbRespTecnicosDEL: TZQuery;
     tbRespTecnicosINS: TZQuery;
     tbRespTecnicoSEL: TZQuery;
@@ -91,7 +125,7 @@ type
     procedure tbRespTecnicoAfterInsert(DataSet: TDataSet);
   private
     function getClienteID: GUID_ID;
-    { private declarations }
+    procedure cargarlxContactosClientes;
   public
     property idCliente: GUID_ID read getClienteID;
 
@@ -134,6 +168,14 @@ type
     procedure LevantarAdministrador (refAdministrador: string);
 
     function CodigoClienteExistente (refCliente: GUID_ID; refCodigo: string): boolean;
+
+    procedure NuevoContactoCliente;
+    procedure LevantarContactoCliente (refContacto: GUID_ID);
+    procedure grabarContactosCliente;
+    procedure combosContacto (documento, tipo, formaContacto: integer);
+    procedure EliminarTablaContactoCliente;
+
+    procedure ListaContactosCliente;
   end; 
 
 var
@@ -210,6 +252,8 @@ begin
     FieldByName('refTipoDocumento').AsInteger:= 0;
     FieldByName('cDocumento').asString:= '';
     FieldByName('cCargo').asString:= '';
+    FieldByName('refFormaContacto').asInteger:= 0;
+    FieldByName('cContacto').asString:= '';
     FieldByName('bVisible').AsInteger:= 1;
   end;
 end;
@@ -344,6 +388,36 @@ begin
     Result := GUIDNULO;
 end;
 
+procedure TDM_Clientes.cargarlxContactosClientes;
+begin
+  with tbContactosCliente do
+  begin
+    First;
+
+    while not EOF do
+    begin
+      Edit;
+      FieldByName('lxTipoDoc').asString:= DM_General.obtenerDescTug('tugTiposDocumento'
+                                                                    ,'idTipoDocumento'
+                                                                    ,'TipoDocumento'
+                                                                    ,FieldByName('refTipoDocumento').asInteger
+                                                                    );
+      FieldByName('lxTipoContacto').asString:= DM_General.obtenerDescTug('tugTiposContactoCliente'
+                                                                    ,'idTipoContactoCliente'
+                                                                    ,'TipoContactoCliente'
+                                                                    ,FieldByName('refTipoContacto').asInteger
+                                                                    );
+      FieldByName('lxFormaContacto').asString:= DM_General.obtenerDescTug('tugTiposContacto'
+                                                                    ,'idTipoContacto'
+                                                                    ,'TipoContacto'
+                                                                    ,FieldByName('refFormacontacto').asInteger
+                                                                    );
+      Post;
+      Next;
+    end;
+  end;
+end;
+
 function TDM_Clientes.ClienteNombre(refCliente: GUID_ID): string;
 begin
   ClienteEditar(refCliente);
@@ -381,6 +455,7 @@ begin
     Post;
   end;
 
+ (*
   with tbContactosCliente do
   begin
     Edit;
@@ -390,7 +465,7 @@ begin
     FieldByName('refTipoContacto').asInteger:= contTipo;
     Post;
   end;
-
+   *)
 end;
 
 procedure TDM_Clientes.Grabar;
@@ -448,8 +523,10 @@ begin
     ParamByName('refCliente').asString:= tbClientes.FieldByName('idCliente').asString;
     open;
     tbContactosCliente.LoadFromDataSet(tbContClienteRel, 0, lmAppend);
+    cargarlxContactosClientes;
   end;
 
+(*
   DM_General.ReiniciarTabla(tbContCliContacto);
   with tbContactosPorRel do
   begin
@@ -459,7 +536,7 @@ begin
     tbContCliContacto.LoadFromDataSet(tbContactosPorRel, 0, lmAppend);
     AcomodarLxContactos (tbContCliContacto);
   end;
-
+*)
 
 end;
 
@@ -728,6 +805,65 @@ begin
     Open;
     Result:= (RecordCount > 0);
     close;
+  end;
+end;
+
+
+
+procedure TDM_Clientes.NuevoContactoCliente;
+begin
+  tbContactosCliente.Insert;
+end;
+
+procedure TDM_Clientes.LevantarContactoCliente(refContacto: GUID_ID);
+begin
+  DM_General.ReiniciarTabla(tbContactosCliente);
+  with tbContClienteSEL do
+  begin
+    if active then close;
+    ParamByName('idContactoCliente').asString:= refContacto;
+    Open;
+
+    tbContactosCliente.LoadFromDataSet(tbContClienteSEL, 0, lmAppend);
+    close;
+  end;
+
+end;
+
+procedure TDM_Clientes.grabarContactosCliente;
+begin
+  DM_General.GrabarDatos(tbContClienteSEL, tbContClienteINS, tbContClienteUPD, tbContactosCliente, 'idContactoCliente');
+end;
+
+procedure TDM_Clientes.combosContacto(documento, tipo, formaContacto: integer);
+begin
+  with tbContactosCliente  do
+  begin
+    Edit;
+    FieldByName('refTipoDocumento').asInteger:= documento;
+    FieldByName('refTipoContacto').asInteger:= tipo;
+    FieldByName('refFormaContacto').asInteger:= formaContacto;
+    Post;
+  end;
+end;
+
+procedure TDM_Clientes.EliminarTablaContactoCliente;
+begin
+  tbContClienteDEL.ParamByName('idContactoCliente').asString:= tbContactosClienteidContactoCliente.AsString;
+  tbContClienteDEL.ExecSQL;
+  tbContactosCliente.Delete;
+end;
+
+procedure TDM_Clientes.ListaContactosCliente;
+begin
+  DM_General.ReiniciarTabla(tbContactosCliente);
+  with tbContClienteRel do
+  begin
+    if active then close;
+    ParamByName('refCliente').asString:= tbClientes.FieldByName('idCliente').asString;
+    open;
+    tbContactosCliente.LoadFromDataSet(tbContClienteRel, 0, lmAppend);
+    cargarlxContactosClientes;
   end;
 end;
 

@@ -934,4 +934,26 @@ object DM_General: TDM_General
       Size = 500
     end
   end
+  object qTugDesc: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbValores'
+      'WHERE Nombre = :Nombre'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'Nombre'
+        ParamType = ptUnknown
+      end>
+    left = 302
+    top = 176
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'Nombre'
+        ParamType = ptUnknown
+      end>
+  end
 end

@@ -2,7 +2,7 @@ object DM_Clientes: TDM_Clientes
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 573
-  HorizontalOffset = 275
+  HorizontalOffset = 213
   VerticalOffset = 78
   Width = 1177
   object tbClientes: TRxMemoryData
@@ -1527,7 +1527,7 @@ object DM_Clientes: TDM_Clientes
       end>
     AfterInsert = tbAdmContactosAfterInsert
     PacketRecords = 0
-    left = 264
+    left = 304
     top = 24
   end
   object tbContactosSEL: TZQuery
@@ -1985,52 +1985,81 @@ object DM_Clientes: TDM_Clientes
       end>
   end
   object tbContactosCliente: TRxMemoryData
-    Active = True
     FieldDefs = <    
       item
         Name = 'idContactoCliente'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'refCliente'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'Denominacion'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 500
       end    
       item
         Name = 'refTipoContacto'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
+      end    
+      item
+        Name = 'cCargo'
+        DataType = ftString
+        Precision = -1
+        Size = 200
       end    
       item
         Name = 'refTipoDocumento'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'cDocumento'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 30
+      end    
+      item
+        Name = 'refFormaContacto'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'cContacto'
+        DataType = ftString
+        Precision = -1
+        Size = 3000
       end    
       item
         Name = 'bVisible'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
-        Name = 'cCargo'
+        Name = 'lxTipoDoc'
+        DataType = ftString
+        Precision = 0
+        Size = 200
+      end    
+      item
+        Name = 'lxTipoContacto'
+        DataType = ftString
+        Precision = 0
+        Size = 200
+      end    
+      item
+        Name = 'lxFormaContacto'
         DataType = ftString
         Precision = 0
         Size = 200
@@ -2039,6 +2068,145 @@ object DM_Clientes: TDM_Clientes
     PacketRecords = 0
     left = 568
     top = 24
+    object tbContactosClienteidContactoCliente: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idContactoCliente'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbContactosClienterefCliente: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refCliente'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbContactosClienteDenominacion: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'Denominacion'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbContactosClienterefTipoContacto: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refTipoContacto'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContactosClientecCargo: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'cCargo'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbContactosClienterefTipoDocumento: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refTipoDocumento'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContactosClientecDocumento: TStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'cDocumento'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object tbContactosClienterefFormaContacto: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refFormaContacto'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContactosClientecContacto: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'cContacto'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbContactosClientebVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContactosClientelxTipoDoc: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'lxTipoDoc'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbContactosClientelxTipoContacto: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'lxTipoContacto'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbContactosClientelxFormaContacto: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'lxFormaContacto'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
   end
   object tbContClienteSEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -2061,6 +2229,112 @@ object DM_Clientes: TDM_Clientes
         Name = 'idContactoCliente'
         ParamType = ptUnknown
       end>
+    object tbContClienteSELIDCONTACTOCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCONTACTOCLIENTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object tbContClienteSELREFCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCLIENTE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object tbContClienteSELDENOMINACION: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'DENOMINACION'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbContClienteSELREFTIPOCONTACTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFTIPOCONTACTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContClienteSELREFTIPODOCUMENTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFTIPODOCUMENTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContClienteSELCDOCUMENTO: TStringField
+      DisplayWidth = 28
+      FieldKind = fkData
+      FieldName = 'CDOCUMENTO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 28
+    end
+    object tbContClienteSELCCARGO: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'CCARGO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbContClienteSELBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContClienteSELREFFORMACONTACTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFFORMACONTACTO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContClienteSELCCONTACTO: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'CCONTACTO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
   end
   object tbContClienteINS: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -2073,7 +2347,10 @@ object DM_Clientes: TDM_Clientes
       ', refTipoDocumento'
       ', cDocumento'
       ', cCargo'
-      ', bVisible)'
+      ', bVisible'
+      ', refFormaContacto'
+      ', cContacto'
+      ')'
       'VALUES'
       '( :idContactoCliente'
       ', :refCliente'
@@ -2082,7 +2359,10 @@ object DM_Clientes: TDM_Clientes
       ', :refTipoDocumento'
       ', :cDocumento'
       ', :cCargo'
-      ', :bVisible)'
+      ', :bVisible'
+      ', :refFormaContacto'
+      ', :cContacto'
+      ')'
     )
     Params = <    
       item
@@ -2123,6 +2403,16 @@ object DM_Clientes: TDM_Clientes
       item
         DataType = ftUnknown
         Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refFormaContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cContacto'
         ParamType = ptUnknown
       end>
     left = 568
@@ -2167,6 +2457,16 @@ object DM_Clientes: TDM_Clientes
         DataType = ftUnknown
         Name = 'BVISIBLE'
         ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refFormaContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cContacto'
+        ParamType = ptUnknown
       end>
   end
   object tbContClienteUPD: TZQuery
@@ -2181,6 +2481,8 @@ object DM_Clientes: TDM_Clientes
       ', cDocumento = :cDocumento'
       ', bVisible = :bVisible '
       ', cCargo = :cCargo'
+      ', refFormaContacto = :refFormaContacto'
+      ', cContacto = :cContacto'
       'WHERE idContactoCliente = :idContactoCliente'
     )
     Params = <    
@@ -2217,6 +2519,16 @@ object DM_Clientes: TDM_Clientes
       item
         DataType = ftUnknown
         Name = 'cCargo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refFormaContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cContacto'
         ParamType = ptUnknown
       end    
       item
@@ -2264,6 +2576,16 @@ object DM_Clientes: TDM_Clientes
       end    
       item
         DataType = ftUnknown
+        Name = 'refFormaContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
         Name = 'idContactoCliente'
         ParamType = ptUnknown
       end>
@@ -2273,7 +2595,8 @@ object DM_Clientes: TDM_Clientes
     SQL.Strings = (
       'SELECT *'
       'FROM tbContactosCliente'
-      'WHERE  refCliente = :refCliente'
+      'WHERE (refCliente = :refCliente)'
+      '              and (bVisible = 1)'
     )
     Params = <    
       item
@@ -2289,6 +2612,112 @@ object DM_Clientes: TDM_Clientes
         Name = 'refCliente'
         ParamType = ptUnknown
       end>
+    object tbContClienteRelIDCONTACTOCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCONTACTOCLIENTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object tbContClienteRelREFCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCLIENTE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object tbContClienteRelDENOMINACION: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'DENOMINACION'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbContClienteRelREFTIPOCONTACTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFTIPOCONTACTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContClienteRelREFTIPODOCUMENTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFTIPODOCUMENTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContClienteRelCDOCUMENTO: TStringField
+      DisplayWidth = 28
+      FieldKind = fkData
+      FieldName = 'CDOCUMENTO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 28
+    end
+    object tbContClienteRelCCARGO: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'CCARGO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbContClienteRelBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContClienteRelREFFORMACONTACTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFFORMACONTACTO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContClienteRelCCONTACTO: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'CCONTACTO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
   end
   object tbContCliContacto: TRxMemoryData
     Active = True
@@ -2970,6 +3399,28 @@ object DM_Clientes: TDM_Clientes
       item
         DataType = ftUnknown
         Name = 'idCliente'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContClienteDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbContactosCliente'
+      'SET bVisible = 0'
+      'WHERE idContactoCliente = :idContactoCliente'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContactoCliente'
+        ParamType = ptUnknown
+      end>
+    left = 568
+    top = 352
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContactoCliente'
         ParamType = ptUnknown
       end>
   end

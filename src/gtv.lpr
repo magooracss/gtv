@@ -28,7 +28,7 @@ uses
   dmvalores, frm_pagocomprobantes, frm_tuglocalidades, dmlocalidades,
   frm_localidadae, frm_egresosvarioslistado, dmegresosvarios,
   frm_egresosvariosae, frm_egresoae, frm_asignarpagofactura
-  ,sysutils;
+  ,sysutils, frm_clientecontacto;
 
 {$R *.res}
 

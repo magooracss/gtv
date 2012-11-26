@@ -37,6 +37,7 @@ type
     frDataset: TfrDBDataSet;
     frShapeObject1: TfrShapeObject;
     ImgAcciones: TImageList;
+    qTugDesc: TZQuery;
     qLevantarValoresIDVALOR: TLongintField;
     qLevantarValoresNOMBRE: TStringField;
     qLevantarValoresVALORINT: TLongintField;
@@ -92,7 +93,7 @@ type
     function TablaValoresInt (TipoValor: string): integer;
 
     function CmpIgualdadFloat(valor1, valor2: double): boolean;
-
+    function obtenerDescTug(tug, field_id, field_desc: string; idTug: integer): string;
 
 
   end;
@@ -545,6 +546,26 @@ begin
    Result:= False
   else
     Result:= true;
+end;
+
+function TDM_General.obtenerDescTug(tug, field_id, field_desc: string;
+  idTug: integer): string;
+begin
+  with qTugDesc do
+  begin
+    if active then close;
+    sql.clear;
+    sql.add ('SELECT ' + field_desc
+            + ' FROM ' + tug
+            + ' WHERE ' + field_id + ' = ' + IntToStr(idTug));
+    open;
+    First;
+    if RecordCount > 0 then
+      Result:= FieldByName(field_desc).asString
+    else
+      Result:= EmptyStr;
+    Close;
+  end;
 end;
 
 

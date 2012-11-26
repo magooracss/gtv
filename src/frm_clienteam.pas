@@ -14,6 +14,9 @@ type
   { Tfrm_ClientesAM }
 
   Tfrm_ClientesAM = class(TForm)
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
     btnAdmContactoAlta: TBitBtn;
     btnAdmContactoEliminar: TBitBtn;
     btnAdmContactoModificar: TBitBtn;
@@ -32,25 +35,28 @@ type
     btnEliminarEquipo: TBitBtn;
     cbAdmDoc: TComboBox;
     cbConservadorRX: TRxDBComboBox;
-    cbContDoc: TComboBox;
-    cbContTipo: TComboBox;
     cbDestino: TComboBox;
     cbLocalidad: TComboBox;
     cbRespTecnicoRX: TRxDBComboBox;
     cbTipoAbono: TComboBox;
     cbGrupoFacturacion: TComboBox;
     cbCondicionIVA: TComboBox;
-    DBEdit16: TDBEdit;
-    DBEdit17: TDBEdit;
-    DBEdit18: TDBEdit;
     DBEdit20: TDBEdit;
     DBEdit22: TDBEdit;
     DBEdit23: TDBEdit;
     DBEdit24: TDBEdit;
     DBEdit25: TDBEdit;
+    DBGrid1: TDBGrid;
     DBGrid2: TDBGrid;
     DBGrid3: TDBGrid;
     DBGrid4: TDBGrid;
+    DBText1: TDBText;
+    DBText2: TDBText;
+    DBText3: TDBText;
+    DBText4: TDBText;
+    DBText5: TDBText;
+    DBText6: TDBText;
+    DBText7: TDBText;
     ds_conservadores: TDatasource;
     DS_ContactosADM: TDatasource;
     ds_administrador: TDatasource;
@@ -78,6 +84,9 @@ type
     GroupBox3: TGroupBox;
     GroupBox4: TGroupBox;
     GroupBox5: TGroupBox;
+    GroupBox6: TGroupBox;
+    GroupBox7: TGroupBox;
+    GroupBox8: TGroupBox;
     Label1: TLabel;
     Label10: TLabel;
     Label11: TLabel;
@@ -92,11 +101,6 @@ type
     Label2: TLabel;
     Label20: TLabel;
     Label21: TLabel;
-    Label25: TLabel;
-    Label26: TLabel;
-    Label27: TLabel;
-    Label28: TLabel;
-    Label29: TLabel;
     Label3: TLabel;
     Label31: TLabel;
     Label34: TLabel;
@@ -110,7 +114,8 @@ type
     Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
-    PageControl1: TPageControl;
+    Panel11: TPanel;
+    Panel12: TPanel;
     Panel4: TPanel;
     Panel5: TPanel;
     Panel6: TPanel;
@@ -129,16 +134,14 @@ type
     SpeedButton5: TSpeedButton;
     btnTUGDestino: TSpeedButton;
     SpeedButton7: TSpeedButton;
-    SpeedButton8: TSpeedButton;
-    SpeedButton9: TSpeedButton;
     StaticText3: TStaticText;
     tabEdificio: TTabSheet;
     tabPropietario: TTabSheet;
     tabAdministrador: TTabSheet;
     tabContactoCliente: TTabSheet;
-    TabSheet3: TTabSheet;
-    TabSheet4: TTabSheet;
-    TabSheet5: TTabSheet;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
     procedure btnAdmNuevoClick(Sender: TObject);
     procedure btnAgregarEquipoClick(Sender: TObject);
     procedure btnAdmDomicilioAltaClick(Sender: TObject);
@@ -162,6 +165,7 @@ type
     procedure DBGrid1DblClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure Panel12Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
@@ -180,6 +184,8 @@ type
     function ValidarCliente: boolean;
 
     procedure VerificarCUIT;
+
+    procedure contactoCliente (refContacto: GUID_ID);
   public
     property operacion: TOperacion write _operacion;
     property cliente: GUID_ID write _idCliente;
@@ -201,6 +207,7 @@ implementation
    ,frm_resptecnicoslistado
    ,dmEquipos
    ,frm_administradoressel
+   ,frm_clientecontacto
     ;
 
 { Tfrm_ClientesAM }
@@ -221,6 +228,11 @@ begin
      DM_Equipos.LevantarEquiposCliente(_idCliente);
    end;
   end;
+end;
+
+procedure Tfrm_ClientesAM.Panel12Click(Sender: TObject);
+begin
+
 end;
 
 procedure Tfrm_ClientesAM.SpeedButton1Click(Sender: TObject);
@@ -264,8 +276,6 @@ begin
   DM_General.CargarComboBox(cbGrupoFacturacion, 'GrupoFacturacion', 'idGrupoFacturacion', DM_Clientes.qtugGruposFacturacion);
   DM_General.CargarComboBox(cbCondicionIVA, 'CondicionFiscal' ,'idCondicionFiscal', DM_Clientes.qtugCondicionesFiscales);
   DM_General.CargarComboBox(cbAdmDoc, 'TipoDocumento' ,'idTipoDocumento', DM_Clientes.qtugTiposDocumento);
-  DM_General.CargarComboBox(cbContDoc,'TipoDocumento' ,'idTipoDocumento', DM_Clientes.qtugTiposDocumento);
-  DM_General.CargarComboBox(cbContTipo, 'TipoContactoCliente' ,'idTipoContactoCliente', DM_Clientes.qtugTiposContactoCliente);
 
   PCPantalla.ActivePage:= tabEdificio;
 end;
@@ -280,8 +290,6 @@ begin
 //  cbRespTecnico.ItemIndex:= DM_General.obtenerIdxComboTb(cbRespTecnico,DM_Clientes.tbClientes.FieldByName('refRespTecnico').asString );
  // cbConservador.ItemIndex:= DM_General.obtenerIdxComboTb(cbConservador,DM_Clientes.tbClientes.FieldByName('refConservador').asString );
   cbAdmDoc.ItemIndex:= DM_General.obtenerIdxCombo(cbAdmDoc,DM_Clientes.tbAdministradores.FieldByName('refTipoDocumento').asInteger );
-  cbContDoc.ItemIndex:= DM_General.obtenerIdxCombo(cbContDoc,DM_Clientes.tbContactosCliente.FieldByName('refTipoDocumento').asInteger );
-  cbContTipo.ItemIndex:= DM_General.obtenerIdxCombo(cbContTipo,DM_Clientes.tbContactosCliente.FieldByName('refTipoDocumento').asInteger );
 end;
 
 function Tfrm_ClientesAM.ValidarCliente: boolean;
@@ -310,7 +318,6 @@ begin
     ShowMessage('Atención, el CUIT parece no ser válido.');
 end;
 
-
 procedure Tfrm_ClientesAM.FormCreate(Sender: TObject);
 begin
   Inicializar;
@@ -326,8 +333,8 @@ begin
                             ,DM_General.obtenerIDIntComboBox(cbGrupoFacturacion)
                             ,DM_General.obtenerIDIntComboBox(cbCondicionIVA)
                             ,DM_General.obtenerIDIntComboBox(cbAdmDoc)
-                            ,DM_General.obtenerIDIntComboBox(cbContDoc)
-                            ,DM_General.obtenerIDIntComboBox(cbContTipo)
+                            ,0 //DM_General.obtenerIDIntComboBox(cbContDoc)
+                            ,0 //DM_General.obtenerIDIntComboBox(cbContTipo)
                            );
     Application.ProcessMessages;
     DM_Clientes.Grabar;
@@ -468,7 +475,6 @@ begin
     pantalla.laTUG:= datos;
     pantalla.ShowModal;
     DM_General.CargarComboBox(cbAdmDoc, 'TipoDocumento' ,'idTipoDocumento', DM_Clientes.qtugTiposDocumento);
-    DM_General.CargarComboBox(cbContDoc,'TipoDocumento' ,'idTipoDocumento', DM_Clientes.qtugTiposDocumento);
   finally
     datos.Free;
     pantalla.Free;
@@ -499,26 +505,8 @@ begin
 end;
 
 procedure Tfrm_ClientesAM.SpeedButton9Click(Sender: TObject);
-var
-  pantalla: TfrmEdicionTugs;
-  datos: TTablaTUG;
 begin
-  pantalla:=TfrmEdicionTugs.Create(self);
-  datos:= TTablaTUG.Create;
-  try
-    with datos do
-    begin
-      nombre:= 'TUGTIPOSCONTACTOCLIENTE';
-      titulo:= 'Denominaciones de los contactos en el cliente';
-      AgregarCampo('tipocontactocliente','Nombre del tipo de contacto');
-    end;
-    pantalla.laTUG:= datos;
-    pantalla.ShowModal;
-    DM_General.CargarComboBox(cbContTipo, 'TipoContactoCliente' ,'idTipoContactoCliente', DM_Clientes.qtugTiposContactoCliente);
-  finally
-    datos.Free;
-    pantalla.Free;
-  end;
+
 end;
 
 procedure Tfrm_ClientesAM.tabPropietarioContextPopup(Sender: TObject;
@@ -726,6 +714,7 @@ begin
   DM_Clientes.AdministradorNuevo;
 end;
 
+
 procedure Tfrm_ClientesAM.btnBuscarClick(Sender: TObject);
 var
   pant: TfrmAdministradoresSel;
@@ -757,6 +746,8 @@ begin
   begin
     idAnexos[idx]:= GUIDNULO;
   end;
+  if DS_EquiposCliente.DataSet.RecordCount = 1 then
+     idAnexos[idxAnexos]:= DS_EquiposCliente.DataSet.FieldByName('idEquipo').AsString;
   With GrillaEquipos.SelectedRows do
   begin
     for idx:= 0 to Count - 1 do
@@ -772,6 +763,47 @@ begin
   DM_Equipos.elCliente:= TRIM(DBEdit2.Text);
   DM_Equipos.laDireccion:= TRIM(DBEdit3.Text) + ' ' + TRIM(DBEdit6.Text);
   DM_Equipos.ImprimirAnexos (idAnexos);
+end;
+
+
+
+(*******************************************************************************
+****  CONTACTO CLIENTE
+********************************************************************************)
+
+procedure Tfrm_ClientesAM.contactoCliente(refContacto: GUID_ID);
+var
+  pant: TfrmContactoCliente;
+begin
+  pant:= TfrmContactoCliente.Create(self);
+  try
+    pant.idContacto:= refContacto;
+    if pant.ShowModal = mrOK then
+    begin
+      DM_Clientes.grabarContactosCliente;
+      DM_Clientes.ListaContactosCliente;
+    end;
+  finally
+    pant.Free;
+  end;
+
+end;
+
+procedure Tfrm_ClientesAM.BitBtn1Click(Sender: TObject);
+begin
+  contactoCliente(GUIDNULO);
+end;
+
+procedure Tfrm_ClientesAM.BitBtn2Click(Sender: TObject);
+begin
+  contactoCliente(DM_Clientes.tbContactosCliente.FieldByName('idcontactoCliente').asString);
+end;
+
+procedure Tfrm_ClientesAM.BitBtn3Click(Sender: TObject);
+begin
+  if (MessageDlg ('ATENCION', 'Borro el contacto seleccionado ?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+    DM_Clientes.EliminarTablaContactoCliente;
+
 end;
 
 end.
