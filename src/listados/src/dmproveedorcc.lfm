@@ -1,0 +1,325 @@
+object DM_ProveedorCC: TDM_ProveedorCC
+  OldCreateOrder = False
+  Height = 444
+  HorizontalOffset = 467
+  VerticalOffset = 131
+  Width = 597
+  object qTotalCompras: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT SUM (nTotal) as Total'
+      'FROM  tbCompras'
+      'WHERE refProveedor = :refProveedor'
+      '             and (bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end>
+    left = 57
+    top = 22
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end>
+  end
+  object qTotalPagos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT SUM (FP.nMonto) as Pagado'
+      'FROM tbOPFormasDePago FP'
+      '            INNER JOIN  tbOrdenesPago OP ON FP.refOrdenPago = OP.idOrdenPago           '
+      'WHERE (OP.refProveedor = :refProveedor)'
+      '           and (OP.bVisible = 1)'
+      '           and (FP.bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end>
+    left = 58
+    top = 119
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end>
+  end
+  object qCompras: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT Fecha'
+      '            ,NroPtoVenta'
+      '            ,NroFactura'
+      '            ,nTotal'
+      'FROM  tbCompras'
+      'WHERE (refProveedor = :refProveedor)'
+      '              and (bVisible = 1)'
+      '              and (fecha >= :fechaIni)'
+      '              and (fecha <= :fechaFin)'
+      ''
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaIni'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaFin'
+        ParamType = ptUnknown
+      end>
+    left = 203
+    top = 26
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaIni'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaFin'
+        ParamType = ptUnknown
+      end>
+  end
+  object qPagos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT OP.NumeroOrdenPago'
+      '             ,OP.fFecha'
+      '            ,SUM( FP.nMonto) as Total'
+      'FROM tbOPFormasDePago FP'
+      '            INNER JOIN  tbOrdenesPago OP ON FP.refOrdenPago = OP.idOrdenPago           '
+      'WHERE (OP.refProveedor = :refProveedor)'
+      '           and (OP.bVisible = 1)'
+      '           and (FP.bVisible = 1)'
+      '           and (OP.fFecha >= :fechaIni)'
+      '           and (OP.fFecha <= :fechaFin)'
+      'GROUP BY OP.NumeroOrdenPago, OP.fFecha'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaIni'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaFin'
+        ParamType = ptUnknown
+      end>
+    left = 200
+    top = 109
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaIni'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaFin'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbResultados: TRxMemoryData
+    AutoCalcFields = False
+    FieldDefs = <    
+      item
+        Name = 'Fecha'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Comprobante'
+        DataType = ftString
+        Precision = 0
+        Size = 100
+      end    
+      item
+        Name = 'Monto'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Pagado'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Saldo'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = tbResultadosAfterInsert
+    PacketRecords = 0
+    left = 319
+    top = 30
+    object tbResultadosFecha: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Fecha'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbResultadosComprobante: TStringField
+      DisplayWidth = 100
+      FieldKind = fkData
+      FieldName = 'Comprobante'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object tbResultadosMonto: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Monto'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbResultadosPagado: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Pagado'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbResultadosSaldo: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Saldo'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+  end
+  object qTotalComprasAFecha: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT SUM (nTotal) as Total'
+      'FROM  tbCompras'
+      'WHERE ( refProveedor = :refProveedor)'
+      '            and (bVisible = 1)'
+      '            and (fecha <= :fechaIni)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaIni'
+        ParamType = ptUnknown
+      end>
+    left = 72
+    top = 200
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaIni'
+        ParamType = ptUnknown
+      end>
+  end
+  object qTotalPagosAfecha: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT SUM (FP.nMonto) as Pagado'
+      'FROM tbOPFormasDePago FP'
+      '            INNER JOIN  tbOrdenesPago OP ON FP.refOrdenPago = OP.idOrdenPago           '
+      'WHERE (OP.refProveedor = :refProveedor)'
+      '           and (OP.bVisible = 1)'
+      '           and (FP.bVisible = 1)'
+      '           and (OP.fFecha <= :fechaIni)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaIni'
+        ParamType = ptUnknown
+      end>
+    left = 73
+    top = 297
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refProveedor'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaIni'
+        ParamType = ptUnknown
+      end>
+  end
+end
