@@ -115,6 +115,7 @@ object DM_Proveedores: TDM_Proveedores
         Size = 0
       end>
     AfterInsert = tbProveedoresAfterInsert
+    PacketRecords = 0
     left = 40
     top = 24
     object tbProveedoresidProveedor: TStringField
@@ -329,6 +330,187 @@ object DM_Proveedores: TDM_Proveedores
         Name = 'idProveedor'
         ParamType = ptUnknown
       end>
+    object tbProveedoresSELIDPROVEEDOR: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDPROVEEDOR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object tbProveedoresSELCRAZONSOCIAL: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'CRAZONSOCIAL'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+    object tbProveedoresSELCCUIT: TStringField
+      DisplayWidth = 24
+      FieldKind = fkData
+      FieldName = 'CCUIT'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object tbProveedoresSELREFCONDICIONFISCAL: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCONDICIONFISCAL'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbProveedoresSELCCONTACTO: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'CCONTACTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object tbProveedoresSELCDOMICILIO: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'CDOMICILIO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbProveedoresSELTXNOTAS: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXNOTAS'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbProveedoresSELBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbProveedoresSELCNOMBREFANTASIA: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'CNOMBREFANTASIA'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbProveedoresSELREFLOCALIDAD: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFLOCALIDAD'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbProveedoresSELCTELEFONOS: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'CTELEFONOS'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object tbProveedoresSELCCORREOS: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'CCORREOS'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object tbProveedoresSELCWEB: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'CWEB'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object tbProveedoresSELREFIMPUTACION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFIMPUTACION'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbProveedoresSELCINGRESOSBRUTOS: TStringField
+      DisplayWidth = 24
+      FieldKind = fkData
+      FieldName = 'CINGRESOSBRUTOS'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object tbProveedoresSELREFCONDICIONPAGO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCONDICIONPAGO'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbProveedoresSELREFCONDICIONPAGOTIEMPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCONDICIONPAGOTIEMPO'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object tbProveedoresINS: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -734,6 +916,187 @@ object DM_Proveedores: TDM_Proveedores
     Params = <>
     left = 40
     top = 280
+    object qListaProveedoresIDPROVEEDOR: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDPROVEEDOR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qListaProveedoresCRAZONSOCIAL: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'CRAZONSOCIAL'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+    object qListaProveedoresCCUIT: TStringField
+      DisplayWidth = 24
+      FieldKind = fkData
+      FieldName = 'CCUIT'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object qListaProveedoresREFCONDICIONFISCAL: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCONDICIONFISCAL'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaProveedoresCCONTACTO: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'CCONTACTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object qListaProveedoresCDOMICILIO: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'CDOMICILIO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qListaProveedoresTXNOTAS: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXNOTAS'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qListaProveedoresBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaProveedoresCNOMBREFANTASIA: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'CNOMBREFANTASIA'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qListaProveedoresREFLOCALIDAD: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFLOCALIDAD'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaProveedoresCTELEFONOS: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'CTELEFONOS'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object qListaProveedoresCCORREOS: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'CCORREOS'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object qListaProveedoresCWEB: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'CWEB'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object qListaProveedoresREFIMPUTACION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFIMPUTACION'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaProveedoresCINGRESOSBRUTOS: TStringField
+      DisplayWidth = 24
+      FieldKind = fkData
+      FieldName = 'CINGRESOSBRUTOS'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object qListaProveedoresREFCONDICIONPAGO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCONDICIONPAGO'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaProveedoresREFCONDICIONPAGOTIEMPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCONDICIONPAGOTIEMPO'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object tbProveedoresDEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -767,6 +1130,57 @@ object DM_Proveedores: TDM_Proveedores
     Params = <>
     left = 256
     top = 56
+    object qtugCondicionesFiscalesIDCONDICIONFISCAL: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDCONDICIONFISCAL'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtugCondicionesFiscalesCONDICIONFISCAL: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'CONDICIONFISCAL'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qtugCondicionesFiscalesBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtugCondicionesFiscalesCOMPRENTREGA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'COMPRENTREGA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtugCondicionesFiscalesCOMPRRECIBE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'COMPRRECIBE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qtugCondicionesPago: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -778,6 +1192,37 @@ object DM_Proveedores: TDM_Proveedores
     Params = <>
     left = 256
     top = 124
+    object qtugCondicionesPagoIDCONDICIONPAGO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDCONDICIONPAGO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtugCondicionesPagoCONDICIONPAGO: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'CONDICIONPAGO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object qtugCondicionesPagoBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qtugCondicionPagoTiempo: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -789,6 +1234,37 @@ object DM_Proveedores: TDM_Proveedores
     Params = <>
     left = 256
     top = 196
+    object qtugCondicionPagoTiempoIDCONDICIONPAGOTIEMPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDCONDICIONPAGOTIEMPO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtugCondicionPagoTiempoCONDICIONPAGOTIEMPO: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'CONDICIONPAGOTIEMPO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object qtugCondicionPagoTiempoBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qtugLocalidades: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -800,6 +1276,58 @@ object DM_Proveedores: TDM_Proveedores
     Params = <>
     left = 256
     top = 259
+    object qtugLocalidadesIDLOCALIDAD: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDLOCALIDAD'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtugLocalidadesLOCALIDAD: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'LOCALIDAD'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qtugLocalidadesCPOSTAL: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'CPOSTAL'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object qtugLocalidadesBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtugLocalidadesREFPROVINCIA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFPROVINCIA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qtugProvinciaLocalidadID: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -823,6 +1351,89 @@ object DM_Proveedores: TDM_Proveedores
         Name = 'idLocalidad'
         ParamType = ptUnknown
       end>
+    object qtugProvinciaLocalidadIDIDPROVINCIA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDPROVINCIA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtugProvinciaLocalidadIDPROVINCIA: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PROVINCIA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object qtugProvinciaLocalidadIDBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtugProvinciaLocalidadIDIDLOCALIDAD: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDLOCALIDAD'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtugProvinciaLocalidadIDLOCALIDAD: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'LOCALIDAD'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qtugProvinciaLocalidadIDCPOSTAL: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'CPOSTAL'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qtugProvinciaLocalidadIDBVISIBLE_1: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE_1'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtugProvinciaLocalidadIDREFPROVINCIA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFPROVINCIA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qTugComprobantePorID: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -838,12 +1449,63 @@ object DM_Proveedores: TDM_Proveedores
         ParamType = ptUnknown
       end>
     left = 254
-    top = 4
+    top = 8
     ParamData = <    
       item
         DataType = ftUnknown
         Name = 'idCondicionFiscal'
         ParamType = ptUnknown
       end>
+    object qTugComprobantePorIDIDCONDICIONFISCAL: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDCONDICIONFISCAL'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qTugComprobantePorIDCONDICIONFISCAL: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'CONDICIONFISCAL'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qTugComprobantePorIDBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qTugComprobantePorIDCOMPRENTREGA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'COMPRENTREGA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qTugComprobantePorIDCOMPRRECIBE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'COMPRRECIBE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
 end

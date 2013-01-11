@@ -14,7 +14,15 @@ type
 
   TDM_SaldosCompras = class(TDataModule)
     qComprasImpagas: TZQuery;
+    qComprasImpagasCOMPROBANTE: TStringField;
+    qComprasImpagasFECHA: TDateField;
+    qComprasImpagasIDCOMPRA: TStringField;
+    qComprasImpagasIMPCOMPROBANTE: TFloatField;
+    qComprasImpagasIMPPAGADO: TFloatField;
+    qComprasImpagasPROVEEDOR: TStringField;
+    qComprasImpagasSALDO: TFloatField;
     qComprasPagadas: TZQuery;
+    qComprasPagadasTOTAL: TFloatField;
     tbResultados: TRxMemoryData;
     tbResultadosComprobante: TStringField;
     tbResultadosFecha: TDateField;

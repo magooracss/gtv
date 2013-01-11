@@ -216,6 +216,72 @@ object DM_PlanDeCuentas: TDM_PlanDeCuentas
         Name = 'elCodigo'
         ParamType = ptUnknown
       end>
+    object qFiltrarCodigoIDCUENTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDCUENTA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qFiltrarCodigoCODIGO: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CODIGO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object qFiltrarCodigoCUENTA: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'CUENTA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object qFiltrarCodigoOPERACION: TStringField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'OPERACION'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 5
+    end
+    object qFiltrarCodigoPORCIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PORCIVA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qFiltrarCodigoBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qFiltrarCuenta: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -232,7 +298,7 @@ object DM_PlanDeCuentas: TDM_PlanDeCuentas
         Name = 'laCuenta'
         ParamType = ptUnknown
       end>
-    left = 56
+    left = 64
     top = 239
     ParamData = <    
       item
@@ -240,6 +306,72 @@ object DM_PlanDeCuentas: TDM_PlanDeCuentas
         Name = 'laCuenta'
         ParamType = ptUnknown
       end>
+    object qFiltrarCuentaIDCUENTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDCUENTA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qFiltrarCuentaCODIGO: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CODIGO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object qFiltrarCuentaCUENTA: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'CUENTA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object qFiltrarCuentaOPERACION: TStringField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'OPERACION'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 5
+    end
+    object qFiltrarCuentaPORCIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PORCIVA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qFiltrarCuentaBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object tugPlanDeCuentasSEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -369,7 +501,7 @@ object DM_PlanDeCuentas: TDM_PlanDeCuentas
         ParamType = ptUnknown
       end>
     left = 197
-    top = 156
+    top = 160
     ParamData = <    
       item
         DataType = ftUnknown
@@ -522,5 +654,71 @@ object DM_PlanDeCuentas: TDM_PlanDeCuentas
         Name = 'codigo'
         ParamType = ptUnknown
       end>
+    object qCuentaPorCodigoIDCUENTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDCUENTA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qCuentaPorCodigoCODIGO: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CODIGO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object qCuentaPorCodigoCUENTA: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'CUENTA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object qCuentaPorCodigoOPERACION: TStringField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'OPERACION'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 5
+    end
+    object qCuentaPorCodigoPORCIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PORCIVA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qCuentaPorCodigoBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
 end

@@ -18,14 +18,112 @@ object dm_reclamos: Tdm_reclamos
   object qListaReclamos: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      'SELECT R.*'
-      ',C.cNombre'
-      ' FROM tbReclamos R '
-      '  LEFT JOIN tbClientes C ON R.refCliente = C.idCliente'
+      ' SELECT Re.idReclamo, Re.refCliente, Re.nNro, Re.fFecha, Re.bAtendido, Re.bVisible'
+      ' ,C.cNombre, C.cCodigo, R.nRemito'
+      ' FROM tbReclamos Re'
+      '      LEFT JOIN tbClientes C ON Re.refCliente = C.idCliente '
+      '       LEFT JOIN trReclamoRemito RR ON Re.idReclamo = RR.refReclamo '
+      '       LEFT JOIN tbRemitos R ON R.idRemito = RR.refRemito '
+      'WHERE (Re.bVisible = 1) '
     )
     Params = <>
     left = 48
     top = 352
+    object qListaReclamosIDRECLAMO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDRECLAMO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qListaReclamosREFCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCLIENTE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qListaReclamosNNRO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NNRO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaReclamosFFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FFECHA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qListaReclamosBATENDIDO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BATENDIDO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaReclamosBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaReclamosCNOMBRE: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'CNOMBRE'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qListaReclamosCCODIGO: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CCODIGO'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object qListaReclamosNREMITO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NREMITO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object tbReclamos: TRxMemoryData
     Active = True
@@ -121,6 +219,7 @@ object dm_reclamos: Tdm_reclamos
         Size = 0
       end>
     AfterInsert = tbReclamosAfterInsert
+    PacketRecords = 0
     left = 48
     top = 16
     object tbReclamosidReclamo: TStringField
@@ -332,6 +431,7 @@ object dm_reclamos: Tdm_reclamos
         Size = 0
       end>
     AfterInsert = trReclamosEquiposAfterInsert
+    PacketRecords = 0
     left = 168
     top = 16
   end
@@ -938,6 +1038,7 @@ object dm_reclamos: Tdm_reclamos
         Size = 500
       end>
     AfterInsert = trReclamoTecnicosAfterInsert
+    PacketRecords = 0
     left = 496
     top = 16
   end
@@ -1175,6 +1276,7 @@ object dm_reclamos: Tdm_reclamos
         Precision = -1
         Size = 0
       end>
+    PacketRecords = 0
     left = 272
     top = 16
     object trReclamoRemitoidReclamoRemito: TStringField

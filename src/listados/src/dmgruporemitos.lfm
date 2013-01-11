@@ -15,6 +15,47 @@ object DM_GrupoRemitos: TDM_GrupoRemitos
     Params = <>
     left = 202
     top = 125
+    object qGruposFacturacionIDGRUPOFACTURACION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDGRUPOFACTURACION'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qGruposFacturacionGRUPOFACTURACION: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'GRUPOFACTURACION'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qGruposFacturacionDIAFACTURACION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DIAFACTURACION'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qGruposFacturacionBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object tbResultados: TRxMemoryData
     Active = True
@@ -144,5 +185,649 @@ object DM_GrupoRemitos: TDM_GrupoRemitos
         Name = 'refRemito'
         ParamType = ptUnknown
       end>
+    object qEquiposClienteIDREMITOEQUIPO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDREMITOEQUIPO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qEquiposClienteREFREMITO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFREMITO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qEquiposClienteREFEQUIPO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFEQUIPO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qEquiposClienteIDEQUIPO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDEQUIPO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qEquiposClienteREFCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCLIENTE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qEquiposClienteNOMBRE: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qEquiposClienteREFTIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFTIPO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteTM_TRACCION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TM_TRACCION'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteTM_PROPHIDRAULICA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TM_PROPHIDRAULICA'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteCM_UBICACION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CM_UBICACION'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteM_MARCA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'M_MARCA'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteM_VELOCIDAD: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'M_VELOCIDAD'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object qEquiposClienteM_POTENCIAHP: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'M_POTENCIAHP'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object qEquiposClienteM_NROIDENTIFICADORES: TStringField
+      DisplayWidth = 148
+      FieldKind = fkData
+      FieldName = 'M_NROIDENTIFICADORES'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 148
+    end
+    object qEquiposClienteT_TIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'T_TIPO'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteR_NROPISOS: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'R_NROPISOS'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteR_PARADAS: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'R_PARADAS'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteR_ACCESOS: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'R_ACCESOS'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteV_UNICA: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'V_UNICA'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object qEquiposClienteV_ALTABAJA: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'V_ALTABAJA'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object qEquiposClienteTPCAB_TIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TPCAB_TIPO'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteTPCONTR_TIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TPCONTR_TIPO'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteP_TIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'P_TIPO'
+      Index = 22
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteP_OTRO: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'P_OTRO'
+      Index = 23
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qEquiposClienteTMAN_TIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TMAN_TIPO'
+      Index = 24
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteTMAN_OTRA: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'TMAN_OTRA'
+      Index = 25
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qEquiposClienteSA_TIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'SA_TIPO'
+      Index = 26
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteTC_TIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TC_TIPO'
+      Index = 27
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteCT_PERSONAS: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CT_PERSONAS'
+      Index = 28
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteCT_KG: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CT_KG'
+      Index = 29
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qEquiposClientePC_MATERIAL: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PC_MATERIAL'
+      Index = 30
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object qEquiposClientePC_MANUAL: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PC_MANUAL'
+      Index = 31
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClientePC_MANUALTIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PC_MANUALTIPO'
+      Index = 32
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClientePC_MANUALOTRA: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'PC_MANUALOTRA'
+      Index = 33
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qEquiposClientePC_AUTOMATICA: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PC_AUTOMATICA'
+      Index = 34
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClientePC_AUTOMATICATIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PC_AUTOMATICATIPO'
+      Index = 35
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClientePC_AUTOMATICACORRIENTE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PC_AUTOMATICACORRIENTE'
+      Index = 36
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClientePC_AUTOMATICAOTRA: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'PC_AUTOMATICAOTRA'
+      Index = 37
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qEquiposClientePR_MATERIAL: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PR_MATERIAL'
+      Index = 38
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object qEquiposClientePR_MANUAL: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PR_MANUAL'
+      Index = 39
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClientePR_MANUALTIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PR_MANUALTIPO'
+      Index = 40
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClientePR_MANUALOTRA: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'PR_MANUALOTRA'
+      Index = 41
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qEquiposClientePR_AUTOMATICA: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PR_AUTOMATICA'
+      Index = 42
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClientePR_AUTOMATICATIPOARRASTRE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PR_AUTOMATICATIPOARRASTRE'
+      Index = 43
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClientePH_PISTONCENTRAL: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PH_PISTONCENTRAL'
+      Index = 44
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClientePH_PISTONLATERAL: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PH_PISTONLATERAL'
+      Index = 45
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClientePH_PISTONENTERRADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PH_PISTONENTERRADO'
+      Index = 46
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClientePH_PISTONTELESCOPICO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PH_PISTONTELESCOPICO'
+      Index = 47
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClientePH_RELACION2_1: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PH_RELACION2_1'
+      Index = 48
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 49
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteNNROEQUIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NNROEQUIPO'
+      Index = 50
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteTXOBSERVACIONES: TStringField
+      DisplayWidth = 3500
+      FieldKind = fkData
+      FieldName = 'TXOBSERVACIONES'
+      Index = 51
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3500
+    end
+    object qEquiposClienteFHABILITACION: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FHABILITACION'
+      Index = 52
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteEXPCONSERVADOR: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'EXPCONSERVADOR'
+      Index = 53
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qEquiposClienteEXPHABILITACION: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'EXPHABILITACION'
+      Index = 54
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qEquiposClienteREFTMOTRAS: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFTMOTRAS'
+      Index = 55
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteREFCMOTRAS: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCMOTRAS'
+      Index = 56
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteREFTALTCONTROLADA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFTALTCONTROLADA'
+      Index = 57
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteREFFRECVARIABLE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFFRECVARIABLE'
+      Index = 58
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteREFRACCOPADY: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFRACCOPADY'
+      Index = 59
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteREFTPCABOTRO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFTPCABOTRO'
+      Index = 60
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qEquiposClienteREFTPCONTROTRO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFTPCONTROTRO'
+      Index = 61
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
 end

@@ -7,14 +7,119 @@ object DM_Remitos: TDM_Remitos
   object qListaRemitos: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      'SELECT OT.idOrdenTrabajo, OT.refCliente, OT.nNro, OT.txTareas, OT.bCumplida, OT.fCumplida, OT.bAnulada, OT.fAnulada, OT.Falta'
-      ',C.cNombre'
-      ' FROM tbOrdenesTrabajo OT '
-      '  LEFT JOIN tbClientes C ON OT.refCliente = C.idCliente'
+      'SELECT Re.idRemito, Re.refCliente, Re.nRemito, Re.fFecha, Re.bSinCargo, RE.bFacturado, RE.bPresentado,Re.bVisible,C.cNombre, C.cCodigo'
+      'FROM tbRemitos Re'
+      '       LEFT JOIN tbClientes C ON Re.refCliente = C.idCliente'
+      'WHERE (Re.bVisible = 1)'
     )
     Params = <>
     left = 80
     top = 456
+    object qListaRemitosIDREMITO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDREMITO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qListaRemitosREFCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCLIENTE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qListaRemitosNREMITO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NREMITO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRemitosFFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FFECHA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qListaRemitosBSINCARGO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BSINCARGO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRemitosBFACTURADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BFACTURADO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRemitosBPRESENTADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BPRESENTADO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRemitosBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRemitosCNOMBRE: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'CNOMBRE'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qListaRemitosCCODIGO: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CCODIGO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
   end
   object tbRemitos: TRxMemoryData
     Active = True
@@ -22,90 +127,237 @@ object DM_Remitos: TDM_Remitos
       item
         Name = 'idRemito'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'refCliente'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'nRemito'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'fFecha'
         DataType = ftDateTime
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'refOrdenTrabajo'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'refMotivo'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'txDetalles'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 3000
       end    
       item
         Name = 'refFactura'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'bFacturar'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'bSinCargo'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'bFacturado'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'bPresentado'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'bVisible'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'lxMotivo'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 200
       end>
     AfterInsert = tbRemitosAfterInsert
+    PacketRecords = 0
     left = 80
     top = 44
+    object tbRemitosidRemito: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idRemito'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbRemitosrefCliente: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refCliente'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbRemitosnRemito: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nRemito'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbRemitosfFecha: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fFecha'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbRemitosrefOrdenTrabajo: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refOrdenTrabajo'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbRemitosrefMotivo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refMotivo'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbRemitostxDetalles: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'txDetalles'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbRemitosrefFactura: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refFactura'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbRemitosbFacturar: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bFacturar'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbRemitosbSinCargo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bSinCargo'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbRemitosbFacturado: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bFacturado'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbRemitosbPresentado: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bPresentado'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbRemitosbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbRemitoslxMotivo: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'lxMotivo'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
   end
   object tbRemitosSEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -128,6 +380,141 @@ object DM_Remitos: TDM_Remitos
         Name = 'idRemito'
         ParamType = ptUnknown
       end>
+    object tbRemitosSELIDREMITO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDREMITO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object tbRemitosSELREFCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCLIENTE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object tbRemitosSELNREMITO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NREMITO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbRemitosSELFFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FFECHA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbRemitosSELREFORDENTRABAJO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFORDENTRABAJO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object tbRemitosSELREFMOTIVO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFMOTIVO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbRemitosSELTXDETALLES: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXDETALLES'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbRemitosSELREFFACTURA: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFFACTURA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object tbRemitosSELBFACTURAR: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BFACTURAR'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbRemitosSELBFACTURADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BFACTURADO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbRemitosSELBPRESENTADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BPRESENTADO'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbRemitosSELBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbRemitosSELBSINCARGO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BSINCARGO'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object tbRemitosINS: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -478,42 +865,108 @@ object DM_Remitos: TDM_Remitos
       item
         Name = 'idRemitoEquipo'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'refRemito'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'refEquipo'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'lxTipoEquipo'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 200
       end    
       item
         Name = 'lxNombre'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 500
       end    
       item
         Name = 'lxNro'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end>
     AfterInsert = trRemitoEquiposAfterInsert
+    PacketRecords = 0
     left = 196
     top = 44
+    object trRemitoEquiposidRemitoEquipo: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idRemitoEquipo'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object trRemitoEquiposrefRemito: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refRemito'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object trRemitoEquiposrefEquipo: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refEquipo'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object trRemitoEquiposlxTipoEquipo: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'lxTipoEquipo'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object trRemitoEquiposlxNombre: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'lxNombre'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object trRemitoEquiposlxNro: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'lxNro'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object trRemitoEquiposSEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -536,6 +989,39 @@ object DM_Remitos: TDM_Remitos
         Name = 'idRemitoEquipo'
         ParamType = ptUnknown
       end>
+    object trRemitoEquiposSELIDREMITOEQUIPO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDREMITOEQUIPO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object trRemitoEquiposSELREFREMITO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFREMITO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object trRemitoEquiposSELREFEQUIPO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFEQUIPO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
   end
   object trRemitoEquiposINS: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -666,7 +1152,7 @@ object DM_Remitos: TDM_Remitos
         Name = 'refRemito'
         ParamType = ptUnknown
       end>
-    left = 196
+    left = 200
     top = 380
     ParamData = <    
       item
@@ -674,6 +1160,71 @@ object DM_Remitos: TDM_Remitos
         Name = 'refRemito'
         ParamType = ptUnknown
       end>
+    object qLevantarRemitoEquiposIDREMITOEQUIPO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDREMITOEQUIPO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qLevantarRemitoEquiposREFREMITO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFREMITO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qLevantarRemitoEquiposREFEQUIPO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFEQUIPO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qLevantarRemitoEquiposLXNOMBRE: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'LXNOMBRE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qLevantarRemitoEquiposLXNRO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'LXNRO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qLevantarRemitoEquiposLXTIPOEQUIPO: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'LXTIPOEQUIPO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
   end
   object qtugMotivosRemito: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -686,6 +1237,37 @@ object DM_Remitos: TDM_Remitos
     Params = <>
     left = 584
     top = 44
+    object qtugMotivosRemitoIDMOTIVOREMITO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDMOTIVOREMITO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtugMotivosRemitoMOTIVOREMITO: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'MOTIVOREMITO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qtugMotivosRemitoBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object trRemitoTecnicos: TRxMemoryData
     Active = True
@@ -693,30 +1275,74 @@ object DM_Remitos: TDM_Remitos
       item
         Name = 'idRemitoTecnico'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'refRemito'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'refTecnico'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'lxNombreTecnico'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 500
       end>
     AfterInsert = trRemitoTecnicosAfterInsert
+    PacketRecords = 0
     left = 312
     top = 44
+    object trRemitoTecnicosidRemitoTecnico: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idRemitoTecnico'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object trRemitoTecnicosrefRemito: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refRemito'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object trRemitoTecnicosrefTecnico: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refTecnico'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object trRemitoTecnicoslxNombreTecnico: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'lxNombreTecnico'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
   end
   object trRemitoTecnicosSEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -739,6 +1365,38 @@ object DM_Remitos: TDM_Remitos
         Name = 'idRemitoTecnico'
         ParamType = ptUnknown
       end>
+    object trRemitoTecnicosSELIDREMITOTECNICO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDREMITOTECNICO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object trRemitoTecnicosSELREFREMITO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFREMITO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object trRemitoTecnicosSELREFTECNICO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFTECNICO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object trRemitoTecnicosINS: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -874,6 +1532,49 @@ object DM_Remitos: TDM_Remitos
         Name = 'refRemito'
         ParamType = ptUnknown
       end>
+    object qLevantarRemitoTecnicosIDREMITOTECNICO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDREMITOTECNICO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qLevantarRemitoTecnicosREFREMITO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFREMITO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qLevantarRemitoTecnicosREFTECNICO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFTECNICO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qLevantarRemitoTecnicosLXNOMBRETECNICO: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'LXNOMBRETECNICO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
   end
   object qLevantarRemitoReclamo: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -898,6 +1599,196 @@ object DM_Remitos: TDM_Remitos
         Name = 'refRemito'
         ParamType = ptUnknown
       end>
+    object qLevantarRemitoReclamoIDRECLAMOREMITO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDRECLAMOREMITO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qLevantarRemitoReclamoREFRECLAMO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFRECLAMO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qLevantarRemitoReclamoREFREMITO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFREMITO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qLevantarRemitoReclamoIDRECLAMO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDRECLAMO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qLevantarRemitoReclamoREFCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCLIENTE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qLevantarRemitoReclamoNNRO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NNRO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qLevantarRemitoReclamoFHORA: TTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FHORA'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qLevantarRemitoReclamoFFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FFECHA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qLevantarRemitoReclamoCSOLICITANTE: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'CSOLICITANTE'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qLevantarRemitoReclamoREFMEDIO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFMEDIO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qLevantarRemitoReclamoTXDETALLES: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXDETALLES'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qLevantarRemitoReclamoREFORDENTRABAJO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFORDENTRABAJO'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qLevantarRemitoReclamoFATENDIDO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FATENDIDO'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qLevantarRemitoReclamoREFTECNICOATENDIO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFTECNICOATENDIO'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qLevantarRemitoReclamoBATENDIDO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BATENDIDO'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qLevantarRemitoReclamoTXINFORMETECNICO: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXINFORMETECNICO'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qLevantarRemitoReclamoTXOBSERVACIONES: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXOBSERVACIONES'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qLevantarRemitoReclamoBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qAsignarReclamo: TZQuery
     Connection = DM_Conexion.cnxGeneral

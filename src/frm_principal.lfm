@@ -11,7 +11,7 @@ object frmPrincipal: TfrmPrincipal
   Position = poScreenCenter
   SessionProperties = 'Height;Left;Top;Width'
   ShowHint = True
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.0.4.0'
   object st: TStatusBar
     Left = 0
     Height = 20
@@ -47,78 +47,78 @@ object frmPrincipal: TfrmPrincipal
     object ToolButton2: TToolButton
       Left = 70
       Top = 2
-      Width = 8
+      Width = 10
       Caption = 'ToolButton2'
       Style = tbsSeparator
     end
     object ToolButton3: TToolButton
-      Left = 78
+      Left = 80
       Top = 2
       Action = cliNuevo
     end
     object ToolButton4: TToolButton
-      Left = 147
+      Left = 149
       Top = 2
       Action = cliBusYModificar
     end
     object ToolButton5: TToolButton
-      Left = 216
+      Left = 218
       Top = 2
-      Width = 8
+      Width = 10
       Caption = 'ToolButton5'
       Style = tbsSeparator
     end
     object ToolButton6: TToolButton
-      Left = 224
+      Left = 228
       Top = 2
       Action = presPantGral
     end
     object ToolButton7: TToolButton
-      Left = 297
+      Left = 301
       Top = 2
       Action = OTPantGral
     end
     object ToolButton8: TToolButton
-      Left = 470
+      Left = 474
       Top = 2
       Action = RemitoPantGral
     end
     object ToolButton9: TToolButton
-      Left = 539
+      Left = 543
       Top = 2
-      Width = 8
+      Width = 10
       Caption = 'ToolButton9'
       Style = tbsSeparator
     end
     object ToolButton11: TToolButton
-      Left = 401
+      Left = 405
       Top = 2
       Action = ReclPantGral
     end
     object ToolButton12: TToolButton
-      Left = 625
+      Left = 631
       Top = 2
       Action = cajaComprasListado
     end
     object ToolButton10: TToolButton
-      Left = 694
+      Left = 700
       Top = 2
       Action = cajaOPListado
     end
     object ToolButton13: TToolButton
-      Left = 785
+      Left = 791
       Top = 2
-      Width = 8
+      Width = 10
       Caption = 'ToolButton13'
       Style = tbsSeparator
     end
     object ToolButton14: TToolButton
-      Left = 793
+      Left = 801
       Top = 2
       Action = appListados
     end
     object ToolButton15: TToolButton
-      Left = 547
+      Left = 553
       Top = 2
       Action = cajaEgresosVarios
     end
@@ -200,6 +200,9 @@ object frmPrincipal: TfrmPrincipal
       end
       object MenuItem23: TMenuItem
         Action = cajaCompraNueva
+      end
+      object MenuItem29: TMenuItem
+        Action = cajaCompensaciones
       end
       object MenuItem28: TMenuItem
         Caption = '-'
@@ -392,6 +395,13 @@ object frmPrincipal: TfrmPrincipal
       Hint = 'Agrega un egreso que no corresponde a un proveedor'
       ImageIndex = 25
       OnExecute = cajaEgresosVariosExecute
+    end
+    object cajaCompensaciones: TAction
+      Category = 'Caja'
+      Caption = 'Compensaciones'
+      Hint = 'Asignar compensaciones'
+      ImageIndex = 10
+      OnExecute = cajaCompensacionesExecute
     end
   end
   object XMLPropiedades: TXMLPropStorage

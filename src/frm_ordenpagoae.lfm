@@ -1,7 +1,7 @@
 object frmOrdenDePagoAE: TfrmOrdenDePagoAE
-  Left = 632
+  Left = 436
   Height = 584
-  Top = 60
+  Top = 114
   Width = 630
   Caption = 'Orden de Pago'
   ClientHeight = 584
@@ -15,7 +15,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
   OnShow = FormShow
   Position = poOwnerFormCenter
   ShowHint = True
-  LCLVersion = '1.0.2.0'
+  LCLVersion = '1.0.4.0'
   object Panel1: TPanel
     Left = 0
     Height = 128

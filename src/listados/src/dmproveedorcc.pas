@@ -13,12 +13,23 @@ type
   { TDM_ProveedorCC }
 
   TDM_ProveedorCC = class(TDataModule)
+    qComprasFECHA: TDateField;
+    qComprasNROFACTURA: TLongintField;
+    qComprasNROPTOVENTA: TLongintField;
+    qComprasNTOTAL: TFloatField;
     qPagos: TZQuery;
+    qPagosFFECHA: TDateField;
+    qPagosNUMEROORDENPAGO: TLongintField;
+    qPagosTOTAL: TFloatField;
     qTotalCompras: TZQuery;
     qTotalComprasAFecha: TZQuery;
+    qTotalComprasAFechaTOTAL: TFloatField;
+    qTotalComprasTOTAL: TFloatField;
     qTotalPagos: TZQuery;
     qCompras: TZQuery;
     qTotalPagosAfecha: TZQuery;
+    qTotalPagosAfechaPAGADO: TFloatField;
+    qTotalPagosPAGADO: TFloatField;
     tbResultados: TRxMemoryData;
     tbResultadosComprobante: TStringField;
     tbResultadosFecha: TDateField;

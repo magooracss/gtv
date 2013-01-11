@@ -82,8 +82,9 @@ uses
   ,dmcompras
   ,frm_cargavalores
   ,SD_Configuracion
-  , LR_Class
+  ,LR_Class
   ,frm_asignarpagofactura
+  ,dmcompensaciones
   ;
 
 { TfrmOrdenDePagoAE }
@@ -165,7 +166,7 @@ procedure TfrmOrdenDePagoAE.btQuitarComprobanteClick(Sender: TObject);
 begin
   if (MessageDlg ('AVISO', '¿Elimino el comprobante seleccionado?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
   begin
-    DM_OrdenesDePago.EliminarComprobante (DS_OPComprobantes.DataSet.FieldByName('idCompra').asString);
+    DM_OrdenesDePago.EliminarComprobante (DS_OPComprobantes.DataSet.FieldByName('refCompra').asString);
     DM_OrdenesDePago.CalcularMontoTotal;
   end;
 end;
@@ -206,12 +207,21 @@ var
   idOP: GUID_ID;
   pant: TfrmAsignarPagoFacturas;
   mnt: double;
+  compensacion, montoACubrir: double;
 begin
   idOP:= DM_OrdenesDePago.idOrdenPago;
   pant:= TfrmAsignarPagoFacturas.Create(self);
   DM_OrdenesDePago.CalcularMontoTotal;
   DM_OrdenesDePago.Grabar;
   mnt:=DM_OrdenesDePago.CalcularValores;
+  montoACubrir:= DM_Compras.SumaComprasOP (DM_OrdenesDePago.tbOrdenesPago.FieldByName('idOrdenPago').asString);
+  compensacion:= mnt-montoACubrir;
+
+  if (compensacion > 1) then
+    DM_Compensaciones.AsentarCompensacion (DM_OrdenesDePago.tbOrdenesPago.FieldByName('idOrdenPago').asString
+                                           ,compensacion
+                                          );
+
   if  ((mnt < DM_OrdenesDePago.tbOrdenesPago.FieldByName('nTotalAPagar').asFloat)
         and (NOT DM_General.CmpIgualdadFloat(mnt, DM_OrdenesDePago.tbOrdenesPago.FieldByName('nTotalAPagar').asFloat))
        ) then
@@ -229,6 +239,7 @@ begin
     DM_Compras.GrabarPagosTotales (idOP);
   end;
   DM_OrdenesDePago.LevantarOP(DM_OrdenesDePago.idOrdenPago);
+  btnGrabar.Enabled:= False;
   btnSalir.Enabled:= True;
   btnImprimir.Enabled:= True;
 end;

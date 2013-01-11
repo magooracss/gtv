@@ -1,8 +1,8 @@
 object DM_BuscarCliente: TDM_BuscarCliente
   OldCreateOrder = False
   Height = 249
-  HorizontalOffset = 381
-  VerticalOffset = 131
+  HorizontalOffset = 393
+  VerticalOffset = 132
   Width = 421
   object qBusCliPorNombre: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -239,7 +239,7 @@ object DM_BuscarCliente: TDM_BuscarCliente
         Name = 'parametro'
         ParamType = ptUnknown
       end>
-    left = 137
+    left = 136
     top = 136
     ParamData = <    
       item

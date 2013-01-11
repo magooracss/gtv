@@ -2,8 +2,8 @@ object DM_DetallePagos: TDM_DetallePagos
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 343
-  HorizontalOffset = 343
-  VerticalOffset = 344
+  HorizontalOffset = 473
+  VerticalOffset = 440
   Width = 403
   object qOP: TZQuery
     Connection = DM_Conexion.cnxGeneral

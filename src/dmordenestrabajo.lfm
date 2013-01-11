@@ -87,6 +87,7 @@ object DM_OrdenesTrabajo: TDM_OrdenesTrabajo
         Size = 0
       end>
     AfterInsert = tbOrdenesTrabajoAfterInsert
+    PacketRecords = 0
     left = 56
     top = 16
   end
@@ -130,6 +131,7 @@ object DM_OrdenesTrabajo: TDM_OrdenesTrabajo
         Size = 0
       end>
     AfterInsert = trOrdenesTrabajoEquiposAfterInsert
+    PacketRecords = 0
     left = 184
     top = 16
   end
@@ -458,14 +460,130 @@ object DM_OrdenesTrabajo: TDM_OrdenesTrabajo
   object qListaOrdenesTrabajo: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      'SELECT OT.idOrdenTrabajo, OT.refCliente, OT.nNro, OT.txTareas, OT.bCumplida, OT.fCumplida, OT.bAnulada, OT.fAnulada, OT.Falta'
-      ',C.cNombre'
-      ' FROM tbOrdenesTrabajo OT '
-      '  LEFT JOIN tbClientes C ON OT.refCliente = C.idCliente'
+      ' SELECT OT.idOrdenTrabajo, OT.refCliente, OT.nNro, OT.txTareas, OT.bCumplida, OT.fCumplida, OT.bAnulada, OT.fAnulada, OT.fAlta'
+      ' ,C.cNombre, C.cCodigo'
+      ' FROM tbOrdenesTrabajo OT'
+      '       LEFT JOIN tbClientes C ON OT.refCliente = C.idCliente '
+      'WHERE (OT.bVisible = 1)'
     )
     Params = <>
     left = 56
     top = 352
+    object qListaOrdenesTrabajoIDORDENTRABAJO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDORDENTRABAJO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qListaOrdenesTrabajoREFCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCLIENTE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qListaOrdenesTrabajoNNRO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NNRO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaOrdenesTrabajoTXTAREAS: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXTAREAS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qListaOrdenesTrabajoBCUMPLIDA: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BCUMPLIDA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaOrdenesTrabajoFCUMPLIDA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCUMPLIDA'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaOrdenesTrabajoBANULADA: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BANULADA'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaOrdenesTrabajoFANULADA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FANULADA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaOrdenesTrabajoFALTA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FALTA'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaOrdenesTrabajoCNOMBRE: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'CNOMBRE'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qListaOrdenesTrabajoCCODIGO: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CCODIGO'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
   end
   object tbOrdenesTrabajoDEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -517,6 +635,7 @@ object DM_OrdenesTrabajo: TDM_OrdenesTrabajo
         Size = 0
       end>
     AfterInsert = trOrdenesTrabajoRemitosAfterInsert
+    PacketRecords = 0
     left = 352
     top = 16
   end

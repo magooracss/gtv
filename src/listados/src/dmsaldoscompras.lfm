@@ -1,23 +1,120 @@
 object DM_SaldosCompras: TDM_SaldosCompras
   OldCreateOrder = False
   Height = 394
-  HorizontalOffset = 508
-  VerticalOffset = 226
+  HorizontalOffset = 642
+  VerticalOffset = 202
   Width = 540
   object qComprasImpagas: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      'SELECT *'
+      'SELECT C.idCompra, P.cRazonSocial as Proveedor, C.Fecha, C.nTotal as ImpComprobante, 0.0 as Saldo, 0.0 as ImpPagado'
+      '       , (tTC.TipoComprobante || ''  '' || C.nroPtoVenta|| ''-'' || C.nroFactura) as Comprobante'
       'FROM tbCompras C'
-      '           LEFT JOIN tbProveedores P ON P.idProveedor = C.refProveedor'
-      '           LEFT JOIN tugTiposComprobantes tTC ON tTC.idTipoComprobante = C.refTipoComprobante'
-      'WHERE (C.bPagada = 0)'
-      ' and (C.bVisible = 1)'
+      '  LEFT JOIN tbProveedores P ON P.idProveedor = C.refProveedor'
+      '  LEFT JOIN tugTiposComprobantes tTC ON tTC.idTipoComprobante = C.refTipoComprobante'
+      'WHERE (C.bPagada = 0) and (C.bVisible = 1)'
+      '       AND  (C.refProveedor = :refProveedor)'
       'ORDER BY P.cRazonSocial, C.Fecha'
     )
-    Params = <>
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'refProveedor'
+        ParamType = ptInput
+      end>
     left = 80
-    top = 102
+    top = 104
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'refProveedor'
+        ParamType = ptInput
+      end>
+    object qComprasImpagasIDCOMPRA: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCOMPRA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qComprasImpagasPROVEEDOR: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'PROVEEDOR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+    object qComprasImpagasFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qComprasImpagasIMPCOMPROBANTE: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IMPCOMPROBANTE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qComprasImpagasCOMPROBANTE: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'COMPROBANTE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 500
+    end
+    object qComprasImpagasSALDO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'SALDO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qComprasImpagasIMPPAGADO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IMPPAGADO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
   end
   object tbResultados: TRxMemoryData
     FieldDefs = <    
@@ -63,6 +160,7 @@ object DM_SaldosCompras: TDM_SaldosCompras
         Precision = 0
         Size = 0
       end>
+    PacketRecords = 0
     left = 78
     top = 29
     object tbResultadosProveedor: TStringField
@@ -165,13 +263,27 @@ object DM_SaldosCompras: TDM_SaldosCompras
         Name = 'refCompra'
         ParamType = ptUnknown
       end>
-    left = 75
-    top = 175
+    left = 80
+    top = 184
     ParamData = <    
       item
         DataType = ftUnknown
         Name = 'refCompra'
         ParamType = ptUnknown
       end>
+    object qComprasPagadasTOTAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TOTAL'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
   end
 end

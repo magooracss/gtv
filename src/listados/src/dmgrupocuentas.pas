@@ -21,9 +21,27 @@ type
 
   TDM_GrupoCuentas = class(TDataModule)
     qSubdiarioCompras: TZQuery;
+    qSubdiarioComprasCOMPROBANTE: TStringField;
+    qSubdiarioComprasCUIT: TStringField;
+    qSubdiarioComprasFECHA: TDateField;
+    qSubdiarioComprasIDCOMPRA: TStringField;
+    qSubdiarioComprasIMPNOGRAVADO: TFloatField;
+    qSubdiarioComprasIMPORTETOTAL: TFloatField;
+    qSubdiarioComprasIVA: TFloatField;
+    qSubdiarioComprasPERCEPCAPITAL: TFloatField;
+    qSubdiarioComprasPERCEPIVA: TFloatField;
+    qSubdiarioComprasPERCEPPROVINCIA: TFloatField;
+    qSubdiarioComprasRAZONSOCIAL: TStringField;
     qSubdiarioPagos: TZQuery;
+    qSubdiarioPagosCOMPROBANTE: TStringField;
+    qSubdiarioPagosCUIT: TStringField;
+    qSubdiarioPagosFECHA: TDateField;
+    qSubdiarioPagosIMPORTETOTAL: TFloatField;
+    qSubdiarioPagosRAZONSOCIAL: TStringField;
     qTotalesCompra: TZQuery;
     qFiltrado: TZQuery;
+    qTotalesCompraIVA: TFloatField;
+    qTotalesCompraMONTOTOTAL: TFloatField;
     tbResultados: TRxMemoryData;
     tbSubdiarioCompras: TRxMemoryData;
     tbResultadoscCuit: TStringField;
@@ -321,7 +339,7 @@ begin
       Close;
     SQL.Clear;
     SQL.Add('SELECT  EV.Fecha, P.Codigo as CodigoCuenta, P.Cuenta as NombreCuenta');
-    SQL.Add(' ,'' '' as cRazonSocial, EVI.Leyenda as cNombreFantasia, '' '' cCuit, EVI.nMonto as Ingreso, 0 as Egreso');
+    SQL.Add(' ,'' '' as cRazonSocial, EVI.Leyenda as cNombreFantasia, '' '' cCuit, EVI.nMonto as Ingreso, 0.0 as Egreso');
     SQL.Add('FROM tbEgresosVarios EV');
     SQL.Add('    INNER JOIN tbEgresosVariosItems EVI ON EVI.refEgresoVario = EV.idEgresoVario');
     SQL.Add('    LEFT JOIN tugPlanDeCuentas P ON P.idCuenta = EVI.refImputacion');

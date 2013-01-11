@@ -17,6 +17,37 @@ object DM_SeleccionListado: TDM_SeleccionListado
     Params = <>
     left = 85
     top = 61
+    object qGruposIDLISTADOGRUPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDLISTADOGRUPO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qGruposLISTADOGRUPO: TStringField
+      DisplayWidth = 100
+      FieldKind = fkData
+      FieldName = 'LISTADOGRUPO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object qGruposBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qListadoPorGrupo: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -40,6 +71,68 @@ object DM_SeleccionListado: TDM_SeleccionListado
         Name = 'refGrupo'
         ParamType = ptUnknown
       end>
+    object qListadoPorGrupoIDLISTADO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDLISTADO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qListadoPorGrupoNOMBRELISTADO: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'NOMBRELISTADO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qListadoPorGrupoREFGRUPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFGRUPO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListadoPorGrupoREFFORMULARIO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFFORMULARIO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListadoPorGrupoRUTAREPORTE: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'RUTAREPORTE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qListadoPorGrupoBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object tbListados: TRxMemoryData
     FieldDefs = <    
@@ -73,7 +166,60 @@ object DM_SeleccionListado: TDM_SeleccionListado
         Precision = 0
         Size = 0
       end>
-    left = 193
+    PacketRecords = 0
+    left = 192
     top = 18
+    object tbListadosidListado: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'idListado'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbListadosNombreListado: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'NombreListado'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbListadosrefFormulario: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refFormulario'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbListadosrutaReporte: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'rutaReporte'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbListadosrefGrupo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refGrupo'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
 end

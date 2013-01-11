@@ -35,7 +35,13 @@ type
     qBusChequeMontoMenor: TZQuery;
     qBusChequeMontoIgual: TZQuery;
     qBusChequefEntrega: TZQuery;
+    qTugBancosBANCO: TStringField;
+    qTugBancosBVISIBLE: TSmallintField;
+    qTugBancosIDBANCO: TLongintField;
     qTugChequesEstados: TZQuery;
+    qTugChequesEstadosBVISIBLE: TSmallintField;
+    qTugChequesEstadosCHEQUEESTADO: TStringField;
+    qTugChequesEstadosIDCHEQUEESTADO: TLongintField;
     tbChequesbVisible: TLongintField;
     tbChequesfCobro: TDateField;
     tbChequesfEntrega: TDateTimeField;

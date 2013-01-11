@@ -1,87 +1,229 @@
 object DM_Presupuestos: TDM_Presupuestos
   OldCreateOrder = False
-  Height = 498
-  HorizontalOffset = 419
-  VerticalOffset = 74
-  Width = 502
+  Height = 698
+  HorizontalOffset = 293
+  VerticalOffset = 0
+  Width = 990
   object tbPresupuestos: TRxMemoryData
     Active = True
     FieldDefs = <    
       item
         Name = 'idPresupuesto'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'nPresupuesto'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'fEmision'
         DataType = ftDateTime
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'refCliente'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'refEmpleado'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'refEstado'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'fCambioEstado'
         DataType = ftDateTime
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'txMotivo'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 3000
       end    
       item
         Name = 'txObservaciones'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 3000
       end    
       item
         Name = 'bAceptado'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'bVisible'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'cRecepciono'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 500
+      end    
+      item
+        Name = 'nNtoCuota'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
       end>
     AfterInsert = tbPresupuestosAfterInsert
+    PacketRecords = 0
     left = 45
     top = 24
+    object tbPresupuestosidPresupuesto: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idPresupuesto'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbPresupuestosnPresupuesto: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nPresupuesto'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbPresupuestosfEmision: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fEmision'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbPresupuestosrefCliente: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refCliente'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbPresupuestosrefEmpleado: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refEmpleado'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbPresupuestosrefEstado: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refEstado'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbPresupuestosfCambioEstado: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fCambioEstado'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbPresupuestostxMotivo: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'txMotivo'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbPresupuestostxObservaciones: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'txObservaciones'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbPresupuestosbAceptado: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bAceptado'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbPresupuestosbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbPresupuestoscRecepciono: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'cRecepciono'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbPresupuestosnNtoCuota: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nNtoCuota'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qLevantarPresupuestos: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -798,71 +940,189 @@ object DM_Presupuestos: TDM_Presupuestos
       item
         Name = 'idCuotaPresupuesto'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'refPresupuesto'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'nNroCuota'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'refTipo'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'fVencimiento'
         DataType = ftDateTime
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'nMonto'
         DataType = ftFloat
-        Precision = 0
+        Precision = 2
         Size = 0
       end    
       item
         Name = 'refEstado'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'fPago'
         DataType = ftDateTime
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'bVisible'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'lxTipo'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 100
       end    
       item
         Name = 'lxEstado'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 100
       end>
     AfterInsert = tbCuotasPresupuestoAfterInsert
+    PacketRecords = 0
     left = 184
     top = 24
+    object tbCuotasPresupuestoidCuotaPresupuesto: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idCuotaPresupuesto'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbCuotasPresupuestorefPresupuesto: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refPresupuesto'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbCuotasPresupuestonNroCuota: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nNroCuota'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbCuotasPresupuestorefTipo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refTipo'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbCuotasPresupuestofVencimiento: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fVencimiento'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbCuotasPresupuestonMonto: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nMonto'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbCuotasPresupuestorefEstado: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refEstado'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbCuotasPresupuestofPago: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fPago'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbCuotasPresupuestobVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbCuotasPresupuestolxTipo: TStringField
+      DisplayWidth = 100
+      FieldKind = fkData
+      FieldName = 'lxTipo'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object tbCuotasPresupuestolxEstado: TStringField
+      DisplayWidth = 100
+      FieldKind = fkData
+      FieldName = 'lxEstado'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
   end
 end

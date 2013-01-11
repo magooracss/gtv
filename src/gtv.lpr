@@ -25,10 +25,10 @@ uses
   frm_busquedapersonasempresas, dmcompras, frm_compraslistado, frm_comprasae,
   dmplandecuentas, frm_plandecuentaslistado, frm_plandecuentasae,
   frm_ordenespagolistado, dmordenesdepago, frm_ordenpagoae, frm_cargavalores,
-  dmvalores, frm_pagocomprobantes, frm_tuglocalidades, dmlocalidades,
+  dmvalores, frm_tuglocalidades, dmlocalidades,
   frm_localidadae, frm_egresosvarioslistado, dmegresosvarios,
   frm_egresosvariosae, frm_egresoae, frm_asignarpagofactura
-  ,sysutils, frm_clientecontacto;
+  ,sysutils, frm_clientecontacto, dmcompensaciones, frm_compensaciones;
 
 {$R *.res}
 
@@ -43,30 +43,30 @@ begin
   end;
   SysUtils.DefaultFormatSettings.DecimalSeparator:= SD_Configuracion.LeerDato(SECCION_APP,CFG_SEP_DECIMAL)[1];
   SysUtils.DefaultFormatSettings.ThousandSeparator:= SD_Configuracion.LeerDato(SECCION_APP,CFG_SEP_MILES)[1];
+Application.CreateForm(TDM_Conexion, DM_Conexion);
+Application.CreateForm(TDM_General, DM_General);
+Application.CreateForm(TDM_Clientes, DM_Clientes);
+Application.CreateForm(TDM_EdicionTUGs, DM_EdicionTUGs);
+Application.CreateForm(TDM_BuscarCliente, DM_BuscarCliente);
+Application.CreateForm(TDM_Equipos, DM_Equipos);
+Application.CreateForm(TDM_Presupuestos, DM_Presupuestos);
+Application.CreateForm(TDM_OrdenesTrabajo, DM_OrdenesTrabajo);
+Application.CreateForm(Tdm_reclamos, dm_reclamos);
+Application.CreateForm(TDM_Remitos, DM_Remitos);
+Application.CreateForm(TDM_CAJA, DM_CAJA);
+Application.CreateForm(TDM_Proveedores, DM_Proveedores);
+Application.CreateForm(TDM_ClientesPotenciales, DM_ClientesPotenciales);
+Application.CreateForm(TDM_BuscarPersonaEmpresa, DM_BuscarPersonaEmpresa);
+Application.CreateForm(TDM_Cheques, DM_Cheques);
+Application.CreateForm(TDM_Compras, DM_Compras);
+Application.CreateForm(TDM_PlanDeCuentas, DM_PlanDeCuentas);
+Application.CreateForm(TDM_OrdenesDePago, DM_OrdenesDePago);
+Application.CreateForm(TDM_Valores, DM_Valores);
+Application.CreateForm(TDM_Localidades, DM_Localidades);
+Application.CreateForm(TDM_EgresosVarios, DM_EgresosVarios);
+Application.CreateForm(TDM_Compensaciones, DM_Compensaciones);
+Application.CreateForm(TfrmPrincipal, frmPrincipal);
 
-  Application.CreateForm(TDM_Conexion, DM_Conexion);
-  Application.CreateForm(TDM_General, DM_General);
-  Application.CreateForm(TDM_Clientes, DM_Clientes);
-  Application.CreateForm(TDM_EdicionTUGs, DM_EdicionTUGs);
-  Application.CreateForm(TDM_BuscarCliente, DM_BuscarCliente);
-  Application.CreateForm(TDM_Equipos, DM_Equipos);
-  Application.CreateForm(TDM_Presupuestos, DM_Presupuestos);
-  Application.CreateForm(TDM_OrdenesTrabajo, DM_OrdenesTrabajo);
-  Application.CreateForm(Tdm_reclamos, dm_reclamos);
-  Application.CreateForm(TDM_Remitos, DM_Remitos);
-  Application.CreateForm(TDM_CAJA, DM_CAJA);
-  Application.CreateForm(TDM_Proveedores, DM_Proveedores);
-  Application.CreateForm(TDM_ClientesPotenciales, DM_ClientesPotenciales);
-  Application.CreateForm(TDM_BuscarPersonaEmpresa, DM_BuscarPersonaEmpresa);
-  Application.CreateForm(TDM_Cheques, DM_Cheques);
-  Application.CreateForm(TDM_Compras, DM_Compras);
-  Application.CreateForm(TDM_PlanDeCuentas, DM_PlanDeCuentas);
-  Application.CreateForm(TDM_OrdenesDePago, DM_OrdenesDePago);
-  Application.CreateForm(TDM_Valores, DM_Valores);
-  Application.CreateForm(TDM_Localidades, DM_Localidades);
-  Application.CreateForm(TDM_EgresosVarios, DM_EgresosVarios);
-
-  Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.Run;
 end.
 

@@ -1048,6 +1048,37 @@ object DM_Cheques: TDM_Cheques
     Params = <>
     left = 502
     top = 53
+    object qTugBancosIDBANCO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDBANCO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qTugBancosBANCO: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'BANCO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qTugBancosBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qTugChequesEstados: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -1059,6 +1090,37 @@ object DM_Cheques: TDM_Cheques
     Params = <>
     left = 503
     top = 112
+    object qTugChequesEstadosIDCHEQUEESTADO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDCHEQUEESTADO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qTugChequesEstadosCHEQUEESTADO: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'CHEQUEESTADO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object qTugChequesEstadosBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object tbChequesSEL: TZQuery
     Connection = DM_Conexion.cnxGeneral

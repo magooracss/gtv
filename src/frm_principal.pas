@@ -14,6 +14,7 @@ type
   { TfrmPrincipal }
 
   TfrmPrincipal = class(TForm)
+    cajaCompensaciones: TAction;
     cajaEgresosVarios: TAction;
     appListados: TAction;
     cajaOPListado: TAction;
@@ -39,6 +40,7 @@ type
     MenuItem26: TMenuItem;
     MenuItem27: TMenuItem;
     MenuItem28: TMenuItem;
+    MenuItem29: TMenuItem;
     RemitosPantGralCliente: TAction;
     RemitoPantGral: TAction;
     ReclPantGralCliente: TAction;
@@ -94,6 +96,7 @@ type
     procedure appListadosExecute(Sender: TObject);
     procedure appSalirExecute(Sender: TObject);
     procedure cajaChequesExecute(Sender: TObject);
+    procedure cajaCompensacionesExecute(Sender: TObject);
     procedure cajaCompraNuevaExecute(Sender: TObject);
     procedure cajaComprasListadoExecute(Sender: TObject);
     procedure cajaEgresosVariosExecute(Sender: TObject);
@@ -149,8 +152,9 @@ uses
   ,frm_plandecuentaslistado
   ,frm_comprasae
   ,frm_ordenespagolistado
-  , Process
+  ,Process
   ,frm_egresosvarioslistado
+  ,frm_compensaciones
   ;
 
 { TfrmPrincipal }
@@ -447,6 +451,22 @@ begin
   finally
     pant.free;
   end;
+end;
+
+procedure TfrmPrincipal.cajaCompensacionesExecute(Sender: TObject);
+var
+  pant: TfrmCompensaciones;
+begin
+  pant:= TfrmCompensaciones.Create (self);
+  try
+    if pant.ShowModal = mrOK then
+    begin
+
+    end;
+  finally
+    pant.Free;
+  end;
+
 end;
 
 procedure TfrmPrincipal.cajaCompraNuevaExecute(Sender: TObject);

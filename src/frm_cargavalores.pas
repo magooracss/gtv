@@ -5,8 +5,8 @@ unit frm_cargavalores;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  ComCtrls, Buttons, StdCtrls, curredit
+  Classes, SysUtils, db, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
+  ComCtrls, Buttons, StdCtrls, DBGrids, curredit
   , dmgeneral;
 
 type
@@ -113,6 +113,7 @@ begin
     pantalla.ShowModal;
     DM_General.CargarComboBox(cbBancoChequeP, 'Banco', 'idBanco', DM_Cheques.qTugBancos);
     DM_General.CargarComboBox(cbBanco, 'Banco', 'idBanco', DM_Cheques.qTugBancos);
+    DM_Cheques.qTugBancos.open;
   finally
     datos.Free;
     pantalla.Free;

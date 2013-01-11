@@ -14,7 +14,7 @@ object frmCargaValores: TfrmCargaValores
   Font.Quality = fqDraft
   OnShow = FormShow
   ShowHint = True
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.0.4.0'
   object Panel1: TPanel
     Left = 0
     Height = 50
@@ -347,8 +347,9 @@ object frmCargaValores: TfrmCargaValores
         Top = 16
         Width = 245
         ItemHeight = 16
+        Sorted = True
+        Style = csDropDownList
         TabOrder = 0
-        Text = 'cbBancoChequeP'
       end
       object Label4: TLabel
         Left = 32

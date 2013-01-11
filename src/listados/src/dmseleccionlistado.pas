@@ -22,9 +22,23 @@ type
   { TDM_SeleccionListado }
 
   TDM_SeleccionListado = class(TDataModule)
+    qGruposBVISIBLE: TSmallintField;
+    qGruposIDLISTADOGRUPO: TLongintField;
+    qGruposLISTADOGRUPO: TStringField;
+    qListadoPorGrupoBVISIBLE: TSmallintField;
+    qListadoPorGrupoIDLISTADO: TLongintField;
+    qListadoPorGrupoNOMBRELISTADO: TStringField;
+    qListadoPorGrupoREFFORMULARIO: TLongintField;
+    qListadoPorGrupoREFGRUPO: TLongintField;
+    qListadoPorGrupoRUTAREPORTE: TStringField;
     tbListados: TRxMemoryData;
     qGrupos: TZQuery;
     qListadoPorGrupo: TZQuery;
+    tbListadosidListado: TLongintField;
+    tbListadosNombreListado: TStringField;
+    tbListadosrefFormulario: TLongintField;
+    tbListadosrefGrupo: TLongintField;
+    tbListadosrutaReporte: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure qGruposAfterScroll(DataSet: TDataSet);
   private

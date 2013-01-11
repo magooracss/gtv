@@ -542,6 +542,282 @@ object DM_Clientes: TDM_Clientes
         Name = 'idCliente'
         ParamType = ptUnknown
       end>
+    object tbClientesSELIDCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCLIENTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object tbClientesSELCCODIGO: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'CCODIGO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object tbClientesSELCNOMBRE: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'CNOMBRE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object tbClientesSELFINICIO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FINICIO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesSELREFABONO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFABONO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesSELREFRESPTECNICO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFRESPTECNICO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object tbClientesSELREFGRUPOFACTURACION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFGRUPOFACTURACION'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesSELREFCONDICIONFISCAL: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCONDICIONFISCAL'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesSELCCUIT: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CCUIT'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesSELNIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NIVA'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbClientesSELCDOMICILIO: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'CDOMICILIO'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object tbClientesSELCENTRECALLE1: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'CENTRECALLE1'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object tbClientesSELCENTRECALLE2: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'CENTRECALLE2'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object tbClientesSELCNROCASA: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CNROCASA'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesSELCSECCION: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CSECCION'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesSELCMANZANA: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CMANZANA'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesSELCPARCELA: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CPARCELA'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesSELREFLOCALIDAD: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFLOCALIDAD'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesSELREFDESTINO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFDESTINO'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesSELUNIDADFUNCIONAL: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'UNIDADFUNCIONAL'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesSELREFADMINISTRADOR: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFADMINISTRADOR'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object tbClientesSELREFCONSERVADOR: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCONSERVADOR'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object tbClientesSELBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 22
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesSELNMONTOABONO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTOABONO'
+      Index = 23
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbClientesSELHABILITACIONEXP: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'HABILITACIONEXP'
+      Index = 24
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object tbClientesSELHABILITACIONFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'HABILITACIONFECHA'
+      Index = 25
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object tbClientesINS: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -1175,6 +1451,293 @@ object DM_Clientes: TDM_Clientes
     Params = <>
     left = 32
     top = 296
+    object qListaClientesIDCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCLIENTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qListaClientesCCODIGO: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'CCODIGO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object qListaClientesCNOMBRE: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'CNOMBRE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qListaClientesFINICIO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FINICIO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaClientesREFABONO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFABONO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaClientesREFRESPTECNICO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFRESPTECNICO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qListaClientesREFGRUPOFACTURACION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFGRUPOFACTURACION'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaClientesREFCONDICIONFISCAL: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCONDICIONFISCAL'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaClientesCCUIT: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CCUIT'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaClientesNIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NIVA'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qListaClientesCDOMICILIO: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'CDOMICILIO'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object qListaClientesCENTRECALLE1: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'CENTRECALLE1'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object qListaClientesCENTRECALLE2: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'CENTRECALLE2'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object qListaClientesCNROCASA: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CNROCASA'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaClientesCSECCION: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CSECCION'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaClientesCMANZANA: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CMANZANA'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaClientesCPARCELA: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CPARCELA'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaClientesREFLOCALIDAD: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFLOCALIDAD'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaClientesREFDESTINO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFDESTINO'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaClientesUNIDADFUNCIONAL: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'UNIDADFUNCIONAL'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaClientesREFADMINISTRADOR: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFADMINISTRADOR'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qListaClientesREFCONSERVADOR: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCONSERVADOR'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qListaClientesBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 22
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaClientesNMONTOABONO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTOABONO'
+      Index = 23
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qListaClientesHABILITACIONEXP: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'HABILITACIONEXP'
+      Index = 24
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qListaClientesHABILITACIONFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'HABILITACIONFECHA'
+      Index = 25
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaClientesCLIENTE: TStringField
+      DisplayWidth = 1252
+      FieldKind = fkData
+      FieldName = 'CLIENTE'
+      Index = 26
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1252
+    end
   end
   object tbClientesDEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -3401,6 +3964,282 @@ object DM_Clientes: TDM_Clientes
         Name = 'idCliente'
         ParamType = ptUnknown
       end>
+    object qClienteCodigoIDCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCLIENTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qClienteCodigoCCODIGO: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'CCODIGO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object qClienteCodigoCNOMBRE: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'CNOMBRE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qClienteCodigoFINICIO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FINICIO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qClienteCodigoREFABONO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFABONO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qClienteCodigoREFRESPTECNICO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFRESPTECNICO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qClienteCodigoREFGRUPOFACTURACION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFGRUPOFACTURACION'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qClienteCodigoREFCONDICIONFISCAL: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCONDICIONFISCAL'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qClienteCodigoCCUIT: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CCUIT'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qClienteCodigoNIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NIVA'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qClienteCodigoCDOMICILIO: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'CDOMICILIO'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object qClienteCodigoCENTRECALLE1: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'CENTRECALLE1'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object qClienteCodigoCENTRECALLE2: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'CENTRECALLE2'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object qClienteCodigoCNROCASA: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CNROCASA'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qClienteCodigoCSECCION: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CSECCION'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qClienteCodigoCMANZANA: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CMANZANA'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qClienteCodigoCPARCELA: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CPARCELA'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qClienteCodigoREFLOCALIDAD: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFLOCALIDAD'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qClienteCodigoREFDESTINO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFDESTINO'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qClienteCodigoUNIDADFUNCIONAL: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'UNIDADFUNCIONAL'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qClienteCodigoREFADMINISTRADOR: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFADMINISTRADOR'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qClienteCodigoREFCONSERVADOR: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCONSERVADOR'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qClienteCodigoBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 22
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qClienteCodigoNMONTOABONO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTOABONO'
+      Index = 23
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qClienteCodigoHABILITACIONEXP: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'HABILITACIONEXP'
+      Index = 24
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qClienteCodigoHABILITACIONFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'HABILITACIONFECHA'
+      Index = 25
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object tbContClienteDEL: TZQuery
     Connection = DM_Conexion.cnxGeneral

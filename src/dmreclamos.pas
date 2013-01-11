@@ -21,6 +21,15 @@ type
     qLevantarReclamoTecnicos: TZQuery;
     qLevantarReclamoRemito: TZQuery;
     qListaReclamos: TZQuery;
+    qListaReclamosBATENDIDO: TSmallintField;
+    qListaReclamosBVISIBLE: TSmallintField;
+    qListaReclamosCCODIGO: TStringField;
+    qListaReclamosCNOMBRE: TStringField;
+    qListaReclamosFFECHA: TDateField;
+    qListaReclamosIDRECLAMO: TStringField;
+    qListaReclamosNNRO: TLongintField;
+    qListaReclamosNREMITO: TLongintField;
+    qListaReclamosREFCLIENTE: TStringField;
     qtugTecnicos: TZQuery;
     qtugMediosReclamo: TZQuery;
     tbReclamos: TRxMemoryData;

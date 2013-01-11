@@ -5,7 +5,7 @@ unit dmvalores;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, ZDataset
+  Classes, SysUtils, db, FileUtil, ZDataset
   ,dmgeneral;
 
 CONST
@@ -21,8 +21,40 @@ type
 
   TDM_Valores = class(TDataModule)
     BancoPorID: TZQuery;
+    BancoPorIDBANCO: TStringField;
+    BancoPorIDBVISIBLE: TSmallintField;
+    BancoPorIDIDBANCO: TLongintField;
+    qAgrupamientoAGRUPAMIENTO: TLongintField;
+    qAgrupamientoBVISIBLE: TSmallintField;
+    qAgrupamientoFORMAPAGO: TStringField;
+    qAgrupamientoIDFORMAPAGO: TLongintField;
+    qAgrupamientoREFCUENTA: TLongintField;
+    qChequePorIDBANCO: TStringField;
+    qChequePorIDBVISIBLE: TSmallintField;
+    qChequePorIDBVISIBLE_1: TSmallintField;
+    qChequePorIDFCOBRO: TDateField;
+    qChequePorIDFENTREGA: TDateField;
+    qChequePorIDFRECIBIDO: TDateField;
+    qChequePorIDFVENCIMIENTO: TDateField;
+    qChequePorIDIDBANCO: TLongintField;
+    qChequePorIDIDCHEQUE: TStringField;
+    qChequePorIDNMONTO: TFloatField;
+    qChequePorIDNROCHEQUE: TStringField;
+    qChequePorIDREFBANCO: TLongintField;
+    qChequePorIDREFENTREGADOA: TStringField;
+    qChequePorIDREFESTADO: TLongintField;
+    qChequePorIDREFRECIBIDODE: TStringField;
+    qChequePorIDTXNOTAS: TStringField;
+    tugBancosBANCO: TStringField;
+    tugBancosBVISIBLE: TSmallintField;
+    tugBancosIDBANCO: TLongintField;
     tugFormaPagoPorID: TZQuery;
     qChequePorID: TZQuery;
+    tugFormaPagoPorIDAGRUPAMIENTO: TLongintField;
+    tugFormaPagoPorIDBVISIBLE: TSmallintField;
+    tugFormaPagoPorIDFORMAPAGO: TStringField;
+    tugFormaPagoPorIDIDFORMAPAGO: TLongintField;
+    tugFormaPagoPorIDREFCUENTA: TLongintField;
     tugFormasPago: TZQuery;
     qAgrupamiento: TZQuery;
     tugBancos: TZQuery;

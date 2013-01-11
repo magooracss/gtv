@@ -15,6 +15,17 @@ type
   TDM_OrdenesTrabajo = class(TDataModule)
     qLevantarRemitosOT: TZQuery;
     qListaOrdenesTrabajo: TZQuery;
+    qListaOrdenesTrabajoBANULADA: TSmallintField;
+    qListaOrdenesTrabajoBCUMPLIDA: TSmallintField;
+    qListaOrdenesTrabajoCCODIGO: TStringField;
+    qListaOrdenesTrabajoCNOMBRE: TStringField;
+    qListaOrdenesTrabajoFALTA: TDateField;
+    qListaOrdenesTrabajoFANULADA: TDateField;
+    qListaOrdenesTrabajoFCUMPLIDA: TDateField;
+    qListaOrdenesTrabajoIDORDENTRABAJO: TStringField;
+    qListaOrdenesTrabajoNNRO: TLongintField;
+    qListaOrdenesTrabajoREFCLIENTE: TStringField;
+    qListaOrdenesTrabajoTXTAREAS: TStringField;
     tbOrdenesTrabajo: TRxMemoryData;
     trOTEquiposDEL: TZQuery;
     trOTRemitosDEL: TZQuery;

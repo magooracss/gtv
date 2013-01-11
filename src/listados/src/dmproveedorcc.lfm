@@ -26,6 +26,20 @@ object DM_ProveedorCC: TDM_ProveedorCC
         Name = 'refProveedor'
         ParamType = ptUnknown
       end>
+    object qTotalComprasTOTAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TOTAL'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
   end
   object qTotalPagos: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -51,6 +65,20 @@ object DM_ProveedorCC: TDM_ProveedorCC
         Name = 'refProveedor'
         ParamType = ptUnknown
       end>
+    object qTotalPagosPAGADO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PAGADO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
   end
   object qCompras: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -100,6 +128,50 @@ object DM_ProveedorCC: TDM_ProveedorCC
         Name = 'fechaFin'
         ParamType = ptUnknown
       end>
+    object qComprasFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qComprasNROPTOVENTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROPTOVENTA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qComprasNROFACTURA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROFACTURA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qComprasNTOTAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NTOTAL'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
   end
   object qPagos: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -150,6 +222,40 @@ object DM_ProveedorCC: TDM_ProveedorCC
         Name = 'fechaFin'
         ParamType = ptUnknown
       end>
+    object qPagosNUMEROORDENPAGO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NUMEROORDENPAGO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPagosFFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FFECHA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPagosTOTAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TOTAL'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
   end
   object tbResultados: TRxMemoryData
     AutoCalcFields = False
@@ -285,6 +391,20 @@ object DM_ProveedorCC: TDM_ProveedorCC
         Name = 'fechaIni'
         ParamType = ptUnknown
       end>
+    object qTotalComprasAFechaTOTAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TOTAL'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
   end
   object qTotalPagosAfecha: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -321,5 +441,19 @@ object DM_ProveedorCC: TDM_ProveedorCC
         Name = 'fechaIni'
         ParamType = ptUnknown
       end>
+    object qTotalPagosAfechaPAGADO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PAGADO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
   end
 end

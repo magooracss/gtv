@@ -6,14 +6,80 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, rxmemds, ZDataset
-  ,dmgeneral;
+  ,dmgeneral, db;
 
 type
 
   { TDM_GrupoRemitos }
 
   TDM_GrupoRemitos = class(TDataModule)
+    qEquiposClienteBVISIBLE: TSmallintField;
+    qEquiposClienteCM_UBICACION: TLongintField;
+    qEquiposClienteCT_KG: TFloatField;
+    qEquiposClienteCT_PERSONAS: TLongintField;
+    qEquiposClienteEXPCONSERVADOR: TStringField;
+    qEquiposClienteEXPHABILITACION: TStringField;
+    qEquiposClienteFHABILITACION: TDateField;
+    qEquiposClienteIDEQUIPO: TStringField;
+    qEquiposClienteIDREMITOEQUIPO: TStringField;
+    qEquiposClienteM_MARCA: TLongintField;
+    qEquiposClienteM_NROIDENTIFICADORES: TStringField;
+    qEquiposClienteM_POTENCIAHP: TStringField;
+    qEquiposClienteM_VELOCIDAD: TStringField;
+    qEquiposClienteNNROEQUIPO: TLongintField;
+    qEquiposClienteNOMBRE: TStringField;
+    qEquiposClientePC_AUTOMATICA: TSmallintField;
+    qEquiposClientePC_AUTOMATICACORRIENTE: TLongintField;
+    qEquiposClientePC_AUTOMATICAOTRA: TStringField;
+    qEquiposClientePC_AUTOMATICATIPO: TLongintField;
+    qEquiposClientePC_MANUAL: TSmallintField;
+    qEquiposClientePC_MANUALOTRA: TStringField;
+    qEquiposClientePC_MANUALTIPO: TLongintField;
+    qEquiposClientePC_MATERIAL: TStringField;
+    qEquiposClientePH_PISTONCENTRAL: TSmallintField;
+    qEquiposClientePH_PISTONENTERRADO: TSmallintField;
+    qEquiposClientePH_PISTONLATERAL: TSmallintField;
+    qEquiposClientePH_PISTONTELESCOPICO: TSmallintField;
+    qEquiposClientePH_RELACION2_1: TSmallintField;
+    qEquiposClientePR_AUTOMATICA: TSmallintField;
+    qEquiposClientePR_AUTOMATICATIPOARRASTRE: TLongintField;
+    qEquiposClientePR_MANUAL: TSmallintField;
+    qEquiposClientePR_MANUALOTRA: TStringField;
+    qEquiposClientePR_MANUALTIPO: TLongintField;
+    qEquiposClientePR_MATERIAL: TStringField;
+    qEquiposClienteP_OTRO: TStringField;
+    qEquiposClienteP_TIPO: TLongintField;
+    qEquiposClienteREFCLIENTE: TStringField;
+    qEquiposClienteREFCMOTRAS: TLongintField;
+    qEquiposClienteREFEQUIPO: TStringField;
+    qEquiposClienteREFFRECVARIABLE: TLongintField;
+    qEquiposClienteREFRACCOPADY: TLongintField;
+    qEquiposClienteREFREMITO: TStringField;
+    qEquiposClienteREFTALTCONTROLADA: TLongintField;
+    qEquiposClienteREFTIPO: TLongintField;
+    qEquiposClienteREFTMOTRAS: TLongintField;
+    qEquiposClienteREFTPCABOTRO: TLongintField;
+    qEquiposClienteREFTPCONTROTRO: TLongintField;
+    qEquiposClienteR_ACCESOS: TLongintField;
+    qEquiposClienteR_NROPISOS: TLongintField;
+    qEquiposClienteR_PARADAS: TLongintField;
+    qEquiposClienteSA_TIPO: TLongintField;
+    qEquiposClienteTC_TIPO: TLongintField;
+    qEquiposClienteTMAN_OTRA: TStringField;
+    qEquiposClienteTMAN_TIPO: TLongintField;
+    qEquiposClienteTM_PROPHIDRAULICA: TLongintField;
+    qEquiposClienteTM_TRACCION: TLongintField;
+    qEquiposClienteTPCAB_TIPO: TLongintField;
+    qEquiposClienteTPCONTR_TIPO: TLongintField;
+    qEquiposClienteTXOBSERVACIONES: TStringField;
+    qEquiposClienteT_TIPO: TLongintField;
+    qEquiposClienteV_ALTABAJA: TStringField;
+    qEquiposClienteV_UNICA: TStringField;
     qGruposFacturacion: TZQuery;
+    qGruposFacturacionBVISIBLE: TSmallintField;
+    qGruposFacturacionDIAFACTURACION: TLongintField;
+    qGruposFacturacionGRUPOFACTURACION: TStringField;
+    qGruposFacturacionIDGRUPOFACTURACION: TLongintField;
     qResultados: TZQuery;
     qEquiposCliente: TZQuery;
     tbResultados: TRxMemoryData;

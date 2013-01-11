@@ -16,9 +16,39 @@ type
   { TDM_GrupoProveedores }
 
   TDM_GrupoProveedores = class(TDataModule)
+    qComSaldoFACTURA: TStringField;
+    qComSaldoFECHAFACTURA: TDateField;
+    qComSaldoFECHAOP: TDateField;
+    qComSaldoIDCOMPRA: TStringField;
+    qComSaldoMONTOPAGADO: TFloatField;
+    qComSaldoNUMEROORDENPAGO: TLongintField;
+    qComSaldoPROVEEDOR: TStringField;
+    qComSaldoTOTALFACTURA: TFloatField;
+    qFiltradoCCUIT: TStringField;
+    qFiltradoFECHACOMPRA: TDateField;
+    qFiltradoFECHAOP: TDateField;
+    qFiltradoFORMAPAGO: TStringField;
+    qFiltradoMONTOFACTURA: TFloatField;
+    qFiltradoMONTOPAGADO: TFloatField;
+    qFiltradoNOMBREFANTASIA: TStringField;
+    qFiltradoNROFACTURA: TLongintField;
+    qFiltradoNROOP: TLongintField;
+    qFiltradoNROPTOVENTA: TLongintField;
+    qFiltradoPERCEPCAPITAL: TFloatField;
+    qFiltradoPERCEPIVA: TFloatField;
+    qFiltradoPERCEPPROVINCIA: TFloatField;
+    qFiltradoRAZONSOCIAL: TStringField;
     qPendientes: TZQuery;
     qFiltrado: TZQuery;
     qComSaldo: TZQuery;
+    qPendientesFACTURA: TStringField;
+    qPendientesFECHAFACTURA: TDateField;
+    qPendientesFECHAOP: TDateField;
+    qPendientesIDCOMPRA: TStringField;
+    qPendientesMONTOPAGADO: TFloatField;
+    qPendientesNUMEROORDENPAGO: TLongintField;
+    qPendientesPROVEEDOR: TStringField;
+    qPendientesTOTALFACTURA: TFloatField;
     qSaldoComprobante: TZQuery;
     qTotalCompra: TZQuery;
     qSaldoComprobanteTOTALCOMPROBANTE: TFloatField;

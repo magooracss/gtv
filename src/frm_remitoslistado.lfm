@@ -15,7 +15,7 @@ object frmRemitosListado: TfrmRemitosListado
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poOwnerFormCenter
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.0.4.0'
   object Panel1: TPanel
     Left = 0
     Height = 72
@@ -207,21 +207,21 @@ object frmRemitosListado: TfrmRemitosListado
         Title.Alignment = taCenter
         Title.Caption = 'Número'
         Width = 90
-        FieldName = 'nRemito'
+        FieldName = 'NREMITO'
       end    
       item
         SizePriority = 0
         Title.Alignment = taCenter
         Title.Caption = 'Alta'
         Width = 96
-        FieldName = 'fFecha'
+        FieldName = 'FFECHA'
         DisplayFormat = 'dd/mm/yyyy'
       end    
       item
         SizePriority = 0
         Title.Alignment = taCenter
         Title.Caption = 'Código'
-        FieldName = 'cCodigo'
+        FieldName = 'CCODIGO'
       end    
       item
         Title.Alignment = taCenter
@@ -236,7 +236,7 @@ object frmRemitosListado: TfrmRemitosListado
         Title.Alignment = taCenter
         Title.Caption = 'Sin Cargo'
         Width = 72
-        FieldName = 'bSinCargo'
+        FieldName = 'BSINCARGO'
       end    
       item
         ButtonStyle = cbsCheckboxColumn
@@ -245,7 +245,7 @@ object frmRemitosListado: TfrmRemitosListado
         Title.Alignment = taCenter
         Title.Caption = 'Facturado'
         Width = 72
-        FieldName = 'bFacturado'
+        FieldName = 'BFACTURADO'
       end    
       item
         ButtonStyle = cbsCheckboxColumn
@@ -254,7 +254,7 @@ object frmRemitosListado: TfrmRemitosListado
         Title.Alignment = taCenter
         Title.Caption = 'Presentado'
         Width = 72
-        FieldName = 'bPresentado'
+        FieldName = 'BPRESENTADO'
       end>
     DataSource = ds_ListaRemitos
     FixedCols = 0

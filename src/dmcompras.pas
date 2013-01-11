@@ -20,18 +20,62 @@ type
 
   TDM_Compras = class(TDataModule)
     DesmarcarCompra: TZQuery;
+    qBusComprasComprobBPAGADA: TFloatField;
+    qBusComprasComprobFECHA: TDateField;
+    qBusComprasComprobIDCOMPRA: TStringField;
+    qBusComprasComprobMONTO: TFloatField;
+    qBusComprasComprobNROFACTURA: TLongintField;
+    qBusComprasComprobPROVEEDOR: TStringField;
+    qBusComprasFechaIgualBPAGADA: TFloatField;
+    qBusComprasFechaIgualFECHA: TDateField;
+    qBusComprasFechaIgualIDCOMPRA: TStringField;
+    qBusComprasFechaIgualMONTO: TFloatField;
+    qBusComprasFechaIgualNROFACTURA: TLongintField;
+    qBusComprasFechaIgualPROVEEDOR: TStringField;
+    qBusComprasFechaMayorBPAGADA: TFloatField;
+    qBusComprasFechaMayorFECHA: TDateField;
+    qBusComprasFechaMayorIDCOMPRA: TStringField;
+    qBusComprasFechaMayorMONTO: TFloatField;
+    qBusComprasFechaMayorNROFACTURA: TLongintField;
+    qBusComprasFechaMayorPROVEEDOR: TStringField;
+    qBusComprasFechaMenorBPAGADA: TFloatField;
+    qBusComprasFechaMenorFECHA: TDateField;
+    qBusComprasFechaMenorIDCOMPRA: TStringField;
+    qBusComprasFechaMenorMONTO: TFloatField;
+    qBusComprasFechaMenorNROFACTURA: TLongintField;
+    qBusComprasFechaMenorPROVEEDOR: TStringField;
     qBusComprasProv: TZQuery;
     qBusComprasComprob: TZQuery;
     qBusComprasFechaIgual: TZQuery;
     qBusComprasFechaMenor: TZQuery;
     qBusComprasFechaMayor: TZQuery;
+    qBusComprasIdProvBPAGADA: TFloatField;
+    qBusComprasIdProvFECHA: TDateField;
+    qBusComprasIdProvIDCOMPRA: TStringField;
+    qBusComprasIdProvMONTO: TFloatField;
+    qBusComprasIdProvNROFACTURA: TLongintField;
+    qBusComprasIdProvPROVEEDOR: TStringField;
+    qBusComprasProvBPAGADA: TFloatField;
+    qBusComprasProvFECHA: TDateField;
+    qBusComprasProvIDCOMPRA: TStringField;
+    qBusComprasProvMONTO: TFloatField;
+    qBusComprasProvNROFACTURA: TLongintField;
+    qBusComprasProvPROVEEDOR: TStringField;
     qComprasIDProveedor: TZQuery;
     MarcarCompra: TZQuery;
+    qComprasIDProveedorBPAGADA: TFloatField;
+    qComprasIDProveedorFECHA: TDateField;
+    qComprasIDProveedorIDCOMPRA: TStringField;
+    qComprasIDProveedorMONTO: TFloatField;
+    qComprasIDProveedorNROFACTURA: TLongintField;
+    qComprasIDProveedorPROVEEDOR: TStringField;
     qCompraTotalPagada: TZQuery;
     qCompraTotalPagadaTOTAL: TFloatField;
+    qFacturaExistenteTOTAL: TLongintField;
     qFormaPagoPorCompra: TZQuery;
     qtugCondicionesPago: TZQuery;
     qtugCondicionPagoTiempo: TZQuery;
+    tbComprasCompensada: TFloatField;
     tbComprasPorOPidCompraPago: TStringField;
     tbComprasPorOPINS: TZQuery;
     tbComprasPorOPnMonto: TFloatField;
@@ -111,6 +155,7 @@ type
     tbCompras: TRxMemoryData;
     tbComprasItems: TRxMemoryData;
     tbResultadosbPagada: TLongintField;
+    tbResultadosCompensada: TFloatField;
     tbResultadosFecha: TDateTimeField;
     tbResultadosidCompra: TStringField;
     tbResultadosMonto: TFloatField;
@@ -189,6 +234,7 @@ type
     procedure MarcarComprobantePagado (refCompra: GUID_ID);
     procedure DesmarcarComprobantePagado (refCompra: GUID_ID);
 
+    function MontoRestante (refCompra: GUID_ID): double;
     function MontoPagado (refCompra: GUID_ID): double;
     function FacturaExistente (suc, nro: integer; proveedor: GUID_ID): boolean;
 
@@ -203,6 +249,9 @@ type
 
     function SaldoProveedor (refProveedor: GUID_ID): double;
 
+    procedure LevantarComprasProveedores (refProveedor: GUID_ID; estado: integer);
+    procedure AjustarCompensaciones;
+
   end; 
 
 var
@@ -214,6 +263,7 @@ uses
   dmplandecuentas
   ,dialogs
   ,dmvalores
+  ,dmcompensaciones
   ;
 
 { TDM_Compras }
@@ -236,6 +286,7 @@ begin
     FieldByName('nroFactura').asInteger:= 1;
     FieldByName('refCondPago').asInteger:= 0;
     FieldByName('refCondPagoTiempo').asInteger:= 0;
+    FieldByName('compensada').asFloat:= 0;
   end;
 end;
 
@@ -458,6 +509,35 @@ begin
   Result:= pagos - compras;
 end;
 
+procedure TDM_Compras.LevantarComprasProveedores(refProveedor: GUID_ID;
+  estado: integer);
+begin
+  DM_General.ReiniciarTabla(tbResultados);
+  with qComprasIDProveedor do
+  begin
+    if active then close;
+    ParamByName('parametro').asString:= refProveedor;
+    ParamByName('filtro').asInteger:= estado;
+    Open;
+    tbResultados.LoadFromDataSet(qComprasIDProveedor, 0,lmAppend);
+  end;
+end;
+
+procedure TDM_Compras.AjustarCompensaciones;
+begin
+  with tbResultados do
+  begin
+    First;
+    While Not EOF do
+    begin
+      Edit;
+      tbResultadosCompensada.asFloat:= DM_Compensaciones.montoCompraCompensada(tbResultadosidCompra.asString);
+      Post;
+      Next;
+    end;
+  end;
+end;
+
 procedure TDM_Compras.GrabarPagosParciales (refOP: GUID_ID);
 var
   refID: GUID_ID;
@@ -576,18 +656,53 @@ begin
   end;
 end;
 
-function TDM_Compras.MontoPagado(refCompra: GUID_ID): double;
+function TDM_Compras.MontoRestante(refCompra: GUID_ID): double;
+var
+  elMontoCompra
+  ,elMontoCompensado: double;
 begin
+
+  elMontoCompensado:= DM_Compensaciones.montoCompraCompensada (refCompra);
+  LevantarCompra(refCompra);
+
   with qCompraTotalPagada do
   begin
     if active then close;
     ParamByName ('idCompra').asString:= refCompra;
     Open;
+
     if RecordCount > 0 then
-       Result:= FieldByName('TOTAL').asFloat
+      elMontoCompra:= FieldByName('TOTAL').asFloat
     else
-      Result:= 0;
+      elMontoCompra:= 0;
   end;
+
+  Result:= (tbComprasnTotal.AsFloat - (elMontoCompra + elMontoCompensado));
+
+end;
+
+function TDM_Compras.MontoPagado(refCompra: GUID_ID): double;
+var
+  elMontoCompra
+  ,elMontoCompensado: double;
+begin
+
+  elMontoCompensado:= DM_Compensaciones.montoCompraCompensada (refCompra);
+
+  with qCompraTotalPagada do
+  begin
+    if active then close;
+    ParamByName ('idCompra').asString:= refCompra;
+    Open;
+
+    if RecordCount > 0 then
+      elMontoCompra:= FieldByName('TOTAL').asFloat
+    else
+      elMontoCompra:= 0;
+  end;
+
+  Result:= (elMontoCompra + elMontoCompensado);
+
 end;
 
 function TDM_Compras.FacturaExistente(suc, nro: integer; proveedor: GUID_ID
@@ -601,7 +716,7 @@ begin
     ParamByName('nroFactura').asInteger:= nro;
     Open;
 
-    Result:= (RecordCount > 0);
+    Result:= (qFacturaExistenteTOTAL.AsInteger > 0);
     close;
   end;
 end;
@@ -783,12 +898,13 @@ begin
       fFecha:= FieldByName('Fecha').asDateTime;
       NroFactura:= FieldByName('nroFactura').asInteger;
       Monto:= FieldByName('nTotal').asFloat;
-      Pagado:= 0;
+//      Pagado:= 0;
+      Pagado:= MontoPagado(idCompra);
 
       While ((idCompra = FieldByName('refCompra').asString)
               and (not EOF)) do
       begin
-        Pagado:= Pagado + FieldByName('nMonto').AsFloat;
+     //   Pagado:= Pagado + FieldByName('nMonto').AsFloat;
         Next;
       end;
 

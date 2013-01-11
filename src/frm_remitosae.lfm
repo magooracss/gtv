@@ -1,7 +1,7 @@
 object frmRemitosAE: TfrmRemitosAE
-  Left = 323
+  Left = 633
   Height = 605
-  Top = 2
+  Top = 145
   Width = 646
   Caption = 'Remito'
   ClientHeight = 605
@@ -15,7 +15,7 @@ object frmRemitosAE: TfrmRemitosAE
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poOwnerFormCenter
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.0.4.0'
   object Label1: TLabel
     Left = 10
     Height = 17
@@ -108,11 +108,11 @@ object frmRemitosAE: TfrmRemitosAE
     Height = 24
     Top = 72
     Width = 110
-    OKCaption = 'OK'
-    CancelCaption = 'Cancel'
-    DefaultToday = True
     ButtonWidth = 23
+    CancelCaption = 'Cancel'
     CharCase = ecNormal
+    DefaultToday = True
+    DialogTitle = 'Seleccionar Fecha'
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -149,9 +149,12 @@ object frmRemitosAE: TfrmRemitosAE
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
-    NumGlyphs = 0
     MaxLength = 10
+    NumGlyphs = 0
+    OKCaption = 'OK'
+    PopupColor = clWindow
     TabOrder = 3
+    Text = '  /  /    '
     DataField = 'fFecha'
     DataSource = DS_Remito
   end

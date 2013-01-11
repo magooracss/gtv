@@ -1,10 +1,10 @@
 object DM_Compras: TDM_Compras
   OnCreate = DataModuleCreate
   OldCreateOrder = False
-  Height = 726
-  HorizontalOffset = 261
-  VerticalOffset = 104
-  Width = 1155
+  Height = 765
+  HorizontalOffset = 2
+  VerticalOffset = 2
+  Width = 1312
   object qBusComprasProv: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
@@ -46,6 +46,75 @@ object DM_Compras: TDM_Compras
         Name = 'filtro'
         ParamType = ptUnknown
       end>
+    object qBusComprasProvIDCOMPRA: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCOMPRA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qBusComprasProvFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qBusComprasProvNROFACTURA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROFACTURA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qBusComprasProvPROVEEDOR: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'PROVEEDOR'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+    object qBusComprasProvMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qBusComprasProvBPAGADA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BPAGADA'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
   end
   object tbResultados: TRxMemoryData
     FieldDefs = <    
@@ -82,6 +151,12 @@ object DM_Compras: TDM_Compras
       item
         Name = 'nroFactura'
         DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Compensada'
+        DataType = ftFloat
         Precision = 0
         Size = 0
       end>
@@ -156,6 +231,20 @@ object DM_Compras: TDM_Compras
       Required = False
       DisplayFormat = '00000000'
     end
+    object tbResultadosCompensada: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Compensada'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
   end
   object qBusComprasComprob: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -171,7 +260,8 @@ object DM_Compras: TDM_Compras
       'WHERE  (C.bVisible = 1)'
       '             and (UPPER(C.NroFactura) LIKE UPPER(''%''|| :parametro || ''%'' ))'
       '             and (C.bPagada = :filtro)'
-      'ORDER BY C.NroComprobante'
+      'ORDER BY C.NroFactura'
+      ''
     )
     Params = <    
       item
@@ -197,6 +287,75 @@ object DM_Compras: TDM_Compras
         Name = 'filtro'
         ParamType = ptUnknown
       end>
+    object qBusComprasComprobIDCOMPRA: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCOMPRA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qBusComprasComprobFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qBusComprasComprobNROFACTURA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROFACTURA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qBusComprasComprobPROVEEDOR: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'PROVEEDOR'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+    object qBusComprasComprobMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qBusComprasComprobBPAGADA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BPAGADA'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
   end
   object qBusComprasFechaIgual: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -225,7 +384,7 @@ object DM_Compras: TDM_Compras
         Name = 'filtro'
         ParamType = ptUnknown
       end>
-    left = 62
+    left = 64
     top = 227
     ParamData = <    
       item
@@ -238,6 +397,75 @@ object DM_Compras: TDM_Compras
         Name = 'filtro'
         ParamType = ptUnknown
       end>
+    object qBusComprasFechaIgualIDCOMPRA: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCOMPRA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qBusComprasFechaIgualFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qBusComprasFechaIgualNROFACTURA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROFACTURA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qBusComprasFechaIgualPROVEEDOR: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'PROVEEDOR'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+    object qBusComprasFechaIgualMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qBusComprasFechaIgualBPAGADA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BPAGADA'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
   end
   object qBusComprasFechaMenor: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -279,6 +507,75 @@ object DM_Compras: TDM_Compras
         Name = 'filtro'
         ParamType = ptUnknown
       end>
+    object qBusComprasFechaMenorIDCOMPRA: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCOMPRA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qBusComprasFechaMenorFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qBusComprasFechaMenorNROFACTURA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROFACTURA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qBusComprasFechaMenorPROVEEDOR: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'PROVEEDOR'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+    object qBusComprasFechaMenorMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qBusComprasFechaMenorBPAGADA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BPAGADA'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
   end
   object qBusComprasFechaMayor: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -320,6 +617,75 @@ object DM_Compras: TDM_Compras
         Name = 'filtro'
         ParamType = ptUnknown
       end>
+    object qBusComprasFechaMayorIDCOMPRA: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCOMPRA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qBusComprasFechaMayorFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qBusComprasFechaMayorNROFACTURA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROFACTURA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qBusComprasFechaMayorPROVEEDOR: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'PROVEEDOR'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+    object qBusComprasFechaMayorMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qBusComprasFechaMayorBPAGADA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BPAGADA'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
   end
   object tbCompras: TRxMemoryData
     FieldDefs = <    
@@ -412,11 +778,17 @@ object DM_Compras: TDM_Compras
         DataType = ftInteger
         Precision = 0
         Size = 0
+      end    
+      item
+        Name = 'Compensada'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
       end>
     AfterInsert = tbComprasAfterInsert
     PacketRecords = 0
     left = 230
-    top = 46
+    top = 48
     object tbComprasidCompra: TStringField
       DisplayWidth = 38
       FieldKind = fkData
@@ -588,6 +960,20 @@ object DM_Compras: TDM_Compras
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+    end
+    object tbComprasCompensada: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Compensada'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
     end
   end
   object tbComprasItems: TRxMemoryData
@@ -1481,8 +1867,8 @@ object DM_Compras: TDM_Compras
         Name = 'filtro'
         ParamType = ptUnknown
       end>
-    left = 59
-    top = 415
+    left = 64
+    top = 408
     ParamData = <    
       item
         DataType = ftUnknown
@@ -1494,6 +1880,75 @@ object DM_Compras: TDM_Compras
         Name = 'filtro'
         ParamType = ptUnknown
       end>
+    object qComprasIDProveedorIDCOMPRA: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCOMPRA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qComprasIDProveedorFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qComprasIDProveedorNROFACTURA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROFACTURA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qComprasIDProveedorPROVEEDOR: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'PROVEEDOR'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+    object qComprasIDProveedorMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qComprasIDProveedorBPAGADA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BPAGADA'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
   end
   object MarcarCompra: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -1984,7 +2439,7 @@ object DM_Compras: TDM_Compras
         ParamType = ptUnknown
       end>
     left = 242
-    top = 566
+    top = 568
     ParamData = <    
       item
         DataType = ftUnknown
@@ -2031,11 +2486,12 @@ object DM_Compras: TDM_Compras
   object qFacturaExistente: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      'SELECT *'
+      'SELECT count(*) as TOTAL'
       'FROM  tbCompras'
       'WHERE (refProveedor = :refProveedor)'
       '            and (nroPtoVenta = :nroPtoVenta)'
       '            and (nroFactura = :nroFactura)'
+      '            and (bVisible = 1)'
     )
     Params = <    
       item
@@ -2054,7 +2510,7 @@ object DM_Compras: TDM_Compras
         ParamType = ptUnknown
       end>
     left = 708
-    top = 430
+    top = 432
     ParamData = <    
       item
         DataType = ftUnknown
@@ -2071,6 +2527,16 @@ object DM_Compras: TDM_Compras
         Name = 'nroFactura'
         ParamType = ptUnknown
       end>
+    object qFacturaExistenteTOTAL: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TOTAL'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
   end
   object tbComprasPorOP: TRxMemoryData
     FieldDefs = <    
@@ -2409,6 +2875,7 @@ object DM_Compras: TDM_Compras
       'SELECT SUM (nTotal) as Total'
       'FROM  tbCompras'
       'WHERE refProveedor = :refProveedor'
+      'and (bVisible = 1)'
     )
     Params = <    
       item

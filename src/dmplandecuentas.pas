@@ -17,6 +17,24 @@ type
   { TDM_PlanDeCuentas }
 
   TDM_PlanDeCuentas = class(TDataModule)
+    qCuentaPorCodigoBVISIBLE: TSmallintField;
+    qCuentaPorCodigoCODIGO: TStringField;
+    qCuentaPorCodigoCUENTA: TStringField;
+    qCuentaPorCodigoIDCUENTA: TLongintField;
+    qCuentaPorCodigoOPERACION: TStringField;
+    qCuentaPorCodigoPORCIVA: TFloatField;
+    qFiltrarCodigoBVISIBLE: TSmallintField;
+    qFiltrarCodigoCODIGO: TStringField;
+    qFiltrarCodigoCUENTA: TStringField;
+    qFiltrarCodigoIDCUENTA: TLongintField;
+    qFiltrarCodigoOPERACION: TStringField;
+    qFiltrarCodigoPORCIVA: TFloatField;
+    qFiltrarCuentaBVISIBLE: TSmallintField;
+    qFiltrarCuentaCODIGO: TStringField;
+    qFiltrarCuentaCUENTA: TStringField;
+    qFiltrarCuentaIDCUENTA: TLongintField;
+    qFiltrarCuentaOPERACION: TStringField;
+    qFiltrarCuentaPORCIVA: TFloatField;
     qLevantarPlanDeCuentas: TZQuery;
     qFiltrarCodigo: TZQuery;
     qFiltrarCuenta: TZQuery;

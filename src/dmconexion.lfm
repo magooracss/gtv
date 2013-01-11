@@ -7,10 +7,13 @@ object DM_Conexion: TDM_Conexion
   Width = 400
   object cnxGeneral: TZConnection
     UTF8StringsAsWideField = False
+    ClientCodepage = 'UTF8'
     Properties.Strings = (
       'PreprepareSQL=ON'
+      'codepage=UTF8'
     )
     TransactIsolationLevel = tiReadCommitted
+    SQLHourGlass = True
     HostName = 'localhost'
     Port = 0
     Database = 'C:\prg\simas\GTV.FDB'
