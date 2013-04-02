@@ -1,7 +1,7 @@
 object frmComprasListado: TfrmComprasListado
-  Left = 2
+  Left = 215
   Height = 451
-  Top = 2
+  Top = 300
   Width = 1045
   Caption = 'Compras'
   ClientHeight = 451
@@ -15,7 +15,7 @@ object frmComprasListado: TfrmComprasListado
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '1.0.2.0'
+  LCLVersion = '1.0.4.0'
   object Panel1: TPanel
     Left = 0
     Height = 61
@@ -334,8 +334,23 @@ object frmComprasListado: TfrmComprasListado
       OnClick = btnEliminarCompraClick
       TabOrder = 3
     end
+    object StaticText1: TStaticText
+      Left = 240
+      Height = 17
+      Top = 23
+      Width = 256
+      Caption = 'CTRL + Click de mouse para seleccionar varias filas '
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentFont = False
+      TabOrder = 4
+    end
   end
-  object DBGrid1: TDBGrid
+  object dbGrilla: TDBGrid
     Left = 0
     Height = 340
     Top = 61
@@ -383,7 +398,7 @@ object frmComprasListado: TfrmComprasListado
       end>
     DataSource = ds_Resultados
     FixedCols = 0
-    Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgMultiselect]
     Scrollbars = ssAutoVertical
     TabOrder = 2
     TitleFont.CharSet = ANSI_CHARSET
@@ -392,7 +407,7 @@ object frmComprasListado: TfrmComprasListado
     TitleFont.Name = 'Arial'
     TitleFont.Pitch = fpVariable
     TitleFont.Quality = fqDraft
-    OnTitleClick = DBGrid1TitleClick
+    OnTitleClick = dbGrillaTitleClick
   end
   object ds_Resultados: TDatasource
     DataSet = DM_Compras.tbResultados

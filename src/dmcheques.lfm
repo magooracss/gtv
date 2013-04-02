@@ -1,10 +1,10 @@
 object DM_Cheques: TDM_Cheques
   OnCreate = DataModuleCreate
   OldCreateOrder = False
-  Height = 615
-  HorizontalOffset = 450
-  VerticalOffset = 0
-  Width = 673
+  Height = 697
+  HorizontalOffset = 286
+  VerticalOffset = 62
+  Width = 630
   object tbResultados: TRxMemoryData
     FieldDefs = <    
       item

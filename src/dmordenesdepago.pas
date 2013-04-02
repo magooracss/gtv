@@ -67,6 +67,8 @@ type
     qComprobantesPorOPREFPROVEEDOR: TStringField;
     qComprobantesPorOPREFTIPOCOMPROBANTE: TLongintField;
     qEliminarPago: TZQuery;
+    qOPBorradas: TZQuery;
+    qReactivarCompras: TZQuery;
     qOPFormasPagoBVISIBLE: TSmallintField;
     qOPFormasPagoIDOPFORMADEPAGO: TStringField;
     qOPFormasPagoNMONTO: TFloatField;
@@ -238,6 +240,10 @@ type
 
     procedure EliminarValorSeleccionado;
     procedure EliminarPago (refOP, refCompra: GUID_ID);
+
+    procedure ReactivarComprasOPBorradas;
+
+    procedure EntregarCheques;
   end;
 
 var
@@ -249,6 +255,7 @@ uses
   dmproveedores
   ,dmcompras
   ,dmvalores
+  ,dmcheques
   ;
 
 { TDM_OrdenesDePago }
@@ -451,6 +458,41 @@ begin
     FieldByName('refCompra').asString:= refCompra;
     ExecSQL;
   end;
+end;
+
+procedure TDM_OrdenesDePago.ReactivarComprasOPBorradas;
+begin
+  if qOPBorradas.Active then qOPBorradas.Close;
+  qOPBorradas.open;
+
+  while Not qOPBorradas.EOF do
+  begin
+    qReactivarCompras.ParamByName('refOrdenPago').asString:= qOPBorradas.FieldByName('idOrdenPago').asString;
+    qReactivarCompras.ExecSQL;
+    qOPBorradas.Next;
+  end;
+
+end;
+
+procedure TDM_OrdenesDePago.EntregarCheques;
+begin
+   with tbOPFormasDePago do
+   begin
+     First;
+     while not EOF do
+     begin
+       if (tbOPFormasDePagorefCheque.AsString <> GUIDNULO) then
+       begin
+         DM_Cheques.BuscarChequeId(tbOPFormasDePagorefCheque.AsString);
+         DM_Cheques.CambiarEntregadoA(tbOrdenesPagorefProveedor.AsString);
+         DM_Cheques.CambiarFechaEntregadoA(tbOrdenesPagofFecha.AsDateTime);
+
+         DM_Cheques.Grabar;
+       end;
+       Next;
+     end;
+
+   end;
 end;
 
 procedure TDM_OrdenesDePago.Buscar(criterio, consulta: string);

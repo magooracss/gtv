@@ -1,7 +1,7 @@
 object frmCargaValores: TfrmCargaValores
-  Left = 575
+  Left = 547
   Height = 219
-  Top = 245
+  Top = 247
   Width = 389
   Caption = 'Carga de Valor'
   ClientHeight = 219

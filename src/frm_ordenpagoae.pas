@@ -147,6 +147,7 @@ end;
 procedure TfrmOrdenDePagoAE.btnAgregarComprobanteClick(Sender: TObject);
 var
   pant: TfrmComprasListado;
+  idx: integer;
 begin
   pant:= TfrmComprasListado.Create (Self);
   try
@@ -154,7 +155,14 @@ begin
     begin
       if pant.ShowModal = mrOK then
       begin
-        DM_OrdenesDePago.VincularCompra (pant.CompraSeleccionada);
+        idx:= 0;
+        if pant.Seleccion.Count > 0 then
+        begin
+          for idx:= 0 to pant.Seleccion.Count - 1 do
+            DM_OrdenesDePago.VincularCompra (pant.Seleccion[idx])
+        end
+        else
+          DM_OrdenesDePago.VincularCompra (pant.CompraSeleccionada);
       end;
     end;
   finally
@@ -211,8 +219,13 @@ var
 begin
   idOP:= DM_OrdenesDePago.idOrdenPago;
   pant:= TfrmAsignarPagoFacturas.Create(self);
+
   DM_OrdenesDePago.CalcularMontoTotal;
   DM_OrdenesDePago.Grabar;
+
+  DM_OrdenesDePago.EntregarCheques;
+
+
   mnt:=DM_OrdenesDePago.CalcularValores;
   montoACubrir:= DM_Compras.SumaComprasOP (DM_OrdenesDePago.tbOrdenesPago.FieldByName('idOrdenPago').asString);
   compensacion:= mnt-montoACubrir;
@@ -238,7 +251,9 @@ begin
   begin
     DM_Compras.GrabarPagosTotales (idOP);
   end;
+
   DM_OrdenesDePago.LevantarOP(DM_OrdenesDePago.idOrdenPago);
+
   btnGrabar.Enabled:= False;
   btnSalir.Enabled:= True;
   btnImprimir.Enabled:= True;

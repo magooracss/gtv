@@ -1,8 +1,8 @@
 object DM_Valores: TDM_Valores
   OldCreateOrder = False
   Height = 261
-  HorizontalOffset = 432
-  VerticalOffset = 267
+  HorizontalOffset = 315
+  VerticalOffset = 269
   Width = 492
   object tugFormasPago: TZQuery
     Connection = DM_Conexion.cnxGeneral

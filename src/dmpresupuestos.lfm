@@ -1,9 +1,9 @@
 object DM_Presupuestos: TDM_Presupuestos
   OldCreateOrder = False
-  Height = 698
-  HorizontalOffset = 293
-  VerticalOffset = 0
-  Width = 990
+  Height = 451
+  HorizontalOffset = 2
+  VerticalOffset = 2
+  Width = 630
   object tbPresupuestos: TRxMemoryData
     Active = True
     FieldDefs = <    

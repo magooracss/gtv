@@ -34,6 +34,7 @@ type
     GroupBox2: TGroupBox;
     Panel1: TPanel;
     Panel2: TPanel;
+    rgCriterio: TRadioGroup;
     procedure btnBorrarChequeClick(Sender: TObject);
     procedure btnModificarChequeClick(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
@@ -164,12 +165,12 @@ begin
   edBuscar.clear;
   CargarCriteriosBusqueda;
   CargarCriteriosOrden;
-  DM_Cheques.BuscarCheque ('0','qBusChequeMontoMayor' );
+  DM_Cheques.BuscarCheque ('0','qBusChequeMontoMayor', EST_CARTERA );
 end;
 
 procedure TfrmListadoCheques.Buscar;
 begin
-  DM_Cheques.BuscarCheque (TRIM(edBuscar.Text), String(cbCriterioBusqueda.Items.Objects[cbCriterioBusqueda.ItemIndex]));
+  DM_Cheques.BuscarCheque (TRIM(edBuscar.Text), String(cbCriterioBusqueda.Items.Objects[cbCriterioBusqueda.ItemIndex]), rgCriterio.itemIndex);
   DM_Cheques.OrdenarListado(String(cbCriterioBusqueda.Items.Objects[cbCriterioBusqueda.ItemIndex]));
 end;
 
@@ -183,7 +184,7 @@ begin
     if pantalla.ShowModal = mrOK then
     begin
       if (TRIM(edBuscar.Text) = EmptyStr) then
-        DM_Cheques.BuscarCheque ('0','qBusChequeMontoMayor' )
+        DM_Cheques.BuscarCheque ('0','qBusChequeMontoMayor', EST_CARTERA )
       else
         Buscar;
     end;
@@ -208,7 +209,7 @@ begin
   begin
     DM_Cheques.EliminarCheque(DM_Cheques.idChequeSeleccionado);
     if (TRIM(edBuscar.Text) = EmptyStr) then
-      DM_Cheques.BuscarCheque ('0','qBusChequeMontoMayor' )
+      DM_Cheques.BuscarCheque ('0','qBusChequeMontoMayor', EST_CARTERA )
     else
       Buscar;
   end;

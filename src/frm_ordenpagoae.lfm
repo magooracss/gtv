@@ -1,11 +1,11 @@
 object frmOrdenDePagoAE: TfrmOrdenDePagoAE
-  Left = 436
-  Height = 584
-  Top = 114
-  Width = 630
+  Left = 276
+  Height = 553
+  Top = 134
+  Width = 637
   Caption = 'Orden de Pago'
-  ClientHeight = 584
-  ClientWidth = 630
+  ClientHeight = 553
+  ClientWidth = 637
   Font.CharSet = ANSI_CHARSET
   Font.Color = clBlack
   Font.Height = -13
@@ -20,10 +20,10 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
     Left = 0
     Height = 128
     Top = 0
-    Width = 630
+    Width = 637
     Align = alTop
     ClientHeight = 128
-    ClientWidth = 630
+    ClientWidth = 637
     TabOrder = 0
     object DBEdit1: TDBEdit
       Left = 11
@@ -98,7 +98,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
       Left = 112
       Height = 24
       Top = 85
-      Width = 503
+      Width = 510
       DataField = 'lxProveedor'
       DataSource = DS_OrdenesDePago
       ReadOnly = True
@@ -187,7 +187,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
       ParentColor = False
     end
     object DBEdit3: TDBEdit
-      Left = 332
+      Left = 339
       Height = 27
       Top = 24
       Width = 150
@@ -210,7 +210,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
       TabStop = False
     end
     object Label4: TLabel
-      Left = 334
+      Left = 341
       Height = 17
       Top = 5
       Width = 78
@@ -219,7 +219,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
       ParentColor = False
     end
     object Label5: TLabel
-      Left = 497
+      Left = 504
       Height = 17
       Top = 5
       Width = 93
@@ -228,7 +228,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
       ParentColor = False
     end
     object edSaldoCliente: TEdit
-      Left = 492
+      Left = 499
       Height = 24
       Top = 26
       Width = 123
@@ -243,11 +243,11 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
   object Panel2: TPanel
     Left = 0
     Height = 50
-    Top = 534
-    Width = 630
+    Top = 503
+    Width = 637
     Align = alBottom
     ClientHeight = 50
-    ClientWidth = 630
+    ClientWidth = 637
     TabOrder = 1
     object btnSalir: TBitBtn
       Left = 10
@@ -296,7 +296,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
       TabOrder = 0
     end
     object btnGrabar: TBitBtn
-      Left = 343
+      Left = 350
       Height = 30
       Top = 11
       Width = 119
@@ -342,7 +342,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
       TabOrder = 1
     end
     object btnImprimir: TBitBtn
-      Left = 492
+      Left = 499
       Height = 30
       Top = 11
       Width = 119
@@ -392,13 +392,13 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
     Left = 0
     Height = 181
     Top = 128
-    Width = 630
+    Width = 637
     Align = alTop
     ClientHeight = 181
-    ClientWidth = 630
+    ClientWidth = 637
     TabOrder = 2
     object Panel5: TPanel
-      Left = 482
+      Left = 489
       Height = 162
       Top = 18
       Width = 147
@@ -556,7 +556,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
       Left = 1
       Height = 162
       Top = 18
-      Width = 481
+      Width = 488
       Align = alClient
       AutoFillColumns = True
       Color = clWindow
@@ -579,13 +579,13 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
         item
           Title.Alignment = taCenter
           Title.Caption = 'Monto'
-          Width = 88
+          Width = 92
           FieldName = 'nTotal'
         end      
         item
           Title.Alignment = taCenter
           Title.Caption = 'Pagado'
-          Width = 89
+          Width = 92
           FieldName = 'Pagado'
         end>
       DataSource = DS_OPComprobantes
@@ -604,7 +604,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
       Left = 1
       Height = 17
       Top = 1
-      Width = 628
+      Width = 635
       Align = alTop
       Caption = '   Comprobantes de compra'
       TabOrder = 2
@@ -615,26 +615,26 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
     Left = 0
     Height = 5
     Top = 309
-    Width = 630
+    Width = 637
     Align = alTop
     ResizeAnchor = akTop
   end
   object Panel4: TPanel
     Left = 0
-    Height = 220
+    Height = 189
     Top = 314
-    Width = 630
+    Width = 637
     Align = alClient
-    ClientHeight = 220
-    ClientWidth = 630
+    ClientHeight = 189
+    ClientWidth = 637
     TabOrder = 4
     object Panel6: TPanel
-      Left = 482
-      Height = 201
+      Left = 489
+      Height = 170
       Top = 18
       Width = 147
       Align = alRight
-      ClientHeight = 201
+      ClientHeight = 170
       ClientWidth = 147
       TabOrder = 0
       object btnValoresNuevo: TBitBtn
@@ -730,7 +730,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
       object edSumaValores: TEdit
         Left = 1
         Height = 26
-        Top = 174
+        Top = 143
         Width = 145
         Align = alBottom
         Alignment = taRightJustify
@@ -750,7 +750,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
       object StaticText3: TStaticText
         Left = 1
         Height = 17
-        Top = 157
+        Top = 126
         Width = 145
         Align = alBottom
         Caption = 'Suma de Valores'
@@ -759,9 +759,9 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
     end
     object DBGrid2: TDBGrid
       Left = 1
-      Height = 201
+      Height = 170
       Top = 18
-      Width = 481
+      Width = 488
       Align = alClient
       AutoFillColumns = True
       Color = clWindow
@@ -802,7 +802,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
         item
           Title.Alignment = taCenter
           Title.Caption = 'Banco'
-          Width = 69
+          Width = 76
           FieldName = 'lxBanco'
         end      
         item
@@ -828,7 +828,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
       Left = 1
       Height = 17
       Top = 1
-      Width = 628
+      Width = 635
       Align = alTop
       Caption = '   Valores'
       TabOrder = 2

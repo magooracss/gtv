@@ -20,6 +20,10 @@ CONST
    ORDEN_FECHA_ENTREGA = '7';
    ORDEN_MONTO = '8';
 
+   EST_ENTREGADO = 0;
+   EST_CARTERA = 1;
+   EST_TODO = 2;
+
 type
 
   { TDM_Cheques }
@@ -83,11 +87,14 @@ type
     { private declarations }
   public
     property idChequeSeleccionado: GUID_ID read getidCheque;
-    procedure BuscarCheque (elValor, laConsulta: string);
+    procedure BuscarCheque (elValor, laConsulta: string; estado: integer);
     procedure OrdenarListado (elCriterio: string);
+    procedure BuscarChequeId (refCheque: GUID_ID);
+
 
     procedure CambiarEntregadoA(idPersonaEmpresa: GUID_ID);
     procedure CambiarRecibidoDe(idPersonaEmpresa: GUID_ID);
+    procedure CambiarFechaEntregadoA(fecha: TDateTime);
 
     procedure LevantarCheque (elCheque: GUID_ID);
     procedure EliminarCheque (elCheque: GUID_ID);
@@ -96,6 +103,8 @@ type
     procedure Grabar;
 
     procedure AjustarRefCombos (refBanco, refChequeEstado: integer);
+
+
   end; 
 
 var
@@ -153,15 +162,24 @@ begin
     Result:= GUIDNULO;
 end;
 
-procedure TDM_Cheques.BuscarCheque(elValor, laConsulta: string);
+procedure TDM_Cheques.BuscarCheque(elValor, laConsulta: string; estado: integer
+  );
 var
   laConsultaTZ: TZQuery;
+  cadena: string;
 begin
   laConsultaTZ:= (self.FindComponent(laconsulta)as TzQuery);
+  cadena:= laConsultaTZ.SQL.Text;
+
   tbResultados.Close;
   tbResultados.Open;
   if laConsultaTZ <> nil then
   begin
+    case estado of
+      EST_ENTREGADO : laConsultaTZ.SQL.Add(' AND (refEntregadoA <> ''{00000000-0000-0000-0000-000000000000}'') ');
+      EST_CARTERA: laConsultaTZ.SQL.Add(' AND (refEntregadoA LIKE ''{00000000-0000-0000-0000-000000000000}'') ');
+    end;
+
     with (laConsultaTZ as TZQuery) do
     begin
       case ParamByName('parametro').DataType of
@@ -172,9 +190,14 @@ begin
          ParamByName('parametro').Value:= TRIM(elValor);
       end;
       Open;
+
       if Not EOF then
        tbResultados.LoadFromDataSet((laConsultaTZ as TZQuery), 0, lmAppend);
       Close;
+
+      (laConsultaTZ as TZQuery).SQL.clear;
+      laConsultaTZ.SQL.Add (cadena) ;
+
     end;
   end;
 end;
@@ -201,6 +224,19 @@ begin
     tbResultados.SortOnFields(elCampo);
 end;
 
+procedure TDM_Cheques.BuscarChequeId(refCheque: GUID_ID);
+begin
+  DM_General.ReiniciarTabla(tbCheques);
+  with tbChequesSEL do
+  begin
+    if active then close;
+    ParamByName('idCheque').asString:= refCheque;
+    Open;
+    tbCheques.LoadFromDataSet(tbChequesSEL, 0, lmAppend);
+    Close;
+  end;
+end;
+
 procedure TDM_Cheques.CambiarEntregadoA(idPersonaEmpresa: GUID_ID);
 begin
   with tbCheques do
@@ -219,6 +255,16 @@ begin
     Edit;
     FieldByName('refRecibidoDe').AsString:= idPersonaEmpresa;
     FieldByName('lxRecibidoDe').AsString:= DM_BuscarPersonaEmpresa.NombrePersonaEmpresaPorID(idPersonaEmpresa);
+    Post;
+  end;
+end;
+
+procedure TDM_Cheques.CambiarFechaEntregadoA(fecha: TDateTime);
+begin
+  with tbCheques do
+  begin
+    Edit;
+    FieldByName('fEntrega').AsDateTime:= fecha;
     Post;
   end;
 end;

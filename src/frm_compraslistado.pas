@@ -21,32 +21,37 @@ type
     btnBuscar: TBitBtn;
     cbCriterio: TComboBox;
     ds_Resultados: TDatasource;
-    DBGrid1: TDBGrid;
+    dbGrilla: TDBGrid;
     edDato: TEdit;
     Label1: TLabel;
     Label2: TLabel;
     Panel1: TPanel;
     Panel2: TPanel;
     rgPagadas: TRadioGroup;
+    StaticText1: TStaticText;
     procedure btnAceptarClick(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
     procedure btnEliminarCompraClick(Sender: TObject);
     procedure btnModificarCompraClick(Sender: TObject);
     procedure btnNuevaCompraClick(Sender: TObject);
-    procedure DBGrid1TitleClick(Column: TColumn);
+    procedure dbGrillaTitleClick(Column: TColumn);
     procedure edDatoKeyPress(Sender: TObject; var Key: char);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     _buscandoProveedor: GUID_ID;
+    _seleccionID: TStringList;
 
     procedure CargarCriteriosBusqueda;
     function getCompraSeleccionada: GUID_ID;
     procedure Inicializar;
 
     procedure PantallaCompras (refCompra: GUID_ID);
+
+    procedure CargarSeleccion;
   public
     property CompraSeleccionada: GUID_ID read getCompraSeleccionada;
+    property Seleccion: TStringList read _seleccionID;
     procedure Buscar;
     Function BuscarProveedorImpago (refProveedor: GUID_ID): boolean;
 
@@ -85,6 +90,7 @@ end;
 
 procedure TfrmComprasListado.btnAceptarClick(Sender: TObject);
 begin
+  cargarSeleccion;
   ModalResult:= mrOK;
 end;
 
@@ -135,6 +141,9 @@ begin
   CargarCriteriosBusqueda;
   edDato.Clear;
   edDato.SetFocus;
+
+  _seleccionID:= TStringList.Create;
+
   if _buscandoProveedor <> GUIDNULO then
   begin
     edDato.Text:= DM_Proveedores.ProveedorNombre(_buscandoProveedor);
@@ -164,6 +173,26 @@ begin
 end;
 
 (*******************************************************************************
+***  SELECCION DE RESULTADOS
+*******************************************************************************)
+
+procedure TfrmComprasListado.CargarSeleccion;
+begin
+  with ds_Resultados.DataSet do
+  begin
+    First;
+    DisableControls;
+    While not EOF do
+    begin
+      if dbGrilla.SelectedRows.CurrentRowSelected then
+        _seleccionID.Add(ds_Resultados.DataSet.FieldByName('idCompra').asString);
+      Next;
+    end;
+    EnableControls;
+  end;
+end;
+
+(*******************************************************************************
 ***  ABM COMPRAS
 *******************************************************************************)
 
@@ -183,12 +212,13 @@ begin
   end;
 end;
 
+
 procedure TfrmComprasListado.btnNuevaCompraClick(Sender: TObject);
 begin
   PantallaCompras(GUIDNULO);
 end;
 
-procedure TfrmComprasListado.DBGrid1TitleClick(Column: TColumn);
+procedure TfrmComprasListado.dbGrillaTitleClick(Column: TColumn);
 begin
   DM_General.OrdenarTitulo(Column);
 end;

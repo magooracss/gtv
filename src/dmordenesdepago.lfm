@@ -1,10 +1,10 @@
 object DM_OrdenesDePago: TDM_OrdenesDePago
   OnCreate = DataModuleCreate
   OldCreateOrder = False
-  Height = 637
-  HorizontalOffset = 358
-  VerticalOffset = 71
-  Width = 1032
+  Height = 451
+  HorizontalOffset = 529
+  VerticalOffset = 139
+  Width = 630
   object tbResultados: TRxMemoryData
     FieldDefs = <    
       item
@@ -2833,6 +2833,40 @@ object DM_OrdenesDePago: TDM_OrdenesDePago
       item
         DataType = ftUnknown
         Name = 'refOP'
+        ParamType = ptUnknown
+      end>
+  end
+  object qOPBorradas: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'Select *'
+      'from tbOrdenesPago'
+      'WHERE bVisible = 0'
+    )
+    Params = <>
+    left = 96
+    top = 512
+  end
+  object qReactivarCompras: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbCompras'
+      'SET bPagada = 0'
+      '      ,refORdenPago = ''{00000000-0000-0000-0000-000000000000}'''
+      'WHERE refOrdenPago = :refOrdenPago'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refOrdenPago'
+        ParamType = ptUnknown
+      end>
+    left = 96
+    top = 568
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refOrdenPago'
         ParamType = ptUnknown
       end>
   end

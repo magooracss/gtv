@@ -99,6 +99,7 @@ begin
   CargarCriteriosBusqueda;
   edDato.Clear;
   //Buscar;
+  DM_OrdenesDePago.ReactivarComprasOPBorradas;
 end;
 
 procedure TfrmOrdenesPagoListado.CargarCriteriosBusqueda;
