@@ -40,6 +40,8 @@ type
     procedure btnBuscarClick(Sender: TObject);
     procedure btnChequeNuevoClick(Sender: TObject);
     procedure cbCriterioOrdenChange(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);
+    procedure edBuscarKeyPress(Sender: TObject; var Key: char);
     procedure FormShow(Sender: TObject);
     procedure panBuscarExecute(Sender: TObject);
     procedure panSalirExecute(Sender: TObject);
@@ -95,11 +97,23 @@ begin
   DM_Cheques.OrdenarListado(String(cbCriterioBusqueda.Items.Objects[cbCriterioBusqueda.ItemIndex]));
 end;
 
+procedure TfrmListadoCheques.DBGrid1TitleClick(Column: TColumn);
+begin
+  DM_General.OrdenarTitulo(Column);
+end;
+
+procedure TfrmListadoCheques.edBuscarKeyPress(Sender: TObject; var Key: char);
+begin
+  if key = #13 then
+    Buscar;
+end;
+
 procedure TfrmListadoCheques.CargarCriteriosBusqueda;
 const
-  MAX_FILAS = 10;
+  MAX_FILAS = 11;
   aCriterioDeBusqueda: array [1..MAX_FILAS,1..2] of string =
     (('Cheque por Número','qBusChequeNumero')
+    ,('Cheque por Número interno','qBusChequeNumInterno')
     ,('Cheque por Banco','qBusChequeBanco')
     ,('Cheques recibidos de','qBusChequeRecibidoDe')
     ,('Cheques entregados a','qBusChequeEntregadoA')

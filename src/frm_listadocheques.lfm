@@ -41,6 +41,7 @@ object frmListadoCheques: TfrmListadoCheques
         Top = 16
         Width = 435
         Anchors = [akTop, akLeft, akRight]
+        OnKeyPress = edBuscarKeyPress
         TabOrder = 0
         Text = 'edBuscar'
       end
@@ -246,6 +247,14 @@ object frmListadoCheques: TfrmListadoCheques
     Color = clWindow
     Columns = <    
       item
+        Alignment = taRightJustify
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Nro Interno'
+        Width = 90
+        FieldName = 'NroInterno'
+      end    
+      item
         Font.CharSet = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -12
@@ -259,10 +268,11 @@ object frmListadoCheques: TfrmListadoCheques
         FieldName = 'NroCheque'
       end    
       item
+        MaxSize = 500
         SizePriority = 0
         Title.Alignment = taCenter
         Title.Caption = 'Banco'
-        Width = 150
+        Width = 250
         FieldName = 'Banco'
       end    
       item
@@ -284,7 +294,7 @@ object frmListadoCheques: TfrmListadoCheques
       item
         Title.Alignment = taCenter
         Title.Caption = 'Recibido de'
-        Width = 291
+        Width = 196
         FieldName = 'RecibidoDe'
       end    
       item
@@ -298,7 +308,7 @@ object frmListadoCheques: TfrmListadoCheques
       item
         Title.Alignment = taCenter
         Title.Caption = 'Entregado a'
-        Width = 291
+        Width = 196
         FieldName = 'EntregadoA'
       end    
       item
@@ -319,6 +329,7 @@ object frmListadoCheques: TfrmListadoCheques
     TitleFont.Name = 'Arial'
     TitleFont.Pitch = fpVariable
     TitleFont.Quality = fqDraft
+    OnTitleClick = DBGrid1TitleClick
   end
   object ActionList1: TActionList
     Images = DM_General.ImgAcciones

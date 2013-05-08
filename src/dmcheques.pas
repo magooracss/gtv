@@ -30,6 +30,117 @@ type
 
   TDM_Cheques = class(TDataModule)
     qBusChequeBanco: TZQuery;
+    qBusChequeBancoBANCO: TStringField;
+    qBusChequeBancoENTREGADOA: TStringField;
+    qBusChequeBancoFCOBRO: TDateField;
+    qBusChequeBancoFENTREGA: TDateField;
+    qBusChequeBancoFRECIBIDO: TDateField;
+    qBusChequeBancoIDCHEQUE: TStringField;
+    qBusChequeBancoNMONTO: TFloatField;
+    qBusChequeBancoNROCHEQUE: TStringField;
+    qBusChequeBancoNROINTERNO: TLongintField;
+    qBusChequeBancoRECIBIDODE: TStringField;
+    qBusChequeEntregadoABANCO: TStringField;
+    qBusChequeEntregadoAENTREGADOA: TStringField;
+    qBusChequeEntregadoAFCOBRO: TDateField;
+    qBusChequeEntregadoAFENTREGA: TDateField;
+    qBusChequeEntregadoAFRECIBIDO: TDateField;
+    qBusChequeEntregadoAIDCHEQUE: TStringField;
+    qBusChequeEntregadoANMONTO: TFloatField;
+    qBusChequeEntregadoANROCHEQUE: TStringField;
+    qBusChequeEntregadoANROINTERNO: TLongintField;
+    qBusChequeEntregadoARECIBIDODE: TStringField;
+    qBusChequefCobroBANCO: TStringField;
+    qBusChequefCobroENTREGADOA: TStringField;
+    qBusChequefCobroFCOBRO: TDateField;
+    qBusChequefCobroFENTREGA: TDateField;
+    qBusChequefCobroFRECIBIDO: TDateField;
+    qBusChequefCobroIDCHEQUE: TStringField;
+    qBusChequefCobroNMONTO: TFloatField;
+    qBusChequefCobroNROCHEQUE: TStringField;
+    qBusChequefCobroNROINTERNO: TLongintField;
+    qBusChequefCobroRECIBIDODE: TStringField;
+    qBusChequefEntregaBANCO: TStringField;
+    qBusChequefEntregaENTREGADOA: TStringField;
+    qBusChequefEntregaFCOBRO: TDateField;
+    qBusChequefEntregaFENTREGA: TDateField;
+    qBusChequefEntregaFRECIBIDO: TDateField;
+    qBusChequefEntregaIDCHEQUE: TStringField;
+    qBusChequefEntregaNMONTO: TFloatField;
+    qBusChequefEntregaNROCHEQUE: TStringField;
+    qBusChequefEntregaNROINTERNO: TLongintField;
+    qBusChequefEntregaRECIBIDODE: TStringField;
+    qBusChequefRecibidoBANCO: TStringField;
+    qBusChequefRecibidoENTREGADOA: TStringField;
+    qBusChequefRecibidoFCOBRO: TDateField;
+    qBusChequefRecibidoFENTREGA: TDateField;
+    qBusChequefRecibidoFRECIBIDO: TDateField;
+    qBusChequefRecibidoIDCHEQUE: TStringField;
+    qBusChequefRecibidoNMONTO: TFloatField;
+    qBusChequefRecibidoNROCHEQUE: TStringField;
+    qBusChequefRecibidoNROINTERNO: TLongintField;
+    qBusChequefRecibidoRECIBIDODE: TStringField;
+    qBusChequeMontoIgualBANCO: TStringField;
+    qBusChequeMontoIgualENTREGADOA: TStringField;
+    qBusChequeMontoIgualFCOBRO: TDateField;
+    qBusChequeMontoIgualFENTREGA: TDateField;
+    qBusChequeMontoIgualFRECIBIDO: TDateField;
+    qBusChequeMontoIgualIDCHEQUE: TStringField;
+    qBusChequeMontoIgualNMONTO: TFloatField;
+    qBusChequeMontoIgualNROCHEQUE: TStringField;
+    qBusChequeMontoIgualNROINTERNO: TLongintField;
+    qBusChequeMontoIgualRECIBIDODE: TStringField;
+    qBusChequeMontoMayorBANCO: TStringField;
+    qBusChequeMontoMayorENTREGADOA: TStringField;
+    qBusChequeMontoMayorFCOBRO: TDateField;
+    qBusChequeMontoMayorFENTREGA: TDateField;
+    qBusChequeMontoMayorFRECIBIDO: TDateField;
+    qBusChequeMontoMayorIDCHEQUE: TStringField;
+    qBusChequeMontoMayorNMONTO: TFloatField;
+    qBusChequeMontoMayorNROCHEQUE: TStringField;
+    qBusChequeMontoMayorNROINTERNO: TLongintField;
+    qBusChequeMontoMayorRECIBIDODE: TStringField;
+    qBusChequeMontoMenorBANCO: TStringField;
+    qBusChequeMontoMenorENTREGADOA: TStringField;
+    qBusChequeMontoMenorFCOBRO: TDateField;
+    qBusChequeMontoMenorFENTREGA: TDateField;
+    qBusChequeMontoMenorFRECIBIDO: TDateField;
+    qBusChequeMontoMenorIDCHEQUE: TStringField;
+    qBusChequeMontoMenorNMONTO: TFloatField;
+    qBusChequeMontoMenorNROCHEQUE: TStringField;
+    qBusChequeMontoMenorNROINTERNO: TLongintField;
+    qBusChequeMontoMenorRECIBIDODE: TStringField;
+    qBusChequeNumInterno: TZQuery;
+    qBusChequeNumeroBANCO: TStringField;
+    qBusChequeNumeroBANCO1: TStringField;
+    qBusChequeNumeroENTREGADOA: TStringField;
+    qBusChequeNumeroENTREGADOA1: TStringField;
+    qBusChequeNumeroFCOBRO: TDateField;
+    qBusChequeNumeroFCOBRO1: TDateField;
+    qBusChequeNumeroFENTREGA: TDateField;
+    qBusChequeNumeroFENTREGA1: TDateField;
+    qBusChequeNumeroFRECIBIDO: TDateField;
+    qBusChequeNumeroFRECIBIDO1: TDateField;
+    qBusChequeNumeroIDCHEQUE: TStringField;
+    qBusChequeNumeroIDCHEQUE1: TStringField;
+    qBusChequeNumeroNMONTO: TFloatField;
+    qBusChequeNumeroNMONTO1: TFloatField;
+    qBusChequeNumeroNROCHEQUE: TStringField;
+    qBusChequeNumeroNROCHEQUE1: TStringField;
+    qBusChequeNumeroNROINTERNO: TLongintField;
+    qBusChequeNumeroNROINTERNO1: TLongintField;
+    qBusChequeNumeroRECIBIDODE: TStringField;
+    qBusChequeNumeroRECIBIDODE1: TStringField;
+    qBusChequeRecibidoDeBANCO: TStringField;
+    qBusChequeRecibidoDeENTREGADOA: TStringField;
+    qBusChequeRecibidoDeFCOBRO: TDateField;
+    qBusChequeRecibidoDeFENTREGA: TDateField;
+    qBusChequeRecibidoDeFRECIBIDO: TDateField;
+    qBusChequeRecibidoDeIDCHEQUE: TStringField;
+    qBusChequeRecibidoDeNMONTO: TFloatField;
+    qBusChequeRecibidoDeNROCHEQUE: TStringField;
+    qBusChequeRecibidoDeNROINTERNO: TLongintField;
+    qBusChequeRecibidoDeRECIBIDODE: TStringField;
     qTugBancos: TZQuery;
     qBusChequefCobro: TZQuery;
     qBusChequeEntregadoA: TZQuery;
@@ -77,6 +188,7 @@ type
     tbResultadosidCheque: TStringField;
     tbResultadosnMonto: TFloatField;
     tbResultadosNroCheque: TStringField;
+    tbResultadosnroInterno: TLongintField;
     tbResultadosRecibidoDe: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure tbChequesAfterInsert(DataSet: TDataSet);
@@ -167,6 +279,7 @@ procedure TDM_Cheques.BuscarCheque(elValor, laConsulta: string; estado: integer
 var
   laConsultaTZ: TZQuery;
   cadena: string;
+  elTipoParametro: TFieldType;
 begin
   laConsultaTZ:= (self.FindComponent(laconsulta)as TzQuery);
   cadena:= laConsultaTZ.SQL.Text;
@@ -186,18 +299,23 @@ begin
         ftString: ParamByName('parametro').AsString:= TRIM(elValor);
         ftSmallint, ftInteger: ParamByName('parametro').asInteger:= StrToIntDef (elValor, 0);
         ftFloat, ftCurrency :ParamByName('parametro').AsFloat:= StrToFloatDef (elValor, 0);
+        ftDate, ftDateTime: ParamByName('parametro').AsDate:= StrToDate (elValor);
       else
          ParamByName('parametro').Value:= TRIM(elValor);
       end;
+
+      elTipoParametro:= ParamByName('parametro').DataType;
+
       Open;
 
       if Not EOF then
        tbResultados.LoadFromDataSet((laConsultaTZ as TZQuery), 0, lmAppend);
       Close;
 
+
       (laConsultaTZ as TZQuery).SQL.clear;
       laConsultaTZ.SQL.Add (cadena) ;
-
+      laConsultaTZ.ParamByName('parametro').DataType:= elTipoParametro;
     end;
   end;
 end;

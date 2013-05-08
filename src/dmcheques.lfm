@@ -2,8 +2,8 @@ object DM_Cheques: TDM_Cheques
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 697
-  HorizontalOffset = 286
-  VerticalOffset = 62
+  HorizontalOffset = 449
+  VerticalOffset = 63
   Width = 630
   object tbResultados: TRxMemoryData
     FieldDefs = <    
@@ -60,10 +60,16 @@ object DM_Cheques: TDM_Cheques
         DataType = ftFloat
         Precision = 0
         Size = 0
+      end    
+      item
+        Name = 'nroInterno'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
       end>
     PacketRecords = 0
-    left = 33
-    top = 15
+    left = 32
+    top = 16
     object tbResultadosidCheque: TStringField
       DisplayWidth = 38
       FieldKind = fkData
@@ -169,12 +175,23 @@ object DM_Cheques: TDM_Cheques
       MinValue = 0
       Precision = 2
     end
+    object tbResultadosnroInterno: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nroInterno'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qBusChequeNumero: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'SELECT  C.idCheque'
       '      , C.NroCheque'
+      '      , C.NroInterno'
       #9'  , B.Banco'
       #9'  , CASE'
       #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
@@ -218,12 +235,125 @@ object DM_Cheques: TDM_Cheques
         Name = 'parametro'
         ParamType = ptUnknown
       end>
+    object qBusChequeNumeroIDCHEQUE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCHEQUE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qBusChequeNumeroNROCHEQUE: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'NROCHEQUE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qBusChequeNumeroBANCO: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'BANCO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qBusChequeNumeroRECIBIDODE: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'RECIBIDODE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequeNumeroENTREGADOA: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'ENTREGADOA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequeNumeroFCOBRO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCOBRO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/YYYY'
+    end
+    object qBusChequeNumeroFRECIBIDO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FRECIBIDO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/YYYY'
+    end
+    object qBusChequeNumeroFENTREGA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FENTREGA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/YYYY'
+    end
+    object qBusChequeNumeroNMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qBusChequeNumeroNROINTERNO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROINTERNO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qBusChequeBanco: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'SELECT  C.idCheque'
       '      , C.NroCheque'
+      '      , C.NroInterno'
       #9'  , B.Banco'
       #9'  , CASE'
       #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
@@ -247,7 +377,7 @@ object DM_Cheques: TDM_Cheques
       #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
       #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refEntregadoA'
       #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refEntregadoA'
-      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.reEntregadoA'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refEntregadoA'
       #9#9
       'WHERE (C.bVisible = 1)'
       '       and (UPPER (B.Banco) LIKE UPPER(''%''|| :parametro || ''%''))'
@@ -266,12 +396,125 @@ object DM_Cheques: TDM_Cheques
         Name = 'parametro'
         ParamType = ptUnknown
       end>
+    object qBusChequeBancoIDCHEQUE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCHEQUE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qBusChequeBancoNROCHEQUE: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'NROCHEQUE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qBusChequeBancoBANCO: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'BANCO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qBusChequeBancoRECIBIDODE: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'RECIBIDODE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequeBancoENTREGADOA: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'ENTREGADOA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequeBancoFCOBRO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCOBRO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequeBancoFRECIBIDO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FRECIBIDO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequeBancoFENTREGA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FENTREGA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequeBancoNMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qBusChequeBancoNROINTERNO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROINTERNO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qBusChequefCobro: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'SELECT  C.idCheque'
       '      , C.NroCheque'
+      '      , C.NroInterno'
       #9'  , B.Banco'
       #9'  , CASE'
       #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
@@ -302,24 +545,137 @@ object DM_Cheques: TDM_Cheques
     )
     Params = <    
       item
-        DataType = ftUnknown
+        DataType = ftDate
         Name = 'parametro'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end>
-    left = 119
+    left = 120
     top = 264
     ParamData = <    
       item
-        DataType = ftUnknown
+        DataType = ftDate
         Name = 'parametro'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end>
+    object qBusChequefCobroIDCHEQUE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCHEQUE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qBusChequefCobroNROCHEQUE: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'NROCHEQUE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qBusChequefCobroBANCO: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'BANCO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qBusChequefCobroRECIBIDODE: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'RECIBIDODE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequefCobroENTREGADOA: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'ENTREGADOA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequefCobroFCOBRO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCOBRO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequefCobroFRECIBIDO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FRECIBIDO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequefCobroFENTREGA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FENTREGA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequefCobroNMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qBusChequefCobroNROINTERNO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROINTERNO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qBusChequeEntregadoA: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'SELECT  C.idCheque'
       '      , C.NroCheque'
+      '       , C.NroInterno'
       '      , B.Banco'
       '      , CASE'
       #9'  WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
@@ -347,6 +703,7 @@ object DM_Cheques: TDM_Cheques
       ''
       'SELECT  C.idCheque'
       '      , C.NroCheque'
+      '      , C.NroInterno'
       '      , B.Banco'
       '      , CASE'
       #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
@@ -376,6 +733,7 @@ object DM_Cheques: TDM_Cheques
       ''
       'SELECT  C.idCheque'
       '      '#9', C.NroCheque'
+      '                , C.NroInterno'
       ' '#9', B.Banco'
       #9', CASE'
       #9#9'WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
@@ -416,12 +774,125 @@ object DM_Cheques: TDM_Cheques
         Name = 'parametro'
         ParamType = ptUnknown
       end>
+    object qBusChequeEntregadoAIDCHEQUE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCHEQUE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qBusChequeEntregadoANROCHEQUE: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'NROCHEQUE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qBusChequeEntregadoABANCO: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'BANCO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qBusChequeEntregadoARECIBIDODE: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'RECIBIDODE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequeEntregadoAENTREGADOA: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'ENTREGADOA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+    object qBusChequeEntregadoAFCOBRO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCOBRO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequeEntregadoAFRECIBIDO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FRECIBIDO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequeEntregadoAFENTREGA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FENTREGA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequeEntregadoANMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qBusChequeEntregadoANROINTERNO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROINTERNO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qBusChequeRecibidoDe: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'SELECT  C.idCheque'
       '      , C.NroCheque'
+      '     , C.NroInterno'
       '      , B.Banco'
       '      , AdR.cRazonSocial as RecibidoDe'
       '      , CASE'
@@ -449,6 +920,7 @@ object DM_Cheques: TDM_Cheques
       ''
       'SELECT  C.idCheque'
       '      , C.NroCheque'
+      '     , C.NroInterno'
       '      , B.Banco'
       '      , ClR.cNombre as RecibidoDe'
       '      , CASE'
@@ -472,12 +944,15 @@ object DM_Cheques: TDM_Cheques
       #9#9
       'WHERE (C.bVisible = 1)'
       '       and '
-      '      (UPPER(ClR.cNombre) LIKE UPPER(''%'' || :parametro || ''%''))'
+      '       ( (UPPER(ClR.cNombre) LIKE UPPER(''%'' || :parametro || ''%''))'
+      '         or (UPPER(ClR.cCodigo) LIKE UPPER(''%'' || :parametro || ''%'')) '
+      '       )'
       ''
       'UNION ALL'
       ''
       'SELECT  C.idCheque'
       '      '#9', C.NroCheque'
+      '                , C.NroInterno'
       ' '#9', B.Banco'
       #9', PrR.cRazonSocial as RecibidoDe'
       #9', CASE'
@@ -502,7 +977,6 @@ object DM_Cheques: TDM_Cheques
       'WHERE (C.bVisible = 1)'
       '       and '
       '         (UPPER(PrR.cRazonSocial) LIKE UPPER(''%'' || :parametro || ''%''))'
-      ''
     )
     Params = <    
       item
@@ -518,12 +992,125 @@ object DM_Cheques: TDM_Cheques
         Name = 'parametro'
         ParamType = ptUnknown
       end>
+    object qBusChequeRecibidoDeIDCHEQUE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCHEQUE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qBusChequeRecibidoDeNROCHEQUE: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'NROCHEQUE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qBusChequeRecibidoDeBANCO: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'BANCO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qBusChequeRecibidoDeRECIBIDODE: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'RECIBIDODE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+    object qBusChequeRecibidoDeENTREGADOA: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'ENTREGADOA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequeRecibidoDeFCOBRO: TDateField
+      DisplayLabel = 'dd/mm/yyyy'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCOBRO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qBusChequeRecibidoDeFRECIBIDO: TDateField
+      DisplayLabel = 'dd/mm/yyyy'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FRECIBIDO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qBusChequeRecibidoDeFENTREGA: TDateField
+      DisplayLabel = 'dd/mm/yyyy'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FENTREGA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qBusChequeRecibidoDeNMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qBusChequeRecibidoDeNROINTERNO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROINTERNO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qBusChequeMontoMayor: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'SELECT  C.idCheque'
       '      , C.NroCheque'
+      '        , C.NroInterno'
       #9'  , B.Banco'
       #9'  , CASE'
       #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
@@ -559,19 +1146,132 @@ object DM_Cheques: TDM_Cheques
         ParamType = ptInput
       end>
     left = 120
-    top = 563
+    top = 568
     ParamData = <    
       item
         DataType = ftFloat
         Name = 'parametro'
         ParamType = ptInput
       end>
+    object qBusChequeMontoMayorIDCHEQUE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCHEQUE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qBusChequeMontoMayorNROCHEQUE: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'NROCHEQUE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qBusChequeMontoMayorBANCO: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'BANCO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qBusChequeMontoMayorRECIBIDODE: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'RECIBIDODE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequeMontoMayorENTREGADOA: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'ENTREGADOA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequeMontoMayorFCOBRO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCOBRO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequeMontoMayorFRECIBIDO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FRECIBIDO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequeMontoMayorFENTREGA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FENTREGA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequeMontoMayorNMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qBusChequeMontoMayorNROINTERNO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROINTERNO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qBusChequeMontoMenor: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'SELECT  C.idCheque'
       '      , C.NroCheque'
+      '      , C.NroInterno'
       #9'  , B.Banco'
       #9'  , CASE'
       #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
@@ -602,24 +1302,137 @@ object DM_Cheques: TDM_Cheques
     )
     Params = <    
       item
-        DataType = ftUnknown
+        DataType = ftFloat
         Name = 'parametro'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end>
     left = 120
     top = 498
     ParamData = <    
       item
-        DataType = ftUnknown
+        DataType = ftFloat
         Name = 'parametro'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end>
+    object qBusChequeMontoMenorIDCHEQUE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCHEQUE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qBusChequeMontoMenorNROCHEQUE: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'NROCHEQUE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qBusChequeMontoMenorBANCO: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'BANCO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qBusChequeMontoMenorRECIBIDODE: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'RECIBIDODE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequeMontoMenorENTREGADOA: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'ENTREGADOA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequeMontoMenorFCOBRO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCOBRO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequeMontoMenorFRECIBIDO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FRECIBIDO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequeMontoMenorFENTREGA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FENTREGA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequeMontoMenorNMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qBusChequeMontoMenorNROINTERNO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROINTERNO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qBusChequeMontoIgual: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'SELECT  C.idCheque'
       '      , C.NroCheque'
+      '      , C.NroInterno'
       #9'  , B.Banco'
       #9'  , CASE'
       #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
@@ -650,24 +1463,137 @@ object DM_Cheques: TDM_Cheques
     )
     Params = <    
       item
-        DataType = ftUnknown
+        DataType = ftFloat
         Name = 'parametro'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end>
-    left = 122
-    top = 441
+    left = 120
+    top = 448
     ParamData = <    
       item
-        DataType = ftUnknown
+        DataType = ftFloat
         Name = 'parametro'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end>
+    object qBusChequeMontoIgualIDCHEQUE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCHEQUE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qBusChequeMontoIgualNROCHEQUE: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'NROCHEQUE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qBusChequeMontoIgualBANCO: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'BANCO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qBusChequeMontoIgualRECIBIDODE: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'RECIBIDODE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequeMontoIgualENTREGADOA: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'ENTREGADOA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequeMontoIgualFCOBRO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCOBRO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequeMontoIgualFRECIBIDO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FRECIBIDO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequeMontoIgualFENTREGA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FENTREGA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequeMontoIgualNMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qBusChequeMontoIgualNROINTERNO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROINTERNO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qBusChequefEntrega: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'SELECT  C.idCheque'
       '      , C.NroCheque'
+      '      , C.NroInterno'
       #9'  , B.Banco'
       #9'  , CASE'
       #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
@@ -698,24 +1624,137 @@ object DM_Cheques: TDM_Cheques
     )
     Params = <    
       item
-        DataType = ftUnknown
+        DataType = ftDate
         Name = 'parametro'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end>
     left = 125
     top = 337
     ParamData = <    
       item
-        DataType = ftUnknown
+        DataType = ftDate
         Name = 'parametro'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end>
+    object qBusChequefEntregaIDCHEQUE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCHEQUE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qBusChequefEntregaNROCHEQUE: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'NROCHEQUE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qBusChequefEntregaBANCO: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'BANCO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qBusChequefEntregaRECIBIDODE: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'RECIBIDODE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequefEntregaENTREGADOA: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'ENTREGADOA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequefEntregaFCOBRO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCOBRO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequefEntregaFRECIBIDO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FRECIBIDO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequefEntregaFENTREGA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FENTREGA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequefEntregaNMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qBusChequefEntregaNROINTERNO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROINTERNO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qBusChequefRecibido: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'SELECT  C.idCheque'
       '      , C.NroCheque'
+      '      , C.NroInterno'
       #9'  , B.Banco'
       #9'  , CASE'
       #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
@@ -746,18 +1785,130 @@ object DM_Cheques: TDM_Cheques
     )
     Params = <    
       item
-        DataType = ftUnknown
+        DataType = ftDate
         Name = 'parametro'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end>
     left = 124
     top = 387
     ParamData = <    
       item
-        DataType = ftUnknown
+        DataType = ftDate
         Name = 'parametro'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end>
+    object qBusChequefRecibidoIDCHEQUE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCHEQUE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qBusChequefRecibidoNROCHEQUE: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'NROCHEQUE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qBusChequefRecibidoBANCO: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'BANCO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qBusChequefRecibidoRECIBIDODE: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'RECIBIDODE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequefRecibidoENTREGADOA: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'ENTREGADOA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequefRecibidoFCOBRO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCOBRO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequefRecibidoFRECIBIDO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FRECIBIDO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequefRecibidoFENTREGA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FENTREGA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qBusChequefRecibidoNMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qBusChequefRecibidoNROINTERNO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROINTERNO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object tbCheques: TRxMemoryData
     FieldDefs = <    
@@ -1047,7 +2198,7 @@ object DM_Cheques: TDM_Cheques
     )
     Params = <>
     left = 502
-    top = 53
+    top = 56
     object qTugBancosIDBANCO: TLongintField
       DisplayWidth = 10
       FieldKind = fkData
@@ -1398,7 +2549,7 @@ object DM_Cheques: TDM_Cheques
         ParamType = ptUnknown
       end>
     left = 320
-    top = 196
+    top = 200
     ParamData = <    
       item
         DataType = ftUnknown
@@ -1487,5 +2638,167 @@ object DM_Cheques: TDM_Cheques
         Name = 'IDCHEQUE'
         ParamType = ptUnknown
       end>
+  end
+  object qBusChequeNumInterno: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT  C.idCheque'
+      '      , C.NroCheque'
+      '      , C.NroInterno'
+      #9'  , B.Banco'
+      #9'  , CASE'
+      #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
+      #9#9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
+      '            END as RecibidoDe'
+      #9'  , CASE'
+      #9'      WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
+      #9#9'  WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9#9'  WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
+      #9'    END as EntregadoA'#9' '#9#9'  '
+      #9'  , C.fCobro'
+      '      , C.fRecibido'
+      '      , C.fEntrega'
+      '      , C.nMonto'#9'  '
+      #9#9'  '
+      'FROM tbCheques C'
+      '        LEFT JOIN tugBancos B ON B.idBanco = C.refBanco'
+      #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
+      ''
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refEntregadoA'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente =  C.refEntregadoA'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor =  C.refEntregadoA'
+      #9#9
+      'WHERE (C.bVisible = 1)'
+      '       and (C.NroInterno = :parametro )'
+    )
+    Params = <    
+      item
+        DataType = ftInteger
+        Name = 'parametro'
+        ParamType = ptInput
+      end>
+    left = 120
+    top = 632
+    ParamData = <    
+      item
+        DataType = ftInteger
+        Name = 'parametro'
+        ParamType = ptInput
+      end>
+    object qBusChequeNumeroIDCHEQUE1: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCHEQUE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qBusChequeNumeroNROCHEQUE1: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'NROCHEQUE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qBusChequeNumeroBANCO1: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'BANCO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qBusChequeNumeroRECIBIDODE1: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'RECIBIDODE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequeNumeroENTREGADOA1: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'ENTREGADOA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1500
+    end
+    object qBusChequeNumeroFCOBRO1: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCOBRO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/YYYY'
+    end
+    object qBusChequeNumeroFRECIBIDO1: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FRECIBIDO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/YYYY'
+    end
+    object qBusChequeNumeroFENTREGA1: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FENTREGA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/YYYY'
+    end
+    object qBusChequeNumeroNMONTO1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qBusChequeNumeroNROINTERNO1: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROINTERNO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
 end

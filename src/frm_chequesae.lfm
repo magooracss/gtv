@@ -13,7 +13,7 @@ object frmChequeAE: TfrmChequeAE
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
   OnShow = FormShow
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.0.4.0'
   object Panel1: TPanel
     Left = 0
     Height = 50
@@ -142,10 +142,11 @@ object frmChequeAE: TfrmChequeAE
     Height = 24
     Top = 31
     Width = 80
-    OKCaption = 'OK'
-    CancelCaption = 'Cancel'
     ButtonWidth = 23
+    CancelCaption = 'Cancel'
     CharCase = ecNormal
+    DialogTitle = 'Seleccionar Fecha'
+    Enabled = False
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -182,10 +183,12 @@ object frmChequeAE: TfrmChequeAE
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
+    MaxLength = 10
     NumGlyphs = 0
-    Enabled = False
-    MaxLength = 0
+    OKCaption = 'OK'
+    PopupColor = clWindow
     TabOrder = 3
+    Text = '  /  /    '
     DataField = 'fCobro'
     DataSource = ds_Cheque
   end
@@ -194,10 +197,11 @@ object frmChequeAE: TfrmChequeAE
     Height = 24
     Top = 30
     Width = 80
-    OKCaption = 'OK'
-    CancelCaption = 'Cancel'
     ButtonWidth = 23
+    CancelCaption = 'Cancel'
     CharCase = ecNormal
+    DialogTitle = 'Seleccionar Fecha'
+    Enabled = False
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -234,10 +238,12 @@ object frmChequeAE: TfrmChequeAE
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
+    MaxLength = 10
     NumGlyphs = 0
-    Enabled = False
-    MaxLength = 0
+    OKCaption = 'OK'
+    PopupColor = clWindow
     TabOrder = 4
+    Text = '  /  /    '
     DataField = 'fVencimiento'
     DataSource = ds_Cheque
   end
@@ -248,8 +254,9 @@ object frmChequeAE: TfrmChequeAE
     Width = 311
     Anchors = [akTop, akLeft, akRight]
     ItemHeight = 16
+    Sorted = True
+    Style = csDropDownList
     TabOrder = 5
-    Text = 'cbBancos'
   end
   object cbChequesEstados: TComboBox
     Left = 384
@@ -258,8 +265,8 @@ object frmChequeAE: TfrmChequeAE
     Width = 154
     Anchors = [akTop, akRight]
     ItemHeight = 16
+    Style = csDropDownList
     TabOrder = 6
-    Text = 'cbChequesEstados'
   end
   object btnBuscarEntregadoA: TBitBtn
     Left = 330
@@ -320,11 +327,12 @@ object frmChequeAE: TfrmChequeAE
     Height = 24
     Top = 142
     Width = 80
-    OKCaption = 'OK'
-    CancelCaption = 'Cancel'
-    ButtonWidth = 23
     Anchors = [akTop, akRight]
+    ButtonWidth = 23
+    CancelCaption = 'Cancel'
     CharCase = ecNormal
+    DialogTitle = 'Seleccionar Fecha'
+    Enabled = False
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -361,10 +369,12 @@ object frmChequeAE: TfrmChequeAE
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
+    MaxLength = 10
     NumGlyphs = 0
-    Enabled = False
-    MaxLength = 0
+    OKCaption = 'OK'
+    PopupColor = clWindow
     TabOrder = 8
+    Text = '  /  /    '
     DataField = 'fEntrega'
     DataSource = ds_Cheque
   end
@@ -427,11 +437,12 @@ object frmChequeAE: TfrmChequeAE
     Height = 24
     Top = 204
     Width = 80
-    OKCaption = 'OK'
-    CancelCaption = 'Cancel'
-    ButtonWidth = 23
     Anchors = [akTop, akRight]
+    ButtonWidth = 23
+    CancelCaption = 'Cancel'
     CharCase = ecNormal
+    DialogTitle = 'Seleccionar Fecha'
+    Enabled = False
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -468,10 +479,12 @@ object frmChequeAE: TfrmChequeAE
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
+    MaxLength = 10
     NumGlyphs = 0
-    Enabled = False
-    MaxLength = 0
+    OKCaption = 'OK'
+    PopupColor = clWindow
     TabOrder = 10
+    Text = '  /  /    '
     DataField = 'fRecibido'
     DataSource = ds_Cheque
   end
