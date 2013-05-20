@@ -150,9 +150,19 @@ type
     qBusChequeMontoMenor: TZQuery;
     qBusChequeMontoIgual: TZQuery;
     qBusChequefEntrega: TZQuery;
+    qTugBancosPropios: TZQuery;
     qTugBancosBANCO: TStringField;
     qTugBancosBVISIBLE: TSmallintField;
     qTugBancosIDBANCO: TLongintField;
+    qBorrarBancosPropio: TZQuery;
+    qInsertarBancoPropio: TZQuery;
+    qTugBancosPropiosBANCO: TStringField;
+    qTugBancosPropiosBVISIBLE: TSmallintField;
+    qTugBancosPropiosIDBANCO: TLongintField;
+    qTugBancosPropiosIDVALOR: TLongintField;
+    qTugBancosPropiosNOMBRE: TStringField;
+    qTugBancosPropiosVALORINT: TLongintField;
+    qTugBancosPropiosVALORSTR: TStringField;
     qTugChequesEstados: TZQuery;
     qTugChequesEstadosBVISIBLE: TSmallintField;
     qTugChequesEstadosCHEQUEESTADO: TStringField;
@@ -362,7 +372,7 @@ begin
     Edit;
     FieldByName('refEntregadoA').AsString:= idPersonaEmpresa;
     FieldByName('lxEntregadoA').AsString:= DM_BuscarPersonaEmpresa.NombrePersonaEmpresaPorID(idPersonaEmpresa);
-    Post;
+  //  Post;
   end;
 end;
 
@@ -373,7 +383,7 @@ begin
     Edit;
     FieldByName('refRecibidoDe').AsString:= idPersonaEmpresa;
     FieldByName('lxRecibidoDe').AsString:= DM_BuscarPersonaEmpresa.NombrePersonaEmpresaPorID(idPersonaEmpresa);
-    Post;
+  //  Post;
   end;
 end;
 

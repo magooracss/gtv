@@ -14,6 +14,7 @@ type
   { TfrmPrincipal }
 
   TfrmPrincipal = class(TForm)
+    appConfig: TAction;
     cajaCompensaciones: TAction;
     cajaEgresosVarios: TAction;
     appListados: TAction;
@@ -41,6 +42,7 @@ type
     MenuItem27: TMenuItem;
     MenuItem28: TMenuItem;
     MenuItem29: TMenuItem;
+    MenuItem30: TMenuItem;
     RemitosPantGralCliente: TAction;
     RemitoPantGral: TAction;
     ReclPantGralCliente: TAction;
@@ -92,6 +94,7 @@ type
     ToolButton4: TToolButton;
     ToolButton5: TToolButton;
     XMLPropiedades: TXMLPropStorage;
+    procedure appConfigExecute(Sender: TObject);
     procedure appEditarReporteExecute(Sender: TObject);
     procedure appListadosExecute(Sender: TObject);
     procedure appSalirExecute(Sender: TObject);
@@ -155,6 +158,7 @@ uses
   ,Process
   ,frm_egresosvarioslistado
   ,frm_compensaciones
+  ,frm_configuraciones
   ;
 
 { TfrmPrincipal }
@@ -191,6 +195,19 @@ end;
 procedure TfrmPrincipal.appEditarReporteExecute(Sender: TObject);
 begin
   DM_General.EditarReporte;
+end;
+
+procedure TfrmPrincipal.appConfigExecute(Sender: TObject);
+var
+  pantalla: TfrmConfiguracion;
+begin
+  pantalla:= TfrmConfiguracion.Create(self);
+  try
+    pantalla.ShowModal;
+  finally
+    pantalla.Free;
+  end;
+
 end;
 
 procedure TfrmPrincipal.appListadosExecute(Sender: TObject);

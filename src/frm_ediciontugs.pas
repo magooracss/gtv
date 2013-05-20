@@ -68,6 +68,8 @@ begin
   laColumna.FieldName:= campo;
   laColumna.Title.Caption:= titulo;
   elCampo:= DM_EdicionTUGs.DevolverTField(campo);
+  laColumna.Field.DisplayWidth:= 100;
+  ShowMessage(campo + ': ' + IntToStr (elCampo.Size));
   if elCampo.DataType in [ftFloat, ftCurrency] then
    laColumna.DisplayFormat:= '#######0.00';
 end;

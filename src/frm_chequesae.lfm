@@ -12,6 +12,7 @@ object frmChequeAE: TfrmChequeAE
   Font.Name = 'Arial'
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
+  OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '1.0.4.0'
   object Panel1: TPanel
@@ -375,6 +376,7 @@ object frmChequeAE: TfrmChequeAE
     PopupColor = clWindow
     TabOrder = 8
     Text = '  /  /    '
+    YearDigits = dyFour
     DataField = 'fEntrega'
     DataSource = ds_Cheque
   end

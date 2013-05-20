@@ -21,6 +21,7 @@ const
   CFG_SEP_DECIMAL = 'SEP_DECIMAL';
   CFG_SEP_MILES='SEP_MILES';
 
+  BANCO_P = 'BANCO_P'; // Valor en tbvalores donde se almacenan los bancos propios
 
   function AbrirArchivo: TIniFile;
   function LeerDato (Clave, Etiqueta: string): string;

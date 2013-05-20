@@ -195,12 +195,12 @@ object DM_Cheques: TDM_Cheques
       #9'  , B.Banco'
       #9'  , CASE'
       #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
-      #9#9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'  WHEN NOT ClR.cNombre is null THEN (ClR.cCodigo ||''-'' ||ClR.cNombre)'
       #9#9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
       '            END as RecibidoDe'
       #9'  , CASE'
       #9'      WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
-      #9#9'  WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9#9'  WHEN NOT ClE.cNombre is null THEN  (ClE.cCodigo ||''-'' ||ClE.cNombre)'
       #9#9'  WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
       #9'    END as EntregadoA'#9' '#9#9'  '
       #9'  , C.fCobro'
@@ -357,12 +357,12 @@ object DM_Cheques: TDM_Cheques
       #9'  , B.Banco'
       #9'  , CASE'
       #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
-      #9#9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'  WHEN NOT ClR.cNombre is null THEN  (ClR.cCodigo ||''-'' ||ClR.cNombre)'
       #9#9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
       '            END as RecibidoDe'
       #9'  , CASE'
       #9'      WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
-      #9#9'  WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9#9'  WHEN NOT ClE.cNombre is null THEN  (ClE.cCodigo ||''-'' ||ClE.cNombre)'
       #9#9'  WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
       #9'    END as EntregadoA'#9' '#9#9'  '
       #9'  , C.fCobro'
@@ -518,12 +518,12 @@ object DM_Cheques: TDM_Cheques
       #9'  , B.Banco'
       #9'  , CASE'
       #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
-      #9#9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'  WHEN NOT ClR.cNombre is null THEN  (ClR.cCodigo ||''-'' ||ClR.cNombre)'
       #9#9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
       '            END as RecibidoDe'
       #9'  , CASE'
       #9'      WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
-      #9#9'  WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9#9'  WHEN NOT ClE.cNombre is null THEN  (ClE.cCodigo ||''-'' ||ClE.cNombre)'
       #9#9'  WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
       #9'    END as EntregadoA'#9' '#9#9'  '
       #9'  , C.fCobro'
@@ -536,9 +536,9 @@ object DM_Cheques: TDM_Cheques
       #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
       #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
       #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador =  C.refEntregadoA'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente =  C.refEntregadoA'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor =  C.refEntregadoA'
       #9#9
       'WHERE (C.bVisible = 1)'
       '       and (C.fCobro = :parametro)'
@@ -679,7 +679,7 @@ object DM_Cheques: TDM_Cheques
       '      , B.Banco'
       '      , CASE'
       #9'  WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
-      #9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9'  WHEN NOT ClR.cNombre is null THEN  (ClR.cCodigo ||''-'' ||ClR.cNombre)'
       #9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
       '        END as RecibidoDe'
       '      , AdE.cRazonSocial as EntregadoA'#9' '#9#9'  '
@@ -692,9 +692,9 @@ object DM_Cheques: TDM_Cheques
       #9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
       #9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
       #9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
-      #9'INNER JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
-      #9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
-      #9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'#9
+      #9'INNER JOIN tbAdministradores AdE ON AdE.idAdministrador =  C.refEntregadoA'
+      #9'LEFT JOIN tbClientes ClE ON ClE.idCliente =  C.refEntregadoA'
+      #9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor =  C.refEntregadoA'
       'WHERE (C.bVisible = 1)'
       '       and '
       '      (UPPER(AdE.cRazonSocial) LIKE UPPER(''%'' || :parametro || ''%''))'
@@ -707,7 +707,7 @@ object DM_Cheques: TDM_Cheques
       '      , B.Banco'
       '      , CASE'
       #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
-      #9'      WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9'      WHEN NOT ClR.cNombre is null THEN  (ClR.cCodigo ||''-'' ||ClR.cNombre)'
       #9'      WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
       '        END as RecibidoDe'
       '      ,  ClE.cNombre as EntregadoA'#9' '#9#9'  '
@@ -721,9 +721,9 @@ object DM_Cheques: TDM_Cheques
       #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
       #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
       #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador =  C.refEntregadoA'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente =  C.refEntregadoA'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor =  C.refEntregadoA'
       #9#9
       'WHERE (C.bVisible = 1)'
       '       and '
@@ -737,7 +737,7 @@ object DM_Cheques: TDM_Cheques
       ' '#9', B.Banco'
       #9', CASE'
       #9#9'WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
-      #9#9'WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'WHEN NOT ClR.cNombre is null THEN  (ClR.cCodigo ||''-'' ||ClR.cNombre)'
       #9#9'WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
       '          END as RecibidoDe'
       #9', PrE.cRazonSocial as EntregadoA'#9' '#9#9'  '
@@ -751,14 +751,13 @@ object DM_Cheques: TDM_Cheques
       #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
       #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
       #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
-      #9#9'INNER JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refEntregadoA'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente =  C.refEntregadoA'
+      #9#9'INNER JOIN tbProveedores PrE ON PrE.idProveedor =  C.refEntregadoA'
       #9#9
       'WHERE (C.bVisible = 1)'
       '       and '
       '      (UPPER(PrE.cRazonSocial) LIKE UPPER(''%'' || :parametro || ''%''))'
-      ''
     )
     Params = <    
       item
@@ -897,7 +896,7 @@ object DM_Cheques: TDM_Cheques
       '      , AdR.cRazonSocial as RecibidoDe'
       '      , CASE'
       ' '#9'   WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
-      #9'   WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9'   WHEN NOT ClE.cNombre is null THEN  (ClE.cCodigo ||''-'' ||ClE.cNombre)'
       #9'   WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
       #9'END as EntregadoA'#9' '#9#9'  '
       '      , C.fCobro'
@@ -909,9 +908,9 @@ object DM_Cheques: TDM_Cheques
       #9'INNER JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
       #9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
       #9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
-      #9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
-      #9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
-      #9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'#9
+      #9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refEntregadoA'
+      #9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refEntregadoA'
+      #9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor =  C.refEntregadoA'
       'WHERE (C.bVisible = 1)'
       '       and '
       '      (UPPER(AdR.cRazonSocial) LIKE UPPER(''%'' || :parametro || ''%''))'
@@ -925,7 +924,7 @@ object DM_Cheques: TDM_Cheques
       '      , ClR.cNombre as RecibidoDe'
       '      , CASE'
       '         WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
-      '  '#9' WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      '  '#9' WHEN NOT ClE.cNombre is null THEN  (ClE.cCodigo ||''-'' || ClE.cNombre)'
       #9' WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
       '         END as EntregadoA'#9' '#9#9'  '
       '      , C.fCobro'
@@ -938,9 +937,9 @@ object DM_Cheques: TDM_Cheques
       #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
       #9#9'INNER JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
       #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador =  C.refEntregadoA'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refEntregadoA'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor =  C.refEntregadoA'
       #9#9
       'WHERE (C.bVisible = 1)'
       '       and '
@@ -957,7 +956,7 @@ object DM_Cheques: TDM_Cheques
       #9', PrR.cRazonSocial as RecibidoDe'
       #9', CASE'
       #9' '#9' WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
-      #9' '#9' WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9' '#9' WHEN NOT ClE.cNombre is null THEN  (ClE.cCodigo ||''-'' || ClE.cNombre)'
       #9'  '#9'WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
       #9'  END as EntregadoA'#9' '#9#9'  '
       #9', C.fCobro'
@@ -970,9 +969,9 @@ object DM_Cheques: TDM_Cheques
       #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
       #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
       #9#9'INNER JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador =  C.refEntregadoA'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente =  C.refEntregadoA'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor =  C.refEntregadoA'
       #9#9
       'WHERE (C.bVisible = 1)'
       '       and '
@@ -1114,12 +1113,12 @@ object DM_Cheques: TDM_Cheques
       #9'  , B.Banco'
       #9'  , CASE'
       #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
-      #9#9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'  WHEN NOT ClR.cNombre is null THEN  (ClR.cCodigo ||''-'' ||ClR.cNombre)'
       #9#9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
       '            END as RecibidoDe'
       #9'  , CASE'
       #9'      WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
-      #9#9'  WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9#9'  WHEN NOT ClE.cNombre is null THEN  (ClE.cCodigo ||''-'' ||ClE.cNombre)'
       #9#9'  WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
       #9'    END as EntregadoA'#9' '#9#9'  '
       #9'  , C.fCobro'
@@ -1132,9 +1131,9 @@ object DM_Cheques: TDM_Cheques
       #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
       #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
       #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refEntregadoA'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refEntregadoA'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refEntregadoA'
       #9#9
       'WHERE (C.bVisible = 1)'
       '       and (C.nMonto > :parametro)'
@@ -1275,12 +1274,12 @@ object DM_Cheques: TDM_Cheques
       #9'  , B.Banco'
       #9'  , CASE'
       #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
-      #9#9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'  WHEN NOT ClR.cNombre is null THEN  (ClR.cCodigo ||''-'' ||ClR.cNombre)'
       #9#9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
       '            END as RecibidoDe'
       #9'  , CASE'
       #9'      WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
-      #9#9'  WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9#9'  WHEN NOT ClE.cNombre is null THEN  (ClE.cCodigo ||''-'' || ClE.cNombre)'
       #9#9'  WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
       #9'    END as EntregadoA'#9' '#9#9'  '
       #9'  , C.fCobro'
@@ -1293,9 +1292,9 @@ object DM_Cheques: TDM_Cheques
       #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
       #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
       #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refEntregadoA'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refEntregadoA'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refEntregadoA'
       #9#9
       'WHERE (C.bVisible = 1)'
       '       and (C.nMonto < :parametro)'
@@ -1436,12 +1435,12 @@ object DM_Cheques: TDM_Cheques
       #9'  , B.Banco'
       #9'  , CASE'
       #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
-      #9#9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'  WHEN NOT ClR.cNombre is null THEN  (ClR.cCodigo ||''-'' ||ClR.cNombre)'
       #9#9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
       '            END as RecibidoDe'
       #9'  , CASE'
       #9'      WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
-      #9#9'  WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9#9'  WHEN NOT ClE.cNombre is null THEN  (ClE.cCodigo ||''-'' ||ClE.cNombre)'
       #9#9'  WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
       #9'    END as EntregadoA'#9' '#9#9'  '
       #9'  , C.fCobro'
@@ -1454,9 +1453,9 @@ object DM_Cheques: TDM_Cheques
       #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
       #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
       #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador =C.refEntregadoA'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refEntregadoA'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refEntregadoA'
       #9#9
       'WHERE (C.bVisible = 1)'
       '       and (C.nMonto = :parametro)'
@@ -1597,12 +1596,12 @@ object DM_Cheques: TDM_Cheques
       #9'  , B.Banco'
       #9'  , CASE'
       #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
-      #9#9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'  WHEN NOT ClR.cNombre is null THEN  (ClR.cCodigo ||''-'' ||ClR.cNombre)'
       #9#9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
       '            END as RecibidoDe'
       #9'  , CASE'
       #9'      WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
-      #9#9'  WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9#9'  WHEN NOT ClE.cNombre is null THEN  (ClE.cCodigo ||''-'' ||ClE.cNombre)'
       #9#9'  WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
       #9'    END as EntregadoA'#9' '#9#9'  '
       #9'  , C.fCobro'
@@ -1615,9 +1614,9 @@ object DM_Cheques: TDM_Cheques
       #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
       #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
       #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador =  C.refEntregadoA'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente =  C.refEntregadoA'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor =  C.refEntregadoA'
       #9#9
       'WHERE (C.bVisible = 1)'
       '       and (C.fEntrega = :parametro)'
@@ -1758,12 +1757,12 @@ object DM_Cheques: TDM_Cheques
       #9'  , B.Banco'
       #9'  , CASE'
       #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
-      #9#9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'  WHEN NOT ClR.cNombre is null THEN  (ClR.cCodigo ||''-'' ||ClR.cNombre)'
       #9#9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
       '            END as RecibidoDe'
       #9'  , CASE'
       #9'      WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
-      #9#9'  WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9#9'  WHEN NOT ClE.cNombre is null THEN  (ClE.cCodigo ||''-'' ||ClE.cNombre)'
       #9#9'  WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
       #9'    END as EntregadoA'#9' '#9#9'  '
       #9'  , C.fCobro'
@@ -1776,9 +1775,9 @@ object DM_Cheques: TDM_Cheques
       #9#9'LEFT JOIN tbAdministradores AdR ON AdR.idAdministrador = C.refRecibidoDe'
       #9#9'LEFT JOIN tbClientes ClR ON ClR.idCliente = C.refRecibidoDe'
       #9#9'LEFT JOIN tbProveedores PrR ON PrR.idProveedor = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente = C.refRecibidoDe'
-      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refRecibidoDe'
+      #9#9'LEFT JOIN tbAdministradores AdE ON AdE.idAdministrador =  C.refEntregadoA'
+      #9#9'LEFT JOIN tbClientes ClE ON ClE.idCliente =C.refEntregadoA'
+      #9#9'LEFT JOIN tbProveedores PrE ON PrE.idProveedor = C.refEntregadoA'
       #9#9
       'WHERE (C.bVisible = 1)'
       '       and (C.fRecibido = :parametro)'
@@ -2195,6 +2194,7 @@ object DM_Cheques: TDM_Cheques
       'SELECT *'
       'FROM tugBancos'
       'WHERE bVisible = 1'
+      'ORDER BY BANCO'
     )
     Params = <>
     left = 502
@@ -2239,7 +2239,7 @@ object DM_Cheques: TDM_Cheques
       'WHERE bVisible = 1'
     )
     Params = <>
-    left = 503
+    left = 504
     top = 112
     object qTugChequesEstadosIDCHEQUEESTADO: TLongintField
       DisplayWidth = 10
@@ -2648,12 +2648,12 @@ object DM_Cheques: TDM_Cheques
       #9'  , B.Banco'
       #9'  , CASE'
       #9'      WHEN NOT AdR.cRazonSocial is null THEN AdR.cRazonSocial'
-      #9#9'  WHEN NOT ClR.cNombre is null THEN ClR.cNombre'
+      #9#9'  WHEN NOT ClR.cNombre is null THEN  (ClR.cCodigo ||''-'' ||ClR.cNombre)'
       #9#9'  WHEN NOT PrR.cRazonSocial is null THEN PrR.cRazonSocial'
       '            END as RecibidoDe'
       #9'  , CASE'
       #9'      WHEN NOT AdE.cRazonSocial is null THEN AdE.cRazonSocial'
-      #9#9'  WHEN NOT ClE.cNombre is null THEN ClE.cNombre'
+      #9#9'  WHEN NOT ClE.cNombre is null THEN  (ClE.cCodigo ||''-'' || ClE.cNombre)'
       #9#9'  WHEN NOT PrE.cRazonSocial is null THEN PrE.cRazonSocial'
       #9'    END as EntregadoA'#9' '#9#9'  '
       #9'  , C.fCobro'
@@ -2800,5 +2800,124 @@ object DM_Cheques: TDM_Cheques
       ReadOnly = False
       Required = False
     end
+  end
+  object qTugBancosPropios: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'from tugBancos'
+      '     INNER JOIN tbValores ON ValorINT = idBanco   '
+      'where (bVisible = 1)'
+      '      and (Nombre = ''BANCO_P'')'
+    )
+    Params = <>
+    left = 504
+    top = 208
+    object qTugBancosPropiosIDBANCO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDBANCO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qTugBancosPropiosBANCO: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'BANCO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qTugBancosPropiosBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qTugBancosPropiosIDVALOR: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDVALOR'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qTugBancosPropiosNOMBRE: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'NOMBRE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object qTugBancosPropiosVALORINT: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VALORINT'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qTugBancosPropiosVALORSTR: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'VALORSTR'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+  end
+  object qBorrarBancosPropio: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM tbValores'
+      'WHERE Nombre = ''BANCO_P'''
+    )
+    Params = <>
+    left = 504
+    top = 272
+  end
+  object qInsertarBancoPropio: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO tbValores'
+      '(Nombre, ValorInt)'
+      'VALUES'
+      '(''BANCO_P'', :idBanco)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idBanco'
+        ParamType = ptUnknown
+      end>
+    left = 504
+    top = 336
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idBanco'
+        ParamType = ptUnknown
+      end>
   end
 end

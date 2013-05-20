@@ -50,6 +50,7 @@ type
     procedure btnCancelarClick(Sender: TObject);
     procedure btnTugTecnicos1Click(Sender: TObject);
     procedure btnTugTecnicosClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     _idCheque: GUID_ID;
@@ -105,6 +106,11 @@ begin
     datos.Free;
     pantalla.Free;
   end;
+end;
+
+procedure TfrmChequeAE.FormCreate(Sender: TObject);
+begin
+
 end;
 
 procedure TfrmChequeAE.btnTugTecnicos1Click(Sender: TObject);

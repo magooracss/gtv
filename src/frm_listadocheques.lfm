@@ -351,7 +351,7 @@ object frmListadoCheques: TfrmListadoCheques
   end
   object DS_Resultados: TDatasource
     DataSet = DM_Cheques.tbResultados
-    left = 810
+    left = 808
     top = 250
   end
 end

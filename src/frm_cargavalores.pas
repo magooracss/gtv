@@ -17,7 +17,6 @@ type
     btnBuscarCheque: TBitBtn;
     btnAceptar:  TBitBtn;
     btnCancelar: TBitBtn;
-    btnTugBancos: TSpeedButton;
     btnTugTiposComprobantes: TSpeedButton;
     cbBanco:     TComboBox;
     cbFormaPago: TComboBox;
@@ -216,7 +215,7 @@ begin
   cbFormaPago.ItemIndex := IDX_AGRUPAMIENTO_EFECTIVO;
   _Agrupamiento := DM_Valores.Agrupamiento(DM_General.obtenerIDIntComboBox(cbFormaPago));
   DM_General.CargarComboBox(cbBanco, 'Banco', 'idBanco', DM_Valores.tugBancos);
-  DM_General.CargarComboBox(cbBancoChequeP, 'Banco', 'idBanco', DM_Valores.tugBancos);
+  DM_General.CargarComboBox(cbBancoChequeP, 'Banco', 'idBanco', DM_Cheques.qTugBancosPropios);
 end;
 
 end.
