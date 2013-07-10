@@ -456,4 +456,292 @@ object DM_ProveedorCC: TDM_ProveedorCC
       Precision = 2
     end
   end
+  object tbSaldosProveedores: TRxMemoryData
+    AutoCalcFields = False
+    FieldDefs = <    
+      item
+        Name = 'idProveedor'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'cCUIT'
+        DataType = ftString
+        Precision = 0
+        Size = 25
+      end    
+      item
+        Name = 'cRazonSocial'
+        DataType = ftString
+        Precision = 0
+        Size = 1500
+      end    
+      item
+        Name = 'cNombreFantasia'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'Saldo'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = tbResultadosAfterInsert
+    PacketRecords = 0
+    left = 320
+    top = 104
+    object tbSaldosProveedoresidProveedor: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idProveedor'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbSaldosProveedorescCUIT: TStringField
+      DisplayWidth = 25
+      FieldKind = fkData
+      FieldName = 'cCUIT'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 25
+    end
+    object tbSaldosProveedorescRazonSocial: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'cRazonSocial'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+    object tbSaldosProveedorescNombreFantasia: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'cNombreFantasia'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbSaldosProveedoresSaldo: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Saldo'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+  end
+  object qProveedores: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbProveedores'
+      'WHERE bVisible = 1'
+    )
+    Params = <>
+    left = 320
+    top = 176
+    object qProveedoresIDPROVEEDOR: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDPROVEEDOR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qProveedoresCRAZONSOCIAL: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'CRAZONSOCIAL'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+    object qProveedoresCCUIT: TStringField
+      DisplayWidth = 24
+      FieldKind = fkData
+      FieldName = 'CCUIT'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object qProveedoresREFCONDICIONFISCAL: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCONDICIONFISCAL'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qProveedoresCCONTACTO: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'CCONTACTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object qProveedoresCDOMICILIO: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'CDOMICILIO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qProveedoresTXNOTAS: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXNOTAS'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qProveedoresBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qProveedoresCNOMBREFANTASIA: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'CNOMBREFANTASIA'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qProveedoresREFLOCALIDAD: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFLOCALIDAD'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qProveedoresCTELEFONOS: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'CTELEFONOS'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object qProveedoresCCORREOS: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'CCORREOS'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object qProveedoresCWEB: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'CWEB'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object qProveedoresREFIMPUTACION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFIMPUTACION'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qProveedoresCINGRESOSBRUTOS: TStringField
+      DisplayWidth = 24
+      FieldKind = fkData
+      FieldName = 'CINGRESOSBRUTOS'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object qProveedoresREFCONDICIONPAGO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCONDICIONPAGO'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qProveedoresREFCONDICIONPAGOTIEMPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCONDICIONPAGOTIEMPO'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
 end

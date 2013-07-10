@@ -1,0 +1,482 @@
+object DM_Compensaciones: TDM_Compensaciones
+  OldCreateOrder = False
+  Height = 260
+  HorizontalOffset = 502
+  VerticalOffset = 259
+  Width = 450
+  object qLevantarCompensaciones: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT  C.idCompensacion'
+      '             ,C.monto                   '
+      '             ,OP.NumeroOrdenPago'
+      '             ,OP.fFecha'
+      '             ,OP.nTotalAPagar'
+      '             ,OP.nPagado '
+      'FROM tbCompensaciones C'
+      '            INNER JOIN tbOrdenesPago OP ON OP.idOrdenPago = C.refOPOrigen            '
+      'WHERE (C.refCompra = ''{00000000-0000-0000-0000-000000000000}'')'
+      '             and (OP.bVisible = 1)  '
+      '             and (OP.refProveedor = :idProveedor)'
+      '                  '
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'idProveedor'
+        ParamType = ptInput
+      end>
+    left = 72
+    top = 56
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'idProveedor'
+        ParamType = ptInput
+      end>
+    object qLevantarCompensacionesIDCOMPENSACION: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCOMPENSACION'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qLevantarCompensacionesMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qLevantarCompensacionesNUMEROORDENPAGO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NUMEROORDENPAGO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '0000000000'
+    end
+    object qLevantarCompensacionesFFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FFECHA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object qLevantarCompensacionesNTOTALAPAGAR: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NTOTALAPAGAR'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qLevantarCompensacionesNPAGADO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NPAGADO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+  end
+  object qCompensacionPorID: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT  *'
+      'FROM tbCompensaciones'
+      'WHERE (idCompensacion = :idCompensacion)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCompensacion'
+        ParamType = ptUnknown
+      end>
+    left = 256
+    top = 56
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCompensacion'
+        ParamType = ptUnknown
+      end>
+    object qCompensacionPorIDIDCOMPENSACION: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCOMPENSACION'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qCompensacionPorIDREFOPORIGEN: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFOPORIGEN'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qCompensacionPorIDMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qCompensacionPorIDREFCOMPRA: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCOMPRA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qCompensacionPorIDFCOMPENSACION: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCOMPENSACION'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qCompensacionesPorCompra: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT  *'
+      'FROM tbCompensaciones'
+      'WHERE (refCompra = :refCompra)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refCompra'
+        ParamType = ptUnknown
+      end>
+    left = 72
+    top = 136
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refCompra'
+        ParamType = ptUnknown
+      end>
+    object qCompensacionesPorCompraIDCOMPENSACION: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCOMPENSACION'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qCompensacionesPorCompraREFOPORIGEN: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFOPORIGEN'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qCompensacionesPorCompraMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qCompensacionesPorCompraREFCOMPRA: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCOMPRA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qCompensacionesPorCompraFCOMPENSACION: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCOMPENSACION'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qUPDCompensacion: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbCompensaciones'
+      'SET refCompra = :refCompra'
+      '      ,fCompensacion = :fCompensacion'
+      '      ,monto = :monto'
+      'WHERE (idCompensacion = :idCompensacion)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refCompra'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fCompensacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'monto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idCompensacion'
+        ParamType = ptUnknown
+      end>
+    left = 256
+    top = 128
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refCompra'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fCompensacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'monto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idCompensacion'
+        ParamType = ptUnknown
+      end>
+    object qCompensacionPorIDIDCOMPENSACION1: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCOMPENSACION'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qCompensacionPorIDREFOPORIGEN1: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFOPORIGEN'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qCompensacionPorIDMONTO1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qCompensacionPorIDREFCOMPRA1: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCOMPRA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qCompensacionPorIDFCOMPENSACION1: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCOMPENSACION'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qINSCompensacion: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO tbCompensaciones'
+      '(idCompensacion, refOPOrigen, monto)'
+      'VALUES'
+      '(:idCompensacion, :refOPOrigen, :monto)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCompensacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refOPOrigen'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'monto'
+        ParamType = ptUnknown
+      end>
+    left = 256
+    top = 192
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCompensacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refOPOrigen'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'monto'
+        ParamType = ptUnknown
+      end>
+    object qCompensacionPorIDIDCOMPENSACION2: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCOMPENSACION'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qCompensacionPorIDREFOPORIGEN2: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFOPORIGEN'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qCompensacionPorIDMONTO2: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qCompensacionPorIDREFCOMPRA2: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCOMPRA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qCompensacionPorIDFCOMPENSACION2: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCOMPENSACION'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+end

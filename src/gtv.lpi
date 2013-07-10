@@ -66,12 +66,10 @@
         <Filename Value="gtv.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="gtv"/>
-        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
         <TopLine Value="39"/>
         <CursorPos X="53" Y="64"/>
         <UsageCount Value="205"/>
-        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="frm_principal.pas"/>
@@ -80,16 +78,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_principal"/>
-        <EditorIndex Value="11"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="240"/>
+        <TopLine Value="239"/>
         <CursorPos X="1" Y="204"/>
         <UsageCount Value="205"/>
         <Bookmarks Count="1">
           <Item0 X="5" Y="486" ID="1"/>
         </Bookmarks>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="dmconexion.pas"/>
@@ -110,10 +105,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmgeneral"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
         <TopLine Value="232"/>
-        <CursorPos X="66" Y="260"/>
+        <CursorPos X="17" Y="238"/>
         <UsageCount Value="205"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -122,12 +117,10 @@
         <Filename Value="SD_Configuracion.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SD_Configuracion"/>
-        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="10" Y="24"/>
         <UsageCount Value="205"/>
-        <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="versioninfo.pas"/>
@@ -499,13 +492,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmremitos"/>
-        <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
         <TopLine Value="15"/>
         <CursorPos X="81" Y="46"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit35>
       <Unit36>
         <Filename Value="frm_remitosae.pas"/>
@@ -670,13 +660,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_listadocheques"/>
-        <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
         <TopLine Value="101"/>
         <CursorPos X="78" Y="131"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit49>
       <Unit50>
         <Filename Value="dmcheques.pas"/>
@@ -685,13 +672,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmcheques"/>
-        <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
         <TopLine Value="412"/>
         <CursorPos X="124" Y="432"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit50>
       <Unit51>
         <Filename Value="frm_chequesae.pas"/>
@@ -700,13 +684,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_chequesae"/>
-        <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
         <TopLine Value="88"/>
         <CursorPos X="3" Y="93"/>
         <UsageCount Value="211"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit51>
       <Unit52>
         <Filename Value="dmbuscarpersonaempresa.pas"/>
@@ -767,13 +748,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_comprasae"/>
-        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
         <TopLine Value="74"/>
         <CursorPos X="41" Y="83"/>
         <UsageCount Value="238"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit56>
       <Unit57>
         <Filename Value="dmplandecuentas.pas"/>
@@ -818,10 +796,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_ordenespagolistado"/>
+        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
         <TopLine Value="81"/>
-        <CursorPos X="46" Y="102"/>
+        <CursorPos X="62" Y="85"/>
         <UsageCount Value="205"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit60>
       <Unit61>
         <Filename Value="dmordenesdepago.pas"/>
@@ -830,10 +811,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmordenesdepago"/>
+        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="186"/>
         <CursorPos X="37" Y="204"/>
         <UsageCount Value="205"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit61>
       <Unit62>
         <Filename Value="frm_ordenpagoae.pas"/>
@@ -842,10 +826,14 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_ordenpagoae"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
         <TopLine Value="45"/>
         <CursorPos X="60" Y="62"/>
         <UsageCount Value="201"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit62>
       <Unit63>
         <Filename Value="frm_cargavalores.pas"/>
@@ -854,14 +842,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_cargavalores"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
         <TopLine Value="52"/>
         <CursorPos X="1" Y="82"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit63>
       <Unit64>
         <Filename Value="dmvalores.pas"/>
@@ -884,7 +868,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="39"/>
         <CursorPos X="5" Y="60"/>
-        <UsageCount Value="202"/>
+        <UsageCount Value="201"/>
       </Unit65>
       <Unit66>
         <Filename Value="frm_tuglocalidades.pas"/>
@@ -959,7 +943,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="32"/>
         <CursorPos X="109" Y="38"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
       </Unit71>
       <Unit72>
         <Filename Value="frm_egresoae.pas"/>
@@ -971,7 +955,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="98"/>
         <CursorPos X="42" Y="129"/>
-        <UsageCount Value="196"/>
+        <UsageCount Value="197"/>
       </Unit72>
       <Unit73>
         <Filename Value="frm_asignarpagofactura.pas"/>
@@ -983,14 +967,14 @@
         <WindowIndex Value="0"/>
         <TopLine Value="93"/>
         <CursorPos X="75" Y="124"/>
-        <UsageCount Value="159"/>
+        <UsageCount Value="160"/>
       </Unit73>
       <Unit74>
         <Filename Value="frm_egresosvariosae.lfm"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="36" Y="120"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit74>
       <Unit75>
@@ -998,7 +982,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit75>
       <Unit76>
@@ -1008,7 +992,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="243"/>
         <CursorPos X="36" Y="214"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit76>
       <Unit77>
@@ -1016,7 +1000,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="124"/>
         <CursorPos X="120" Y="127"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit77>
       <Unit78>
@@ -1024,7 +1008,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="50" Y="3"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit78>
       <Unit79>
@@ -1032,7 +1016,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="16"/>
         <CursorPos X="7" Y="35"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit79>
       <Unit80>
@@ -1040,7 +1024,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="78" Y="5"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit80>
       <Unit81>
@@ -1048,7 +1032,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="102"/>
         <CursorPos X="65" Y="109"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit81>
       <Unit82>
@@ -1056,7 +1040,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="401"/>
         <CursorPos X="1" Y="432"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit82>
       <Unit83>
@@ -1064,7 +1048,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="64"/>
         <CursorPos X="5" Y="83"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit83>
       <Unit84>
@@ -1072,7 +1056,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="2229"/>
         <CursorPos X="1" Y="2252"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit84>
       <Unit85>
@@ -1080,7 +1064,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="21"/>
         <CursorPos X="22" Y="58"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit85>
       <Unit86>
@@ -1088,7 +1072,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="465"/>
         <CursorPos X="84" Y="497"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit86>
       <Unit87>
@@ -1096,7 +1080,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="155"/>
         <CursorPos X="93" Y="161"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit87>
       <Unit88>
@@ -1104,7 +1088,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="17"/>
         <CursorPos X="1" Y="33"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit88>
       <Unit89>
@@ -1112,7 +1096,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="211"/>
         <CursorPos X="7" Y="230"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit89>
       <Unit90>
@@ -1120,7 +1104,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="121"/>
         <CursorPos X="9" Y="140"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit90>
       <Unit91>
@@ -1128,7 +1112,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="108"/>
         <CursorPos X="1" Y="124"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit91>
       <Unit92>
@@ -1136,7 +1120,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="66"/>
         <CursorPos X="1" Y="80"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit92>
       <Unit93>
@@ -1144,7 +1128,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="76"/>
         <CursorPos X="1" Y="90"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit93>
       <Unit94>
@@ -1152,7 +1136,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="68"/>
         <CursorPos X="1" Y="84"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit94>
       <Unit95>
@@ -1160,14 +1144,14 @@
         <WindowIndex Value="0"/>
         <TopLine Value="211"/>
         <CursorPos X="1" Y="227"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit95>
       <Unit96>
         <Filename Value="listados\src\lib\i386-win32\frm_gruporemitos.lfm"/>
         <TopLine Value="121"/>
         <CursorPos X="1" Y="137"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit96>
       <Unit97>
@@ -1175,7 +1159,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="108"/>
         <CursorPos X="1" Y="124"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit97>
       <Unit98>
@@ -1183,7 +1167,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="66"/>
         <CursorPos X="1" Y="82"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit98>
       <Unit99>
@@ -1191,7 +1175,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="76"/>
         <CursorPos X="1" Y="92"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit99>
       <Unit100>
@@ -1199,7 +1183,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="416"/>
         <CursorPos X="1" Y="432"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit100>
       <Unit101>
@@ -1207,7 +1191,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="13"/>
         <CursorPos X="1" Y="35"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit101>
       <Unit102>
@@ -1215,7 +1199,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="298"/>
         <CursorPos X="78" Y="313"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit102>
       <Unit103>
@@ -1228,7 +1212,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="99"/>
         <CursorPos X="3" Y="101"/>
-        <UsageCount Value="107"/>
+        <UsageCount Value="108"/>
       </Unit103>
       <Unit104>
         <Filename Value="dmcompensaciones.pas"/>
@@ -1240,7 +1224,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="118"/>
         <CursorPos X="124" Y="138"/>
-        <UsageCount Value="72"/>
+        <UsageCount Value="73"/>
       </Unit104>
       <Unit105>
         <Filename Value="frm_compensaciones.pas"/>
@@ -1252,25 +1236,23 @@
         <WindowIndex Value="0"/>
         <TopLine Value="80"/>
         <CursorPos X="111" Y="88"/>
-        <UsageCount Value="72"/>
+        <UsageCount Value="73"/>
       </Unit105>
       <Unit106>
         <Filename Value="dmcompensaciones.lfm"/>
         <WindowIndex Value="0"/>
         <TopLine Value="333"/>
         <CursorPos X="15" Y="8"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit106>
       <Unit107>
         <Filename Value="..\..\..\Utiles\lazarus\components\zeos\src\component\ZAbstractRODataset.pas"/>
         <UnitName Value="ZAbstractRODataset"/>
-        <EditorIndex Value="10"/>
         <WindowIndex Value="0"/>
         <TopLine Value="413"/>
         <CursorPos X="14" Y="430"/>
         <UsageCount Value="11"/>
-        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit107>
       <Unit108>
@@ -1278,7 +1260,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="2138"/>
         <CursorPos X="1" Y="2166"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit108>
       <Unit109>
         <Filename Value="..\..\..\Utiles\lazarus\fpc\2.6.0\source\packages\fcl-db\src\base\db.pas"/>
@@ -1292,139 +1274,16 @@
         <Filename Value="frm_configuraciones.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmConfiguracion"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_configuraciones"/>
-        <EditorIndex Value="9"/>
         <WindowIndex Value="0"/>
         <TopLine Value="52"/>
         <CursorPos X="21" Y="55"/>
-        <UsageCount Value="23"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="24"/>
       </Unit110>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
-      <Position1>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="378" Column="34" TopLine="361"/>
-      </Position1>
-      <Position2>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="379" Column="34" TopLine="362"/>
-      </Position2>
-      <Position3>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="380" Column="34" TopLine="363"/>
-      </Position3>
-      <Position4>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="381" Column="34" TopLine="364"/>
-      </Position4>
-      <Position5>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="385" Column="134" TopLine="389"/>
-      </Position5>
-      <Position6>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="393" Column="134" TopLine="393"/>
-      </Position6>
-      <Position7>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="401" Column="134" TopLine="401"/>
-      </Position7>
-      <Position8>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="400" Column="134" TopLine="400"/>
-      </Position8>
-      <Position9>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="399" Column="134" TopLine="399"/>
-      </Position9>
-      <Position10>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="398" Column="134" TopLine="398"/>
-      </Position10>
-      <Position11>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="397" Column="134" TopLine="397"/>
-      </Position11>
-      <Position12>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="396" Column="134" TopLine="396"/>
-      </Position12>
-      <Position13>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="395" Column="134" TopLine="395"/>
-      </Position13>
-      <Position14>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="394" Column="134" TopLine="394"/>
-      </Position14>
-      <Position15>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="393" Column="134" TopLine="393"/>
-      </Position15>
-      <Position16>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="392" Column="134" TopLine="392"/>
-      </Position16>
-      <Position17>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="391" Column="134" TopLine="391"/>
-      </Position17>
-      <Position18>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="390" Column="134" TopLine="390"/>
-      </Position18>
-      <Position19>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="389" Column="134" TopLine="389"/>
-      </Position19>
-      <Position20>
-        <Filename Value="dmcheques.pas"/>
-        <Caret Line="388" Column="134" TopLine="388"/>
-      </Position20>
-      <Position21>
-        <Filename Value="frm_configuraciones.pas"/>
-        <Caret Line="96" Column="1" TopLine="62"/>
-      </Position21>
-      <Position22>
-        <Filename Value="frm_configuraciones.pas"/>
-        <Caret Line="90" Column="24" TopLine="73"/>
-      </Position22>
-      <Position23>
-        <Filename Value="frm_configuraciones.pas"/>
-        <Caret Line="77" Column="3" TopLine="74"/>
-      </Position23>
-      <Position24>
-        <Filename Value="frm_configuraciones.pas"/>
-        <Caret Line="87" Column="130" TopLine="76"/>
-      </Position24>
-      <Position25>
-        <Filename Value="frm_configuraciones.pas"/>
-        <Caret Line="98" Column="40" TopLine="76"/>
-      </Position25>
-      <Position26>
-        <Filename Value="frm_configuraciones.pas"/>
-        <Caret Line="90" Column="31" TopLine="75"/>
-      </Position26>
-      <Position27>
-        <Filename Value="frm_configuraciones.pas"/>
-        <Caret Line="98" Column="48" TopLine="81"/>
-      </Position27>
-      <Position28>
-        <Filename Value="frm_cargavalores.pas"/>
-        <Caret Line="150" Column="16" TopLine="146"/>
-      </Position28>
-      <Position29>
-        <Filename Value="frm_cargavalores.pas"/>
-        <Caret Line="149" Column="16" TopLine="145"/>
-      </Position29>
-      <Position30>
-        <Filename Value="frm_cargavalores.pas"/>
-        <Caret Line="158" Column="51" TopLine="70"/>
-      </Position30>
-    </JumpHistory>
+    <JumpHistory Count="0" HistoryIndex="-1"/>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="11"/>

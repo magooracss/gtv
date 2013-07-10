@@ -18,9 +18,27 @@ type
     qComprasNROPTOVENTA: TLongintField;
     qComprasNTOTAL: TFloatField;
     qPagos: TZQuery;
+    qProveedores: TZQuery;
     qPagosFFECHA: TDateField;
     qPagosNUMEROORDENPAGO: TLongintField;
     qPagosTOTAL: TFloatField;
+    qProveedoresBVISIBLE: TSmallintField;
+    qProveedoresCCONTACTO: TStringField;
+    qProveedoresCCORREOS: TStringField;
+    qProveedoresCCUIT: TStringField;
+    qProveedoresCDOMICILIO: TStringField;
+    qProveedoresCINGRESOSBRUTOS: TStringField;
+    qProveedoresCNOMBREFANTASIA: TStringField;
+    qProveedoresCRAZONSOCIAL: TStringField;
+    qProveedoresCTELEFONOS: TStringField;
+    qProveedoresCWEB: TStringField;
+    qProveedoresIDPROVEEDOR: TStringField;
+    qProveedoresREFCONDICIONFISCAL: TLongintField;
+    qProveedoresREFCONDICIONPAGO: TLongintField;
+    qProveedoresREFCONDICIONPAGOTIEMPO: TLongintField;
+    qProveedoresREFIMPUTACION: TLongintField;
+    qProveedoresREFLOCALIDAD: TLongintField;
+    qProveedoresTXNOTAS: TStringField;
     qTotalCompras: TZQuery;
     qTotalComprasAFecha: TZQuery;
     qTotalComprasAFechaTOTAL: TFloatField;
@@ -31,16 +49,23 @@ type
     qTotalPagosAfechaPAGADO: TFloatField;
     qTotalPagosPAGADO: TFloatField;
     tbResultados: TRxMemoryData;
+    tbSaldosProveedores: TRxMemoryData;
     tbResultadosComprobante: TStringField;
     tbResultadosFecha: TDateField;
     tbResultadosMonto: TFloatField;
     tbResultadosPagado: TFloatField;
     tbResultadosSaldo: TFloatField;
+    tbSaldosProveedorescCUIT: TStringField;
+    tbSaldosProveedorescNombreFantasia: TStringField;
+    tbSaldosProveedorescRazonSocial: TStringField;
+    tbSaldosProveedoresidProveedor: TStringField;
+    tbSaldosProveedoresSaldo: TFloatField;
     procedure tbResultadosAfterInsert(DataSet: TDataSet);
   private
     _fechaFin: TDate;
     _fechaIni: TDate;
     _idProveedor: GUID_ID;
+    _saldoTotal: Double;
     function getSaldoProveedor: double;
     procedure AgregarSaldoAnterior;
 
@@ -54,9 +79,13 @@ type
     property fechaFin: TDate write _fechaFin;
     property idProveedor: GUID_ID write _idProveedor;
 
+    property SaldoTotal: Double read _saldoTotal;
+
     property SaldoProveedor:double read getSaldoProveedor;
     function SaldoAFecha (fecha: TDate): double;
     procedure FiltrarPagos;
+
+    procedure ListadoSaldos (fecha: TDate);
   end;
 
 var
@@ -246,6 +275,56 @@ begin
  CalcularSaldos;
 
  tbResultados.EnableControls;
+end;
+
+procedure TDM_ProveedorCC.ListadoSaldos(fecha: TDate);
+begin
+ DM_General.ReiniciarTabla(tbSaldosProveedores);
+ tbSaldosProveedores.DisableControls;
+  with qProveedores do
+  begin
+    if active then close;
+    Open;
+    tbSaldosProveedores.LoadFromDataSet(qProveedores, 0,lmAppend);
+    close;
+  end;
+
+ _saldoTotal:= 0;
+
+ with tbSaldosProveedores do
+ begin
+   First;
+   While NOT EOF do
+   begin
+     _idProveedor:= tbSaldosProveedoresidProveedor.AsString;
+
+     Edit;
+     FieldByName('Saldo').asFloat:= SaldoAFecha(fecha);
+     Post;
+
+     Next;
+   end;
+
+   First;
+   While NOT EOF do
+   begin
+     if ((tbSaldosProveedoresSaldo.AsFloat <= 0.01)
+          AND
+         (tbSaldosProveedoresSaldo.AsFloat >= -0.01)
+         ) then
+     begin
+       Delete;
+       First;
+       _saldoTotal:= 0;
+     end
+     else
+      _saldoTotal:= _saldoTotal + tbSaldosProveedoresSaldo.AsFloat;
+
+     Next;
+   end;
+ end;
+
+ tbSaldosProveedores.EnableControls;
 end;
 
 end.

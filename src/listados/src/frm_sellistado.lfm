@@ -13,7 +13,7 @@ object frmSeleccionListado: TfrmSeleccionListado
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
   Position = poScreenCenter
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.0.4.0'
   object Panel1: TPanel
     Left = 0
     Height = 61

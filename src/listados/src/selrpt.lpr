@@ -16,7 +16,7 @@ uses
   dmgrupoproveedores, frm_grupoprovpendientes, frm_subdiariocompras,
   frm_subdiariopagos, frm_detallepagos, dmdetallepagos, frm_lstdetallegastos,
   frm_compsaldoscompras, dmsaldoscompras, frm_proveedorcuentacorriente,
-  dmproveedorcc;
+  dmproveedorcc, frm_saldocompras;
 
 {$R *.res}
 
@@ -36,6 +36,7 @@ begin
 //  Application.CreateForm(TDM_SaldosCompras, DM_SaldosCompras);
 //  Application.CreateForm(TfrmProveedorCuentaCorriente, frmProveedorCuentaCorriente);
   Application.CreateForm(TDM_ProveedorCC, DM_ProveedorCC);
+//  Application.CreateForm(TfrmSaldoCompras, frmSaldoCompras);
   Application.Run;
 end.
 

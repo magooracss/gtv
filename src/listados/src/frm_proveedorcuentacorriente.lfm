@@ -14,7 +14,7 @@ object frmProveedorCuentaCorriente: TfrmProveedorCuentaCorriente
   Font.Quality = fqDraft
   OnCreate = FormCreate
   Position = poMainFormCenter
-  LCLVersion = '1.0.2.0'
+  LCLVersion = '1.0.4.0'
   object Panel1: TPanel
     Left = 0
     Height = 81
@@ -70,8 +70,10 @@ object frmProveedorCuentaCorriente: TfrmProveedorCuentaCorriente
         Height = 24
         Top = 18
         Width = 94
+        CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
         OKCaption = 'OK'
         CancelCaption = 'Cancel'
+        DateOrder = doNone
         ButtonWidth = 23
         CharCase = ecNormal
         Glyph.Data = {
@@ -119,8 +121,10 @@ object frmProveedorCuentaCorriente: TfrmProveedorCuentaCorriente
         Height = 24
         Top = 18
         Width = 94
+        CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
         OKCaption = 'OK'
         CancelCaption = 'Cancel'
+        DateOrder = doNone
         ButtonWidth = 23
         CharCase = ecNormal
         Glyph.Data = {
@@ -258,7 +262,7 @@ object frmProveedorCuentaCorriente: TfrmProveedorCuentaCorriente
     object btnExportarExcel: TBitBtn
       Left = 571
       Height = 30
-      Top = 12
+      Top = 13
       Width = 102
       Caption = 'Excel'
       Glyph.Data = {
