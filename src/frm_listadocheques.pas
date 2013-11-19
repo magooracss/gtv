@@ -39,6 +39,7 @@ type
     procedure btnModificarChequeClick(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
     procedure btnChequeNuevoClick(Sender: TObject);
+    procedure cbCriterioBusquedaChange(Sender: TObject);
     procedure cbCriterioOrdenChange(Sender: TObject);
     procedure DBGrid1TitleClick(Column: TColumn);
     procedure edBuscarKeyPress(Sender: TObject; var Key: char);
@@ -94,7 +95,7 @@ end;
 
 procedure TfrmListadoCheques.cbCriterioOrdenChange(Sender: TObject);
 begin
-  DM_Cheques.OrdenarListado(String(cbCriterioBusqueda.Items.Objects[cbCriterioBusqueda.ItemIndex]));
+  DM_Cheques.OrdenarListado(String(cbCriterioOrden.Items.Objects[cbCriterioOrden.ItemIndex]));
 end;
 
 procedure TfrmListadoCheques.DBGrid1TitleClick(Column: TColumn);
@@ -210,6 +211,11 @@ end;
 procedure TfrmListadoCheques.btnChequeNuevoClick(Sender: TObject);
 begin
    pantallaCheque(GUIDNULO);
+end;
+
+procedure TfrmListadoCheques.cbCriterioBusquedaChange(Sender: TObject);
+begin
+  rgCriterio.ItemIndex:= EST_TODO;
 end;
 
 procedure TfrmListadoCheques.btnModificarChequeClick(Sender: TObject);

@@ -1,7 +1,7 @@
 object frmPlanDeCuentasAE: TfrmPlanDeCuentasAE
-  Left = 432
+  Left = 439
   Height = 210
-  Top = 250
+  Top = 266
   Width = 540
   ActiveControl = DBEdit1
   Caption = 'Cuenta'
@@ -15,7 +15,7 @@ object frmPlanDeCuentasAE: TfrmPlanDeCuentasAE
   Font.Quality = fqDraft
   OnShow = FormShow
   Position = poOwnerFormCenter
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.0.4.0'
   object Panel1: TPanel
     Left = 0
     Height = 45

@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, db, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  Buttons, EditBtn, DBGrids, StdCtrls, PReport
+  Buttons, EditBtn, DBGrids, StdCtrls
+  //, PReport
   ,dmgeneral
   ;
 
@@ -55,7 +56,7 @@ implementation
 uses
   dmdetallepagos
   ,dateutils
-  , frm_lstdetallegastos
+//  , frm_lstdetallegastos
   , strutils
   ;
 
@@ -68,9 +69,10 @@ end;
 
 procedure TfrmDetallePagos.btnListadoClick(Sender: TObject);
 var
-  lst: Tfrm_LstPDFDetalleGastos;
+//  lst: Tfrm_LstPDFDetalleGastos;
   idOP: GUID_ID;
 begin
+(*
   DM_DetallePagos.LevantarPagos (edFIni.date, edFFin.Date);
   CabeceraGeneral;
   with DM_DetallePagos do
@@ -120,7 +122,6 @@ begin
   elMemo.SelStart := 0;
   elMemo.SelLength := 0;
 
-  (*
   lst:= Tfrm_LstPDFDetalleGastos.Create(self);
   try
     lst.pdfDetalleGastos.BeginDoc;

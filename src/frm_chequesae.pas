@@ -22,6 +22,7 @@ type
     btnTugTecnicos1: TSpeedButton;
     cbBancos: TComboBox;
     cbChequesEstados: TComboBox;
+    dbNroInterno: TDBEdit;
     ds_Cheque: TDatasource;
     DBDateEdit1: TDBDateEdit;
     DBDateEdit2: TDBDateEdit;
@@ -35,6 +36,7 @@ type
     Label1: TLabel;
     Label10: TLabel;
     Label11: TLabel;
+    Label12: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -124,8 +126,8 @@ begin
     with datos do
     begin
       nombre:= 'TUGCHEQUESESTADOS';
-      titulo:= 'Estados de los cheques';
-      AgregarCampo('ChequeEstado','Estados disponibles');
+      titulo:= 'Tipos de cheques';
+      AgregarCampo('ChequeEstado','Tipos disponibles');
     end;
     pantalla.laTUG:= datos;
     pantalla.ShowModal;
@@ -143,9 +145,17 @@ end;
 
 procedure TfrmChequeAE.btnAceptarClick(Sender: TObject);
 begin
-  DM_Cheques.AjustarRefCombos (DM_General.obtenerIDIntComboBox(cbBancos), DM_General.obtenerIDIntComboBox(cbChequesEstados));
-  DM_Cheques.Grabar;
-  ModalResult:= mrOK;
+  if DM_Cheques.NroInternoCorrecto then
+  begin
+       DM_Cheques.AjustarRefCombos (DM_General.obtenerIDIntComboBox(cbBancos), DM_General.obtenerIDIntComboBox(cbChequesEstados));
+       DM_Cheques.Grabar;
+       ModalResult:= mrOK;
+  end
+  else
+  begin
+      ShowMessage ('El nro interno ya está asignado a otro cheque o el número ingresado es mayor al último asignado automáticamente');
+      dbNroInterno.SetFocus;
+  end;
 end;
 
 procedure TfrmChequeAE.btnBuscarRecibidoDeClick(Sender: TObject);

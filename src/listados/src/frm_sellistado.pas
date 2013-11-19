@@ -43,6 +43,8 @@ type
     procedure MostrarCuentaCorriente(refListado: integer; rutaReporte: string);
     procedure MostrarPantallaSaldosCompras(refListado: integer; rutaReporte: string);
 
+    procedure MostrarPantallaListadoCheques (refListado: integer; rutaReporte: string);
+
 
   public
     { public declarations }
@@ -66,6 +68,7 @@ uses
   , frm_compsaldoscompras
   , frm_proveedorcuentacorriente
   , frm_saldocompras
+  , frm_listadocheques
   ;
 
 { TfrmSeleccionListado }
@@ -117,6 +120,7 @@ begin
     6: MostrarSubdiarioPagos(refListado, rutaReporte);
     7: MostrarDetallesPagos(refListado, rutaReporte);
     8: MostrarComposicionSaldosVentas(refListado, rutaReporte);
+    10: MostrarPantallaListadoCheques(refListado, rutaReporte);
     else
       MostrarCuentas(refListado, rutaReporte);
   end;
@@ -271,6 +275,22 @@ begin
   end;
 
 end;
+
+procedure TfrmSeleccionListado.MostrarPantallaListadoCheques(
+  refListado: integer; rutaReporte: string);
+  var
+    pantalla: TfrmListadoCheques;
+  begin
+    pantalla:= TfrmListadoCheques.Create(self);
+    pantalla.rutaReporte:= rutaReporte;
+    pantalla.tipoListado:= refListado;
+    try
+      pantalla.showModal;
+    finally
+      pantalla.free;
+    end;
+  end;
+
 
 end.
 

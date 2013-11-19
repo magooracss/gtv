@@ -5,7 +5,8 @@ unit dmproveedorcc;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, rxmemds, ZMConnection
+  Classes, SysUtils, FileUtil, rxmemds
+//  , ZMConnection
   ,dmgeneral, db, BufDataset, memds, ZDataset;
 
 type

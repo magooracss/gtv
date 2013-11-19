@@ -1,0 +1,372 @@
+object DM_ListadoCheques: TDM_ListadoCheques
+  OldCreateOrder = False
+  Height = 378
+  HorizontalOffset = 551
+  VerticalOffset = 68
+  Width = 501
+  object qChequesPorOP: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT  C.NroCheque'
+      '       , C.fCobro'
+      '       , C.fvencimiento'
+      '       , C.nMonto'
+      '       , OP.NumeroOrdenPago'
+      '       , OP.fFecha as FechaOP'
+      '       , PR.cRazonSocial'
+      '       , PR.cCUIT'
+      '       , CO.Fecha as FechaCompra  '
+      '       , CO.nTotal as TotalCompra'
+      '       , (CO.nroPtoVenta || ''-'' || CO.nroFactura ) as FacturaCompra'
+      'FROM tbCheques C'
+      '     INNER JOIN tbOpFormasDePago OPFP ON OPFP.refCheque = C.idCheque'
+      '     INNER JOIN tbOrdenesPago OP ON OP.idOrdenPAgo = OPFP.refOrdenPago'
+      '     LEFT JOIN tbProveedores PR ON PR.idProveedor = OP.refProveedor'
+      '     LEFT JOIN tbCompras CO ON CO.refOrdenPago = OP.idOrdenPago'
+      'WHERE OP.fFecha >= :fIni AND OP.fFecha <= :fFin'
+      'ORDER BY OP.FFecha, OP.NumeroOrdenPago'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'fIni'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fFin'
+        ParamType = ptUnknown
+      end>
+    left = 231
+    top = 54
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'fIni'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fFin'
+        ParamType = ptUnknown
+      end>
+    object qChequesPorOPNROCHEQUE: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'NROCHEQUE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qChequesPorOPFCOBRO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCOBRO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qChequesPorOPFVENCIMIENTO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FVENCIMIENTO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qChequesPorOPNMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qChequesPorOPNUMEROORDENPAGO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NUMEROORDENPAGO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qChequesPorOPFECHAOP: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHAOP'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qChequesPorOPCRAZONSOCIAL: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'CRAZONSOCIAL'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+    object qChequesPorOPCCUIT: TStringField
+      DisplayWidth = 24
+      FieldKind = fkData
+      FieldName = 'CCUIT'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object qChequesPorOPFECHACOMPRA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHACOMPRA'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qChequesPorOPTOTALCOMPRA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TOTALCOMPRA'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qChequesPorOPFACTURACOMPRA: TStringField
+      DisplayWidth = 92
+      FieldKind = fkData
+      FieldName = 'FACTURACOMPRA'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 92
+    end
+  end
+  object tbResultados: TRxMemoryData
+    AutoCalcFields = False
+    FieldDefs = <    
+      item
+        Name = 'NroCheque'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end    
+      item
+        Name = 'fCobro'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fVencimiento'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nMonto'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'NumeroOrdenPago'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'FechaOp'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'cRazonSocial'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'cCUIT'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end    
+      item
+        Name = 'FechaCompra'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'TotalCompra'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'FacturaCompra'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end>
+    PacketRecords = 0
+    left = 64
+    top = 32
+    object tbResultadosNroCheque: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'NroCheque'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object tbResultadosfCobro: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fCobro'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      EditMask = 'dd/mm/yyyy'
+    end
+    object tbResultadosfVencimiento: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fVencimiento'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      EditMask = 'dd/mm/yyyy'
+    end
+    object tbResultadosnMonto: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nMonto'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbResultadosNumeroOrdenPago: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NumeroOrdenPago'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbResultadosFechaOp: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FechaOp'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbResultadoscRazonSocial: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'cRazonSocial'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbResultadoscCUIT: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'cCUIT'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object tbResultadosFechaCompra: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FechaCompra'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      EditMask = 'dd/mm/yyyy'
+    end
+    object tbResultadosTotalCompra: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TotalCompra'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbResultadosFacturaCompra: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'FacturaCompra'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+  end
+end

@@ -1,8 +1,8 @@
 object DM_ProveedorCC: TDM_ProveedorCC
   OldCreateOrder = False
   Height = 444
-  HorizontalOffset = 467
-  VerticalOffset = 131
+  HorizontalOffset = 520
+  VerticalOffset = 138
   Width = 597
   object qTotalCompras: TZQuery
     Connection = DM_Conexion.cnxGeneral

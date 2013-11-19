@@ -1,10 +1,10 @@
 object DM_Compras: TDM_Compras
   OnCreate = DataModuleCreate
   OldCreateOrder = False
-  Height = 451
-  HorizontalOffset = 251
-  VerticalOffset = 340
-  Width = 630
+  Height = 717
+  HorizontalOffset = 152
+  VerticalOffset = 35
+  Width = 995
   object qBusComprasProv: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
@@ -2883,8 +2883,8 @@ object DM_Compras: TDM_Compras
         Name = 'refProveedor'
         ParamType = ptUnknown
       end>
-    left = 468
-    top = 521
+    left = 464
+    top = 504
     ParamData = <    
       item
         DataType = ftUnknown

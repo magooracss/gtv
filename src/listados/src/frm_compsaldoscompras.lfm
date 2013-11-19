@@ -1,7 +1,7 @@
 object frmCompSaldosCompras: TfrmCompSaldosCompras
-  Left = 526
+  Left = 535
   Height = 491
-  Top = 213
+  Top = 227
   Width = 770
   Caption = 'Composición saldos de Compras'
   ClientHeight = 491
@@ -14,7 +14,7 @@ object frmCompSaldosCompras: TfrmCompSaldosCompras
   Font.Quality = fqDraft
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.0.4.0'
   object Panel1: TPanel
     Left = 0
     Height = 76

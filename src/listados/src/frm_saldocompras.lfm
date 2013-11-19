@@ -1,7 +1,7 @@
 object frmSaldoCompras: TfrmSaldoCompras
-  Left = 338
+  Left = 344
   Height = 404
-  Top = 298
+  Top = 317
   Width = 843
   Caption = 'Saldos de Compras'
   ClientHeight = 404

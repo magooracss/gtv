@@ -110,6 +110,7 @@ type
     qBusChequeMontoMenorNROCHEQUE: TStringField;
     qBusChequeMontoMenorNROINTERNO: TLongintField;
     qBusChequeMontoMenorRECIBIDODE: TStringField;
+    qBusChequeNumeroNROINTERNO: TLongintField;
     qBusChequeNumInterno: TZQuery;
     qBusChequeNumeroBANCO: TStringField;
     qBusChequeNumeroBANCO1: TStringField;
@@ -127,10 +128,9 @@ type
     qBusChequeNumeroNMONTO1: TFloatField;
     qBusChequeNumeroNROCHEQUE: TStringField;
     qBusChequeNumeroNROCHEQUE1: TStringField;
-    qBusChequeNumeroNROINTERNO: TLongintField;
-    qBusChequeNumeroNROINTERNO1: TLongintField;
     qBusChequeNumeroRECIBIDODE: TStringField;
     qBusChequeNumeroRECIBIDODE1: TStringField;
+    qBusChequeNumInternoNROINTERNO: TLongintField;
     qBusChequeRecibidoDeBANCO: TStringField;
     qBusChequeRecibidoDeENTREGADOA: TStringField;
     qBusChequeRecibidoDeFCOBRO: TDateField;
@@ -167,6 +167,7 @@ type
     qTugChequesEstadosBVISIBLE: TSmallintField;
     qTugChequesEstadosCHEQUEESTADO: TStringField;
     qTugChequesEstadosIDCHEQUEESTADO: TLongintField;
+    qUltimoGeneradorULTIMOGENERADOR: TLargeintField;
     tbChequesbVisible: TLongintField;
     tbChequesfCobro: TDateField;
     tbChequesfEntrega: TDateTimeField;
@@ -178,6 +179,7 @@ type
     tbChequeslxRecibidoDe: TStringField;
     tbChequesnMonto: TFloatField;
     tbChequesNroCheque: TStringField;
+    tbChequesnroInterno: TLongintField;
     tbChequesrefBanco: TLongintField;
     tbChequesrefEntregadoA: TStringField;
     tbChequesrefEstado: TLongintField;
@@ -200,6 +202,7 @@ type
     tbResultadosNroCheque: TStringField;
     tbResultadosnroInterno: TLongintField;
     tbResultadosRecibidoDe: TStringField;
+    qUltimoGenerador: TZReadOnlyQuery;
     procedure DataModuleCreate(Sender: TObject);
     procedure tbChequesAfterInsert(DataSet: TDataSet);
     procedure tbResultadosfCobroGetText(Sender: TField; var aText: string;
@@ -225,6 +228,8 @@ type
     procedure Grabar;
 
     procedure AjustarRefCombos (refBanco, refChequeEstado: integer);
+
+    function NroInternoCorrecto: boolean;
 
 
   end; 
@@ -261,6 +266,7 @@ begin
     FieldByName('fEntrega').AsDateTime:= DM_General.FechaNula;
     FieldByName('refEntregadoA').asString:= GUIDNULO;
     FieldByName('nMonto').asFloat:= 0;
+    FieldByName('nroInterno').asFloat:= -1;
     FieldByName('bVisible').asInteger:= 1;
   end;
 end;
@@ -439,6 +445,27 @@ begin
     FieldByName('refBanco').asInteger:= refBanco;
     FieldByName('refEstado').asInteger:= refChequeEstado;
     Post;
+  end;
+end;
+
+function TDM_Cheques.NroInternoCorrecto: boolean;
+begin
+  if qUltimoGenerador.Active then qUltimoGenerador.Close;
+  qUltimoGenerador.Open;
+  if qUltimoGenerador.FieldByName('ultimoGenerador').asInteger < tbChequesnroInterno.AsInteger then
+     result:= false
+  else
+  begin
+       with qBusChequeNumInterno do
+       begin
+         if active then close;
+             ParamByName('parametro').asInteger:= tbChequesnroInterno.AsInteger;
+             open;
+             if RecordCount > 0 then
+                 Result:= ((FieldByName('idCheque').asString = tbChequesidCheque.AsString) OR (tbChequesnroInterno.asInteger =  -1))
+             else
+                 Result:= true;
+       end;
   end;
 end;
 

@@ -187,6 +187,7 @@ begin
   Inicializar;
 end;
 
+
 procedure TfrmPrincipal.appSalirExecute(Sender: TObject);
 begin
   Application.Terminate;

@@ -2,11 +2,12 @@ object DM_Conexion: TDM_Conexion
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 300
-  HorizontalOffset = 460
-  VerticalOffset = 154
+  HorizontalOffset = 468
+  VerticalOffset = 164
   Width = 400
   object cnxGeneral: TZConnection
     UTF8StringsAsWideField = False
+    PreprepareSQL = False
     ClientCodepage = 'UTF8'
     Properties.Strings = (
       'PreprepareSQL=ON'

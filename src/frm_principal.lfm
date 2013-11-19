@@ -1,22 +1,22 @@
 object frmPrincipal: TfrmPrincipal
-  Left = 173
-  Height = 477
-  Top = 105
-  Width = 1097
+  Left = 182
+  Height = 656
+  Top = 106
+  Width = 1202
   Caption = 'Gestión de Transportes Verticales'
-  ClientHeight = 458
-  ClientWidth = 1097
+  ClientHeight = 636
+  ClientWidth = 1202
   Menu = MenuPpal
   OnCreate = FormCreate
   Position = poScreenCenter
   SessionProperties = 'Height;Left;Top;Width'
   ShowHint = True
-  LCLVersion = '1.0.4.0'
+  LCLVersion = '1.0.12.0'
   object st: TStatusBar
     Left = 0
-    Height = 20
-    Top = 438
-    Width = 1097
+    Height = 23
+    Top = 613
+    Width = 1202
     Panels = <    
       item
         Width = 100
@@ -31,7 +31,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 0
     Height = 61
     Top = 0
-    Width = 1097
+    Width = 1202
     AutoSize = True
     ButtonHeight = 59
     ButtonWidth = 69
@@ -74,60 +74,60 @@ object frmPrincipal: TfrmPrincipal
       Action = presPantGral
     end
     object ToolButton7: TToolButton
-      Left = 301
+      Left = 300
       Top = 2
       Action = OTPantGral
     end
     object ToolButton8: TToolButton
-      Left = 474
+      Left = 471
       Top = 2
       Action = RemitoPantGral
     end
     object ToolButton9: TToolButton
-      Left = 543
+      Left = 540
       Top = 2
       Width = 10
       Caption = 'ToolButton9'
       Style = tbsSeparator
     end
     object ToolButton11: TToolButton
-      Left = 405
+      Left = 402
       Top = 2
       Action = ReclPantGral
     end
     object ToolButton12: TToolButton
-      Left = 631
+      Left = 628
       Top = 2
       Action = cajaComprasListado
     end
     object ToolButton10: TToolButton
-      Left = 700
+      Left = 697
       Top = 2
       Action = cajaOPListado
     end
     object ToolButton13: TToolButton
-      Left = 791
+      Left = 788
       Top = 2
       Width = 10
       Caption = 'ToolButton13'
       Style = tbsSeparator
     end
     object ToolButton14: TToolButton
-      Left = 801
+      Left = 798
       Top = 2
       Action = appListados
     end
     object ToolButton15: TToolButton
-      Left = 553
+      Left = 550
       Top = 2
       Action = cajaEgresosVarios
     end
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Height = 377
+    Height = 552
     Top = 61
-    Width = 1097
+    Width = 1202
     Align = alClient
     AutoFillColumns = True
     Color = clWindow
@@ -135,7 +135,7 @@ object frmPrincipal: TfrmPrincipal
       item
         Title.Alignment = taCenter
         Title.Caption = 'Listado de Clientes'
-        Width = 1065
+        Width = 1169
         FieldName = 'Cliente'
       end>
     DataSource = ds_Clientes

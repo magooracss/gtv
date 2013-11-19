@@ -2,10 +2,10 @@ object frmChequeAE: TfrmChequeAE
   Left = 349
   Height = 409
   Top = 132
-  Width = 578
+  Width = 806
   Caption = 'Cheque'
   ClientHeight = 409
-  ClientWidth = 578
+  ClientWidth = 806
   Font.CharSet = ANSI_CHARSET
   Font.Color = clBlack
   Font.Height = -13
@@ -14,15 +14,15 @@ object frmChequeAE: TfrmChequeAE
   Font.Quality = fqDraft
   OnCreate = FormCreate
   OnShow = FormShow
-  LCLVersion = '1.0.4.0'
+  LCLVersion = '1.0.12.0'
   object Panel1: TPanel
     Left = 0
     Height = 50
     Top = 359
-    Width = 578
+    Width = 806
     Align = alBottom
     ClientHeight = 50
-    ClientWidth = 578
+    ClientWidth = 806
     TabOrder = 0
     object btnAceptar: TBitBtn
       Left = 35
@@ -70,7 +70,7 @@ object frmChequeAE: TfrmChequeAE
       TabOrder = 0
     end
     object btnCancelar: TBitBtn
-      Left = 435
+      Left = 663
       Height = 30
       Top = 11
       Width = 105
@@ -119,7 +119,7 @@ object frmChequeAE: TfrmChequeAE
   object DBEdit1: TDBEdit
     Left = 12
     Height = 24
-    Top = 31
+    Top = 30
     Width = 152
     DataField = 'NroCheque'
     DataSource = ds_Cheque
@@ -128,10 +128,10 @@ object frmChequeAE: TfrmChequeAE
     TabOrder = 1
   end
   object DBEdit2: TDBEdit
-    Left = 189
+    Left = 336
     Height = 24
-    Top = 31
-    Width = 118
+    Top = 30
+    Width = 158
     DataField = 'nMonto'
     DataSource = ds_Cheque
     CharCase = ecNormal
@@ -139,10 +139,11 @@ object frmChequeAE: TfrmChequeAE
     TabOrder = 2
   end
   object DBDateEdit1: TDBDateEdit
-    Left = 337
+    Left = 548
     Height = 24
-    Top = 31
+    Top = 30
     Width = 80
+    Anchors = [akTop, akRight]
     ButtonWidth = 23
     CancelCaption = 'Cancel'
     CharCase = ecNormal
@@ -194,10 +195,11 @@ object frmChequeAE: TfrmChequeAE
     DataSource = ds_Cheque
   end
   object DBDateEdit2: TDBDateEdit
-    Left = 458
+    Left = 669
     Height = 24
     Top = 30
     Width = 80
+    Anchors = [akTop, akRight]
     ButtonWidth = 23
     CancelCaption = 'Cancel'
     CharCase = ecNormal
@@ -252,7 +254,7 @@ object frmChequeAE: TfrmChequeAE
     Left = 12
     Height = 24
     Top = 85
-    Width = 311
+    Width = 539
     Anchors = [akTop, akLeft, akRight]
     ItemHeight = 16
     Sorted = True
@@ -260,7 +262,7 @@ object frmChequeAE: TfrmChequeAE
     TabOrder = 5
   end
   object cbChequesEstados: TComboBox
-    Left = 384
+    Left = 612
     Height = 24
     Top = 85
     Width = 154
@@ -270,7 +272,7 @@ object frmChequeAE: TfrmChequeAE
     TabOrder = 6
   end
   object btnBuscarEntregadoA: TBitBtn
-    Left = 330
+    Left = 558
     Height = 30
     Top = 138
     Width = 87
@@ -324,7 +326,7 @@ object frmChequeAE: TfrmChequeAE
     TabOrder = 7
   end
   object DBDateEdit3: TDBDateEdit
-    Left = 458
+    Left = 686
     Height = 24
     Top = 142
     Width = 80
@@ -381,7 +383,7 @@ object frmChequeAE: TfrmChequeAE
     DataSource = ds_Cheque
   end
   object btnBuscarRecibidoDe: TBitBtn
-    Left = 330
+    Left = 558
     Height = 30
     Top = 201
     Width = 87
@@ -435,7 +437,7 @@ object frmChequeAE: TfrmChequeAE
     TabOrder = 9
   end
   object DBDateEdit4: TDBDateEdit
-    Left = 459
+    Left = 687
     Height = 24
     Top = 204
     Width = 80
@@ -494,7 +496,7 @@ object frmChequeAE: TfrmChequeAE
     Left = 0
     Height = 105
     Top = 254
-    Width = 578
+    Width = 806
     Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
     DataField = 'txNotas'
@@ -504,32 +506,34 @@ object frmChequeAE: TfrmChequeAE
   object Label1: TLabel
     Left = 12
     Height = 17
-    Top = 14
+    Top = 12
     Width = 46
     Caption = 'Número'
     ParentColor = False
   end
   object Label2: TLabel
-    Left = 189
+    Left = 336
     Height = 17
-    Top = 14
+    Top = 12
     Width = 37
     Caption = 'Monto'
     ParentColor = False
   end
   object Label3: TLabel
-    Left = 338
+    Left = 549
     Height = 17
-    Top = 14
+    Top = 12
     Width = 49
+    Anchors = [akTop, akRight]
     Caption = 'Cobrado'
     ParentColor = False
   end
   object Label4: TLabel
-    Left = 458
+    Left = 669
     Height = 17
-    Top = 14
+    Top = 12
     Width = 73
+    Anchors = [akTop, akRight]
     Caption = 'Vencimiento'
     ParentColor = False
   end
@@ -542,12 +546,12 @@ object frmChequeAE: TfrmChequeAE
     ParentColor = False
   end
   object Label6: TLabel
-    Left = 385
+    Left = 612
     Height = 17
     Top = 67
-    Width = 42
+    Width = 25
     Anchors = [akTop, akRight]
-    Caption = 'Estado'
+    Caption = 'Tipo'
     ParentColor = False
   end
   object Label7: TLabel
@@ -559,7 +563,7 @@ object frmChequeAE: TfrmChequeAE
     ParentColor = False
   end
   object Label8: TLabel
-    Left = 459
+    Left = 687
     Height = 17
     Top = 125
     Width = 46
@@ -576,7 +580,7 @@ object frmChequeAE: TfrmChequeAE
     ParentColor = False
   end
   object Label10: TLabel
-    Left = 459
+    Left = 687
     Height = 17
     Top = 186
     Width = 51
@@ -588,7 +592,7 @@ object frmChequeAE: TfrmChequeAE
     Left = 0
     Height = 17
     Top = 237
-    Width = 578
+    Width = 806
     Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
     Caption = 'Notas'
@@ -598,7 +602,7 @@ object frmChequeAE: TfrmChequeAE
     Left = 12
     Height = 24
     Top = 142
-    Width = 311
+    Width = 539
     DataField = 'lxEntregadoA'
     DataSource = ds_Cheque
     ReadOnly = True
@@ -613,7 +617,7 @@ object frmChequeAE: TfrmChequeAE
     Left = 12
     Height = 24
     Top = 204
-    Width = 311
+    Width = 539
     DataField = 'lxRecibidoDe'
     DataSource = ds_Cheque
     ReadOnly = True
@@ -625,10 +629,11 @@ object frmChequeAE: TfrmChequeAE
     TabStop = False
   end
   object btnTugTecnicos: TSpeedButton
-    Left = 327
+    Left = 553
     Height = 22
     Top = 86
     Width = 23
+    Anchors = [akTop, akRight]
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -669,10 +674,11 @@ object frmChequeAE: TfrmChequeAE
     OnClick = btnTugTecnicosClick
   end
   object btnTugTecnicos1: TSpeedButton
-    Left = 543
+    Left = 769
     Height = 22
     Top = 86
     Width = 23
+    Anchors = [akTop, akRight]
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -711,6 +717,25 @@ object frmChequeAE: TfrmChequeAE
     }
     NumGlyphs = 0
     OnClick = btnTugTecnicos1Click
+  end
+  object dbNroInterno: TDBEdit
+    Left = 192
+    Height = 24
+    Top = 30
+    Width = 118
+    DataField = 'NroInterno'
+    DataSource = ds_Cheque
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 14
+  end
+  object Label12: TLabel
+    Left = 192
+    Height = 17
+    Top = 12
+    Width = 89
+    Caption = 'Número interno'
+    ParentColor = False
   end
   object ds_Cheque: TDatasource
     DataSet = DM_Cheques.tbCheques

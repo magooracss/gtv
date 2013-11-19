@@ -1,7 +1,7 @@
 object frmProveedorCuentaCorriente: TfrmProveedorCuentaCorriente
-  Left = 261
+  Left = 265
   Height = 461
-  Top = 184
+  Top = 196
   Width = 1034
   Caption = 'Cuenta Corriente'
   ClientHeight = 461

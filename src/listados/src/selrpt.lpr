@@ -7,16 +7,16 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, rxnew, pack_powerpdf, memdslaz, zmsql, lazreport, lazreportpdfexport,
+  Forms, rxnew, memdslaz, lazreport,
   zcomponent, frm_sellistado, dmconexion, SD_Configuracion,
   frm_busquedaclientes, dmbuscarcliente, dmgeneral, frm_proveedoreslistado,
   frm_proveedoresae, dmproveedores, frm_plandecuentasae, dmplandecuentas,
   frm_plandecuentaslistado, dmseleccionlistado, frm_gruporemitos,
   dmgruporemitos, dmgrupocuentas, frm_grupocuentas, frm_grupoproveedores,
   dmgrupoproveedores, frm_grupoprovpendientes, frm_subdiariocompras,
-  frm_subdiariopagos, frm_detallepagos, dmdetallepagos, frm_lstdetallegastos,
+  frm_subdiariopagos, frm_detallepagos, dmdetallepagos,
   frm_compsaldoscompras, dmsaldoscompras, frm_proveedorcuentacorriente,
-  dmproveedorcc, frm_saldocompras;
+  dmproveedorcc, frm_saldocompras, frm_listadocheques, dmlistadocheques;
 
 {$R *.res}
 
@@ -36,6 +36,8 @@ begin
 //  Application.CreateForm(TDM_SaldosCompras, DM_SaldosCompras);
 //  Application.CreateForm(TfrmProveedorCuentaCorriente, frmProveedorCuentaCorriente);
   Application.CreateForm(TDM_ProveedorCC, DM_ProveedorCC);
+  Application.CreateForm(TfrmListadoCheques, frmListadoCheques);
+  Application.CreateForm(TDM_ListadoCheques, DM_ListadoCheques);
 //  Application.CreateForm(TfrmSaldoCompras, frmSaldoCompras);
   Application.Run;
 end.

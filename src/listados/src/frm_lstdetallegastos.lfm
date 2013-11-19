@@ -1,12 +1,12 @@
 object Form1: TForm1
-  Left = 503
+  Left = 512
   Height = 322
-  Top = 252
+  Top = 268
   Width = 599
   Caption = 'frmLstDetalleGastos'
   ClientHeight = 322
   ClientWidth = 599
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.0.4.0'
   object PRPage1: TPRPage
     Left = 11
     Height = 842
