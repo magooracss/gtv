@@ -1,22 +1,22 @@
 object frmPrincipal: TfrmPrincipal
-  Left = 182
+  Left = 154
   Height = 656
-  Top = 106
-  Width = 1202
+  Top = 91
+  Width = 1198
   Caption = 'Gestión de Transportes Verticales'
   ClientHeight = 636
-  ClientWidth = 1202
+  ClientWidth = 1198
   Menu = MenuPpal
   OnCreate = FormCreate
   Position = poScreenCenter
   SessionProperties = 'Height;Left;Top;Width'
   ShowHint = True
-  LCLVersion = '1.0.12.0'
+  LCLVersion = '1.0.14.0'
   object st: TStatusBar
     Left = 0
     Height = 23
     Top = 613
-    Width = 1202
+    Width = 1198
     Panels = <    
       item
         Width = 100
@@ -31,7 +31,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 0
     Height = 61
     Top = 0
-    Width = 1202
+    Width = 1198
     AutoSize = True
     ButtonHeight = 59
     ButtonWidth = 69
@@ -122,12 +122,24 @@ object frmPrincipal: TfrmPrincipal
       Top = 2
       Action = cajaEgresosVarios
     end
+    object ToolButton16: TToolButton
+      Left = 867
+      Top = 2
+      Width = 10
+      Caption = 'ToolButton16'
+      Style = tbsSeparator
+    end
+    object ToolButton17: TToolButton
+      Left = 877
+      Top = 2
+      Action = ingIngresos
+    end
   end
   object DBGrid1: TDBGrid
     Left = 0
     Height = 552
     Top = 61
-    Width = 1202
+    Width = 1198
     Align = alClient
     AutoFillColumns = True
     Color = clWindow
@@ -135,7 +147,7 @@ object frmPrincipal: TfrmPrincipal
       item
         Title.Alignment = taCenter
         Title.Caption = 'Listado de Clientes'
-        Width = 1169
+        Width = 1165
         FieldName = 'Cliente'
       end>
     DataSource = ds_Clientes
@@ -192,6 +204,16 @@ object frmPrincipal: TfrmPrincipal
     end
     object MenuItem13: TMenuItem
       Caption = 'Caja'
+      object MenuItem31: TMenuItem
+        Caption = 'Ingresos'
+        ImageIndex = 7
+        object MenuItem32: TMenuItem
+          Action = ingIngresos
+        end
+      end
+      object MenuItem33: TMenuItem
+        Caption = '-'
+      end
       object MenuItem20: TMenuItem
         Action = cajaCheques
       end
@@ -412,6 +434,12 @@ object frmPrincipal: TfrmPrincipal
       Hint = 'Manejo de las opciones de configuracion'
       ImageIndex = 26
       OnExecute = appConfigExecute
+    end
+    object ingIngresos: TAction
+      Category = 'Ingresos'
+      Caption = 'Ingresos'
+      ImageIndex = 28
+      OnExecute = ingIngresosExecute
     end
   end
   object XMLPropiedades: TXMLPropStorage

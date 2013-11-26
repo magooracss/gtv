@@ -14,6 +14,7 @@ type
   { TfrmPrincipal }
 
   TfrmPrincipal = class(TForm)
+    ingIngresos: TAction;
     appConfig: TAction;
     cajaCompensaciones: TAction;
     cajaEgresosVarios: TAction;
@@ -43,6 +44,9 @@ type
     MenuItem28: TMenuItem;
     MenuItem29: TMenuItem;
     MenuItem30: TMenuItem;
+    MenuItem31: TMenuItem;
+    MenuItem32: TMenuItem;
+    MenuItem33: TMenuItem;
     RemitosPantGralCliente: TAction;
     RemitoPantGral: TAction;
     ReclPantGralCliente: TAction;
@@ -69,6 +73,8 @@ type
     ToolButton13: TToolButton;
     ToolButton14: TToolButton;
     ToolButton15: TToolButton;
+    ToolButton16: TToolButton;
+    ToolButton17: TToolButton;
     ToolButton6: TToolButton;
     ToolButton7: TToolButton;
     ToolButton8: TToolButton;
@@ -113,6 +119,7 @@ type
     procedure cliModificarExecute(Sender: TObject);
     procedure cliNuevoExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure ingIngresosExecute(Sender: TObject);
     procedure OTPantGralClienteExecute(Sender: TObject);
     procedure OTPantGralExecute(Sender: TObject);
     procedure presPantGralClienteExecute(Sender: TObject);
@@ -159,6 +166,7 @@ uses
   ,frm_egresosvarioslistado
   ,frm_compensaciones
   ,frm_configuraciones
+  ,frm_ingresoslistado
   ;
 
 { TfrmPrincipal }
@@ -186,7 +194,6 @@ procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
   Inicializar;
 end;
-
 
 procedure TfrmPrincipal.appSalirExecute(Sender: TObject);
 begin
@@ -530,6 +537,19 @@ var
   pant: TfrmOrdenesPagoListado;
 begin
   pant:= TfrmOrdenesPagoListado.Create (self);
+  try
+    pant.ShowModal;
+  finally
+    pant.Free;
+  end;
+end;
+
+
+procedure TfrmPrincipal.ingIngresosExecute(Sender: TObject);
+var
+  pant: TfrmIngresosListado;
+begin
+  pant:= TfrmIngresosListado.Create (self);
   try
     pant.ShowModal;
   finally

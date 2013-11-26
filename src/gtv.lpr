@@ -29,7 +29,7 @@ uses
   frm_localidadae, frm_egresosvarioslistado, dmegresosvarios,
   frm_egresosvariosae, frm_egresoae, frm_asignarpagofactura
   ,sysutils, frm_clientecontacto, dmcompensaciones, frm_compensaciones,
-frm_configuraciones;
+frm_configuraciones, frm_ingresoslistado, dmingresos, frm_ingresosae;
 
 {$R *.res}
 

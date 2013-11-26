@@ -1,0 +1,97 @@
+object DM_Ingresos: TDM_Ingresos
+  OldCreateOrder = False
+  Height = 464
+  HorizontalOffset = 706
+  VerticalOffset = 192
+  Width = 656
+  object Ingresos: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'nroInterno'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Fecha'
+        DataType = ftDate
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Nombre'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'Estado'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fAnulado'
+        DataType = ftDate
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'clienteEmpresa_id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end>
+    PacketRecords = 0
+    left = 74
+    top = 32
+  end
+  object IngresoItems: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'Detalle'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'Monto'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'ingreso_id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'cantidad'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'punitario'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end>
+    PacketRecords = 0
+    left = 176
+    top = 32
+  end
+end

@@ -1,0 +1,239 @@
+object frmIngresoAE: TfrmIngresoAE
+  Left = 447
+  Height = 589
+  Top = 184
+  Width = 770
+  Caption = 'Ingreso'
+  ClientHeight = 589
+  ClientWidth = 770
+  Font.CharSet = ANSI_CHARSET
+  Font.Color = clBlack
+  Font.Height = -13
+  Font.Name = 'Arial'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  Position = poOwnerFormCenter
+  LCLVersion = '1.0.14.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 186
+    Top = 0
+    Width = 770
+    Align = alTop
+    ClientHeight = 186
+    ClientWidth = 770
+    TabOrder = 0
+    object DBEdit1: TDBEdit
+      Left = 24
+      Height = 24
+      Top = 40
+      Width = 80
+      DataField = 'nroInterno'
+      DataSource = ds_ingreso
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+    end
+    object DBZVDateTimePicker1: TDBZVDateTimePicker
+      Left = 168
+      Height = 24
+      Top = 40
+      Width = 89
+      DataField = 'Fecha'
+      DataSource = ds_ingreso
+      ReadOnly = False
+      CenturyFrom = 1941
+      MaxDate = 2958465
+      MinDate = -53780
+      TabOrder = 1
+      TrailingSeparator = False
+      TextForNullDate = 'NULL'
+      LeadingZeros = True
+      Kind = dtkDate
+      TimeFormat = tf24
+      TimeDisplay = tdHMS
+      DateMode = dmComboBox
+      UseDefaultSeparators = True
+    end
+    object Label1: TLabel
+      Left = 24
+      Height = 17
+      Top = 20
+      Width = 64
+      Caption = 'Nro Interno'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 168
+      Height = 17
+      Top = 20
+      Width = 37
+      Caption = 'Fecha'
+      ParentColor = False
+    end
+    object PageControl1: TPageControl
+      Left = 8
+      Height = 77
+      Top = 72
+      Width = 755
+      ActivePage = TabSheet1
+      Anchors = [akTop, akLeft, akRight]
+      TabIndex = 0
+      TabOrder = 2
+      object TabSheet1: TTabSheet
+        Caption = 'Clientes/Proveedores'
+        ClientHeight = 48
+        ClientWidth = 747
+        object BitBtn2: TBitBtn
+          Left = 4
+          Height = 30
+          Top = 7
+          Width = 88
+          Caption = '&Buscar'
+          Glyph.Data = {
+            36050000424D3605000000000000360400002800000010000000100000000100
+            08000000000000010000000000000000000000010000000100005A6B7300AD7B
+            73004A637B00EFBD8400B58C8C00A5948C00C6948C00B59C8C00BD9C8C00F7BD
+            8C00BD949400C6949400CE949400C69C9400CEAD9400F7CE9400C6A59C00CEA5
+            9C00D6A59C00C6AD9C00CEAD9C00D6AD9C00F7CE9C00F7D69C004A7BA500CEAD
+            A500D6B5A500DEBDA500F7D6A500DEBDAD00DEC6AD00E7C6AD00FFDEAD00FFE7
+            AD00CEB5B500F7DEB500F7E7B500FFE7B500FFEFB500D6BDBD00DED6BD00E7DE
+            BD00FFE7BD006B9CC600EFDEC600FFEFC600FFF7C600F7E7CE00FFF7CE00F7EF
+            D600F7F7D600FFF7D600FFFFD6002184DE00F7F7DE00FFFFDE001884E700188C
+            E700FFFFE700188CEF00218CEF00B5D6EF00F7F7EF00FFF7EF00FFFFEF00FFFF
+            F700FF00FF004AB5FF0052B5FF0052BDFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0042020A424242
+            424242424242424242422B39180B42424242424242424242424243443C180B42
+            4242424242424242424242444438180B42424242424242424242424244433918
+            0A424242424242424242424242444335004201101A114242424242424242453D
+            05072F343434291942424242424242221A2D34343437403E0442424242424206
+            231C303437404146284242424242421B210F30373A414140310D42424242421F
+            20032434373A3A37321342424242421D25030F2D37373737311042424242420D
+            2D2D1C162430333429424242424242421E463F0F0316252E0842424242424242
+            4227312D21252314424242424242424242420E141B1B42424242
+          }
+          TabOrder = 0
+        end
+        object DBEdit3: TDBEdit
+          Left = 100
+          Height = 24
+          Top = 13
+          Width = 632
+          DataSource = ds_ingreso
+          Anchors = [akTop, akLeft, akRight]
+          CharCase = ecNormal
+          Color = clMoneyGreen
+          MaxLength = 0
+          TabOrder = 1
+        end
+      end
+      object TabSheet2: TTabSheet
+        Caption = 'Sin registrar'
+        ClientHeight = 48
+        ClientWidth = 747
+        object DBEdit2: TDBEdit
+          Left = 4
+          Height = 24
+          Top = 15
+          Width = 728
+          DataField = 'Nombre'
+          DataSource = ds_ingreso
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 0
+        end
+      end
+    end
+    object StaticText1: TStaticText
+      Left = 1
+      Height = 17
+      Top = 168
+      Width = 768
+      Align = alBottom
+      Caption = '   Items'
+      TabOrder = 3
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 77
+    Top = 512
+    Width = 770
+    Align = alBottom
+    ClientHeight = 77
+    ClientWidth = 770
+    TabOrder = 1
+    object BitBtn1: TBitBtn
+      Left = 16
+      Height = 30
+      Top = 24
+      Width = 96
+      Caption = 'BitBtn1'
+      TabOrder = 0
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Height = 326
+    Top = 186
+    Width = 770
+    Align = alClient
+    ClientHeight = 326
+    ClientWidth = 770
+    TabOrder = 2
+    object Panel4: TPanel
+      Left = 648
+      Height = 324
+      Top = 1
+      Width = 121
+      Align = alRight
+      TabOrder = 0
+    end
+    object DBGrid1: TDBGrid
+      Left = 1
+      Height = 324
+      Top = 1
+      Width = 647
+      Align = alClient
+      Color = clWindow
+      Columns = <>
+      FixedCols = 0
+      Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+      Scrollbars = ssAutoVertical
+      TabOrder = 1
+      TitleFont.CharSet = ANSI_CHARSET
+      TitleFont.Color = clBlack
+      TitleFont.Height = -13
+      TitleFont.Name = 'Arial'
+      TitleFont.Pitch = fpVariable
+      TitleFont.Quality = fqDraft
+    end
+  end
+  object ds_ingreso: TDatasource
+    DataSet = DM_Ingresos.Ingresos
+    left = 360
+    top = 8
+  end
+end
