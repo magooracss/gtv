@@ -13,6 +13,7 @@ type
   { TfrmSubdiarioCompras }
 
   TfrmSubdiarioCompras = class(TForm)
+    btnBuscar: TBitBtn;
     btnExportarExcel: TBitBtn;
     btnFiltrar: TBitBtn;
     btnListado: TBitBtn;
@@ -21,9 +22,11 @@ type
     DBGrid1: TDBGrid;
     edFIni: TDateEdit;
     edFFin: TDateEdit;
+    edProveedor: TEdit;
     Panel1: TPanel;
     Panel2: TPanel;
     SD: TSaveDialog;
+    procedure btnBuscarClick(Sender: TObject);
     procedure btnExportarExcelClick(Sender: TObject);
     procedure btnFiltrarClick(Sender: TObject);
     procedure btnListadoClick(Sender: TObject);
@@ -33,6 +36,7 @@ type
   private
     _rutaReporte: string;
     _tipoListado: integer;
+    _idProveedor: string;
     procedure Inicializar;
   public
     property rutaReporte: string Write _rutaReporte;
@@ -49,7 +53,8 @@ uses
   dateutils
   , dmgrupocuentas
   , dmgeneral
-  , dmseleccionlistado;
+  , dmseleccionlistado
+  , frm_proveedoreslistado;
 
 { TfrmSubdiarioCompras }
 
@@ -65,7 +70,7 @@ end;
 
 procedure TfrmSubdiarioCompras.btnFiltrarClick(Sender: TObject);
 begin
-  DM_GrupoCuentas.filtrarSubdiarioCompras(edFIni.Date, edFFin.Date);
+  DM_GrupoCuentas.filtrarSubdiarioCompras(edFIni.Date, edFFin.Date, _idProveedor);
 end;
 
 procedure TfrmSubdiarioCompras.btnListadoClick(Sender: TObject);
@@ -80,6 +85,23 @@ begin
   if SD.Execute then
     DM_SeleccionListado.ExportarXLS(DM_GrupoCuentas.tbSubdiarioCompras,
       SD.FileName, 'SubdiarioCompras');
+end;
+
+procedure TfrmSubdiarioCompras.btnBuscarClick(Sender: TObject);
+var
+  pant: TfrmProveedoresListado;
+begin
+  _idProveedor:= GUIDNULO;
+  pant:= TfrmProveedoresListado.Create (self);
+  try
+    if pant.ShowModal = mrOK then
+    begin
+      _idProveedor:= pant.idProveedor;
+      edProveedor.Text:= pant.RazonSocial;
+    end;
+  finally
+    pant.Free;
+  end;
 end;
 
 procedure TfrmSubdiarioCompras.FormCreate(Sender: TObject);

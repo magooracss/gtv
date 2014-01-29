@@ -245,6 +245,7 @@ object DM_GrupoCuentas: TDM_GrupoCuentas
       'WHERE (C.bVisible = 1)'
       '             and (C.Fecha >= :fIni)'
       '            and (C.Fecha <= :fFin)'
+      '            and (C.refProveedor = :idProveedor)'
     )
     Params = <    
       item
@@ -255,6 +256,11 @@ object DM_GrupoCuentas: TDM_GrupoCuentas
       item
         DataType = ftUnknown
         Name = 'fFin'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idProveedor'
         ParamType = ptUnknown
       end>
     left = 136
@@ -268,6 +274,11 @@ object DM_GrupoCuentas: TDM_GrupoCuentas
       item
         DataType = ftUnknown
         Name = 'fFin'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idProveedor'
         ParamType = ptUnknown
       end>
     object qSubdiarioComprasIDCOMPRA: TStringField
@@ -580,6 +591,7 @@ object DM_GrupoCuentas: TDM_GrupoCuentas
       'WHERE (OP.bVisible = 1)'
       '             and (OP.fFecha >= :fIni)'
       '            and (OP.fFecha <= :fFin)'
+      '            and (C.refProveedor = :idProveedor)'
       'GROUP BY    OP.fFecha, TC.TipoComprobante, C.NroPtoVenta, C.NroFactura ,Pr.cRazonSocial, Pr.cCUIT'
     )
     Params = <    
@@ -591,6 +603,11 @@ object DM_GrupoCuentas: TDM_GrupoCuentas
       item
         DataType = ftUnknown
         Name = 'fFin'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idProveedor'
         ParamType = ptUnknown
       end>
     left = 251
@@ -604,6 +621,11 @@ object DM_GrupoCuentas: TDM_GrupoCuentas
       item
         DataType = ftUnknown
         Name = 'fFin'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'idProveedor'
         ParamType = ptUnknown
       end>
     object qSubdiarioPagosFECHA: TDateField

@@ -106,14 +106,14 @@ object frmPrincipal: TfrmPrincipal
       Action = cajaOPListado
     end
     object ToolButton13: TToolButton
-      Left = 788
+      Left = 1005
       Top = 2
       Width = 10
       Caption = 'ToolButton13'
       Style = tbsSeparator
     end
     object ToolButton14: TToolButton
-      Left = 798
+      Left = 1015
       Top = 2
       Action = appListados
     end
@@ -123,16 +123,26 @@ object frmPrincipal: TfrmPrincipal
       Action = cajaEgresosVarios
     end
     object ToolButton16: TToolButton
-      Left = 867
+      Left = 788
       Top = 2
       Width = 10
       Caption = 'ToolButton16'
       Style = tbsSeparator
     end
     object ToolButton17: TToolButton
-      Left = 877
+      Left = 798
       Top = 2
       Action = ingIngresos
+    end
+    object ToolButton18: TToolButton
+      Left = 867
+      Top = 2
+      Action = ingRecibos
+    end
+    object ToolButton19: TToolButton
+      Left = 936
+      Top = 2
+      Action = ingFacturas
     end
   end
   object DBGrid1: TDBGrid
@@ -209,6 +219,12 @@ object frmPrincipal: TfrmPrincipal
         ImageIndex = 7
         object MenuItem32: TMenuItem
           Action = ingIngresos
+        end
+        object MenuItem34: TMenuItem
+          Action = ingRecibos
+        end
+        object MenuItem35: TMenuItem
+          Action = ingFacturas
         end
       end
       object MenuItem33: TMenuItem
@@ -438,8 +454,20 @@ object frmPrincipal: TfrmPrincipal
     object ingIngresos: TAction
       Category = 'Ingresos'
       Caption = 'Ingresos'
+      Enabled = False
       ImageIndex = 28
       OnExecute = ingIngresosExecute
+    end
+    object ingRecibos: TAction
+      Category = 'Ingresos'
+      Caption = 'Recibos'
+      Hint = 'Recibos'
+      OnExecute = ingRecibosExecute
+    end
+    object ingFacturas: TAction
+      Category = 'Ingresos'
+      Caption = 'Facturas'
+      Hint = 'Facturas emitidas'
     end
   end
   object XMLPropiedades: TXMLPropStorage

@@ -6,13 +6,14 @@ interface
 
 uses
   Classes, SysUtils, db, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  Buttons, DBGrids, EditBtn;
+  Buttons, DBGrids, EditBtn, StdCtrls;
 
 type
 
   { TfrmSubdiarioDePagos }
 
   TfrmSubdiarioDePagos = class(TForm)
+    btnBuscar: TBitBtn;
     btnListado: TBitBtn;
     btnExportarExcel: TBitBtn;
     btnFiltrar: TBitBtn;
@@ -21,9 +22,11 @@ type
     ds_subdiarioPagos: TDatasource;
     edFFin: TDateEdit;
     edFIni: TDateEdit;
+    edProveedor: TEdit;
     Panel1: TPanel;
     Panel2: TPanel;
     SD: TSaveDialog;
+    procedure btnBuscarClick(Sender: TObject);
     procedure btnListadoClick(Sender: TObject);
     procedure btnExportarExcelClick(Sender: TObject);
     procedure btnFiltrarClick(Sender: TObject);
@@ -33,6 +36,7 @@ type
   private
     _rutaReporte: string;
     _tipoListado: integer;
+    _idProveedor: string;
     procedure Inicializar;
   public
     property rutaReporte: string write _rutaReporte;
@@ -49,19 +53,21 @@ uses
   ,dmgrupocuentas
   ,dmgeneral
   ,dmseleccionlistado
+   ,frm_proveedoreslistado
+
   ;
 
 { TfrmSubdiarioDePagos }
 
 procedure TfrmSubdiarioDePagos.btnFiltrarClick(Sender: TObject);
 begin
-  DM_GrupoCuentas.filtrarSubdiarioPagos (edFIni.Date, edFFin.Date);
+  DM_GrupoCuentas.filtrarSubdiarioPagos (edFIni.Date, edFFin.Date, _idProveedor);
 end;
 
 procedure TfrmSubdiarioDePagos.btnExportarExcelClick(Sender: TObject);
 begin
   if SD.Execute then
-    DM_SeleccionListado.ExportarXLS(DM_GrupoCuentas.tbSubdiarioCompras, SD.FileName, 'SubdiarioPagos');
+    DM_SeleccionListado.ExportarXLS(DM_GrupoCuentas.tbSubdiarioPagos, SD.FileName, 'SubdiarioPagos');
 end;
 
 procedure TfrmSubdiarioDePagos.btnListadoClick(Sender: TObject);
@@ -69,6 +75,23 @@ begin
   DM_General.LevantarReporte(_rutaReporte,ds_subdiarioPagos.DataSet);
   DM_General.AgregarVariableReporte('Periodo', DateToStr(edFIni.Date) + ' - ' + DateToStr(edFFin.Date));
   DM_General.EjecutarReporte;
+end;
+
+procedure TfrmSubdiarioDePagos.btnBuscarClick(Sender: TObject);
+var
+  pant: TfrmProveedoresListado;
+begin
+  _idProveedor:= GUIDNULO;
+  pant:= TfrmProveedoresListado.Create (self);
+  try
+    if pant.ShowModal = mrOK then
+    begin
+      _idProveedor:= pant.idProveedor;
+      edProveedor.Text:= pant.RazonSocial;
+    end;
+  finally
+    pant.Free;
+  end;
 end;
 
 procedure TfrmSubdiarioDePagos.btnSalirClick(Sender: TObject);
@@ -90,6 +113,7 @@ procedure TfrmSubdiarioDePagos.Inicializar;
 begin
   edFIni.Date:= StartOfTheMonth(Now);
   edFFin.Date:= EndOfTheMonth(Now);
+   _idProveedor:= GUIDNULO;
 end;
 
 end.

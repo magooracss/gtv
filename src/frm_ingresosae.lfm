@@ -1,7 +1,7 @@
 object frmIngresoAE: TfrmIngresoAE
-  Left = 447
+  Left = 384
   Height = 589
-  Top = 184
+  Top = 144
   Width = 770
   Caption = 'Ingreso'
   ClientHeight = 589

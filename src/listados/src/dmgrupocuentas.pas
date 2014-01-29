@@ -114,8 +114,8 @@ type
 
     procedure Filtrar(refTipoListado: integer);
 
-    procedure filtrarSubdiarioCompras(fIni, fFin: TDate);
-    procedure filtrarSubdiarioPagos(fIni, fFin: TDate);
+    procedure filtrarSubdiarioCompras(fIni, fFin: TDate; idProveedor: GUID_ID);
+    procedure filtrarSubdiarioPagos(fIni, fFin: TDate; idProveedor: GUID_ID);
   end;
 
 var
@@ -169,7 +169,7 @@ begin
 
 end;
 
-procedure TDM_GrupoCuentas.filtrarSubdiarioCompras(fIni, fFin: TDate);
+procedure TDM_GrupoCuentas.filtrarSubdiarioCompras(fIni, fFin: TDate; idProveedor: GUID_ID);
 begin
   DM_General.ReiniciarTabla(tbSubdiarioCompras);
 
@@ -180,6 +180,7 @@ begin
       Close;
     ParamByName('fIni').AsDate := fIni;
     ParamByName('fFin').AsDate := fFin;
+     ParamByName('idProveedor').asString:= idProveedor;
     Open;
     tbSubdiarioCompras.LoadFromDataSet(qSubdiarioCompras, 0, lmAppend);
     EnableControls;
@@ -415,7 +416,7 @@ end;
  (*******************************************************************************)
  (*******************************************************************************)
 
-procedure TDM_GrupoCuentas.filtrarSubdiarioPagos(fIni, fFin: TDate);
+procedure TDM_GrupoCuentas.filtrarSubdiarioPagos(fIni, fFin: TDate; idProveedor: GUID_ID);
 begin
   tbSubdiarioPagos.DisableControls;
   with qSubdiarioPagos do
@@ -423,6 +424,7 @@ begin
     if active then close;
     ParamByName('fIni').asDate:= fIni;
     ParamByName('fFin').asDate:= fFin;
+    ParamByName('idProveedor').asString:= idProveedor;
     Open;
     tbSubdiarioPagos.LoadFromDataSet(qSubdiarioPagos, 0, lmAppend);
   end;

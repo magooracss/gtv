@@ -1,0 +1,915 @@
+object DM_Recibos: TDM_Recibos
+  OldCreateOrder = False
+  Height = 485
+  HorizontalOffset = 393
+  VerticalOffset = 137
+  Width = 571
+  object qListaRecibos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      ' SELECT *'
+      ' FROM Recibos R'
+      '      LEFT JOIN tbClientes C ON R.clienteEmpresa_id = C.idCliente '
+      '      LEFT JOIN tugRecibosEstados TRe ON TRe.idReciboEstado = R.estado_id'
+      ''
+    )
+    Params = <>
+    left = 32
+    top = 32
+    object qListaRecibosID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qListaRecibosFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosNROPTOVENTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROPTOVENTA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosNRORECIBO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NRORECIBO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosCLIENTEEMPRESA_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'CLIENTEEMPRESA_ID'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qListaRecibosDETALLE: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'DETALLE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qListaRecibosFANULACION: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FANULACION'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosESTADO_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ESTADO_ID'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosIDCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCLIENTE'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qListaRecibosCCODIGO: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'CCODIGO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object qListaRecibosCNOMBRE: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'CNOMBRE'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qListaRecibosFINICIO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FINICIO'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosREFABONO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFABONO'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosREFRESPTECNICO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFRESPTECNICO'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qListaRecibosREFGRUPOFACTURACION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFGRUPOFACTURACION'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosREFCONDICIONFISCAL: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCONDICIONFISCAL'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosCCUIT: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CCUIT'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosNIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NIVA'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qListaRecibosCDOMICILIO: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'CDOMICILIO'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object qListaRecibosCENTRECALLE1: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'CENTRECALLE1'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object qListaRecibosCENTRECALLE2: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'CENTRECALLE2'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object qListaRecibosCNROCASA: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CNROCASA'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosCSECCION: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CSECCION'
+      Index = 22
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosCMANZANA: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CMANZANA'
+      Index = 23
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosCPARCELA: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CPARCELA'
+      Index = 24
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosREFLOCALIDAD: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFLOCALIDAD'
+      Index = 25
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosREFDESTINO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFDESTINO'
+      Index = 26
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosUNIDADFUNCIONAL: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'UNIDADFUNCIONAL'
+      Index = 27
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosREFADMINISTRADOR: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFADMINISTRADOR'
+      Index = 28
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qListaRecibosREFCONSERVADOR: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCONSERVADOR'
+      Index = 29
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qListaRecibosBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 30
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosNMONTOABONO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTOABONO'
+      Index = 31
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qListaRecibosHABILITACIONEXP: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'HABILITACIONEXP'
+      Index = 32
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qListaRecibosHABILITACIONFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'HABILITACIONFECHA'
+      Index = 33
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosIDRECIBOESTADO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDRECIBOESTADO'
+      Index = 34
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qListaRecibosESTADO: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'ESTADO'
+      Index = 35
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qListaRecibosBVISIBLE_1: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE_1'
+      Index = 36
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object Recibos: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'Fecha'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nroPtoVenta'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nroRecibo'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'clienteEmpresa_id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'Detalle'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'fAnulacion'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'estado_id'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'lxEstado'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end>
+    AfterInsert = RecibosAfterInsert
+    PacketRecords = 0
+    left = 120
+    top = 32
+    object Recibosid: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object RecibosFecha: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Fecha'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object RecibosnroPtoVenta: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nroPtoVenta'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object RecibosnroRecibo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nroRecibo'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object RecibosclienteEmpresa_id: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'clienteEmpresa_id'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object RecibosDetalle: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'Detalle'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object RecibosfAnulacion: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fAnulacion'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Recibosestado_id: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'estado_id'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ReciboslxEstado: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'lxEstado'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+  end
+  object RecibosSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT Recibos.*'
+      '              ,Estado  as lxEstado '
+      'FROM Recibos'
+      '           LEFT JOIN tugRecibosEstados  ON  idReciboEstado = estado_id'
+      'WHERE id = :id'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    left = 120
+    top = 112
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    object RecibosSELID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object RecibosSELFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object RecibosSELNROPTOVENTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROPTOVENTA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object RecibosSELNRORECIBO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NRORECIBO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object RecibosSELCLIENTEEMPRESA_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'CLIENTEEMPRESA_ID'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object RecibosSELDETALLE: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'DETALLE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object RecibosSELFANULACION: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FANULACION'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object RecibosSELESTADO_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ESTADO_ID'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object RecibosSELLXESTADO: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'LXESTADO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+  end
+  object RecibosINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO Recibos'
+      '('
+      '  ID'
+      ', FECHA'
+      ', NROPTOVENTA'
+      ', NRORECIBO'
+      ', CLIENTEEMPRESA_ID'
+      ', DETALLE'
+      ', FANULACION'
+      ', ESTADO_ID'
+      ')'
+      'VALUES'
+      '('
+      '  :ID'
+      ', :FECHA'
+      ', :NROPTOVENTA'
+      ', :NRORECIBO'
+      ', :CLIENTEEMPRESA_ID'
+      ', :DETALLE'
+      ', :FANULACION'
+      ', :ESTADO_ID'
+      ')'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NROPTOVENTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NRORECIBO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CLIENTEEMPRESA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DETALLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FANULACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ESTADO_ID'
+        ParamType = ptUnknown
+      end>
+    left = 120
+    top = 176
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NROPTOVENTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NRORECIBO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CLIENTEEMPRESA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DETALLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FANULACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ESTADO_ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object RecibosUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE  Recibos'
+      'SET '
+      ' FECHA = :FECHA'
+      ', NROPTOVENTA = :NROPTOVENTA'
+      ', NRORECIBO = :NRORECIBO'
+      ', CLIENTEEMPRESA_ID = :CLIENTEEMPRESA_ID'
+      ', DETALLE = :DETALLE'
+      ', FANULACION = :FANULACION'
+      ', ESTADO_ID = :ESTADO_ID'
+      'WHERE ID = :ID'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'FECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NROPTOVENTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NRORECIBO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CLIENTEEMPRESA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DETALLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FANULACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ESTADO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end>
+    left = 120
+    top = 240
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'FECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NROPTOVENTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NRORECIBO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CLIENTEEMPRESA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DETALLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FANULACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ESTADO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbReclamosDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbReclamos'
+      'SET bVisible = 0'
+      'WHERE idReclamo = :idReclamo'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamo'
+        ParamType = ptUnknown
+      end>
+    left = 120
+    top = 296
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idReclamo'
+        ParamType = ptUnknown
+      end>
+  end
+end

@@ -14,6 +14,8 @@ type
   { TfrmPrincipal }
 
   TfrmPrincipal = class(TForm)
+    ingFacturas: TAction;
+    ingRecibos: TAction;
     ingIngresos: TAction;
     appConfig: TAction;
     cajaCompensaciones: TAction;
@@ -47,6 +49,8 @@ type
     MenuItem31: TMenuItem;
     MenuItem32: TMenuItem;
     MenuItem33: TMenuItem;
+    MenuItem34: TMenuItem;
+    MenuItem35: TMenuItem;
     RemitosPantGralCliente: TAction;
     RemitoPantGral: TAction;
     ReclPantGralCliente: TAction;
@@ -75,6 +79,8 @@ type
     ToolButton15: TToolButton;
     ToolButton16: TToolButton;
     ToolButton17: TToolButton;
+    ToolButton18: TToolButton;
+    ToolButton19: TToolButton;
     ToolButton6: TToolButton;
     ToolButton7: TToolButton;
     ToolButton8: TToolButton;
@@ -120,6 +126,7 @@ type
     procedure cliNuevoExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ingIngresosExecute(Sender: TObject);
+    procedure ingRecibosExecute(Sender: TObject);
     procedure OTPantGralClienteExecute(Sender: TObject);
     procedure OTPantGralExecute(Sender: TObject);
     procedure presPantGralClienteExecute(Sender: TObject);
@@ -167,6 +174,7 @@ uses
   ,frm_compensaciones
   ,frm_configuraciones
   ,frm_ingresoslistado
+  ,frm_reciboslistado
   ;
 
 { TfrmPrincipal }
@@ -556,6 +564,25 @@ begin
     pant.Free;
   end;
 end;
+
+
+(*******************************************************************************
+*****  INGRESOS
+*******************************************************************************)
+
+
+procedure TfrmPrincipal.ingRecibosExecute(Sender: TObject);
+var
+  pant: TfrmRecibosListado;
+begin
+  pant:= TfrmRecibosListado.Create(self);
+  try
+    pant.ShowModal;
+  finally
+    pant.Free;
+  end;
+end;
+
 
 
 
