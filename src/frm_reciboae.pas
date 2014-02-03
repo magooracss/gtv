@@ -15,6 +15,8 @@ type
   { TfrmRecibosAE }
 
   TfrmRecibosAE = class(TForm)
+    btnAgregarCobro: TBitBtn;
+    btnQuitarCobro: TBitBtn;
     btnClientesBuscar: TBitBtn;
     BitBtn2: TBitBtn;
     BitBtn3: TBitBtn;
@@ -38,13 +40,13 @@ type
     Panel4: TPanel;
     Panel5: TPanel;
     Panel6: TPanel;
+    Panel7: TPanel;
     Splitter1: TSplitter;
     StaticText1: TStaticText;
     StaticText2: TStaticText;
     StaticText3: TStaticText;
     procedure btnClientesAgregarClick(Sender: TObject);
     procedure btnClientesBuscarClick(Sender: TObject);
-    procedure btnClientesClick(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private

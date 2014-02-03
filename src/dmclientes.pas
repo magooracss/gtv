@@ -210,7 +210,7 @@ type
 
     function  ClienteNombre (refCliente: GUID_ID): string;
 
-    procedure ClienteNuevo;
+    function ClienteNuevo: GUID_ID;
     procedure CargarCombos (refDestino, refLocalidad,  refAbono
                            , refGrupoFacturacion, refCondicionIva, AdmDoc
                            , contDoc, contTipo: integer);
@@ -503,10 +503,11 @@ begin
   Result:= tbClientes.FieldByName('cNombre').asString;
 end;
 
-procedure TDM_Clientes.ClienteNuevo;
+function TDM_Clientes.ClienteNuevo: GUID_ID;
 begin
   DM_General.ReiniciarTabla(tbClientes);
   tbClientes.Insert;
+  Result:= tbClientes.FieldByName('idCliente').AsString;
 end;
 
 procedure TDM_Clientes.CargarCombos(refDestino, refLocalidad,

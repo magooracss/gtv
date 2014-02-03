@@ -1,28 +1,27 @@
-object frmRecibosAE: TfrmRecibosAE
-  Left = 429
-  Height = 554
-  Top = 153
-  Width = 710
-  Caption = 'Recibo'
-  ClientHeight = 554
-  ClientWidth = 710
+object frmFacturaAE: TfrmFacturaAE
+  Left = 484
+  Height = 659
+  Top = 79
+  Width = 663
+  Caption = 'Factura'
+  ClientHeight = 659
+  ClientWidth = 663
   Font.CharSet = ANSI_CHARSET
   Font.Color = clBlack
   Font.Height = -13
   Font.Name = 'Arial'
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
-  OnShow = FormShow
   Position = poOwnerFormCenter
   LCLVersion = '1.0.14.0'
   object Panel1: TPanel
     Left = 0
-    Height = 300
+    Height = 88
     Top = 0
-    Width = 710
+    Width = 663
     Align = alTop
-    ClientHeight = 300
-    ClientWidth = 710
+    ClientHeight = 88
+    ClientWidth = 663
     TabOrder = 0
     object DBDateEdit1: TDBDateEdit
       Left = 32
@@ -77,50 +76,74 @@ object frmRecibosAE: TfrmRecibosAE
       TabOrder = 0
       Text = '  /  /    '
       DataField = 'Fecha'
-      DataSource = ds_recibos
+    end
+    object Label1: TLabel
+      Left = 32
+      Height = 17
+      Top = 16
+      Width = 37
+      Caption = 'Fecha'
+      ParentColor = False
     end
     object GroupBox1: TGroupBox
       Left = 184
       Height = 56
       Top = 16
-      Width = 192
-      Caption = 'Nro Recibo'
+      Width = 296
+      Caption = 'Nro Factura'
       ClientHeight = 38
-      ClientWidth = 188
+      ClientWidth = 292
       TabOrder = 1
       object DBEdit1: TDBEdit
-        Left = 6
+        Left = 118
         Height = 24
         Top = 8
         Width = 48
         DataField = 'nroPtoVenta'
-        DataSource = ds_recibos
         CharCase = ecNormal
         MaxLength = 0
         TabOrder = 0
       end
       object DBEdit2: TDBEdit
-        Left = 70
+        Left = 182
         Height = 24
         Top = 8
         Width = 104
         DataField = 'nroRecibo'
-        DataSource = ds_recibos
         CharCase = ecNormal
         MaxLength = 0
         TabOrder = 1
       end
+      object cbTipoFactura: TComboBox
+        Left = 6
+        Height = 24
+        Top = 8
+        Width = 100
+        ItemHeight = 16
+        Style = csDropDownList
+        TabOrder = 2
+      end
     end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 88
+    Top = 88
+    Width = 663
+    Align = alTop
+    ClientHeight = 88
+    ClientWidth = 663
+    TabOrder = 1
     object GroupBox2: TGroupBox
       Left = 8
       Height = 72
-      Top = 74
-      Width = 689
+      Top = 8
+      Width = 640
       Anchors = [akTop, akLeft, akRight]
       Caption = 'Cliente'
       ClientHeight = 54
-      ClientWidth = 685
-      TabOrder = 2
+      ClientWidth = 636
+      TabOrder = 0
       object btnClientesBuscar: TBitBtn
         Left = 6
         Height = 30
@@ -178,14 +201,14 @@ object frmRecibosAE: TfrmRecibosAE
         Left = 94
         Height = 24
         Top = 12
-        Width = 496
+        Width = 447
         Anchors = [akTop, akLeft, akRight]
         Color = clMoneyGreen
         TabOrder = 1
         Text = 'edCliente'
       end
       object btnClientesAgregar: TBitBtn
-        Left = 598
+        Left = 549
         Height = 30
         Top = 8
         Width = 83
@@ -231,254 +254,215 @@ object frmRecibosAE: TfrmRecibosAE
         TabOrder = 2
       end
     end
-    object Label1: TLabel
-      Left = 32
-      Height = 17
-      Top = 16
-      Width = 37
-      Caption = 'Fecha'
-      ParentColor = False
-    end
-    object Panel3: TPanel
-      Left = 1
-      Height = 155
-      Top = 144
-      Width = 708
-      Align = alBottom
-      Caption = 'Panel3'
-      ClientHeight = 155
-      ClientWidth = 708
-      TabOrder = 3
-      object Panel4: TPanel
-        Left = 367
-        Height = 153
-        Top = 1
-        Width = 340
-        Align = alRight
-        ClientHeight = 153
-        ClientWidth = 340
-        TabOrder = 0
-        object StaticText3: TStaticText
-          Left = 1
-          Height = 17
-          Top = 1
-          Width = 338
-          Align = alTop
-          Caption = '   Facturas'
-          TabOrder = 0
-        end
-        object Panel6: TPanel
-          Left = 264
-          Height = 134
-          Top = 18
-          Width = 75
-          Align = alRight
-          ClientHeight = 134
-          ClientWidth = 75
-          TabOrder = 1
-          object BitBtn2: TBitBtn
-            Left = 4
-            Height = 30
-            Top = 13
-            Width = 67
-            Caption = 'Vincular'
-            TabOrder = 0
-          end
-          object BitBtn3: TBitBtn
-            Left = 4
-            Height = 30
-            Top = 53
-            Width = 67
-            Caption = 'Quitar'
-            TabOrder = 1
-          end
-        end
-        object DBGrid2: TDBGrid
-          Left = 1
-          Height = 134
-          Top = 18
-          Width = 263
-          Align = alClient
-          Color = clWindow
-          Columns = <>
-          TabOrder = 2
-          TitleFont.CharSet = ANSI_CHARSET
-          TitleFont.Color = clBlack
-          TitleFont.Height = -13
-          TitleFont.Name = 'Arial'
-          TitleFont.Pitch = fpVariable
-          TitleFont.Quality = fqDraft
-        end
-      end
-      object Panel5: TPanel
-        Left = 1
-        Height = 153
-        Top = 1
-        Width = 361
-        Align = alClient
-        Caption = 'Panel5'
-        ClientHeight = 153
-        ClientWidth = 361
-        TabOrder = 1
-        object StaticText2: TStaticText
-          Left = 1
-          Height = 17
-          Top = 1
-          Width = 359
-          Align = alTop
-          Caption = '   Detalles'
-          TabOrder = 0
-        end
-        object DBMemo1: TDBMemo
-          Left = 1
-          Height = 134
-          Top = 18
-          Width = 359
-          Align = alClient
-          DataField = 'Detalle'
-          DataSource = ds_recibos
-          TabOrder = 1
-        end
-      end
-      object Splitter1: TSplitter
-        Left = 362
-        Height = 153
-        Top = 1
-        Width = 5
-        Align = alRight
-        ResizeAnchor = akRight
-      end
-    end
-    object DBText1: TDBText
-      Left = 693
-      Height = 1
-      Top = 40
-      Width = 1
-      Alignment = taRightJustify
-      Anchors = [akTop, akRight]
-      DataField = 'lxEstado'
-      DataSource = ds_recibos
-      Font.CharSet = ANSI_CHARSET
-      Font.Color = clBlue
-      Font.Height = -16
-      Font.Name = 'Arial'
-      Font.Pitch = fpVariable
-      Font.Quality = fqDraft
-      Font.Style = [fsBold, fsItalic]
-      ParentColor = False
-      ParentFont = False
-    end
   end
-  object Panel2: TPanel
+  object Panel3: TPanel
     Left = 0
-    Height = 48
-    Top = 506
-    Width = 710
-    Align = alBottom
-    ClientHeight = 48
-    ClientWidth = 710
-    TabOrder = 1
-    object BitBtn4: TBitBtn
-      Left = 16
-      Height = 34
-      Top = 6
-      Width = 130
-      Caption = 'Grabar y salir'
-      Glyph.Data = {
-        36040000424D3604000000000000360000002800000010000000100000000100
-        2000000000000004000064000000640000000000000000000000BA6A368FB969
-        35B5B86935EEB76835FFB56835FFB46734FFB26634FFB06533FFAE6433FFAC63
-        32FFAA6232FFA96132FFA86031FFA76031FEA66031F1A86131C4BA6A35DEEBC6
-        ADFFEAC5ADFFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFB
-        F8FFFEFBF8FFFEFBF8FFFEFBF8FFC89A7CFFC79879FFA76031EDBA6B37FEEDCA
-        B3FFE0A27AFFFEFAF7FF62C088FF62C088FF62C088FF62C088FF62C088FF62C0
-        88FF62C088FF62C088FFFDF9F6FFCA8D65FFC99B7CFFA76031FEBB6C38FFEECC
-        B6FFE1A27AFFFEFAF7FFBFDCC2FFBFDCC2FFBFDCC2FFBFDCC2FFBFDCC2FFBFDC
-        C2FFBFDCC2FFBFDCC2FFFDF9F6FFCD9068FFCC9E81FFA86132FFBB6B38FFEFCE
-        B8FFE1A279FFFEFAF7FF62C088FF62C088FF62C088FF62C088FF62C088FF62C0
-        88FF62C088FF62C088FFFDF9F6FFCF936AFFCEA384FFAA6132FFBA6A36FFEFD0
-        BBFFE2A27AFFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFB
-        F8FFFEFBF8FFFEFBF8FFFEFBF8FFD3966DFFD2A78AFFAB6232FFBB6A36FFF0D2
-        BEFFE2A37AFFE2A37AFFE1A37AFFE2A37BFFE1A37BFFE0A178FFDE9F77FFDD9F
-        76FFDC9D74FFD99B72FFD89971FFD69970FFD5AB8EFFAD6333FFBB6A36FFF2D5
-        C2FFE3A37AFFE3A37AFFE2A37BFFE2A37BFFE2A47BFFE1A279FFE0A178FFDEA0
-        77FFDE9E75FFDC9D74FFDA9B73FFD99B73FFDAB095FFAF6433FFBB6A36FFF2D8
-        C5FFE3A47BFFE3A37AFFE3A47AFFE2A47BFFE2A37BFFE1A37BFFE1A279FFDFA0
-        77FFDE9F76FFDD9E74FFDB9C72FFDC9D74FFDDB59AFFB16534FFBB6B36FFF4D9
-        C7FFE6A67DFFC88C64FFC98D65FFC98E67FFCB926CFFCB926DFFCA9069FFC88C
-        65FFC88C64FFC88C64FFC88C64FFDA9C74FFE1BA9FFFB36634FFBB6B36FEF4DC
-        C9FFE7A77DFFF9ECE1FFF9ECE1FFF9EDE3FFFCF4EEFFFDFAF7FFFDF7F3FFFAED
-        E5FFF7E7DBFFF7E5D9FFF6E5D8FFDEA077FFE4BEA4FFB46734FFBC6B36FAF5DD
-        CCFFE7A87EFFFAF0E8FFFAF0E8FFC98D66FFFAF0E9FFFDF8F3FFFEFAF8FFFCF4
-        EFFFF9E9DFFFF7E7DBFFF7E5D9FFE0A278FFE7C2A9FFB66835FFBC6B36F0F6DF
-        D0FFE8A87EFFFCF6F1FFFCF6F1FFC88C64FFFAF1E9FFFBF4EEFFFDFAF7FFFDF9
-        F6FFFAF0E8FFF8E8DDFFF7E6DBFFE1A37AFFEFD5C3FFB76935FEBC6B36D8F6DF
-        D1FFE9AA80FFFEFAF6FFFDFAF6FFC88C64FFFBF3EEFFFBF1EAFFFCF6F2FFFEFB
-        F8FFFCF6F1FFF9ECE2FFF8E7DBFFEED0BAFFECD0BDFFBB703EF8BC6B369BF6E0
-        D1FFF7E0D1FFFEFBF8FFFEFBF7FFFDF9F6FFFCF5F0FFFAF0EAFFFBF2EDFFFDF9
-        F6FFFDFAF7FFFBF1EBFFF8E9DFFEECD0BDFBC9895EECB5693563BC6B3671BC6B
-        3690BC6B36CCBC6B36EEBC6B36FABB6B36FEBB6B36FFBB6A36FFBB6A36FFBC6C
-        39FFBD6E3BFFBB6D3AFFBB6B38EFBB703ECBB6693554FFFFFF00
-      }
-      OnClick = BitBtn4Click
-      TabOrder = 0
-    end
-  end
-  object DBGrid1: TDBGrid
-    Left = 0
-    Height = 189
-    Top = 317
-    Width = 600
+    Height = 211
+    Top = 176
+    Width = 663
     Align = alClient
-    Color = clWindow
-    Columns = <>
+    ClientHeight = 211
+    ClientWidth = 663
     TabOrder = 2
-    TitleFont.CharSet = ANSI_CHARSET
-    TitleFont.Color = clBlack
-    TitleFont.Height = -13
-    TitleFont.Name = 'Arial'
-    TitleFont.Pitch = fpVariable
-    TitleFont.Quality = fqDraft
+    object Panel6: TPanel
+      Left = 1
+      Height = 209
+      Top = 1
+      Width = 359
+      Align = alClient
+      ClientHeight = 209
+      ClientWidth = 359
+      TabOrder = 0
+      object StaticText1: TStaticText
+        Left = 1
+        Height = 17
+        Top = 1
+        Width = 357
+        Align = alTop
+        Caption = '   Recibos'
+        TabOrder = 0
+      end
+      object Panel8: TPanel
+        Left = 283
+        Height = 190
+        Top = 18
+        Width = 75
+        Align = alRight
+        ClientHeight = 190
+        ClientWidth = 75
+        TabOrder = 1
+        object BitBtn2: TBitBtn
+          Left = 4
+          Height = 30
+          Top = 56
+          Width = 67
+          Caption = 'Vincular'
+          TabOrder = 0
+        end
+        object BitBtn3: TBitBtn
+          Left = 4
+          Height = 30
+          Top = 96
+          Width = 67
+          Caption = 'Quitar'
+          TabOrder = 1
+        end
+      end
+      object DBGrid2: TDBGrid
+        Left = 1
+        Height = 190
+        Top = 18
+        Width = 282
+        Align = alClient
+        Color = clWindow
+        Columns = <>
+        TabOrder = 2
+        TitleFont.CharSet = ANSI_CHARSET
+        TitleFont.Color = clBlack
+        TitleFont.Height = -13
+        TitleFont.Name = 'Arial'
+        TitleFont.Pitch = fpVariable
+        TitleFont.Quality = fqDraft
+      end
+    end
+    object Panel7: TPanel
+      Left = 365
+      Height = 209
+      Top = 1
+      Width = 297
+      Align = alRight
+      ClientHeight = 209
+      ClientWidth = 297
+      TabOrder = 1
+      object StaticText2: TStaticText
+        Left = 1
+        Height = 17
+        Top = 1
+        Width = 295
+        Align = alTop
+        Caption = '   Remitos'
+        TabOrder = 0
+      end
+      object Panel9: TPanel
+        Left = 221
+        Height = 190
+        Top = 18
+        Width = 75
+        Align = alRight
+        ClientHeight = 190
+        ClientWidth = 75
+        TabOrder = 1
+        object BitBtn4: TBitBtn
+          Left = 4
+          Height = 30
+          Top = 56
+          Width = 67
+          Caption = 'Vincular'
+          TabOrder = 0
+        end
+        object BitBtn5: TBitBtn
+          Left = 4
+          Height = 30
+          Top = 96
+          Width = 67
+          Caption = 'Quitar'
+          TabOrder = 1
+        end
+      end
+      object DBGrid3: TDBGrid
+        Left = 1
+        Height = 190
+        Top = 18
+        Width = 220
+        Align = alClient
+        Color = clWindow
+        Columns = <>
+        TabOrder = 2
+        TitleFont.CharSet = ANSI_CHARSET
+        TitleFont.Color = clBlack
+        TitleFont.Height = -13
+        TitleFont.Name = 'Arial'
+        TitleFont.Pitch = fpVariable
+        TitleFont.Quality = fqDraft
+      end
+    end
+    object Splitter1: TSplitter
+      Left = 360
+      Height = 209
+      Top = 1
+      Width = 5
+      Align = alRight
+      ResizeAnchor = akRight
+    end
   end
-  object StaticText1: TStaticText
+  object Panel4: TPanel
     Left = 0
-    Height = 17
-    Top = 300
-    Width = 710
-    Align = alTop
-    Caption = '   Medios de cobro'
+    Height = 222
+    Top = 387
+    Width = 663
+    Align = alBottom
+    ClientHeight = 222
+    ClientWidth = 663
     TabOrder = 3
-  end
-  object Panel7: TPanel
-    Left = 600
-    Height = 189
-    Top = 317
-    Width = 110
-    Align = alRight
-    ClientHeight = 189
-    ClientWidth = 110
-    TabOrder = 4
-    object btnAgregarCobro: TBitBtn
-      Left = 8
-      Height = 30
-      Top = 43
-      Width = 95
-      Caption = 'Agregar'
+    object StaticText3: TStaticText
+      Left = 1
+      Height = 17
+      Top = 1
+      Width = 661
+      Align = alTop
+      Caption = '   Items'
       TabOrder = 0
     end
-    object btnQuitarCobro: TBitBtn
-      Left = 8
-      Height = 30
-      Top = 123
-      Width = 95
-      Anchors = [akLeft, akBottom]
-      Caption = 'Quitar'
+    object Panel10: TPanel
+      Left = 552
+      Height = 203
+      Top = 18
+      Width = 110
+      Align = alRight
+      ClientHeight = 203
+      ClientWidth = 110
       TabOrder = 1
+      object btnAgregarCobro: TBitBtn
+        Left = 8
+        Height = 30
+        Top = 43
+        Width = 95
+        Caption = 'Agregar'
+        TabOrder = 0
+      end
+      object btnQuitarCobro: TBitBtn
+        Left = 8
+        Height = 30
+        Top = 137
+        Width = 95
+        Anchors = [akLeft, akBottom]
+        Caption = 'Quitar'
+        TabOrder = 1
+      end
+    end
+    object DBGrid1: TDBGrid
+      Left = 1
+      Height = 203
+      Top = 18
+      Width = 551
+      Align = alClient
+      Color = clWindow
+      Columns = <>
+      TabOrder = 2
+      TitleFont.CharSet = ANSI_CHARSET
+      TitleFont.Color = clBlack
+      TitleFont.Height = -13
+      TitleFont.Name = 'Arial'
+      TitleFont.Pitch = fpVariable
+      TitleFont.Quality = fqDraft
     end
   end
-  object ds_recibos: TDatasource
-    DataSet = DM_Recibos.Recibos
-    left = 136
-    top = 352
+  object Panel5: TPanel
+    Left = 0
+    Height = 50
+    Top = 609
+    Width = 663
+    Align = alBottom
+    TabOrder = 4
   end
 end

@@ -23,6 +23,7 @@ type
     DBGrid1: TDBGrid;
     Panel1: TPanel;
     Panel2: TPanel;
+    procedure btnAceptarClick(Sender: TObject);
     procedure btnNuevoClick(Sender: TObject);
     procedure DBGrid1TitleClick(Column: TColumn);
     procedure FormShow(Sender: TObject);
@@ -53,6 +54,11 @@ end;
 procedure TfrmRecibosListado.btnNuevoClick(Sender: TObject);
 begin
   PantallaRecibo(GUIDNULO);
+end;
+
+procedure TfrmRecibosListado.btnAceptarClick(Sender: TObject);
+begin
+  ModalResult:= mrOK;
 end;
 
 procedure TfrmRecibosListado.FormShow(Sender: TObject);

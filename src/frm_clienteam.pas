@@ -188,7 +188,7 @@ type
     procedure contactoCliente (refContacto: GUID_ID);
   public
     property operacion: TOperacion write _operacion;
-    property cliente: GUID_ID write _idCliente;
+    property cliente: GUID_ID read _idCliente write _idCliente;
   end; 
 
 var
@@ -217,7 +217,7 @@ begin
   case _operacion of
    nuevo:
    begin
-    DM_Clientes.ClienteNuevo;
+    _idCliente := DM_Clientes.ClienteNuevo;
     DM_Equipos.Reinicializar;
     //DM_Equipos.LevantarEquiposCliente(EmptyStr);
    end;

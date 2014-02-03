@@ -468,6 +468,7 @@ object frmPrincipal: TfrmPrincipal
       Category = 'Ingresos'
       Caption = 'Facturas'
       Hint = 'Facturas emitidas'
+      OnExecute = ingFacturasExecute
     end
   end
   object XMLPropiedades: TXMLPropStorage

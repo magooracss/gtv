@@ -30,7 +30,8 @@ uses
   frm_egresosvariosae, frm_egresoae, frm_asignarpagofactura
   ,sysutils, frm_clientecontacto, dmcompensaciones, frm_compensaciones,
 frm_configuraciones, frm_ingresoslistado, dmingresos, frm_ingresosae, 
-frm_reciboslistado, dmrecibos, frm_reciboae;
+frm_reciboslistado, dmrecibos, frm_reciboae, frm_facturaae, dmfacturas, 
+frm_facturaslistado;
 
 {$R *.res}
 

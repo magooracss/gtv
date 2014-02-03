@@ -125,6 +125,7 @@ type
     procedure cliModificarExecute(Sender: TObject);
     procedure cliNuevoExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure ingFacturasExecute(Sender: TObject);
     procedure ingIngresosExecute(Sender: TObject);
     procedure ingRecibosExecute(Sender: TObject);
     procedure OTPantGralClienteExecute(Sender: TObject);
@@ -175,6 +176,7 @@ uses
   ,frm_configuraciones
   ,frm_ingresoslistado
   ,frm_reciboslistado
+  ,frm_facturaslistado
   ;
 
 { TfrmPrincipal }
@@ -202,6 +204,7 @@ procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
   Inicializar;
 end;
+
 
 procedure TfrmPrincipal.appSalirExecute(Sender: TObject);
 begin
@@ -584,6 +587,17 @@ begin
 end;
 
 
+procedure TfrmPrincipal.ingFacturasExecute(Sender: TObject);
+var
+  pant: TfrmListadoFacturas;
+begin
+  pant:= TfrmListadoFacturas.Create(self);
+  try
+    pant.ShowModal;
+  finally
+    pant.Free;
+  end;
+end;
 
 
 end.

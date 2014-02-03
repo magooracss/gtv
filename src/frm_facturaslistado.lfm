@@ -1,37 +1,97 @@
-object frmRecibosListado: TfrmRecibosListado
-  Left = 300
-  Height = 471
-  Top = 250
-  Width = 942
-  Caption = 'Recibos'
-  ClientHeight = 471
-  ClientWidth = 942
+object frmListadoFacturas: TfrmListadoFacturas
+  Left = 246
+  Height = 581
+  Top = 164
+  Width = 1001
+  Caption = 'Listado de facturas emitidas'
+  ClientHeight = 581
+  ClientWidth = 1001
   Font.CharSet = ANSI_CHARSET
   Font.Color = clBlack
   Font.Height = -13
   Font.Name = 'Arial'
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
-  OnShow = FormShow
   Position = poOwnerFormCenter
   LCLVersion = '1.0.14.0'
   object Panel1: TPanel
     Left = 0
     Height = 72
     Top = 0
-    Width = 942
+    Width = 1001
     Align = alTop
     TabOrder = 0
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 459
+    Top = 72
+    Width = 1001
+    Align = alClient
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Fecha'
+        Width = 120
+        FieldName = 'FECHA'
+        DisplayFormat = 'dd/mm/yyyy'
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Pto Venta'
+        Width = 66
+        FieldName = 'NROPTOVENTA'
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Recibo'
+        Width = 120
+        FieldName = 'NRORECIBO'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Cliente'
+        Width = 294
+        FieldName = 'CNOMBRE'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Detalle'
+        Width = 294
+        FieldName = 'DETALLE'
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Estado'
+        Width = 102
+        FieldName = 'ESTADO'
+      end>
+    FixedCols = 0
+    Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    Scrollbars = ssAutoVertical
+    TabOrder = 1
+    TitleFont.CharSet = ANSI_CHARSET
+    TitleFont.Color = clBlack
+    TitleFont.Height = -13
+    TitleFont.Name = 'Arial'
+    TitleFont.Pitch = fpVariable
+    TitleFont.Quality = fqDraft
   end
   object Panel2: TPanel
     Left = 0
     Height = 50
-    Top = 421
-    Width = 942
+    Top = 531
+    Width = 1001
     Align = alBottom
     ClientHeight = 50
-    ClientWidth = 942
-    TabOrder = 1
+    ClientWidth = 1001
+    TabOrder = 2
     object btnAceptar: TBitBtn
       Left = 13
       Height = 30
@@ -78,7 +138,7 @@ object frmRecibosListado: TfrmRecibosListado
       TabOrder = 0
     end
     object btnNuevo: TBitBtn
-      Left = 608
+      Left = 667
       Height = 30
       Top = 10
       Width = 98
@@ -124,7 +184,7 @@ object frmRecibosListado: TfrmRecibosListado
       TabOrder = 1
     end
     object btnModificar: TBitBtn
-      Left = 719
+      Left = 778
       Height = 30
       Top = 10
       Width = 98
@@ -169,7 +229,7 @@ object frmRecibosListado: TfrmRecibosListado
       TabOrder = 2
     end
     object btnAnular: TBitBtn
-      Left = 831
+      Left = 890
       Height = 30
       Top = 10
       Width = 98
@@ -213,73 +273,5 @@ object frmRecibosListado: TfrmRecibosListado
       }
       TabOrder = 3
     end
-  end
-  object DBGrid1: TDBGrid
-    Left = 0
-    Height = 349
-    Top = 72
-    Width = 942
-    Align = alClient
-    AutoFillColumns = True
-    Color = clWindow
-    Columns = <    
-      item
-        SizePriority = 0
-        Title.Alignment = taCenter
-        Title.Caption = 'Fecha'
-        Width = 120
-        FieldName = 'FECHA'
-        DisplayFormat = 'dd/mm/yyyy'
-      end    
-      item
-        SizePriority = 0
-        Title.Alignment = taCenter
-        Title.Caption = 'Pto Venta'
-        Width = 66
-        FieldName = 'NROPTOVENTA'
-      end    
-      item
-        SizePriority = 0
-        Title.Alignment = taCenter
-        Title.Caption = 'Recibo'
-        Width = 120
-        FieldName = 'NRORECIBO'
-      end    
-      item
-        Title.Alignment = taCenter
-        Title.Caption = 'Cliente'
-        Width = 265
-        FieldName = 'CNOMBRE'
-      end    
-      item
-        Title.Alignment = taCenter
-        Title.Caption = 'Detalle'
-        Width = 265
-        FieldName = 'DETALLE'
-      end    
-      item
-        SizePriority = 0
-        Title.Alignment = taCenter
-        Title.Caption = 'Estado'
-        Width = 102
-        FieldName = 'ESTADO'
-      end>
-    DataSource = ds_recibos
-    FixedCols = 0
-    Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
-    Scrollbars = ssAutoVertical
-    TabOrder = 2
-    TitleFont.CharSet = ANSI_CHARSET
-    TitleFont.Color = clBlack
-    TitleFont.Height = -13
-    TitleFont.Name = 'Arial'
-    TitleFont.Pitch = fpVariable
-    TitleFont.Quality = fqDraft
-    OnTitleClick = DBGrid1TitleClick
-  end
-  object ds_recibos: TDatasource
-    DataSet = DM_Recibos.qListaRecibos
-    left = 251
-    top = 179
   end
 end

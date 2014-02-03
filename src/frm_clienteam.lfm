@@ -1,7 +1,7 @@
 object frm_ClientesAM: Tfrm_ClientesAM
-  Left = 205
+  Left = 199
   Height = 662
-  Top = 109
+  Top = 113
   Width = 974
   Caption = 'Datos del cliente'
   ClientHeight = 662
@@ -17,7 +17,7 @@ object frm_ClientesAM: Tfrm_ClientesAM
   Position = poScreenCenter
   SessionProperties = 'Top;Left;Height;Width'
   ShowHint = True
-  LCLVersion = '1.0.2.0'
+  LCLVersion = '1.0.14.0'
   object PCPantalla: TPageControl
     Left = 0
     Height = 621
