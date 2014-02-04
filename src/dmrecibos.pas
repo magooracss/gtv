@@ -17,7 +17,16 @@ type
   { TDM_Recibos }
 
   TDM_Recibos = class(TDataModule)
+    qItemsReciboBANCO_ID: TLongintField;
+    qItemsReciboCHEQUE_ID: TStringField;
+    qItemsReciboCUENTA_ID: TLongintField;
+    qItemsReciboFORMACOBRO: TStringField;
+    qItemsReciboFORMACOBRO_ID: TLongintField;
+    qItemsReciboID: TStringField;
+    qItemsReciboMONTO: TFloatField;
+    qItemsReciboRECIBO_ID: TStringField;
     qListaRecibos: TZQuery;
+    qItemsRecibo: TZQuery;
     qListaRecibosBVISIBLE: TSmallintField;
     qListaRecibosBVISIBLE_1: TSmallintField;
     qListaRecibosCCODIGO: TStringField;
@@ -55,16 +64,36 @@ type
     qListaRecibosREFLOCALIDAD: TLongintField;
     qListaRecibosREFRESPTECNICO: TStringField;
     qListaRecibosUNIDADFUNCIONAL: TLongintField;
+    ReciboItemsbanco_id: TLongintField;
+    ReciboItemscheque_id: TStringField;
+    ReciboItemscuenta_id: TLongintField;
+    ReciboItemsformaCobro: TStringField;
+    ReciboItemsformaCobro_id: TLongintField;
+    ReciboItemsid: TStringField;
+    ReciboItemsmonto: TFloatField;
+    ReciboItemsrecibo_id: TStringField;
+    ReciboItemsSELBANCO_ID: TLongintField;
+    ReciboItemsSELCHEQUE_ID: TStringField;
+    ReciboItemsSELCUENTA_ID: TLongintField;
+    ReciboItemsSELFORMACOBRO: TStringField;
+    ReciboItemsSELFORMACOBRO_ID: TLongintField;
+    ReciboItemsSELID: TStringField;
+    ReciboItemsSELMONTO: TFloatField;
+    ReciboItemsSELRECIBO_ID: TStringField;
     Recibos: TRxMemoryData;
+    ReciboItems: TRxMemoryData;
     RecibosclienteEmpresa_id: TStringField;
     RecibosDetalle: TStringField;
     Recibosestado_id: TLongintField;
     RecibosfAnulacion: TDateTimeField;
     RecibosFecha: TDateTimeField;
     Recibosid: TStringField;
+    ReciboItemsINS: TZQuery;
     ReciboslxEstado: TStringField;
     RecibosnroPtoVenta: TLongintField;
     RecibosnroRecibo: TLongintField;
+    ReciboItemsSEL: TZQuery;
+    ReciboItemsUPD: TZQuery;
     tbReclamosDEL: TZQuery;
     RecibosINS: TZQuery;
     RecibosSEL: TZQuery;
@@ -78,6 +107,8 @@ type
     RecibosSELNROPTOVENTA: TLongintField;
     RecibosSELNRORECIBO: TLongintField;
     RecibosUPD: TZQuery;
+    ReciboItemsDEL: TZQuery;
+    procedure ReciboItemsAfterInsert(DataSet: TDataSet);
     procedure RecibosAfterInsert(DataSet: TDataSet);
   private
     { private declarations }
@@ -87,6 +118,7 @@ type
     procedure CargarCliente (idCliente: GUID_ID);
 
     procedure NuevoRecibo;
+
   end;
 
 var
@@ -110,6 +142,21 @@ begin
     FieldByName('detalle').asString:= EmptyStr;
     FieldByName('fAnulacion').AsDateTime:= Now;
     FieldByName('estado_id').asInteger:= ESTAD0_SIN_FACTURAR;
+  end;
+end;
+
+procedure TDM_Recibos.ReciboItemsAfterInsert(DataSet: TDataSet);
+begin
+  with DataSet do
+  begin
+    FieldByName('id').asString:= DM_General.CrearGUID;
+    FieldByName('formaCobro_id').asInteger:= 0;
+    FieldByName('banco_id').asInteger:= 0;
+    FieldByName('cheque_id').AsString:= GUIDNULO;
+    FieldByName('formaCobro').AsString:= EmptyStr;
+    FieldByName('monto').AsFloat:= 0;
+    FieldByName('recibo_id').AsString:= Recibosid.AsString;
+    FieldByName('cuenta_id').asInteger:= 0;
   end;
 end;
 

@@ -904,12 +904,607 @@ object DM_Recibos: TDM_Recibos
         ParamType = ptUnknown
       end>
     left = 120
-    top = 296
+    top = 384
     ParamData = <    
       item
         DataType = ftUnknown
         Name = 'idReclamo'
         ParamType = ptUnknown
       end>
+  end
+  object ReciboItems: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'formaCobro_id'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'banco_id'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'cheque_id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'formaCobro'
+        DataType = ftString
+        Precision = 0
+        Size = 200
+      end    
+      item
+        Name = 'monto'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'recibo_id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'cuenta_id'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = ReciboItemsAfterInsert
+    PacketRecords = 0
+    left = 208
+    top = 32
+    object ReciboItemsid: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object ReciboItemsformaCobro_id: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'formaCobro_id'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ReciboItemsbanco_id: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'banco_id'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ReciboItemscheque_id: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'cheque_id'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object ReciboItemsformaCobro: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'formaCobro'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object ReciboItemsmonto: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'monto'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object ReciboItemsrecibo_id: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'recibo_id'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object ReciboItemscuenta_id: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'cuenta_id'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object ReciboItemsSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    Active = True
+    SQL.Strings = (
+      'SELECT ReciboItems.*'
+      'FROM ReciboItems'
+      'WHERE id = :id'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    left = 208
+    top = 112
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    object ReciboItemsSELID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object ReciboItemsSELFORMACOBRO_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FORMACOBRO_ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ReciboItemsSELBANCO_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BANCO_ID'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ReciboItemsSELCHEQUE_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'CHEQUE_ID'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object ReciboItemsSELFORMACOBRO: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'FORMACOBRO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object ReciboItemsSELMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object ReciboItemsSELRECIBO_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'RECIBO_ID'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object ReciboItemsSELCUENTA_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CUENTA_ID'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object ReciboItemsINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO ReciboItems'
+      '('
+      '  ID'
+      ', FORMACOBRO_ID'
+      ', BANCO_ID'
+      ', CHEQUE_ID'
+      ', FORMACOBRO'
+      ', MONTO'
+      ', RECIBO_ID'
+      ', CUENTA_ID'
+      ')'
+      'VALUES'
+      '('
+      '  :ID'
+      ', :FORMACOBRO_ID'
+      ', :BANCO_ID'
+      ', :CHEQUE_ID'
+      ', :FORMACOBRO'
+      ', :MONTO'
+      ', :RECIBO_ID'
+      ', :CUENTA_ID'
+      ')'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FORMACOBRO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BANCO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CHEQUE_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FORMACOBRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'MONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'RECIBO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUENTA_ID'
+        ParamType = ptUnknown
+      end>
+    left = 208
+    top = 176
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FORMACOBRO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BANCO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CHEQUE_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FORMACOBRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'MONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'RECIBO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUENTA_ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object ReciboItemsUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE  ReciboItems'
+      'SET '
+      '  FORMACOBRO_ID = :FORMACOBRO_ID'
+      ', BANCO_ID = :BANCO_ID'
+      ', CHEQUE_ID = :CHEQUE_ID'
+      ', FORMACOBRO = :FORMACOBRO'
+      ', MONTO = :MONTO'
+      ', RECIBO_ID = :RECIBO_ID'
+      ', CUENTA_ID = :CUENTA_ID'
+      'WHERE ID = :ID'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'FORMACOBRO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BANCO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CHEQUE_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FORMACOBRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'MONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'RECIBO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUENTA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end>
+    left = 208
+    top = 240
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'FORMACOBRO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BANCO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CHEQUE_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FORMACOBRO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'MONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'RECIBO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUENTA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object ReciboItemsDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM ReciboItems'
+      'WHERE ID = :ID'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end>
+    left = 208
+    top = 296
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object qItemsRecibo: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT RI.*'
+      'FROM ReciboItems RI'
+      'WHERE RI.recibo_id = :recibo_id'
+      ''
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'recibo_id'
+        ParamType = ptUnknown
+      end>
+    left = 32
+    top = 136
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'recibo_id'
+        ParamType = ptUnknown
+      end>
+    object qItemsReciboID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qItemsReciboFORMACOBRO_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FORMACOBRO_ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qItemsReciboBANCO_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BANCO_ID'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qItemsReciboCHEQUE_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'CHEQUE_ID'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qItemsReciboFORMACOBRO: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'FORMACOBRO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object qItemsReciboMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qItemsReciboRECIBO_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'RECIBO_ID'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qItemsReciboCUENTA_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CUENTA_ID'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
 end
