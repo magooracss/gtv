@@ -1057,7 +1057,6 @@ object DM_Recibos: TDM_Recibos
   end
   object ReciboItemsSEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
-    Active = True
     SQL.Strings = (
       'SELECT ReciboItems.*'
       'FROM ReciboItems'

@@ -72,7 +72,7 @@ uses
 
 procedure TfrmRecibosAE.BitBtn4Click(Sender: TObject);
 begin
-
+  DM_Recibos.Grabar;
   ModalResult:= mrOK;
 end;
 
@@ -116,7 +116,7 @@ begin
     DM_Recibos.NuevoRecibo
   else
   begin
-
+    DM_Recibos.LevantarReciboID (idRecibo);
   end;
 end;
 

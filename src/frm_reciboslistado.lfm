@@ -166,6 +166,7 @@ object frmRecibosListado: TfrmRecibosListado
         D4FFD2D2D2FFD1D1D1FFD0D0D0FFCECECEFFCDCDCDFFCBCBCB15FFFFFF00FFFF
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
+      OnClick = btnModificarClick
       TabOrder = 2
     end
     object btnAnular: TBitBtn

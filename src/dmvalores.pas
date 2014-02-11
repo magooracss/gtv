@@ -24,8 +24,14 @@ type
     BancoPorIDBANCO: TStringField;
     BancoPorIDBVISIBLE: TSmallintField;
     BancoPorIDIDBANCO: TLongintField;
+    qAgrupamientoCobro: TZQuery;
     qAgrupamientoAGRUPAMIENTO: TLongintField;
     qAgrupamientoBVISIBLE: TSmallintField;
+    qAgrupamientoCobroAGRUPAMIENTO: TLongintField;
+    qAgrupamientoCobroBVISIBLE: TSmallintField;
+    qAgrupamientoCobroFORMACOBRO: TStringField;
+    qAgrupamientoCobroIDFORMACOBRO: TLongintField;
+    qAgrupamientoCobroREFCUENTA: TLongintField;
     qAgrupamientoFORMAPAGO: TStringField;
     qAgrupamientoIDFORMAPAGO: TLongintField;
     qAgrupamientoREFCUENTA: TLongintField;
@@ -48,22 +54,39 @@ type
     tugBancosBANCO: TStringField;
     tugBancosBVISIBLE: TSmallintField;
     tugBancosIDBANCO: TLongintField;
+    tugFormaCobroPorIDAGRUPAMIENTO: TLongintField;
+    tugFormaCobroPorIDBVISIBLE: TSmallintField;
+    tugFormaCobroPorIDFORMACOBRO: TStringField;
+    tugFormaCobroPorIDIDFORMACOBRO: TLongintField;
+    tugFormaCobroPorIDREFCUENTA: TLongintField;
     tugFormaPagoPorID: TZQuery;
     qChequePorID: TZQuery;
+    tugFormaCobroPorID: TZQuery;
     tugFormaPagoPorIDAGRUPAMIENTO: TLongintField;
     tugFormaPagoPorIDBVISIBLE: TSmallintField;
     tugFormaPagoPorIDFORMAPAGO: TStringField;
     tugFormaPagoPorIDIDFORMAPAGO: TLongintField;
     tugFormaPagoPorIDREFCUENTA: TLongintField;
+    tugFormasCobroAGRUPAMIENTO: TLongintField;
+    tugFormasCobroBVISIBLE: TSmallintField;
+    tugFormasCobroFORMACOBRO: TStringField;
+    tugFormasCobroIDFORMACOBRO: TLongintField;
+    tugFormasCobroREFCUENTA: TLongintField;
     tugFormasPago: TZQuery;
     qAgrupamiento: TZQuery;
     tugBancos: TZQuery;
+    tugFormasCobro: TZQuery;
   private
     { private declarations }
   public
     function Agrupamiento (refFormaPago: integer): integer;
+    function AgrupamientoCobro (refFormaCobro: integer): integer;
+
 
     function FormaPago (refFormaPago: integer): string;
+    function FormaCobro (refFormaCobro: integer): string;
+
+
     procedure DatosCheque (idCheque: GUID_ID; var monto: double; var Banco, NroCheque: string; var idBanco: integer);
     function NroCheque (idCheque: GUID_ID): string;
     function Banco (refBanco: integer; refCheque: String):string;
@@ -92,6 +115,20 @@ begin
   end;
 end;
 
+function TDM_Valores.AgrupamientoCobro(refFormaCobro: integer): integer;
+begin
+  with qAgrupamientoCobro do
+  begin
+    if active then close;
+    ParamByName('idFormaCobro').asInteger:= refFormaCobro;
+    Open;
+    if RecordCount > 0 then
+      Result:= FieldByName('Agrupamiento').asInteger
+    else
+      Result:= 0;
+  end;
+end;
+
 function TDM_Valores.FormaPago(refFormaPago: integer): string;
 begin
   with tugFormaPagoPorID do
@@ -104,6 +141,21 @@ begin
     else
       Result:= EmptyStr;
   end;
+end;
+
+function TDM_Valores.FormaCobro(refFormaCobro: integer): string;
+begin
+  with tugFormaCoborPorID do
+  begin
+    if Active then close;
+    ParamByName('idFormaCobro').asInteger:= refFormaCobro;
+    Open;
+    if RecordCount > 0 then
+      Result:= FieldByName('FormaCobro').asString
+    else
+      Result:= EmptyStr;
+  end;
+
 end;
 
 

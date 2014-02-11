@@ -114,10 +114,16 @@ type
     { private declarations }
   public
     procedure LevantarRecibos;
+    function ListadoRecibosSel: GUID_ID;
 
     procedure CargarCliente (idCliente: GUID_ID);
 
     procedure NuevoRecibo;
+    procedure LevantarReciboID (idRecibo: GUID_ID);
+
+    procedure RecargarItems (idRecibo: GUID_ID);
+
+    procedure Grabar;
 
   end;
 
@@ -166,6 +172,17 @@ begin
   qListaRecibos.Open;
 end;
 
+function TDM_Recibos.ListadoRecibosSel: GUID_ID;
+begin
+  with qListaRecibos do
+  begin
+    if Active and (RecordCount > 0) then
+       Result:= qListaRecibosID.AsString
+    else
+       Result:= GUIDNULO;
+  end;
+end;
+
 procedure TDM_Recibos.CargarCliente(idCliente: GUID_ID);
 begin
   with Recibos do
@@ -180,6 +197,39 @@ procedure TDM_Recibos.NuevoRecibo;
 begin
   DM_General.ReiniciarTabla(Recibos);
   Recibos.Insert;
+end;
+
+procedure TDM_Recibos.LevantarReciboID(idRecibo: GUID_ID);
+begin
+  DM_General.ReiniciarTabla(Recibos);
+  with RecibosSEL do
+  begin
+    if active then close;
+    ParamByName('id').asString:= idRecibo;
+    Open;
+    Recibos.LoadFromDataSet(RecibosSEL, 0, lmAppend);
+    close;
+  end;
+
+  RecargarItems (idRecibo);
+end;
+
+procedure TDM_Recibos.RecargarItems(idRecibo: GUID_ID);
+begin
+  DM_General.ReiniciarTabla(ReciboItems);
+  with qItemsRecibo do
+  begin
+    if active then close;
+    ParamByName('recibo_id').asString:= idRecibo;
+    Open;
+    ReciboItems.LoadFromDataSet(qItemsRecibo, 0, lmAppend);
+    close;
+  end;
+end;
+
+procedure TDM_Recibos.Grabar;
+begin
+  DM_General.GrabarDatos(RecibosSEL,RecibosINS, RecibosUPD, Recibos, 'id');
 end;
 
 end.

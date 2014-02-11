@@ -1,9 +1,9 @@
 object DM_Valores: TDM_Valores
   OldCreateOrder = False
   Height = 261
-  HorizontalOffset = 315
-  VerticalOffset = 269
-  Width = 492
+  HorizontalOffset = 399
+  VerticalOffset = 263
+  Width = 799
   object tugFormasPago: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
@@ -442,6 +442,214 @@ object DM_Valores: TDM_Valores
       FieldKind = fkData
       FieldName = 'BVISIBLE'
       Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qAgrupamientoCobro: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugFormasCobro'
+      'WHERE idFormaCobro = :idFormaCobro'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idFormaCobro'
+        ParamType = ptUnknown
+      end>
+    left = 472
+    top = 97
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idFormaCobro'
+        ParamType = ptUnknown
+      end>
+    object qAgrupamientoCobroIDFORMACOBRO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDFORMACOBRO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qAgrupamientoCobroFORMACOBRO: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'FORMACOBRO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qAgrupamientoCobroBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qAgrupamientoCobroAGRUPAMIENTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'AGRUPAMIENTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qAgrupamientoCobroREFCUENTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCUENTA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object tugFormasCobro: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugFormasCobro'
+      'WHERE bVisible = 1'
+    )
+    Params = <>
+    left = 472
+    top = 32
+    object tugFormasCobroIDFORMACOBRO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDFORMACOBRO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tugFormasCobroFORMACOBRO: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'FORMACOBRO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object tugFormasCobroBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tugFormasCobroAGRUPAMIENTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'AGRUPAMIENTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tugFormasCobroREFCUENTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCUENTA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object tugFormaCobroPorID: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugFormasCobro'
+      'WHERE idFormaCobro = :idFormaCobro'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idFormaCobro'
+        ParamType = ptUnknown
+      end>
+    left = 472
+    top = 168
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idFormaCobro'
+        ParamType = ptUnknown
+      end>
+    object tugFormaCobroPorIDIDFORMACOBRO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDFORMACOBRO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tugFormaCobroPorIDFORMACOBRO: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'FORMACOBRO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object tugFormaCobroPorIDBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tugFormaCobroPorIDAGRUPAMIENTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'AGRUPAMIENTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tugFormaCobroPorIDREFCUENTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCUENTA'
+      Index = 4
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False

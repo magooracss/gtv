@@ -95,7 +95,9 @@ object frmRecibosAE: TfrmRecibosAE
         Width = 48
         DataField = 'nroPtoVenta'
         DataSource = ds_recibos
+        ReadOnly = True
         CharCase = ecNormal
+        Color = clMoneyGreen
         MaxLength = 0
         TabOrder = 0
       end
@@ -106,7 +108,9 @@ object frmRecibosAE: TfrmRecibosAE
         Width = 104
         DataField = 'nroRecibo'
         DataSource = ds_recibos
+        ReadOnly = True
         CharCase = ecNormal
+        Color = clMoneyGreen
         MaxLength = 0
         TabOrder = 1
       end
@@ -180,9 +184,9 @@ object frmRecibosAE: TfrmRecibosAE
         Top = 12
         Width = 496
         Anchors = [akTop, akLeft, akRight]
-        Color = clMoneyGreen
+        Color = clSkyBlue
         TabOrder = 1
-        Text = 'edCliente'
+        Text = 'Busque un cliente existente o cargue uno nuevo'
       end
       object btnClientesAgregar: TBitBtn
         Left = 598
@@ -258,6 +262,7 @@ object frmRecibosAE: TfrmRecibosAE
         ClientHeight = 153
         ClientWidth = 340
         TabOrder = 0
+        Visible = False
         object StaticText3: TStaticText
           Left = 1
           Height = 17

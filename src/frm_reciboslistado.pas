@@ -24,6 +24,7 @@ type
     Panel1: TPanel;
     Panel2: TPanel;
     procedure btnAceptarClick(Sender: TObject);
+    procedure btnModificarClick(Sender: TObject);
     procedure btnNuevoClick(Sender: TObject);
     procedure DBGrid1TitleClick(Column: TColumn);
     procedure FormShow(Sender: TObject);
@@ -61,6 +62,11 @@ begin
   ModalResult:= mrOK;
 end;
 
+procedure TfrmRecibosListado.btnModificarClick(Sender: TObject);
+begin
+  PantallaRecibo(DM_Recibos.ListadoRecibosSel);
+end;
+
 procedure TfrmRecibosListado.FormShow(Sender: TObject);
 begin
   DM_Recibos.LevantarRecibos;
@@ -73,7 +79,8 @@ begin
   pant:= TfrmRecibosAE.Create(self);
   try
     pant.recibo_id:= recibo_id;
-    pant.ShowModal;
+    if pant.ShowModal = mrOK then
+      DM_Recibos.LevantarRecibos;
   finally
     pant.Free;
   end;
