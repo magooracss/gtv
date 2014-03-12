@@ -262,7 +262,6 @@ object frmRecibosAE: TfrmRecibosAE
         ClientHeight = 153
         ClientWidth = 340
         TabOrder = 0
-        Visible = False
         object StaticText3: TStaticText
           Left = 1
           Height = 17
@@ -469,6 +468,7 @@ object frmRecibosAE: TfrmRecibosAE
       Top = 43
       Width = 95
       Caption = 'Agregar'
+      OnClick = btnAgregarCobroClick
       TabOrder = 0
     end
     object btnQuitarCobro: TBitBtn

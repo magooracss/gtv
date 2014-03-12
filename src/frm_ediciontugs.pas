@@ -23,6 +23,7 @@ type
     stTitulo: TStaticText;
     procedure btnBorrarClick(Sender: TObject);
     procedure btnSalirClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     _laTug: TTablaTUG;
     procedure CargarTug (value: TTablaTUG);
@@ -52,6 +53,11 @@ begin
   ModalResult:= mrOK;
 end;
 
+procedure TfrmEdicionTugs.FormShow(Sender: TObject);
+begin
+//  CargarTug(_laTug);
+end;
+
 procedure TfrmEdicionTugs.CargarTug(value: TTablaTUG);
 begin
   _laTug:= value;
@@ -68,8 +74,7 @@ begin
   laColumna.FieldName:= campo;
   laColumna.Title.Caption:= titulo;
   elCampo:= DM_EdicionTUGs.DevolverTField(campo);
-  laColumna.Field.DisplayWidth:= 100;
-  ShowMessage(campo + ': ' + IntToStr (elCampo.Size));
+  laColumna.Field.DisplayWidth:= 500;
   if elCampo.DataType in [ftFloat, ftCurrency] then
    laColumna.DisplayFormat:= '#######0.00';
 end;
@@ -79,16 +84,20 @@ procedure TfrmEdicionTugs.ConfigurarGrilla;
 var
   idx: integer;
   elCampo: TCampoTUG;
+  laColumna: TColumn;
+
+  elCampo2: TField;
 begin
   laGrilla.Columns.Clear;
   for idx:= 0 to _laTug.CantidadCampos - 1 do
   begin
     elCampo:=  _laTug.DevolverCampo(idx);
     laGrilla.Columns.Add;
-    AgregarColumna(TColumn(laGrilla.Columns[idx])
+    AgregarColumna(laGrilla.Columns[idx]
                   ,elCampo.campo
                   ,elCampo.titulo
                   );
+
   end;
 
 end;

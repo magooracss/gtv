@@ -6,7 +6,10 @@ object DM_EdicionTUGs: TDM_EdicionTUGs
   Width = 510
   object tbTabla: TZTable
     Connection = DM_Conexion.cnxGeneral
-    left = 40
-    top = 40
+    AutoCalcFields = False
+    CachedUpdates = True
+    TableName = 'TUGBANCOS'
+    left = 80
+    top = 96
   end
 end

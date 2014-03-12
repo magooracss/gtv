@@ -6,7 +6,8 @@ object frmEdicionTugs: TfrmEdicionTugs
   Caption = 'Tablas de uso general'
   ClientHeight = 381
   ClientWidth = 533
-  LCLVersion = '1.0.4.0'
+  OnShow = FormShow
+  LCLVersion = '1.2.0.3'
   object Panel1: TPanel
     Left = 0
     Height = 50

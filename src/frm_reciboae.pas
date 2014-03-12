@@ -45,6 +45,7 @@ type
     StaticText1: TStaticText;
     StaticText2: TStaticText;
     StaticText3: TStaticText;
+    procedure btnAgregarCobroClick(Sender: TObject);
     procedure btnClientesAgregarClick(Sender: TObject);
     procedure btnClientesBuscarClick(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
@@ -62,10 +63,11 @@ var
 implementation
 {$R *.lfm}
 uses
-  dmrecibos
-  ,frm_busquedaclientes
-  ,frm_clienteam
-  ,dmclientes
+    dmrecibos
+  , frm_busquedaclientes
+  , frm_clienteam
+  , dmclientes
+  , frm_cargavaloresIngreso
   ;
 
 { TfrmRecibosAE }
@@ -92,6 +94,22 @@ begin
   finally
     pant.free;
   end;
+end;
+
+procedure TfrmRecibosAE.btnAgregarCobroClick(Sender: TObject);
+var
+  pant: TfrmCargaValoresIngreso;
+begin
+  pant:= TfrmCargaValoresIngreso.Create (self);
+  try
+    if pant.ShowModal = mrOK then
+    begin
+
+    end;
+  finally
+    pant.Free;
+  end;
+
 end;
 
 procedure TfrmRecibosAE.btnClientesBuscarClick(Sender: TObject);

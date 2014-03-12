@@ -14,6 +14,11 @@ CONST
    IDX_AGRUPAMIENTO_CHEQUETERCEROS = 3;
    IDX_AGRUPAMIENTO_CHEQUEPROPIO = 4;
 
+   IDX_AGRUPAMIENTO_COBRO_EFECTIVO = 1;
+   IDX_AGRUPAMIENTO_COBRO_TRASNFERENCIA = 2;
+   IDX_AGRUPAMIENTO_COBRO_CHEQUE = 3;
+
+
 
 type
 
@@ -145,7 +150,7 @@ end;
 
 function TDM_Valores.FormaCobro(refFormaCobro: integer): string;
 begin
-  with tugFormaCoborPorID do
+  with tugFormaCobroPorID do
   begin
     if Active then close;
     ParamByName('idFormaCobro').asInteger:= refFormaCobro;
