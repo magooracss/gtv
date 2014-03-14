@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, db, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, DBGrids, Buttons, dmediciontugs
+  StdCtrls, DBGrids, Buttons, DbCtrls, ZDataset, dmediciontugs
   ;
 
 type
@@ -55,14 +55,18 @@ end;
 
 procedure TfrmEdicionTugs.FormShow(Sender: TObject);
 begin
-//  CargarTug(_laTug);
 end;
 
 procedure TfrmEdicionTugs.CargarTug(value: TTablaTUG);
+var
+  laTabla: TzTable;
 begin
   _laTug:= value;
   stTitulo.Caption:= 'Edición de la tabla: ' + _laTug.titulo;
-  DM_EdicionTUGs.LevantarTabla (_laTug.nombre);
+//  DM_EdicionTUGs.LevantarTabla (_laTug.nombre);
+  laTabla:= DM_EdicionTUGs.FindComponent(_laTug.nombre) as tzTable;
+  ds_Resultados.DataSet:= laTabla;
+  laTabla.Open;
   ConfigurarGrilla;
 end;
 
@@ -73,7 +77,8 @@ var
 begin
   laColumna.FieldName:= campo;
   laColumna.Title.Caption:= titulo;
-  elCampo:= DM_EdicionTUGs.DevolverTField(campo);
+ // elCampo:= DM_EdicionTUGs.DevolverTField(campo);
+  elCampo:= ds_Resultados.DataSet.Fields.FindField (campo);
   laColumna.Field.DisplayWidth:= 500;
   if elCampo.DataType in [ftFloat, ftCurrency] then
    laColumna.DisplayFormat:= '#######0.00';
@@ -97,7 +102,6 @@ begin
                   ,elCampo.campo
                   ,elCampo.titulo
                   );
-
   end;
 
 end;

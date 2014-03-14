@@ -1,7 +1,7 @@
 object frmCargaValores: TfrmCargaValores
-  Left = 547
+  Left = 551
   Height = 219
-  Top = 247
+  Top = 249
   Width = 389
   Caption = 'Carga de Valor'
   ClientHeight = 219
@@ -14,7 +14,7 @@ object frmCargaValores: TfrmCargaValores
   Font.Quality = fqDraft
   OnShow = FormShow
   ShowHint = True
-  LCLVersion = '1.0.4.0'
+  LCLVersion = '1.2.0.3'
   object Panel1: TPanel
     Left = 0
     Height = 50
@@ -316,7 +316,6 @@ object frmCargaValores: TfrmCargaValores
           FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
           FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
         }
-        NumGlyphs = 0
       end
       object edTransferenciaMonto: TCurrencyEdit
         Left = 105
@@ -354,9 +353,9 @@ object frmCargaValores: TfrmCargaValores
       end
       object Label4: TLabel
         Left = 32
-        Height = 17
+        Height = 16
         Top = 90
-        Width = 37
+        Width = 36
         Caption = 'Monto'
         ParentColor = False
       end
@@ -382,17 +381,17 @@ object frmCargaValores: TfrmCargaValores
       end
       object Label5: TLabel
         Left = 32
-        Height = 17
+        Height = 16
         Top = 52
-        Width = 46
+        Width = 45
         Caption = 'Número'
         ParentColor = False
       end
       object Label6: TLabel
         Left = 31
-        Height = 17
+        Height = 16
         Top = 18
-        Width = 38
+        Width = 37
         Caption = 'Banco'
         ParentColor = False
       end
@@ -419,9 +418,9 @@ object frmCargaValores: TfrmCargaValores
     end
     object Label3: TLabel
       Left = 8
-      Height = 17
+      Height = 16
       Top = 10
-      Width = 90
+      Width = 89
       Caption = 'Forma de Pago'
       ParentColor = False
     end

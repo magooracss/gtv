@@ -1,7 +1,7 @@
 object frmPrincipal: TfrmPrincipal
-  Left = 154
+  Left = 156
   Height = 656
-  Top = 91
+  Top = 92
   Width = 1198
   Caption = 'Gestión de Transportes Verticales'
   ClientHeight = 636
@@ -11,7 +11,7 @@ object frmPrincipal: TfrmPrincipal
   Position = poScreenCenter
   SessionProperties = 'Height;Left;Top;Width'
   ShowHint = True
-  LCLVersion = '1.0.14.0'
+  LCLVersion = '1.2.0.3'
   object st: TStatusBar
     Left = 0
     Height = 23

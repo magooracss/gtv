@@ -1,7 +1,7 @@
 object frmCargaValoresIngreso: TfrmCargaValoresIngreso
-  Left = 588
+  Left = 592
   Height = 256
-  Top = 240
+  Top = 242
   Width = 387
   Caption = 'Ingresos'
   ClientHeight = 256
@@ -14,7 +14,7 @@ object frmCargaValoresIngreso: TfrmCargaValoresIngreso
   Font.Quality = fqDraft
   OnShow = FormShow
   Position = poOwnerFormCenter
-  LCLVersion = '1.0.14.0'
+  LCLVersion = '1.2.0.3'
   object Panel2: TPanel
     Left = 0
     Height = 39
@@ -36,9 +36,9 @@ object frmCargaValoresIngreso: TfrmCargaValoresIngreso
     end
     object Label3: TLabel
       Left = 8
-      Height = 17
+      Height = 16
       Top = 10
-      Width = 94
+      Width = 93
       Caption = 'Forma de Cobro'
       ParentColor = False
     end
@@ -343,7 +343,6 @@ object frmCargaValoresIngreso: TfrmCargaValoresIngreso
           FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
           FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
         }
-        NumGlyphs = 0
         OnClick = btnTugTiposComprobantesClick
       end
       object edTransferenciaMonto: TCurrencyEdit
@@ -359,9 +358,9 @@ object frmCargaValoresIngreso: TfrmCargaValoresIngreso
       end
       object Label2: TLabel
         Left = 105
-        Height = 17
+        Height = 16
         Top = 57
-        Width = 37
+        Width = 36
         Caption = 'Monto'
         ParentColor = False
       end

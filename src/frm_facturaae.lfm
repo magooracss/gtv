@@ -1,7 +1,7 @@
 object frmFacturaAE: TfrmFacturaAE
-  Left = 484
+  Left = 488
   Height = 659
-  Top = 79
+  Top = 80
   Width = 663
   Caption = 'Factura'
   ClientHeight = 659
@@ -13,7 +13,7 @@ object frmFacturaAE: TfrmFacturaAE
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
   Position = poOwnerFormCenter
-  LCLVersion = '1.0.14.0'
+  LCLVersion = '1.2.0.3'
   object Panel1: TPanel
     Left = 0
     Height = 88
@@ -70,7 +70,7 @@ object frmFacturaAE: TfrmFacturaAE
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
       MaxLength = 10
-      NumGlyphs = 0
+      NumGlyphs = 1
       OKCaption = 'OK'
       PopupColor = clWindow
       TabOrder = 0
@@ -79,9 +79,9 @@ object frmFacturaAE: TfrmFacturaAE
     end
     object Label1: TLabel
       Left = 32
-      Height = 17
+      Height = 16
       Top = 16
-      Width = 37
+      Width = 36
       Caption = 'Fecha'
       ParentColor = False
     end

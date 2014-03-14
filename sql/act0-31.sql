@@ -201,3 +201,7 @@ SET TERM ; ^
 
 
 
+UPDATE RDB$RELATION_FIELDS SET RDB$NULL_FLAG = 1
+WHERE RDB$FIELD_NAME = 'idBanco' AND RDB$RELATION_NAME = 'tugBancos';
+
+alter table tugBancos add primary key (idBanco);

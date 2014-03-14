@@ -19,7 +19,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MinorVersionNr Value="30"/>
-      <BuildNr Value="124"/>
+      <BuildNr Value="128"/>
       <Language Value="080A"/>
       <StringTable CompanyName="RACSS Programación" InternalName="gtv" LegalCopyright="RACSS de Carlos Enrique Rodriguez" LegalTrademarks="Carlos Enrique Rodriguez" ProductName="Gestión de Transportes Verticales" ProductVersion=""/>
     </VersionInfo>
@@ -36,32 +36,35 @@
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="6">
+    <RequiredPackages Count="7">
       <Item1>
-        <PackageName Value="ZVDateTimeCtrls"/>
-        <MinVersion Major="1" Minor="3" Valid="True"/>
+        <PackageName Value="SQLDBLaz"/>
       </Item1>
       <Item2>
-        <PackageName Value="FCL"/>
-        <MinVersion Major="1" Valid="True"/>
+        <PackageName Value="ZVDateTimeCtrls"/>
+        <MinVersion Major="1" Minor="3" Valid="True"/>
       </Item2>
       <Item3>
-        <PackageName Value="rxnew"/>
-        <MinVersion Major="1" Minor="1" Release="4" Build="93" Valid="True"/>
+        <PackageName Value="FCL"/>
+        <MinVersion Major="1" Valid="True"/>
       </Item3>
       <Item4>
-        <PackageName Value="lazreport"/>
-        <MinVersion Minor="9" Release="8" Valid="True"/>
+        <PackageName Value="rxnew"/>
+        <MinVersion Major="1" Minor="1" Release="4" Build="93" Valid="True"/>
       </Item4>
       <Item5>
-        <PackageName Value="zcomponent"/>
-        <MinVersion Major="6" Minor="6" Release="6" Valid="True"/>
+        <PackageName Value="lazreport"/>
+        <MinVersion Minor="9" Release="8" Valid="True"/>
       </Item5>
       <Item6>
-        <PackageName Value="LCL"/>
+        <PackageName Value="zcomponent"/>
+        <MinVersion Major="6" Minor="6" Release="6" Valid="True"/>
       </Item6>
+      <Item7>
+        <PackageName Value="LCL"/>
+      </Item7>
     </RequiredPackages>
-    <Units Count="126">
+    <Units Count="128">
       <Unit0>
         <Filename Value="gtv.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -165,10 +168,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmediciontugs"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="37"/>
-        <CursorPos X="59" Y="56"/>
+        <TopLine Value="370"/>
+        <CursorPos X="131" Y="378"/>
         <UsageCount Value="203"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -183,8 +186,8 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="68"/>
-        <CursorPos X="33" Y="77"/>
+        <TopLine Value="81"/>
+        <CursorPos X="21" Y="104"/>
         <UsageCount Value="203"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -979,7 +982,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="93"/>
         <CursorPos X="75" Y="124"/>
-        <UsageCount Value="193"/>
+        <UsageCount Value="200"/>
       </Unit73>
       <Unit74>
         <Filename Value="frm_egresosvariosae.lfm"/>
@@ -1224,7 +1227,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="99"/>
         <CursorPos X="3" Y="101"/>
-        <UsageCount Value="141"/>
+        <UsageCount Value="152"/>
       </Unit103>
       <Unit104>
         <Filename Value="dmcompensaciones.pas"/>
@@ -1236,7 +1239,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="72"/>
         <CursorPos X="74" Y="90"/>
-        <UsageCount Value="106"/>
+        <UsageCount Value="117"/>
       </Unit104>
       <Unit105>
         <Filename Value="frm_compensaciones.pas"/>
@@ -1248,7 +1251,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="84"/>
         <CursorPos X="33" Y="112"/>
-        <UsageCount Value="106"/>
+        <UsageCount Value="117"/>
       </Unit105>
       <Unit106>
         <Filename Value="dmcompensaciones.lfm"/>
@@ -1292,7 +1295,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="52"/>
         <CursorPos X="21" Y="55"/>
-        <UsageCount Value="57"/>
+        <UsageCount Value="68"/>
       </Unit110>
       <Unit111>
         <Filename Value="frm_principal.lfm"/>
@@ -1315,8 +1318,8 @@
         <Filename Value="Z:\Utiles\lazComp\zeos\src\component\ZAbstractRODataset.pas"/>
         <UnitName Value="ZAbstractRODataset"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="826"/>
-        <CursorPos X="72" Y="835"/>
+        <TopLine Value="1380"/>
+        <CursorPos X="1" Y="1394"/>
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit113>
@@ -1330,7 +1333,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="14"/>
         <CursorPos X="29" Y="14"/>
-        <UsageCount Value="44"/>
+        <UsageCount Value="55"/>
       </Unit114>
       <Unit115>
         <Filename Value="dmingresos.pas"/>
@@ -1342,7 +1345,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="59" Y="1"/>
-        <UsageCount Value="44"/>
+        <UsageCount Value="55"/>
       </Unit115>
       <Unit116>
         <Filename Value="frm_ingresosae.pas"/>
@@ -1354,7 +1357,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="93" Y="12"/>
-        <UsageCount Value="44"/>
+        <UsageCount Value="55"/>
       </Unit116>
       <Unit117>
         <Filename Value="frm_reciboslistado.pas"/>
@@ -1367,7 +1370,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="44"/>
         <CursorPos X="2" Y="83"/>
-        <UsageCount Value="42"/>
+        <UsageCount Value="53"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit117>
@@ -1382,7 +1385,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="164"/>
         <CursorPos X="70" Y="173"/>
-        <UsageCount Value="41"/>
+        <UsageCount Value="52"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit118>
@@ -1397,7 +1400,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="80"/>
         <CursorPos X="103" Y="82"/>
-        <UsageCount Value="37"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit119>
@@ -1412,7 +1415,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="46"/>
         <CursorPos X="55" Y="57"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="43"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit120>
@@ -1427,7 +1430,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="7"/>
         <CursorPos X="59" Y="12"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="43"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit121>
@@ -1442,7 +1445,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="38"/>
         <CursorPos X="21" Y="51"/>
-        <UsageCount Value="30"/>
+        <UsageCount Value="41"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit122>
@@ -1457,19 +1460,17 @@
         <WindowIndex Value="0"/>
         <TopLine Value="81"/>
         <CursorPos X="1" Y="102"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="36"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit123>
       <Unit124>
         <Filename Value="C:\lazarus\lcl\dbgrids.pas"/>
         <UnitName Value="DBGrids"/>
-        <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="3405"/>
-        <CursorPos X="1" Y="3421"/>
-        <UsageCount Value="11"/>
-        <Loaded Value="True"/>
+        <TopLine Value="3396"/>
+        <CursorPos X="55" Y="3411"/>
+        <UsageCount Value="12"/>
       </Unit124>
       <Unit125>
         <Filename Value="C:\lazarus\lcl\lresources.pp"/>
@@ -1479,127 +1480,144 @@
         <CursorPos X="26" Y="34"/>
         <UsageCount Value="10"/>
       </Unit125>
+      <Unit126>
+        <Filename Value="C:\lazarus\fpc\2.6.2\source\packages\fcl-db\src\base\db.pas"/>
+        <UnitName Value="db"/>
+        <EditorIndex Value="7"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="297"/>
+        <CursorPos X="17" Y="310"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
+      </Unit126>
+      <Unit127>
+        <Filename Value="C:\lazarus\fpc\2.6.2\source\packages\fcl-db\src\base\fields.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="963"/>
+        <CursorPos X="3" Y="965"/>
+        <UsageCount Value="10"/>
+      </Unit127>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="frm_ediciontugs.pas"/>
-        <Caret Line="96" Column="1" TopLine="77"/>
+        <Filename Value="dmediciontugs.pas"/>
+        <Caret Line="345" Column="2" TopLine="343"/>
       </Position1>
       <Position2>
-        <Filename Value="frm_ediciontugs.pas"/>
-        <Caret Line="97" Column="1" TopLine="77"/>
+        <Filename Value="dmediciontugs.pas"/>
+        <Caret Line="346" Column="2" TopLine="344"/>
       </Position2>
       <Position3>
-        <Filename Value="frm_ediciontugs.pas"/>
-        <Caret Line="98" Column="5" TopLine="77"/>
+        <Filename Value="dmediciontugs.pas"/>
+        <Caret Line="347" Column="2" TopLine="345"/>
       </Position3>
       <Position4>
-        <Filename Value="frm_ediciontugs.pas"/>
-        <Caret Line="74" Column="63" TopLine="61"/>
+        <Filename Value="dmediciontugs.pas"/>
+        <Caret Line="348" Column="2" TopLine="346"/>
       </Position4>
       <Position5>
-        <Filename Value="frm_ediciontugs.pas"/>
-        <Caret Line="53" Column="40" TopLine="39"/>
+        <Filename Value="dmediciontugs.pas"/>
+        <Caret Line="349" Column="2" TopLine="347"/>
       </Position5>
       <Position6>
-        <Filename Value="frm_ediciontugs.pas"/>
-        <Caret Line="59" Column="3" TopLine="12"/>
+        <Filename Value="dmediciontugs.pas"/>
+        <Caret Line="350" Column="2" TopLine="348"/>
       </Position6>
       <Position7>
         <Filename Value="dmediciontugs.pas"/>
-        <Caret Line="51" Column="38" TopLine="37"/>
+        <Caret Line="351" Column="2" TopLine="349"/>
       </Position7>
       <Position8>
         <Filename Value="dmediciontugs.pas"/>
-        <Caret Line="52" Column="28" TopLine="37"/>
+        <Caret Line="352" Column="2" TopLine="350"/>
       </Position8>
       <Position9>
-        <Filename Value="frm_ediciontugs.pas"/>
-        <Caret Line="55" Column="86" TopLine="45"/>
+        <Filename Value="dmediciontugs.pas"/>
+        <Caret Line="353" Column="2" TopLine="351"/>
       </Position9>
       <Position10>
-        <Filename Value="frm_ediciontugs.pas"/>
-        <Caret Line="1" Column="1" TopLine="1"/>
+        <Filename Value="dmediciontugs.pas"/>
+        <Caret Line="354" Column="2" TopLine="352"/>
       </Position10>
       <Position11>
-        <Filename Value="frm_ediciontugs.pas"/>
-        <Caret Line="59" Column="3" TopLine="51"/>
+        <Filename Value="dmediciontugs.pas"/>
+        <Caret Line="355" Column="2" TopLine="353"/>
       </Position11>
       <Position12>
-        <Filename Value="frm_cargavaloresingreso.pas"/>
-        <Caret Line="101" Column="1" TopLine="81"/>
+        <Filename Value="dmediciontugs.pas"/>
+        <Caret Line="356" Column="2" TopLine="354"/>
       </Position12>
       <Position13>
-        <Filename Value="frm_ediciontugs.pas"/>
-        <Caret Line="63" Column="1" TopLine="51"/>
+        <Filename Value="dmediciontugs.pas"/>
+        <Caret Line="357" Column="2" TopLine="355"/>
       </Position13>
       <Position14>
-        <Filename Value="frm_ediciontugs.pas"/>
-        <Caret Line="64" Column="1" TopLine="51"/>
+        <Filename Value="dmediciontugs.pas"/>
+        <Caret Line="358" Column="2" TopLine="356"/>
       </Position14>
       <Position15>
-        <Filename Value="frm_ediciontugs.pas"/>
-        <Caret Line="65" Column="1" TopLine="51"/>
+        <Filename Value="dmediciontugs.pas"/>
+        <Caret Line="359" Column="2" TopLine="357"/>
       </Position15>
       <Position16>
-        <Filename Value="frm_ediciontugs.pas"/>
-        <Caret Line="66" Column="1" TopLine="54"/>
+        <Filename Value="dmediciontugs.pas"/>
+        <Caret Line="360" Column="2" TopLine="358"/>
       </Position16>
       <Position17>
         <Filename Value="dmediciontugs.pas"/>
-        <Caret Line="66" Column="1" TopLine="53"/>
+        <Caret Line="361" Column="2" TopLine="359"/>
       </Position17>
       <Position18>
         <Filename Value="dmediciontugs.pas"/>
-        <Caret Line="68" Column="1" TopLine="53"/>
+        <Caret Line="362" Column="2" TopLine="360"/>
       </Position18>
       <Position19>
         <Filename Value="dmediciontugs.pas"/>
-        <Caret Line="69" Column="1" TopLine="53"/>
+        <Caret Line="363" Column="2" TopLine="361"/>
       </Position19>
       <Position20>
         <Filename Value="dmediciontugs.pas"/>
-        <Caret Line="70" Column="1" TopLine="53"/>
+        <Caret Line="364" Column="2" TopLine="362"/>
       </Position20>
       <Position21>
         <Filename Value="dmediciontugs.pas"/>
-        <Caret Line="71" Column="1" TopLine="53"/>
+        <Caret Line="365" Column="2" TopLine="363"/>
       </Position21>
       <Position22>
         <Filename Value="dmediciontugs.pas"/>
-        <Caret Line="72" Column="1" TopLine="53"/>
+        <Caret Line="366" Column="2" TopLine="364"/>
       </Position22>
       <Position23>
         <Filename Value="dmediciontugs.pas"/>
-        <Caret Line="74" Column="1" TopLine="53"/>
+        <Caret Line="367" Column="2" TopLine="365"/>
       </Position23>
       <Position24>
-        <Filename Value="frm_ediciontugs.pas"/>
-        <Caret Line="67" Column="1" TopLine="62"/>
+        <Filename Value="dmediciontugs.pas"/>
+        <Caret Line="368" Column="2" TopLine="366"/>
       </Position24>
       <Position25>
-        <Filename Value="frm_ediciontugs.pas"/>
-        <Caret Line="68" Column="1" TopLine="62"/>
+        <Filename Value="dmediciontugs.pas"/>
+        <Caret Line="369" Column="58" TopLine="367"/>
       </Position25>
       <Position26>
         <Filename Value="dmediciontugs.pas"/>
-        <Caret Line="64" Column="111" TopLine="53"/>
+        <Caret Line="370" Column="58" TopLine="368"/>
       </Position26>
       <Position27>
         <Filename Value="dmediciontugs.pas"/>
-        <Caret Line="77" Column="68" TopLine="54"/>
+        <Caret Line="371" Column="58" TopLine="369"/>
       </Position27>
       <Position28>
         <Filename Value="frm_ediciontugs.pas"/>
-        <Caret Line="81" Column="1" TopLine="65"/>
+        <Caret Line="77" Column="77" TopLine="69"/>
       </Position28>
       <Position29>
         <Filename Value="frm_ediciontugs.pas"/>
-        <Caret Line="96" Column="50" TopLine="78"/>
+        <Caret Line="76" Column="77" TopLine="68"/>
       </Position29>
       <Position30>
         <Filename Value="frm_ediciontugs.pas"/>
-        <Caret Line="95" Column="50" TopLine="77"/>
+        <Caret Line="47" Column="3" TopLine="45"/>
       </Position30>
     </JumpHistory>
   </ProjectOptions>

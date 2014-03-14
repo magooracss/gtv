@@ -1,7 +1,7 @@
 object frmOrdenDePagoAE: TfrmOrdenDePagoAE
-  Left = 276
+  Left = 279
   Height = 553
-  Top = 134
+  Top = 135
   Width = 637
   Caption = 'Orden de Pago'
   ClientHeight = 553
@@ -15,7 +15,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
   OnShow = FormShow
   Position = poOwnerFormCenter
   ShowHint = True
-  LCLVersion = '1.0.4.0'
+  LCLVersion = '1.2.0.3'
   object Panel1: TPanel
     Left = 0
     Height = 128
@@ -86,7 +86,7 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
       MaxLength = 10
-      NumGlyphs = 0
+      NumGlyphs = 1
       OKCaption = 'OK'
       PopupColor = clWindow
       TabOrder = 0
@@ -164,25 +164,25 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
     end
     object Label1: TLabel
       Left = 112
-      Height = 17
+      Height = 16
       Top = 65
-      Width = 58
+      Width = 57
       Caption = 'Proveedor'
       ParentColor = False
     end
     object Label2: TLabel
       Left = 13
-      Height = 17
+      Height = 16
       Top = 7
-      Width = 46
+      Width = 45
       Caption = 'Número'
       ParentColor = False
     end
     object Label3: TLabel
       Left = 190
-      Height = 17
+      Height = 16
       Top = 7
-      Width = 37
+      Width = 36
       Caption = 'Fecha'
       ParentColor = False
     end
@@ -210,19 +210,19 @@ object frmOrdenDePagoAE: TfrmOrdenDePagoAE
       TabStop = False
     end
     object Label4: TLabel
-      Left = 341
-      Height = 17
+      Left = 342
+      Height = 16
       Top = 5
-      Width = 78
+      Width = 77
       Anchors = [akTop, akRight]
       Caption = 'Total a Pagar'
       ParentColor = False
     end
     object Label5: TLabel
-      Left = 504
-      Height = 17
+      Left = 505
+      Height = 16
       Top = 5
-      Width = 93
+      Width = 92
       Anchors = [akTop, akRight]
       Caption = 'Saldo proveedor'
       ParentColor = False

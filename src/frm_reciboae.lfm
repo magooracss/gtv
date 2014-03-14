@@ -1,7 +1,7 @@
 object frmRecibosAE: TfrmRecibosAE
-  Left = 429
+  Left = 432
   Height = 554
-  Top = 153
+  Top = 154
   Width = 710
   Caption = 'Recibo'
   ClientHeight = 554
@@ -14,7 +14,7 @@ object frmRecibosAE: TfrmRecibosAE
   Font.Quality = fqDraft
   OnShow = FormShow
   Position = poOwnerFormCenter
-  LCLVersion = '1.0.14.0'
+  LCLVersion = '1.2.0.3'
   object Panel1: TPanel
     Left = 0
     Height = 300
@@ -71,7 +71,7 @@ object frmRecibosAE: TfrmRecibosAE
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
       MaxLength = 10
-      NumGlyphs = 0
+      NumGlyphs = 1
       OKCaption = 'OK'
       PopupColor = clWindow
       TabOrder = 0
@@ -237,9 +237,9 @@ object frmRecibosAE: TfrmRecibosAE
     end
     object Label1: TLabel
       Left = 32
-      Height = 17
+      Height = 16
       Top = 16
-      Width = 37
+      Width = 36
       Caption = 'Fecha'
       ParentColor = False
     end
@@ -354,10 +354,10 @@ object frmRecibosAE: TfrmRecibosAE
       end
     end
     object DBText1: TDBText
-      Left = 693
-      Height = 1
+      Left = 629
+      Height = 18
       Top = 40
-      Width = 1
+      Width = 65
       Alignment = taRightJustify
       Anchors = [akTop, akRight]
       DataField = 'lxEstado'

@@ -1,7 +1,7 @@
 object frmEdicionTugs: TfrmEdicionTugs
-  Left = 381
+  Left = 434
   Height = 381
-  Top = 131
+  Top = 153
   Width = 533
   Caption = 'Tablas de uso general'
   ClientHeight = 381

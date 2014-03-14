@@ -1,7 +1,7 @@
 object frmRecibosListado: TfrmRecibosListado
-  Left = 300
+  Left = 304
   Height = 471
-  Top = 250
+  Top = 252
   Width = 942
   Caption = 'Recibos'
   ClientHeight = 471
@@ -14,7 +14,7 @@ object frmRecibosListado: TfrmRecibosListado
   Font.Quality = fqDraft
   OnShow = FormShow
   Position = poOwnerFormCenter
-  LCLVersion = '1.0.14.0'
+  LCLVersion = '1.2.0.3'
   object Panel1: TPanel
     Left = 0
     Height = 72

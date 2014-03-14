@@ -1,7 +1,7 @@
 object frmListadoFacturas: TfrmListadoFacturas
-  Left = 246
+  Left = 249
   Height = 581
-  Top = 164
+  Top = 165
   Width = 1001
   Caption = 'Listado de facturas emitidas'
   ClientHeight = 581
@@ -13,7 +13,7 @@ object frmListadoFacturas: TfrmListadoFacturas
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
   Position = poOwnerFormCenter
-  LCLVersion = '1.0.14.0'
+  LCLVersion = '1.2.0.3'
   object Panel1: TPanel
     Left = 0
     Height = 72

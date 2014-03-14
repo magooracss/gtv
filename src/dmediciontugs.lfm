@@ -1,15 +1,1996 @@
 object DM_EdicionTUGs: TDM_EdicionTUGs
+  OnCreate = DataModuleCreate
   OldCreateOrder = False
-  Height = 346
-  HorizontalOffset = 381
-  VerticalOffset = 131
-  Width = 510
+  Height = 583
+  HorizontalOffset = 136
+  VerticalOffset = 147
+  Width = 890
   object tbTabla: TZTable
     Connection = DM_Conexion.cnxGeneral
-    AutoCalcFields = False
     CachedUpdates = True
     TableName = 'TUGBANCOS'
-    left = 80
+    left = 64
+    top = 512
+  end
+  object tugBancos: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGBANCOS'
+    left = 184
+    top = 8
+    object tugBancosIDBANCO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDBANCO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object tugBancosBANCO: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'BANCO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object tugBancosBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object tugAlternaControlada: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    Active = True
+    TableName = 'TUGALTERNACONTROLADA'
+    left = 104
+    top = 24
+    object tugAlternaControladaIDALTERNACONTROLADA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDALTERNACONTROLADA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tugAlternaControladaALTERNACONTROLADA: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'ALTERNACONTROLADA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object tugAlternaControladaBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object tugAbonos: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    Active = True
+    TableName = 'TUGABONOS'
+    left = 32
+    top = 8
+    object tugAbonosIDABONO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDABONO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tugAbonosABONO: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'ABONO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object tugAbonosMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tugAbonosBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGCABPARACAIDASCONTRAPESOOTRO: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGCABPARACAIDASCONTRAPESOOTRO'
+    left = 264
+    top = 24
+    object TUGCABPARACAIDASCONTRAPESOOTROIDCABPARACAIDASCONTRAPESOOTRO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDCABPARACAIDASCONTRAPESOOTRO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGCABPARACAIDASCONTRAPESOOTROCABPARACAIDASCONTRAPESOOTRO: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'CABPARACAIDASCONTRAPESOOTRO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGCABPARACAIDASCONTRAPESOOTROBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGCABPARACAIDASOTRO: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGCABPARACAIDASOTRO'
+    left = 360
+    top = 8
+    object TUGCABPARACAIDASOTROIDCABPARACAIDASOTRO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDCABPARACAIDASOTRO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGCABPARACAIDASOTROCABPARACAIDASOTRO: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'CABPARACAIDASOTRO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGCABPARACAIDASOTROBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGCHEQUESESTADOS: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGCHEQUESESTADOS'
+    left = 456
+    top = 24
+    object TUGCHEQUESESTADOSIDCHEQUEESTADO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDCHEQUEESTADO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGCHEQUESESTADOSCHEQUEESTADO: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'CHEQUEESTADO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object TUGCHEQUESESTADOSBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGCONCEPTOS: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGCONCEPTOS'
+    left = 512
+    top = 8
+    object TUGCONCEPTOSIDCONCEPTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDCONCEPTO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGCONCEPTOSCONCEPTO: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'CONCEPTO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object TUGCONCEPTOSTIPO: TStringField
+      DisplayWidth = 1
+      FieldKind = fkData
+      FieldName = 'TIPO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1
+    end
+    object TUGCONCEPTOSMONTODEFECTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONTODEFECTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object TUGCONCEPTOSBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGCONDICIONESFISCALES: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGCONDICIONESFISCALES'
+    left = 592
+    top = 24
+    object TUGCONDICIONESFISCALESIDCONDICIONFISCAL: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDCONDICIONFISCAL'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGCONDICIONESFISCALESCONDICIONFISCAL: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'CONDICIONFISCAL'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGCONDICIONESFISCALESBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGCONDICIONESFISCALESCOMPRENTREGA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'COMPRENTREGA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGCONDICIONESFISCALESCOMPRRECIBE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'COMPRRECIBE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGCONDICIONESPAGO: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGCONDICIONESPAGO'
+    left = 672
+    top = 8
+    object TUGCONDICIONESPAGOIDCONDICIONPAGO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDCONDICIONPAGO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGCONDICIONESPAGOCONDICIONPAGO: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'CONDICIONPAGO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object TUGCONDICIONESPAGOBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGCONDICIONPAGOTIEMPOS: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGCONDICIONPAGOTIEMPOS'
+    left = 760
+    top = 32
+    object TUGCONDICIONPAGOTIEMPOSIDCONDICIONPAGOTIEMPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDCONDICIONPAGOTIEMPO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGCONDICIONPAGOTIEMPOSCONDICIONPAGOTIEMPO: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'CONDICIONPAGOTIEMPO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object TUGCONDICIONPAGOTIEMPOSBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGCUARTOMAQUBICACION: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGCUARTOMAQUBICACION'
+    left = 32
     top = 96
+    object TUGCUARTOMAQUBICACIONIDCUARTOMAQUBICACION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDCUARTOMAQUBICACION'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGCUARTOMAQUBICACIONUBICACION: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'UBICACION'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGCUARTOMAQUBICACIONBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGCUARTOSMAQUINASOTRA: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGCUARTOSMAQUINASOTRA'
+    left = 104
+    top = 114
+    object TUGCUARTOSMAQUINASOTRAIDCUARTOMAQUINAOTRA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDCUARTOMAQUINAOTRA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGCUARTOSMAQUINASOTRACUARTOMAQUINAOTRA: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'CUARTOMAQUINAOTRA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGCUARTOSMAQUINASOTRABVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGDESTINOSCLIENTE: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGDESTINOSCLIENTE'
+    left = 184
+    top = 96
+    object TUGDESTINOSCLIENTEIDDESTINOCLIENTE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDDESTINOCLIENTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGDESTINOSCLIENTEDESTINO: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'DESTINO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGDESTINOSCLIENTEBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGEMPLEADOS: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGEMPLEADOS'
+    left = 264
+    top = 114
+    object TUGEMPLEADOSIDEMPLEADO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDEMPLEADO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGEMPLEADOSEMPLEADO: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'EMPLEADO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGEMPLEADOSBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGESTADOSCUOTA: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGESTADOSCUOTA'
+    left = 360
+    top = 96
+    object TUGESTADOSCUOTAIDESTADOCUOTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDESTADOCUOTA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGESTADOSCUOTAESTADOCUOTA: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'ESTADOCUOTA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGESTADOSCUOTABVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGFORMASCOBRO: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGFORMASCOBRO'
+    left = 456
+    top = 112
+    object TUGFORMASCOBROIDFORMACOBRO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDFORMACOBRO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGFORMASCOBROFORMACOBRO: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'FORMACOBRO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object TUGFORMASCOBROBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGFORMASCOBROAGRUPAMIENTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'AGRUPAMIENTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGFORMASCOBROREFCUENTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCUENTA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGFORMASPAGO: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGFORMASPAGO'
+    left = 512
+    top = 88
+    object TUGFORMASPAGOIDFORMAPAGO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDFORMAPAGO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGFORMASPAGOFORMAPAGO: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'FORMAPAGO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object TUGFORMASPAGOBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGFORMASPAGOAGRUPAMIENTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'AGRUPAMIENTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGFORMASPAGOREFCUENTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCUENTA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGFRECUENCIASVARIABLES: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGFRECUENCIASVARIABLES'
+    left = 584
+    top = 120
+    object TUGFRECUENCIASVARIABLESIDFRECUENCIAVARIABLE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDFRECUENCIAVARIABLE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGFRECUENCIASVARIABLESFRECUENCIAVARIABLE: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'FRECUENCIAVARIABLE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGFRECUENCIASVARIABLESBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGGRUPOSFACTURACION: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGGRUPOSFACTURACION'
+    left = 672
+    top = 104
+    object TUGGRUPOSFACTURACIONIDGRUPOFACTURACION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDGRUPOFACTURACION'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGGRUPOSFACTURACIONGRUPOFACTURACION: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'GRUPOFACTURACION'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGGRUPOSFACTURACIONDIAFACTURACION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DIAFACTURACION'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGGRUPOSFACTURACIONBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGLOCALIDADES: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGLOCALIDADES'
+    left = 760
+    top = 120
+    object TUGLOCALIDADESIDLOCALIDAD: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDLOCALIDAD'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGLOCALIDADESLOCALIDAD: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'LOCALIDAD'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGLOCALIDADESCPOSTAL: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'CPOSTAL'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object TUGLOCALIDADESBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGLOCALIDADESREFPROVINCIA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFPROVINCIA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGMATERIALES: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGMATERIALES'
+    left = 32
+    top = 192
+    object TUGMATERIALESIDMATERIAL: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDMATERIAL'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGMATERIALESMATERIAL: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'MATERIAL'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGMATERIALESBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGMEDIOSRECLAMO: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGMEDIOSRECLAMO'
+    left = 104
+    top = 216
+    object TUGMEDIOSRECLAMOIDMEDIORECLAMO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDMEDIORECLAMO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGMEDIOSRECLAMOMEDIORECLAMO: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'MEDIORECLAMO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGMEDIOSRECLAMOBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGMOTIVOSREMITO: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGMOTIVOSREMITO'
+    left = 184
+    top = 192
+    object TUGMOTIVOSREMITOIDMOTIVOREMITO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDMOTIVOREMITO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGMOTIVOSREMITOMOTIVOREMITO: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'MOTIVOREMITO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGMOTIVOSREMITOBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGNROACCESOOPADY: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGNROACCESOOPADY'
+    left = 272
+    top = 216
+    object TUGNROACCESOOPADYIDNROACCESOOPADY: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDNROACCESOOPADY'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGNROACCESOOPADYNROACCESOOPADY: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'NROACCESOOPADY'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGNROACCESOOPADYBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGPLANDECUENTAS: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGPLANDECUENTAS'
+    left = 376
+    top = 192
+    object TUGPLANDECUENTASIDCUENTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDCUENTA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGPLANDECUENTASCODIGO: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'CODIGO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object TUGPLANDECUENTASCUENTA: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'CUENTA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object TUGPLANDECUENTASOPERACION: TStringField
+      DisplayWidth = 0
+      FieldKind = fkData
+      FieldName = 'OPERACION'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 0
+    end
+    object TUGPLANDECUENTASPORCIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PORCIVA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object TUGPLANDECUENTASBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGPOLICIAS: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGPOLICIAS'
+    left = 456
+    top = 216
+    object TUGPOLICIASIDPOLICIA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDPOLICIA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGPOLICIASPOLICIA: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'POLICIA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGPOLICIASBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGPRESUPUESTOSESTADOS: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGPRESUPUESTOSESTADOS'
+    left = 528
+    top = 192
+    object TUGPRESUPUESTOSESTADOSIDPRESUPUESTOESTADO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDPRESUPUESTOESTADO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGPRESUPUESTOSESTADOSESTADO: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'ESTADO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGPRESUPUESTOSESTADOSBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGPROVINCIAS: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGPROVINCIAS'
+    left = 601
+    top = 216
+    object TUGPROVINCIASIDPROVINCIA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDPROVINCIA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGPROVINCIASPROVINCIA: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PROVINCIA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object TUGPROVINCIASBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGPUERTASAUTOMATICASARRASTRE: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGPUERTASAUTOMATICASARRASTRE'
+    left = 672
+    top = 192
+    object TUGPUERTASAUTOMATICASARRASTREIDPUERTAAUTOMATICAARRASTRE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDPUERTAAUTOMATICAARRASTRE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGPUERTASAUTOMATICASARRASTREPUERTAAUTOMATICAARRASTRE: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'PUERTAAUTOMATICAARRASTRE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGPUERTASAUTOMATICASARRASTREBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGPUERTASAUTOMATICASCORRIENTE: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGPUERTASAUTOMATICASCORRIENTE'
+    left = 760
+    top = 216
+    object TUGPUERTASAUTOMATICASCORRIENTEIDPUERTAAUTOMATICACORRIENTE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDPUERTAAUTOMATICACORRIENTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGPUERTASAUTOMATICASCORRIENTEPUERTAAUTOMATICACORRIENTE: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'PUERTAAUTOMATICACORRIENTE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGPUERTASAUTOMATICASCORRIENTEBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGPUERTASAUTOMATICASTIPOS: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGPUERTASAUTOMATICASTIPOS'
+    left = 32
+    top = 296
+    object TUGPUERTASAUTOMATICASTIPOSIDPUERTAAUTOMATICATIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDPUERTAAUTOMATICATIPO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGPUERTASAUTOMATICASTIPOSPUERTAAUTOMATICATIPO: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'PUERTAAUTOMATICATIPO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGPUERTASAUTOMATICASTIPOSBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGPUERTASMANUALESTIPOS: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGPUERTASMANUALESTIPOS'
+    left = 104
+    top = 315
+    object TUGPUERTASMANUALESTIPOSIDPUERTAMANUALTIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDPUERTAMANUALTIPO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGPUERTASMANUALESTIPOSTIPOPUERTAMANUAL: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'TIPOPUERTAMANUAL'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGPUERTASMANUALESTIPOSBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGRECIBOSESTADOS: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    Active = True
+    TableName = 'TUGRECIBOSESTADOS'
+    left = 194
+    top = 296
+    object TUGRECIBOSESTADOSIDRECIBOESTADO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDRECIBOESTADO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGRECIBOSESTADOSESTADO: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'ESTADO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object TUGRECIBOSESTADOSBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGSELECTIVAACUMULATIVATIPOS: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGSELECTIVAACUMULATIVATIPOS'
+    left = 266
+    top = 308
+    object TUGSELECTIVAACUMULATIVATIPOSIDSELECTIVAACUMULATIVATIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDSELECTIVAACUMULATIVATIPO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGSELECTIVAACUMULATIVATIPOSSELECTIVAACUMULATIVA: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'SELECTIVAACUMULATIVA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGSELECTIVAACUMULATIVATIPOSBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGTENSIONESTIPO: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGTENSIONESTIPO'
+    left = 376
+    top = 304
+    object TUGTENSIONESTIPOIDTENSIONTIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDTENSIONTIPO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGTENSIONESTIPOTENSIONTIPO: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'TENSIONTIPO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGTENSIONESTIPOBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGTIPOSCOMPROBANTES: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGTIPOSCOMPROBANTES'
+    left = 456
+    top = 320
+    object TUGTIPOSCOMPROBANTESIDTIPOCOMPROBANTE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDTIPOCOMPROBANTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGTIPOSCOMPROBANTESTIPOCOMPROBANTE: TStringField
+      DisplayWidth = 100
+      FieldKind = fkData
+      FieldName = 'TIPOCOMPROBANTE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object TUGTIPOSCOMPROBANTESBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGTIPOSCONTACTO: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGTIPOSCONTACTO'
+    left = 528
+    top = 296
+    object TUGTIPOSCONTACTOIDTIPOCONTACTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDTIPOCONTACTO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGTIPOSCONTACTOTIPOCONTACTO: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'TIPOCONTACTO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGTIPOSCONTACTOBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGTIPOSCONTACTOCLIENTE: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGTIPOSCONTACTOCLIENTE'
+    left = 604
+    top = 320
+    object TUGTIPOSCONTACTOCLIENTEIDTIPOCONTACTOCLIENTE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDTIPOCONTACTOCLIENTE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGTIPOSCONTACTOCLIENTETIPOCONTACTOCLIENTE: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'TIPOCONTACTOCLIENTE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGTIPOSCONTACTOCLIENTEBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGTIPOSCONTROLTIPOS: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGTIPOSCONTROLTIPOS'
+    left = 672
+    top = 304
+    object TUGTIPOSCONTROLTIPOSIDTIPOCONTROLTIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDTIPOCONTROLTIPO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGTIPOSCONTROLTIPOSTIPOCONTROL: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'TIPOCONTROL'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGTIPOSCONTROLTIPOSBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGTIPOSCUOTA: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGTIPOSCUOTA'
+    left = 768
+    top = 320
+    object TUGTIPOSCUOTAIDTIPOCUOTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDTIPOCUOTA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGTIPOSCUOTATIPOCUOTA: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'TIPOCUOTA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGTIPOSCUOTABVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGTIPOSDOCUMENTO: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGTIPOSDOCUMENTO'
+    left = 32
+    top = 408
+    object TUGTIPOSDOCUMENTOIDTIPODOCUMENTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDTIPODOCUMENTO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGTIPOSDOCUMENTOTIPODOCUMENTO: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'TIPODOCUMENTO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGTIPOSDOCUMENTOBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGTIPOSEQUIPOS: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGTIPOSEQUIPOS'
+    left = 104
+    top = 440
+    object TUGTIPOSEQUIPOSIDTIPOEQUIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDTIPOEQUIPO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGTIPOSEQUIPOSEQUIPO: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'EQUIPO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGTIPOSEQUIPOSBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGTIPOSMANIOBRASOTRA: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGTIPOSMANIOBRASOTRA'
+    left = 200
+    top = 424
+    object TUGTIPOSMANIOBRASOTRAIDTIPOMANIOBRAOTRA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDTIPOMANIOBRAOTRA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGTIPOSMANIOBRASOTRATIPOMANIOBRAOTRA: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'TIPOMANIOBRAOTRA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGTIPOSMANIOBRASOTRABVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGTIPOSMANIOBRASTIPOS: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGTIPOSMANIOBRASTIPOS'
+    left = 272
+    top = 440
+    object TUGTIPOSMANIOBRASTIPOSIDTIPOMANIOBRATIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDTIPOMANIOBRATIPO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGTIPOSMANIOBRASTIPOSTIPOMANIOBRA: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'TIPOMANIOBRA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGTIPOSMANIOBRASTIPOSBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGTIPOSMAQPROPHIDRAULICA: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGTIPOSMAQPROPHIDRAULICA'
+    left = 376
+    top = 429
+    object TUGTIPOSMAQPROPHIDRAULICAIDTIPOMAQPROPHIDRAULICA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDTIPOMAQPROPHIDRAULICA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGTIPOSMAQPROPHIDRAULICAPROPULSIONHIDRAULICA: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'PROPULSIONHIDRAULICA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGTIPOSMAQPROPHIDRAULICABVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGTIPOSMAQUINASTRACCION: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGTIPOSMAQUINASTRACCION'
+    left = 456
+    top = 437
+    object TUGTIPOSMAQUINASTRACCIONIDTIPOMAQTRACCION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDTIPOMAQTRACCION'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGTIPOSMAQUINASTRACCIONTRACCION: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'TRACCION'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGTIPOSMAQUINASTRACCIONBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGTIPOSPARACAIDAS: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGTIPOSPARACAIDAS'
+    left = 555
+    top = 429
+    object TUGTIPOSPARACAIDASIDTIPOPARACAIDAS: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDTIPOPARACAIDAS'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGTIPOSPARACAIDASTIPOPARACAIDAS: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'TIPOPARACAIDAS'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGTIPOSPARACAIDASBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGTIPOSPARAGOLPES: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGTIPOSPARAGOLPES'
+    left = 616
+    top = 437
+    object TUGTIPOSPARAGOLPESIDTIPOPARAGOLPE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDTIPOPARAGOLPE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGTIPOSPARAGOLPESTIPOPARAGOLPE: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'TIPOPARAGOLPE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGTIPOSPARAGOLPESBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TUGMOTORESMARCAS: TZTable
+    Connection = DM_Conexion.cnxGeneral
+    TableName = 'TUGMOTORESMARCAS'
+    left = 726
+    top = 433
+    object TUGMOTORESMARCASIDMOTORMARCA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDMOTORMARCA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TUGMOTORESMARCASMARCA: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'MARCA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object TUGMOTORESMARCASBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
 end

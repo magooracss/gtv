@@ -5,8 +5,8 @@ unit dmediciontugs;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, ZDataset
-  ,dmConexion, db;
+  Classes, SysUtils, FileUtil, ZDataset, ZSqlUpdate, rxmemds
+  ,dmConexion, db, IBConnection, sqldb;
 
 type
   { TCampoTUG }
@@ -46,6 +46,218 @@ type
 
   TDM_EdicionTUGs = class(TDataModule)
     tbTabla: TZTable;
+    tugAbonosABONO: TStringField;
+    tugAbonosBVISIBLE: TSmallintField;
+    tugAbonosIDABONO: TLongintField;
+    tugAbonosMONTO: TFloatField;
+    tugAlternaControladaALTERNACONTROLADA: TStringField;
+    tugAlternaControladaBVISIBLE: TSmallintField;
+    tugAlternaControladaIDALTERNACONTROLADA: TLongintField;
+    tugBancos: TZTable;
+    tugAlternaControlada: TZTable;
+    tugAbonos: TZTable;
+    tugBancosBANCO: TStringField;
+    tugBancosBVISIBLE: TSmallintField;
+    tugBancosIDBANCO: TLongintField;
+    TUGCABPARACAIDASCONTRAPESOOTRO: TZTable;
+    TUGCABPARACAIDASCONTRAPESOOTROBVISIBLE: TSmallintField;
+    TUGCABPARACAIDASCONTRAPESOOTROCABPARACAIDASCONTRAPESOOTRO: TStringField;
+    TUGCABPARACAIDASCONTRAPESOOTROIDCABPARACAIDASCONTRAPESOOTRO: TLongintField;
+    TUGCABPARACAIDASOTRO: TZTable;
+    TUGCABPARACAIDASOTROBVISIBLE: TSmallintField;
+    TUGCABPARACAIDASOTROCABPARACAIDASOTRO: TStringField;
+    TUGCABPARACAIDASOTROIDCABPARACAIDASOTRO: TLongintField;
+    TUGCHEQUESESTADOS: TZTable;
+    TUGCHEQUESESTADOSBVISIBLE: TSmallintField;
+    TUGCHEQUESESTADOSCHEQUEESTADO: TStringField;
+    TUGCHEQUESESTADOSIDCHEQUEESTADO: TLongintField;
+    TUGCONCEPTOS: TZTable;
+    TUGCONCEPTOSBVISIBLE: TSmallintField;
+    TUGCONCEPTOSCONCEPTO: TStringField;
+    TUGCONCEPTOSIDCONCEPTO: TLongintField;
+    TUGCONCEPTOSMONTODEFECTO: TFloatField;
+    TUGCONCEPTOSTIPO: TStringField;
+    TUGCONDICIONESFISCALES: TZTable;
+    TUGCONDICIONESFISCALESBVISIBLE: TSmallintField;
+    TUGCONDICIONESFISCALESCOMPRENTREGA: TLongintField;
+    TUGCONDICIONESFISCALESCOMPRRECIBE: TLongintField;
+    TUGCONDICIONESFISCALESCONDICIONFISCAL: TStringField;
+    TUGCONDICIONESFISCALESIDCONDICIONFISCAL: TLongintField;
+    TUGCONDICIONESPAGO: TZTable;
+    TUGCONDICIONESPAGOBVISIBLE: TSmallintField;
+    TUGCONDICIONESPAGOCONDICIONPAGO: TStringField;
+    TUGCONDICIONESPAGOIDCONDICIONPAGO: TLongintField;
+    TUGCONDICIONPAGOTIEMPOS: TZTable;
+    TUGCONDICIONPAGOTIEMPOSBVISIBLE: TSmallintField;
+    TUGCONDICIONPAGOTIEMPOSCONDICIONPAGOTIEMPO: TStringField;
+    TUGCONDICIONPAGOTIEMPOSIDCONDICIONPAGOTIEMPO: TLongintField;
+    TUGCUARTOMAQUBICACION: TZTable;
+    TUGCUARTOMAQUBICACIONBVISIBLE: TSmallintField;
+    TUGCUARTOMAQUBICACIONIDCUARTOMAQUBICACION: TLongintField;
+    TUGCUARTOMAQUBICACIONUBICACION: TStringField;
+    TUGCUARTOSMAQUINASOTRABVISIBLE: TSmallintField;
+    TUGCUARTOSMAQUINASOTRACUARTOMAQUINAOTRA: TStringField;
+    TUGCUARTOSMAQUINASOTRAIDCUARTOMAQUINAOTRA: TLongintField;
+    TUGDESTINOSCLIENTEBVISIBLE: TSmallintField;
+    TUGDESTINOSCLIENTEDESTINO: TStringField;
+    TUGDESTINOSCLIENTEIDDESTINOCLIENTE: TLongintField;
+    TUGEMPLEADOSBVISIBLE: TSmallintField;
+    TUGEMPLEADOSEMPLEADO: TStringField;
+    TUGEMPLEADOSIDEMPLEADO: TLongintField;
+    TUGESTADOSCUOTABVISIBLE: TSmallintField;
+    TUGESTADOSCUOTAESTADOCUOTA: TStringField;
+    TUGESTADOSCUOTAIDESTADOCUOTA: TLongintField;
+    TUGFORMASCOBROAGRUPAMIENTO: TLongintField;
+    TUGFORMASCOBROBVISIBLE: TSmallintField;
+    TUGFORMASCOBROFORMACOBRO: TStringField;
+    TUGFORMASCOBROIDFORMACOBRO: TLongintField;
+    TUGFORMASCOBROREFCUENTA: TLongintField;
+    TUGFORMASPAGOAGRUPAMIENTO: TLongintField;
+    TUGFORMASPAGOBVISIBLE: TSmallintField;
+    TUGFORMASPAGOFORMAPAGO: TStringField;
+    TUGFORMASPAGOIDFORMAPAGO: TLongintField;
+    TUGFORMASPAGOREFCUENTA: TLongintField;
+    TUGFRECUENCIASVARIABLESBVISIBLE: TSmallintField;
+    TUGFRECUENCIASVARIABLESFRECUENCIAVARIABLE: TStringField;
+    TUGFRECUENCIASVARIABLESIDFRECUENCIAVARIABLE: TLongintField;
+    TUGGRUPOSFACTURACIONBVISIBLE: TSmallintField;
+    TUGGRUPOSFACTURACIONDIAFACTURACION: TLongintField;
+    TUGGRUPOSFACTURACIONGRUPOFACTURACION: TStringField;
+    TUGGRUPOSFACTURACIONIDGRUPOFACTURACION: TLongintField;
+    TUGLOCALIDADES: TZTable;
+    TUGCUARTOSMAQUINASOTRA: TZTable;
+    TUGDESTINOSCLIENTE: TZTable;
+    TUGEMPLEADOS: TZTable;
+    TUGESTADOSCUOTA: TZTable;
+    TUGFORMASCOBRO: TZTable;
+    TUGFORMASPAGO: TZTable;
+    TUGFRECUENCIASVARIABLES: TZTable;
+    TUGGRUPOSFACTURACION: TZTable;
+    TUGLOCALIDADESBVISIBLE: TSmallintField;
+    TUGLOCALIDADESCPOSTAL: TStringField;
+    TUGLOCALIDADESIDLOCALIDAD: TLongintField;
+    TUGLOCALIDADESLOCALIDAD: TStringField;
+    TUGLOCALIDADESREFPROVINCIA: TLongintField;
+    TUGMATERIALES: TZTable;
+    TUGMATERIALESBVISIBLE: TSmallintField;
+    TUGMATERIALESIDMATERIAL: TLongintField;
+    TUGMATERIALESMATERIAL: TStringField;
+    TUGMEDIOSRECLAMOBVISIBLE: TSmallintField;
+    TUGMEDIOSRECLAMOIDMEDIORECLAMO: TLongintField;
+    TUGMEDIOSRECLAMOMEDIORECLAMO: TStringField;
+    TUGMOTIVOSREMITOBVISIBLE: TSmallintField;
+    TUGMOTIVOSREMITOIDMOTIVOREMITO: TLongintField;
+    TUGMOTIVOSREMITOMOTIVOREMITO: TStringField;
+    TUGMOTORESMARCASBVISIBLE: TSmallintField;
+    TUGMOTORESMARCASIDMOTORMARCA: TLongintField;
+    TUGMOTORESMARCASMARCA: TStringField;
+    TUGNROACCESOOPADYBVISIBLE: TSmallintField;
+    TUGNROACCESOOPADYIDNROACCESOOPADY: TLongintField;
+    TUGNROACCESOOPADYNROACCESOOPADY: TStringField;
+    TUGPLANDECUENTASBVISIBLE: TSmallintField;
+    TUGPLANDECUENTASCODIGO: TStringField;
+    TUGPLANDECUENTASCUENTA: TStringField;
+    TUGPLANDECUENTASIDCUENTA: TLongintField;
+    TUGPLANDECUENTASOPERACION: TStringField;
+    TUGPLANDECUENTASPORCIVA: TFloatField;
+    TUGPOLICIASBVISIBLE: TSmallintField;
+    TUGPOLICIASIDPOLICIA: TLongintField;
+    TUGPOLICIASPOLICIA: TStringField;
+    TUGPRESUPUESTOSESTADOSBVISIBLE: TSmallintField;
+    TUGPRESUPUESTOSESTADOSESTADO: TStringField;
+    TUGPRESUPUESTOSESTADOSIDPRESUPUESTOESTADO: TLongintField;
+    TUGPROVINCIASBVISIBLE: TSmallintField;
+    TUGPROVINCIASIDPROVINCIA: TLongintField;
+    TUGPROVINCIASPROVINCIA: TStringField;
+    TUGPUERTASAUTOMATICASARRASTREBVISIBLE: TSmallintField;
+    TUGPUERTASAUTOMATICASARRASTREIDPUERTAAUTOMATICAARRASTRE: TLongintField;
+    TUGPUERTASAUTOMATICASARRASTREPUERTAAUTOMATICAARRASTRE: TStringField;
+    TUGPUERTASAUTOMATICASCORRIENTE: TZTable;
+    TUGMEDIOSRECLAMO: TZTable;
+    TUGMOTIVOSREMITO: TZTable;
+    TUGNROACCESOOPADY: TZTable;
+    TUGPLANDECUENTAS: TZTable;
+    TUGPOLICIAS: TZTable;
+    TUGPRESUPUESTOSESTADOS: TZTable;
+    TUGPROVINCIAS: TZTable;
+    TUGPUERTASAUTOMATICASARRASTRE: TZTable;
+    TUGPUERTASAUTOMATICASCORRIENTEBVISIBLE: TSmallintField;
+    TUGPUERTASAUTOMATICASCORRIENTEIDPUERTAAUTOMATICACORRIENTE: TLongintField;
+    TUGPUERTASAUTOMATICASCORRIENTEPUERTAAUTOMATICACORRIENTE: TStringField;
+    TUGPUERTASAUTOMATICASTIPOS: TZTable;
+    TUGPUERTASAUTOMATICASTIPOSBVISIBLE: TSmallintField;
+    TUGPUERTASAUTOMATICASTIPOSIDPUERTAAUTOMATICATIPO: TLongintField;
+    TUGPUERTASAUTOMATICASTIPOSPUERTAAUTOMATICATIPO: TStringField;
+    TUGPUERTASMANUALESTIPOSBVISIBLE: TSmallintField;
+    TUGPUERTASMANUALESTIPOSIDPUERTAMANUALTIPO: TLongintField;
+    TUGPUERTASMANUALESTIPOSTIPOPUERTAMANUAL: TStringField;
+    TUGRECIBOSESTADOSBVISIBLE: TSmallintField;
+    TUGRECIBOSESTADOSESTADO: TStringField;
+    TUGRECIBOSESTADOSIDRECIBOESTADO: TLongintField;
+    TUGSELECTIVAACUMULATIVATIPOSBVISIBLE: TSmallintField;
+    TUGSELECTIVAACUMULATIVATIPOSIDSELECTIVAACUMULATIVATIPO: TLongintField;
+    TUGSELECTIVAACUMULATIVATIPOSSELECTIVAACUMULATIVA: TStringField;
+    TUGTENSIONESTIPOBVISIBLE: TSmallintField;
+    TUGTENSIONESTIPOIDTENSIONTIPO: TLongintField;
+    TUGTENSIONESTIPOTENSIONTIPO: TStringField;
+    TUGTIPOSCOMPROBANTESBVISIBLE: TSmallintField;
+    TUGTIPOSCOMPROBANTESIDTIPOCOMPROBANTE: TLongintField;
+    TUGTIPOSCOMPROBANTESTIPOCOMPROBANTE: TStringField;
+    TUGTIPOSCONTACTOBVISIBLE: TSmallintField;
+    TUGTIPOSCONTACTOCLIENTEBVISIBLE: TSmallintField;
+    TUGTIPOSCONTACTOCLIENTEIDTIPOCONTACTOCLIENTE: TLongintField;
+    TUGTIPOSCONTACTOCLIENTETIPOCONTACTOCLIENTE: TStringField;
+    TUGTIPOSCONTACTOIDTIPOCONTACTO: TLongintField;
+    TUGTIPOSCONTACTOTIPOCONTACTO: TStringField;
+    TUGTIPOSCONTROLTIPOSBVISIBLE: TSmallintField;
+    TUGTIPOSCONTROLTIPOSIDTIPOCONTROLTIPO: TLongintField;
+    TUGTIPOSCONTROLTIPOSTIPOCONTROL: TStringField;
+    TUGTIPOSCUOTA: TZTable;
+    TUGTIPOSCUOTABVISIBLE: TSmallintField;
+    TUGTIPOSCUOTAIDTIPOCUOTA: TLongintField;
+    TUGTIPOSCUOTATIPOCUOTA: TStringField;
+    TUGTIPOSDOCUMENTO: TZTable;
+    TUGTIPOSDOCUMENTOBVISIBLE: TSmallintField;
+    TUGTIPOSDOCUMENTOIDTIPODOCUMENTO: TLongintField;
+    TUGTIPOSDOCUMENTOTIPODOCUMENTO: TStringField;
+    TUGTIPOSEQUIPOS: TZTable;
+    TUGTIPOSEQUIPOSBVISIBLE: TSmallintField;
+    TUGTIPOSEQUIPOSEQUIPO: TStringField;
+    TUGTIPOSEQUIPOSIDTIPOEQUIPO: TLongintField;
+    TUGTIPOSMANIOBRASOTRA: TZTable;
+    TUGTIPOSMANIOBRASOTRABVISIBLE: TSmallintField;
+    TUGTIPOSMANIOBRASOTRAIDTIPOMANIOBRAOTRA: TLongintField;
+    TUGTIPOSMANIOBRASOTRATIPOMANIOBRAOTRA: TStringField;
+    TUGTIPOSMANIOBRASTIPOS: TZTable;
+    TUGTIPOSMANIOBRASTIPOSBVISIBLE: TSmallintField;
+    TUGTIPOSMANIOBRASTIPOSIDTIPOMANIOBRATIPO: TLongintField;
+    TUGTIPOSMANIOBRASTIPOSTIPOMANIOBRA: TStringField;
+    TUGTIPOSMAQPROPHIDRAULICA: TZTable;
+    TUGTIPOSMAQPROPHIDRAULICABVISIBLE: TSmallintField;
+    TUGTIPOSMAQPROPHIDRAULICAIDTIPOMAQPROPHIDRAULICA: TLongintField;
+    TUGTIPOSMAQPROPHIDRAULICAPROPULSIONHIDRAULICA: TStringField;
+    TUGTIPOSMAQUINASTRACCION: TZTable;
+    TUGTIPOSMAQUINASTRACCIONBVISIBLE: TSmallintField;
+    TUGTIPOSMAQUINASTRACCIONIDTIPOMAQTRACCION: TLongintField;
+    TUGTIPOSMAQUINASTRACCIONTRACCION: TStringField;
+    TUGTIPOSPARACAIDAS: TZTable;
+    TUGTIPOSPARACAIDASBVISIBLE: TSmallintField;
+    TUGTIPOSPARACAIDASIDTIPOPARACAIDAS: TLongintField;
+    TUGTIPOSPARACAIDASTIPOPARACAIDAS: TStringField;
+    TUGTIPOSPARAGOLPES: TZTable;
+    TUGTIPOSPARAGOLPESBVISIBLE: TSmallintField;
+    TUGTIPOSPARAGOLPESIDTIPOPARAGOLPE: TLongintField;
+    TUGTIPOSPARAGOLPESTIPOPARAGOLPE: TStringField;
+    TUGMOTORESMARCAS: TZTable;
+    TUGPUERTASMANUALESTIPOS: TZTable;
+    TUGRECIBOSESTADOS: TZTable;
+    TUGSELECTIVAACUMULATIVATIPOS: TZTable;
+    TUGTENSIONESTIPO: TZTable;
+    TUGTIPOSCOMPROBANTES: TZTable;
+    TUGTIPOSCONTACTO: TZTable;
+    TUGTIPOSCONTACTOCLIENTE: TZTable;
+    TUGTIPOSCONTROLTIPOS: TZTable;
+    procedure DataModuleCreate(Sender: TObject);
   private
     { private declarations }
   public
@@ -61,16 +273,98 @@ implementation
 
 { TDM_EdicionTUGs }
 
-procedure TDM_EdicionTUGs.Levantartabla(laTabla: string);
+procedure TDM_EdicionTUGs.DataModuleCreate(Sender: TObject);
+var
+  idx: integer;
 begin
-  with tbTabla do
-  begin
-    Close;
-    TableName:= laTabla;
-    Open;
-    Filter:= 'bVisible = 1';
-    Filtered:= true;
-  end;
+  //for idx:= 0 to Self.ComponentCount -1 do
+  // if (Self.Components[idx] is TZTable) then
+  //   (Self.Components[idx] as TZTable).Open;
+end;
+
+procedure TDM_EdicionTUGs.Levantartabla(laTabla: string);
+var
+  idx: integer;
+  elCampo: TField;
+  campos, valoresIns, valoresUPD: String;
+begin
+
+//  with tbTabla do
+//  begin
+//    Close;
+//    TableName:= laTabla;
+//    Open;
+////    ////
+////    ///////
+//    tbtmp.Close;
+//    tbtmp.Fields.Clear;
+//    qLeer.Close;
+//    qLeer.SQL.Clear;
+//    qLeer.SQL.Add('SELECT * FROM '+ laTabla);
+//    qLeer.Open;
+////
+////    qIB.Close;
+////    qIB.SQL.Clear;
+////    qIB.SQL.Add('SELECT * FROM '+ laTabla);
+////    campos:= EmptyStr;
+////    valoresIns:= EmptyStr;
+////    valoresUPD:= EmptyStr;
+////    qIB.Open;
+////
+////    for idx:= 0 to tbTabla.FieldCount - 1 do
+////    begin
+////      campos:= Campos +', ' +qIB.Fields[idx].FieldName;
+////      if UpperCase(TRIM(Copy(qIB.Fields[idx].FieldName, 1, 2) )) = 'ID' then
+////        valoresIns:= valoresIns +', -1'
+////      else
+////        if UpperCase(TRIM(qIB.Fields[idx].FieldName)) = 'BVISIBLE' then
+////          valoresIns:= valoresIns +', 1'
+////        else
+////          valoresIns:= valoresIns + ', :' + qIB.Fields[idx].FieldName;
+////    end;
+////    campos:= Copy (campos, 2,Length(campos)-1);
+////    valoresIns:= Copy (valoresIns, 2,Length(valoresIns)-1);
+////    valoresUpd:= Copy (valoresUpd, 2,Length(valoresUpd)-1);
+////    qIB.Close;
+////
+//// //   qIB.InsertSQL.Add('INSERT INTO ' + laTabla + ' ('+ campos + ' ) VALUES');
+//// //   qIB.InsertSQL.Add(' (' +valoresIns + ')');
+////
+////
+////   // qIB.UpdateSQL.Add('UPDATE '+ laTabla + ' SET banco = :banco where idBanco = :idBanco');
+////
+//////    end;
+////
+////
+////    qIB.Open;
+////    tbtmp.Close;
+////    tbtmp.Open;
+////    tbtmp.LoadFromDataSet(qIB,0,lmCopy);
+////
+//
+//    //for idx:= 0 to FieldCount -1 do
+//    //begin
+//    //  elCampo:= TField.Create(self);
+//    //  elCampo:= qLeer.Fields[idx];
+//    //  tbtmp.Fields.Add(elCampo);      //Vincula los campos, no duplica los objetos
+//    //end;
+//    //tbtmp.Open;
+//    //tbtmp.LoadFromDataSet(qLeer, 0, lmAppend);
+//    //First;
+//    //While Not qLeer.EOF do
+//    //begin
+//    //  tbtmp.Insert;
+//    //  for idx:= 0 to qleer.FieldCount -1 do
+//    //    tbtmp.FieldByName(qLeer.Fields[idx].FieldName).Value:= qLeer.FieldByName(qLeer.Fields[idx].FieldName).Value;
+//    //  tbtmp.Post;
+//    //  qLeer.Next;
+//    //end;
+////
+////    ///
+////    ///////
+//    Filter:= 'bVisible = 1';
+//    Filtered:= true;
+//  end;
 end;
 
 function TDM_EdicionTUGs.DevolverTField(elCampo: string): TField;
