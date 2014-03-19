@@ -17,6 +17,7 @@ type
   TfrmCargaValoresIngreso = class(TForm)
     btnAceptar: TBitBtn;
     btnBuscarCheque: TBitBtn;
+    btnChequeNuevo: TBitBtn;
     btnCancelar: TBitBtn;
     btnTugTiposComprobantes: TSpeedButton;
     cbBanco: TComboBox;
@@ -38,7 +39,9 @@ type
     tabEfectivo: TTabSheet;
     tabTransferencia: TTabSheet;
     procedure btnAceptarClick(Sender: TObject);
+    procedure btnBuscarChequeClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
+    procedure btnChequeNuevoClick(Sender: TObject);
     procedure btnTugTiposComprobantesClick(Sender: TObject);
     procedure cbFormaCobroChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -49,13 +52,13 @@ type
     _idCheque: GUID_ID;
     _monto: double;
     _NroCheque: string;
-    function getFormaPago: integer;
+    function getFormaCobro: integer;
     procedure Initialize;
 
     procedure MostrarTab;
   public
     property refAgrupamiento: integer Read _Agrupamiento;
-    property refFormaPago: integer Read getFormaPago;
+    property refFormaCobro: integer Read getFormaCobro;
     property Monto: double Read _monto;
     property refCheque: GUID_ID Read _idCheque;
     property refBanco: integer Read _idBanco;
@@ -74,6 +77,7 @@ uses
   , frm_ediciontugs
   , dmediciontugs
   , dmcheques
+  , frm_chequesae
   ;
 
 { TfrmCargaValoresIngreso }
@@ -82,6 +86,35 @@ uses
 procedure TfrmCargaValoresIngreso.btnCancelarClick(Sender: TObject);
 begin
   ModalResult:= mrCancel;
+end;
+
+procedure TfrmCargaValoresIngreso.btnChequeNuevoClick(Sender: TObject);
+var
+  pantalla: TfrmChequeAE;
+  elMonto: double;
+  elBanco, elNumero: string;
+begin
+  pantalla:= TfrmChequeAE.Create(self);
+  try
+    pantalla.idCheque:= GUIDNULO;
+    if pantalla.ShowModal = mrOK then
+    begin
+       DM_Valores.DatosCheque(pantalla.idCheque
+        , elMonto
+        , elBanco
+        , elNumero
+        , _idBanco
+        );
+       _idCheque := pantalla.idCheque;
+
+      edChequeMonto.Caption  := 'Monto: ' + FormatFloat('$ ##########0.00', elMonto);
+      edChequeBanco.Caption  := 'Banco: ' + elBanco;
+      edChequeNumero.Caption := 'Número: ' + elNumero;
+
+    end;
+  finally
+    pantalla.Free;
+  end;
 end;
 
 procedure TfrmCargaValoresIngreso.btnTugTiposComprobantesClick(Sender: TObject);
@@ -135,12 +168,39 @@ begin
    ModalResult := mrOk;
 end;
 
+procedure TfrmCargaValoresIngreso.btnBuscarChequeClick(Sender: TObject);
+var
+  pant:    TfrmListadoCheques;
+  elMonto: double;
+  elBanco, elNumero: string;
+begin
+  pant := TfrmListadoCheques.Create(self);
+  try
+    if pant.ShowModal = mrOk then
+    begin
+      DM_Valores.DatosCheque(pant.idCheque
+        , elMonto
+        , elBanco
+        , elNumero
+        , _idBanco
+        );
+      _idCheque := pant.idCheque;
+
+      edChequeMonto.Caption  := 'Monto: ' + FormatFloat('$ ##########0.00', elMonto);
+      edChequeBanco.Caption  := 'Banco: ' + elBanco;
+      edChequeNumero.Caption := 'Número: ' + elNumero;
+    end;
+  finally
+    pant.Free;
+  end;
+end;
+
 procedure TfrmCargaValoresIngreso.FormShow(Sender: TObject);
 begin
   Initialize;
 end;
 
-function TfrmCargaValoresIngreso.getFormaPago: integer;
+function TfrmCargaValoresIngreso.getFormaCobro: integer;
 begin
   Result := DM_General.obtenerIDIntComboBox(cbFormaCobro);
 end;

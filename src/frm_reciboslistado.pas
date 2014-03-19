@@ -24,6 +24,7 @@ type
     Panel1: TPanel;
     Panel2: TPanel;
     procedure btnAceptarClick(Sender: TObject);
+    procedure btnAnularClick(Sender: TObject);
     procedure btnModificarClick(Sender: TObject);
     procedure btnNuevoClick(Sender: TObject);
     procedure DBGrid1TitleClick(Column: TColumn);
@@ -60,6 +61,16 @@ end;
 procedure TfrmRecibosListado.btnAceptarClick(Sender: TObject);
 begin
   ModalResult:= mrOK;
+end;
+
+procedure TfrmRecibosListado.btnAnularClick(Sender: TObject);
+begin
+  if (MessageDlg ('AVISO', '¿Anulo el recibo seleccionado?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+  begin
+    DM_Recibos.AnularRecibo;
+    DM_Recibos.LevantarRecibos;
+    ShowMessage('El Recibo ha sido anulado, pero si contenía cheques, estos siguen en su cartera');
+  end;
 end;
 
 procedure TfrmRecibosListado.btnModificarClick(Sender: TObject);

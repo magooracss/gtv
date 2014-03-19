@@ -462,6 +462,7 @@ object frmPrincipal: TfrmPrincipal
       Category = 'Ingresos'
       Caption = 'Recibos'
       Hint = 'Recibos'
+      ImageIndex = 31
       OnExecute = ingRecibosExecute
     end
     object ingFacturas: TAction

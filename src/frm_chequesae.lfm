@@ -14,7 +14,7 @@ object frmChequeAE: TfrmChequeAE
   Font.Quality = fqDraft
   OnCreate = FormCreate
   OnShow = FormShow
-  LCLVersion = '1.0.12.0'
+  LCLVersion = '1.2.0.3'
   object Panel1: TPanel
     Left = 0
     Height = 50
@@ -186,7 +186,7 @@ object frmChequeAE: TfrmChequeAE
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
     MaxLength = 10
-    NumGlyphs = 0
+    NumGlyphs = 1
     OKCaption = 'OK'
     PopupColor = clWindow
     TabOrder = 3
@@ -242,7 +242,7 @@ object frmChequeAE: TfrmChequeAE
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
     MaxLength = 10
-    NumGlyphs = 0
+    NumGlyphs = 1
     OKCaption = 'OK'
     PopupColor = clWindow
     TabOrder = 4
@@ -373,7 +373,7 @@ object frmChequeAE: TfrmChequeAE
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
     MaxLength = 10
-    NumGlyphs = 0
+    NumGlyphs = 1
     OKCaption = 'OK'
     PopupColor = clWindow
     TabOrder = 8
@@ -484,7 +484,7 @@ object frmChequeAE: TfrmChequeAE
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
     MaxLength = 10
-    NumGlyphs = 0
+    NumGlyphs = 1
     OKCaption = 'OK'
     PopupColor = clWindow
     TabOrder = 10
@@ -505,85 +505,85 @@ object frmChequeAE: TfrmChequeAE
   end
   object Label1: TLabel
     Left = 12
-    Height = 17
+    Height = 16
     Top = 12
-    Width = 46
+    Width = 45
     Caption = 'Número'
     ParentColor = False
   end
   object Label2: TLabel
     Left = 336
-    Height = 17
+    Height = 16
     Top = 12
-    Width = 37
+    Width = 36
     Caption = 'Monto'
     ParentColor = False
   end
   object Label3: TLabel
-    Left = 549
-    Height = 17
+    Left = 550
+    Height = 16
     Top = 12
-    Width = 49
+    Width = 48
     Anchors = [akTop, akRight]
     Caption = 'Cobrado'
     ParentColor = False
   end
   object Label4: TLabel
-    Left = 669
-    Height = 17
+    Left = 670
+    Height = 16
     Top = 12
-    Width = 73
+    Width = 72
     Anchors = [akTop, akRight]
     Caption = 'Vencimiento'
     ParentColor = False
   end
   object Label5: TLabel
     Left = 12
-    Height = 17
+    Height = 16
     Top = 67
-    Width = 38
+    Width = 37
     Caption = 'Banco'
     ParentColor = False
   end
   object Label6: TLabel
-    Left = 612
-    Height = 17
+    Left = 613
+    Height = 16
     Top = 67
-    Width = 25
+    Width = 24
     Anchors = [akTop, akRight]
     Caption = 'Tipo'
     ParentColor = False
   end
   object Label7: TLabel
     Left = 12
-    Height = 17
+    Height = 16
     Top = 125
-    Width = 77
+    Width = 76
     Caption = 'Entregado A:'
     ParentColor = False
   end
   object Label8: TLabel
-    Left = 687
-    Height = 17
+    Left = 688
+    Height = 16
     Top = 125
-    Width = 46
+    Width = 45
     Anchors = [akTop, akRight]
     Caption = 'Entrega'
     ParentColor = False
   end
   object Label9: TLabel
     Left = 12
-    Height = 17
+    Height = 16
     Top = 187
-    Width = 73
+    Width = 72
     Caption = 'Recibido de:'
     ParentColor = False
   end
   object Label10: TLabel
-    Left = 687
-    Height = 17
+    Left = 688
+    Height = 16
     Top = 186
-    Width = 51
+    Width = 50
     Anchors = [akTop, akRight]
     Caption = 'Recibido'
     ParentColor = False
@@ -670,7 +670,6 @@ object frmChequeAE: TfrmChequeAE
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
-    NumGlyphs = 0
     OnClick = btnTugTecnicosClick
   end
   object btnTugTecnicos1: TSpeedButton
@@ -715,7 +714,6 @@ object frmChequeAE: TfrmChequeAE
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
-    NumGlyphs = 0
     OnClick = btnTugTecnicos1Click
   end
   object dbNroInterno: TDBEdit
@@ -731,9 +729,9 @@ object frmChequeAE: TfrmChequeAE
   end
   object Label12: TLabel
     Left = 192
-    Height = 17
+    Height = 16
     Top = 12
-    Width = 89
+    Width = 88
     Caption = 'Número interno'
     ParentColor = False
   end

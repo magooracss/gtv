@@ -890,17 +890,28 @@ object DM_Recibos: TDM_Recibos
         ParamType = ptUnknown
       end>
   end
-  object tbReclamosDEL: TZQuery
+  object RecibosDel: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      'UPDATE tbReclamos'
-      'SET bVisible = 0'
-      'WHERE idReclamo = :idReclamo'
+      'UPDATE Recibos'
+      'SET fAnulacion = :fAnulacion'
+      '       ,Estado_id = :estado_id'
+      'WHERE id = :id'
     )
     Params = <    
       item
         DataType = ftUnknown
-        Name = 'idReclamo'
+        Name = 'fAnulacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'estado_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'id'
         ParamType = ptUnknown
       end>
     left = 120
@@ -908,7 +919,17 @@ object DM_Recibos: TDM_Recibos
     ParamData = <    
       item
         DataType = ftUnknown
-        Name = 'idReclamo'
+        Name = 'fAnulacion'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'estado_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'id'
         ParamType = ptUnknown
       end>
   end
@@ -961,6 +982,30 @@ object DM_Recibos: TDM_Recibos
         DataType = ftInteger
         Precision = 0
         Size = 0
+      end    
+      item
+        Name = 'lxBanco'
+        DataType = ftString
+        Precision = 0
+        Size = 100
+      end    
+      item
+        Name = 'lxFormaCobro'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end    
+      item
+        Name = 'lxNroCheque'
+        DataType = ftString
+        Precision = 0
+        Size = 50
+      end    
+      item
+        Name = 'lxFechaCheque'
+        DataType = ftString
+        Precision = 0
+        Size = 50
       end>
     AfterInsert = ReciboItemsAfterInsert
     PacketRecords = 0
@@ -1053,6 +1098,50 @@ object DM_Recibos: TDM_Recibos
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+    end
+    object ReciboItemslxBanco: TStringField
+      DisplayWidth = 100
+      FieldKind = fkData
+      FieldName = 'lxBanco'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object ReciboItemslxFormaCobro: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'lxFormaCobro'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object ReciboItemslxNroCheque: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'lxNroCheque'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object ReciboItemslxFechaCheque: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'lxFechaCheque'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
     end
   end
   object ReciboItemsSEL: TZQuery
@@ -1185,7 +1274,7 @@ object DM_Recibos: TDM_Recibos
       ', :FORMACOBRO_ID'
       ', :BANCO_ID'
       ', :CHEQUE_ID'
-      ', :FORMACOBRO'
+      ', ''--'''
       ', :MONTO'
       ', :RECIBO_ID'
       ', :CUENTA_ID'
@@ -1210,11 +1299,6 @@ object DM_Recibos: TDM_Recibos
       item
         DataType = ftUnknown
         Name = 'CHEQUE_ID'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'FORMACOBRO'
         ParamType = ptUnknown
       end    
       item
@@ -1257,11 +1341,6 @@ object DM_Recibos: TDM_Recibos
       end    
       item
         DataType = ftUnknown
-        Name = 'FORMACOBRO'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
         Name = 'MONTO'
         ParamType = ptUnknown
       end    
@@ -1284,7 +1363,7 @@ object DM_Recibos: TDM_Recibos
       '  FORMACOBRO_ID = :FORMACOBRO_ID'
       ', BANCO_ID = :BANCO_ID'
       ', CHEQUE_ID = :CHEQUE_ID'
-      ', FORMACOBRO = :FORMACOBRO'
+      ', FORMACOBRO = ''---'''
       ', MONTO = :MONTO'
       ', RECIBO_ID = :RECIBO_ID'
       ', CUENTA_ID = :CUENTA_ID'
@@ -1304,11 +1383,6 @@ object DM_Recibos: TDM_Recibos
       item
         DataType = ftUnknown
         Name = 'CHEQUE_ID'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'FORMACOBRO'
         ParamType = ptUnknown
       end    
       item
@@ -1347,11 +1421,6 @@ object DM_Recibos: TDM_Recibos
       item
         DataType = ftUnknown
         Name = 'CHEQUE_ID'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'FORMACOBRO'
         ParamType = ptUnknown
       end    
       item
@@ -1500,6 +1569,293 @@ object DM_Recibos: TDM_Recibos
       FieldKind = fkData
       FieldName = 'CUENTA_ID'
       Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qtugBancos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugBancos'
+      'WHERE idBanco = :idBanco'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idBanco'
+        ParamType = ptUnknown
+      end>
+    left = 400
+    top = 24
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idBanco'
+        ParamType = ptUnknown
+      end>
+    object qtugBancosIDBANCO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDBANCO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtugBancosBANCO: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'BANCO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qtugBancosBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qtugFormasCobro: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugFormasCobro'
+      'WHERE idFormaCobro = :idFormaCobro'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idFormaCobro'
+        ParamType = ptUnknown
+      end>
+    left = 400
+    top = 89
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idFormaCobro'
+        ParamType = ptUnknown
+      end>
+    object qtugFormasCobroIDFORMACOBRO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDFORMACOBRO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtugFormasCobroFORMACOBRO: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'FORMACOBRO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object qtugFormasCobroBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtugFormasCobroAGRUPAMIENTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'AGRUPAMIENTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtugFormasCobroREFCUENTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFCUENTA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qtbCheques: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbCheques'
+      'WHERE idCheque = :idCheque'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCheque'
+        ParamType = ptUnknown
+      end>
+    left = 400
+    top = 151
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idCheque'
+        ParamType = ptUnknown
+      end>
+    object qtbChequesIDCHEQUE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCHEQUE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qtbChequesNROCHEQUE: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'NROCHEQUE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object qtbChequesFCOBRO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCOBRO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtbChequesFVENCIMIENTO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FVENCIMIENTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtbChequesREFBANCO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFBANCO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtbChequesREFESTADO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFESTADO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtbChequesREFRECIBIDODE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFRECIBIDODE'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qtbChequesFRECIBIDO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FRECIBIDO'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtbChequesTXNOTAS: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXNOTAS'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qtbChequesFENTREGA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FENTREGA'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qtbChequesREFENTREGADOA: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFENTREGADOA'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qtbChequesNMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTO'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qtbChequesBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 12
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False

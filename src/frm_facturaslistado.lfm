@@ -21,6 +21,7 @@ object frmListadoFacturas: TfrmListadoFacturas
     Width = 1001
     Align = alTop
     TabOrder = 0
+    Visible = False
   end
   object DBGrid1: TDBGrid
     Left = 0

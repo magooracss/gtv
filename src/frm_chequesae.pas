@@ -82,7 +82,11 @@ procedure TfrmChequeAE.FormShow(Sender: TObject);
 begin
   Inicializar;
   if _idCheque = GUIDNULO then
-   DM_Cheques.Nuevo
+  begin
+    DM_Cheques.Nuevo;
+    DM_Cheques.tbCheques.Post;
+    _idCheque:= DM_Cheques.tbChequesidCheque.AsString;
+  end
   else
     EditarCheque;
 end;

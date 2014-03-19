@@ -30,7 +30,9 @@ type
     ds_recibos: TDatasource;
     DBDateEdit1: TDBDateEdit;
     DBGrid1: TDBGrid;
+    ds_mediosCobro: TDatasource;
     edCliente: TEdit;
+    edSumaValores: TEdit;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     Label1: TLabel;
@@ -45,10 +47,12 @@ type
     StaticText1: TStaticText;
     StaticText2: TStaticText;
     StaticText3: TStaticText;
+    StaticText4: TStaticText;
     procedure btnAgregarCobroClick(Sender: TObject);
     procedure btnClientesAgregarClick(Sender: TObject);
     procedure btnClientesBuscarClick(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
+    procedure btnQuitarCobroClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     idRecibo: GUID_ID;
@@ -78,6 +82,15 @@ begin
   ModalResult:= mrOK;
 end;
 
+procedure TfrmRecibosAE.btnQuitarCobroClick(Sender: TObject);
+begin
+  if (MessageDlg ('AVISO', '¿Elimino el valor seleccionado?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+  begin
+    DM_Recibos.EliminarItem;
+    edSumaValores.Text:= FormatFloat('$ ############0.00', DM_Recibos.totalRecibo);
+  end;
+end;
+
 
 procedure TfrmRecibosAE.btnClientesAgregarClick(Sender: TObject);
 var
@@ -104,7 +117,14 @@ begin
   try
     if pant.ShowModal = mrOK then
     begin
-
+      DM_Recibos.CargarValor (pant.refFormaCobro
+                             ,pant.refCheque
+                             ,pant.refBanco
+                             ,pant.Monto
+                             ,pant.Banco
+                             ,pant.NroCheque
+                             );
+      edSumaValores.Text:= FormatFloat('$ ############0.00', DM_Recibos.totalRecibo);
     end;
   finally
     pant.Free;
@@ -136,6 +156,7 @@ begin
   begin
     DM_Recibos.LevantarReciboID (idRecibo);
   end;
+  edSumaValores.Text:= FormatFloat('$ ############0.00', DM_Recibos.totalRecibo);
 end;
 
 end.
