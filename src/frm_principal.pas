@@ -14,6 +14,7 @@ type
   { TfrmPrincipal }
 
   TfrmPrincipal = class(TForm)
+    appAbout: TAction;
     ingFacturas: TAction;
     ingRecibos: TAction;
     ingIngresos: TAction;
@@ -51,6 +52,8 @@ type
     MenuItem33: TMenuItem;
     MenuItem34: TMenuItem;
     MenuItem35: TMenuItem;
+    MenuItem36: TMenuItem;
+    MenuItem37: TMenuItem;
     RemitosPantGralCliente: TAction;
     RemitoPantGral: TAction;
     ReclPantGralCliente: TAction;
@@ -106,6 +109,7 @@ type
     ToolButton4: TToolButton;
     ToolButton5: TToolButton;
     XMLPropiedades: TXMLPropStorage;
+    procedure appAboutExecute(Sender: TObject);
     procedure appConfigExecute(Sender: TObject);
     procedure appEditarReporteExecute(Sender: TObject);
     procedure appListadosExecute(Sender: TObject);
@@ -177,6 +181,7 @@ uses
   ,frm_ingresoslistado
   ,frm_reciboslistado
   ,frm_facturaslistado
+  ,frm_about
   ;
 
 { TfrmPrincipal }
@@ -227,6 +232,18 @@ begin
     pantalla.Free;
   end;
 
+end;
+
+procedure TfrmPrincipal.appAboutExecute(Sender: TObject);
+var
+  pant: TfrmAbout;
+begin
+  pant:= TfrmAbout.Create(self);
+  try
+    pant.ShowModal;
+  finally
+    pant.Free;
+  end;
 end;
 
 procedure TfrmPrincipal.appListadosExecute(Sender: TObject);

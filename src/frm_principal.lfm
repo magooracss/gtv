@@ -181,6 +181,12 @@ object frmPrincipal: TfrmPrincipal
       object MenuItem30: TMenuItem
         Action = appConfig
       end
+      object MenuItem37: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem36: TMenuItem
+        Action = appAbout
+      end
       object MenuItem26: TMenuItem
         Caption = '-'
       end
@@ -470,6 +476,13 @@ object frmPrincipal: TfrmPrincipal
       Caption = 'Facturas'
       Hint = 'Facturas emitidas'
       OnExecute = ingFacturasExecute
+    end
+    object appAbout: TAction
+      Category = 'Aplicacion'
+      Caption = 'Autor'
+      Hint = 'Datos de contacto con el autor del programa'
+      ImageIndex = 32
+      OnExecute = appAboutExecute
     end
   end
   object XMLPropiedades: TXMLPropStorage
