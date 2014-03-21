@@ -1,11 +1,11 @@
 object frmFacturaAE: TfrmFacturaAE
-  Left = 488
+  Left = 262
   Height = 659
-  Top = 80
-  Width = 663
+  Top = 47
+  Width = 903
   Caption = 'Factura'
   ClientHeight = 659
-  ClientWidth = 663
+  ClientWidth = 903
   Font.CharSet = ANSI_CHARSET
   Font.Color = clBlack
   Font.Height = -13
@@ -17,11 +17,11 @@ object frmFacturaAE: TfrmFacturaAE
   object Panel1: TPanel
     Left = 0
     Height = 88
-    Top = 0
-    Width = 663
+    Top = 80
+    Width = 903
     Align = alTop
     ClientHeight = 88
-    ClientWidth = 663
+    ClientWidth = 903
     TabOrder = 0
     object DBDateEdit1: TDBDateEdit
       Left = 32
@@ -108,7 +108,7 @@ object frmFacturaAE: TfrmFacturaAE
         Left = 182
         Height = 24
         Top = 8
-        Width = 104
+        Width = 109
         DataField = 'nroRecibo'
         CharCase = ecNormal
         MaxLength = 0
@@ -127,22 +127,22 @@ object frmFacturaAE: TfrmFacturaAE
   end
   object Panel2: TPanel
     Left = 0
-    Height = 88
-    Top = 88
-    Width = 663
+    Height = 80
+    Top = 0
+    Width = 903
     Align = alTop
-    ClientHeight = 88
-    ClientWidth = 663
+    ClientHeight = 80
+    ClientWidth = 903
     TabOrder = 1
     object GroupBox2: TGroupBox
-      Left = 8
+      Left = 1
       Height = 72
-      Top = 8
-      Width = 640
-      Anchors = [akTop, akLeft, akRight]
+      Top = 1
+      Width = 901
+      Align = alTop
       Caption = 'Cliente'
       ClientHeight = 54
-      ClientWidth = 636
+      ClientWidth = 897
       TabOrder = 0
       object btnClientesBuscar: TBitBtn
         Left = 6
@@ -201,14 +201,14 @@ object frmFacturaAE: TfrmFacturaAE
         Left = 94
         Height = 24
         Top = 12
-        Width = 447
+        Width = 708
         Anchors = [akTop, akLeft, akRight]
         Color = clMoneyGreen
         TabOrder = 1
         Text = 'edCliente'
       end
       object btnClientesAgregar: TBitBtn
-        Left = 549
+        Left = 810
         Height = 30
         Top = 8
         Width = 83
@@ -257,38 +257,38 @@ object frmFacturaAE: TfrmFacturaAE
   end
   object Panel3: TPanel
     Left = 0
-    Height = 211
-    Top = 176
-    Width = 663
+    Height = 219
+    Top = 168
+    Width = 903
     Align = alClient
-    ClientHeight = 211
-    ClientWidth = 663
+    ClientHeight = 219
+    ClientWidth = 903
     TabOrder = 2
     object Panel6: TPanel
       Left = 1
-      Height = 209
+      Height = 217
       Top = 1
-      Width = 359
+      Width = 477
       Align = alClient
-      ClientHeight = 209
-      ClientWidth = 359
+      ClientHeight = 217
+      ClientWidth = 477
       TabOrder = 0
       object StaticText1: TStaticText
         Left = 1
         Height = 17
         Top = 1
-        Width = 357
+        Width = 475
         Align = alTop
         Caption = '   Recibos'
         TabOrder = 0
       end
       object Panel8: TPanel
-        Left = 283
-        Height = 190
+        Left = 401
+        Height = 198
         Top = 18
         Width = 75
         Align = alRight
-        ClientHeight = 190
+        ClientHeight = 198
         ClientWidth = 75
         TabOrder = 1
         object BitBtn2: TBitBtn
@@ -310,9 +310,9 @@ object frmFacturaAE: TfrmFacturaAE
       end
       object DBGrid2: TDBGrid
         Left = 1
-        Height = 190
+        Height = 198
         Top = 18
-        Width = 282
+        Width = 400
         Align = alClient
         Color = clWindow
         Columns = <>
@@ -326,30 +326,30 @@ object frmFacturaAE: TfrmFacturaAE
       end
     end
     object Panel7: TPanel
-      Left = 365
-      Height = 209
+      Left = 483
+      Height = 217
       Top = 1
-      Width = 297
+      Width = 419
       Align = alRight
-      ClientHeight = 209
-      ClientWidth = 297
+      ClientHeight = 217
+      ClientWidth = 419
       TabOrder = 1
       object StaticText2: TStaticText
         Left = 1
         Height = 17
         Top = 1
-        Width = 295
+        Width = 417
         Align = alTop
         Caption = '   Remitos'
         TabOrder = 0
       end
       object Panel9: TPanel
-        Left = 221
-        Height = 190
+        Left = 343
+        Height = 198
         Top = 18
         Width = 75
         Align = alRight
-        ClientHeight = 190
+        ClientHeight = 198
         ClientWidth = 75
         TabOrder = 1
         object BitBtn4: TBitBtn
@@ -371,9 +371,9 @@ object frmFacturaAE: TfrmFacturaAE
       end
       object DBGrid3: TDBGrid
         Left = 1
-        Height = 190
+        Height = 198
         Top = 18
-        Width = 220
+        Width = 342
         Align = alClient
         Color = clWindow
         Columns = <>
@@ -387,8 +387,8 @@ object frmFacturaAE: TfrmFacturaAE
       end
     end
     object Splitter1: TSplitter
-      Left = 360
-      Height = 209
+      Left = 478
+      Height = 217
       Top = 1
       Width = 5
       Align = alRight
@@ -399,22 +399,22 @@ object frmFacturaAE: TfrmFacturaAE
     Left = 0
     Height = 222
     Top = 387
-    Width = 663
+    Width = 903
     Align = alBottom
     ClientHeight = 222
-    ClientWidth = 663
+    ClientWidth = 903
     TabOrder = 3
     object StaticText3: TStaticText
       Left = 1
       Height = 17
       Top = 1
-      Width = 661
+      Width = 901
       Align = alTop
       Caption = '   Items'
       TabOrder = 0
     end
     object Panel10: TPanel
-      Left = 552
+      Left = 792
       Height = 203
       Top = 18
       Width = 110
@@ -444,7 +444,7 @@ object frmFacturaAE: TfrmFacturaAE
       Left = 1
       Height = 203
       Top = 18
-      Width = 551
+      Width = 791
       Align = alClient
       Color = clWindow
       Columns = <>
@@ -461,7 +461,7 @@ object frmFacturaAE: TfrmFacturaAE
     Left = 0
     Height = 50
     Top = 609
-    Width = 663
+    Width = 903
     Align = alBottom
     TabOrder = 4
   end
