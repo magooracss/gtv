@@ -50,9 +50,11 @@ type
     StaticText3: TStaticText;
     procedure btnClientesAgregarClick(Sender: TObject);
     procedure btnClientesBuscarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     idFactura: GUID_ID;
-    { private declarations }
+    procedure LevantarCliente (id: GUID_ID; nombre: string );
+    procedure Inicializar;
   public
     property factura_id: GUID_ID read idFactura write idFactura;
   end;
@@ -70,6 +72,17 @@ uses
   ;
 
 { TfrmFacturaAE }
+procedure TfrmFacturaAE.LevantarCliente(id: GUID_ID; nombre: string);
+begin
+  DM_Facturas.CargarCliente(id);
+  edCliente.Text:= TRIM(nombre);
+  cbTipoFactura.ItemIndex:= DM_General.obtenerIdxCombo(cbTipoFactura, RESP_INSCRIPTO);
+end;
+
+procedure TfrmFacturaAE.Inicializar;
+begin
+  DM_General.CargarComboBox(cbTipoFactura,'CondicionFiscal', 'idCondicionFiscal' ,DM_Facturas.CondicionFiscal);
+end;
 
 procedure TfrmFacturaAE.btnClientesBuscarClick(Sender: TObject);
 var
@@ -79,13 +92,20 @@ begin
   try
     if (pantBusqueda.ShowModal = mrOK) and (pantBusqueda.idCliente <> GUIDNULO) then
     begin
-      DM_Facturas.CargarCliente(pantBusqueda.idCliente);
-      edCliente.Text:= TRIM(pantBusqueda.NombreCliente);
+      //DM_Facturas.CargarCliente(pantBusqueda.idCliente);
+      //edCliente.Text:= TRIM(pantBusqueda.NombreCliente);
+      LevantarCliente(pantBusqueda.idCliente, pantBusqueda.NombreCliente);
     end;
   finally
     pantBusqueda.Free;
   end;
 end;
+
+procedure TfrmFacturaAE.FormShow(Sender: TObject);
+begin
+  Inicializar;
+end;
+
 
 procedure TfrmFacturaAE.btnClientesAgregarClick(Sender: TObject);
 var
@@ -96,8 +116,9 @@ begin
     pant.operacion:= nuevo;
     if pant.ShowModal = mrOK then
     begin
-      DM_Facturas.CargarCliente(pant.cliente);
-      edCliente.Text:= TRIM(DM_Clientes.ClienteNombre(pant.cliente));
+      //DM_Facturas.CargarCliente(pant.cliente);
+      //edCliente.Text:= TRIM(DM_Clientes.ClienteNombre(pant.cliente));
+      LevantarCliente(pant.Cliente, TRIM(DM_Clientes.ClienteNombre(pant.cliente)));
     end;
   finally
     pant.free;

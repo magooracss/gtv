@@ -12,6 +12,7 @@ object frmFacturaAE: TfrmFacturaAE
   Font.Name = 'Arial'
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
+  OnShow = FormShow
   Position = poOwnerFormCenter
   LCLVersion = '1.2.0.3'
   object Panel1: TPanel

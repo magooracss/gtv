@@ -9,11 +9,19 @@ uses
   ,dmgeneral, db
   ;
 
+const
+  RESP_INSCRIPTO = 3;
+
 type
 
   { TDM_Facturas }
 
   TDM_Facturas = class(TDataModule)
+    CondicionFiscalBVISIBLE: TSmallintField;
+    CondicionFiscalCOMPRENTREGA: TLongintField;
+    CondicionFiscalCOMPRRECIBE: TLongintField;
+    CondicionFiscalCONDICIONFISCAL: TStringField;
+    CondicionFiscalIDCONDICIONFISCAL: TLongintField;
     qListaRecibos: TZQuery;
     qListaRecibosBVISIBLE: TSmallintField;
     qListaRecibosBVISIBLE_1: TSmallintField;
@@ -64,6 +72,7 @@ type
     FacturasnroPtoVenta: TLongintField;
     FacturasnroRecibo: TLongintField;
     RecibosSEL: TZQuery;
+    CondicionFiscal: TZQuery;
     RecibosSELCLIENTEEMPRESA_ID: TStringField;
     RecibosSELDETALLE: TStringField;
     RecibosSELESTADO_ID: TLongintField;
@@ -75,6 +84,7 @@ type
     RecibosSELNRORECIBO: TLongintField;
     RecibosUPD: TZQuery;
     tbReclamosDEL: TZQuery;
+    procedure DataModuleCreate(Sender: TObject);
   private
     { private declarations }
   public
@@ -93,6 +103,11 @@ implementation
 {$R *.lfm}
 
 { TDM_Facturas }
+
+procedure TDM_Facturas.DataModuleCreate(Sender: TObject);
+begin
+
+end;
 
 procedure TDM_Facturas.LevantarFacturas;
 begin

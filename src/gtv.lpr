@@ -69,6 +69,8 @@ begin
   Application.CreateForm(TDM_EgresosVarios, DM_EgresosVarios);
   Application.CreateForm(TDM_Compensaciones, DM_Compensaciones);
   Application.CreateForm(TDM_Recibos, DM_Recibos);
+  Application.CreateForm(TDM_Facturas, DM_Facturas);
+  Application.CreateForm(TDM_Ingresos, DM_Ingresos);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
 
   Application.Run;

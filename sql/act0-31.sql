@@ -205,3 +205,41 @@ UPDATE RDB$RELATION_FIELDS SET RDB$NULL_FLAG = 1
 WHERE RDB$FIELD_NAME = 'idBanco' AND RDB$RELATION_NAME = 'tugBancos';
 
 alter table tugBancos add primary key (idBanco);
+
+CREATE TABLE tugFacturas
+(
+  id  integer default -1
+ ,letra char(1)
+ ,generador varchar (10)
+ ,bVisible smallint default 1 
+);
+
+INSERT INTO tugFacturas
+( id,letra, generador, bVisible)
+VALUES
+(1, 'A', 'GEN_FACT_A',1);
+
+INSERT INTO tugFacturas
+( id,letra, generador,bVisible)
+VALUES
+(2, 'B', 'GEN_FACT_B', 1);
+
+INSERT INTO tugFacturas
+( id,letra, generador,bVisible)
+VALUES
+(3, 'C', 'GEN_FACT_C', 1);
+
+INSERT INTO tugFacturas
+( id,letra, generador,bVisible)
+VALUES
+(4, 'T', 'GEN_FACT_T', 1);
+
+CREATE GENERATOR GEN_FACT_A;
+CREATE GENERATOR GEN_FACT_B;
+CREATE GENERATOR GEN_FACT_C;
+CREATE GENERATOR GEN_FACT_T;
+
+SET GENERATOR GEN_FACT_A TO 0;
+SET GENERATOR GEN_FACT_B TO 0;
+SET GENERATOR GEN_FACT_C TO 0;
+SET GENERATOR GEN_FACT_T TO 0;
