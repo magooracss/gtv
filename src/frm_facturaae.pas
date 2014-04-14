@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, DbCtrls, Buttons, DBGrids, dbdateedit
+  StdCtrls, DbCtrls, Buttons, DBGrids, dbdateedit, db
   ,dmgeneral
   ;
 
@@ -24,12 +24,14 @@ type
     btnClientesBuscar: TBitBtn;
     btnQuitarCobro: TBitBtn;
     cbTipoFactura: TComboBox;
+    ds_factura: TDatasource;
     DBDateEdit1: TDBDateEdit;
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
     DBGrid1: TDBGrid;
     DBGrid2: TDBGrid;
     DBGrid3: TDBGrid;
+    ds_facturaItems: TDatasource;
     edCliente: TEdit;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
@@ -48,6 +50,7 @@ type
     StaticText1: TStaticText;
     StaticText2: TStaticText;
     StaticText3: TStaticText;
+    procedure btnAgregarCobroClick(Sender: TObject);
     procedure btnClientesAgregarClick(Sender: TObject);
     procedure btnClientesBuscarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -69,6 +72,7 @@ uses
   ,frm_clienteam
   ,dmclientes
   ,dmfacturas
+  ,frm_itemfacturaae
   ;
 
 { TfrmFacturaAE }
@@ -76,12 +80,29 @@ procedure TfrmFacturaAE.LevantarCliente(id: GUID_ID; nombre: string);
 begin
   DM_Facturas.CargarCliente(id);
   edCliente.Text:= TRIM(nombre);
-  cbTipoFactura.ItemIndex:= DM_General.obtenerIdxCombo(cbTipoFactura, RESP_INSCRIPTO);
+  DM_Clientes.ClienteEditar(id);
+
+  if (MessageDlg ('ATENCION', 'Asigno un numero de factura legal?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+  begin
+    cbTipoFactura.ItemIndex:= DM_General.obtenerIdxCombo(cbTipoFactura
+             , DM_Facturas.idFacturaPorCondicionFiscal(DM_Clientes.tbClientesrefCondicionFiscal.AsInteger)
+             );
+    DM_Facturas.AsignarNroFactura (DM_Facturas.idFacturaPorCondicionFiscal(DM_Clientes.tbClientesrefCondicionFiscal.AsInteger))
+  end
+  else
+  begin
+    cbTipoFactura.ItemIndex:= DM_General.obtenerIdxCombo(cbTipoFactura
+             , FACTURA_T
+             );
+
+    DM_Facturas.AsignarNroFactura (FACTURA_T);
+  end;
+
 end;
 
 procedure TfrmFacturaAE.Inicializar;
 begin
-  DM_General.CargarComboBox(cbTipoFactura,'CondicionFiscal', 'idCondicionFiscal' ,DM_Facturas.CondicionFiscal);
+  DM_General.CargarComboBox(cbTipoFactura,'letra', 'id' ,DM_Facturas.CondicionFiscal);
 end;
 
 procedure TfrmFacturaAE.btnClientesBuscarClick(Sender: TObject);
@@ -104,6 +125,10 @@ end;
 procedure TfrmFacturaAE.FormShow(Sender: TObject);
 begin
   Inicializar;
+  if factura_id = GUIDNULO then
+  begin
+    DM_Facturas.NuevaFactura;
+  end;
 end;
 
 
@@ -122,6 +147,19 @@ begin
     end;
   finally
     pant.free;
+  end;
+end;
+
+procedure TfrmFacturaAE.btnAgregarCobroClick(Sender: TObject);
+var
+  pant: TfrmItemFacturaAE;
+begin
+  pant:= TfrmItemFacturaAE.Create(self);
+  try
+    DM_Facturas.NuevoItem;
+    pant.ShowModal;
+  finally
+    pant.Free;
   end;
 end;
 

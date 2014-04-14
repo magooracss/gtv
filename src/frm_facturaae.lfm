@@ -1,5 +1,5 @@
 object frmFacturaAE: TfrmFacturaAE
-  Left = 262
+  Left = 288
   Height = 659
   Top = 47
   Width = 903
@@ -77,6 +77,7 @@ object frmFacturaAE: TfrmFacturaAE
       TabOrder = 0
       Text = '  /  /    '
       DataField = 'Fecha'
+      DataSource = ds_factura
     end
     object Label1: TLabel
       Left = 32
@@ -101,6 +102,7 @@ object frmFacturaAE: TfrmFacturaAE
         Top = 8
         Width = 48
         DataField = 'nroPtoVenta'
+        DataSource = ds_factura
         CharCase = ecNormal
         MaxLength = 0
         TabOrder = 0
@@ -110,7 +112,8 @@ object frmFacturaAE: TfrmFacturaAE
         Height = 24
         Top = 8
         Width = 109
-        DataField = 'nroRecibo'
+        DataField = 'nroFactura'
+        DataSource = ds_factura
         CharCase = ecNormal
         MaxLength = 0
         TabOrder = 1
@@ -206,7 +209,6 @@ object frmFacturaAE: TfrmFacturaAE
         Anchors = [akTop, akLeft, akRight]
         Color = clMoneyGreen
         TabOrder = 1
-        Text = 'edCliente'
       end
       object btnClientesAgregar: TBitBtn
         Left = 810
@@ -429,6 +431,7 @@ object frmFacturaAE: TfrmFacturaAE
         Top = 43
         Width = 95
         Caption = 'Agregar'
+        OnClick = btnAgregarCobroClick
         TabOrder = 0
       end
       object btnQuitarCobro: TBitBtn
@@ -447,8 +450,40 @@ object frmFacturaAE: TfrmFacturaAE
       Top = 18
       Width = 791
       Align = alClient
+      AutoFillColumns = True
       Color = clWindow
-      Columns = <>
+      Columns = <      
+        item
+          SizePriority = 0
+          Title.Alignment = taCenter
+          Title.Caption = 'Cantidad'
+          Width = 84
+          FieldName = 'Cantidad'
+        end      
+        item
+          Title.Alignment = taCenter
+          Title.Caption = 'Detalle'
+          Width = 517
+          FieldName = 'Detalle'
+        end      
+        item
+          SizePriority = 0
+          Title.Alignment = taCenter
+          Title.Caption = 'Precio Unitario'
+          Width = 93
+          FieldName = 'PrecioUnitario'
+        end      
+        item
+          SizePriority = 0
+          Title.Alignment = taCenter
+          Title.Caption = 'Precio Total'
+          Width = 93
+          FieldName = 'Monto'
+        end>
+      DataSource = ds_facturaItems
+      FixedCols = 0
+      Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+      Scrollbars = ssAutoVertical
       TabOrder = 2
       TitleFont.CharSet = ANSI_CHARSET
       TitleFont.Color = clBlack
@@ -465,5 +500,15 @@ object frmFacturaAE: TfrmFacturaAE
     Width = 903
     Align = alBottom
     TabOrder = 4
+  end
+  object ds_factura: TDatasource
+    DataSet = DM_Facturas.Facturas
+    left = 528
+    top = 80
+  end
+  object ds_facturaItems: TDatasource
+    DataSet = DM_Facturas.FacturaItems
+    left = 616
+    top = 80
   end
 end

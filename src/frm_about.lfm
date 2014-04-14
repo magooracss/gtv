@@ -1,5 +1,5 @@
 object frmAbout: TfrmAbout
-  Left = 259
+  Left = 285
   Height = 638
   Top = 64
   Width = 993

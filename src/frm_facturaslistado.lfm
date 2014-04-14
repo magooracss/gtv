@@ -1,5 +1,5 @@
 object frmListadoFacturas: TfrmListadoFacturas
-  Left = 249
+  Left = 274
   Height = 581
   Top = 165
   Width = 1001
@@ -139,7 +139,7 @@ object frmListadoFacturas: TfrmListadoFacturas
       TabOrder = 0
     end
     object btnNuevo: TBitBtn
-      Left = 667
+      Left = 664
       Height = 30
       Top = 10
       Width = 98

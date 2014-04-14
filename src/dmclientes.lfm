@@ -11,163 +11,440 @@ object DM_Clientes: TDM_Clientes
       item
         Name = 'idCliente'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'cCodigo'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 10
       end    
       item
         Name = 'cNombre'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 300
       end    
       item
         Name = 'fInicio'
         DataType = ftDateTime
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'refAbono'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'refRespTecnico'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'refGrupoFacturacion'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'refCondicionFiscal'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'cCUIT'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 30
       end    
       item
         Name = 'nIVA'
         DataType = ftFloat
-        Precision = 0
+        Precision = 2
         Size = 0
       end    
       item
         Name = 'cDomicilio'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 1000
       end    
       item
         Name = 'cEntreCalle1'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 1000
       end    
       item
         Name = 'cEntreCalle2'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 1000
       end    
       item
         Name = 'cNroCasa'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 20
       end    
       item
         Name = 'cSeccion'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 20
       end    
       item
         Name = 'cManzana'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 20
       end    
       item
         Name = 'cParcela'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 20
       end    
       item
         Name = 'refLocalidad'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'refDestino'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'UnidadFuncional'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'refAdministrador'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'refConservador'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'bVisible'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'nMontoAbono'
         DataType = ftFloat
-        Precision = 0
+        Precision = 2
         Size = 0
       end    
       item
         Name = 'HabilitacionFecha'
         DataType = ftDateTime
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'HabilitacionExp'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 50
       end>
     AfterInsert = tbClientesAfterInsert
     PacketRecords = 0
     left = 32
     top = 24
+    object tbClientesidCliente: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idCliente'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbClientescCodigo: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'cCodigo'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object tbClientescNombre: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'cNombre'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object tbClientesfInicio: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fInicio'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesrefAbono: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refAbono'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesrefRespTecnico: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refRespTecnico'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbClientesrefGrupoFacturacion: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refGrupoFacturacion'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesrefCondicionFiscal: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refCondicionFiscal'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientescCUIT: TStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'cCUIT'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object tbClientesnIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nIVA'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbClientescDomicilio: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'cDomicilio'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object tbClientescEntreCalle1: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'cEntreCalle1'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object tbClientescEntreCalle2: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'cEntreCalle2'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object tbClientescNroCasa: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'cNroCasa'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientescSeccion: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'cSeccion'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientescManzana: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'cManzana'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientescParcela: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'cParcela'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesrefLocalidad: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refLocalidad'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesrefDestino: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refDestino'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesUnidadFuncional: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'UnidadFuncional'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesrefAdministrador: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refAdministrador'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbClientesrefConservador: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refConservador'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbClientesbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 22
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesnMontoAbono: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nMontoAbono'
+      Index = 23
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbClientesHabilitacionFecha: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'HabilitacionFecha'
+      Index = 24
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbClientesHabilitacionExp: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'HabilitacionExp'
+      Index = 25
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
   end
   object qtugDestinosCliente: TZQuery
     Connection = DM_Conexion.cnxGeneral

@@ -11,17 +11,48 @@ uses
 
 const
   RESP_INSCRIPTO = 3;
+  FACTURA_T = 4;
 
 type
 
   { TDM_Facturas }
 
   TDM_Facturas = class(TDataModule)
+    CondFiscalID: TZQuery;
+    CondFiscalIDBVISIBLE: TSmallintField;
+    CondFiscalIDCOMPRENTREGA: TLongintField;
+    CondFiscalIDCOMPRRECIBE: TLongintField;
+    CondFiscalIDCONDICIONFISCAL: TStringField;
+    CondFiscalIDIDCONDICIONFISCAL: TLongintField;
+    FacturaItemsCantidad: TFloatField;
+    FacturaItemsDetalle: TStringField;
+    FacturaItemsfactura_id: TStringField;
+    FacturaItemsMonto: TFloatField;
+    FacturaItemsPrecioUnitario: TFloatField;
+    facturaPorId: TZQuery;
     CondicionFiscalBVISIBLE: TSmallintField;
-    CondicionFiscalCOMPRENTREGA: TLongintField;
-    CondicionFiscalCOMPRRECIBE: TLongintField;
-    CondicionFiscalCONDICIONFISCAL: TStringField;
-    CondicionFiscalIDCONDICIONFISCAL: TLongintField;
+    CondicionFiscalGENERADOR: TStringField;
+    CondicionFiscalID: TLongintField;
+    CondicionFiscalLETRA: TStringField;
+    facturaPorIdBVISIBLE: TSmallintField;
+    facturaPorIdGENERADOR: TStringField;
+    facturaPorIdID: TLongintField;
+    facturaPorIdLETRA: TStringField;
+    FacturaItems: TRxMemoryData;
+    FacturasCondicionVenta_id: TLongintField;
+    Facturasid1: TStringField;
+    FacturasObservaciones: TStringField;
+    FacturastipoFactura_id: TLongintField;
+    nroFactura: TZQuery;
+    FacturasclienteEmpresa_id: TStringField;
+    Facturasestado_id: TLongintField;
+    FacturasfAnulacion: TDateTimeField;
+    FacturasFecha: TDateTimeField;
+    Facturasid: TStringField;
+    FacturaslxEstado: TStringField;
+    FacturasnroFactura: TLongintField;
+    FacturasnroPtoVenta: TLongintField;
+    nroFacturaNRO: TLargeintField;
     qListaRecibos: TZQuery;
     qListaRecibosBVISIBLE: TSmallintField;
     qListaRecibosBVISIBLE_1: TSmallintField;
@@ -61,16 +92,7 @@ type
     qListaRecibosREFRESPTECNICO: TStringField;
     qListaRecibosUNIDADFUNCIONAL: TLongintField;
     Facturas: TRxMemoryData;
-    FacturasclienteEmpresa_id: TStringField;
-    FacturasDetalle: TStringField;
-    Facturasestado_id: TLongintField;
-    FacturasfAnulacion: TDateTimeField;
-    FacturasFecha: TDateTimeField;
-    Facturasid: TStringField;
     RecibosINS: TZQuery;
-    FacturaslxEstado: TStringField;
-    FacturasnroPtoVenta: TLongintField;
-    FacturasnroRecibo: TLongintField;
     RecibosSEL: TZQuery;
     CondicionFiscal: TZQuery;
     RecibosSELCLIENTEEMPRESA_ID: TStringField;
@@ -85,6 +107,8 @@ type
     RecibosUPD: TZQuery;
     tbReclamosDEL: TZQuery;
     procedure DataModuleCreate(Sender: TObject);
+    procedure FacturaItemsAfterInsert(DataSet: TDataSet);
+    procedure FacturasAfterInsert(DataSet: TDataSet);
   private
     { private declarations }
   public
@@ -93,6 +117,11 @@ type
     procedure CargarCliente (idCliente: GUID_ID);
 
     procedure NuevaFactura;
+    function idFacturaPorCondicionFiscal (idCondFiscal: integer): integer;
+
+    procedure AsignarNroFactura (idTipoFactura: integer);
+
+    procedure NuevoItem;
   end;
 
 var
@@ -109,6 +138,37 @@ begin
 
 end;
 
+procedure TDM_Facturas.FacturaItemsAfterInsert(DataSet: TDataSet);
+begin
+  With DataSet do
+  begin
+    FieldByName('id').asString:= DM_General.CrearGUID;
+    FieldByName('cantidad').AsFloat:= 1;
+    FieldByName('Detalle').AsString:= EmptyStr;
+    FieldByName('PrecioUnitario').AsFloat:=0;
+    FieldByName('Monto').AsFloat:=0;
+    FieldByName('Factura_id').AsString:= Facturasid.asString;
+  end;
+end;
+
+procedure TDM_Facturas.FacturasAfterInsert(DataSet: TDataSet);
+begin
+  with DataSet do
+  begin
+    FieldByName('id').AsString:= DM_General.CrearGUID;
+    FieldByName('Fecha').AsDateTime:= Now;
+    FieldByName('nroPtoVenta').asInteger:= 0;
+    FieldByName('nroFactura').asInteger:= 0;
+    FieldByName('tipoFactura_id').AsInteger:=0;
+    FieldByName('clienteEmpresa_id').asString:= GUIDNULO;
+    FieldByName('CondicionVenta_id').AsInteger:=0;
+    FieldByName('Observaciones').asString:= EmptyStr;
+    FieldByName('fAnulacion').AsDateTime:= 0;
+    FieldByName('estado_id').asInteger:= 0;
+    FieldByName('lxEstado').asString:= EmptyStr;
+  end;
+end;
+
 procedure TDM_Facturas.LevantarFacturas;
 begin
 
@@ -121,7 +181,60 @@ end;
 
 procedure TDM_Facturas.NuevaFactura;
 begin
+  DM_General.ReiniciarTabla(Facturas);
+  Facturas.Insert;
+end;
 
+function TDM_Facturas.idFacturaPorCondicionFiscal(idCondFiscal: integer
+  ): integer;
+begin
+  with CondFiscalID do
+  begin
+    if active then close;
+    ParamByName('id').asInteger:= idCondFiscal;
+    Open;
+    Result:= CondFiscalIDCOMPRENTREGA.AsInteger;
+    close;
+  end;
+end;
+
+procedure TDM_Facturas.AsignarNroFactura(idTipoFactura: integer);
+var
+  generador: string;
+  nroFact: integer;
+begin
+  with facturaPorId do
+  begin
+    if active then close;
+    ParamByName('id').asInteger:= idTipoFactura;
+    Open;
+    generador:= 'GEN_FACT_' + facturaPorIdLETRA.asString;
+    //facturaPorIdGENERADOR.AsString;
+    close;
+  end;
+
+  with nroFactura do
+  begin
+    if active then close;
+    sql.Clear;
+    sql.Add('SELECT GEN_ID('+ generador +',1) as Nro FROM RDB$DATABASE');
+    Open;
+    nroFact:= nroFacturaNRO.AsInteger;
+  end;
+
+  with Facturas do
+  begin
+    Edit;
+    FacturasnroPtoVenta.asInteger:= 1;
+    FacturasnroFactura.asInteger:= nroFact;
+    Post;
+  end;
+end;
+
+procedure TDM_Facturas.NuevoItem;
+begin
+  if NOT FacturaItems.Active then FacturaItems.Open;
+  FacturaItems.Insert;
 end;
 
 end.

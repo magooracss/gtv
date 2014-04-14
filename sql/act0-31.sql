@@ -139,6 +139,7 @@ CREATE TABLE Facturas
 CREATE TABLE FacturaItems
 (
       id		"guid"			NOT NULL
+	, factura_id "guid"  default '{00000000-0000-0000-0000-000000000000}'
 	, cantidad  float default 0
 	, detalle  varchar(1500)
 	, precioUnitario float default 0
