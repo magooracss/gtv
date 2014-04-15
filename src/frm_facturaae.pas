@@ -33,9 +33,11 @@ type
     DBGrid3: TDBGrid;
     ds_facturaItems: TDatasource;
     edCliente: TEdit;
+    edTotalFactura: TEdit;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     Label1: TLabel;
+    Label2: TLabel;
     Panel1: TPanel;
     Panel10: TPanel;
     Panel2: TPanel;
@@ -53,6 +55,7 @@ type
     procedure btnAgregarCobroClick(Sender: TObject);
     procedure btnClientesAgregarClick(Sender: TObject);
     procedure btnClientesBuscarClick(Sender: TObject);
+    procedure btnQuitarCobroClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     idFactura: GUID_ID;
@@ -122,6 +125,15 @@ begin
   end;
 end;
 
+procedure TfrmFacturaAE.btnQuitarCobroClick(Sender: TObject);
+begin
+  if (MessageDlg ('ATENCION', 'Elimino el item seleccionado?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+  begin
+    DM_Facturas.EliminarItem;
+    edTotalFactura.Text:= FormatFloat('$#########0.00', DM_Facturas.totalFacturado);
+  end;
+end;
+
 procedure TfrmFacturaAE.FormShow(Sender: TObject);
 begin
   Inicializar;
@@ -161,6 +173,8 @@ begin
   finally
     pant.Free;
   end;
+
+  edTotalFactura.Text:= FormatFloat('$#########0.00', DM_Facturas.totalFacturado);
 end;
 
 end.

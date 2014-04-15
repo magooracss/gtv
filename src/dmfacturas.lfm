@@ -423,8 +423,8 @@ object DM_Facturas: TDM_Facturas
         Name = 'id'
         ParamType = ptUnknown
       end>
-    left = 136
-    top = 112
+    left = 72
+    top = 168
     ParamData = <    
       item
         DataType = ftUnknown
@@ -593,8 +593,8 @@ object DM_Facturas: TDM_Facturas
         Name = 'ESTADO_ID'
         ParamType = ptUnknown
       end>
-    left = 136
-    top = 176
+    left = 72
+    top = 232
     ParamData = <    
       item
         DataType = ftUnknown
@@ -692,8 +692,8 @@ object DM_Facturas: TDM_Facturas
         Name = 'ID'
         ParamType = ptUnknown
       end>
-    left = 136
-    top = 240
+    left = 72
+    top = 296
     ParamData = <    
       item
         DataType = ftUnknown
@@ -749,8 +749,8 @@ object DM_Facturas: TDM_Facturas
         Name = 'idReclamo'
         ParamType = ptUnknown
       end>
-    left = 136
-    top = 296
+    left = 72
+    top = 352
     ParamData = <    
       item
         DataType = ftUnknown
@@ -1196,22 +1196,11 @@ object DM_Facturas: TDM_Facturas
     PacketRecords = 0
     left = 232
     top = 32
-    object Facturasid1: TStringField
-      DisplayWidth = 38
-      FieldKind = fkData
-      FieldName = 'id'
-      Index = 0
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 38
-    end
     object FacturaItemsCantidad: TFloatField
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'Cantidad'
-      Index = 1
+      Index = 0
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -1224,7 +1213,7 @@ object DM_Facturas: TDM_Facturas
       DisplayWidth = 1500
       FieldKind = fkData
       FieldName = 'Detalle'
-      Index = 2
+      Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -1235,7 +1224,7 @@ object DM_Facturas: TDM_Facturas
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'PrecioUnitario'
-      Index = 3
+      Index = 2
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -1250,7 +1239,7 @@ object DM_Facturas: TDM_Facturas
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'Monto'
-      Index = 4
+      Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -1265,6 +1254,17 @@ object DM_Facturas: TDM_Facturas
       DisplayWidth = 38
       FieldKind = fkData
       FieldName = 'factura_id'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object FacturaItemsid: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'id'
       Index = 5
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
@@ -1272,5 +1272,26 @@ object DM_Facturas: TDM_Facturas
       Required = False
       Size = 38
     end
+  end
+  object facturaItemsDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM FacturaItems'
+      'WHERE id = :id'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    left = 232
+    top = 296
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
   end
 end

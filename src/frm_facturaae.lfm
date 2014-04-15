@@ -98,24 +98,42 @@ object frmFacturaAE: TfrmFacturaAE
       TabOrder = 1
       object DBEdit1: TDBEdit
         Left = 118
-        Height = 24
+        Height = 26
         Top = 8
         Width = 48
         DataField = 'nroPtoVenta'
         DataSource = ds_factura
         CharCase = ecNormal
+        Color = clMoneyGreen
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -15
+        Font.Name = 'Arial'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
         MaxLength = 0
+        ParentFont = False
         TabOrder = 0
       end
       object DBEdit2: TDBEdit
         Left = 182
-        Height = 24
+        Height = 26
         Top = 8
         Width = 109
         DataField = 'nroFactura'
         DataSource = ds_factura
         CharCase = ecNormal
+        Color = clMoneyGreen
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -15
+        Font.Name = 'Arial'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
         MaxLength = 0
+        ParentFont = False
         TabOrder = 1
       end
       object cbTipoFactura: TComboBox
@@ -127,6 +145,32 @@ object frmFacturaAE: TfrmFacturaAE
         Style = csDropDownList
         TabOrder = 2
       end
+    end
+    object edTotalFactura: TEdit
+      Left = 768
+      Height = 27
+      Top = 48
+      Width = 128
+      Alignment = taRightJustify
+      Color = clMoneyGreen
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 2
+      Text = '0'
+    end
+    object Label2: TLabel
+      Left = 768
+      Height = 16
+      Top = 24
+      Width = 90
+      Caption = 'Total Facturado'
+      ParentColor = False
     end
   end
   object Panel2: TPanel
@@ -441,6 +485,7 @@ object frmFacturaAE: TfrmFacturaAE
         Width = 95
         Anchors = [akLeft, akBottom]
         Caption = 'Quitar'
+        OnClick = btnQuitarCobroClick
         TabOrder = 1
       end
     end

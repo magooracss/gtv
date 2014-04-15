@@ -27,6 +27,7 @@ type
     FacturaItemsCantidad: TFloatField;
     FacturaItemsDetalle: TStringField;
     FacturaItemsfactura_id: TStringField;
+    FacturaItemsid: TStringField;
     FacturaItemsMonto: TFloatField;
     FacturaItemsPrecioUnitario: TFloatField;
     facturaPorId: TZQuery;
@@ -40,7 +41,6 @@ type
     facturaPorIdLETRA: TStringField;
     FacturaItems: TRxMemoryData;
     FacturasCondicionVenta_id: TLongintField;
-    Facturasid1: TStringField;
     FacturasObservaciones: TStringField;
     FacturastipoFactura_id: TLongintField;
     nroFactura: TZQuery;
@@ -106,6 +106,7 @@ type
     RecibosSELNRORECIBO: TLongintField;
     RecibosUPD: TZQuery;
     tbReclamosDEL: TZQuery;
+    facturaItemsDEL: TZQuery;
     procedure DataModuleCreate(Sender: TObject);
     procedure FacturaItemsAfterInsert(DataSet: TDataSet);
     procedure FacturasAfterInsert(DataSet: TDataSet);
@@ -122,6 +123,10 @@ type
     procedure AsignarNroFactura (idTipoFactura: integer);
 
     procedure NuevoItem;
+    procedure EliminarItem;
+
+    function TotalFacturado: Double;
+
   end;
 
 var
@@ -235,6 +240,33 @@ procedure TDM_Facturas.NuevoItem;
 begin
   if NOT FacturaItems.Active then FacturaItems.Open;
   FacturaItems.Insert;
+end;
+
+procedure TDM_Facturas.EliminarItem;
+begin
+   facturaItemsDEL.ParamByName('id').AsString:= FacturaItemsid.AsString;
+   FacturaItemsDEL.ExecSQL;
+
+   FacturaItems.Delete;
+end;
+
+function TDM_Facturas.TotalFacturado: Double;
+var
+  accum: Double;
+begin
+  with FacturaItems do
+  begin
+    DisableControls;
+    First;
+    accum:= 0;
+    While Not Eof do
+    begin
+      accum:= accum + FacturaItemsMonto.AsFloat;
+      Next;
+    end;
+    EnableControls;
+  end;
+  Result:= accum;
 end;
 
 end.
