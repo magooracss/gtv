@@ -15,8 +15,8 @@ type
   { TfrmFacturaAE }
 
   TfrmFacturaAE = class(TForm)
-    BitBtn2: TBitBtn;
-    BitBtn3: TBitBtn;
+    btnReciboVincular: TBitBtn;
+    btnReciboQuitar: TBitBtn;
     BitBtn4: TBitBtn;
     BitBtn5: TBitBtn;
     btnAgregarCobro: TBitBtn;
@@ -24,6 +24,7 @@ type
     btnClientesBuscar: TBitBtn;
     btnQuitarCobro: TBitBtn;
     cbTipoFactura: TComboBox;
+    ds_reciboFactura: TDatasource;
     ds_factura: TDatasource;
     DBDateEdit1: TDBDateEdit;
     DBEdit1: TDBEdit;
@@ -52,6 +53,8 @@ type
     StaticText1: TStaticText;
     StaticText2: TStaticText;
     StaticText3: TStaticText;
+    procedure btnReciboQuitarClick(Sender: TObject);
+    procedure btnReciboVincularClick(Sender: TObject);
     procedure btnAgregarCobroClick(Sender: TObject);
     procedure btnClientesAgregarClick(Sender: TObject);
     procedure btnClientesBuscarClick(Sender: TObject);
@@ -76,6 +79,7 @@ uses
   ,dmclientes
   ,dmfacturas
   ,frm_itemfacturaae
+  ,frm_reciboslistado
   ;
 
 { TfrmFacturaAE }
@@ -175,6 +179,29 @@ begin
   end;
 
   edTotalFactura.Text:= FormatFloat('$#########0.00', DM_Facturas.totalFacturado);
+end;
+
+procedure TfrmFacturaAE.btnReciboVincularClick(Sender: TObject);
+var
+  pantSel: TfrmRecibosListado;
+begin
+  pantSel:= TfrmRecibosListado.Create(self);
+  try
+    if pantSel.ShowModal = mrOK then
+    begin
+      DM_Facturas.ReciboVincular(pantSel.reciboSeleccionado);
+    end;
+  finally
+    pantSel.Free;
+  end;
+end;
+
+procedure TfrmFacturaAE.btnReciboQuitarClick(Sender: TObject);
+begin
+  if (MessageDlg ('ATENCION', 'Desvinculo el recibo seleccionado?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+  begin
+    DM_Facturas.ReciboQuitar;
+  end;
 end;
 
 end.

@@ -338,20 +338,22 @@ object frmFacturaAE: TfrmFacturaAE
         ClientHeight = 198
         ClientWidth = 75
         TabOrder = 1
-        object BitBtn2: TBitBtn
+        object btnReciboVincular: TBitBtn
           Left = 4
           Height = 30
           Top = 56
           Width = 67
           Caption = 'Vincular'
+          OnClick = btnReciboVincularClick
           TabOrder = 0
         end
-        object BitBtn3: TBitBtn
+        object btnReciboQuitar: TBitBtn
           Left = 4
           Height = 30
           Top = 96
           Width = 67
           Caption = 'Quitar'
+          OnClick = btnReciboQuitarClick
           TabOrder = 1
         end
       end
@@ -361,8 +363,25 @@ object frmFacturaAE: TfrmFacturaAE
         Top = 18
         Width = 400
         Align = alClient
+        AutoFillColumns = True
         Color = clWindow
-        Columns = <>
+        Columns = <        
+          item
+            Title.Alignment = taCenter
+            Title.Caption = 'Fecha'
+            Width = 198
+            FieldName = 'Fecha'
+          end        
+          item
+            Title.Alignment = taCenter
+            Title.Caption = 'Recibo'
+            Width = 198
+            FieldName = 'NroRecibo'
+          end>
+        DataSource = ds_reciboFactura
+        FixedCols = 0
+        Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+        Scrollbars = ssAutoVertical
         TabOrder = 2
         TitleFont.CharSet = ANSI_CHARSET
         TitleFont.Color = clBlack
@@ -555,5 +574,10 @@ object frmFacturaAE: TfrmFacturaAE
     DataSet = DM_Facturas.FacturaItems
     left = 616
     top = 80
+  end
+  object ds_reciboFactura: TDatasource
+    DataSet = DM_Facturas.reciboFactura
+    left = 339
+    top = 288
   end
 end

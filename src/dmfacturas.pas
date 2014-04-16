@@ -25,6 +25,7 @@ type
     CondFiscalIDCONDICIONFISCAL: TStringField;
     CondFiscalIDIDCONDICIONFISCAL: TLongintField;
     FacturaItemsCantidad: TFloatField;
+    ReciboFacturaDel: TZQuery;
     FacturaItemsDetalle: TStringField;
     FacturaItemsfactura_id: TStringField;
     FacturaItemsid: TStringField;
@@ -92,9 +93,17 @@ type
     qListaRecibosREFRESPTECNICO: TStringField;
     qListaRecibosUNIDADFUNCIONAL: TLongintField;
     Facturas: TRxMemoryData;
+    reciboFacturafactura_id: TStringField;
+    reciboFacturaFecha: TDateField;
+    reciboFacturaid: TStringField;
+    reciboFacturaNroRecibo: TStringField;
+    reciboFacturarecibo_id: TStringField;
     RecibosINS: TZQuery;
+    ReciboFacturaINS: TZQuery;
     RecibosSEL: TZQuery;
     CondicionFiscal: TZQuery;
+    RecibosPorFactura: TZQuery;
+    ReciboFacturaSEL: TZQuery;
     RecibosSELCLIENTEEMPRESA_ID: TStringField;
     RecibosSELDETALLE: TStringField;
     RecibosSELESTADO_ID: TLongintField;
@@ -105,11 +114,14 @@ type
     RecibosSELNROPTOVENTA: TLongintField;
     RecibosSELNRORECIBO: TLongintField;
     RecibosUPD: TZQuery;
+    reciboFactura: TRxMemoryData;
+    ReciboFacturaUPD: TZQuery;
     tbReclamosDEL: TZQuery;
     facturaItemsDEL: TZQuery;
     procedure DataModuleCreate(Sender: TObject);
     procedure FacturaItemsAfterInsert(DataSet: TDataSet);
     procedure FacturasAfterInsert(DataSet: TDataSet);
+    procedure reciboFacturaAfterInsert(DataSet: TDataSet);
   private
     { private declarations }
   public
@@ -126,6 +138,11 @@ type
     procedure EliminarItem;
 
     function TotalFacturado: Double;
+
+    procedure ReciboVincular (recibo_id: GUID_ID);
+    procedure ReciboQuitar;
+    procedure GrabarReciboFactura;
+    procedure LevantarRecibos (factura_id: GUID_ID);
 
   end;
 
@@ -171,6 +188,16 @@ begin
     FieldByName('fAnulacion').AsDateTime:= 0;
     FieldByName('estado_id').asInteger:= 0;
     FieldByName('lxEstado').asString:= EmptyStr;
+  end;
+end;
+
+procedure TDM_Facturas.reciboFacturaAfterInsert(DataSet: TDataSet);
+begin
+  with DataSet do
+  begin
+    FieldByName('id').asString:= DM_General.CrearGUID;
+    FieldByName('factura_id').asString:= Facturasid.AsString;
+    FieldByName('recibo_id').asString:= GUIDNULO;
   end;
 end;
 
@@ -267,6 +294,50 @@ begin
     EnableControls;
   end;
   Result:= accum;
+end;
+
+procedure TDM_Facturas.ReciboVincular(recibo_id: GUID_ID);
+begin
+  With reciboFactura do
+  begin
+    if not Active then
+      Open;
+    Insert;
+    reciboFacturarecibo_id.asString:= recibo_id;
+    Post;
+    GrabarReciboFactura;
+    LevantarRecibos(Facturasid.AsString);
+  end;
+end;
+
+procedure TDM_Facturas.ReciboQuitar;
+begin
+  With ReciboFacturaDel do
+  begin
+    ParamByName('id').asString:= reciboFacturaid.AsString;
+    ExecSQL;
+  end;
+
+  reciboFactura.Delete;
+
+end;
+
+procedure TDM_Facturas.GrabarReciboFactura;
+begin
+  DM_General.GrabarDatos(ReciboFacturaSEL, ReciboFacturaINS, ReciboFacturaUPD,reciboFactura, 'id');
+end;
+
+procedure TDM_Facturas.LevantarRecibos(factura_id: GUID_ID);
+begin
+   with RecibosPorFactura do
+   begin
+     DM_General.ReiniciarTabla(reciboFactura);
+     if active then close;
+     ParamByName('factura_id').asString:= factura_id;
+     Open;
+     reciboFactura.LoadFromDataSet(RecibosPorFactura, 0, lmAppend);
+     close;
+   end;
 end;
 
 end.

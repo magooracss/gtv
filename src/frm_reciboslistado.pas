@@ -30,8 +30,10 @@ type
     procedure DBGrid1TitleClick(Column: TColumn);
     procedure FormShow(Sender: TObject);
   private
+    function getReciboSeleccionado: GUID_ID;
     procedure PantallaRecibo (recibo_id: GUID_ID);
   public
+    property reciboSeleccionado: GUID_ID read getReciboSeleccionado;
     { public declarations }
   end;
 
@@ -81,6 +83,11 @@ end;
 procedure TfrmRecibosListado.FormShow(Sender: TObject);
 begin
   DM_Recibos.LevantarRecibos;
+end;
+
+function TfrmRecibosListado.getReciboSeleccionado: GUID_ID;
+begin
+  Result:= DM_Recibos.qListaRecibosID.AsString;
 end;
 
 procedure TfrmRecibosListado.PantallaRecibo(recibo_id: GUID_ID);
