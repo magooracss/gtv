@@ -251,4 +251,11 @@ CREATE TABLE RecibosFacturas
     , recibo_id "guid"  default '{00000000-0000-0000-0000-000000000000}'
     , factura_id "guid"  default '{00000000-0000-0000-0000-000000000000}'
 );	
+
+CREATE TABLE RemitosFacturas
+(
+      id		"guid"			NOT NULL
+    , remito_id "guid"  default '{00000000-0000-0000-0000-000000000000}'
+    , factura_id "guid"  default '{00000000-0000-0000-0000-000000000000}'
+);	
 	

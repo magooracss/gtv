@@ -15,15 +15,17 @@ type
   { TfrmFacturaAE }
 
   TfrmFacturaAE = class(TForm)
+    btnGrabar: TBitBtn;
     btnReciboVincular: TBitBtn;
     btnReciboQuitar: TBitBtn;
-    BitBtn4: TBitBtn;
-    BitBtn5: TBitBtn;
+    btnVincularRemito: TBitBtn;
+    btnQuitarRemito: TBitBtn;
     btnAgregarCobro: TBitBtn;
     btnClientesAgregar: TBitBtn;
     btnClientesBuscar: TBitBtn;
     btnQuitarCobro: TBitBtn;
     cbTipoFactura: TComboBox;
+    ds_remitoFactura: TDatasource;
     ds_reciboFactura: TDatasource;
     ds_factura: TDatasource;
     DBDateEdit1: TDBDateEdit;
@@ -53,6 +55,9 @@ type
     StaticText1: TStaticText;
     StaticText2: TStaticText;
     StaticText3: TStaticText;
+    procedure btnGrabarClick(Sender: TObject);
+    procedure btnQuitarRemitoClick(Sender: TObject);
+    procedure btnVincularRemitoClick(Sender: TObject);
     procedure btnReciboQuitarClick(Sender: TObject);
     procedure btnReciboVincularClick(Sender: TObject);
     procedure btnAgregarCobroClick(Sender: TObject);
@@ -80,6 +85,7 @@ uses
   ,dmfacturas
   ,frm_itemfacturaae
   ,frm_reciboslistado
+  ,frm_remitoslistado
   ;
 
 { TfrmFacturaAE }
@@ -202,6 +208,34 @@ begin
   begin
     DM_Facturas.ReciboQuitar;
   end;
+end;
+
+procedure TfrmFacturaAE.btnVincularRemitoClick(Sender: TObject);
+  var
+    pantSel: TfrmRemitosListado;
+  begin
+    pantSel:= TfrmRemitosListado.Create(self);
+    try
+      if pantSel.ShowModal = mrOK then
+      begin
+        DM_Facturas.RemitoVincular(pantSel.idRemitoSeleccionado);
+      end;
+    finally
+      pantSel.Free;
+    end;
+end;
+
+procedure TfrmFacturaAE.btnQuitarRemitoClick(Sender: TObject);
+begin
+   if (MessageDlg ('ATENCION', 'Desvinculo el remito seleccionado?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+  begin
+    DM_Facturas.RemitoQuitar;
+  end;
+end;
+
+procedure TfrmFacturaAE.btnGrabarClick(Sender: TObject);
+begin
+
 end;
 
 end.

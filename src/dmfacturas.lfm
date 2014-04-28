@@ -2,9 +2,9 @@ object DM_Facturas: TDM_Facturas
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 440
-  HorizontalOffset = 436
-  VerticalOffset = 138
-  Width = 591
+  HorizontalOffset = 246
+  VerticalOffset = 155
+  Width = 810
   object qListaRecibos: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
@@ -953,7 +953,7 @@ object DM_Facturas: TDM_Facturas
       'WHERE bVisible = 1'
     )
     Params = <>
-    left = 472
+    left = 744
     top = 32
     object CondicionFiscalID: TLongintField
       DisplayWidth = 10
@@ -1011,7 +1011,7 @@ object DM_Facturas: TDM_Facturas
         Name = 'id'
         ParamType = ptUnknown
       end>
-    left = 472
+    left = 744
     top = 112
     ParamData = <    
       item
@@ -1084,7 +1084,7 @@ object DM_Facturas: TDM_Facturas
         Name = 'id'
         ParamType = ptUnknown
       end>
-    left = 472
+    left = 744
     top = 192
     ParamData = <    
       item
@@ -1141,7 +1141,7 @@ object DM_Facturas: TDM_Facturas
       'SELECT GEN_ID(GEN_FACT_C,1) as Nro FROM RDB$DATABASE'
     )
     Params = <>
-    left = 472
+    left = 744
     top = 256
     object nroFacturaNRO: TLargeintField
       DisplayWidth = 10
@@ -1541,6 +1541,275 @@ object DM_Facturas: TDM_Facturas
         ParamType = ptUnknown
       end>
     left = 336
+    top = 296
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+  end
+  object remitoFactura: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'factura_id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'remito_id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'nRemito'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fFecha'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'txDetalles'
+        DataType = ftString
+        Precision = 0
+        Size = 3500
+      end>
+    AfterInsert = remitoFacturaAfterInsert
+    PacketRecords = 0
+    left = 464
+    top = 32
+    object remitoFacturaid: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object remitoFacturafactura_id: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'factura_id'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object remitoFacturaremito_id: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'remito_id'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object remitoFacturanRemito: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nRemito'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object remitoFacturafFecha: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fFecha'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object remitoFacturatxDetalles: TStringField
+      DisplayWidth = 3500
+      FieldKind = fkData
+      FieldName = 'txDetalles'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3500
+    end
+  end
+  object RemitosPorFactura: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT  *'
+      'FROM  RemitosFacturas RF'
+      '           INNER JOIN tbRemitos R '
+      '                ON R.idRemito = RF.remito_id'
+      'WHERE RF.factura_id = :factura_id'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'factura_id'
+        ParamType = ptUnknown
+      end>
+    left = 464
+    top = 384
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'factura_id'
+        ParamType = ptUnknown
+      end>
+  end
+  object RemitoFacturaSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM RemitosFacturas'
+      'WHERE id = :id'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    left = 464
+    top = 112
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+  end
+  object RemitoFacturaINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO RemitosFacturas'
+      '('
+      '  ID'
+      ', REMITO_ID'
+      ', FACTURA_ID'
+      ')'
+      'VALUES'
+      '('
+      '  :ID'
+      ', :REMITO_ID'
+      ', :FACTURA_ID'
+      ')'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REMITO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FACTURA_ID'
+        ParamType = ptUnknown
+      end>
+    left = 464
+    top = 176
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REMITO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FACTURA_ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object RemitoFacturaUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE  RemitosFacturas'
+      'SET '
+      'REMITO_ID = :REMITO_ID'
+      ', FACTURA_ID = :FACTURA_ID'
+      'WHERE ID = :ID'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'REMITO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FACTURA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end>
+    left = 464
+    top = 240
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'REMITO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FACTURA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object RemitoFacturaDel: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM RemitosFacturas'
+      'WHERE id = :id'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    left = 464
     top = 296
     ParamData = <    
       item

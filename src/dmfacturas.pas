@@ -25,6 +25,7 @@ type
     CondFiscalIDCONDICIONFISCAL: TStringField;
     CondFiscalIDIDCONDICIONFISCAL: TLongintField;
     FacturaItemsCantidad: TFloatField;
+    remitoFactura: TRxMemoryData;
     ReciboFacturaDel: TZQuery;
     FacturaItemsDetalle: TStringField;
     FacturaItemsfactura_id: TStringField;
@@ -93,13 +94,18 @@ type
     qListaRecibosREFRESPTECNICO: TStringField;
     qListaRecibosUNIDADFUNCIONAL: TLongintField;
     Facturas: TRxMemoryData;
+    RemitoFacturaDel: TZQuery;
     reciboFacturafactura_id: TStringField;
     reciboFacturaFecha: TDateField;
     reciboFacturaid: TStringField;
+    RemitoFacturaINS: TZQuery;
     reciboFacturaNroRecibo: TStringField;
     reciboFacturarecibo_id: TStringField;
+    RemitoFacturaSEL: TZQuery;
+    RemitoFacturaUPD: TZQuery;
     RecibosINS: TZQuery;
     ReciboFacturaINS: TZQuery;
+    RemitosPorFactura: TZQuery;
     RecibosSEL: TZQuery;
     CondicionFiscal: TZQuery;
     RecibosPorFactura: TZQuery;
@@ -116,12 +122,19 @@ type
     RecibosUPD: TZQuery;
     reciboFactura: TRxMemoryData;
     ReciboFacturaUPD: TZQuery;
+    remitoFacturafactura_id: TStringField;
+    remitoFacturafFecha: TDateTimeField;
+    remitoFacturaid: TStringField;
+    remitoFacturanRemito: TLongintField;
+    remitoFacturaremito_id: TStringField;
+    remitoFacturatxDetalles: TStringField;
     tbReclamosDEL: TZQuery;
     facturaItemsDEL: TZQuery;
     procedure DataModuleCreate(Sender: TObject);
     procedure FacturaItemsAfterInsert(DataSet: TDataSet);
     procedure FacturasAfterInsert(DataSet: TDataSet);
     procedure reciboFacturaAfterInsert(DataSet: TDataSet);
+    procedure remitoFacturaAfterInsert(DataSet: TDataSet);
   private
     { private declarations }
   public
@@ -139,10 +152,17 @@ type
 
     function TotalFacturado: Double;
 
+    procedure GrabarFactura;
+
     procedure ReciboVincular (recibo_id: GUID_ID);
     procedure ReciboQuitar;
     procedure GrabarReciboFactura;
     procedure LevantarRecibos (factura_id: GUID_ID);
+
+    procedure RemitoVincular(remito_id: GUID_ID);
+    procedure RemitoQuitar;
+    procedure GrabarRemitoFactura;
+    procedure LevantarRemitos(factura_id: GUID_ID);
 
   end;
 
@@ -198,6 +218,16 @@ begin
     FieldByName('id').asString:= DM_General.CrearGUID;
     FieldByName('factura_id').asString:= Facturasid.AsString;
     FieldByName('recibo_id').asString:= GUIDNULO;
+  end;
+end;
+
+procedure TDM_Facturas.remitoFacturaAfterInsert(DataSet: TDataSet);
+begin
+  with DataSet do
+  begin
+    FieldByName('id').asString:= DM_General.CrearGUID;
+    FieldByName('factura_id').asString:= Facturasid.AsString;
+    FieldByName('remito_id').asString:= GUIDNULO;
   end;
 end;
 
@@ -296,6 +326,11 @@ begin
   Result:= accum;
 end;
 
+procedure TDM_Facturas.GrabarFactura;
+begin
+
+end;
+
 procedure TDM_Facturas.ReciboVincular(recibo_id: GUID_ID);
 begin
   With reciboFactura do
@@ -336,6 +371,50 @@ begin
      ParamByName('factura_id').asString:= factura_id;
      Open;
      reciboFactura.LoadFromDataSet(RecibosPorFactura, 0, lmAppend);
+     close;
+   end;
+end;
+
+procedure TDM_Facturas.RemitoVincular(remito_id: GUID_ID);
+begin
+  With remitoFactura do
+  begin
+    if not Active then
+      Open;
+    Insert;
+    remitoFacturaremito_id.asString:= remito_id;
+    Post;
+    GrabarRemitoFactura;
+    LevantarRemitos (Facturasid.AsString);
+  end;
+end;
+
+procedure TDM_Facturas.RemitoQuitar;
+begin
+  With RemitoFacturaDel do
+  begin
+    ParamByName('id').asString:= remitoFacturaid.AsString;
+    ExecSQL;
+  end;
+
+  remitoFactura.Delete;
+
+end;
+
+procedure TDM_Facturas.GrabarRemitoFactura;
+begin
+  DM_General.GrabarDatos(RemitoFacturaSEL, RemitoFacturaINS, RemitoFacturaUPD,remitoFactura, 'id');
+end;
+
+procedure TDM_Facturas.LevantarRemitos(factura_id: GUID_ID);
+begin
+    with RemitosPorFactura do
+   begin
+     DM_General.ReiniciarTabla(remitoFactura);
+     if active then close;
+     ParamByName('factura_id').asString:= factura_id;
+     Open;
+     remitoFactura.LoadFromDataSet(RemitosPorFactura, 0, lmAppend);
      close;
    end;
 end;
