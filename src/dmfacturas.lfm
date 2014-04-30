@@ -2,8 +2,8 @@ object DM_Facturas: TDM_Facturas
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 440
-  HorizontalOffset = 246
-  VerticalOffset = 155
+  HorizontalOffset = 473
+  VerticalOffset = 180
   Width = 810
   object qListaRecibos: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -408,13 +408,11 @@ object DM_Facturas: TDM_Facturas
       Required = False
     end
   end
-  object RecibosSEL: TZQuery
+  object facturasSEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      'SELECT Recibos.*'
-      '              ,Estado  as lxEstado '
-      'FROM Recibos'
-      '           LEFT JOIN tugRecibosEstados  ON  idReciboEstado = estado_id'
+      'SELECT facturas.*'
+      'FROM Facturas'
       'WHERE id = :id'
     )
     Params = <    
@@ -423,7 +421,7 @@ object DM_Facturas: TDM_Facturas
         Name = 'id'
         ParamType = ptUnknown
       end>
-    left = 80
+    left = 136
     top = 128
     ParamData = <    
       item
@@ -431,7 +429,7 @@ object DM_Facturas: TDM_Facturas
         Name = 'id'
         ParamType = ptUnknown
       end>
-    object RecibosSELID: TStringField
+    object facturasSELID: TStringField
       DisplayWidth = 152
       FieldKind = fkData
       FieldName = 'ID'
@@ -442,7 +440,7 @@ object DM_Facturas: TDM_Facturas
       Required = True
       Size = 152
     end
-    object RecibosSELFECHA: TDateField
+    object facturasSELFECHA: TDateField
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'FECHA'
@@ -452,7 +450,7 @@ object DM_Facturas: TDM_Facturas
       ReadOnly = False
       Required = False
     end
-    object RecibosSELNROPTOVENTA: TLongintField
+    object facturasSELNROPTOVENTA: TLongintField
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'NROPTOVENTA'
@@ -462,7 +460,7 @@ object DM_Facturas: TDM_Facturas
       ReadOnly = False
       Required = False
     end
-    object RecibosSELNRORECIBO: TLongintField
+    object facturasSELNRORECIBO: TLongintField
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'NRORECIBO'
@@ -472,7 +470,7 @@ object DM_Facturas: TDM_Facturas
       ReadOnly = False
       Required = False
     end
-    object RecibosSELCLIENTEEMPRESA_ID: TStringField
+    object facturasSELCLIENTEEMPRESA_ID: TStringField
       DisplayWidth = 152
       FieldKind = fkData
       FieldName = 'CLIENTEEMPRESA_ID'
@@ -483,7 +481,7 @@ object DM_Facturas: TDM_Facturas
       Required = False
       Size = 152
     end
-    object RecibosSELDETALLE: TStringField
+    object facturasSELDETALLE: TStringField
       DisplayWidth = 3000
       FieldKind = fkData
       FieldName = 'DETALLE'
@@ -494,7 +492,7 @@ object DM_Facturas: TDM_Facturas
       Required = False
       Size = 3000
     end
-    object RecibosSELFANULACION: TDateField
+    object facturasSELFANULACION: TDateField
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'FANULACION'
@@ -504,7 +502,7 @@ object DM_Facturas: TDM_Facturas
       ReadOnly = False
       Required = False
     end
-    object RecibosSELESTADO_ID: TLongintField
+    object facturasSELESTADO_ID: TLongintField
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'ESTADO_ID'
@@ -514,7 +512,7 @@ object DM_Facturas: TDM_Facturas
       ReadOnly = False
       Required = False
     end
-    object RecibosSELLXESTADO: TStringField
+    object facturasSELLXESTADO: TStringField
       DisplayWidth = 48
       FieldKind = fkData
       FieldName = 'LXESTADO'
@@ -526,31 +524,15 @@ object DM_Facturas: TDM_Facturas
       Size = 48
     end
   end
-  object RecibosINS: TZQuery
+  object facturasINS: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      'INSERT INTO Recibos'
+      'INSERT INTO facturas'
       '('
-      '  ID'
-      ', FECHA'
-      ', NROPTOVENTA'
-      ', NRORECIBO'
-      ', CLIENTEEMPRESA_ID'
-      ', DETALLE'
-      ', FANULACION'
-      ', ESTADO_ID'
+      'ID, FECHA, NROPTOVENTA, NROFACTURA, TIPOFACTURA_ID, CLIENTEEMPRESA_ID, CONDICIONVENTA_ID, OBSERVACIONES, FANULACION, ESTADO_ID'
       ')'
       'VALUES'
-      '('
-      '  :ID'
-      ', :FECHA'
-      ', :NROPTOVENTA'
-      ', :NRORECIBO'
-      ', :CLIENTEEMPRESA_ID'
-      ', :DETALLE'
-      ', :FANULACION'
-      ', :ESTADO_ID'
-      ')'
+      '(:ID, :FECHA, :NROPTOVENTA, :NROFACTURA, :TIPOFACTURA_ID, :CLIENTEEMPRESA_ID, :CONDICIONVENTA_ID, :OBSERVACIONES, :FANULACION, :ESTADO_ID)'
     )
     Params = <    
       item
@@ -570,7 +552,12 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'NRORECIBO'
+        Name = 'NROFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TIPOFACTURA_ID'
         ParamType = ptUnknown
       end    
       item
@@ -580,7 +567,12 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'DETALLE'
+        Name = 'CONDICIONVENTA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OBSERVACIONES'
         ParamType = ptUnknown
       end    
       item
@@ -593,7 +585,7 @@ object DM_Facturas: TDM_Facturas
         Name = 'ESTADO_ID'
         ParamType = ptUnknown
       end>
-    left = 80
+    left = 136
     top = 192
     ParamData = <    
       item
@@ -613,7 +605,12 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'NRORECIBO'
+        Name = 'NROFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TIPOFACTURA_ID'
         ParamType = ptUnknown
       end    
       item
@@ -623,7 +620,12 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'DETALLE'
+        Name = 'CONDICIONVENTA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OBSERVACIONES'
         ParamType = ptUnknown
       end    
       item
@@ -637,16 +639,18 @@ object DM_Facturas: TDM_Facturas
         ParamType = ptUnknown
       end>
   end
-  object RecibosUPD: TZQuery
+  object FacturasUPD: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      'UPDATE  Recibos'
+      'UPDATE Facturas'
       'SET '
-      ' FECHA = :FECHA'
+      '  FECHA = :FECHA'
       ', NROPTOVENTA = :NROPTOVENTA'
-      ', NRORECIBO = :NRORECIBO'
+      ', NROFACTURA = :NROFACTURA'
+      ', TIPOFACTURA_ID = :TIPOFACTURA_ID'
       ', CLIENTEEMPRESA_ID = :CLIENTEEMPRESA_ID'
-      ', DETALLE = :DETALLE'
+      ', CONDICIONVENTA_ID = :CONDICIONVENTA_ID'
+      ', OBSERVACIONES = :OBSERVACIONES'
       ', FANULACION = :FANULACION'
       ', ESTADO_ID = :ESTADO_ID'
       'WHERE ID = :ID'
@@ -664,7 +668,12 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'NRORECIBO'
+        Name = 'NROFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TIPOFACTURA_ID'
         ParamType = ptUnknown
       end    
       item
@@ -674,7 +683,12 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'DETALLE'
+        Name = 'CONDICIONVENTA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OBSERVACIONES'
         ParamType = ptUnknown
       end    
       item
@@ -692,7 +706,7 @@ object DM_Facturas: TDM_Facturas
         Name = 'ID'
         ParamType = ptUnknown
       end>
-    left = 80
+    left = 136
     top = 256
     ParamData = <    
       item
@@ -707,7 +721,12 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'NRORECIBO'
+        Name = 'NROFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TIPOFACTURA_ID'
         ParamType = ptUnknown
       end    
       item
@@ -717,7 +736,12 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'DETALLE'
+        Name = 'CONDICIONVENTA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OBSERVACIONES'
         ParamType = ptUnknown
       end    
       item
@@ -736,11 +760,11 @@ object DM_Facturas: TDM_Facturas
         ParamType = ptUnknown
       end>
   end
-  object tbReclamosDEL: TZQuery
+  object FacturasDEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      'UPDATE tbReclamos'
-      'SET bVisible = 0'
+      'UPDATE Facturas'
+      'SET estado_id = 3'
       'WHERE idReclamo = :idReclamo'
     )
     Params = <    
@@ -749,8 +773,8 @@ object DM_Facturas: TDM_Facturas
         Name = 'idReclamo'
         ParamType = ptUnknown
       end>
-    left = 80
-    top = 304
+    left = 136
+    top = 320
     ParamData = <    
       item
         DataType = ftUnknown
@@ -1286,7 +1310,7 @@ object DM_Facturas: TDM_Facturas
         ParamType = ptUnknown
       end>
     left = 232
-    top = 296
+    top = 328
     ParamData = <    
       item
         DataType = ftUnknown
@@ -1466,7 +1490,7 @@ object DM_Facturas: TDM_Facturas
         ParamType = ptUnknown
       end>
     left = 336
-    top = 176
+    top = 192
     ParamData = <    
       item
         DataType = ftUnknown
@@ -1510,7 +1534,7 @@ object DM_Facturas: TDM_Facturas
         ParamType = ptUnknown
       end>
     left = 336
-    top = 240
+    top = 256
     ParamData = <    
       item
         DataType = ftUnknown
@@ -1817,5 +1841,272 @@ object DM_Facturas: TDM_Facturas
         Name = 'id'
         ParamType = ptUnknown
       end>
+  end
+  object facturaItemsUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE  facturaItems'
+      'SET '
+      ' CANTIDAD = :CANTIDAD '
+      ', DETALLE = :DETALLE '
+      ', PRECIOUNITARIO = :PRECIOUNITARIO '
+      ', MONTO = :MONTO '
+      ', FACTURA_ID = :FACTURA_ID '
+      'WHERE ID = :ID'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'CANTIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DETALLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PRECIOUNITARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'MONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FACTURA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end>
+    left = 232
+    top = 256
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'CANTIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DETALLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PRECIOUNITARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'MONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FACTURA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object facturaItemsINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO FacturaItems'
+      '('
+      'ID, CANTIDAD, DETALLE, PRECIOUNITARIO, MONTO, FACTURA_ID)'
+      'VALUES'
+      '(:ID, :CANTIDAD, :DETALLE, :PRECIOUNITARIO, :MONTO, :FACTURA_ID)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CANTIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DETALLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PRECIOUNITARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'MONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FACTURA_ID'
+        ParamType = ptUnknown
+      end>
+    left = 232
+    top = 192
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CANTIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DETALLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PRECIOUNITARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'MONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FACTURA_ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object facturaItemsSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM FacturaItems'
+      'WHERE id = :id'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    left = 232
+    top = 128
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    object RecibosSELID1: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object RecibosSELFECHA1: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object RecibosSELNROPTOVENTA1: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROPTOVENTA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object RecibosSELNRORECIBO1: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NRORECIBO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object RecibosSELCLIENTEEMPRESA_ID1: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'CLIENTEEMPRESA_ID'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object RecibosSELDETALLE1: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'DETALLE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object RecibosSELFANULACION1: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FANULACION'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object RecibosSELESTADO_ID1: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ESTADO_ID'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object RecibosSELLXESTADO1: TStringField
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'LXESTADO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
   end
 end

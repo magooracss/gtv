@@ -258,4 +258,47 @@ CREATE TABLE RemitosFacturas
     , remito_id "guid"  default '{00000000-0000-0000-0000-000000000000}'
     , factura_id "guid"  default '{00000000-0000-0000-0000-000000000000}'
 );	
-	
+
+
+CREATE TABLE tugFacturasEstados
+(
+  idFacturaEstado     int 		DEFAULT -1
+ ,Estado		     varchar (50) 
+ ,bVisible           smallint 	DEFAULT 1
+);
+
+INSERT INTO tugFacturasEstados
+(idFacturaEstado, Estado, bVisible)
+VALUES
+(0,'Desconocido', 1);
+
+INSERT INTO tugFacturasEstados
+(idFacturaEstado, Estado, bVisible)
+VALUES
+(1,'Sin Facturar', 1);
+
+INSERT INTO tugFacturasEstados
+(idFacturaEstado, Estado, bVisible)
+VALUES
+(2,'Facturado', 1);
+
+INSERT INTO tugFacturasEstados
+(idFacturaEstado, Estado, bVisible)
+VALUES
+(3,'Anulado', 1);
+
+
+CREATE GENERATOR GenFacturaEstado;
+SET GENERATOR GenFacturaEstado TO 3;
+
+SET TERM ^ ;
+
+CREATE TRIGGER idtugFacturaEstado FOR tugFacturasEstados
+BEFORE INSERT POSITION 0
+AS 
+BEGIN 
+    If (New.idFacturaEstado = -1) then
+   New.idFacturaEstado = GEN_ID(GenFacturaEstado,1);
+END^
+
+SET TERM ; ^	

@@ -235,7 +235,8 @@ end;
 
 procedure TfrmFacturaAE.btnGrabarClick(Sender: TObject);
 begin
-
+  DM_Facturas.GrabarFactura;
+  ModalResult:= mrOK;
 end;
 
 end.

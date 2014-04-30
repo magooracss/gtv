@@ -25,6 +25,18 @@ type
     CondFiscalIDCONDICIONFISCAL: TStringField;
     CondFiscalIDIDCONDICIONFISCAL: TLongintField;
     FacturaItemsCantidad: TFloatField;
+    facturaItemsINS: TZQuery;
+    facturaItemsSEL: TZQuery;
+    RecibosSELCLIENTEEMPRESA_ID1: TStringField;
+    RecibosSELDETALLE1: TStringField;
+    RecibosSELESTADO_ID1: TLongintField;
+    RecibosSELFANULACION1: TDateField;
+    RecibosSELFECHA1: TDateField;
+    RecibosSELID1: TStringField;
+    RecibosSELLXESTADO1: TStringField;
+    RecibosSELNROPTOVENTA1: TLongintField;
+    RecibosSELNRORECIBO1: TLongintField;
+    facturaItemsUPD: TZQuery;
     remitoFactura: TRxMemoryData;
     ReciboFacturaDel: TZQuery;
     FacturaItemsDetalle: TStringField;
@@ -103,23 +115,23 @@ type
     reciboFacturarecibo_id: TStringField;
     RemitoFacturaSEL: TZQuery;
     RemitoFacturaUPD: TZQuery;
-    RecibosINS: TZQuery;
+    facturasINS: TZQuery;
     ReciboFacturaINS: TZQuery;
     RemitosPorFactura: TZQuery;
-    RecibosSEL: TZQuery;
+    facturasSEL: TZQuery;
     CondicionFiscal: TZQuery;
     RecibosPorFactura: TZQuery;
     ReciboFacturaSEL: TZQuery;
-    RecibosSELCLIENTEEMPRESA_ID: TStringField;
-    RecibosSELDETALLE: TStringField;
-    RecibosSELESTADO_ID: TLongintField;
-    RecibosSELFANULACION: TDateField;
-    RecibosSELFECHA: TDateField;
-    RecibosSELID: TStringField;
-    RecibosSELLXESTADO: TStringField;
-    RecibosSELNROPTOVENTA: TLongintField;
-    RecibosSELNRORECIBO: TLongintField;
-    RecibosUPD: TZQuery;
+    facturasSELCLIENTEEMPRESA_ID: TStringField;
+    facturasSELDETALLE: TStringField;
+    facturasSELESTADO_ID: TLongintField;
+    facturasSELFANULACION: TDateField;
+    facturasSELFECHA: TDateField;
+    facturasSELID: TStringField;
+    facturasSELLXESTADO: TStringField;
+    facturasSELNROPTOVENTA: TLongintField;
+    facturasSELNRORECIBO: TLongintField;
+    FacturasUPD: TZQuery;
     reciboFactura: TRxMemoryData;
     ReciboFacturaUPD: TZQuery;
     remitoFacturafactura_id: TStringField;
@@ -128,7 +140,7 @@ type
     remitoFacturanRemito: TLongintField;
     remitoFacturaremito_id: TStringField;
     remitoFacturatxDetalles: TStringField;
-    tbReclamosDEL: TZQuery;
+    FacturasDEL: TZQuery;
     facturaItemsDEL: TZQuery;
     procedure DataModuleCreate(Sender: TObject);
     procedure FacturaItemsAfterInsert(DataSet: TDataSet);
@@ -153,6 +165,7 @@ type
     function TotalFacturado: Double;
 
     procedure GrabarFactura;
+    procedure AnularFactura(factura_id: string);
 
     procedure ReciboVincular (recibo_id: GUID_ID);
     procedure ReciboQuitar;
@@ -328,7 +341,17 @@ end;
 
 procedure TDM_Facturas.GrabarFactura;
 begin
+  DM_General.GrabarDatos(facturasSEL, facturasINS, FacturasUPD, Facturas, 'id');
+  DM_General.GrabarDatos(facturaItemsSEL, facturaItemsINS, facturaItemsUPD, FacturaItems, 'id');
+end;
 
+procedure TDM_Facturas.AnularFactura(factura_id: string);
+begin
+  with FacturasDEL do
+  begin
+    ParamByName('id').asString:= factura_id;
+    ExecSQL;
+  end;
 end;
 
 procedure TDM_Facturas.ReciboVincular(recibo_id: GUID_ID);
