@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
   DBGrids, Buttons
-  ,dmgeneral
+  ,dmgeneral, db
   ;
 
 type
@@ -19,11 +19,14 @@ type
     btnAnular: TBitBtn;
     btnModificar: TBitBtn;
     btnNuevo: TBitBtn;
+    ds_listadoFacturas: TDatasource;
     DBGrid1: TDBGrid;
     Panel1: TPanel;
     Panel2: TPanel;
     procedure btnAceptarClick(Sender: TObject);
+    procedure btnModificarClick(Sender: TObject);
     procedure btnNuevoClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     procedure pantallaFactura (idFactura: GUID_ID);
   public
@@ -37,6 +40,7 @@ implementation
 {$R *.lfm}
 uses
   frm_facturaae
+  ,dmfacturas
   ;
 
 { TfrmListadoFacturas }
@@ -46,9 +50,19 @@ begin
   pantallaFactura(GUIDNULO);
 end;
 
+procedure TfrmListadoFacturas.FormShow(Sender: TObject);
+begin
+  DM_Facturas.LevantarFacturas;
+end;
+
 procedure TfrmListadoFacturas.btnAceptarClick(Sender: TObject);
 begin
   ModalResult:= mrOK;
+end;
+
+procedure TfrmListadoFacturas.btnModificarClick(Sender: TObject);
+begin
+  pantallaFactura (DM_Facturas.idFacturaListado);
 end;
 
 procedure TfrmListadoFacturas.pantallaFactura(idFactura: GUID_ID);

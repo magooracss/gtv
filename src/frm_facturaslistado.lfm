@@ -12,6 +12,7 @@ object frmListadoFacturas: TfrmListadoFacturas
   Font.Name = 'Arial'
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
+  OnShow = FormShow
   Position = poOwnerFormCenter
   LCLVersion = '1.2.0.3'
   object Panel1: TPanel
@@ -37,8 +38,15 @@ object frmListadoFacturas: TfrmListadoFacturas
         Title.Alignment = taCenter
         Title.Caption = 'Fecha'
         Width = 120
-        FieldName = 'FECHA'
+        FieldName = 'FECHAFACTURA'
         DisplayFormat = 'dd/mm/yyyy'
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Tipo'
+        Width = 54
+        FieldName = 'LETRAFACTURA'
       end    
       item
         SizePriority = 0
@@ -52,27 +60,29 @@ object frmListadoFacturas: TfrmListadoFacturas
         Title.Alignment = taCenter
         Title.Caption = 'Recibo'
         Width = 120
-        FieldName = 'NRORECIBO'
+        FieldName = 'NROPTOVENTA'
       end    
       item
         Title.Alignment = taCenter
         Title.Caption = 'Cliente'
-        Width = 294
-        FieldName = 'CNOMBRE'
+        Width = 415
+        FieldName = 'CLIENTE'
       end    
       item
+        SizePriority = 0
         Title.Alignment = taCenter
-        Title.Caption = 'Detalle'
-        Width = 294
-        FieldName = 'DETALLE'
+        Title.Caption = 'Total '
+        Width = 120
+        FieldName = 'TOTALFACTURA'
       end    
       item
         SizePriority = 0
         Title.Alignment = taCenter
         Title.Caption = 'Estado'
         Width = 102
-        FieldName = 'ESTADO'
+        FieldName = 'ESTADOFACTURA'
       end>
+    DataSource = ds_listadoFacturas
     FixedCols = 0
     Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
     Scrollbars = ssAutoVertical
@@ -227,6 +237,7 @@ object frmListadoFacturas: TfrmListadoFacturas
         D4FFD2D2D2FFD1D1D1FFD0D0D0FFCECECEFFCDCDCDFFCBCBCB15FFFFFF00FFFF
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
+      OnClick = btnModificarClick
       TabOrder = 2
     end
     object btnAnular: TBitBtn
@@ -274,5 +285,10 @@ object frmListadoFacturas: TfrmListadoFacturas
       }
       TabOrder = 3
     end
+  end
+  object ds_listadoFacturas: TDatasource
+    DataSet = DM_Facturas.qListaFacturas
+    left = 125
+    top = 316
   end
 end

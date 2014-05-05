@@ -27,6 +27,14 @@ type
     FacturaItemsCantidad: TFloatField;
     facturaItemsINS: TZQuery;
     facturaItemsSEL: TZQuery;
+    qListaFacturasCLIENTE: TStringField;
+    qListaFacturasESTADOFACTURA: TStringField;
+    qListaFacturasFECHAFACTURA: TDateField;
+    qListaFacturasID: TStringField;
+    qListaFacturasLETRAFACTURA: TStringField;
+    qListaFacturasNROFACTURA: TLongintField;
+    qListaFacturasNROPTOVENTA: TLongintField;
+    qListaFacturasTOTALFACTURA: TFloatField;
     RecibosSELCLIENTEEMPRESA_ID1: TStringField;
     RecibosSELDETALLE1: TStringField;
     RecibosSELESTADO_ID1: TLongintField;
@@ -67,44 +75,7 @@ type
     FacturasnroFactura: TLongintField;
     FacturasnroPtoVenta: TLongintField;
     nroFacturaNRO: TLargeintField;
-    qListaRecibos: TZQuery;
-    qListaRecibosBVISIBLE: TSmallintField;
-    qListaRecibosBVISIBLE_1: TSmallintField;
-    qListaRecibosCCODIGO: TStringField;
-    qListaRecibosCCUIT: TStringField;
-    qListaRecibosCDOMICILIO: TStringField;
-    qListaRecibosCENTRECALLE1: TStringField;
-    qListaRecibosCENTRECALLE2: TStringField;
-    qListaRecibosCLIENTEEMPRESA_ID: TStringField;
-    qListaRecibosCMANZANA: TStringField;
-    qListaRecibosCNOMBRE: TStringField;
-    qListaRecibosCNROCASA: TStringField;
-    qListaRecibosCPARCELA: TStringField;
-    qListaRecibosCSECCION: TStringField;
-    qListaRecibosDETALLE: TStringField;
-    qListaRecibosESTADO: TStringField;
-    qListaRecibosESTADO_ID: TLongintField;
-    qListaRecibosFANULACION: TDateField;
-    qListaRecibosFECHA: TDateField;
-    qListaRecibosFINICIO: TDateField;
-    qListaRecibosHABILITACIONEXP: TStringField;
-    qListaRecibosHABILITACIONFECHA: TDateField;
-    qListaRecibosID: TStringField;
-    qListaRecibosIDCLIENTE: TStringField;
-    qListaRecibosIDRECIBOESTADO: TLongintField;
-    qListaRecibosNIVA: TFloatField;
-    qListaRecibosNMONTOABONO: TFloatField;
-    qListaRecibosNROPTOVENTA: TLongintField;
-    qListaRecibosNRORECIBO: TLongintField;
-    qListaRecibosREFABONO: TLongintField;
-    qListaRecibosREFADMINISTRADOR: TStringField;
-    qListaRecibosREFCONDICIONFISCAL: TLongintField;
-    qListaRecibosREFCONSERVADOR: TStringField;
-    qListaRecibosREFDESTINO: TLongintField;
-    qListaRecibosREFGRUPOFACTURACION: TLongintField;
-    qListaRecibosREFLOCALIDAD: TLongintField;
-    qListaRecibosREFRESPTECNICO: TStringField;
-    qListaRecibosUNIDADFUNCIONAL: TLongintField;
+    qListaFacturas: TZQuery;
     Facturas: TRxMemoryData;
     RemitoFacturaDel: TZQuery;
     reciboFacturafactura_id: TStringField;
@@ -148,8 +119,10 @@ type
     procedure reciboFacturaAfterInsert(DataSet: TDataSet);
     procedure remitoFacturaAfterInsert(DataSet: TDataSet);
   private
+    function getIdFacturaListado: GUID_ID;
     { private declarations }
   public
+    property idFacturaListado: GUID_ID read getIdFacturaListado;
     procedure LevantarFacturas;
 
     procedure CargarCliente (idCliente: GUID_ID);
@@ -244,9 +217,21 @@ begin
   end;
 end;
 
+function TDM_Facturas.getIdFacturaListado: GUID_ID;
+begin
+  if ((qListaFacturas.Active) and (qListaFacturas.RecordCount > 0)) then
+    Result:= qListaFacturasID.AsString
+  else
+    Result:= GUIDNULO;
+end;
+
 procedure TDM_Facturas.LevantarFacturas;
 begin
-
+  with qListaFacturas do
+  begin
+    if active then close;
+    Open;
+  end;
 end;
 
 procedure TDM_Facturas.CargarCliente(idCliente: GUID_ID);

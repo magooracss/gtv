@@ -5,19 +5,31 @@ object DM_Facturas: TDM_Facturas
   HorizontalOffset = 473
   VerticalOffset = 180
   Width = 810
-  object qListaRecibos: TZQuery
+  object qListaFacturas: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      ' SELECT *'
-      ' FROM Recibos R'
-      '      LEFT JOIN tbClientes C ON R.clienteEmpresa_id = C.idCliente '
-      '      LEFT JOIN tugRecibosEstados TRe ON TRe.idReciboEstado = R.estado_id'
-      ''
+      'SELECT  F.id'
+      '       , F.Fecha as FechaFactura'
+      '       , F.NroPtoVenta as NroPtoVenta'
+      '       , F.NroFactura as NroFactura'
+      '       , C.cNombre as Cliente'
+      '       ,tF.letra as LetraFactura'
+      '       ,tFE.Estado as EstadoFactura'
+      '       , SUM (FI.Monto) as TotalFactura'
+      '         '
+      'FROM Facturas F'
+      '     LEFT JOIN tugFacturas tF ON tF.id = F.TipoFactura_id'
+      '     LEFT JOIN tugFacturasEstados tFE ON tFE.idFacturaEstado = F.estado_id'
+      '     LEFT JOIN tbClientes as C ON C.idCliente = F.clienteEmpresa_id'
+      '     INNER JOIN FacturaItems FI ON FI.factura_id = F.id'
+      'GROUP BY F.id, tF.letra, tFE.Estado, C.cNombre, F.Fecha, F.NroPtoVenta, F.NroFactura    '
+      'ORDER BY F.NroPtoVenta, F.NroFactura'
     )
     Params = <>
+    MasterSource = frmFacturaAE.ds_factura
     left = 48
     top = 32
-    object qListaRecibosID: TStringField
+    object qListaFacturasID: TStringField
       DisplayWidth = 152
       FieldKind = fkData
       FieldName = 'ID'
@@ -28,17 +40,17 @@ object DM_Facturas: TDM_Facturas
       Required = True
       Size = 152
     end
-    object qListaRecibosFECHA: TDateField
+    object qListaFacturasFECHAFACTURA: TDateField
       DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'FECHA'
+      FieldName = 'FECHAFACTURA'
       Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
     end
-    object qListaRecibosNROPTOVENTA: TLongintField
+    object qListaFacturasNROPTOVENTA: TLongintField
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'NROPTOVENTA'
@@ -48,364 +60,62 @@ object DM_Facturas: TDM_Facturas
       ReadOnly = False
       Required = False
     end
-    object qListaRecibosNRORECIBO: TLongintField
+    object qListaFacturasNROFACTURA: TLongintField
       DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'NRORECIBO'
+      FieldName = 'NROFACTURA'
       Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
     end
-    object qListaRecibosCLIENTEEMPRESA_ID: TStringField
-      DisplayWidth = 152
-      FieldKind = fkData
-      FieldName = 'CLIENTEEMPRESA_ID'
-      Index = 4
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 152
-    end
-    object qListaRecibosDETALLE: TStringField
-      DisplayWidth = 3000
-      FieldKind = fkData
-      FieldName = 'DETALLE'
-      Index = 5
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 3000
-    end
-    object qListaRecibosFANULACION: TDateField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'FANULACION'
-      Index = 6
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object qListaRecibosESTADO_ID: TLongintField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'ESTADO_ID'
-      Index = 7
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object qListaRecibosIDCLIENTE: TStringField
-      DisplayWidth = 152
-      FieldKind = fkData
-      FieldName = 'IDCLIENTE'
-      Index = 8
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-      Size = 152
-    end
-    object qListaRecibosCCODIGO: TStringField
-      DisplayWidth = 8
-      FieldKind = fkData
-      FieldName = 'CCODIGO'
-      Index = 9
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 8
-    end
-    object qListaRecibosCNOMBRE: TStringField
+    object qListaFacturasCLIENTE: TStringField
       DisplayWidth = 300
       FieldKind = fkData
-      FieldName = 'CNOMBRE'
-      Index = 10
+      FieldName = 'CLIENTE'
+      Index = 4
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
       Size = 300
     end
-    object qListaRecibosFINICIO: TDateField
-      DisplayWidth = 10
+    object qListaFacturasLETRAFACTURA: TStringField
+      DisplayWidth = 1
       FieldKind = fkData
-      FieldName = 'FINICIO'
-      Index = 11
+      FieldName = 'LETRAFACTURA'
+      Index = 5
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      Size = 1
     end
-    object qListaRecibosREFABONO: TLongintField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'REFABONO'
-      Index = 12
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object qListaRecibosREFRESPTECNICO: TStringField
-      DisplayWidth = 152
-      FieldKind = fkData
-      FieldName = 'REFRESPTECNICO'
-      Index = 13
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 152
-    end
-    object qListaRecibosREFGRUPOFACTURACION: TLongintField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'REFGRUPOFACTURACION'
-      Index = 14
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object qListaRecibosREFCONDICIONFISCAL: TLongintField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'REFCONDICIONFISCAL'
-      Index = 15
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object qListaRecibosCCUIT: TStringField
-      DisplayWidth = 20
-      FieldKind = fkData
-      FieldName = 'CCUIT'
-      Index = 16
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object qListaRecibosNIVA: TFloatField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'NIVA'
-      Index = 17
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      MaxValue = 0
-      MinValue = 0
-      Precision = 2
-    end
-    object qListaRecibosCDOMICILIO: TStringField
-      DisplayWidth = 1000
-      FieldKind = fkData
-      FieldName = 'CDOMICILIO'
-      Index = 18
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 1000
-    end
-    object qListaRecibosCENTRECALLE1: TStringField
-      DisplayWidth = 1000
-      FieldKind = fkData
-      FieldName = 'CENTRECALLE1'
-      Index = 19
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 1000
-    end
-    object qListaRecibosCENTRECALLE2: TStringField
-      DisplayWidth = 1000
-      FieldKind = fkData
-      FieldName = 'CENTRECALLE2'
-      Index = 20
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 1000
-    end
-    object qListaRecibosCNROCASA: TStringField
-      DisplayWidth = 20
-      FieldKind = fkData
-      FieldName = 'CNROCASA'
-      Index = 21
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object qListaRecibosCSECCION: TStringField
-      DisplayWidth = 20
-      FieldKind = fkData
-      FieldName = 'CSECCION'
-      Index = 22
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object qListaRecibosCMANZANA: TStringField
-      DisplayWidth = 20
-      FieldKind = fkData
-      FieldName = 'CMANZANA'
-      Index = 23
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object qListaRecibosCPARCELA: TStringField
-      DisplayWidth = 20
-      FieldKind = fkData
-      FieldName = 'CPARCELA'
-      Index = 24
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object qListaRecibosREFLOCALIDAD: TLongintField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'REFLOCALIDAD'
-      Index = 25
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object qListaRecibosREFDESTINO: TLongintField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'REFDESTINO'
-      Index = 26
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object qListaRecibosUNIDADFUNCIONAL: TLongintField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'UNIDADFUNCIONAL'
-      Index = 27
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object qListaRecibosREFADMINISTRADOR: TStringField
-      DisplayWidth = 152
-      FieldKind = fkData
-      FieldName = 'REFADMINISTRADOR'
-      Index = 28
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 152
-    end
-    object qListaRecibosREFCONSERVADOR: TStringField
-      DisplayWidth = 152
-      FieldKind = fkData
-      FieldName = 'REFCONSERVADOR'
-      Index = 29
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 152
-    end
-    object qListaRecibosBVISIBLE: TSmallintField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'BVISIBLE'
-      Index = 30
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object qListaRecibosNMONTOABONO: TFloatField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'NMONTOABONO'
-      Index = 31
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      MaxValue = 0
-      MinValue = 0
-      Precision = 2
-    end
-    object qListaRecibosHABILITACIONEXP: TStringField
+    object qListaFacturasESTADOFACTURA: TStringField
       DisplayWidth = 48
       FieldKind = fkData
-      FieldName = 'HABILITACIONEXP'
-      Index = 32
+      FieldName = 'ESTADOFACTURA'
+      Index = 6
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
       Size = 48
     end
-    object qListaRecibosHABILITACIONFECHA: TDateField
+    object qListaFacturasTOTALFACTURA: TFloatField
       DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'HABILITACIONFECHA'
-      Index = 33
+      FieldName = 'TOTALFACTURA'
+      Index = 7
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
+      ReadOnly = True
       Required = False
-    end
-    object qListaRecibosIDRECIBOESTADO: TLongintField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'IDRECIBOESTADO'
-      Index = 34
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object qListaRecibosESTADO: TStringField
-      DisplayWidth = 48
-      FieldKind = fkData
-      FieldName = 'ESTADO'
-      Index = 35
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 48
-    end
-    object qListaRecibosBVISIBLE_1: TSmallintField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'BVISIBLE_1'
-      Index = 36
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
     end
   end
   object facturasSEL: TZQuery
