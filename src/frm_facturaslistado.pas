@@ -24,6 +24,7 @@ type
     Panel1: TPanel;
     Panel2: TPanel;
     procedure btnAceptarClick(Sender: TObject);
+    procedure btnAnularClick(Sender: TObject);
     procedure btnModificarClick(Sender: TObject);
     procedure btnNuevoClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -58,6 +59,15 @@ end;
 procedure TfrmListadoFacturas.btnAceptarClick(Sender: TObject);
 begin
   ModalResult:= mrOK;
+end;
+
+procedure TfrmListadoFacturas.btnAnularClick(Sender: TObject);
+begin
+  if (MessageDlg ('AVISO', '¿Anulo la factura seleccionada?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+  begin
+    DM_Facturas.AnularFactura(DM_Facturas.idFacturaListado);
+    DM_Facturas.LevantarFacturas;
+  end;
 end;
 
 procedure TfrmListadoFacturas.btnModificarClick(Sender: TObject);

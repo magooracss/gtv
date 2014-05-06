@@ -150,7 +150,10 @@ begin
   if factura_id = GUIDNULO then
   begin
     DM_Facturas.NuevaFactura;
-  end;
+  end
+  else
+   DM_Facturas.LevantarFacturaID (factura_id);
+   edTotalFactura.Text:= FormatFloat('$#########0.00', DM_Facturas.totalFacturado);
 end;
 
 

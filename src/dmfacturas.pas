@@ -27,6 +27,29 @@ type
     FacturaItemsCantidad: TFloatField;
     facturaItemsINS: TZQuery;
     facturaItemsSEL: TZQuery;
+    facturaItemsSELCANTIDAD: TFloatField;
+    facturaItemsSELDETALLE: TStringField;
+    facturaItemsSELFACTURA_ID: TStringField;
+    facturaItemsSELID: TStringField;
+    facturaItemsSELMONTO: TFloatField;
+    facturaItemsSELPRECIOUNITARIO: TFloatField;
+    facturasSELCLIENTEEMPRESA_ID: TStringField;
+    facturasSELCONDICIONVENTA_ID: TLongintField;
+    facturasSELESTADO_ID: TLongintField;
+    facturasSELFANULACION: TDateField;
+    facturasSELFECHA: TDateField;
+    facturasSELID: TStringField;
+    facturasSELNROFACTURA: TLongintField;
+    facturasSELNROPTOVENTA: TLongintField;
+    facturasSELOBSERVACIONES: TStringField;
+    facturasSELTIPOFACTURA_ID: TLongintField;
+    ItemsPorFactura: TZQuery;
+    ItemsPorFacturaCANTIDAD: TFloatField;
+    ItemsPorFacturaDETALLE: TStringField;
+    ItemsPorFacturaFACTURA_ID: TStringField;
+    ItemsPorFacturaID: TStringField;
+    ItemsPorFacturaMONTO: TFloatField;
+    ItemsPorFacturaPRECIOUNITARIO: TFloatField;
     qListaFacturasCLIENTE: TStringField;
     qListaFacturasESTADOFACTURA: TStringField;
     qListaFacturasFECHAFACTURA: TDateField;
@@ -35,16 +58,15 @@ type
     qListaFacturasNROFACTURA: TLongintField;
     qListaFacturasNROPTOVENTA: TLongintField;
     qListaFacturasTOTALFACTURA: TFloatField;
-    RecibosSELCLIENTEEMPRESA_ID1: TStringField;
-    RecibosSELDETALLE1: TStringField;
-    RecibosSELESTADO_ID1: TLongintField;
-    RecibosSELFANULACION1: TDateField;
-    RecibosSELFECHA1: TDateField;
-    RecibosSELID1: TStringField;
-    RecibosSELLXESTADO1: TStringField;
-    RecibosSELNROPTOVENTA1: TLongintField;
-    RecibosSELNRORECIBO1: TLongintField;
     facturaItemsUPD: TZQuery;
+    ReciboFacturaSELFACTURA_ID: TStringField;
+    ReciboFacturaSELID: TStringField;
+    ReciboFacturaSELRECIBO_ID: TStringField;
+    RecibosPorFacturaFACTURA_ID: TStringField;
+    RecibosPorFacturaFECHA: TDateField;
+    RecibosPorFacturaID: TStringField;
+    RecibosPorFacturaNRORECIBO: TStringField;
+    RecibosPorFacturaRECIBO_ID: TStringField;
     remitoFactura: TRxMemoryData;
     ReciboFacturaDel: TZQuery;
     FacturaItemsDetalle: TStringField;
@@ -85,6 +107,9 @@ type
     reciboFacturaNroRecibo: TStringField;
     reciboFacturarecibo_id: TStringField;
     RemitoFacturaSEL: TZQuery;
+    RemitoFacturaSELFACTURA_ID: TStringField;
+    RemitoFacturaSELID: TStringField;
+    RemitoFacturaSELREMITO_ID: TStringField;
     RemitoFacturaUPD: TZQuery;
     facturasINS: TZQuery;
     ReciboFacturaINS: TZQuery;
@@ -93,15 +118,6 @@ type
     CondicionFiscal: TZQuery;
     RecibosPorFactura: TZQuery;
     ReciboFacturaSEL: TZQuery;
-    facturasSELCLIENTEEMPRESA_ID: TStringField;
-    facturasSELDETALLE: TStringField;
-    facturasSELESTADO_ID: TLongintField;
-    facturasSELFANULACION: TDateField;
-    facturasSELFECHA: TDateField;
-    facturasSELID: TStringField;
-    facturasSELLXESTADO: TStringField;
-    facturasSELNROPTOVENTA: TLongintField;
-    facturasSELNRORECIBO: TLongintField;
     FacturasUPD: TZQuery;
     reciboFactura: TRxMemoryData;
     ReciboFacturaUPD: TZQuery;
@@ -113,6 +129,22 @@ type
     remitoFacturatxDetalles: TStringField;
     FacturasDEL: TZQuery;
     facturaItemsDEL: TZQuery;
+    RemitosPorFacturaBFACTURADO: TSmallintField;
+    RemitosPorFacturaBFACTURAR: TSmallintField;
+    RemitosPorFacturaBPRESENTADO: TSmallintField;
+    RemitosPorFacturaBSINCARGO: TSmallintField;
+    RemitosPorFacturaBVISIBLE: TSmallintField;
+    RemitosPorFacturaFACTURA_ID: TStringField;
+    RemitosPorFacturaFFECHA: TDateField;
+    RemitosPorFacturaID: TStringField;
+    RemitosPorFacturaIDREMITO: TStringField;
+    RemitosPorFacturaNREMITO: TLongintField;
+    RemitosPorFacturaREFCLIENTE: TStringField;
+    RemitosPorFacturaREFFACTURA: TStringField;
+    RemitosPorFacturaREFMOTIVO: TLongintField;
+    RemitosPorFacturaREFORDENTRABAJO: TStringField;
+    RemitosPorFacturaREMITO_ID: TStringField;
+    RemitosPorFacturaTXDETALLES: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure FacturaItemsAfterInsert(DataSet: TDataSet);
     procedure FacturasAfterInsert(DataSet: TDataSet);
@@ -128,6 +160,7 @@ type
     procedure CargarCliente (idCliente: GUID_ID);
 
     procedure NuevaFactura;
+    procedure LevantarFacturaID (factura_id: GUID_ID);
     function idFacturaPorCondicionFiscal (idCondFiscal: integer): integer;
 
     procedure AsignarNroFactura (idTipoFactura: integer);
@@ -243,6 +276,33 @@ procedure TDM_Facturas.NuevaFactura;
 begin
   DM_General.ReiniciarTabla(Facturas);
   Facturas.Insert;
+end;
+
+procedure TDM_Facturas.LevantarFacturaID(factura_id: GUID_ID);
+begin
+  DM_General.ReiniciarTabla(Facturas);
+  DM_General.ReiniciarTabla(FacturaItems);
+
+  with facturasSEL do
+  begin
+    if active then close;
+    ParamByName('id').asString:= factura_id;
+    Open;
+    Facturas.LoadFromDataSet(facturasSEL,0, lmAppend);
+    Close;
+  end;
+
+  with ItemsPorFactura  do
+  begin
+    if active then close;
+    ParamByName('factura_id').asString:= factura_id;
+    Open;
+    FacturaItems.LoadFromDataSet(ItemsPorFactura,0, lmAppend);
+    Close;
+  end;
+
+  LevantarRecibos(factura_id);
+  LevantarRemitos(factura_id);
 end;
 
 function TDM_Facturas.idFacturaPorCondicionFiscal(idCondFiscal: integer

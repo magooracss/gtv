@@ -58,9 +58,9 @@ object frmListadoFacturas: TfrmListadoFacturas
       item
         SizePriority = 0
         Title.Alignment = taCenter
-        Title.Caption = 'Recibo'
+        Title.Caption = 'Factura'
         Width = 120
-        FieldName = 'NROPTOVENTA'
+        FieldName = 'NROFACTURA'
       end    
       item
         Title.Alignment = taCenter
@@ -283,6 +283,7 @@ object frmListadoFacturas: TfrmListadoFacturas
         D4FFD2D2D2FFD1D1D1FFD0D0D0FFCECECEFFCDCDCDFFCBCBCB15FFFFFF00FFFF
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
+      OnClick = btnAnularClick
       TabOrder = 3
     end
   end
