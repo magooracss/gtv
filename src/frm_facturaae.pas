@@ -223,6 +223,7 @@ procedure TfrmFacturaAE.btnVincularRemitoClick(Sender: TObject);
     pantSel: TfrmRemitosListado;
   begin
     pantSel:= TfrmRemitosListado.Create(self);
+    pantSel.idCliente:= DM_Facturas.FacturasclienteEmpresa_id.AsString;
     try
       if pantSel.ShowModal = mrOK then
       begin

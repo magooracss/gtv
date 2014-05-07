@@ -292,6 +292,9 @@ end;
 procedure TDM_Facturas.NuevaFactura;
 begin
   DM_General.ReiniciarTabla(Facturas);
+  DM_General.ReiniciarTabla(FacturaItems);
+  DM_General.ReiniciarTabla(reciboFactura);
+  DM_General.ReiniciarTabla(remitoFactura);
   Facturas.Insert;
 end;
 

@@ -475,6 +475,7 @@ object frmPrincipal: TfrmPrincipal
       Category = 'Ingresos'
       Caption = 'Facturas'
       Hint = 'Facturas emitidas'
+      ImageIndex = 33
       OnExecute = ingFacturasExecute
     end
     object appAbout: TAction

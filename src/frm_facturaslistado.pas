@@ -49,6 +49,7 @@ uses
 procedure TfrmListadoFacturas.btnNuevoClick(Sender: TObject);
 begin
   pantallaFactura(GUIDNULO);
+  DM_Facturas.LevantarFacturas
 end;
 
 procedure TfrmListadoFacturas.FormShow(Sender: TObject);
@@ -73,6 +74,7 @@ end;
 procedure TfrmListadoFacturas.btnModificarClick(Sender: TObject);
 begin
   pantallaFactura (DM_Facturas.idFacturaListado);
+  DM_Facturas.LevantarFacturas
 end;
 
 procedure TfrmListadoFacturas.pantallaFactura(idFactura: GUID_ID);

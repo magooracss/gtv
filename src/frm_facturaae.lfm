@@ -419,7 +419,7 @@ object frmFacturaAE: TfrmFacturaAE
         ClientWidth = 75
         TabOrder = 1
         object btnVincularRemito: TBitBtn
-          Left = 4
+          Left = 6
           Height = 30
           Top = 56
           Width = 67
