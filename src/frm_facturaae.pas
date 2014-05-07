@@ -152,8 +152,13 @@ begin
     DM_Facturas.NuevaFactura;
   end
   else
+  begin
    DM_Facturas.LevantarFacturaID (factura_id);
+   edCliente.Text:= DM_Clientes.ClienteNombre(DM_Facturas.FacturasclienteEmpresa_id.AsString);
    edTotalFactura.Text:= FormatFloat('$#########0.00', DM_Facturas.totalFacturado);
+   cbTipoFactura.ItemIndex:= DM_General.obtenerIdxCombo(cbTipoFactura, DM_Facturas.FacturastipoFactura_id.AsInteger);
+  end;
+
 end;
 
 
@@ -238,6 +243,7 @@ end;
 
 procedure TfrmFacturaAE.btnGrabarClick(Sender: TObject);
 begin
+  DM_Facturas.LetraFactura:= DM_General.obtenerIDIntComboBox(cbTipoFactura);
   DM_Facturas.GrabarFactura;
   ModalResult:= mrOK;
 end;

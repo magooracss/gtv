@@ -2096,7 +2096,6 @@ object DM_Facturas: TDM_Facturas
   end
   object ItemsPorFactura: TZQuery
     Connection = DM_Conexion.cnxGeneral
-    Active = True
     SQL.Strings = (
       'SELECT *'
       'FROM FacturaItems'

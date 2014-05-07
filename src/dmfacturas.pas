@@ -152,9 +152,11 @@ type
     procedure remitoFacturaAfterInsert(DataSet: TDataSet);
   private
     function getIdFacturaListado: GUID_ID;
+    procedure setLetraFactura(AValue: integer);
     { private declarations }
   public
     property idFacturaListado: GUID_ID read getIdFacturaListado;
+    property LetraFactura: integer write setLetraFactura;
     procedure LevantarFacturas;
 
     procedure CargarCliente (idCliente: GUID_ID);
@@ -225,7 +227,7 @@ begin
     FieldByName('CondicionVenta_id').AsInteger:=0;
     FieldByName('Observaciones').asString:= EmptyStr;
     FieldByName('fAnulacion').AsDateTime:= 0;
-    FieldByName('estado_id').asInteger:= 0;
+    FieldByName('estado_id').asInteger:= 1;
     FieldByName('lxEstado').asString:= EmptyStr;
   end;
 end;
@@ -258,6 +260,16 @@ begin
     Result:= GUIDNULO;
 end;
 
+procedure TDM_Facturas.setLetraFactura(AValue: integer);
+begin
+  with Facturas do
+  begin
+    Edit;
+    FacturastipoFactura_id.AsInteger:= AValue;
+    Post;
+  end;
+end;
+
 procedure TDM_Facturas.LevantarFacturas;
 begin
   with qListaFacturas do
@@ -269,7 +281,12 @@ end;
 
 procedure TDM_Facturas.CargarCliente(idCliente: GUID_ID);
 begin
-
+  with Facturas do
+  begin
+    Edit;
+    FacturasclienteEmpresa_id.AsString:= idCliente;
+    Post;
+  end;
 end;
 
 procedure TDM_Facturas.NuevaFactura;
