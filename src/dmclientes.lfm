@@ -2,7 +2,7 @@ object DM_Clientes: TDM_Clientes
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 573
-  HorizontalOffset = 213
+  HorizontalOffset = 151
   VerticalOffset = 78
   Width = 1177
   object tbClientes: TRxMemoryData
@@ -420,6 +420,7 @@ object DM_Clientes: TDM_Clientes
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      Currency = True
       MaxValue = 0
       MinValue = 0
       Precision = 2

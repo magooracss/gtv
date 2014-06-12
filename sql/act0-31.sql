@@ -302,3 +302,6 @@ BEGIN
 END^
 
 SET TERM ; ^	
+
+UPDATE tugCondicionesFiscales SET ComprEntrega = 1 WHERE ComprEntrega = 2;
+UPDATE tugCondicionesFiscales SET ComprEntrega = 2 WHERE ComprEntrega = 3;

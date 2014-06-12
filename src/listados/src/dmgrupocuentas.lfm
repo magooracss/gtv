@@ -851,4 +851,184 @@ object DM_GrupoCuentas: TDM_GrupoCuentas
       Size = 13
     end
   end
+  object qSubdiarioComprasTodos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT C.idCompra'
+      '       , C.Fecha'
+      '      , (TC.TipoComprobante || '' '' || C.NroPtoVenta || ''-'' || C.NroFactura) as Comprobante'
+      #9'  ,Pr.cRazonSocial as RazonSocial'
+      #9'  ,Pr.cCuit as Cuit'
+      #9'  , 0.0 as ImpNoGravado '
+      #9'  , 0.0 as IVA'
+      #9'  ,C.PercepIVA as PercepIVA'
+      #9'  ,C.PercepCapital as PercepCapital'
+      ' '#9'  ,C.PercepProvincia as PercepProvincia'
+      #9'  ,C.nTotal as ImporteTotal        '
+      'FROM tbCompras C '
+      '       LEFT JOIN tugTiposComprobantes TC ON TC.idTipoComprobante = C.refTipoComprobante'
+      #9'   INNER JOIN tbProveedores Pr ON Pr.idProveedor = C.refProveedor'
+      'WHERE (C.bVisible = 1)'
+      '             and (C.Fecha >= :fIni)'
+      '            and (C.Fecha <= :fFin)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'fIni'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fFin'
+        ParamType = ptUnknown
+      end>
+    left = 144
+    top = 256
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'fIni'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fFin'
+        ParamType = ptUnknown
+      end>
+    object qSubdiarioComprasIDCOMPRA1: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCOMPRA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qSubdiarioComprasFECHA1: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qSubdiarioComprasCOMPROBANTE1: TStringField
+      DisplayWidth = 496
+      FieldKind = fkData
+      FieldName = 'COMPROBANTE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 496
+    end
+    object qSubdiarioComprasRAZONSOCIAL1: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'RAZONSOCIAL'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+    object qSubdiarioComprasCUIT1: TStringField
+      DisplayWidth = 24
+      FieldKind = fkData
+      FieldName = 'CUIT'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object qSubdiarioComprasPERCEPIVA1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PERCEPIVA'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qSubdiarioComprasPERCEPCAPITAL1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PERCEPCAPITAL'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qSubdiarioComprasPERCEPPROVINCIA1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PERCEPPROVINCIA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qSubdiarioComprasIMPORTETOTAL1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IMPORTETOTAL'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qSubdiarioComprasIMPNOGRAVADO1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IMPNOGRAVADO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qSubdiarioComprasIVA1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IVA'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+  end
 end

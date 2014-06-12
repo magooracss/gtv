@@ -18,6 +18,7 @@ type
     btnFiltrar: TBitBtn;
     btnListado: TBitBtn;
     btnSalir: TBitBtn;
+    ckProveedores: TCheckBox;
     ds_SubdiarioCompras: TDatasource;
     DBGrid1: TDBGrid;
     edFIni: TDateEdit;
@@ -70,6 +71,11 @@ end;
 
 procedure TfrmSubdiarioCompras.btnFiltrarClick(Sender: TObject);
 begin
+  if ckProveedores.Checked then
+  begin
+    _idProveedor:= GUIDNULO;
+    edProveedor.Clear;
+  end;
   DM_GrupoCuentas.filtrarSubdiarioCompras(edFIni.Date, edFFin.Date, _idProveedor);
 end;
 

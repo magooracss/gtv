@@ -21,17 +21,29 @@ type
 
   TDM_GrupoCuentas = class(TDataModule)
     qSubdiarioCompras: TZQuery;
+    qSubdiarioComprasTodos: TZQuery;
     qSubdiarioComprasCOMPROBANTE: TStringField;
+    qSubdiarioComprasCOMPROBANTE1: TStringField;
     qSubdiarioComprasCUIT: TStringField;
+    qSubdiarioComprasCUIT1: TStringField;
     qSubdiarioComprasFECHA: TDateField;
+    qSubdiarioComprasFECHA1: TDateField;
     qSubdiarioComprasIDCOMPRA: TStringField;
+    qSubdiarioComprasIDCOMPRA1: TStringField;
     qSubdiarioComprasIMPNOGRAVADO: TFloatField;
+    qSubdiarioComprasIMPNOGRAVADO1: TFloatField;
     qSubdiarioComprasIMPORTETOTAL: TFloatField;
+    qSubdiarioComprasIMPORTETOTAL1: TFloatField;
     qSubdiarioComprasIVA: TFloatField;
+    qSubdiarioComprasIVA1: TFloatField;
     qSubdiarioComprasPERCEPCAPITAL: TFloatField;
+    qSubdiarioComprasPERCEPCAPITAL1: TFloatField;
     qSubdiarioComprasPERCEPIVA: TFloatField;
+    qSubdiarioComprasPERCEPIVA1: TFloatField;
     qSubdiarioComprasPERCEPPROVINCIA: TFloatField;
+    qSubdiarioComprasPERCEPPROVINCIA1: TFloatField;
     qSubdiarioComprasRAZONSOCIAL: TStringField;
+    qSubdiarioComprasRAZONSOCIAL1: TStringField;
     qSubdiarioPagos: TZQuery;
     qSubdiarioPagosCOMPROBANTE: TStringField;
     qSubdiarioPagosCUIT: TStringField;
@@ -170,19 +182,27 @@ begin
 end;
 
 procedure TDM_GrupoCuentas.filtrarSubdiarioCompras(fIni, fFin: TDate; idProveedor: GUID_ID);
+var
+  laconsulta: TZQuery;
 begin
   DM_General.ReiniciarTabla(tbSubdiarioCompras);
+  if idProveedor = GUIDNULO  then
+    laconsulta:= qSubdiarioComprasTodos
+  else
+    laconsulta:= qSubdiarioCompras;
 
-  with qSubdiarioCompras do
+  with laconsulta do
   begin
     DisableControls;
     if active then
       Close;
-    ParamByName('fIni').AsDate := fIni;
-    ParamByName('fFin').AsDate := fFin;
-     ParamByName('idProveedor').asString:= idProveedor;
+     ParamByName('fIni').AsDate := fIni;
+     ParamByName('fFin').AsDate := fFin;
+
+     if idProveedor <> GUIDNULO  then
+       ParamByName('idProveedor').asString:= idProveedor;
     Open;
-    tbSubdiarioCompras.LoadFromDataSet(qSubdiarioCompras, 0, lmAppend);
+    tbSubdiarioCompras.LoadFromDataSet(laconsulta, 0, lmAppend);
     EnableControls;
   end;
   CalcularMontosSubTotalesCompras;

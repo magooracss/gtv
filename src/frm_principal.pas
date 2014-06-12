@@ -14,6 +14,7 @@ type
   { TfrmPrincipal }
 
   TfrmPrincipal = class(TForm)
+    ingAbonos: TAction;
     appAbout: TAction;
     ingFacturas: TAction;
     ingRecibos: TAction;
@@ -54,6 +55,7 @@ type
     MenuItem35: TMenuItem;
     MenuItem36: TMenuItem;
     MenuItem37: TMenuItem;
+    MenuItem38: TMenuItem;
     RemitosPantGralCliente: TAction;
     RemitoPantGral: TAction;
     ReclPantGralCliente: TAction;
