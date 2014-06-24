@@ -2188,4 +2188,56 @@ object DM_Facturas: TDM_Facturas
       Size = 152
     end
   end
+  object qGrupoFacturacion: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugGruposFacturacion'
+      'WHERE (bVisible = 1)'
+    )
+    Params = <>
+    left = 744
+    top = 328
+    object qGrupoFacturacionIDGRUPOFACTURACION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IDGRUPOFACTURACION'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qGrupoFacturacionGRUPOFACTURACION: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'GRUPOFACTURACION'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qGrupoFacturacionDIAFACTURACION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DIAFACTURACION'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qGrupoFacturacionBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
 end

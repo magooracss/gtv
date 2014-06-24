@@ -50,6 +50,11 @@ type
     ItemsPorFacturaID: TStringField;
     ItemsPorFacturaMONTO: TFloatField;
     ItemsPorFacturaPRECIOUNITARIO: TFloatField;
+    qGrupoFacturacion: TZQuery;
+    qGrupoFacturacionBVISIBLE: TSmallintField;
+    qGrupoFacturacionDIAFACTURACION: TLongintField;
+    qGrupoFacturacionGRUPOFACTURACION: TStringField;
+    qGrupoFacturacionIDGRUPOFACTURACION: TLongintField;
     qListaFacturasCLIENTE: TStringField;
     qListaFacturasESTADOFACTURA: TStringField;
     qListaFacturasFECHAFACTURA: TDateField;
@@ -184,6 +189,8 @@ type
     procedure RemitoQuitar;
     procedure GrabarRemitoFactura;
     procedure LevantarRemitos(factura_id: GUID_ID);
+
+    procedure prefacturarGrupo (gf_id: integer);
 
   end;
 
@@ -505,6 +512,16 @@ begin
      remitoFactura.LoadFromDataSet(RemitosPorFactura, 0, lmAppend);
      close;
    end;
+end;
+
+
+////////////////////////////////////////////////////////////////////////////////
+//// PREFACTURACION
+////////////////////////////////////////////////////////////////////////////////
+
+procedure TDM_Facturas.prefacturarGrupo(gf_id: integer);
+begin
+
 end;
 
 end.

@@ -490,9 +490,10 @@ object frmPrincipal: TfrmPrincipal
     end
     object ingAbonos: TAction
       Category = 'Ingresos'
-      Caption = 'Facturar abonos'
+      Caption = 'Prefacturar abonos'
       Hint = 'Factura un grupo de clientes'
       ImageIndex = 25
+      OnExecute = ingAbonosExecute
     end
   end
   object XMLPropiedades: TXMLPropStorage

@@ -131,6 +131,7 @@ type
     procedure cliModificarExecute(Sender: TObject);
     procedure cliNuevoExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure ingAbonosExecute(Sender: TObject);
     procedure ingFacturasExecute(Sender: TObject);
     procedure ingIngresosExecute(Sender: TObject);
     procedure ingRecibosExecute(Sender: TObject);
@@ -184,6 +185,8 @@ uses
   ,frm_reciboslistado
   ,frm_facturaslistado
   ,frm_about
+  ,frmseleccionargrupofacturacion
+  ,dmfacturas
   ;
 
 { TfrmPrincipal }
@@ -211,7 +214,6 @@ procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
   Inicializar;
 end;
-
 
 procedure TfrmPrincipal.appSalirExecute(Sender: TObject);
 begin
@@ -615,6 +617,20 @@ begin
     pant.ShowModal;
   finally
     pant.Free;
+  end;
+end;
+
+ //PREFACTURACION DE ABONOS
+procedure TfrmPrincipal.ingAbonosExecute(Sender: TObject);
+var
+  selGF: TfrmSeleccionGrupoFacturacion;
+begin
+  selGF:= TfrmSeleccionGrupoFacturacion.Create(self);
+  try
+    if selGF.ShowModal = mrOK then
+      DM_Facturas.PrefacturarGrupo(selGF.GrupoSeleccionado);
+  finally
+    selGF.Free;
   end;
 end;
 
