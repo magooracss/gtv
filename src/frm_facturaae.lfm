@@ -1,7 +1,7 @@
 object frmFacturaAE: TfrmFacturaAE
-  Left = 367
+  Left = 319
   Height = 659
-  Top = 101
+  Top = 29
   Width = 903
   Caption = 'Factura'
   ClientHeight = 659

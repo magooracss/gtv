@@ -8,7 +8,7 @@ object frmAdministradoresSel: TfrmAdministradoresSel
   ClientWidth = 604
   OnShow = FormShow
   Position = poOwnerFormCenter
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.2.0.3'
   object Panel1: TPanel
     Left = 0
     Height = 56
@@ -91,9 +91,9 @@ object frmAdministradoresSel: TfrmAdministradoresSel
     end
     object Label1: TLabel
       Left = 6
-      Height = 17
+      Height = 16
       Top = 5
-      Width = 230
+      Width = 229
       Caption = 'Razón Social/Nombre del administrador'
       ParentColor = False
     end
@@ -204,9 +204,11 @@ object frmAdministradoresSel: TfrmAdministradoresSel
     Top = 56
     Width = 604
     Align = alClient
+    AutoFillColumns = True
     Color = clWindow
     Columns = <    
       item
+        SizePriority = 0
         Title.Alignment = taCenter
         Title.Caption = 'CUIT'
         Width = 120
@@ -215,11 +217,13 @@ object frmAdministradoresSel: TfrmAdministradoresSel
       item
         Title.Alignment = taCenter
         Title.Caption = 'Razón Social/Nombre'
-        Width = 450
+        Width = 480
         FieldName = 'cRazonSocial'
       end>
     DataSource = ds_grilla
-    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    FixedCols = 0
+    Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    Scrollbars = ssAutoVertical
     TabOrder = 2
   end
   object ds_grilla: TDatasource

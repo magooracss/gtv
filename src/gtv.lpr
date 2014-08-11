@@ -7,7 +7,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, lazreport, rxnew, zvdatetimectrls, zcomponent, frm_principal,
+  Forms, lazreport, dbflaz, rxnew, zvdatetimectrls, zcomponent, frm_principal,
   dmconexion, dmgeneral, SD_Configuracion, versioninfo, frm_clienteam,
   dmclientes, dmediciontugs, frm_ediciontugs, frm_busquedaclientes,
   dmbuscarcliente, frm_contactosAE, frm_domicilioae, frm_equipocliente,
@@ -25,13 +25,14 @@ uses
   frm_busquedapersonasempresas, dmcompras, frm_compraslistado, frm_comprasae,
   dmplandecuentas, frm_plandecuentaslistado, frm_plandecuentasae,
   frm_ordenespagolistado, dmordenesdepago, frm_ordenpagoae, frm_cargavalores,
-  dmvalores, frm_tuglocalidades, dmlocalidades,
-  frm_localidadae, frm_egresosvarioslistado, dmegresosvarios,
-  frm_egresosvariosae, frm_egresoae, frm_asignarpagofactura
-  ,sysutils, frm_clientecontacto, dmcompensaciones, frm_compensaciones,
-frm_configuraciones, frm_ingresoslistado, dmingresos, frm_ingresosae, 
-frm_reciboslistado, dmrecibos, frm_reciboae, frm_facturaae, dmfacturas, 
-frm_facturaslistado, frm_cargavaloresIngreso, frm_about, frm_itemfacturaae;
+  dmvalores, frm_tuglocalidades, dmlocalidades, frm_localidadae,
+  frm_egresosvarioslistado, dmegresosvarios, frm_egresosvariosae, frm_egresoae,
+  frm_asignarpagofactura, sysutils, frm_clientecontacto, dmcompensaciones,
+  frm_compensaciones, frm_configuraciones, frm_ingresoslistado, dmingresos,
+  frm_ingresosae, frm_reciboslistado, dmrecibos, frm_reciboae, frm_facturaae,
+  dmfacturas, frm_facturaslistado, frm_cargavaloresIngreso, frm_about,
+  frm_itemfacturaae, frmseleccionargrupofacturacion, dmfacturaelectronica,
+  frm_administradoresae;
 
 {$R *.res}
 
@@ -71,6 +72,7 @@ begin
   Application.CreateForm(TDM_Recibos, DM_Recibos);
   Application.CreateForm(TDM_Facturas, DM_Facturas);
   Application.CreateForm(TDM_Ingresos, DM_Ingresos);
+  Application.CreateForm(TDM_FacturaElectronica, DM_FacturaElectronica);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
 
   Application.Run;

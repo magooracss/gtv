@@ -1,5 +1,5 @@
 object frmSubdiarioCompras: TfrmSubdiarioCompras
-  Left = 190
+  Left = 196
   Height = 594
   Top = 100
   Width = 1098

@@ -86,6 +86,7 @@ type
     procedure ReporteAPDF (elArchivo: string);
 
     Function CuitValido (S: String): Boolean;
+    function CuitANro(S: string): integer;
     function FechaNula: TDateTime;
 
     procedure OrdenarTitulo (var Columna: TColumn);
@@ -503,6 +504,20 @@ Begin
     else
       Result:= False;
 End;
+
+function TDM_General.CuitANro(S: string): integer;
+var
+  idx: integer;
+  tempo: string;
+begin
+  tempo:= EmptyStr;
+  for idx:= 0 to Length(S) - 1 do
+  begin
+    if S[idx] IN ['0'..'9'] then
+     tempo:= tempo + S[idx];
+  end;
+  Result:= StrToIntDef(tempo, 0);
+end;
 
 function TDM_General.FechaNula: TDateTime;
 begin

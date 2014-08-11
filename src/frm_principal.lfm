@@ -1,7 +1,7 @@
 object frmPrincipal: TfrmPrincipal
-  Left = 172
+  Left = 197
   Height = 656
-  Top = 92
+  Top = 87
   Width = 1198
   Caption = 'Gestión de Transportes Verticales'
   ClientHeight = 636

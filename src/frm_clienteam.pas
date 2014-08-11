@@ -17,12 +17,9 @@ type
     BitBtn1: TBitBtn;
     BitBtn2: TBitBtn;
     BitBtn3: TBitBtn;
-    btnAdmContactoAlta: TBitBtn;
-    btnAdmContactoEliminar: TBitBtn;
-    btnAdmContactoModificar: TBitBtn;
-    btnAdmDomicilioAlta: TBitBtn;
-    btnAdmDomicilioEliminar: TBitBtn;
-    btnAdmDomicilioModificar: TBitBtn;
+    btnAdmEditar: TBitBtn;
+    btnAdmBorrar: TBitBtn;
+    btnBuscarFacturar: TBitBtn;
     btnAdmNuevo: TBitBtn;
     btnAnexos: TBitBtn;
     btnBuscar: TBitBtn;
@@ -33,14 +30,22 @@ type
     btnModificarEquipo: TBitBtn;
     btnAgregarEquipo: TBitBtn;
     btnEliminarEquipo: TBitBtn;
+    btnTipoAbono: TSpeedButton;
     cbAdmDoc: TComboBox;
+    cbCondicionIVAFacturar: TComboBox;
     cbConservadorRX: TRxDBComboBox;
     cbDestino: TComboBox;
     cbLocalidad: TComboBox;
+    cbLocalidadFacturar: TComboBox;
     cbRespTecnicoRX: TRxDBComboBox;
-    cbTipoAbono: TComboBox;
     cbGrupoFacturacion: TComboBox;
     cbCondicionIVA: TComboBox;
+    cbTipoAbono: TComboBox;
+    DBCheckBox1: TDBCheckBox;
+    DBDateEdit1: TDBDateEdit;
+    DBEdit13: TDBEdit;
+    DBEdit14: TDBEdit;
+    DBEdit15: TDBEdit;
     DBEdit20: TDBEdit;
     DBEdit22: TDBEdit;
     DBEdit23: TDBEdit;
@@ -60,7 +65,6 @@ type
     ds_conservadores: TDatasource;
     DS_ContactosADM: TDatasource;
     ds_administrador: TDatasource;
-    DBDateEdit1: TDBDateEdit;
     ds_cliente: TDatasource;
     DBEdit1: TDBEdit;
     DBEdit10: TDBEdit;
@@ -74,6 +78,7 @@ type
     DBEdit7: TDBEdit;
     DBEdit8: TDBEdit;
     DBEdit9: TDBEdit;
+    DS_Facturacion: TDatasource;
     GrillaEquipos: TDBGrid;
     DS_ContactosClienteCont: TDatasource;
     DS_EquiposCliente: TDatasource;
@@ -101,6 +106,11 @@ type
     Label2: TLabel;
     Label20: TLabel;
     Label21: TLabel;
+    Label22: TLabel;
+    Label23: TLabel;
+    Label24: TLabel;
+    Label25: TLabel;
+    Label26: TLabel;
     Label3: TLabel;
     Label31: TLabel;
     Label34: TLabel;
@@ -118,30 +128,32 @@ type
     Panel12: TPanel;
     Panel4: TPanel;
     Panel5: TPanel;
-    Panel6: TPanel;
-    Panel7: TPanel;
     Panel8: TPanel;
     Panel9: TPanel;
     PCPantalla: TPageControl;
     Panel1: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
+    rgFacturarA: TRadioGroup;
     SpeedButton1: TSpeedButton;
-    SpeedButton10: TSpeedButton;
     SpeedButton2: TSpeedButton;
     SpeedButton3: TSpeedButton;
-    btnTipoAbono: TSpeedButton;
     SpeedButton5: TSpeedButton;
     btnTUGDestino: TSpeedButton;
+    SpeedButton6: TSpeedButton;
     SpeedButton7: TSpeedButton;
+    SpeedButton8: TSpeedButton;
     StaticText3: TStaticText;
     tabEdificio: TTabSheet;
     tabPropietario: TTabSheet;
     tabAdministrador: TTabSheet;
     tabContactoCliente: TTabSheet;
+    tabFacturacion: TTabSheet;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure BitBtn3Click(Sender: TObject);
+    procedure btnAdmBorrarClick(Sender: TObject);
+    procedure btnAdmEditarClick(Sender: TObject);
     procedure btnAdmNuevoClick(Sender: TObject);
     procedure btnAgregarEquipoClick(Sender: TObject);
     procedure btnAdmDomicilioAltaClick(Sender: TObject);
@@ -166,6 +178,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Panel12Click(Sender: TObject);
+    procedure Panel2Click(Sender: TObject);
+    procedure rgFacturarASelectionChanged(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
@@ -186,6 +200,11 @@ type
     procedure VerificarCUIT;
 
     procedure contactoCliente (refContacto: GUID_ID);
+
+    procedure ConfirmaryCargarEmpresa;
+    procedure AjustarSolapaFacturacion;
+
+    procedure AdministradorAE (refAdministrador: GUID_ID);
   public
     property operacion: TOperacion write _operacion;
     property cliente: GUID_ID read _idCliente write _idCliente;
@@ -208,6 +227,7 @@ implementation
    ,dmEquipos
    ,frm_administradoressel
    ,frm_clientecontacto
+   ,frm_administradoresae
     ;
 
 { Tfrm_ClientesAM }
@@ -224,8 +244,9 @@ begin
    modificar:
    begin
      DM_Clientes.ClienteEditar (_idCliente);
-     AjustarCombos;
      DM_Equipos.LevantarEquiposCliente(_idCliente);
+     DM_Clientes.LevantarFacturacion;
+     AjustarCombos;
    end;
   end;
 end;
@@ -234,6 +255,13 @@ procedure Tfrm_ClientesAM.Panel12Click(Sender: TObject);
 begin
 
 end;
+
+procedure Tfrm_ClientesAM.Panel2Click(Sender: TObject);
+begin
+
+end;
+
+
 
 procedure Tfrm_ClientesAM.SpeedButton1Click(Sender: TObject);
 var
@@ -277,6 +305,9 @@ begin
   DM_General.CargarComboBox(cbCondicionIVA, 'CondicionFiscal' ,'idCondicionFiscal', DM_Clientes.qtugCondicionesFiscales);
   DM_General.CargarComboBox(cbAdmDoc, 'TipoDocumento' ,'idTipoDocumento', DM_Clientes.qtugTiposDocumento);
 
+  DM_General.CargarComboBox(cbLocalidadFacturar, 'Localidad', 'idLocalidad', DM_Clientes.qtugLocalidades);
+  DM_General.CargarComboBox(cbCondicionIVAFacturar, 'CondicionFiscal' ,'idCondicionFiscal', DM_Clientes.qtugCondicionesFiscales);
+
   PCPantalla.ActivePage:= tabEdificio;
 end;
 
@@ -290,6 +321,10 @@ begin
 //  cbRespTecnico.ItemIndex:= DM_General.obtenerIdxComboTb(cbRespTecnico,DM_Clientes.tbClientes.FieldByName('refRespTecnico').asString );
  // cbConservador.ItemIndex:= DM_General.obtenerIdxComboTb(cbConservador,DM_Clientes.tbClientes.FieldByName('refConservador').asString );
   cbAdmDoc.ItemIndex:= DM_General.obtenerIdxCombo(cbAdmDoc,DM_Clientes.tbAdministradores.FieldByName('refTipoDocumento').asInteger );
+//Facturacion
+  rgFacturarA.ItemIndex:= DM_Clientes.EmpresaAFacturartipo_id.AsInteger;
+  cbLocalidadFacturar.ItemIndex:= DM_General.obtenerIdxCombo(cbLocalidadFacturar, DM_Clientes.EmpresaAFacturarlocalidad_id.AsInteger );
+  cbCondicionIVAFacturar.ItemIndex:= DM_General.obtenerIdxCombo(cbCondicionIVAFacturar, DM_Clientes.EmpresaAFacturarcondicionFiscal_id.AsInteger );;
 end;
 
 function Tfrm_ClientesAM.ValidarCliente: boolean;
@@ -333,8 +368,8 @@ begin
                             ,DM_General.obtenerIDIntComboBox(cbGrupoFacturacion)
                             ,DM_General.obtenerIDIntComboBox(cbCondicionIVA)
                             ,DM_General.obtenerIDIntComboBox(cbAdmDoc)
-                            ,0 //DM_General.obtenerIDIntComboBox(cbContDoc)
-                            ,0 //DM_General.obtenerIDIntComboBox(cbContTipo)
+                            ,DM_General.obtenerIDIntComboBox(cbLocalidadFacturar)
+                            ,DM_General.obtenerIDIntComboBox(cbCondicionIVAFacturar)
                            );
     Application.ProcessMessages;
     DM_Clientes.Grabar;
@@ -709,9 +744,32 @@ end;
 ****  MANEJO ADMINISTRADOR
 ********************************************************************************)
 
+
+procedure Tfrm_ClientesAM.AdministradorAE(refAdministrador: GUID_ID);
+var
+  pant: TfrmAdministradorAE;
+begin
+  pant:= TfrmAdministradorAE.Create(self);
+  try
+    pant.administrador_id:= refAdministrador;
+    pant.ShowModal;
+  finally
+    pant.Free;
+  end;
+end;
+
+
 procedure Tfrm_ClientesAM.btnAdmNuevoClick(Sender: TObject);
 begin
-  DM_Clientes.AdministradorNuevo;
+  AdministradorAE(GUIDNULO);
+//  DM_Clientes.AdministradorNuevo;
+end;
+
+
+
+procedure Tfrm_ClientesAM.btnAdmEditarClick(Sender: TObject);
+begin
+  AdministradorAE(DM_Clientes.tbAdministradoresidAdministrador.AsString);
 end;
 
 
@@ -730,6 +788,12 @@ begin
   end;
 end;
 
+
+procedure Tfrm_ClientesAM.btnAdmBorrarClick(Sender: TObject);
+begin
+  if (MessageDlg ('ATENCION', 'Elimino de la base el administrador seleccionado ?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+    DM_Clientes.EliminarAdministrador;
+end;
 
 (*******************************************************************************
 ****  ANEXOS
@@ -789,6 +853,7 @@ begin
 
 end;
 
+
 procedure Tfrm_ClientesAM.BitBtn1Click(Sender: TObject);
 begin
   contactoCliente(GUIDNULO);
@@ -804,6 +869,65 @@ begin
   if (MessageDlg ('ATENCION', 'Borro el contacto seleccionado ?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
     DM_Clientes.EliminarTablaContactoCliente;
 
+end;
+
+(*******************************************************************************
+*** SOLAPA FACTURACION
+*******************************************************************************)
+
+procedure Tfrm_ClientesAM.ConfirmaryCargarEmpresa;
+begin
+  case rgFacturarA.ItemIndex of
+    __FACT_GERENCIADOR:
+    begin
+       if (MessageDlg ('ATENCION'
+                    , 'Cargo los datos del Gerenciador en las facturas?'
+                    , mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+      begin
+     //    btnBuscarFacturar.Enabled:= true;
+     //    btnBuscarFacturar.SetFocus;
+         DM_Clientes.facturarAGerenciador;
+      end;
+    end;
+    __FACT_ADMINISTRADOR:
+    begin
+      if (MessageDlg ('ATENCION'
+                    , 'Cargo los datos del administrador en las facturas?'
+                    , mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+      begin
+        DM_Clientes.FacturarAAdministrador;
+      end;
+    end;
+    __FACT_EDIFICIO:
+    begin
+      if (MessageDlg ('ATENCION'
+                    , 'Cargo los datos del cliente en las facturas?'
+                    , mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+      begin
+        DM_Clientes.FacturarACliente;
+      end;
+
+    end;
+  end;
+end;
+
+procedure Tfrm_ClientesAM.AjustarSolapaFacturacion;
+begin
+//  btnBuscarFacturar.Enabled:= False;
+ // case rgFacturarA.ItemIndex of
+//    __FACT_GERENCIADOR: btnBuscarFacturar.Enabled:= true;
+//  end;
+  DM_General.CargarComboBox(cbCondicionIVAFacturar, 'CondicionFiscal' ,'idCondicionFiscal', DM_Clientes.qtugCondicionesFiscales);
+  DM_General.CargarComboBox(cbLocalidadFacturar, 'Localidad', 'idLocalidad', DM_Clientes.qtugLocalidades);
+  cbCondicionIVAFacturar.ItemIndex:= DM_General.obtenerIdxCombo(cbCondicionIVAFacturar, DM_Clientes.EmpresaAFacturarcondicionFiscal_id.asInteger);
+  cbLocalidadFacturar.ItemIndex:= DM_General.obtenerIdxCombo(cbLocalidadFacturar, DM_Clientes.EmpresaAFacturarlocalidad_id.AsInteger);
+end;
+
+procedure Tfrm_ClientesAM.rgFacturarASelectionChanged(Sender: TObject);
+begin
+  if tabFacturacion.Showing then
+    ConfirmaryCargarEmpresa;
+  AjustarSolapaFacturacion;
 end;
 
 end.

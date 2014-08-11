@@ -16,7 +16,7 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <MinorVersionNr Value="4"/>
+      <MinorVersionNr Value="5"/>
       <BuildNr Value="27"/>
       <Language Value="080A"/>
       <StringTable ProductVersion=""/>
@@ -66,7 +66,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="14"/>
         <CursorPos X="3" Y="41"/>
-        <UsageCount Value="171"/>
+        <UsageCount Value="172"/>
       </Unit0>
       <Unit1>
         <Filename Value="frm_sellistado.pas"/>
@@ -78,7 +78,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="100"/>
         <CursorPos X="64" Y="123"/>
-        <UsageCount Value="171"/>
+        <UsageCount Value="172"/>
         <Bookmarks Count="1">
           <Item0 X="33" Y="266" ID="1"/>
         </Bookmarks>
@@ -93,7 +93,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="534"/>
         <CursorPos X="15" Y="571"/>
-        <UsageCount Value="156"/>
+        <UsageCount Value="157"/>
       </Unit2>
       <Unit3>
         <Filename Value="..\..\dmconexion.pas"/>
@@ -106,7 +106,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="38"/>
         <CursorPos X="34" Y="29"/>
-        <UsageCount Value="171"/>
+        <UsageCount Value="172"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -117,7 +117,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="28"/>
         <CursorPos X="36" Y="39"/>
-        <UsageCount Value="171"/>
+        <UsageCount Value="172"/>
       </Unit4>
       <Unit5>
         <Filename Value="dmseleccionlistado.pas"/>
@@ -130,7 +130,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="28"/>
         <CursorPos X="3" Y="55"/>
-        <UsageCount Value="171"/>
+        <UsageCount Value="172"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
@@ -144,7 +144,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="132"/>
         <CursorPos X="3" Y="163"/>
-        <UsageCount Value="165"/>
+        <UsageCount Value="166"/>
       </Unit6>
       <Unit7>
         <Filename Value="dmgruporemitos.pas"/>
@@ -156,7 +156,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="84"/>
         <CursorPos X="93" Y="97"/>
-        <UsageCount Value="165"/>
+        <UsageCount Value="166"/>
       </Unit7>
       <Unit8>
         <Filename Value="..\..\frm_busquedaclientes.pas"/>
@@ -168,7 +168,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="25"/>
         <CursorPos X="122" Y="35"/>
-        <UsageCount Value="160"/>
+        <UsageCount Value="161"/>
       </Unit8>
       <Unit9>
         <Filename Value="..\..\dmbuscarcliente.pas"/>
@@ -180,7 +180,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="45"/>
         <CursorPos X="63" Y="59"/>
-        <UsageCount Value="160"/>
+        <UsageCount Value="161"/>
       </Unit9>
       <Unit10>
         <Filename Value="..\..\..\..\..\Utiles\lazarus\components\fpspreadsheet\uvirtuallayer_types.pas"/>
@@ -208,9 +208,9 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="180"/>
-        <CursorPos X="6" Y="201"/>
-        <UsageCount Value="149"/>
+        <TopLine Value="126"/>
+        <CursorPos X="55" Y="192"/>
+        <UsageCount Value="150"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit12>
@@ -224,7 +224,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="83"/>
         <CursorPos X="43" Y="110"/>
-        <UsageCount Value="149"/>
+        <UsageCount Value="150"/>
       </Unit13>
       <Unit14>
         <Filename Value="..\..\..\..\..\Utiles\lazarus\fpc\2.4.2\source\rtl\objpas\sysutils\datih.inc"/>
@@ -250,14 +250,14 @@
         <WindowIndex Value="0"/>
         <TopLine Value="36"/>
         <CursorPos X="134" Y="50"/>
-        <UsageCount Value="118"/>
+        <UsageCount Value="119"/>
       </Unit16>
       <Unit17>
         <Filename Value="..\..\frm_proveedoresae.pas"/>
         <IsPartOfProject Value="True"/>
         <HasResources Value="True"/>
         <UnitName Value="frm_proveedoresae"/>
-        <UsageCount Value="118"/>
+        <UsageCount Value="119"/>
       </Unit17>
       <Unit18>
         <Filename Value="..\..\dmproveedores.pas"/>
@@ -269,7 +269,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="315"/>
         <CursorPos X="23" Y="12"/>
-        <UsageCount Value="118"/>
+        <UsageCount Value="119"/>
       </Unit18>
       <Unit19>
         <Filename Value="..\..\frm_plandecuentasae.pas"/>
@@ -281,7 +281,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="24"/>
         <CursorPos X="1" Y="1"/>
-        <UsageCount Value="118"/>
+        <UsageCount Value="119"/>
       </Unit19>
       <Unit20>
         <Filename Value="..\..\dmplandecuentas.pas"/>
@@ -293,7 +293,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="104"/>
         <CursorPos X="48" Y="106"/>
-        <UsageCount Value="118"/>
+        <UsageCount Value="119"/>
       </Unit20>
       <Unit21>
         <Filename Value="..\..\frm_plandecuentaslistado.pas"/>
@@ -305,7 +305,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
-        <UsageCount Value="118"/>
+        <UsageCount Value="119"/>
       </Unit21>
       <Unit22>
         <Filename Value="frm_grupoproveedores.pas"/>
@@ -317,7 +317,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="52"/>
         <CursorPos X="77" Y="76"/>
-        <UsageCount Value="114"/>
+        <UsageCount Value="115"/>
       </Unit22>
       <Unit23>
         <Filename Value="dmgrupoproveedores.pas"/>
@@ -329,7 +329,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="199"/>
         <CursorPos X="39" Y="254"/>
-        <UsageCount Value="114"/>
+        <UsageCount Value="115"/>
       </Unit23>
       <Unit24>
         <Filename Value="frm_grupoprovpendientes.pas"/>
@@ -340,7 +340,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="47"/>
         <CursorPos X="48" Y="61"/>
-        <UsageCount Value="95"/>
+        <UsageCount Value="96"/>
       </Unit24>
       <Unit25>
         <Filename Value="frm_subdiariocompras.pas"/>
@@ -353,7 +353,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="72"/>
         <CursorPos X="21" Y="77"/>
-        <UsageCount Value="87"/>
+        <UsageCount Value="88"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit25>
@@ -383,7 +383,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="14"/>
         <CursorPos X="1" Y="81"/>
-        <UsageCount Value="83"/>
+        <UsageCount Value="84"/>
         <Bookmarks Count="1">
           <Item0 X="1" Y="81" ID="1"/>
         </Bookmarks>
@@ -408,7 +408,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="117"/>
         <CursorPos X="1" Y="124"/>
-        <UsageCount Value="76"/>
+        <UsageCount Value="77"/>
       </Unit30>
       <Unit31>
         <Filename Value="dmdetallepagos.pas"/>
@@ -420,7 +420,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="93"/>
         <CursorPos X="46" Y="104"/>
-        <UsageCount Value="76"/>
+        <UsageCount Value="77"/>
       </Unit31>
       <Unit32>
         <Filename Value="frm_lstdetallegastos.pas"/>
@@ -451,7 +451,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="81"/>
         <CursorPos X="1" Y="86"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
       </Unit34>
       <Unit35>
         <Filename Value="dmsaldoscompras.pas"/>
@@ -463,7 +463,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="57"/>
         <CursorPos X="18" Y="77"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
       </Unit35>
       <Unit36>
         <Filename Value="frm_proveedorcuentacorriente.pas"/>
@@ -476,7 +476,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="26"/>
         <CursorPos X="27" Y="114"/>
-        <UsageCount Value="55"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit36>
@@ -490,7 +490,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="74" Y="26"/>
-        <UsageCount Value="55"/>
+        <UsageCount Value="56"/>
       </Unit37>
       <Unit38>
         <Filename Value="..\..\..\..\..\Utiles\lazarus\components\rxfpc\rxmemds.pas"/>
@@ -611,7 +611,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="56"/>
         <CursorPos X="19" Y="63"/>
-        <UsageCount Value="38"/>
+        <UsageCount Value="39"/>
       </Unit52>
       <Unit53>
         <Filename Value="frm_listadocheques.pas"/>
@@ -623,7 +623,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="40" Y="7"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="25"/>
       </Unit53>
       <Unit54>
         <Filename Value="dmlistadocheques.pas"/>
@@ -635,7 +635,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="37"/>
         <CursorPos X="68" Y="50"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="25"/>
       </Unit54>
     </Units>
     <JumpHistory Count="28" HistoryIndex="27">

@@ -2,7 +2,7 @@ object DM_GrupoCuentas: TDM_GrupoCuentas
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 305
-  HorizontalOffset = 776
+  HorizontalOffset = 802
   VerticalOffset = 169
   Width = 366
   object qFiltrado: TZQuery

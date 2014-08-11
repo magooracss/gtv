@@ -12,6 +12,15 @@ uses
 const
   RESP_INSCRIPTO = 3;
   FACTURA_T = 4;
+  FACTURA_A = 1;
+  FACTURA_B = 2;
+  FACTURA_C = 3;
+
+  FACTURA_ESTADO_SIN_FACTURAR = 1;
+  FACTURA_ESTADO_APROBADA = 4;
+  FACTURA_ESTADO_ANULADA = 3;
+  FACTURA_ESTADO_FACTURADA = 2;
+
 
 type
 
@@ -24,6 +33,14 @@ type
     CondFiscalIDCOMPRRECIBE: TLongintField;
     CondFiscalIDCONDICIONFISCAL: TStringField;
     CondFiscalIDIDCONDICIONFISCAL: TLongintField;
+    FacturasImpImpuestos: TFloatField;
+    FacturasimpIVA: TFloatField;
+    FacturasimpNeto: TFloatField;
+    FacturasObservaciones: TStringField;
+    facturasSELIMPIMPUESTOS: TFloatField;
+    facturasSELIMPIVA: TFloatField;
+    facturasSELIMPNETO: TFloatField;
+    qLevantarAbonos: TZQuery;
     FacturaItemsCantidad: TFloatField;
     facturaItemsINS: TZQuery;
     facturaItemsSEL: TZQuery;
@@ -55,6 +72,46 @@ type
     qGrupoFacturacionDIAFACTURACION: TLongintField;
     qGrupoFacturacionGRUPOFACTURACION: TStringField;
     qGrupoFacturacionIDGRUPOFACTURACION: TLongintField;
+    qLevantarRemitosAbono: TZQuery;
+    qLevantarAbonosBVISIBLE: TSmallintField;
+    qLevantarAbonosCCODIGO: TStringField;
+    qLevantarAbonosCCUIT: TStringField;
+    qLevantarAbonosCDOMICILIO: TStringField;
+    qLevantarAbonosCENTRECALLE1: TStringField;
+    qLevantarAbonosCENTRECALLE2: TStringField;
+    qLevantarAbonosCMANZANA: TStringField;
+    qLevantarAbonosCNOMBRE: TStringField;
+    qLevantarAbonosCNROCASA: TStringField;
+    qLevantarAbonosCPARCELA: TStringField;
+    qLevantarAbonosCSECCION: TStringField;
+    qLevantarAbonosFINICIO: TDateField;
+    qLevantarAbonosHABILITACIONEXP: TStringField;
+    qLevantarAbonosHABILITACIONFECHA: TDateField;
+    qLevantarAbonosIDCLIENTE: TStringField;
+    qLevantarAbonosNIVA: TFloatField;
+    qLevantarAbonosNMONTOABONO: TFloatField;
+    qLevantarAbonosREFABONO: TLongintField;
+    qLevantarAbonosREFADMINISTRADOR: TStringField;
+    qLevantarAbonosREFCONDICIONFISCAL: TLongintField;
+    qLevantarAbonosREFCONSERVADOR: TStringField;
+    qLevantarAbonosREFDESTINO: TLongintField;
+    qLevantarAbonosREFGRUPOFACTURACION: TLongintField;
+    qLevantarAbonosREFLOCALIDAD: TLongintField;
+    qLevantarAbonosREFRESPTECNICO: TStringField;
+    qLevantarAbonosUNIDADFUNCIONAL: TLongintField;
+    qLevantarRemitosAbonoBFACTURADO: TSmallintField;
+    qLevantarRemitosAbonoBFACTURAR: TSmallintField;
+    qLevantarRemitosAbonoBPRESENTADO: TSmallintField;
+    qLevantarRemitosAbonoBSINCARGO: TSmallintField;
+    qLevantarRemitosAbonoBVISIBLE: TSmallintField;
+    qLevantarRemitosAbonoFFECHA: TDateField;
+    qLevantarRemitosAbonoIDREMITO: TStringField;
+    qLevantarRemitosAbonoNREMITO: TLongintField;
+    qLevantarRemitosAbonoREFCLIENTE: TStringField;
+    qLevantarRemitosAbonoREFFACTURA: TStringField;
+    qLevantarRemitosAbonoREFMOTIVO: TLongintField;
+    qLevantarRemitosAbonoREFORDENTRABAJO: TStringField;
+    qLevantarRemitosAbonoTXDETALLES: TStringField;
     qListaFacturasCLIENTE: TStringField;
     qListaFacturasESTADOFACTURA: TStringField;
     qListaFacturasFECHAFACTURA: TDateField;
@@ -90,7 +147,6 @@ type
     facturaPorIdLETRA: TStringField;
     FacturaItems: TRxMemoryData;
     FacturasCondicionVenta_id: TLongintField;
-    FacturasObservaciones: TStringField;
     FacturastipoFactura_id: TLongintField;
     nroFactura: TZQuery;
     FacturasclienteEmpresa_id: TStringField;
@@ -158,11 +214,13 @@ type
   private
     function getIdFacturaListado: GUID_ID;
     procedure setLetraFactura(AValue: integer);
+    procedure MarcaRemitoFacturado (remito_id: GUID_ID; marca: integer);
     { private declarations }
   public
     property idFacturaListado: GUID_ID read getIdFacturaListado;
     property LetraFactura: integer write setLetraFactura;
-    procedure LevantarFacturas;
+
+    procedure LevantarFacturas (tipo: integer);
 
     procedure CargarCliente (idCliente: GUID_ID);
 
@@ -173,6 +231,7 @@ type
     procedure AsignarNroFactura (idTipoFactura: integer);
 
     procedure NuevoItem;
+    procedure AgregarDatosItems (cantidad: Double; detalle: string; valorUnitario: Double);
     procedure EliminarItem;
 
     function TotalFacturado: Double;
@@ -191,15 +250,18 @@ type
     procedure LevantarRemitos(factura_id: GUID_ID);
 
     procedure prefacturarGrupo (gf_id: integer);
-
+    function CambiarEstadoFactura (factura_id: GUID_ID): boolean;
   end;
 
 var
   DM_Facturas: TDM_Facturas;
 
 implementation
-
 {$R *.lfm}
+uses
+  SD_Configuracion
+  , dmremitos
+  ;
 
 { TDM_Facturas }
 
@@ -232,7 +294,7 @@ begin
     FieldByName('tipoFactura_id').AsInteger:=0;
     FieldByName('clienteEmpresa_id').asString:= GUIDNULO;
     FieldByName('CondicionVenta_id').AsInteger:=0;
-    FieldByName('Observaciones').asString:= EmptyStr;
+    FieldByName('Observaciones').asString:= '----';
     FieldByName('fAnulacion').AsDateTime:= 0;
     FieldByName('estado_id').asInteger:= 1;
     FieldByName('lxEstado').asString:= EmptyStr;
@@ -276,12 +338,36 @@ begin
     Post;
   end;
 end;
-
-procedure TDM_Facturas.LevantarFacturas;
+procedure TDM_Facturas.LevantarFacturas(tipo: integer);
+var
+  sel,fr, cola, where: string;
 begin
+ sel:= ' SELECT  F.id '
+      + ', F.Fecha as FechaFactura '
+      + ' , F.NroPtoVenta as NroPtoVenta '
+      + ' , F.NroFactura as NroFactura '
+      + ' , C.cNombre as Cliente '
+      + ' ,tF.letra as LetraFactura '
+      + ' ,tFE.Estado as EstadoFactura '
+      + ' , SUM (FI.Monto) as TotalFactura ';
+ fr:= ' FROM Facturas F '
+      + ' LEFT JOIN tugFacturas tF ON tF.id = F.TipoFactura_id '
+      + ' LEFT JOIN tugFacturasEstados tFE ON tFE.idFacturaEstado = F.estado_id '
+      + ' LEFT JOIN tbClientes as C ON C.idCliente = F.clienteEmpresa_id '
+      + ' INNER JOIN FacturaItems FI ON FI.factura_id = F.id ';
+ cola:= ' GROUP BY F.id, tF.letra, tFE.Estado, C.cNombre, F.Fecha, F.NroPtoVenta, F.NroFactura '
+     + ' ORDER BY F.NroPtoVenta, F.NroFactura ';
+
+ where:= 'WHERE (F.estado_id = '+ IntToStr(tipo) +' )';
   with qListaFacturas do
   begin
     if active then close;
+    sql.Clear;
+    sql.add(sel);
+    sql.add(fr);
+    if tipo > 0 then
+      sql.Add(where);
+    sql.Add(cola);
     Open;
   end;
 end;
@@ -349,7 +435,11 @@ procedure TDM_Facturas.AsignarNroFactura(idTipoFactura: integer);
 var
   generador: string;
   nroFact: integer;
+  PtoVenta: Integer;
 begin
+  PtoVenta:= StrToIntDef( LeerDato(SECCION_FACTURACION, PUNTO_VENTA), 0);
+
+
   with facturaPorId do
   begin
     if active then close;
@@ -372,7 +462,8 @@ begin
   with Facturas do
   begin
     Edit;
-    FacturasnroPtoVenta.asInteger:= 1;
+    FacturastipoFactura_id.AsInteger:= FACTURA_T;
+    FacturasnroPtoVenta.asInteger:= PtoVenta;
     FacturasnroFactura.asInteger:= nroFact;
     Post;
   end;
@@ -382,6 +473,19 @@ procedure TDM_Facturas.NuevoItem;
 begin
   if NOT FacturaItems.Active then FacturaItems.Open;
   FacturaItems.Insert;
+end;
+
+procedure TDM_Facturas.AgregarDatosItems(cantidad: Double; detalle: string;
+  valorUnitario: Double);
+begin
+  with FacturaItems do
+  begin
+    FacturaItemsCantidad.AsFloat:= cantidad;
+    FacturaItemsDetalle.AsString:= detalle;
+    FacturaItemsPrecioUnitario.AsFloat:= valorUnitario;
+    FacturaItemsMonto.AsFloat:= valorUnitario * cantidad;
+    Post;
+  end;
 end;
 
 procedure TDM_Facturas.EliminarItem;
@@ -470,6 +574,18 @@ begin
    end;
 end;
 
+
+procedure TDM_Facturas.MarcaRemitoFacturado(remito_id: GUID_ID; marca: integer);
+begin
+  DM_Remitos.RemitoEditar(remito_id);
+  DM_Remitos.tbRemitos.Edit;
+  DM_Remitos.tbRemitosbFacturado.AsInteger:= marca;
+  DM_Remitos.tbRemitos.Post;
+  DM_Remitos.Grabar;
+end;
+
+
+
 procedure TDM_Facturas.RemitoVincular(remito_id: GUID_ID);
 begin
   With remitoFactura do
@@ -479,6 +595,7 @@ begin
     Insert;
     remitoFacturaremito_id.asString:= remito_id;
     Post;
+    MarcaRemitoFacturado(remito_id, 1);
     GrabarRemitoFactura;
     LevantarRemitos (Facturasid.AsString);
   end;
@@ -520,8 +637,65 @@ end;
 ////////////////////////////////////////////////////////////////////////////////
 
 procedure TDM_Facturas.prefacturarGrupo(gf_id: integer);
+var
+  str_LEYENDA_ABONO: string;
 begin
 
+  str_LEYENDA_ABONO:= LeerDato(SECCION_FACTURACION, LEYENDA_ABONO);
+
+  //Levanto los Abonos del Grupo gf_id
+  with qLevantarAbonos do
+  begin
+    if active then close;
+    ParamByName('gf').asInteger:= gf_id;
+    Open;
+
+    First;
+    While Not qLevantarAbonos.EOF do
+    begin
+      //Por cada abono, le genero una factura con estado FAC_ESTADO_SIN_FACTURAR
+      NuevaFactura;
+      AsignarNroFactura(FACTURA_T);
+      CargarCliente(qLevantarAbonosIDCLIENTE.asString);
+      NuevoItem;
+      AgregarDatosItems (1,str_LEYENDA_ABONO, qLevantarAbonosNMONTOABONO.AsFloat);
+
+      //Busco los remitos sin cargo y sin factura y los vinculo
+      if qLevantarRemitosAbono.Active then
+        qLevantarRemitosAbono.Close;
+      qLevantarRemitosAbono.ParamByName('refcliente').AsString:= qLevantarAbonosIDCLIENTE.AsString;
+      qLevantarRemitosAbono.Open;
+      while (NOT qLevantarRemitosAbono.EOF) do
+      begin
+        RemitoVincular(qLevantarRemitosAbonoIDREMITO.AsString);
+        qLevantarRemitosAbono.Next;
+      end;
+
+      GrabarFactura;
+      qLevantarAbonos.Next;
+    end;
+  end;
+end;
+
+function TDM_Facturas.CambiarEstadoFactura(factura_id: GUID_ID): boolean;
+var
+  estadoNuevo: integer;
+begin
+  Result:= false;
+  estadoNuevo:= 0;
+  LevantarFacturaID(factura_id);
+  if Facturasestado_id.AsInteger = 1 then
+    estadoNuevo := 4;
+  if Facturasestado_id.AsInteger = 4 then
+    estadoNuevo:= 1;
+  if estadoNuevo > 0 then
+  begin
+    Result:= true;
+    Facturas.Edit;
+    Facturasestado_id.AsInteger:= estadoNuevo;
+    Facturas.Post;
+    GrabarFactura;
+  end;
 end;
 
 end.

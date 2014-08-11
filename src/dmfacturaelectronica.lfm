@@ -1,0 +1,530 @@
+object DM_FacturaElectronica: TDM_FacturaElectronica
+  OldCreateOrder = False
+  Height = 382
+  HorizontalOffset = 391
+  VerticalOffset = 117
+  Width = 582
+  object encabeza: TDbf
+    DateTimeHandling = dtDateTime
+    FilePath = 'C:\RECE1\'
+    IndexDefs = <>
+    OpenMode = omAutoCreate
+    TableName = 'encabeza.dbf'
+    TableLevel = 3
+    FilterOptions = []
+    left = 56
+    top = 85
+    object encabezaTIPOREG: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIPOREG'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object encabezaFECHACBTE: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'FECHACBTE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object encabezaTIPOCBTE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIPOCBTE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object encabezaPUNTOVTA: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PUNTOVTA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object encabezaCBTDESDE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CBTDESDE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object encabezaCBTHASTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CBTHASTA'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object encabezaCONCEPTO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CONCEPTO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object encabezaTIPODOC: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIPODOC'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object encabezaNRODOC: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NRODOC'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object encabezaIMPTOTAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IMPTOTAL'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object encabezaNOUSAR: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NOUSAR'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object encabezaIMPTOTCONC: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IMPTOTCONC'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object encabezaIMPNETO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IMPNETO'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object encabezaIMPIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IMPIVA'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object encabezaIMPTRIB: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IMPTRIB'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object encabezaIMPOPEX: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IMPOPEX'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object encabezaMONEDAID: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'MONEDAID'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3
+    end
+    object encabezaMONEDACTZ: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MONEDACTZ'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 10
+    end
+    object encabezaFECHAVENCP: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'FECHAVENCP'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object encabezaCAE: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CAE'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object encabezaFCHVENCCAE: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'FCHVENCCAE'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object encabezaRESULTADO: TStringField
+      DisplayWidth = 1
+      FieldKind = fkData
+      FieldName = 'RESULTADO'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1
+    end
+    object encabezaMOTIVOSOBS: TMemoField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MOTIVOSOBS'
+      Index = 22
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftBlob
+      Transliterate = False
+    end
+    object encabezaERRCODE: TStringField
+      DisplayWidth = 6
+      FieldKind = fkData
+      FieldName = 'ERRCODE'
+      Index = 23
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 6
+    end
+    object encabezaERRMSG: TMemoField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ERRMSG'
+      Index = 24
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftBlob
+      Transliterate = False
+    end
+    object encabezaREPROCESO: TStringField
+      DisplayWidth = 1
+      FieldKind = fkData
+      FieldName = 'REPROCESO'
+      Index = 25
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1
+    end
+    object encabezaEMISIONTIP: TStringField
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'EMISIONTIP'
+      Index = 26
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 4
+    end
+    object encabezaFECHASERVH: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'FECHASERVH'
+      Index = 27
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object encabezaFECHASERVD: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'FECHASERVD'
+      Index = 28
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+  end
+  object tributo: TDbf
+    DateTimeHandling = dtDateTime
+    FilePath = 'C:\rece1\'
+    IndexDefs = <>
+    OpenMode = omAutoCreate
+    TableName = 'tributo.dbf'
+    TableLevel = 3
+    FilterOptions = []
+    left = 56
+    top = 152
+    object tributoTIPOREG: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIPOREG'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tributoID: TStringField
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 16
+    end
+    object tributoDESC: TStringField
+      DisplayWidth = 100
+      FieldKind = fkData
+      FieldName = 'DESC'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object tributoBASEIMP: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BASEIMP'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tributoALIC: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ALIC'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tributoIMPORTE: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IMPORTE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+  end
+  object iva: TDbf
+    DateTimeHandling = dtDateTime
+    FilePath = 'C:\rece1\'
+    IndexDefs = <>
+    OpenMode = omAutoCreate
+    TableName = 'iva.dbf'
+    TableLevel = 3
+    FilterOptions = []
+    left = 56
+    top = 224
+    object ivaTIPOREG: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIPOREG'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ivaID: TStringField
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 16
+    end
+    object ivaBASEIMP: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BASEIMP'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 18
+    end
+    object ivaIMPORTE: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IMPORTE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 18
+    end
+  end
+  object comproba: TDbf
+    DateTimeHandling = dtDateTime
+    FilePath = 'C:\rece1\'
+    IndexDefs = <>
+    OpenMode = omAutoCreate
+    TableName = 'comproba.dbf'
+    TableLevel = 3
+    FilterOptions = []
+    left = 56
+    top = 296
+    object comprobaTIPOREG: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIPOREG'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object comprobaTIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIPO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object comprobaPTOVTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PTOVTA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object comprobaNRO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NRO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+end

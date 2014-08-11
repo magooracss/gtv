@@ -2,7 +2,7 @@ object DM_SeleccionListado: TDM_SeleccionListado
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 274
-  HorizontalOffset = 303
+  HorizontalOffset = 313
   VerticalOffset = 273
   Width = 460
   object qGrupos: TZQuery

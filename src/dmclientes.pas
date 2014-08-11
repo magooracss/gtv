@@ -14,11 +14,55 @@ const
   __IVA =21;
   __CONSERVADOR = GUIDNULO;
 
+
+  __FACT_GERENCIADOR = 0;
+  __FACT_ADMINISTRADOR = 1;
+  __FACT_EDIFICIO = 2;
+
 type
 
   { TDM_Clientes }
 
   TDM_Clientes = class(TDataModule)
+    EmpFacPorCliente: TZQuery;
+    EmpFacSELBVISIBLE: TSmallintField;
+    EmpFacSELBVISIBLE1: TSmallintField;
+    EmpFacSELCLIENTE_ID: TStringField;
+    EmpFacSELCLIENTE_ID1: TStringField;
+    EmpFacSELCONDICIONFISCAL_ID: TLongintField;
+    EmpFacSELCONDICIONFISCAL_ID1: TLongintField;
+    EmpFacSELCUIT: TStringField;
+    EmpFacSELCUIT1: TStringField;
+    EmpFacSELDOMICILIO: TStringField;
+    EmpFacSELDOMICILIO1: TStringField;
+    EmpFacSELID: TStringField;
+    EmpFacSELID1: TStringField;
+    EmpFacSELLOCALIDAD_ID: TLongintField;
+    EmpFacSELLOCALIDAD_ID1: TLongintField;
+    EmpFacSELRAZONSOCIAL: TStringField;
+    EmpFacSELRAZONSOCIAL1: TStringField;
+    EmpFacSELREF_ID: TStringField;
+    EmpFacSELREF_ID1: TStringField;
+    EmpFacSELTIPO_ID: TLongintField;
+    EmpFacSELTIPO_ID1: TLongintField;
+    EmpresaAFacturarbVisible: TLongintField;
+    EmpresaAFacturarcliente_id: TStringField;
+    EmpresaAFacturarcondicionFiscal_id: TLongintField;
+    EmpresaAFacturarcuit: TStringField;
+    EmpresaAFacturardomicilio: TStringField;
+    EmpresaAFacturarid: TStringField;
+    EmpresaAFacturarlocalidad_id: TLongintField;
+    EmpresaAFacturarrazonSocial: TStringField;
+    EmpresaAFacturarref_id: TStringField;
+    EmpresaAFacturartipo_id: TLongintField;
+    qAdministradorPorNombreBVISIBLE: TSmallintField;
+    qAdministradorPorNombreCDOCUMENTO: TStringField;
+    qAdministradorPorNombreCRAZONSOCIAL: TStringField;
+    qAdministradorPorNombreCUIT: TStringField;
+    qAdministradorPorNombreIDADMINISTRADOR: TStringField;
+    qAdministradorPorNombreREFTIPODOCUMENTO: TLongintField;
+    qAdministradorPorNombreTXNOTAS: TStringField;
+    qClienteCodigoBACTIVO: TSmallintField;
     qClienteCodigoBVISIBLE: TSmallintField;
     qClienteCodigoCCODIGO: TStringField;
     qClienteCodigoCCUIT: TStringField;
@@ -58,8 +102,6 @@ type
     qListaClientesCPARCELA: TStringField;
     qListaClientesCSECCION: TStringField;
     qListaClientesFINICIO: TDateField;
-    qListaClientesHABILITACIONEXP: TStringField;
-    qListaClientesHABILITACIONFECHA: TDateField;
     qListaClientesIDCLIENTE: TStringField;
     qListaClientesNIVA: TFloatField;
     qListaClientesNMONTOABONO: TFloatField;
@@ -78,6 +120,28 @@ type
     qtugTiposContactoCliente: TZQuery;
     qAdministradorPorNombre: TZQuery;
     qClienteCodigo: TZQuery;
+    EmpresaAFacturar: TRxMemoryData;
+    tbAdmDomiciliosbVisible: TLongintField;
+    tbAdmDomiciliosDomicilio: TStringField;
+    tbAdmDomiciliosidDomicilio: TStringField;
+    tbAdmDomicilioslxLocalidad: TStringField;
+    tbAdmDomiciliosrefLocalidad: TLongintField;
+    tbAdmDomiciliosrefRelacion: TStringField;
+    tbAdministradoresbVisible: TLongintField;
+    tbAdministradorescDocumento: TStringField;
+    tbAdministradorescRazonSocial: TStringField;
+    tbAdministradoresCUIT: TStringField;
+    tbAdministradoresidAdministrador: TStringField;
+    tbAdministradoresrefTipoDocumento: TLongintField;
+    tbAdministradoresSELBVISIBLE: TSmallintField;
+    tbAdministradoresSELCDOCUMENTO: TStringField;
+    tbAdministradoresSELCRAZONSOCIAL: TStringField;
+    tbAdministradoresSELCUIT: TStringField;
+    tbAdministradoresSELIDADMINISTRADOR: TStringField;
+    tbAdministradoresSELREFTIPODOCUMENTO: TLongintField;
+    tbAdministradoresSELTXNOTAS: TStringField;
+    tbAdministradorestxNotas: TStringField;
+    tbClientesbActivo: TLongintField;
     tbClientesbVisible: TLongintField;
     tbClientescCodigo: TStringField;
     tbClientescCUIT: TStringField;
@@ -89,9 +153,9 @@ type
     tbClientescNroCasa: TStringField;
     tbClientescParcela: TStringField;
     tbClientescSeccion: TStringField;
+    tbAdministardorDEL: TZQuery;
     tbClientesfInicio: TDateTimeField;
     tbClientesHabilitacionExp: TStringField;
-    tbClientesHabilitacionFecha: TDateTimeField;
     tbClientesidCliente: TStringField;
     tbClientesnIVA: TFloatField;
     tbClientesnMontoAbono: TFloatField;
@@ -103,6 +167,7 @@ type
     tbClientesrefGrupoFacturacion: TLongintField;
     tbClientesrefLocalidad: TLongintField;
     tbClientesrefRespTecnico: TStringField;
+    tbClientesSELBACTIVO: TSmallintField;
     tbClientesSELBVISIBLE: TSmallintField;
     tbClientesSELCCODIGO: TStringField;
     tbClientesSELCCUIT: TStringField;
@@ -130,6 +195,9 @@ type
     tbClientesSELREFRESPTECNICO: TStringField;
     tbClientesSELUNIDADFUNCIONAL: TLongintField;
     tbClientesUnidadFuncional: TLongintField;
+    EmpFacINS: TZQuery;
+    EmpFacSEL: TZQuery;
+    EmpFacUPD: TZQuery;
     tbContactosClientebVisible: TLongintField;
     tbContactosClientecCargo: TStringField;
     tbContactosClientecContacto: TStringField;
@@ -215,6 +283,7 @@ type
     tugGruposFacturacion: TRxMemoryData;
     tugCondicionesFiscales: TRxMemoryData;
     procedure DataModuleCreate(Sender: TObject);
+    procedure EmpresaAFacturarAfterInsert(DataSet: TDataSet);
     procedure tbContCliContactoAfterInsert(DataSet: TDataSet);
     procedure tbAdmContactosAfterInsert(DataSet: TDataSet);
     procedure tbAdmDomiciliosAfterInsert(DataSet: TDataSet);
@@ -239,7 +308,7 @@ type
     function ClienteNuevo: GUID_ID;
     procedure CargarCombos (refDestino, refLocalidad,  refAbono
                            , refGrupoFacturacion, refCondicionIva, AdmDoc
-                           , contDoc, contTipo: integer);
+                           , facturarLocalidad, facturarCondFiscal: integer);
     procedure Grabar;
 
     procedure ListaClientes;
@@ -271,6 +340,8 @@ type
     procedure BuscarAdministradoresPorNombre (elNombre: string);
     procedure AsociarAdministrador (refAdministrador: string);
     procedure LevantarAdministrador (refAdministrador: string);
+    procedure grabarAdministrador;
+    procedure EliminarAdministrador;
 
     function CodigoClienteExistente (refCliente: GUID_ID; refCodigo: string): boolean;
 
@@ -281,6 +352,11 @@ type
     procedure EliminarTablaContactoCliente;
 
     procedure ListaContactosCliente;
+
+    procedure FacturarACliente;
+    procedure FacturarAAdministrador;
+    procedure FacturarAGerenciador;
+    procedure LevantarFacturacion;
   end; 
 
 var
@@ -319,6 +395,9 @@ begin
     FieldByName('refAdministrador').asString:= GUIDNULO;
     FieldByName('refConservador').asString:= __CONSERVADOR;
     FieldByName('bVisible').asInteger:= 1;
+    FieldByName('nMontoAbono').asFloat:= 0;
+  //  FieldByName('HabilitacionExp').AsString:= EmptyStr;
+ //   FieldByName('HabilitacionFecha').AsDateTime:= NOW;
   end;
 end;
 
@@ -369,7 +448,7 @@ begin
   with DataSet do
   begin
     FieldByName('idContacto').asString:= DM_General.CrearGUID;
-    FieldByName('refRelacion').asString:= tbClientes.FieldByName('refAdministrador').asString;
+    FieldByName('refRelacion').asString:= tbAdministradoresidAdministrador.AsString;
     FieldByName('Contacto').asString:= '';
     FieldByName('refTipoContacto').AsInteger:= 0;
     FieldByName('bVisible').AsInteger:= 1;
@@ -381,7 +460,7 @@ begin
   with DataSet do
   begin
     FieldByName('idDomicilio').asString:= DM_General.CrearGUID;
-    FieldByName('refRelacion').asString:= tbClientes.FieldByName('refAdministrador').asString;
+    FieldByName('refRelacion').asString:= tbAdministradoresidAdministrador.AsString;
     FieldByName('Domicilio').asString:= '';
     FieldByName('refLocalidad').AsInteger:= 0;
     FieldByName('bVisible').AsInteger:= 1;
@@ -391,6 +470,23 @@ end;
 procedure TDM_Clientes.DataModuleCreate(Sender: TObject);
 begin
   DM_General.CambiarEstadoTablas(TDatamodule(DM_Clientes), true);
+end;
+
+procedure TDM_Clientes.EmpresaAFacturarAfterInsert(DataSet: TDataSet);
+begin
+  with DataSet do
+  begin
+    FieldByName('id').asString:= DM_General.CrearGUID;
+    FieldByName('tipo_id').asInteger:= 0;
+    FieldByName('ref_id').asString:= GUIDNULO;
+    FieldByName('RazonSocial').asString:= EmptyStr;
+    FieldByName('cuit').asString:= EmptyStr;
+    FieldByName('condicionFiscal_id').asInteger:= 0;
+    FieldByName('domicilio').asString:= EmptyStr;
+    FieldByName('localidad_id').asInteger:= 0;
+    FieldByName('cliente_id').asString:= tbClientes.FieldByName('idCliente').asString;
+    FieldByName('bVisible').AsInteger:= 1;
+  end;
 end;
 
 procedure TDM_Clientes.tbContCliContactoAfterInsert(DataSet: TDataSet);
@@ -536,9 +632,9 @@ begin
   Result:= tbClientes.FieldByName('idCliente').AsString;
 end;
 
-procedure TDM_Clientes.CargarCombos(refDestino, refLocalidad,
-  refAbono, refGrupoFacturacion, refCondicionIva, AdmDoc,
-  contDoc, contTipo: integer);
+procedure TDM_Clientes.CargarCombos(refDestino, refLocalidad, refAbono,
+  refGrupoFacturacion, refCondicionIva, AdmDoc, facturarLocalidad,
+  facturarCondFiscal: integer);
 begin
   with tbAdministradores do
   begin
@@ -561,6 +657,14 @@ begin
     Post;
   end;
 
+  with EmpresaAFacturar do
+  begin
+    Edit;
+    EmpresaAFacturarlocalidad_id.asInteger:= facturarLocalidad;
+    EmpresaAFacturarcondicionFiscal_id.asInteger:= facturarCondFiscal;
+    Post;
+  end;
+
  (*
   with tbContactosCliente do
   begin
@@ -576,12 +680,13 @@ end;
 
 procedure TDM_Clientes.Grabar;
 begin
-  DM_General.GrabarDatos(tbAdministradoresSEL, tbAdministradoresINS, tbAdministradoresUPD, tbAdministradores , 'idAdministrador');
+//  DM_General.GrabarDatos(tbAdministradoresSEL, tbAdministradoresINS, tbAdministradoresUPD, tbAdministradores , 'idAdministrador');
   DM_General.GrabarDatos(tbClientesSEL, tbClientesINS, tbClientesUPD, tbClientes, 'idCliente');
-  DM_General.GrabarDatos(tbContactosSEL, tbContactosINS, tbContactosUPD, tbAdmContactos, 'idContacto');
-  DM_General.GrabarDatos(tbDomiciliosSEL, tbDomiciliosINS, tbDomiciliosUPD, tbAdmDomicilios, 'idDomicilio');
+ // DM_General.GrabarDatos(tbContactosSEL, tbContactosINS, tbContactosUPD, tbAdmContactos, 'idContacto');
+//  DM_General.GrabarDatos(tbDomiciliosSEL, tbDomiciliosINS, tbDomiciliosUPD, tbAdmDomicilios, 'idDomicilio');
   DM_General.GrabarDatos(tbContClienteSEL, tbContClienteINS, tbContClienteUPD, tbContactosCliente, 'idContactoCliente');
   DM_General.GrabarDatos(tbContactosSEL, tbContactosINS, tbContactosUPD, tbContCliContacto, 'idContacto');
+  DM_General.GrabarDatos(EmpFacSEL, EmpFacINS, EmpFacUPD, EmpresaAFacturar, 'id');
 end;
 
 procedure TDM_Clientes.ListaClientes;
@@ -900,6 +1005,22 @@ begin
   end;
 end;
 
+procedure TDM_Clientes.grabarAdministrador;
+begin
+  DM_General.GrabarDatos(tbAdministradoresSEL, tbAdministradoresINS, tbAdministradoresUPD, tbAdministradores , 'idAdministrador');
+  DM_General.GrabarDatos(tbContactosSEL, tbContactosINS, tbContactosUPD, tbAdmContactos, 'idContacto');
+  DM_General.GrabarDatos(tbDomiciliosSEL, tbDomiciliosINS, tbDomiciliosUPD, tbAdmDomicilios, 'idDomicilio');
+end;
+
+procedure TDM_Clientes.EliminarAdministrador;
+begin
+  with tbAdministardorDEL do
+  begin
+    ParamByName('idAdministrador').asString:= tbAdministradoresidAdministrador.AsString;
+    ExecSQL;
+  end;
+end;
+
 function TDM_Clientes.CodigoClienteExistente(refCliente: GUID_ID;
   refCodigo: string): boolean;
 begin
@@ -971,6 +1092,75 @@ begin
     tbContactosCliente.LoadFromDataSet(tbContClienteRel, 0, lmAppend);
     cargarlxContactosClientes;
   end;
+end;
+
+procedure TDM_Clientes.FacturarACliente;
+var
+  idActual: GUID_ID;
+begin
+  idActual:= EmpresaAFacturarid.AsString;
+  DM_General.ReiniciarTabla(EmpresaAFacturar);
+
+  EmpresaAFacturar.Insert;
+  if  (idActual <> EmptyStr) then
+    EmpresaAFacturarid.AsString:= idActual;
+  EmpresaAFacturartipo_id.AsInteger:= __FACT_EDIFICIO;
+  EmpresaAFacturarref_id.AsString:= tbClientesidCliente.AsString;
+  EmpresaAFacturarrazonSocial.AsString:= tbClientescNombre.AsString;
+  EmpresaAFacturarcuit.AsString:= tbClientescCUIT.AsString;
+  EmpresaAFacturarcondicionFiscal_id.AsInteger:= tbClientesrefCondicionFiscal.AsInteger;
+  EmpresaAFacturardomicilio.AsString:= tbClientescDomicilio.AsString;
+  EmpresaAFacturarlocalidad_id.AsInteger:= tbClientesrefLocalidad.AsInteger;
+  EmpresaAFacturar.Post;
+end;
+
+procedure TDM_Clientes.FacturarAAdministrador;
+var
+  idActual: GUID_ID;
+begin
+  idActual:= EmpresaAFacturarid.AsString;
+  DM_General.ReiniciarTabla(EmpresaAFacturar);
+
+  EmpresaAFacturar.Insert;
+  if (idActual <> EmptyStr) then
+    EmpresaAFacturarid.AsString:= idActual;
+  EmpresaAFacturartipo_id.AsInteger:= __FACT_ADMINISTRADOR;
+  EmpresaAFacturarref_id.AsString:= tbAdministradoresidAdministrador.AsString;
+  EmpresaAFacturarrazonSocial.AsString:= tbAdministradorescRazonSocial.AsString;
+  EmpresaAFacturarcuit.AsString:= tbAdministradoresCUIT.AsString;
+//  EmpresaAFacturarcondicionFiscal_id.AsInteger:= tbClientesrefCondicionFiscal.AsInteger;
+  EmpresaAFacturardomicilio.AsString:= tbAdmDomiciliosDomicilio.AsString;
+  EmpresaAFacturarlocalidad_id.AsInteger:= tbAdmDomiciliosrefLocalidad.AsInteger;
+  EmpresaAFacturar.Post;
+end;
+
+procedure TDM_Clientes.FacturarAGerenciador;
+var
+  idActual: GUID_ID;
+begin
+  idActual:= EmpresaAFacturarid.AsString;
+  DM_General.ReiniciarTabla(EmpresaAFacturar);
+
+  EmpresaAFacturar.Insert;
+  if (idActual <> EmptyStr) then
+    EmpresaAFacturarid.AsString:= idActual;
+end;
+
+procedure TDM_Clientes.LevantarFacturacion;
+begin
+  DM_General.ReiniciarTabla(EmpresaAFacturar);
+
+  with EmpFacPorCliente do
+  begin
+    if active then close;
+    ParamByName('cliente_id').AsString:= tbClientesidCliente.AsString;
+    Open;
+
+    EmpresaAFacturar.LoadFromDataSet(EmpFacPorCliente, 0, lmAppend);
+
+    Close;
+  end;
+
 end;
 
 

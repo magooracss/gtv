@@ -23,6 +23,12 @@ const
 
   BANCO_P = 'BANCO_P'; // Valor en tbvalores donde se almacenan los bancos propios
 
+  SECCION_FACTURACION = 'FACTURACION';
+  LEYENDA_ABONO = 'LEYENDA_ABONO';
+  RUTA_DBF = 'RUTA_DBF';
+  RUTA_RECE = 'RUTA_RECE';
+  PUNTO_VENTA = 'PUNTO_DE_VENTA';
+
   function AbrirArchivo: TIniFile;
   function LeerDato (Clave, Etiqueta: string): string;
   procedure EscribirDato (Clave, Etiqueta, Dato: string);

@@ -2,9 +2,9 @@ object DM_Clientes: TDM_Clientes
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 573
-  HorizontalOffset = 151
-  VerticalOffset = 78
-  Width = 1177
+  HorizontalOffset = 5
+  VerticalOffset = 94
+  Width = 1282
   object tbClientes: TRxMemoryData
     Active = True
     FieldDefs = <    
@@ -153,16 +153,16 @@ object DM_Clientes: TDM_Clientes
         Size = 0
       end    
       item
-        Name = 'HabilitacionFecha'
-        DataType = ftDateTime
-        Precision = -1
-        Size = 0
-      end    
-      item
         Name = 'HabilitacionExp'
         DataType = ftString
         Precision = -1
         Size = 50
+      end    
+      item
+        Name = 'bActivo'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
       end>
     AfterInsert = tbClientesAfterInsert
     PacketRecords = 0
@@ -425,26 +425,26 @@ object DM_Clientes: TDM_Clientes
       MinValue = 0
       Precision = 2
     end
-    object tbClientesHabilitacionFecha: TDateTimeField
-      DisplayWidth = 10
+    object tbClientesHabilitacionExp: TStringField
+      DisplayWidth = 50
       FieldKind = fkData
-      FieldName = 'HabilitacionFecha'
+      FieldName = 'HabilitacionExp'
       Index = 24
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      Size = 50
     end
-    object tbClientesHabilitacionExp: TStringField
-      DisplayWidth = 50
+    object tbClientesbActivo: TLongintField
+      DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'HabilitacionExp'
+      FieldName = 'bActivo'
       Index = 25
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      Size = 50
     end
   end
   object qtugDestinosCliente: TZQuery
@@ -1096,6 +1096,16 @@ object DM_Clientes: TDM_Clientes
       ReadOnly = False
       Required = False
     end
+    object tbClientesSELBACTIVO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BACTIVO'
+      Index = 26
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object tbClientesINS: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -1125,8 +1135,8 @@ object DM_Clientes: TDM_Clientes
       ',REFCONSERVADOR'
       ',BVISIBLE'
       ',NMONTOABONO'
-      ',HABILITACIONEXP'
-      ',HABILITACIONFECHA)'
+      ',bActivo'
+      ')'
       'VALUES'
       '(:IDCLIENTE'
       ',:CCODIGO'
@@ -1152,8 +1162,8 @@ object DM_Clientes: TDM_Clientes
       ',:REFCONSERVADOR'
       ',:BVISIBLE'
       ',:NMONTOABONO'
-      ',:HABILITACIONEXP'
-      ',:HABILITACIONFECHA)'
+      ',:bActivo'
+      ')'
     )
     Params = <    
       item
@@ -1278,12 +1288,7 @@ object DM_Clientes: TDM_Clientes
       end    
       item
         DataType = ftUnknown
-        Name = 'HABILITACIONEXP'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'HABILITACIONFECHA'
+        Name = 'bActivo'
         ParamType = ptUnknown
       end>
     left = 32
@@ -1411,12 +1416,7 @@ object DM_Clientes: TDM_Clientes
       end    
       item
         DataType = ftUnknown
-        Name = 'HABILITACIONEXP'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'HABILITACIONFECHA'
+        Name = 'bActivo'
         ParamType = ptUnknown
       end>
   end
@@ -1448,8 +1448,7 @@ object DM_Clientes: TDM_Clientes
       ',REFCONSERVADOR = :REFCONSERVADOR'
       ',BVISIBLE  = :BVISIBLE'
       ',NMONTOABONO = :NMONTOABONO'
-      ',HABILITACIONEXP = :HabilitacionExp'
-      ',HABILITACIONFECHA = :HabilitacionFecha'
+      ',bActivo = :bActivo'
       'WHERE idCliente = :idCliente'
     )
     Params = <    
@@ -1570,12 +1569,7 @@ object DM_Clientes: TDM_Clientes
       end    
       item
         DataType = ftUnknown
-        Name = 'HabilitacionExp'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'HabilitacionFecha'
+        Name = 'bActivo'
         ParamType = ptUnknown
       end    
       item
@@ -1703,12 +1697,7 @@ object DM_Clientes: TDM_Clientes
       end    
       item
         DataType = ftUnknown
-        Name = 'HabilitacionExp'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'HabilitacionFecha'
+        Name = 'bActivo'
         ParamType = ptUnknown
       end    
       item
@@ -1984,32 +1973,11 @@ object DM_Clientes: TDM_Clientes
       MinValue = 0
       Precision = 2
     end
-    object qListaClientesHABILITACIONEXP: TStringField
-      DisplayWidth = 48
-      FieldKind = fkData
-      FieldName = 'HABILITACIONEXP'
-      Index = 24
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 48
-    end
-    object qListaClientesHABILITACIONFECHA: TDateField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'HABILITACIONFECHA'
-      Index = 25
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
     object qListaClientesCLIENTE: TStringField
       DisplayWidth = 1252
       FieldKind = fkData
       FieldName = 'CLIENTE'
-      Index = 26
+      Index = 24
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = True
@@ -2067,49 +2035,123 @@ object DM_Clientes: TDM_Clientes
       item
         Name = 'idAdministrador'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'cRazonSocial'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 500
       end    
       item
         Name = 'CUIT'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 20
       end    
       item
         Name = 'refTipoDocumento'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'cDocumento'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 30
       end    
       item
         Name = 'txNotas'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 3000
       end    
       item
         Name = 'bVisible'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end>
     AfterInsert = tbAdministradoresAfterInsert
     PacketRecords = 0
     left = 144
     top = 24
+    object tbAdministradoresidAdministrador: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idAdministrador'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbAdministradorescRazonSocial: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'cRazonSocial'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbAdministradoresCUIT: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CUIT'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbAdministradoresrefTipoDocumento: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refTipoDocumento'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbAdministradorescDocumento: TStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'cDocumento'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object tbAdministradorestxNotas: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'txNotas'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbAdministradoresbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object tbAdministradoresSEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -2132,6 +2174,80 @@ object DM_Clientes: TDM_Clientes
         Name = 'idAdministrador'
         ParamType = ptUnknown
       end>
+    object tbAdministradoresSELIDADMINISTRADOR: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDADMINISTRADOR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object tbAdministradoresSELCRAZONSOCIAL: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'CRAZONSOCIAL'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbAdministradoresSELCUIT: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CUIT'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbAdministradoresSELREFTIPODOCUMENTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFTIPODOCUMENTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbAdministradoresSELCDOCUMENTO: TStringField
+      DisplayWidth = 28
+      FieldKind = fkData
+      FieldName = 'CDOCUMENTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 28
+    end
+    object tbAdministradoresSELTXNOTAS: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXNOTAS'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbAdministradoresSELBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object tbAdministradoresINS: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -2582,43 +2698,107 @@ object DM_Clientes: TDM_Clientes
       item
         Name = 'idDomicilio'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'refRelacion'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 38
       end    
       item
         Name = 'Domicilio'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 300
       end    
       item
         Name = 'refLocalidad'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'bVisible'
         DataType = ftInteger
-        Precision = 0
+        Precision = -1
         Size = 0
       end    
       item
         Name = 'lxLocalidad'
         DataType = ftString
-        Precision = 0
+        Precision = -1
         Size = 300
       end>
     AfterInsert = tbAdmDomiciliosAfterInsert
     PacketRecords = 0
     left = 424
     top = 24
+    object tbAdmDomiciliosidDomicilio: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idDomicilio'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbAdmDomiciliosrefRelacion: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refRelacion'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbAdmDomiciliosDomicilio: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'Domicilio'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object tbAdmDomiciliosrefLocalidad: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refLocalidad'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbAdmDomiciliosbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbAdmDomicilioslxLocalidad: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'lxLocalidad'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
   end
   object tbDomiciliosSEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -4209,6 +4389,80 @@ object DM_Clientes: TDM_Clientes
         Name = 'cRazonSocial'
         ParamType = ptUnknown
       end>
+    object qAdministradorPorNombreIDADMINISTRADOR: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDADMINISTRADOR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qAdministradorPorNombreCRAZONSOCIAL: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'CRAZONSOCIAL'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object qAdministradorPorNombreCUIT: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CUIT'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qAdministradorPorNombreREFTIPODOCUMENTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFTIPODOCUMENTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qAdministradorPorNombreCDOCUMENTO: TStringField
+      DisplayWidth = 28
+      FieldKind = fkData
+      FieldName = 'CDOCUMENTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 28
+    end
+    object qAdministradorPorNombreTXNOTAS: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXNOTAS'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qAdministradorPorNombreBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qClienteCodigo: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -4518,6 +4772,16 @@ object DM_Clientes: TDM_Clientes
       ReadOnly = False
       Required = False
     end
+    object qClienteCodigoBACTIVO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BACTIVO'
+      Index = 26
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object tbContClienteDEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
@@ -4538,6 +4802,708 @@ object DM_Clientes: TDM_Clientes
       item
         DataType = ftUnknown
         Name = 'idContactoCliente'
+        ParamType = ptUnknown
+      end>
+  end
+  object EmpresaAFacturar: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'tipo_id'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'ref_id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'razonSocial'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'cuit'
+        DataType = ftString
+        Precision = 0
+        Size = 20
+      end    
+      item
+        Name = 'condicionFiscal_id'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'domicilio'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'localidad_id'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'cliente_id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = EmpresaAFacturarAfterInsert
+    PacketRecords = 0
+    left = 1160
+    top = 24
+    object EmpresaAFacturarid: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object EmpresaAFacturartipo_id: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'tipo_id'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object EmpresaAFacturarref_id: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'ref_id'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object EmpresaAFacturarrazonSocial: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'razonSocial'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object EmpresaAFacturarcuit: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'cuit'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object EmpresaAFacturarcondicionFiscal_id: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'condicionFiscal_id'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object EmpresaAFacturardomicilio: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'domicilio'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object EmpresaAFacturarlocalidad_id: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'localidad_id'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object EmpresaAFacturarcliente_id: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'cliente_id'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object EmpresaAFacturarbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object EmpFacSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM EmpresasAFacturar'
+      'WHERE id = :id'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    left = 1160
+    top = 80
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    object EmpFacSELID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object EmpFacSELTIPO_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIPO_ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object EmpFacSELREF_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REF_ID'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object EmpFacSELRAZONSOCIAL: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'RAZONSOCIAL'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object EmpFacSELCUIT: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CUIT'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object EmpFacSELCONDICIONFISCAL_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CONDICIONFISCAL_ID'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object EmpFacSELDOMICILIO: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'DOMICILIO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object EmpFacSELLOCALIDAD_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'LOCALIDAD_ID'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object EmpFacSELCLIENTE_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'CLIENTE_ID'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object EmpFacSELBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object EmpFacINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO EmpresasAFacturar'
+      '( ID'
+      ', TIPO_ID'
+      ', REF_ID'
+      ', RAZONSOCIAL'
+      ', CUIT'
+      ', CONDICIONFISCAL_ID'
+      ', DOMICILIO'
+      ', LOCALIDAD_ID'
+      ', CLIENTE_ID'
+      ', BVISIBLE'
+      ')'
+      'VALUES'
+      '( :ID'
+      ', :TIPO_ID'
+      ', :REF_ID'
+      ', :RAZONSOCIAL'
+      ', :CUIT'
+      ', :CONDICIONFISCAL_ID'
+      ', :DOMICILIO'
+      ', :LOCALIDAD_ID'
+      ', :CLIENTE_ID'
+      ', :BVISIBLE'
+      ')'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TIPO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REF_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'RAZONSOCIAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Cuit'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CONDICIONFISCAL_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DOMICILIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'LOCALIDAD_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CLIENTE_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+    left = 1160
+    top = 144
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TIPO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REF_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'RAZONSOCIAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Cuit'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CONDICIONFISCAL_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DOMICILIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'LOCALIDAD_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CLIENTE_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+  end
+  object EmpFacUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE EmpresasAFacturar'
+      'SET'
+      '  TIPO_ID = :TIPO_ID'
+      ', REF_ID = :REF_ID'
+      ', RAZONSOCIAL = :RAZONSOCIAL'
+      ', CUIT = :CUIT'
+      ', CONDICIONFISCAL_ID = :CONDICIONFISCAL_ID'
+      ', DOMICILIO = :DOMICILIO'
+      ', LOCALIDAD_ID = :LOCALIDAD_ID'
+      ', CLIENTE_ID = :CLIENTE_ID'
+      ', BVISIBLE = :BVISIBLE'
+      'WHERE   ID = :ID'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'TIPO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REF_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'RAZONSOCIAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Cuit'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CONDICIONFISCAL_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DOMICILIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'LOCALIDAD_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CLIENTE_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end>
+    left = 1160
+    top = 208
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'TIPO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REF_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'RAZONSOCIAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'Cuit'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CONDICIONFISCAL_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DOMICILIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'LOCALIDAD_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CLIENTE_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object EmpFacPorCliente: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM EmpresasAFacturar'
+      'WHERE cliente_id = :cliente_id'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'cliente_id'
+        ParamType = ptUnknown
+      end>
+    left = 1160
+    top = 280
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'cliente_id'
+        ParamType = ptUnknown
+      end>
+    object EmpFacSELID1: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object EmpFacSELTIPO_ID1: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIPO_ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object EmpFacSELREF_ID1: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REF_ID'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object EmpFacSELRAZONSOCIAL1: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'RAZONSOCIAL'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object EmpFacSELCUIT1: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CUIT'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object EmpFacSELCONDICIONFISCAL_ID1: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CONDICIONFISCAL_ID'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object EmpFacSELDOMICILIO1: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'DOMICILIO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object EmpFacSELLOCALIDAD_ID1: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'LOCALIDAD_ID'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object EmpFacSELCLIENTE_ID1: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'CLIENTE_ID'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object EmpFacSELBVISIBLE1: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object tbAdministardorDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbAdministradores'
+      'SET BVISIBLE  = 0'
+      'WHERE idAdministrador = :idAdministrador'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idAdministrador'
+        ParamType = ptUnknown
+      end>
+    left = 144
+    top = 352
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idAdministrador'
         ParamType = ptUnknown
       end>
   end
