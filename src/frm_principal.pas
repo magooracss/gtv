@@ -14,6 +14,7 @@ type
   { TfrmPrincipal }
 
   TfrmPrincipal = class(TForm)
+    ingPrefacturacion: TAction;
     ingAbonos: TAction;
     appAbout: TAction;
     ingFacturas: TAction;
@@ -86,6 +87,7 @@ type
     ToolButton17: TToolButton;
     ToolButton18: TToolButton;
     ToolButton19: TToolButton;
+    ToolButton20: TToolButton;
     ToolButton6: TToolButton;
     ToolButton7: TToolButton;
     ToolButton8: TToolButton;
@@ -134,6 +136,7 @@ type
     procedure ingAbonosExecute(Sender: TObject);
     procedure ingFacturasExecute(Sender: TObject);
     procedure ingIngresosExecute(Sender: TObject);
+    procedure ingPrefacturacionExecute(Sender: TObject);
     procedure ingRecibosExecute(Sender: TObject);
     procedure OTPantGralClienteExecute(Sender: TObject);
     procedure OTPantGralExecute(Sender: TObject);
@@ -187,6 +190,7 @@ uses
   ,frm_about
   ,frmseleccionargrupofacturacion
   ,dmfacturas
+  ,frm_prefacturacion
   ;
 
 { TfrmPrincipal }
@@ -589,7 +593,6 @@ begin
   end;
 end;
 
-
 (*******************************************************************************
 *****  INGRESOS
 *******************************************************************************)
@@ -633,6 +636,20 @@ begin
     selGF.Free;
   end;
 end;
+
+  //PREFACTURACION GENERAL
+procedure TfrmPrincipal.ingPrefacturacionExecute(Sender: TObject);
+var
+  pant: TfrmPrefacturacion;
+begin
+  pant:= TfrmPrefacturacion.Create(self);
+  try
+    pant.ShowModal;
+  finally
+    pant.Free;
+  end;
+end;
+
 
 
 end.

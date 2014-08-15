@@ -1,0 +1,1658 @@
+object DM_Prefacturacion: TDM_Prefacturacion
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 507
+  HorizontalOffset = 117
+  VerticalOffset = 143
+  Width = 771
+  object Prefacturacion: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'cliente_id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'fecha'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'documento_id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'tipoDocumento'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'cantidad'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'detalle'
+        DataType = ftString
+        Precision = 0
+        Size = 2000
+      end    
+      item
+        Name = 'PrecioUnitario'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'PrecioTotal'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refEstado'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nroPreFactura'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'lxClienteCodigo'
+        DataType = ftString
+        Precision = 0
+        Size = 25
+      end    
+      item
+        Name = 'lxCliente'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'lxDocumento'
+        DataType = ftString
+        Precision = 0
+        Size = 30
+      end    
+      item
+        Name = 'lxEstado'
+        DataType = ftString
+        Precision = 0
+        Size = 15
+      end    
+      item
+        Name = 'lxNro'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'RemitoNro'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'NroPresupuesto'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = PrefacturacionAfterInsert
+    PacketRecords = 0
+    left = 80
+    top = 40
+    object PrefacturacionlxClienteCodigo: TStringField
+      DisplayWidth = 25
+      FieldKind = fkData
+      FieldName = 'lxClienteCodigo'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 25
+    end
+    object PrefacturacionlxCliente: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'lxCliente'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object PrefacturacionlxDocumento: TStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'lxDocumento'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object PrefacturacionlxEstado: TStringField
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'lxEstado'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 15
+    end
+    object PrefacturacionlxNro: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'lxNro'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Prefacturacionid: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object Prefacturacioncliente_id: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'cliente_id'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object Prefacturacionfecha: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fecha'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object Prefacturaciondocumento_id: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'documento_id'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object PrefacturaciontipoDocumento: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'tipoDocumento'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Prefacturacioncantidad: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'cantidad'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object Prefacturaciondetalle: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'detalle'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object PrefacturacionPrecioUnitario: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PrecioUnitario'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object PrefacturacionPrecioTotal: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PrecioTotal'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object PrefacturacionrefEstado: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refEstado'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object PrefacturacionnroPreFactura: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nroPreFactura'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object PrefacturacionbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object PrefacturacionRemitoNro: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'RemitoNro'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object PrefacturacionNroPresupuesto: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NroPresupuesto'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qDocPrefacturados: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT P.ID, P.CLIENTE_ID, P.FECHA, P.DOCUMENTO_ID, P.TIPODOCUMENTO '
+      '           , P.CANTIDAD, P.DETALLE, P.PRECIOUNITARIO, P.PRECIOTOTAL, P.REFESTADO '
+      '           , P.NROPREFACTURA, P.BVISIBLE, C.cCodigo as ClienteCodigo '
+      '           , C.cNombre as ClienteNombre, CPR.nNroCuota as PresupuestoCuota '
+      '           , CPR.nMonto as PresupuestoMonto, CPR.fVencimiento as PresupuestoVencimiento '
+      '           , R.nRemito as RemitoNro, R.fFecha as RemitoFecha, R.txDetalles as RemitoDetalles'
+      '           ,PR.nPresupuesto as NroPresupuesto '
+      '            FROM '
+      '                 Prefacturacion P '
+      '           '#9' LEFT JOIN tbClientes C ON C.idCliente = P.cliente_id '
+      '           '#9' LEFT JOIN tbCuotasPresupuesto CPR ON CPR.idCuotaPresupuesto = P.DOCUMENTO_ID '
+      '           '#9' LEFT JOIN tbRemitos R ON R.idRemito = P.DOCUMENTO_ID '
+      '                 LEFT JOIN tbPresupuestos PR ON CPR.refPresupuesto = PR.idPresupuesto '
+    )
+    Params = <>
+    left = 224
+    top = 72
+    object qDocPrefacturadosID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qDocPrefacturadosCLIENTE_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'CLIENTE_ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qDocPrefacturadosFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qDocPrefacturadosDOCUMENTO_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'DOCUMENTO_ID'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qDocPrefacturadosTIPODOCUMENTO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIPODOCUMENTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qDocPrefacturadosCANTIDAD: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CANTIDAD'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qDocPrefacturadosDETALLE: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'DETALLE'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object qDocPrefacturadosPRECIOUNITARIO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PRECIOUNITARIO'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qDocPrefacturadosPRECIOTOTAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PRECIOTOTAL'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qDocPrefacturadosREFESTADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFESTADO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qDocPrefacturadosNROPREFACTURA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROPREFACTURA'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qDocPrefacturadosBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qDocPrefacturadosCLIENTECODIGO: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'CLIENTECODIGO'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object qDocPrefacturadosCLIENTENOMBRE: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'CLIENTENOMBRE'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qDocPrefacturadosPRESUPUESTOCUOTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PRESUPUESTOCUOTA'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qDocPrefacturadosPRESUPUESTOMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PRESUPUESTOMONTO'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qDocPrefacturadosPRESUPUESTOVENCIMIENTO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PRESUPUESTOVENCIMIENTO'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qDocPrefacturadosREMITONRO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REMITONRO'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qDocPrefacturadosREMITOFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REMITOFECHA'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qDocPrefacturadosREMITODETALLES: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'REMITODETALLES'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qDocPrefacturadosNROPRESUPUESTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROPRESUPUESTO'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qRemitosSinPF: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT R.*'
+      'FROM Prefacturacion P'
+      '    RIGHT JOIN  tbremitos R ON P.documento_id = R.idremito'
+      'WHERE (P.documento_id is null)'
+      '       and (R.bVisible = 1)'
+      '       and (R.bSinCargo = 0)'
+      '       and (R.bFacturado = 0)'
+      'ORDER BY R.nRemito'
+    )
+    Params = <>
+    left = 224
+    top = 160
+    object qRemitosSinPFIDREMITO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDREMITO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qRemitosSinPFREFCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCLIENTE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qRemitosSinPFNREMITO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NREMITO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFFFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FFECHA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFREFORDENTRABAJO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFORDENTRABAJO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qRemitosSinPFREFMOTIVO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFMOTIVO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFTXDETALLES: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXDETALLES'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qRemitosSinPFREFFACTURA: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFFACTURA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qRemitosSinPFBFACTURAR: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BFACTURAR'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFBFACTURADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BFACTURADO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFBPRESENTADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BPRESENTADO'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFBSINCARGO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BSINCARGO'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qPresupuestosSinPF: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT CP.*, PR.*'
+      'FROM Prefacturacion P'
+      '    RIGHT JOIN  tbCuotasPresupuesto CP ON P.documento_id = CP.idCuotaPresupuesto'
+      #9'INNER JOIN tbPresupuestos PR ON PR.idPresupuesto = CP.refPresupuesto'
+      'WHERE (P.documento_id is null)'
+      '      and (CP.refEstado <= 1)'
+      '      and (CP.fVencimiento <= :Vencimiento )'
+      #9'  and (CP.bVisible = 1)'
+      #9'  and (PR.bVisible = 1)'
+      'ORDER BY CP.nNroCuota'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'Vencimiento'
+        ParamType = ptUnknown
+      end>
+    left = 224
+    top = 232
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'Vencimiento'
+        ParamType = ptUnknown
+      end>
+    object qPresupuestosSinPFIDCUOTAPRESUPUESTO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCUOTAPRESUPUESTO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qPresupuestosSinPFREFPRESUPUESTO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFPRESUPUESTO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qPresupuestosSinPFNNROCUOTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NNROCUOTA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFREFTIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFTIPO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFFVENCIMIENTO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FVENCIMIENTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFNMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qPresupuestosSinPFREFESTADO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFESTADO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFFPAGO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FPAGO'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFBVISIBLE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFIDPRESUPUESTO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDPRESUPUESTO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qPresupuestosSinPFNPRESUPUESTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NPRESUPUESTO'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFFEMISION: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FEMISION'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFREFCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCLIENTE'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qPresupuestosSinPFREFEMPLEADO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFEMPLEADO'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFREFESTADO_1: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFESTADO_1'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFFCAMBIOESTADO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCAMBIOESTADO'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFTXMOTIVO: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXMOTIVO'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qPresupuestosSinPFTXOBSERVACIONES: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXOBSERVACIONES'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qPresupuestosSinPFBACEPTADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BACEPTADO'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFTXDOCUMENTO: TBlobField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TXDOCUMENTO'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftBlob
+    end
+    object qPresupuestosSinPFBVISIBLE_1: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE_1'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFCRECEPCIONO: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'CRECEPCIONO'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+  end
+  object PrefacturacionSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM Prefacturacion '
+      'WHERE (id = :id)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    left = 80
+    top = 104
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    object PrefacturacionSELID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object PrefacturacionSELCLIENTE_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'CLIENTE_ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object PrefacturacionSELFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FECHA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object PrefacturacionSELDOCUMENTO_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'DOCUMENTO_ID'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object PrefacturacionSELTIPODOCUMENTO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIPODOCUMENTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object PrefacturacionSELCANTIDAD: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CANTIDAD'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object PrefacturacionSELDETALLE: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'DETALLE'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object PrefacturacionSELPRECIOUNITARIO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PRECIOUNITARIO'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object PrefacturacionSELPRECIOTOTAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PRECIOTOTAL'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object PrefacturacionSELREFESTADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFESTADO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object PrefacturacionSELNROPREFACTURA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROPREFACTURA'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object PrefacturacionSELBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object PrefacturacionINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO Prefacturacion'
+      '(  ID'
+      ', CLIENTE_ID'
+      ', FECHA'
+      ', DOCUMENTO_ID'
+      ', TIPODOCUMENTO'
+      ', CANTIDAD'
+      ', DETALLE'
+      ', PRECIOUNITARIO'
+      ', PRECIOTOTAL'
+      ', REFESTADO'
+      ', NROPREFACTURA'
+      ', BVISIBLE)'
+      'VALUES'
+      '(  :ID'
+      ', :CLIENTE_ID'
+      ', :FECHA'
+      ', :DOCUMENTO_ID'
+      ', :TIPODOCUMENTO'
+      ', :CANTIDAD'
+      ', :DETALLE'
+      ', :PRECIOUNITARIO'
+      ', :PRECIOTOTAL'
+      ', :REFESTADO'
+      ', :NROPREFACTURA'
+      ', :BVISIBLE)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CLIENTE_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DOCUMENTO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TIPODOCUMENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CANTIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DETALLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PRECIOUNITARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PRECIOTOTAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NROPREFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+    left = 80
+    top = 168
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CLIENTE_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DOCUMENTO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TIPODOCUMENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CANTIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DETALLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PRECIOUNITARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PRECIOTOTAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NROPREFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+  end
+  object PrefacturacionUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE Prefacturacion'
+      'SET '
+      '  CLIENTE_ID = :CLIENTE_ID'
+      ', FECHA = :FECHA'
+      ', DOCUMENTO_ID = :DOCUMENTO_ID'
+      ', TIPODOCUMENTO = :TIPODOCUMENTO'
+      ', CANTIDAD = :CANTIDAD'
+      ', DETALLE = :DETALLE'
+      ', PRECIOUNITARIO = :PRECIOUNITARIO'
+      ', PRECIOTOTAL = :PRECIOTOTAL'
+      ', REFESTADO = :REFESTADO'
+      ', NROPREFACTURA = :NROPREFACTURA'
+      ', BVISIBLE = :BVISIBLE'
+      'WHERE ( ID = :ID)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'CLIENTE_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DOCUMENTO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TIPODOCUMENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CANTIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DETALLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PRECIOUNITARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PRECIOTOTAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NROPREFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end>
+    left = 80
+    top = 232
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'CLIENTE_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FECHA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DOCUMENTO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TIPODOCUMENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CANTIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DETALLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PRECIOUNITARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PRECIOTOTAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NROPREFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end>
+    object qRemitosSinPFIDREMITO3: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDREMITO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qRemitosSinPFREFCLIENTE3: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCLIENTE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qRemitosSinPFNREMITO3: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NREMITO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFFFECHA3: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FFECHA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFREFORDENTRABAJO3: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFORDENTRABAJO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qRemitosSinPFREFMOTIVO3: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFMOTIVO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFTXDETALLES3: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXDETALLES'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qRemitosSinPFREFFACTURA3: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFFACTURA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qRemitosSinPFBFACTURAR3: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BFACTURAR'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFBFACTURADO3: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BFACTURADO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFBPRESENTADO3: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BPRESENTADO'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFBVISIBLE3: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFBSINCARGO3: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BSINCARGO'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qPrefacturasExistentes: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT P.NroPrefactura, SUM(P.PrecioTotal) as Total'
+      'FROM Prefacturacion P'
+      'WHERE (P.cliente_id = :elCliente)'
+      '      and (P.bVisible = 1)'
+      '      and (P.refEstado <= 1)'
+      '       and (P.NroPrefactura <> 0)'
+      'GROUP BY P.NroPrefactura'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'elCliente'
+        ParamType = ptUnknown
+      end>
+    left = 360
+    top = 72
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'elCliente'
+        ParamType = ptUnknown
+      end>
+    object qPrefacturasExistentesNROPREFACTURA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROPREFACTURA'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPrefacturasExistentesTOTAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TOTAL'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      DisplayFormat = '$ ############0.00'
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+  end
+  object qNuevoNroPrefactura: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT GEN_ID(GenPrefactura,1) as Nro'
+      'FROM RDB$DATABASE;'
+    )
+    Params = <>
+    left = 360
+    top = 160
+    object qNuevoNroPrefacturaNRO: TLargeintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NRO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+  end
+end

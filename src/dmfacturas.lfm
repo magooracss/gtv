@@ -3,7 +3,7 @@ object DM_Facturas: TDM_Facturas
   OldCreateOrder = False
   Height = 440
   HorizontalOffset = 542
-  VerticalOffset = 175
+  VerticalOffset = 177
   Width = 810
   object qListaFacturas: TZQuery
     Connection = DM_Conexion.cnxGeneral

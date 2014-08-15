@@ -32,7 +32,8 @@ uses
   frm_ingresosae, frm_reciboslistado, dmrecibos, frm_reciboae, frm_facturaae,
   dmfacturas, frm_facturaslistado, frm_cargavaloresIngreso, frm_about,
   frm_itemfacturaae, frmseleccionargrupofacturacion, dmfacturaelectronica,
-  frm_administradoresae;
+  frm_administradoresae, frm_prefacturacion, dmprefacturacion, 
+frm_prefacturacionae;
 
 {$R *.res}
 
@@ -73,6 +74,7 @@ begin
   Application.CreateForm(TDM_Facturas, DM_Facturas);
   Application.CreateForm(TDM_Ingresos, DM_Ingresos);
   Application.CreateForm(TDM_FacturaElectronica, DM_FacturaElectronica);
+  Application.CreateForm(TDM_Prefacturacion, DM_Prefacturacion);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
 
   Application.Run;

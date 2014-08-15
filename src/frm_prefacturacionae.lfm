@@ -1,0 +1,577 @@
+object frmPrefacturacionAE: TfrmPrefacturacionAE
+  Left = 234
+  Height = 528
+  Top = 141
+  Width = 914
+  Caption = 'Prefacturar documento'
+  ClientHeight = 528
+  ClientWidth = 914
+  Font.CharSet = ANSI_CHARSET
+  Font.Color = clBlack
+  Font.Height = -13
+  Font.Name = 'Arial'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  OnShow = FormShow
+  Position = poOwnerFormCenter
+  LCLVersion = '1.2.0.3'
+  object Panel1: TPanel
+    Left = 0
+    Height = 112
+    Top = 0
+    Width = 914
+    Align = alTop
+    ClientHeight = 112
+    ClientWidth = 914
+    TabOrder = 0
+    object GroupBox1: TGroupBox
+      Left = 1
+      Height = 56
+      Top = 1
+      Width = 912
+      Align = alTop
+      Caption = 'Cliente'
+      ClientHeight = 38
+      ClientWidth = 908
+      TabOrder = 0
+      object DBEdit2: TDBEdit
+        Left = 18
+        Height = 24
+        Top = 5
+        Width = 80
+        DataField = 'lxClienteCodigo'
+        DataSource = ds_prefacturacion
+        ReadOnly = True
+        CharCase = ecNormal
+        Color = clMoneyGreen
+        MaxLength = 0
+        TabOrder = 1
+        TabStop = False
+      end
+      object DBEdit1: TDBEdit
+        Left = 116
+        Height = 24
+        Top = 5
+        Width = 777
+        DataField = 'lxCliente'
+        DataSource = ds_prefacturacion
+        ReadOnly = True
+        Anchors = [akTop, akLeft, akRight]
+        CharCase = ecNormal
+        Color = clMoneyGreen
+        MaxLength = 0
+        TabOrder = 0
+        TabStop = False
+      end
+    end
+    object DBEdit7: TDBEdit
+      Left = 22
+      Height = 24
+      Top = 76
+      Width = 104
+      DataField = 'fecha'
+      DataSource = ds_prefacturacion
+      ReadOnly = True
+      CharCase = ecNormal
+      Color = clMoneyGreen
+      MaxLength = 0
+      TabOrder = 3
+      TabStop = False
+    end
+    object DBEdit8: TDBEdit
+      Left = 160
+      Height = 24
+      Top = 76
+      Width = 184
+      DataField = 'lxDocumento'
+      DataSource = ds_prefacturacion
+      ReadOnly = True
+      CharCase = ecNormal
+      Color = clMoneyGreen
+      MaxLength = 0
+      TabOrder = 2
+      TabStop = False
+    end
+    object DBEdit9: TDBEdit
+      Left = 392
+      Height = 24
+      Top = 76
+      Width = 88
+      DataField = 'lxNro'
+      DataSource = ds_prefacturacion
+      ReadOnly = True
+      CharCase = ecNormal
+      Color = clMoneyGreen
+      MaxLength = 0
+      TabOrder = 1
+      TabStop = False
+    end
+    object Label5: TLabel
+      Left = 24
+      Height = 16
+      Top = 58
+      Width = 36
+      Caption = 'Fecha'
+      ParentColor = False
+    end
+    object Label6: TLabel
+      Left = 163
+      Height = 16
+      Top = 58
+      Width = 66
+      Caption = 'Documento'
+      ParentColor = False
+    end
+    object Label7: TLabel
+      Left = 394
+      Height = 16
+      Top = 58
+      Width = 45
+      Caption = 'Número'
+      ParentColor = False
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 48
+    Top = 480
+    Width = 914
+    Align = alBottom
+    ClientHeight = 48
+    ClientWidth = 914
+    TabOrder = 1
+    object btnAceptar: TBitBtn
+      Left = 14
+      Height = 40
+      Top = 3
+      Width = 101
+      Caption = 'Aceptar'
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF001C811F231B7E1F7D1B7A1FDB1A731EF31A701EF31B71
+        1FDB1B711F7D1B6C1F23FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF001C8A21531B831FE642A052FF87CA9AFF9BD3ABFF9BD2ABFF83C7
+        96FF3D974CFF1A6E1EE61B701F53FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF001C912B531B8A20F46DBE83FFA8DBB5FF87CC98FF66BC7DFF64BA7CFF86CB
+        98FFA5D9B4FF66B77DFF1A6C1DF41B711F53FFFFFF00FFFFFF00FFFFFF001D9B
+        36221C962FE572C287FFA8DBB2FF60BC77FF5CBA73FF59B870FF59B56FFF58B5
+        6FFF5BB774FFA5D9B3FF69B87FFF1A711EE51B711F22FFFFFF00FFFFFF001EA4
+        3D7E4CB064FFAADDB4FF64C179FF5FBE71FF75C585FFD4ECD9FF8ACD99FF56B6
+        6CFF58B56EFF5CB774FFA6DAB4FF419B4EFF1B771F7EFFFFFF00FFFFFF001FA9
+        42DB91D29FFF8DD49AFF64C374FF79C987FFF2FAF4FFFFFFFFFFFDFEFDFF86CB
+        96FF57B76DFF5BB972FF85CC97FF87C79AFF1B781FDBFFFFFF00FFFFFF001FAD
+        42F6A6DCAFFF70CA7FFF73CA80FFF0F9F1FFFFFFFFFFEBF7EDFFFFFFFFFFFBFD
+        FCFF88CD96FF5BB971FF67BE7DFFA0D7AFFF1B7A1EF6FFFFFF00FFFFFF0026B4
+        4BF6A7DDB1FF72CC80FF66C773FFB0E1B7FFD2EED6FF63C170FFB8E3BFFFFFFF
+        FFFFFBFDFCFF8CD099FF69C17EFFA1D7AEFF1B7F1EF6FFFFFF00FFFFFF002DBB
+        54DB95D7A1FF91D79BFF69C976FF64C66FFF61C46EFF61C36FFF61C26FFFB9E4
+        C0FFFFFFFFFFE3F4E6FF8BD199FF8BCE9DFF1C8820DBFFFFFF00FFFFFF0034BE
+        597E57BF70FFAFE1B7FF6DCC7AFF68C872FF65C770FF63C56EFF62C46EFF63C4
+        71FFB6E3BEFF6FC77EFFACDFB5FF48A95EFF1C8F267EFFFFFF00FFFFFF0039C2
+        5C2234BE55E57FCE90FFAEE1B5FF6DCC7AFF6ACA76FF68C872FF68C874FF68C8
+        75FF6BC979FFACDFB4FF76C489FF1C962DE51C942D22FFFFFF00FFFFFF00FFFF
+        FF003BC55E5334C055F47FCE90FFAFE1B7FF92D89DFF77CE83FF77CE83FF92D8
+        9DFFAEE1B5FF78C88BFF1D9D32F41D9D3653FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF003DC7605336C259E659C274FF96D7A3FFA5DCAEFFA5DCAEFF95D6
+        A1FF50B96AFF1FAB42E61FA94253FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF0040C962233BC55E7D39C25BDB31BD54F32DBB52F32BB9
+        52DB2BB7527D28B44E23FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+      OnClick = btnAceptarClick
+      TabOrder = 0
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Height = 72
+    Top = 112
+    Width = 914
+    Align = alTop
+    ClientHeight = 72
+    ClientWidth = 914
+    TabOrder = 2
+    object DBEdit3: TDBEdit
+      Left = 22
+      Height = 24
+      Top = 32
+      Width = 80
+      DataField = 'cantidad'
+      DataSource = ds_prefacturacion
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+      OnChange = DBEdit3Change
+    end
+    object DBEdit4: TDBEdit
+      Left = 112
+      Height = 24
+      Top = 32
+      Width = 552
+      DataField = 'detalle'
+      DataSource = ds_prefacturacion
+      Anchors = [akTop, akLeft, akRight]
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+    object DBEdit5: TDBEdit
+      Left = 672
+      Height = 24
+      Top = 32
+      Width = 112
+      DataField = 'PrecioUnitario'
+      DataSource = ds_prefacturacion
+      Anchors = [akTop, akRight]
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 2
+      OnChange = DBEdit5Change
+    end
+    object DBEdit6: TDBEdit
+      Left = 792
+      Height = 24
+      Top = 32
+      Width = 112
+      DataField = 'PrecioTotal'
+      DataSource = ds_prefacturacion
+      Anchors = [akTop, akRight]
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 3
+    end
+    object Label1: TLabel
+      Left = 22
+      Height = 16
+      Top = 14
+      Width = 51
+      Caption = 'Cantidad'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 112
+      Height = 16
+      Top = 14
+      Width = 40
+      Caption = 'Detalle'
+      ParentColor = False
+    end
+    object Label3: TLabel
+      Left = 672
+      Height = 16
+      Top = 14
+      Width = 85
+      Caption = 'Precio Unitario'
+      ParentColor = False
+    end
+    object Label4: TLabel
+      Left = 792
+      Height = 16
+      Top = 14
+      Width = 69
+      Caption = 'Precio Total'
+      ParentColor = False
+    end
+  end
+  object Panel4: TPanel
+    Left = 266
+    Height = 296
+    Top = 184
+    Width = 648
+    Align = alClient
+    ClientHeight = 296
+    ClientWidth = 648
+    TabOrder = 3
+    object Panel6: TPanel
+      Left = 1
+      Height = 50
+      Top = 1
+      Width = 646
+      Align = alTop
+      ClientHeight = 50
+      ClientWidth = 646
+      TabOrder = 0
+      object DBEdit10: TDBEdit
+        Left = 279
+        Height = 40
+        Top = 7
+        Width = 160
+        DataField = 'nroPreFactura'
+        DataSource = ds_prefacturacion
+        CharCase = ecNormal
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -27
+        Font.Name = 'Arial'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 0
+      end
+      object Label8: TLabel
+        Left = 189
+        Height = 22
+        Top = 15
+        Width = 87
+        Caption = 'Prefactura'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -19
+        Font.Name = 'Arial'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        ParentColor = False
+        ParentFont = False
+      end
+    end
+    object Panel7: TPanel
+      Left = 342
+      Height = 244
+      Top = 51
+      Width = 305
+      Align = alRight
+      ClientHeight = 244
+      ClientWidth = 305
+      TabOrder = 1
+      object btnNuevaPrefactura: TBitBtn
+        Left = 48
+        Height = 40
+        Top = 37
+        Width = 224
+        Anchors = [akTop, akLeft, akRight]
+        Caption = 'Nueva Prefactura'
+        Glyph.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000905B3114905B
+          3184905B31A3905B31B6905B31C9905B31DA905B31EB905B31FA956139FF9A69
+          41FFA3744FFFAD825FFF905B31D9905B3134FFFFFF00FFFFFF00945F3368B890
+          6DFFD6BAA3FFDFC6B3FFE7D4C3FFEEDFD3FFF5EAE2FFFBF4EFFFFDFAF6FFFFFE
+          FDFFFBEBDFFFFBEFE6FFC19D80FF945F336FFFFFFF00FFFFFF0099643689C7A4
+          85FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFCFFFEFBF7FFFEF7F1FFFEF6
+          F1FFE4AE86FFFAE8DBFFCEAF95FF9964368BFFFFFF00FFFFFF009E6939579E69
+          39F6B48559FFD9A57BFFD89E6FFFD79B6AFFD89663FFD6925DFFD48F59FFD38E
+          57FFE29D69FFFAE3D1FFD8BBA2FF9E69399EFFFFFF00FFFFFF00A46F3C14A46F
+          3CABD5AE8CFFFDF0E5FFF7C7A2FFF7CFADFFF9D5B5FFF8DABDFFF8DEC2FFFAE1
+          C6FFFAE4CCFFFDF5ECFFE2CEBAFFA46F3CB3FFFFFF00FFFFFF00FFFFFF00AA75
+          4028B78656FFFEFEFDFFFADEC2FFFADCBFFFF9DBC0FFF9DBC0FFF9DDC1FFFADB
+          C0FFFADCC3FFFDEBDEFFECDCCDFFAA7540CAFFFFFF00FFFFFF00FFFFFF00B17B
+          431EB98652FFFEFCF9FFF9DCBFFFF8DBBFFFF8DCC0FFF9DBC2FFF9DCC1FFF9DD
+          C2FFFADDC3FFFBE7D4FFF5EDE2FFB17B43E4FFFFFF00FFFFFF00FFFFFF00B782
+          4709B9854BFFFEFBF7FFF9DCC1FFF8DCBFFFF8DCBFFFF8DBC0FFF9DDC0FFF9DD
+          C0FFF9DDC3FFFBE2CBFFFCF9F5FFB78247FBB7824701FFFFFF00FFFFFF00FFFF
+          FF00BD884BF9FCF6F0FFF9DFC7FFF9DCBDFFFADCBFFFFADBC1FFFADDC3FFFADD
+          C2FFF9DDC4FFFBE0C9FFFFFCFAFFC18D53FFBD884B0FFFFFFF00FFFFFF00FFFF
+          FF00C48E4EDAF5E7D8FFFAE5D2FFF9DABCFFF9DBBCFFFADBBFFFFADDC1FFFADD
+          C1FFF9DDC4FFFBE1C8FFFFFDFBFFC89457FFC48E4E12FFFFFF00FFFFFF00FFFF
+          FF00CA9452BBF0D9C1FFFBEDE1FFF9DAC0FFF9DCC2FFF9DEC5FFFAE0C7FFFAE2
+          CAFFFAE2CDFFFAE5D0FFFFFEFDFFCB8F5AFFCA9452F1CA945245FFFFFF00FFFF
+          FF00D09A55A4EDD0B2FFFFF6F0FFFAE1CAFFFBE3CCFFFBE3D0FFFBE6D3FFFBE9
+          D5FFFCE9D8FFFCEADBFFFFFFFDFFD29D71FFEED9C1FFD09A55E5FFFFFF00FFFF
+          FF00D59F5892EBCAA5FFFFFDFBFFFDE9D5FFFDEBD8FFFDEADBFFFDEDDFFFFDF0
+          E2FFFDF1E4FFFCF0E4FFFFFFFFFFE0A070FFFFFBF9FFDFB887FFFFFFFF00FFFF
+          FF00DAA45B84EBC69AFFFFFFFFFFFCEFE2FFFDF0E7FFFDF1EBFFFDF5EEFFFDF8
+          F1FFFDFAF7FFFFFCFAFFFFFFFFFFFEFBF7FFF4DAC0FFDAA45BEAFFFFFF00FFFF
+          FF00DEA85D6DEAC08CFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDF9F4FFFBF3
+          EAFFF8EBD9FFF8E6D3FFF5DFC6FFE9CBA6FFDEA85DEDDEA85D5DFFFFFF00FFFF
+          FF00E2AC5F36E2AC5FC6EABC81FFE8B777FFE6B26DFFE4B068FFE2AC5FF0E2AC
+          5FE3E2AC5FCFE2AC5FCCE2AC5FBBE2AC5FA8E2AC5F4BE2AC5F05
+        }
+        OnClick = btnNuevaPrefacturaClick
+        TabOrder = 0
+      end
+      object BitBtn2: TBitBtn
+        Left = 48
+        Height = 40
+        Top = 109
+        Width = 224
+        Anchors = [akTop, akLeft, akRight]
+        Caption = 'Agregar a prefactura existente'
+        Glyph.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000905B3114905B
+          3184905B31A3905B31B6905B31C9905B31DA905B31EB905B31FA956139FF9A69
+          41FF596F42FF216C39FF196B37FF1A6B37F5196B3788FFFFFF00945F3368B890
+          6DFFD6BAA3FFDFC6B3FFE7D4C3FFEEDFD3FFF5EAE2FFFBF4EFFFFDFAF6FF88B2
+          97FF288C53FF64BA8DFF95D2B2FF64BA8DFF288C53FF196B378C99643689C7A4
+          85FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFCFFFEFBF7FFFEF7F1FF2270
+          3FFF62BA8BFF60BA87FFFFFFFFFF60B987FF67BC8FFF196B37F79E6939579E69
+          39F6B48559FFD9A57BFFD89E6FFFD79B6AFFD89663FFD6925DFFD48F59FF317B
+          4CFF9CD4B6FFFFFFFFFFFFFFFFFFFFFFFFFF95D2B2FF196B37FFA46F3C14A46F
+          3CABD5AE8CFFFDF0E5FFF7C7A2FFF7CFADFFF9D5B5FFF8DABDFFF8DEC2FF4A8A
+          60FF90D3B1FF92D6B1FFFFFFFFFF65BC8CFF67BC8FFF196B37F7FFFFFF00AA75
+          4028B78656FFFEFEFDFFFADEC2FFFADCBFFFF9DBC0FFF9DBC0FFF9DDC1FFA5B5
+          94FF61AB81FF95D4B4FFBAE6D0FF6ABB8FFF2D8F57FF196B378CFFFFFF00B17B
+          431EB98652FFFEFCF9FFF9DCBFFFF8DBBFFFF8DCC0FFF9DBC2FFF9DCC1FFF9DD
+          C2FFACBA9AFF609873FF4F8E66FF458458FE2E78497CFFFFFF00FFFFFF00B782
+          4709B9854BFFFEFBF7FFF9DCC1FFF8DCBFFFF8DCBFFFF8DBC0FFF9DDC0FFF9DD
+          C0FFF9DDC3FFFBE2CBFFFCF9F5FFB78247FBB7824701FFFFFF00FFFFFF00FFFF
+          FF00BD884BF9FCF6F0FFF9DFC7FFF9DCBDFFFADCBFFFFADBC1FFFADDC3FFFADD
+          C2FFF9DDC4FFFBE0C9FFFFFCFAFFC18D53FFBD884B0FFFFFFF00FFFFFF00FFFF
+          FF00C48E4EDAF5E7D8FFFAE5D2FFF9DABCFFF9DBBCFFFADBBFFFFADDC1FFFADD
+          C1FFF9DDC4FFFBE1C8FFFFFDFBFFC89457FFC48E4E12FFFFFF00FFFFFF00FFFF
+          FF00CA9452BBF0D9C1FFFBEDE1FFF9DAC0FFF9DCC2FFF9DEC5FFFAE0C7FFFAE2
+          CAFFFAE2CDFFFAE5D0FFFFFEFDFFCB8F5AFFCA9452F1CA945245FFFFFF00FFFF
+          FF00D09A55A4EDD0B2FFFFF6F0FFFAE1CAFFFBE3CCFFFBE3D0FFFBE6D3FFFBE9
+          D5FFFCE9D8FFFCEADBFFFFFFFDFFD29D71FFEED9C1FFD09A55E5FFFFFF00FFFF
+          FF00D59F5892EBCAA5FFFFFDFBFFFDE9D5FFFDEBD8FFFDEADBFFFDEDDFFFFDF0
+          E2FFFDF1E4FFFCF0E4FFFFFFFFFFE0A070FFFFFBF9FFDFB887FFFFFFFF00FFFF
+          FF00DAA45B84EBC69AFFFFFFFFFFFCEFE2FFFDF0E7FFFDF1EBFFFDF5EEFFFDF8
+          F1FFFDFAF7FFFFFCFAFFFFFFFFFFFEFBF7FFF4DAC0FFDAA45BEAFFFFFF00FFFF
+          FF00DEA85D6DEAC08CFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDF9F4FFFBF3
+          EAFFF8EBD9FFF8E6D3FFF5DFC6FFE9CBA6FFDEA85DEDDEA85D5DFFFFFF00FFFF
+          FF00E2AC5F36E2AC5FC6EABC81FFE8B777FFE6B26DFFE4B068FFE2AC5FF0E2AC
+          5FE3E2AC5FCFE2AC5FCCE2AC5FBBE2AC5FA8E2AC5F4BE2AC5F05
+        }
+        OnClick = BitBtn2Click
+        TabOrder = 1
+      end
+      object BitBtn3: TBitBtn
+        Left = 48
+        Height = 40
+        Top = 181
+        Width = 224
+        Anchors = [akTop, akLeft, akRight]
+        Caption = 'Quitar de prefactura existente'
+        Glyph.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000905B3114905B
+          3184905B31A3905B31B6905B31C9905B31DA905B31EB905B31FA956139FF9A69
+          41FF646686FF184DAEFF0542BBFF0746B5E90345B87AFFFFFF00945F3368B890
+          6DFFD6BAA3FFDFC6B3FFE7D4C3FFEEDFD3FFF5EAE2FFFBF4EFFFFDFAF6FF8CAA
+          E0FF2866C9FF2177E6FF0579EAFF0164DDFF044DBDFC0345B87A99643689C7A4
+          85FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFCFFFEFBF7FFFEF7F1FF1F58
+          BFFF639DF4FF187FFFFF0076F8FF0076EEFF0368E1FF0345B9E49E6939579E69
+          39F6B48559FFD9A57BFFD89E6FFFD79B6AFFD89663FFD6925DFFD48F59FF0542
+          BCFFAECDFEFFFFFFFFFFFFFFFFFFFFFFFFFF187FEFFF0442BCFEA46F3C14A46F
+          3CABD5AE8CFFFDF0E5FFF7C7A2FFF7CFADFFF9D5B5FFF8DABDFFF8DEC2FF2459
+          BBFF8DB5F6FF4D92FFFF1177FFFF2186FFFF408AEBFF0344B9DEFFFFFF00AA75
+          4028B78656FFFEFEFDFFFADEC2FFFADCBFFFF9DBC0FFF9DBC0FFF9DDC1FF939D
+          C2FF3D75D1FF8DB5F7FFB8D6FEFF72A8F5FF2D6BCBFC0443BA6DFFFFFF00B17B
+          431EB98652FFFEFCF9FFF9DCBFFFF8DBBFFFF8DCC0FFF9DBC2FFF9DCC1FFF9DD
+          C2FF929EC3FF2A5FC2FF0543BCFF154BADFC0345B978FFFFFF00FFFFFF00B782
+          4709B9854BFFFEFBF7FFF9DCC1FFF8DCBFFFF8DCBFFFF8DBC0FFF9DDC0FFF9DD
+          C0FFF9DDC3FFFBE2CBFFFCF9F5FFB78247FBB7824701FFFFFF00FFFFFF00FFFF
+          FF00BD884BF9FCF6F0FFF9DFC7FFF9DCBDFFFADCBFFFFADBC1FFFADDC3FFFADD
+          C2FFF9DDC4FFFBE0C9FFFFFCFAFFC18D53FFBD884B0FFFFFFF00FFFFFF00FFFF
+          FF00C48E4EDAF5E7D8FFFAE5D2FFF9DABCFFF9DBBCFFFADBBFFFFADDC1FFFADD
+          C1FFF9DDC4FFFBE1C8FFFFFDFBFFC89457FFC48E4E12FFFFFF00FFFFFF00FFFF
+          FF00CA9452BBF0D9C1FFFBEDE1FFF9DAC0FFF9DCC2FFF9DEC5FFFAE0C7FFFAE2
+          CAFFFAE2CDFFFAE5D0FFFFFEFDFFCB8F5AFFCA9452F1CA945245FFFFFF00FFFF
+          FF00D09A55A4EDD0B2FFFFF6F0FFFAE1CAFFFBE3CCFFFBE3D0FFFBE6D3FFFBE9
+          D5FFFCE9D8FFFCEADBFFFFFFFDFFD29D71FFEED9C1FFD09A55E5FFFFFF00FFFF
+          FF00D59F5892EBCAA5FFFFFDFBFFFDE9D5FFFDEBD8FFFDEADBFFFDEDDFFFFDF0
+          E2FFFDF1E4FFFCF0E4FFFFFFFFFFE0A070FFFFFBF9FFDFB887FFFFFFFF00FFFF
+          FF00DAA45B84EBC69AFFFFFFFFFFFCEFE2FFFDF0E7FFFDF1EBFFFDF5EEFFFDF8
+          F1FFFDFAF7FFFFFCFAFFFFFFFFFFFEFBF7FFF4DAC0FFDAA45BEAFFFFFF00FFFF
+          FF00DEA85D6DEAC08CFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDF9F4FFFBF3
+          EAFFF8EBD9FFF8E6D3FFF5DFC6FFE9CBA6FFDEA85DEDDEA85D5DFFFFFF00FFFF
+          FF00E2AC5F36E2AC5FC6EABC81FFE8B777FFE6B26DFFE4B068FFE2AC5FF0E2AC
+          5FE3E2AC5FCFE2AC5FCCE2AC5FBBE2AC5FA8E2AC5F4BE2AC5F05
+        }
+        OnClick = BitBtn3Click
+        TabOrder = 2
+      end
+    end
+    object Panel8: TPanel
+      Left = 1
+      Height = 244
+      Top = 51
+      Width = 341
+      Align = alClient
+      ClientHeight = 244
+      ClientWidth = 341
+      TabOrder = 2
+      object Label9: TLabel
+        Left = 1
+        Height = 16
+        Top = 1
+        Width = 339
+        Align = alTop
+        Caption = '  Asignar a prefactura existente'
+        ParentColor = False
+      end
+      object DBGrid1: TDBGrid
+        Left = 1
+        Height = 226
+        Top = 17
+        Width = 339
+        Align = alClient
+        AutoFillColumns = True
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Alignment = taCenter
+            Title.Caption = 'Nro Prefactura'
+            Width = 169
+            FieldName = 'NROPREFACTURA'
+          end        
+          item
+            Title.Alignment = taCenter
+            Title.Caption = 'Monto Total'
+            Width = 169
+            FieldName = 'TOTAL'
+            DisplayFormat = '$ ############0.00'
+          end>
+        DataSource = ds_PrefacturasExistentes
+        FixedCols = 0
+        Flat = True
+        Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+        Scrollbars = ssAutoVertical
+        TabOrder = 0
+        TitleFont.CharSet = ANSI_CHARSET
+        TitleFont.Color = clBlack
+        TitleFont.Height = -13
+        TitleFont.Name = 'Arial'
+        TitleFont.Pitch = fpVariable
+        TitleFont.Quality = fqDraft
+      end
+    end
+  end
+  object Panel5: TPanel
+    Left = 0
+    Height = 296
+    Top = 184
+    Width = 266
+    Align = alLeft
+    ClientHeight = 296
+    ClientWidth = 266
+    TabOrder = 4
+    object DBRadioGroup1: TDBRadioGroup
+      Left = 40
+      Height = 208
+      Top = 40
+      Width = 189
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = 'Estados'
+      DataField = 'refEstado'
+      DataSource = ds_prefacturacion
+      Items.Strings = (
+        'Para Facturar'
+        'Prefacturado'
+        'Facturado'
+      )
+      TabOrder = 0
+      Values.Strings = (
+        '0'
+        '1'
+        '2'
+      )
+    end
+  end
+  object ds_prefacturacion: TDatasource
+    DataSet = DM_Prefacturacion.Prefacturacion
+    left = 656
+    top = 56
+  end
+  object ds_PrefacturasExistentes: TDatasource
+    DataSet = DM_Prefacturacion.qPrefacturasExistentes
+    left = 768
+    top = 56
+  end
+end
