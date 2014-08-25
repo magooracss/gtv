@@ -2,8 +2,8 @@ object DM_Prefacturacion: TDM_Prefacturacion
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 507
-  HorizontalOffset = 117
-  VerticalOffset = 143
+  HorizontalOffset = 122
+  VerticalOffset = 144
   Width = 771
   object Prefacturacion: TRxMemoryData
     FieldDefs = <    

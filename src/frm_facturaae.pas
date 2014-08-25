@@ -153,10 +153,10 @@ begin
   end
   else
   begin
-   DM_Facturas.LevantarFacturaID (factura_id);
-   edCliente.Text:= DM_Clientes.ClienteNombre(DM_Facturas.FacturasclienteEmpresa_id.AsString);
-   edTotalFactura.Text:= FormatFloat('$#########0.00', DM_Facturas.totalFacturado);
-   cbTipoFactura.ItemIndex:= DM_General.obtenerIdxCombo(cbTipoFactura, DM_Facturas.FacturastipoFactura_id.AsInteger);
+//   DM_Facturas.LevantarFacturaID (factura_id);
+//   edCliente.Text:= DM_Clientes.ClienteNombre(DM_Facturas.FacturasclienteEmpresa_id.AsString);
+//   edTotalFactura.Text:= FormatFloat('$#########0.00', DM_Facturas.totalFacturado);
+//   cbTipoFactura.ItemIndex:= DM_General.obtenerIdxCombo(cbTipoFactura, DM_Facturas.FacturastipoFactura_id.AsInteger);
   end;
 
 end;
@@ -223,7 +223,7 @@ procedure TfrmFacturaAE.btnVincularRemitoClick(Sender: TObject);
     pantSel: TfrmRemitosListado;
   begin
     pantSel:= TfrmRemitosListado.Create(self);
-    pantSel.idCliente:= DM_Facturas.FacturasclienteEmpresa_id.AsString;
+//    pantSel.idCliente:= DM_Facturas.FacturasclienteEmpresa_id.AsString;
     try
       if pantSel.ShowModal = mrOK then
       begin

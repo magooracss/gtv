@@ -237,9 +237,6 @@ object frmPrincipal: TfrmPrincipal
         object MenuItem35: TMenuItem
           Action = ingFacturas
         end
-        object MenuItem38: TMenuItem
-          Action = ingAbonos
-        end
       end
       object MenuItem33: TMenuItem
         Caption = '-'

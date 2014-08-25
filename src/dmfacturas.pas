@@ -22,6 +22,17 @@ const
   FACTURA_ESTADO_FACTURADA = 2;
 
 
+  TD_LIBRE = 0; //Tipo de documento libre
+  TD_REMITO = 1; //Tipo de documento remito
+  TD_PRESUPUESTO = 2; //Tipo de documento presupuesto
+
+  EP_NULO = -1; //Estado nulo
+  EP_PARAFACTURAR = 0;//Estado prefacturacion: Para facturar: No esta prefacturado
+  EP_PREFACTURADO = 1;//Estado Prefacturacion: Ya paso por la prefacturacion y tiene Nro
+  EP_FACTURADO = 2;  //Estado Prefacturacion: Ya tiene asociada una factura legal
+
+  CAE_NULO = '00000000000000';
+
 type
 
   { TDM_Facturas }
@@ -33,40 +44,145 @@ type
     CondFiscalIDCOMPRRECIBE: TLongintField;
     CondFiscalIDCONDICIONFISCAL: TStringField;
     CondFiscalIDIDCONDICIONFISCAL: TLongintField;
-    FacturasImpImpuestos: TFloatField;
-    FacturasimpIVA: TFloatField;
-    FacturasimpNeto: TFloatField;
-    FacturasObservaciones: TStringField;
-    facturasSELIMPIMPUESTOS: TFloatField;
-    facturasSELIMPIVA: TFloatField;
-    facturasSELIMPNETO: TFloatField;
-    qLevantarAbonos: TZQuery;
-    FacturaItemsCantidad: TFloatField;
-    facturaItemsINS: TZQuery;
-    facturaItemsSEL: TZQuery;
-    facturaItemsSELCANTIDAD: TFloatField;
-    facturaItemsSELDETALLE: TStringField;
-    facturaItemsSELFACTURA_ID: TStringField;
-    facturaItemsSELID: TStringField;
-    facturaItemsSELMONTO: TFloatField;
-    facturaItemsSELPRECIOUNITARIO: TFloatField;
-    facturasSELCLIENTEEMPRESA_ID: TStringField;
-    facturasSELCONDICIONVENTA_ID: TLongintField;
-    facturasSELESTADO_ID: TLongintField;
-    facturasSELFANULACION: TDateField;
-    facturasSELFECHA: TDateField;
+    FacturasDocumentosCodigoClientePresupuesto: TStringField;
+    FacturasDocumentosCodigoClienteRemito: TStringField;
+    FacturasDocumentosidClientePresupuesto: TStringField;
+    FacturasDocumentosidClienteRemito: TStringField;
+    FacturasDocumentoslxDetalle: TStringField;
+    FacturasDocumentosNombreClientePresupuesto: TStringField;
+    FacturasDocumentosNombreClienteRemito: TStringField;
+    FacturasDocumentosNroPresupuesto: TLongintField;
+    FacturasDocumentosRemitoNro: TLongintField;
+    qPresupuestosSinPF: TZQuery;
+    qPresupuestosSinPFBACEPTADO: TSmallintField;
+    qPresupuestosSinPFBVISIBLE: TLongintField;
+    qPresupuestosSinPFBVISIBLE_1: TSmallintField;
+    qPresupuestosSinPFCRECEPCIONO: TStringField;
+    qPresupuestosSinPFFCAMBIOESTADO: TDateField;
+    qPresupuestosSinPFFEMISION: TDateField;
+    qPresupuestosSinPFFPAGO: TDateField;
+    qPresupuestosSinPFFVENCIMIENTO: TDateField;
+    qPresupuestosSinPFIDCUOTAPRESUPUESTO: TStringField;
+    qPresupuestosSinPFIDPRESUPUESTO: TStringField;
+    qPresupuestosSinPFNMONTO: TFloatField;
+    qPresupuestosSinPFNNROCUOTA: TLongintField;
+    qPresupuestosSinPFNPRESUPUESTO: TLongintField;
+    qPresupuestosSinPFREFCLIENTE: TStringField;
+    qPresupuestosSinPFREFEMPLEADO: TLongintField;
+    qPresupuestosSinPFREFESTADO: TLongintField;
+    qPresupuestosSinPFREFESTADO_1: TLongintField;
+    qPresupuestosSinPFREFPRESUPUESTO: TStringField;
+    qPresupuestosSinPFREFTIPO: TLongintField;
+    qPresupuestosSinPFTXDOCUMENTO: TBlobField;
+    qPresupuestosSinPFTXMOTIVO: TStringField;
+    qPresupuestosSinPFTXOBSERVACIONES: TStringField;
+    qRemitosSinPF: TZQuery;
+    qRemitosSinPFBFACTURADO: TSmallintField;
+    qRemitosSinPFBFACTURAR: TSmallintField;
+    qRemitosSinPFBPRESENTADO: TSmallintField;
+    qRemitosSinPFBSINCARGO: TSmallintField;
+    qRemitosSinPFBVISIBLE: TSmallintField;
+    qRemitosSinPFFFECHA: TDateField;
+    qRemitosSinPFIDREMITO: TStringField;
+    qRemitosSinPFNREMITO: TLongintField;
+    qRemitosSinPFREFCLIENTE: TStringField;
+    qRemitosSinPFREFFACTURA: TStringField;
+    qRemitosSinPFREFMOTIVO: TLongintField;
+    qRemitosSinPFREFORDENTRABAJO: TStringField;
+    qRemitosSinPFTXDETALLES: TStringField;
+    qTodosLosDocumentos: TZQuery;
+    DocumentosPorFacturaDOCUMENTO_ID: TStringField;
+    DocumentosPorFacturaFACTURA_ID: TStringField;
+    DocumentosPorFacturaID: TStringField;
+    DocumentosPorFacturaREFESTADO: TSmallintField;
+    DocumentosPorFacturaTIPODOCUMENTO: TSmallintField;
+    facturasDocSELDOCUMENTO_ID: TStringField;
+    facturasDocSELFACTURA_ID: TStringField;
+    facturasDocSELID: TStringField;
+    facturasDocSELREFESTADO: TSmallintField;
+    facturasDocSELTIPODOCUMENTO: TSmallintField;
+    FacturasDocumentos: TRxMemoryData;
+    FacturasItemsCantidad: TFloatField;
+    facturasDocDEL: TZQuery;
+    FacturasItemsDetalle: TStringField;
+    FacturasItemsfactura_id: TStringField;
+    FacturasItemsid: TStringField;
+    FacturasItemsPorcentajeIVA: TFloatField;
+    FacturasItemsPrecioTotal: TFloatField;
+    FacturasItemsPrecioUnitario: TFloatField;
+    FacturasCabecerabProducto: TLongintField;
+    FacturasCabecerabServicio: TLongintField;
+    FacturasCabeceraCAE: TStringField;
+    FacturasCabeceracliente_id: TStringField;
+    FacturasCabeceraestado_id: TLongintField;
+    FacturasCabecerafechaFactura: TDateTimeField;
+    FacturasCabecerafechaPrefactura: TDateTimeField;
+    FacturasCabeceraid: TStringField;
+    FacturasCabeceraimporteIVA: TFloatField;
+    FacturasCabeceraimporteNeto: TFloatField;
+    FacturasCabeceralxEstado: TStringField;
+    FacturasCabeceranroFactura: TLongintField;
+    FacturasCabeceranroPrefactura: TLongintField;
+    FacturasCabeceranroPtoVenta: TLongintField;
+    FacturasCabeceraPeriodoFin: TDateTimeField;
+    FacturasCabeceraPeriodoIni: TDateTimeField;
+    FacturasCabecerarefComprobante: TLongintField;
+    FacturasCabecerarefFormaPago: TLongintField;
+    FacturasCabeceravtoCAE: TDateTimeField;
+    FacturasCabeceravtoPago: TDateTimeField;
+    FacturasDocumentosdocumento_id: TStringField;
+    FacturasDocumentosfactura_id: TStringField;
+    FacturasDocumentosid: TStringField;
+    FacturasDocumentoslxCliente: TStringField;
+    FacturasDocumentoslxCodigo: TStringField;
+    FacturasDocumentoslxDocumento: TStringField;
+    FacturasDocumentoslxEstado: TStringField;
+    FacturasDocumentoslxFecha: TDateTimeField;
+    FacturasDocumentoslxNroDocumento: TLongintField;
+    FacturasDocumentosrefEstado: TLongintField;
+    FacturasDocumentostipoDocumento: TLongintField;
+    facturasDocINS: TZQuery;
+    facturasDocSEL: TZQuery;
+    facturasItemsSELCANTIDAD: TFloatField;
+    facturasItemsSELDETALLE: TStringField;
+    facturasItemsSELFACTURA_ID: TStringField;
+    facturasItemsSELID: TStringField;
+    facturasItemsSELPORCENTAJEIVA: TFloatField;
+    facturasItemsSELPRECIOTOTAL: TFloatField;
+    facturasItemsSELPRECIOUNITARIO: TFloatField;
+    facturasDocUPD: TZQuery;
+    facturasSELBPRODUCTO: TSmallintField;
+    facturasSELBSERVICIO: TSmallintField;
+    facturasSELBVISIBLE: TSmallintField;
+    facturasSELCAE: TStringField;
+    facturasSELCLIENTE_ID: TStringField;
+    facturasSELESTADO_ID: TSmallintField;
+    facturasSELFECHAFACTURA: TDateField;
+    facturasSELFECHAPREFACTURA: TDateField;
     facturasSELID: TStringField;
+    facturasSELIMPORTEIVA: TFloatField;
+    facturasSELIMPORTENETO: TFloatField;
     facturasSELNROFACTURA: TLongintField;
-    facturasSELNROPTOVENTA: TLongintField;
-    facturasSELOBSERVACIONES: TStringField;
-    facturasSELTIPOFACTURA_ID: TLongintField;
-    ItemsPorFactura: TZQuery;
+    facturasSELNROPREFACTURA: TLongintField;
+    facturasSELPERIODOFIN: TDateField;
+    facturasSELPERIODOINI: TDateField;
+    facturasSELPTOVENTA: TLongintField;
+    facturasSELREFFORMAPAGO: TLongintField;
+    facturasSELREFTIPOCOMPROBANTE: TLongintField;
+    facturasSELVTOCAE: TDateField;
+    facturasSELVTOPAGO: TDateField;
+    DocumentosPorFactura: TZQuery;
     ItemsPorFacturaCANTIDAD: TFloatField;
     ItemsPorFacturaDETALLE: TStringField;
     ItemsPorFacturaFACTURA_ID: TStringField;
     ItemsPorFacturaID: TStringField;
-    ItemsPorFacturaMONTO: TFloatField;
+    ItemsPorFacturaPORCENTAJEIVA: TFloatField;
+    ItemsPorFacturaPRECIOTOTAL: TFloatField;
     ItemsPorFacturaPRECIOUNITARIO: TFloatField;
+    qLevantarAbonos: TZQuery;
+    facturasItemsINS: TZQuery;
+    facturasItemsSEL: TZQuery;
+    ItemsPorFactura: TZQuery;
     qGrupoFacturacion: TZQuery;
     qGrupoFacturacionBVISIBLE: TSmallintField;
     qGrupoFacturacionDIAFACTURACION: TLongintField;
@@ -120,7 +236,25 @@ type
     qListaFacturasNROFACTURA: TLongintField;
     qListaFacturasNROPTOVENTA: TLongintField;
     qListaFacturasTOTALFACTURA: TFloatField;
-    facturaItemsUPD: TZQuery;
+    facturasItemsUPD: TZQuery;
+    qTodosLosDocumentosCODIGOCLIENTEPRESUPUESTO: TStringField;
+    qTodosLosDocumentosCODIGOCLIENTEREMITO: TStringField;
+    qTodosLosDocumentosDOCUMENTO_ID: TStringField;
+    qTodosLosDocumentosFACTURA_ID: TStringField;
+    qTodosLosDocumentosID: TStringField;
+    qTodosLosDocumentosIDCLIENTEPRESUPUESTO: TStringField;
+    qTodosLosDocumentosIDCLIENTEREMITO: TStringField;
+    qTodosLosDocumentosNOMBRECLIENTEPRESUPUESTO: TStringField;
+    qTodosLosDocumentosNOMBRECLIENTEREMITO: TStringField;
+    qTodosLosDocumentosNROPRESUPUESTO: TLongintField;
+    qTodosLosDocumentosPRESUPUESTOCUOTA: TLongintField;
+    qTodosLosDocumentosPRESUPUESTOMONTO: TFloatField;
+    qTodosLosDocumentosPRESUPUESTOVENCIMIENTO: TDateField;
+    qTodosLosDocumentosREFESTADO: TSmallintField;
+    qTodosLosDocumentosREMITODETALLES: TStringField;
+    qTodosLosDocumentosREMITOFECHA: TDateField;
+    qTodosLosDocumentosREMITONRO: TLongintField;
+    qTodosLosDocumentosTIPODOCUMENTO: TSmallintField;
     ReciboFacturaSELFACTURA_ID: TStringField;
     ReciboFacturaSELID: TStringField;
     ReciboFacturaSELRECIBO_ID: TStringField;
@@ -131,11 +265,6 @@ type
     RecibosPorFacturaRECIBO_ID: TStringField;
     remitoFactura: TRxMemoryData;
     ReciboFacturaDel: TZQuery;
-    FacturaItemsDetalle: TStringField;
-    FacturaItemsfactura_id: TStringField;
-    FacturaItemsid: TStringField;
-    FacturaItemsMonto: TFloatField;
-    FacturaItemsPrecioUnitario: TFloatField;
     facturaPorId: TZQuery;
     CondicionFiscalBVISIBLE: TSmallintField;
     CondicionFiscalGENERADOR: TStringField;
@@ -145,21 +274,11 @@ type
     facturaPorIdGENERADOR: TStringField;
     facturaPorIdID: TLongintField;
     facturaPorIdLETRA: TStringField;
-    FacturaItems: TRxMemoryData;
-    FacturasCondicionVenta_id: TLongintField;
-    FacturastipoFactura_id: TLongintField;
+    FacturasItems: TRxMemoryData;
     nroFactura: TZQuery;
-    FacturasclienteEmpresa_id: TStringField;
-    Facturasestado_id: TLongintField;
-    FacturasfAnulacion: TDateTimeField;
-    FacturasFecha: TDateTimeField;
-    Facturasid: TStringField;
-    FacturaslxEstado: TStringField;
-    FacturasnroFactura: TLongintField;
-    FacturasnroPtoVenta: TLongintField;
     nroFacturaNRO: TLargeintField;
     qListaFacturas: TZQuery;
-    Facturas: TRxMemoryData;
+    FacturasCabecera: TRxMemoryData;
     RemitoFacturaDel: TZQuery;
     reciboFacturafactura_id: TStringField;
     reciboFacturaFecha: TDateField;
@@ -207,15 +326,17 @@ type
     RemitosPorFacturaREMITO_ID: TStringField;
     RemitosPorFacturaTXDETALLES: TStringField;
     procedure DataModuleCreate(Sender: TObject);
-    procedure FacturaItemsAfterInsert(DataSet: TDataSet);
-    procedure FacturasAfterInsert(DataSet: TDataSet);
+    procedure FacturasItemsAfterInsert(DataSet: TDataSet);
+    procedure FacturasCabeceraAfterInsert(DataSet: TDataSet);
     procedure reciboFacturaAfterInsert(DataSet: TDataSet);
     procedure remitoFacturaAfterInsert(DataSet: TDataSet);
   private
     function getIdFacturaListado: GUID_ID;
     procedure setLetraFactura(AValue: integer);
     procedure MarcaRemitoFacturado (remito_id: GUID_ID; marca: integer);
-    { private declarations }
+
+    procedure AjustarTablaMemoria;
+
   public
     property idFacturaListado: GUID_ID read getIdFacturaListado;
     property LetraFactura: integer write setLetraFactura;
@@ -251,6 +372,12 @@ type
 
     procedure prefacturarGrupo (gf_id: integer);
     function CambiarEstadoFactura (factura_id: GUID_ID): boolean;
+
+
+    (****************   PREFACTURACION   *******************************)
+    procedure LevantarDocumentos (documento, estado: integer; idCliente: GUID_ID);
+    procedure levantarDocumentosSinPrefacturar;
+
   end;
 
 var
@@ -261,43 +388,60 @@ implementation
 uses
   SD_Configuracion
   , dmremitos
+  , dmclientes
+  , dateutils
   ;
 
 { TDM_Facturas }
 
 procedure TDM_Facturas.DataModuleCreate(Sender: TObject);
 begin
-
+  FacturasDocumentos.Open;
 end;
 
-procedure TDM_Facturas.FacturaItemsAfterInsert(DataSet: TDataSet);
+procedure TDM_Facturas.FacturasItemsAfterInsert(DataSet: TDataSet);
 begin
   With DataSet do
   begin
-    FieldByName('id').asString:= DM_General.CrearGUID;
-    FieldByName('cantidad').AsFloat:= 1;
-    FieldByName('Detalle').AsString:= EmptyStr;
-    FieldByName('PrecioUnitario').AsFloat:=0;
-    FieldByName('Monto').AsFloat:=0;
-    FieldByName('Factura_id').AsString:= Facturasid.asString;
+//    FieldByName('id').asString:= DM_General.CrearGUID;
+//    FieldByName('Factura_id').AsString:= FacturasCabeceraid.AsString;
+//    FieldByName('cantidad').AsFloat:= 1;
+///    FieldByName('Detalle').AsString:= EmptyStr;
+//    FieldByName('PrecioUnitario').AsFloat:=0;
+//    FieldByName('PrecioTotal').AsFloat:=0;
+//    FieldByName('PorcentajeIVA').AsFloat:=0;
   end;
 end;
 
-procedure TDM_Facturas.FacturasAfterInsert(DataSet: TDataSet);
+procedure TDM_Facturas.FacturasCabeceraAfterInsert(DataSet: TDataSet);
 begin
   with DataSet do
   begin
     FieldByName('id').AsString:= DM_General.CrearGUID;
-    FieldByName('Fecha').AsDateTime:= Now;
-    FieldByName('nroPtoVenta').asInteger:= 0;
-    FieldByName('nroFactura').asInteger:= 0;
-    FieldByName('tipoFactura_id').AsInteger:=0;
-    FieldByName('clienteEmpresa_id').asString:= GUIDNULO;
-    FieldByName('CondicionVenta_id').AsInteger:=0;
-    FieldByName('Observaciones').asString:= '----';
-    FieldByName('fAnulacion').AsDateTime:= 0;
-    FieldByName('estado_id').asInteger:= 1;
+    FieldByName('cliente_id').asString:= GUIDNULO;
+    FieldByName('fechaPrefactura').AsDateTime:= Now;
+    FieldByName('nroPreFactura').asInteger:= -1;
+    FieldByName('refTipoComprobante').asInteger:= 0;
+    FieldByName('PtoVenta').asInteger:= 0;
+    FieldByName('nroFactura').asInteger:= -1;
+    FieldByName('fechaFactura').AsDateTime:= Now;
+    FieldByName('bProducto').AsInteger:= 0;
+    FieldByName('bServicio').AsInteger:= 0;
+    FieldByName('periodoIni').AsDateTime:= Now;
+    FieldByName('periodoFin').AsDateTime:= Now;
+    FieldByName('refFormaPago').asInteger:= 0;
+    FieldByName('vtoPago').AsDateTime:= Now;
+    FieldByName('CAE').asString:= CAE_NULO;
+    FieldByName('vtoCAE').AsDateTime:= Now;
+    FieldByName('ImporteNeto').asFloat:= 0;
+    FieldByName('ImporteIVA').asFloat:= 0;
+    FieldByName('estado_id').AsInteger:= 0;
+    FieldByName('bVisible').AsInteger:= 1;
     FieldByName('lxEstado').asString:= EmptyStr;
+    FieldByName('lxCodigo').asString:= EmptyStr;
+    FieldByName('lxNroDocumento').asString:= EmptyStr;
+    FieldByName('lxFecha').AsDateTime:= now;
+    FieldByName('lxCliente').asString:= EmptyStr;
   end;
 end;
 
@@ -306,7 +450,7 @@ begin
   with DataSet do
   begin
     FieldByName('id').asString:= DM_General.CrearGUID;
-    FieldByName('factura_id').asString:= Facturasid.AsString;
+//    FieldByName('factura_id').asString:= Facturasid.AsString;
     FieldByName('recibo_id').asString:= GUIDNULO;
   end;
 end;
@@ -316,7 +460,7 @@ begin
   with DataSet do
   begin
     FieldByName('id').asString:= DM_General.CrearGUID;
-    FieldByName('factura_id').asString:= Facturasid.AsString;
+//    FieldByName('factura_id').asString:= Facturasid.AsString;
     FieldByName('remito_id').asString:= GUIDNULO;
   end;
 end;
@@ -331,10 +475,10 @@ end;
 
 procedure TDM_Facturas.setLetraFactura(AValue: integer);
 begin
-  with Facturas do
+  with FacturasCabecera do
   begin
     Edit;
-    FacturastipoFactura_id.AsInteger:= AValue;
+//    FacturastipoFactura_id.AsInteger:= AValue;
     Post;
   end;
 end;
@@ -374,34 +518,34 @@ end;
 
 procedure TDM_Facturas.CargarCliente(idCliente: GUID_ID);
 begin
-  with Facturas do
+  with FacturasCabecera do
   begin
     Edit;
-    FacturasclienteEmpresa_id.AsString:= idCliente;
+//    FacturasclienteEmpresa_id.AsString:= idCliente;
     Post;
   end;
 end;
 
 procedure TDM_Facturas.NuevaFactura;
 begin
-  DM_General.ReiniciarTabla(Facturas);
-  DM_General.ReiniciarTabla(FacturaItems);
+  DM_General.ReiniciarTabla(FacturasCabecera);
+  DM_General.ReiniciarTabla(FacturasItems);
   DM_General.ReiniciarTabla(reciboFactura);
   DM_General.ReiniciarTabla(remitoFactura);
-  Facturas.Insert;
+  FacturasCabecera.Insert;
 end;
 
 procedure TDM_Facturas.LevantarFacturaID(factura_id: GUID_ID);
 begin
-  DM_General.ReiniciarTabla(Facturas);
-  DM_General.ReiniciarTabla(FacturaItems);
+  DM_General.ReiniciarTabla(FacturasCabecera);
+  DM_General.ReiniciarTabla(FacturasItems);
 
   with facturasSEL do
   begin
     if active then close;
     ParamByName('id').asString:= factura_id;
     Open;
-    Facturas.LoadFromDataSet(facturasSEL,0, lmAppend);
+    FacturasCabecera.LoadFromDataSet(facturasSEL,0, lmAppend);
     Close;
   end;
 
@@ -410,7 +554,7 @@ begin
     if active then close;
     ParamByName('factura_id').asString:= factura_id;
     Open;
-    FacturaItems.LoadFromDataSet(ItemsPorFactura,0, lmAppend);
+    FacturasItems.LoadFromDataSet(ItemsPorFactura,0, lmAppend);
     Close;
   end;
 
@@ -459,55 +603,55 @@ begin
     nroFact:= nroFacturaNRO.AsInteger;
   end;
 
-  with Facturas do
+  with FacturasCabecera do
   begin
     Edit;
-    FacturastipoFactura_id.AsInteger:= FACTURA_T;
-    FacturasnroPtoVenta.asInteger:= PtoVenta;
-    FacturasnroFactura.asInteger:= nroFact;
+//    FacturastipoFactura_id.AsInteger:= FACTURA_T;
+//    FacturasnroPtoVenta.asInteger:= PtoVenta;
+//    FacturasnroFactura.asInteger:= nroFact;
     Post;
   end;
 end;
 
 procedure TDM_Facturas.NuevoItem;
 begin
-  if NOT FacturaItems.Active then FacturaItems.Open;
-  FacturaItems.Insert;
+  if NOT FacturasItems.Active then FacturasItems.Open;
+  FacturasItems.Insert;
 end;
 
 procedure TDM_Facturas.AgregarDatosItems(cantidad: Double; detalle: string;
   valorUnitario: Double);
 begin
-  with FacturaItems do
+  with FacturasItems do
   begin
-    FacturaItemsCantidad.AsFloat:= cantidad;
-    FacturaItemsDetalle.AsString:= detalle;
-    FacturaItemsPrecioUnitario.AsFloat:= valorUnitario;
-    FacturaItemsMonto.AsFloat:= valorUnitario * cantidad;
+//    FacturasItemsCantidad.AsFloat:= cantidad;
+//    FacturasItemsDetalle.AsString:= detalle;
+//    FacturasItemsPrecioUnitario.AsFloat:= valorUnitario;
+//    FacturaItemsMonto.AsFloat:= valorUnitario * cantidad;
     Post;
   end;
 end;
 
 procedure TDM_Facturas.EliminarItem;
 begin
-   facturaItemsDEL.ParamByName('id').AsString:= FacturaItemsid.AsString;
+   facturaItemsDEL.ParamByName('id').AsString:= FacturasItemsid.AsString;
    FacturaItemsDEL.ExecSQL;
 
-   FacturaItems.Delete;
+   FacturasItems.Delete;
 end;
 
 function TDM_Facturas.TotalFacturado: Double;
 var
   accum: Double;
 begin
-  with FacturaItems do
+  with FacturasItems do
   begin
     DisableControls;
     First;
     accum:= 0;
     While Not Eof do
     begin
-      accum:= accum + FacturaItemsMonto.AsFloat;
+//      accum:= accum + FacturaItemsMonto.AsFloat;
       Next;
     end;
     EnableControls;
@@ -517,8 +661,8 @@ end;
 
 procedure TDM_Facturas.GrabarFactura;
 begin
-  DM_General.GrabarDatos(facturasSEL, facturasINS, FacturasUPD, Facturas, 'id');
-  DM_General.GrabarDatos(facturaItemsSEL, facturaItemsINS, facturaItemsUPD, FacturaItems, 'id');
+  DM_General.GrabarDatos(facturasSEL, facturasINS, FacturasUPD, FacturasCabecera, 'id');
+  DM_General.GrabarDatos(facturasItemsSEL, facturasItemsINS, facturasItemsUPD, FacturasItems, 'id');
 end;
 
 procedure TDM_Facturas.AnularFactura(factura_id: string);
@@ -540,7 +684,7 @@ begin
     reciboFacturarecibo_id.asString:= recibo_id;
     Post;
     GrabarReciboFactura;
-    LevantarRecibos(Facturasid.AsString);
+//8    LevantarRecibos(Facturasid.AsString);
   end;
 end;
 
@@ -597,7 +741,7 @@ begin
     Post;
     MarcaRemitoFacturado(remito_id, 1);
     GrabarRemitoFactura;
-    LevantarRemitos (Facturasid.AsString);
+//    LevantarRemitos (Facturasid.AsString);
   end;
 end;
 
@@ -684,19 +828,180 @@ begin
   Result:= false;
   estadoNuevo:= 0;
   LevantarFacturaID(factura_id);
-  if Facturasestado_id.AsInteger = 1 then
+//  if Facturasestado_id.AsInteger = 1 then
     estadoNuevo := 4;
-  if Facturasestado_id.AsInteger = 4 then
+//  if Facturasestado_id.AsInteger = 4 then
     estadoNuevo:= 1;
   if estadoNuevo > 0 then
   begin
     Result:= true;
-    Facturas.Edit;
-    Facturasestado_id.AsInteger:= estadoNuevo;
-    Facturas.Post;
-    GrabarFactura;
+//    FacturasCabecera.Edit;
+//    Facturasestado_id.AsInteger:= estadoNuevo;
+//    FacturasCabecera.Post;
+//    GrabarFactura;
   end;
 end;
+
+(****
+ ************   PREFACTURACION   ****************************
+ ***)
+
+procedure TDM_Facturas.AjustarTablaMemoria;
+var
+  clienteActual, campoCliente: GUID_ID;
+begin
+  with FacturasDocumentos do
+  begin
+    First;
+    clienteActual:= GUIDNULO;
+    campoCliente:= GUIDNULO;
+    While Not EOF do
+    begin
+      Edit;
+      case FacturasDocumentostipoDocumento.AsInteger of
+        TD_LIBRE: FacturasDocumentoslxDocumento.asString:= 'SIN DOCUMENTO';
+        TD_REMITO:
+        begin
+          FacturasDocumentoslxDocumento.asString:= 'REMITO';
+          FacturasDocumentoslxNroDocumento.AsInteger:= FacturasDocumentosRemitoNro.AsInteger;
+          campoCliente:= FacturasDocumentosidClienteRemito.AsString;
+        end;
+        TD_PRESUPUESTO:
+        begin
+          FacturasDocumentoslxDocumento.asString:= 'PRESUPUESTO';
+          FacturasDocumentoslxNroDocumento.AsInteger:= FacturasDocumentosNroPresupuesto.AsInteger;
+          campoCliente:= FacturasDocumentosidClientePresupuesto.AsString;
+        end;
+      end;
+      case FacturasDocumentosrefEstado.AsInteger of
+       EP_NULO: FacturasDocumentoslxEstado.AsString:= '-';
+       EP_PARAFACTURAR: FacturasDocumentoslxEstado.AsString:= 'PARA FACTURAR';
+       EP_PREFACTURADO: FacturasDocumentoslxEstado.AsString:= 'PREFACTURADO';
+       EP_FACTURADO: FacturasDocumentoslxEstado.AsString:= 'FACTURADO';
+      end;
+
+      if (clienteActual <> campoCliente) then
+      begin
+        clienteActual:= campoCliente;
+        DM_Clientes.ClienteEditar(clienteActual);
+      end;
+      FacturasDocumentoslxCliente.AsString:= DM_Clientes.tbClientescNombre.AsString;
+      FacturasDocumentoslxCodigo.AsString:= DM_Clientes.tbClientescCodigo.AsString;
+
+      Post;
+      Next;
+    end;
+  end;
+end;
+
+procedure TDM_Facturas.LevantarDocumentos(documento, estado: integer;
+  idCliente: GUID_ID);
+var
+  consulta: string;
+begin
+  consulta:= ' SELECT P.ID, P.FACTURA_ID, P.DOCUMENTO_ID, P.TIPODOCUMENTO, P.REFESTADO '
+	    + ' , CPR.nNroCuota as PresupuestoCuota '
+            + ' , CPR.nMonto as PresupuestoMonto '
+            + ' , CPR.fVencimiento as PresupuestoVencimiento '
+            + ' , R.nRemito as RemitoNro '
+            + ' , R.fFecha as RemitoFecha '
+            + ' , R.txDetalles as RemitoDetalles '
+            + ' , R.refCliente as idClienteRemito '
+            + ' , PR.nPresupuesto as NroPresupuesto '
+            + ' , PR.refCliente as idClientePresupuesto '
+            + ' FROM '
+            + '     FacturasDocumentos P '
+            + '         	LEFT JOIN tbCuotasPresupuesto CPR ON CPR.idCuotaPresupuesto = P.DOCUMENTO_ID '
+            + '                 LEFT JOIN tbRemitos R ON R.idRemito = P.DOCUMENTO_ID '
+            + '           	LEFT JOIN tbPresupuestos PR ON CPR.refPresupuesto = PR.idPresupuesto '
+            ;
+
+  consulta:= consulta + ' WHERE ((R.bVisible = 1) OR (CPR.bVisible = 1)) ';
+
+  if (documento <> TD_LIBRE) then
+    consulta:= consulta + ' AND (P.TipoDocumento ='+ intToStr(documento)+') ';
+
+  if (estado <> EP_NULO) then
+    consulta:= consulta + ' AND (P.refEstado = ' + intToStr(estado) + ') ' ;
+
+  if (idCliente <> GUIDNULO) then
+    consulta:= consulta + ' AND ((R.refCliente = ''' + idCliente + ''') OR (PR.refCliente = ''' + idCliente + ''') )';
+
+  with qTodosLosDocumentos do
+  begin
+    DM_General.ReiniciarTabla(FacturasDocumentos);
+    if active then close;
+    SQL.Clear;
+    SQL.Add(consulta);
+    Open;
+    FacturasDocumentos.LoadFromDataSet(qTodosLosDocumentos, 0, lmAppend);
+    close;
+  end;
+
+  AjustarTablaMemoria;
+  FacturasDocumentos.SortOnFields('lxCodigo;lxFecha');
+  FacturasDocumentos.First;
+
+end;
+
+procedure TDM_Facturas.levantarDocumentosSinPrefacturar;
+const
+   _CONF_CORTEMES = 20;
+var
+  y,m,d: word;
+begin
+  //Levanto los remitos que no estan cargados en la tabla de Prefacturacion
+  with qRemitosSinPF do
+  begin
+     if Active then Close;
+     Open;
+     while NOT EOF do
+     begin
+       FacturasDocumentos.Insert;
+       FacturasDocumentosidClienteRemito.AsString:= qRemitosSinPFREFCLIENTE.AsString;
+       FacturasDocumentoslxFecha.AsDateTime:= qRemitosSinPFFFECHA.AsDateTime;
+       FacturasDocumentosdocumento_id.AsString:= qRemitosSinPFIDREMITO.AsString;
+       FacturasDocumentostipoDocumento.AsInteger:= TD_REMITO;
+       FacturasDocumentoslxNroDocumento.AsInteger:= qRemitosSinPFNREMITO.AsInteger;
+       FacturasDocumentoslxDetalle.AsString:= qRemitosSinPFTXDETALLES.AsString;
+       FacturasDocumentos.Post;
+       Next;
+     end;
+  end;
+
+  //Levanto las cuotas impagas de los presupuestos
+  with qPresupuestosSinPF do
+  begin
+    if Active then Close;
+
+       // Aplico un corte de mes para saber si calculo el vencimiento a partir de el mes corriente o del siguiente
+    DecodeDate(Now, y, m, d);
+    if (d >= _CONF_CORTEMES) then
+      IncAMonth(d, m, y, 1);
+
+    ParamByName('Vencimiento').AsDate:= EndOfAMonth(y, m);
+    Open;
+
+    while NOT EOF do
+    begin
+      FacturasDocumentos.Insert;
+      FacturasDocumentosidClientePresupuesto.AsString:= qPresupuestosSinPFREFCLIENTE.AsString;
+      FacturasDocumentoslxFecha.AsDateTime:= qPresupuestosSinPFFVENCIMIENTO.AsDateTime;
+      FacturasDocumentosdocumento_id.AsString:= qPresupuestosSinPFIDCUOTAPRESUPUESTO.AsString;
+      FacturasDocumentostipoDocumento.AsInteger:= TD_PRESUPUESTO;
+      FacturasDocumentoslxNroDocumento.AsInteger:= qPresupuestosSinPFNPRESUPUESTO.AsInteger;
+      FacturasDocumentoslxDetalle.AsString:= 'CUOTA: ' + IntToStr(qPresupuestosSinPFNNROCUOTA.AsInteger) + ' ' + FormatFloat('$ #######0.00', qPresupuestosSinPFNMONTO.AsFloat);
+      FacturasDocumentos.Post;
+      Next;
+    end;
+  end;
+
+ AjustarTablaMemoria;
+ FacturasDocumentos.SortOnFields('lxCodigo;lxfecha');
+ FacturasDocumentos.First;
+end;
+
+
 
 end.
 

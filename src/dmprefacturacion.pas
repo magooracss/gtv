@@ -8,15 +8,7 @@ uses
   Classes, SysUtils, FileUtil, rxmemds, db, ZDataset
   ,dmgeneral, dmConexion;
 
-const
-   TD_LIBRE = 0; //Tipo de documento libre
-   TD_REMITO = 1; //Tipo de documento remito
-   TD_PRESUPUESTO = 2; //Tipo de documento presupuesto
 
-   EP_NULO = -1; //Estado nulo
-   EP_PARAFACTURAR = 0;//Estado prefacturacion: Para facturar: No esta prefacturado
-   EP_PREFACTURADO = 1;//Estado Prefacturacion: Ya paso por la prefacturacion y tiene Nro
-   EP_FACTURADO = 2;  //Estado Prefacturacion: Ya tiene asociada una factura legal
 
 type
 
@@ -174,6 +166,16 @@ uses
   dateutils
   ,dmclientes
   ;
+
+const
+   TD_LIBRE = 0; //Tipo de documento libre
+   TD_REMITO = 1; //Tipo de documento remito
+   TD_PRESUPUESTO = 2; //Tipo de documento presupuesto
+
+   EP_NULO = -1; //Estado nulo
+   EP_PARAFACTURAR = 0;//Estado prefacturacion: Para facturar: No esta prefacturado
+   EP_PREFACTURADO = 1;//Estado Prefacturacion: Ya paso por la prefacturacion y tiene Nro
+   EP_FACTURADO = 2;  //Estado Prefacturacion: Ya tiene asociada una factura legal
 
 { TDM_Prefacturacion }
 

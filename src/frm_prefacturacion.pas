@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, db, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, DBGrids, Buttons
+  StdCtrls, DBGrids, Buttons, DbCtrls
   ,dmgeneral;
 
 type
@@ -14,25 +14,35 @@ type
   { TfrmPrefacturacion }
 
   TfrmPrefacturacion = class(TForm)
+    BitBtn1: TBitBtn;
     btnSalir: TBitBtn;
     btnFiltrar: TBitBtn;
     btnBuscar: TBitBtn;
     ckTodosLosClientes: TCheckBox;
+    DBMemo1: TDBMemo;
     ds_Grilla: TDatasource;
     DBGrid1: TDBGrid;
     edCliente: TEdit;
     GroupBox1: TGroupBox;
+    Label1: TLabel;
+    Label2: TLabel;
     Panel1: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
+    Panel4: TPanel;
+    Panel5: TPanel;
     rgTipoDocumento: TRadioGroup;
     rgFiltroEstados: TRadioGroup;
+    Splitter1: TSplitter;
+    Splitter2: TSplitter;
+    procedure BitBtn1Click(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
     procedure btnFiltrarClick(Sender: TObject);
     procedure btnSalirClick(Sender: TObject);
     procedure ckTodosLosClientesChange(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure Label1Click(Sender: TObject);
   private
     _idCliente: GUID_ID;
     procedure Inicializar;
@@ -49,6 +59,7 @@ uses
   dmprefacturacion
   ,frm_busquedaclientes
   ,frm_prefacturacionae
+  , dmfacturas
   ;
 
 { TfrmPrefacturacion }
@@ -56,6 +67,11 @@ uses
 procedure TfrmPrefacturacion.FormShow(Sender: TObject);
 begin
   Inicializar;
+end;
+
+procedure TfrmPrefacturacion.Label1Click(Sender: TObject);
+begin
+
 end;
 
 procedure TfrmPrefacturacion.btnBuscarClick(Sender: TObject);
@@ -75,6 +91,11 @@ begin
   finally
      pant.Free;
   end;
+end;
+
+procedure TfrmPrefacturacion.BitBtn1Click(Sender: TObject);
+begin
+  DM_Facturas.levantarDocumentosSinPrefacturar;
 end;
 
 procedure TfrmPrefacturacion.btnFiltrarClick(Sender: TObject);
@@ -120,7 +141,7 @@ end;
 
 procedure TfrmPrefacturacion.Buscar;
 begin
-  DM_Prefacturacion.LevantarPrefacturacion(rgTipoDocumento.ItemIndex, rgFiltroEstados.ItemIndex -1, _idCliente);
+  DM_Facturas.LevantarDocumentos(rgTipoDocumento.ItemIndex, rgFiltroEstados.ItemIndex -1, _idCliente);
 end;
 
 end.

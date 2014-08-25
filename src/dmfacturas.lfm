@@ -1,10 +1,10 @@
 object DM_Facturas: TDM_Facturas
   OnCreate = DataModuleCreate
   OldCreateOrder = False
-  Height = 440
-  HorizontalOffset = 542
-  VerticalOffset = 177
-  Width = 810
+  Height = 678
+  HorizontalOffset = 477
+  VerticalOffset = 51
+  Width = 979
   object qListaFacturas: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
@@ -26,8 +26,8 @@ object DM_Facturas: TDM_Facturas
     )
     Params = <>
     MasterSource = frmFacturaAE.ds_factura
-    left = 48
-    top = 32
+    left = 864
+    top = 544
     object qListaFacturasID: TStringField
       DisplayWidth = 152
       FieldKind = fkData
@@ -120,8 +120,8 @@ object DM_Facturas: TDM_Facturas
   object facturasSEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      'SELECT facturas.*'
-      'FROM Facturas'
+      'SELECT *'
+      'FROM FacturasCabecera'
       'WHERE id = :id'
     )
     Params = <    
@@ -130,8 +130,8 @@ object DM_Facturas: TDM_Facturas
         Name = 'id'
         ParamType = ptUnknown
       end>
-    left = 136
-    top = 120
+    left = 104
+    top = 128
     ParamData = <    
       item
         DataType = ftUnknown
@@ -149,21 +149,52 @@ object DM_Facturas: TDM_Facturas
       Required = True
       Size = 152
     end
-    object facturasSELFECHA: TDateField
-      DisplayWidth = 10
+    object facturasSELCLIENTE_ID: TStringField
+      DisplayWidth = 152
       FieldKind = fkData
-      FieldName = 'FECHA'
+      FieldName = 'CLIENTE_ID'
       Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      Size = 152
     end
-    object facturasSELNROPTOVENTA: TLongintField
+    object facturasSELFECHAPREFACTURA: TDateField
       DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'NROPTOVENTA'
+      FieldName = 'FECHAPREFACTURA'
       Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object facturasSELNROPREFACTURA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROPREFACTURA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object facturasSELREFTIPOCOMPROBANTE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFTIPOCOMPROBANTE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object facturasSELPTOVENTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PTOVENTA'
+      Index = 5
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -173,122 +204,157 @@ object DM_Facturas: TDM_Facturas
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'NROFACTURA'
-      Index = 3
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object facturasSELTIPOFACTURA_ID: TLongintField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'TIPOFACTURA_ID'
-      Index = 4
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object facturasSELCLIENTEEMPRESA_ID: TStringField
-      DisplayWidth = 152
-      FieldKind = fkData
-      FieldName = 'CLIENTEEMPRESA_ID'
-      Index = 5
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 152
-    end
-    object facturasSELCONDICIONVENTA_ID: TLongintField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'CONDICIONVENTA_ID'
       Index = 6
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
     end
-    object facturasSELOBSERVACIONES: TStringField
-      DisplayWidth = 3000
+    object facturasSELFECHAFACTURA: TDateField
+      DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'OBSERVACIONES'
+      FieldName = 'FECHAFACTURA'
       Index = 7
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      Size = 3000
     end
-    object facturasSELFANULACION: TDateField
+    object facturasSELBPRODUCTO: TSmallintField
       DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'FANULACION'
+      FieldName = 'BPRODUCTO'
       Index = 8
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
     end
-    object facturasSELESTADO_ID: TLongintField
+    object facturasSELBSERVICIO: TSmallintField
       DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'ESTADO_ID'
+      FieldName = 'BSERVICIO'
       Index = 9
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
     end
-    object facturasSELIMPNETO: TFloatField
+    object facturasSELPERIODOINI: TDateField
       DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'IMPNETO'
+      FieldName = 'PERIODOINI'
       Index = 10
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = True
+      ReadOnly = False
       Required = False
-      MaxValue = 0
-      MinValue = 0
-      Precision = 2
     end
-    object facturasSELIMPIVA: TFloatField
+    object facturasSELPERIODOFIN: TDateField
       DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'IMPIVA'
+      FieldName = 'PERIODOFIN'
       Index = 11
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = True
+      ReadOnly = False
+      Required = False
+    end
+    object facturasSELREFFORMAPAGO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFFORMAPAGO'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object facturasSELVTOPAGO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VTOPAGO'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object facturasSELCAE: TStringField
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'CAE'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 12
+    end
+    object facturasSELVTOCAE: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'VTOCAE'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object facturasSELIMPORTENETO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'IMPORTENETO'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
       Required = False
       MaxValue = 0
       MinValue = 0
       Precision = 2
     end
-    object facturasSELIMPIMPUESTOS: TFloatField
+    object facturasSELIMPORTEIVA: TFloatField
       DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'IMPIMPUESTOS'
-      Index = 12
+      FieldName = 'IMPORTEIVA'
+      Index = 17
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = True
+      ReadOnly = False
       Required = False
       MaxValue = 0
       MinValue = 0
       Precision = 2
+    end
+    object facturasSELESTADO_ID: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ESTADO_ID'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object facturasSELBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
     end
   end
   object facturasINS: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      'INSERT INTO facturas'
-      '('
-      'ID, FECHA, NROPTOVENTA, NROFACTURA, TIPOFACTURA_ID, CLIENTEEMPRESA_ID, CONDICIONVENTA_ID, OBSERVACIONES, FANULACION, ESTADO_ID, impNeto, impIVA, impImpuestos)'
+      'INSERT INTO FacturasCabecera'
+      '(ID, CLIENTE_ID, FECHAPREFACTURA, NROPREFACTURA, REFTIPOCOMPROBANTE, PTOVENTA, NROFACTURA, FECHAFACTURA, BPRODUCTO, BSERVICIO, PERIODOINI, PERIODOFIN, REFFORMAPAGO, VTOPAGO, CAE, VTOCAE, IMPORTENETO, IMPORTEIVA, ESTADO_ID, BVISIBLE)'
       'VALUES'
-      '(:ID, :FECHA, :NROPTOVENTA, :NROFACTURA, :TIPOFACTURA_ID, :CLIENTEEMPRESA_ID, :CONDICIONVENTA_ID, :OBSERVACIONES, :FANULACION, :ESTADO_ID, :impNeto, :impIVA, :impImpuestos)'
+      '(:ID, :CLIENTE_ID, :FECHAPREFACTURA, :NROPREFACTURA, :REFTIPOCOMPROBANTE, :PTOVENTA, :NROFACTURA, :FECHAFACTURA, :BPRODUCTO, :BSERVICIO, :PERIODOINI, :PERIODOFIN, :REFFORMAPAGO, :VTOPAGO, :CAE, :VTOCAE, :IMPORTENETO, :IMPORTEIVA, :ESTADO_ID, :BVISIBLE)'
     )
     Params = <    
       item
@@ -298,12 +364,27 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'FECHA'
+        Name = 'CLIENTE_ID'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'NROPTOVENTA'
+        Name = 'FECHAPREFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NROPREFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPOCOMPROBANTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PTOVENTA'
         ParamType = ptUnknown
       end    
       item
@@ -313,27 +394,57 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'TIPOFACTURA_ID'
+        Name = 'FECHAFACTURA'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'CLIENTEEMPRESA_ID'
+        Name = 'BPRODUCTO'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'CONDICIONVENTA_ID'
+        Name = 'BSERVICIO'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'OBSERVACIONES'
+        Name = 'PERIODOINI'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'FANULACION'
+        Name = 'PERIODOFIN'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFFORMAPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'VTOPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CAE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'VTOCAE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IMPORTENETO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IMPORTEIVA'
         ParamType = ptUnknown
       end    
       item
@@ -343,21 +454,11 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'impNeto'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'impIVA'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'impImpuestos'
+        Name = 'BVISIBLE'
         ParamType = ptUnknown
       end>
-    left = 136
-    top = 192
+    left = 104
+    top = 200
     ParamData = <    
       item
         DataType = ftUnknown
@@ -366,12 +467,27 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'FECHA'
+        Name = 'CLIENTE_ID'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'NROPTOVENTA'
+        Name = 'FECHAPREFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NROPREFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPOCOMPROBANTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PTOVENTA'
         ParamType = ptUnknown
       end    
       item
@@ -381,27 +497,57 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'TIPOFACTURA_ID'
+        Name = 'FECHAFACTURA'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'CLIENTEEMPRESA_ID'
+        Name = 'BPRODUCTO'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'CONDICIONVENTA_ID'
+        Name = 'BSERVICIO'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'OBSERVACIONES'
+        Name = 'PERIODOINI'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'FANULACION'
+        Name = 'PERIODOFIN'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFFORMAPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'VTOPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CAE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'VTOCAE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IMPORTENETO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IMPORTEIVA'
         ParamType = ptUnknown
       end    
       item
@@ -411,48 +557,60 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'impNeto'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'impIVA'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'impImpuestos'
+        Name = 'BVISIBLE'
         ParamType = ptUnknown
       end>
   end
   object FacturasUPD: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      'UPDATE Facturas'
+      'UPDATE FacturasCabecera'
       'SET '
-      '  FECHA = :FECHA'
-      ', NROPTOVENTA = :NROPTOVENTA'
-      ', NROFACTURA = :NROFACTURA'
-      ', TIPOFACTURA_ID = :TIPOFACTURA_ID'
-      ', CLIENTEEMPRESA_ID = :CLIENTEEMPRESA_ID'
-      ', CONDICIONVENTA_ID = :CONDICIONVENTA_ID'
-      ', OBSERVACIONES = :OBSERVACIONES'
-      ', FANULACION = :FANULACION'
-      ', ESTADO_ID = :ESTADO_ID'
-      ', ImpNeto = :ImpNeto'
-      ', ImpIVA = :ImpIva'
-      ', ImpImpuestos = :ImpImpuestos'
+      '  CLIENTE_ID =:CLIENTE_ID '
+      ', FECHAPREFACTURA =:FECHAPREFACTURA '
+      ', NROPREFACTURA =:NROPREFACTURA '
+      ', REFTIPOCOMPROBANTE =:REFTIPOCOMPROBANTE '
+      ', PTOVENTA =:PTOVENTA '
+      ', NROFACTURA =:NROFACTURA '
+      ', FECHAFACTURA =:FECHAFACTURA '
+      ', BPRODUCTO =:BPRODUCTO '
+      ', BSERVICIO =:BSERVICIO '
+      ', PERIODOINI =:PERIODOINI '
+      ', PERIODOFIN =:PERIODOFIN '
+      ', REFFORMAPAGO =:REFFORMAPAGO '
+      ', VTOPAGO =:VTOPAGO '
+      ', CAE =:CAE '
+      ', VTOCAE =:VTOCAE '
+      ', IMPORTENETO =:IMPORTENETO '
+      ', IMPORTEIVA =:IMPORTEIVA '
+      ', ESTADO_ID =:ESTADO_ID '
+      ', BVISIBLE =:BVISIBLE '
       'WHERE ID = :ID'
     )
     Params = <    
       item
         DataType = ftUnknown
-        Name = 'FECHA'
+        Name = 'CLIENTE_ID'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'NROPTOVENTA'
+        Name = 'FECHAPREFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NROPREFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPOCOMPROBANTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PTOVENTA'
         ParamType = ptUnknown
       end    
       item
@@ -462,27 +620,57 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'TIPOFACTURA_ID'
+        Name = 'FECHAFACTURA'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'CLIENTEEMPRESA_ID'
+        Name = 'BPRODUCTO'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'CONDICIONVENTA_ID'
+        Name = 'BSERVICIO'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'OBSERVACIONES'
+        Name = 'PERIODOINI'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'FANULACION'
+        Name = 'PERIODOFIN'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFFORMAPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'VTOPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CAE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'VTOCAE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IMPORTENETO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IMPORTEIVA'
         ParamType = ptUnknown
       end    
       item
@@ -492,17 +680,7 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'ImpNeto'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'ImpIva'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'ImpImpuestos'
+        Name = 'BVISIBLE'
         ParamType = ptUnknown
       end    
       item
@@ -510,17 +688,32 @@ object DM_Facturas: TDM_Facturas
         Name = 'ID'
         ParamType = ptUnknown
       end>
-    left = 136
-    top = 256
+    left = 104
+    top = 264
     ParamData = <    
       item
         DataType = ftUnknown
-        Name = 'FECHA'
+        Name = 'CLIENTE_ID'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'NROPTOVENTA'
+        Name = 'FECHAPREFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NROPREFACTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPOCOMPROBANTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'PTOVENTA'
         ParamType = ptUnknown
       end    
       item
@@ -530,27 +723,57 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'TIPOFACTURA_ID'
+        Name = 'FECHAFACTURA'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'CLIENTEEMPRESA_ID'
+        Name = 'BPRODUCTO'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'CONDICIONVENTA_ID'
+        Name = 'BSERVICIO'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'OBSERVACIONES'
+        Name = 'PERIODOINI'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'FANULACION'
+        Name = 'PERIODOFIN'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFFORMAPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'VTOPAGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CAE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'VTOCAE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IMPORTENETO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IMPORTEIVA'
         ParamType = ptUnknown
       end    
       item
@@ -560,17 +783,7 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'ImpNeto'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'ImpIva'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'ImpImpuestos'
+        Name = 'BVISIBLE'
         ParamType = ptUnknown
       end    
       item
@@ -582,7 +795,7 @@ object DM_Facturas: TDM_Facturas
   object FacturasDEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      'UPDATE Facturas'
+      'UPDATE FacturasCabecera'
       'SET estado_id = 3'
       'WHERE id = :id'
     )
@@ -592,8 +805,8 @@ object DM_Facturas: TDM_Facturas
         Name = 'id'
         ParamType = ptUnknown
       end>
-    left = 136
-    top = 320
+    left = 104
+    top = 328
     ParamData = <    
       item
         DataType = ftUnknown
@@ -601,7 +814,7 @@ object DM_Facturas: TDM_Facturas
         ParamType = ptUnknown
       end>
   end
-  object Facturas: TRxMemoryData
+  object FacturasCabecera: TRxMemoryData
     FieldDefs = <    
       item
         Name = 'id'
@@ -610,8 +823,26 @@ object DM_Facturas: TDM_Facturas
         Size = 38
       end    
       item
-        Name = 'Fecha'
+        Name = 'cliente_id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'fechaPrefactura'
         DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nroPrefactura'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refComprobante'
+        DataType = ftInteger
         Precision = 0
         Size = 0
       end    
@@ -628,32 +859,68 @@ object DM_Facturas: TDM_Facturas
         Size = 0
       end    
       item
-        Name = 'tipoFactura_id'
-        DataType = ftInteger
-        Precision = 0
-        Size = 0
-      end    
-      item
-        Name = 'clienteEmpresa_id'
-        DataType = ftString
-        Precision = 0
-        Size = 38
-      end    
-      item
-        Name = 'CondicionVenta_id'
-        DataType = ftInteger
-        Precision = 0
-        Size = 0
-      end    
-      item
-        Name = 'Observaciones'
-        DataType = ftString
-        Precision = 0
-        Size = 3000
-      end    
-      item
-        Name = 'fAnulacion'
+        Name = 'fechaFactura'
         DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bProducto'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bServicio'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'PeriodoIni'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'PeriodoFin'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refFormaPago'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'vtoPago'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'CAE'
+        DataType = ftString
+        Precision = 0
+        Size = 14
+      end    
+      item
+        Name = 'vtoCAE'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'importeNeto'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'importeIVA'
+        DataType = ftFloat
         Precision = 0
         Size = 0
       end    
@@ -668,30 +935,12 @@ object DM_Facturas: TDM_Facturas
         DataType = ftString
         Precision = 0
         Size = 50
-      end    
-      item
-        Name = 'impNeto'
-        DataType = ftFloat
-        Precision = 0
-        Size = 0
-      end    
-      item
-        Name = 'impIVA'
-        DataType = ftFloat
-        Precision = 0
-        Size = 0
-      end    
-      item
-        Name = 'ImpImpuestos'
-        DataType = ftFloat
-        Precision = 0
-        Size = 0
       end>
-    AfterInsert = FacturasAfterInsert
+    AfterInsert = FacturasCabeceraAfterInsert
     PacketRecords = 0
-    left = 136
-    top = 32
-    object Facturasid: TStringField
+    left = 104
+    top = 40
+    object FacturasCabeceraid: TStringField
       DisplayWidth = 38
       FieldKind = fkData
       FieldName = 'id'
@@ -702,140 +951,163 @@ object DM_Facturas: TDM_Facturas
       Required = False
       Size = 38
     end
-    object FacturasFecha: TDateTimeField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'Fecha'
-      Index = 1
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object FacturasnroPtoVenta: TLongintField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'nroPtoVenta'
-      Index = 2
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object FacturasnroFactura: TLongintField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'nroFactura'
-      Index = 3
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object FacturasclienteEmpresa_id: TStringField
+    object FacturasCabeceracliente_id: TStringField
       DisplayWidth = 38
       FieldKind = fkData
-      FieldName = 'clienteEmpresa_id'
-      Index = 4
+      FieldName = 'cliente_id'
+      Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
       Size = 38
     end
-    object FacturasfAnulacion: TDateTimeField
+    object FacturasCabecerafechaPrefactura: TDateTimeField
       DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'fAnulacion'
+      FieldName = 'fechaPrefactura'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object FacturasCabeceranroPrefactura: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nroPrefactura'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object FacturasCabecerarefComprobante: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refComprobante'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object FacturasCabeceranroPtoVenta: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nroPtoVenta'
       Index = 5
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
     end
-    object Facturasestado_id: TLongintField
+    object FacturasCabeceranroFactura: TLongintField
       DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'estado_id'
+      FieldName = 'nroFactura'
       Index = 6
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
     end
-    object FacturaslxEstado: TStringField
-      DisplayWidth = 50
+    object FacturasCabecerafechaFactura: TDateTimeField
+      DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'lxEstado'
+      FieldName = 'fechaFactura'
       Index = 7
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      Size = 50
     end
-    object FacturastipoFactura_id: TLongintField
+    object FacturasCabecerabProducto: TLongintField
       DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'tipoFactura_id'
+      FieldName = 'bProducto'
       Index = 8
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
     end
-    object FacturasCondicionVenta_id: TLongintField
+    object FacturasCabecerabServicio: TLongintField
       DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'CondicionVenta_id'
+      FieldName = 'bServicio'
       Index = 9
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
     end
-    object FacturasObservaciones: TStringField
-      DisplayWidth = 3000
+    object FacturasCabeceraPeriodoIni: TDateTimeField
+      DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'Observaciones'
+      FieldName = 'PeriodoIni'
       Index = 10
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      Size = 3000
     end
-    object FacturasimpNeto: TFloatField
+    object FacturasCabeceraPeriodoFin: TDateTimeField
       DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'impNeto'
+      FieldName = 'PeriodoFin'
       Index = 11
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      MaxValue = 0
-      MinValue = 0
-      Precision = 2
     end
-    object FacturasimpIVA: TFloatField
+    object FacturasCabecerarefFormaPago: TLongintField
       DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'impIVA'
+      FieldName = 'refFormaPago'
       Index = 12
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      MaxValue = 0
-      MinValue = 0
-      Precision = 2
     end
-    object FacturasImpImpuestos: TFloatField
+    object FacturasCabeceravtoPago: TDateTimeField
       DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'ImpImpuestos'
+      FieldName = 'vtoPago'
       Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object FacturasCabeceraCAE: TStringField
+      DisplayWidth = 14
+      FieldKind = fkData
+      FieldName = 'CAE'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 14
+    end
+    object FacturasCabeceravtoCAE: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'vtoCAE'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object FacturasCabeceraimporteNeto: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'importeNeto'
+      Index = 16
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -843,6 +1115,40 @@ object DM_Facturas: TDM_Facturas
       MaxValue = 0
       MinValue = 0
       Precision = 2
+    end
+    object FacturasCabeceraimporteIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'importeIVA'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object FacturasCabeceraestado_id: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'estado_id'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object FacturasCabeceralxEstado: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'lxEstado'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
     end
   end
   object CondicionFiscal: TZQuery
@@ -853,8 +1159,8 @@ object DM_Facturas: TDM_Facturas
       'WHERE bVisible = 1'
     )
     Params = <>
-    left = 744
-    top = 32
+    left = 904
+    top = 24
     object CondicionFiscalID: TLongintField
       DisplayWidth = 10
       FieldKind = fkData
@@ -911,8 +1217,8 @@ object DM_Facturas: TDM_Facturas
         Name = 'id'
         ParamType = ptUnknown
       end>
-    left = 744
-    top = 112
+    left = 904
+    top = 104
     ParamData = <    
       item
         DataType = ftUnknown
@@ -984,8 +1290,8 @@ object DM_Facturas: TDM_Facturas
         Name = 'id'
         ParamType = ptUnknown
       end>
-    left = 744
-    top = 192
+    left = 904
+    top = 184
     ParamData = <    
       item
         DataType = ftUnknown
@@ -1041,8 +1347,8 @@ object DM_Facturas: TDM_Facturas
       'SELECT GEN_ID(GEN_FACT_C,1) as Nro FROM RDB$DATABASE'
     )
     Params = <>
-    left = 744
-    top = 256
+    left = 904
+    top = 248
     object nroFacturaNRO: TLargeintField
       DisplayWidth = 10
       FieldKind = fkData
@@ -1054,10 +1360,16 @@ object DM_Facturas: TDM_Facturas
       Required = False
     end
   end
-  object FacturaItems: TRxMemoryData
+  object FacturasItems: TRxMemoryData
     FieldDefs = <    
       item
         Name = 'id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'factura_id'
         DataType = ftString
         Precision = 0
         Size = 38
@@ -1081,26 +1393,48 @@ object DM_Facturas: TDM_Facturas
         Size = 0
       end    
       item
-        Name = 'Monto'
+        Name = 'PrecioTotal'
         DataType = ftFloat
         Precision = 0
         Size = 0
       end    
       item
-        Name = 'factura_id'
-        DataType = ftString
+        Name = 'PorcentajeIVA'
+        DataType = ftFloat
         Precision = 0
-        Size = 38
+        Size = 0
       end>
-    AfterInsert = FacturaItemsAfterInsert
+    AfterInsert = FacturasItemsAfterInsert
     PacketRecords = 0
-    left = 232
-    top = 32
-    object FacturaItemsCantidad: TFloatField
+    left = 216
+    top = 40
+    object FacturasItemsid: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object FacturasItemsfactura_id: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'factura_id'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object FacturasItemsCantidad: TFloatField
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'Cantidad'
-      Index = 0
+      Index = 2
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -1109,74 +1443,61 @@ object DM_Facturas: TDM_Facturas
       MinValue = 0
       Precision = 2
     end
-    object FacturaItemsDetalle: TStringField
+    object FacturasItemsDetalle: TStringField
       DisplayWidth = 1500
       FieldKind = fkData
       FieldName = 'Detalle'
-      Index = 1
+      Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
       Size = 1500
     end
-    object FacturaItemsPrecioUnitario: TFloatField
+    object FacturasItemsPrecioUnitario: TFloatField
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'PrecioUnitario'
-      Index = 2
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      DisplayFormat = '#######0.00'
-      Currency = True
-      MaxValue = 0
-      MinValue = 0
-      Precision = 2
-    end
-    object FacturaItemsMonto: TFloatField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'Monto'
-      Index = 3
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      DisplayFormat = '#######0.00'
-      Currency = True
-      MaxValue = 0
-      MinValue = 0
-      Precision = 2
-    end
-    object FacturaItemsfactura_id: TStringField
-      DisplayWidth = 38
-      FieldKind = fkData
-      FieldName = 'factura_id'
       Index = 4
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      Size = 38
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
     end
-    object FacturaItemsid: TStringField
-      DisplayWidth = 38
+    object FacturasItemsPrecioTotal: TFloatField
+      DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'id'
+      FieldName = 'PrecioTotal'
       Index = 5
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      Size = 38
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object FacturasItemsPorcentajeIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PorcentajeIVA'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
     end
   end
   object facturaItemsDEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      'DELETE FROM FacturaItems'
+      'DELETE FROM FacturasItems'
       'WHERE id = :id'
     )
     Params = <    
@@ -1185,7 +1506,7 @@ object DM_Facturas: TDM_Facturas
         Name = 'id'
         ParamType = ptUnknown
       end>
-    left = 232
+    left = 216
     top = 328
     ParamData = <    
       item
@@ -1228,7 +1549,7 @@ object DM_Facturas: TDM_Facturas
       end>
     AfterInsert = reciboFacturaAfterInsert
     PacketRecords = 0
-    left = 336
+    left = 680
     top = 32
     object reciboFacturaid: TStringField
       DisplayWidth = 38
@@ -1302,7 +1623,7 @@ object DM_Facturas: TDM_Facturas
         Name = 'factura_id'
         ParamType = ptUnknown
       end>
-    left = 336
+    left = 680
     top = 384
     ParamData = <    
       item
@@ -1378,8 +1699,8 @@ object DM_Facturas: TDM_Facturas
         Name = 'id'
         ParamType = ptUnknown
       end>
-    left = 336
-    top = 112
+    left = 680
+    top = 120
     ParamData = <    
       item
         DataType = ftUnknown
@@ -1452,7 +1773,7 @@ object DM_Facturas: TDM_Facturas
         Name = 'FACTURA_ID'
         ParamType = ptUnknown
       end>
-    left = 336
+    left = 680
     top = 192
     ParamData = <    
       item
@@ -1496,7 +1817,7 @@ object DM_Facturas: TDM_Facturas
         Name = 'ID'
         ParamType = ptUnknown
       end>
-    left = 336
+    left = 680
     top = 256
     ParamData = <    
       item
@@ -1527,8 +1848,8 @@ object DM_Facturas: TDM_Facturas
         Name = 'id'
         ParamType = ptUnknown
       end>
-    left = 336
-    top = 296
+    left = 680
+    top = 320
     ParamData = <    
       item
         DataType = ftUnknown
@@ -1576,7 +1897,7 @@ object DM_Facturas: TDM_Facturas
       end>
     AfterInsert = remitoFacturaAfterInsert
     PacketRecords = 0
-    left = 464
+    left = 808
     top = 32
     object remitoFacturaid: TStringField
       DisplayWidth = 38
@@ -1658,7 +1979,7 @@ object DM_Facturas: TDM_Facturas
         Name = 'factura_id'
         ParamType = ptUnknown
       end>
-    left = 464
+    left = 808
     top = 384
     ParamData = <    
       item
@@ -1848,8 +2169,8 @@ object DM_Facturas: TDM_Facturas
         Name = 'id'
         ParamType = ptUnknown
       end>
-    left = 464
-    top = 112
+    left = 808
+    top = 120
     ParamData = <    
       item
         DataType = ftUnknown
@@ -1922,8 +2243,8 @@ object DM_Facturas: TDM_Facturas
         Name = 'FACTURA_ID'
         ParamType = ptUnknown
       end>
-    left = 464
-    top = 176
+    left = 808
+    top = 192
     ParamData = <    
       item
         DataType = ftUnknown
@@ -1966,8 +2287,8 @@ object DM_Facturas: TDM_Facturas
         Name = 'ID'
         ParamType = ptUnknown
       end>
-    left = 464
-    top = 240
+    left = 808
+    top = 256
     ParamData = <    
       item
         DataType = ftUnknown
@@ -1997,8 +2318,8 @@ object DM_Facturas: TDM_Facturas
         Name = 'id'
         ParamType = ptUnknown
       end>
-    left = 464
-    top = 296
+    left = 808
+    top = 320
     ParamData = <    
       item
         DataType = ftUnknown
@@ -2006,21 +2327,27 @@ object DM_Facturas: TDM_Facturas
         ParamType = ptUnknown
       end>
   end
-  object facturaItemsUPD: TZQuery
+  object facturasItemsUPD: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      'UPDATE  facturaItems'
+      'UPDATE  FacturasItems'
       'SET '
-      ' CANTIDAD = :CANTIDAD '
+      '  FACTURA_ID = :FACTURA_ID '
+      ', CANTIDAD = :CANTIDAD '
       ', DETALLE = :DETALLE '
       ', PRECIOUNITARIO = :PRECIOUNITARIO '
-      ', MONTO = :MONTO '
-      ', FACTURA_ID = :FACTURA_ID '
+      ', PRECIOTOTAL = :PRECIOTOTAL '
+      ', PORCENTAJEIVA = :PORCENTAJEIVA '
       'WHERE ID = :ID'
     )
     Params = <    
       item
         DataType = ftUnknown
+        Name = 'FACTURA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
         Name = 'CANTIDAD'
         ParamType = ptUnknown
       end    
@@ -2036,12 +2363,12 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'MONTO'
+        Name = 'PRECIOTOTAL'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'FACTURA_ID'
+        Name = 'PORCENTAJEIVA'
         ParamType = ptUnknown
       end    
       item
@@ -2049,9 +2376,14 @@ object DM_Facturas: TDM_Facturas
         Name = 'ID'
         ParamType = ptUnknown
       end>
-    left = 232
-    top = 256
+    left = 216
+    top = 264
     ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'FACTURA_ID'
+        ParamType = ptUnknown
+      end    
       item
         DataType = ftUnknown
         Name = 'CANTIDAD'
@@ -2069,12 +2401,12 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'MONTO'
+        Name = 'PRECIOTOTAL'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'FACTURA_ID'
+        Name = 'PORCENTAJEIVA'
         ParamType = ptUnknown
       end    
       item
@@ -2083,14 +2415,13 @@ object DM_Facturas: TDM_Facturas
         ParamType = ptUnknown
       end>
   end
-  object facturaItemsINS: TZQuery
+  object facturasItemsINS: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      'INSERT INTO FacturaItems'
-      '('
-      'ID, CANTIDAD, DETALLE, PRECIOUNITARIO, MONTO, FACTURA_ID)'
+      'INSERT INTO FacturasItems'
+      '(ID, FACTURA_ID, CANTIDAD, DETALLE, PRECIOUNITARIO, PRECIOTOTAL, PORCENTAJEIVA)'
       'VALUES'
-      '(:ID, :CANTIDAD, :DETALLE, :PRECIOUNITARIO, :MONTO, :FACTURA_ID)'
+      '(:ID, :FACTURA_ID, :CANTIDAD, :DETALLE, :PRECIOUNITARIO, :PRECIOTOTAL, :PORCENTAJEIVA)'
     )
     Params = <    
       item
@@ -2100,6 +2431,11 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
+        Name = 'FACTURA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
         Name = 'CANTIDAD'
         ParamType = ptUnknown
       end    
@@ -2115,16 +2451,16 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'MONTO'
+        Name = 'PRECIOTOTAL'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'FACTURA_ID'
+        Name = 'PORCENTAJEIVA'
         ParamType = ptUnknown
       end>
-    left = 232
-    top = 192
+    left = 216
+    top = 200
     ParamData = <    
       item
         DataType = ftUnknown
@@ -2133,6 +2469,11 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
+        Name = 'FACTURA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
         Name = 'CANTIDAD'
         ParamType = ptUnknown
       end    
@@ -2148,20 +2489,20 @@ object DM_Facturas: TDM_Facturas
       end    
       item
         DataType = ftUnknown
-        Name = 'MONTO'
+        Name = 'PRECIOTOTAL'
         ParamType = ptUnknown
       end    
       item
         DataType = ftUnknown
-        Name = 'FACTURA_ID'
+        Name = 'PORCENTAJEIVA'
         ParamType = ptUnknown
       end>
   end
-  object facturaItemsSEL: TZQuery
+  object facturasItemsSEL: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'SELECT *'
-      'FROM FacturaItems'
+      'FROM FacturasItems'
       'WHERE id = :id'
     )
     Params = <    
@@ -2170,7 +2511,7 @@ object DM_Facturas: TDM_Facturas
         Name = 'id'
         ParamType = ptUnknown
       end>
-    left = 232
+    left = 216
     top = 128
     ParamData = <    
       item
@@ -2178,7 +2519,7 @@ object DM_Facturas: TDM_Facturas
         Name = 'id'
         ParamType = ptUnknown
       end>
-    object facturaItemsSELID: TStringField
+    object facturasItemsSELID: TStringField
       DisplayWidth = 152
       FieldKind = fkData
       FieldName = 'ID'
@@ -2189,47 +2530,45 @@ object DM_Facturas: TDM_Facturas
       Required = True
       Size = 152
     end
-    object facturaItemsSELCANTIDAD: TFloatField
-      DisplayWidth = 10
+    object facturasItemsSELFACTURA_ID: TStringField
+      DisplayWidth = 152
       FieldKind = fkData
-      FieldName = 'CANTIDAD'
+      FieldName = 'FACTURA_ID'
       Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      MaxValue = 0
-      MinValue = 0
-      Precision = 2
+      Size = 152
     end
-    object facturaItemsSELDETALLE: TStringField
-      DisplayWidth = 1500
+    object facturasItemsSELCANTIDAD: TFloatField
+      DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'DETALLE'
+      FieldName = 'CANTIDAD'
       Index = 2
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      Size = 1500
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
     end
-    object facturaItemsSELPRECIOUNITARIO: TFloatField
-      DisplayWidth = 10
+    object facturasItemsSELDETALLE: TStringField
+      DisplayWidth = 2000
       FieldKind = fkData
-      FieldName = 'PRECIOUNITARIO'
+      FieldName = 'DETALLE'
       Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      MaxValue = 0
-      MinValue = 0
-      Precision = 2
+      Size = 2000
     end
-    object facturaItemsSELMONTO: TFloatField
+    object facturasItemsSELPRECIOUNITARIO: TFloatField
       DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'MONTO'
+      FieldName = 'PRECIOUNITARIO'
       Index = 4
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
@@ -2239,23 +2578,38 @@ object DM_Facturas: TDM_Facturas
       MinValue = 0
       Precision = 2
     end
-    object facturaItemsSELFACTURA_ID: TStringField
-      DisplayWidth = 152
+    object facturasItemsSELPRECIOTOTAL: TFloatField
+      DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'FACTURA_ID'
+      FieldName = 'PRECIOTOTAL'
       Index = 5
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      Size = 152
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object facturasItemsSELPORCENTAJEIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PORCENTAJEIVA'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
     end
   end
   object ItemsPorFactura: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'SELECT *'
-      'FROM FacturaItems'
+      'FROM FacturasItems'
       'WHERE factura_id = :factura_id'
     )
     Params = <    
@@ -2264,8 +2618,8 @@ object DM_Facturas: TDM_Facturas
         Name = 'factura_id'
         ParamType = ptUnknown
       end>
-    left = 232
-    top = 384
+    left = 216
+    top = 392
     ParamData = <    
       item
         DataType = ftUnknown
@@ -2283,11 +2637,22 @@ object DM_Facturas: TDM_Facturas
       Required = True
       Size = 152
     end
+    object ItemsPorFacturaFACTURA_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'FACTURA_ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
     object ItemsPorFacturaCANTIDAD: TFloatField
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'CANTIDAD'
-      Index = 1
+      Index = 2
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -2297,33 +2662,20 @@ object DM_Facturas: TDM_Facturas
       Precision = 2
     end
     object ItemsPorFacturaDETALLE: TStringField
-      DisplayWidth = 1500
+      DisplayWidth = 2000
       FieldKind = fkData
       FieldName = 'DETALLE'
-      Index = 2
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 1500
-    end
-    object ItemsPorFacturaPRECIOUNITARIO: TFloatField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'PRECIOUNITARIO'
       Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      MaxValue = 0
-      MinValue = 0
-      Precision = 2
+      Size = 2000
     end
-    object ItemsPorFacturaMONTO: TFloatField
+    object ItemsPorFacturaPRECIOUNITARIO: TFloatField
       DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'MONTO'
+      FieldName = 'PRECIOUNITARIO'
       Index = 4
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
@@ -2333,16 +2685,31 @@ object DM_Facturas: TDM_Facturas
       MinValue = 0
       Precision = 2
     end
-    object ItemsPorFacturaFACTURA_ID: TStringField
-      DisplayWidth = 152
+    object ItemsPorFacturaPRECIOTOTAL: TFloatField
+      DisplayWidth = 10
       FieldKind = fkData
-      FieldName = 'FACTURA_ID'
+      FieldName = 'PRECIOTOTAL'
       Index = 5
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      Size = 152
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object ItemsPorFacturaPORCENTAJEIVA: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PORCENTAJEIVA'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
     end
   end
   object qGrupoFacturacion: TZQuery
@@ -2353,8 +2720,8 @@ object DM_Facturas: TDM_Facturas
       'WHERE (bVisible = 1)'
     )
     Params = <>
-    left = 744
-    top = 328
+    left = 908
+    top = 440
     object qGrupoFacturacionIDGRUPOFACTURACION: TLongintField
       DisplayWidth = 10
       FieldKind = fkData
@@ -2412,8 +2779,8 @@ object DM_Facturas: TDM_Facturas
         Name = 'gf'
         ParamType = ptUnknown
       end>
-    left = 592
-    top = 48
+    left = 904
+    top = 320
     ParamData = <    
       item
         DataType = ftUnknown
@@ -2715,8 +3082,8 @@ object DM_Facturas: TDM_Facturas
         Name = 'refCliente'
         ParamType = ptUnknown
       end>
-    left = 596
-    top = 100
+    left = 908
+    top = 372
     ParamData = <    
       item
         DataType = ftUnknown
@@ -2857,6 +3224,1281 @@ object DM_Facturas: TDM_Facturas
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+    end
+  end
+  object FacturasDocumentos: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'factura_id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'documento_id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'tipoDocumento'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refEstado'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'lxEstado'
+        DataType = ftString
+        Precision = 0
+        Size = 30
+      end    
+      item
+        Name = 'lxDocumento'
+        DataType = ftString
+        Precision = 0
+        Size = 30
+      end    
+      item
+        Name = 'lxCodigo'
+        DataType = ftString
+        Precision = 0
+        Size = 15
+      end    
+      item
+        Name = 'lxCliente'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'lxFecha'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'lxNroDocumento'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'lxDetalle'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'CodigoClienteRemito'
+        DataType = ftString
+        Precision = 0
+        Size = 30
+      end    
+      item
+        Name = 'NombreClienteRemito'
+        DataType = ftString
+        Precision = 0
+        Size = 300
+      end    
+      item
+        Name = 'idClienteRemito'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'CodigoClientePresupuesto'
+        DataType = ftString
+        Precision = 0
+        Size = 30
+      end    
+      item
+        Name = 'NombreClientePresupuesto'
+        DataType = ftString
+        Precision = 0
+        Size = 300
+      end    
+      item
+        Name = 'idClientePresupuesto'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'NroPresupuesto'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'RemitoNro'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = FacturasItemsAfterInsert
+    PacketRecords = 0
+    left = 336
+    top = 40
+    object FacturasDocumentosid: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object FacturasDocumentosfactura_id: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'factura_id'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object FacturasDocumentosdocumento_id: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'documento_id'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object FacturasDocumentostipoDocumento: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'tipoDocumento'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object FacturasDocumentosrefEstado: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refEstado'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object FacturasDocumentoslxEstado: TStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'lxEstado'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object FacturasDocumentoslxDocumento: TStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'lxDocumento'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object FacturasDocumentoslxCodigo: TStringField
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'lxCodigo'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 15
+    end
+    object FacturasDocumentoslxCliente: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'lxCliente'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object FacturasDocumentoslxFecha: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'lxFecha'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object FacturasDocumentoslxNroDocumento: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'lxNroDocumento'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object FacturasDocumentoslxDetalle: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'lxDetalle'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object FacturasDocumentosCodigoClienteRemito: TStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'CodigoClienteRemito'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object FacturasDocumentosNombreClienteRemito: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'NombreClienteRemito'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object FacturasDocumentosidClienteRemito: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idClienteRemito'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object FacturasDocumentosCodigoClientePresupuesto: TStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'CodigoClientePresupuesto'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object FacturasDocumentosNombreClientePresupuesto: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'NombreClientePresupuesto'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object FacturasDocumentosidClientePresupuesto: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idClientePresupuesto'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object FacturasDocumentosNroPresupuesto: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NroPresupuesto'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object FacturasDocumentosRemitoNro: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'RemitoNro'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object facturasDocDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM FacturasDocumentos'
+      'WHERE id = :id'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    left = 336
+    top = 328
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+  end
+  object facturasDocUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE  FacturasDocumentos'
+      'SET '
+      '  FACTURA_ID = :FACTURA_ID '
+      ', TIPODOCUMENTO = :TIPODOCUMENTO '
+      ', DOCUMENTO_ID = :DOCUMENTO_ID '
+      ', REFESTADO  = :REFESTADO  '
+      'WHERE ID = :ID'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'FACTURA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TIPODOCUMENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DOCUMENTO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end>
+    left = 336
+    top = 264
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'FACTURA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TIPODOCUMENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DOCUMENTO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object facturasDocINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO FacturasDocumentos'
+      '(ID, FACTURA_ID, TIPODOCUMENTO, DOCUMENTO_ID, REFESTADO)'
+      'VALUES'
+      '(:ID, :FACTURA_ID, :TIPODOCUMENTO, :DOCUMENTO_ID, :REFESTADO)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FACTURA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TIPODOCUMENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DOCUMENTO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end>
+    left = 336
+    top = 200
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FACTURA_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TIPODOCUMENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DOCUMENTO_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFESTADO'
+        ParamType = ptUnknown
+      end>
+  end
+  object facturasDocSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM FacturasDocumentos'
+      'WHERE id = :id'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    left = 336
+    top = 128
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    object facturasDocSELID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object facturasDocSELFACTURA_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'FACTURA_ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object facturasDocSELTIPODOCUMENTO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIPODOCUMENTO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object facturasDocSELDOCUMENTO_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'DOCUMENTO_ID'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object facturasDocSELREFESTADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFESTADO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object DocumentosPorFactura: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM FacturasDocumentos'
+      'WHERE factura_id = :factura_id'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'factura_id'
+        ParamType = ptUnknown
+      end>
+    left = 336
+    top = 392
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'factura_id'
+        ParamType = ptUnknown
+      end>
+    object DocumentosPorFacturaID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object DocumentosPorFacturaFACTURA_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'FACTURA_ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object DocumentosPorFacturaTIPODOCUMENTO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIPODOCUMENTO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object DocumentosPorFacturaDOCUMENTO_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'DOCUMENTO_ID'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object DocumentosPorFacturaREFESTADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFESTADO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qTodosLosDocumentos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      ''
+      'SELECT P.ID, P.FACTURA_ID, P.DOCUMENTO_ID, P.TIPODOCUMENTO, P.REFESTADO '
+      #9#9'   , CPR.nNroCuota as PresupuestoCuota '
+      '           , CPR.nMonto as PresupuestoMonto'
+      #9#9'   , CPR.fVencimiento as PresupuestoVencimiento '
+      '           , R.nRemito as RemitoNro'
+      #9#9'   , R.fFecha as RemitoFecha'
+      #9#9'   , R.txDetalles as RemitoDetalles '
+      #9#9'   , CR.cCodigo as CodigoClienteRemito '
+      '           , CR.cNombre as NombreClienteRemito'
+      '           , R.refCliente as idClienteRemito'
+      '           , PR.nPresupuesto as NroPresupuesto'
+      #9#9'   , ClPR.cCodigo as CodigoClientePresupuesto '
+      '           , ClPR.cNombre as NombreClientePresupuesto'
+      '           , PR.refCliente as idClientePresupuesto'
+      'FROM '
+      '    FacturasDocumentos P '
+      '           '#9'LEFT JOIN tbCuotasPresupuesto CPR ON CPR.idCuotaPresupuesto = P.DOCUMENTO_ID '
+      '            LEFT JOIN tbRemitos R ON R.idRemito = P.DOCUMENTO_ID'
+      '           '#9'LEFT JOIN tbPresupuestos PR ON CPR.refPresupuesto = PR.idPresupuesto '
+      #9#9#9#9
+      '           '
+    )
+    Params = <>
+    left = 336
+    top = 456
+    object qTodosLosDocumentosID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qTodosLosDocumentosFACTURA_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'FACTURA_ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qTodosLosDocumentosDOCUMENTO_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'DOCUMENTO_ID'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qTodosLosDocumentosTIPODOCUMENTO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIPODOCUMENTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qTodosLosDocumentosREFESTADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFESTADO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qTodosLosDocumentosPRESUPUESTOCUOTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PRESUPUESTOCUOTA'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qTodosLosDocumentosPRESUPUESTOMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PRESUPUESTOMONTO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qTodosLosDocumentosPRESUPUESTOVENCIMIENTO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PRESUPUESTOVENCIMIENTO'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qTodosLosDocumentosREMITONRO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REMITONRO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qTodosLosDocumentosREMITOFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REMITOFECHA'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qTodosLosDocumentosREMITODETALLES: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'REMITODETALLES'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qTodosLosDocumentosCODIGOCLIENTEREMITO: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'CODIGOCLIENTEREMITO'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object qTodosLosDocumentosNOMBRECLIENTEREMITO: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'NOMBRECLIENTEREMITO'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qTodosLosDocumentosNROPRESUPUESTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NROPRESUPUESTO'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qTodosLosDocumentosCODIGOCLIENTEPRESUPUESTO: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'CODIGOCLIENTEPRESUPUESTO'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object qTodosLosDocumentosNOMBRECLIENTEPRESUPUESTO: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'NOMBRECLIENTEPRESUPUESTO'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qTodosLosDocumentosIDCLIENTEREMITO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCLIENTEREMITO'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qTodosLosDocumentosIDCLIENTEPRESUPUESTO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCLIENTEPRESUPUESTO'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+  end
+  object qRemitosSinPF: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT R.*'
+      'FROM FacturasDocumentos P'
+      '    RIGHT JOIN  tbremitos R ON P.documento_id = R.idremito'
+      'WHERE (P.documento_id is null)'
+      '       and (R.bVisible = 1)'
+      '       and (R.bSinCargo = 0)'
+      '       and (R.bFacturado = 0)'
+      'ORDER BY R.nRemito'
+    )
+    Params = <>
+    left = 336
+    top = 528
+    object qRemitosSinPFIDREMITO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDREMITO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qRemitosSinPFREFCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCLIENTE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qRemitosSinPFNREMITO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NREMITO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFFFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FFECHA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFREFORDENTRABAJO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFORDENTRABAJO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qRemitosSinPFREFMOTIVO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFMOTIVO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFTXDETALLES: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXDETALLES'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qRemitosSinPFREFFACTURA: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFFACTURA'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qRemitosSinPFBFACTURAR: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BFACTURAR'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFBFACTURADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BFACTURADO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFBPRESENTADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BPRESENTADO'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qRemitosSinPFBSINCARGO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BSINCARGO'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qPresupuestosSinPF: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT CP.*, PR.*'
+      'FROM FacturasDocumentos P'
+      '    RIGHT JOIN  tbCuotasPresupuesto CP ON P.documento_id = CP.idCuotaPresupuesto'
+      #9'INNER JOIN tbPresupuestos PR ON PR.idPresupuesto = CP.refPresupuesto'
+      'WHERE (P.documento_id is null)'
+      '      and (CP.refEstado <= 1)'
+      '      and (CP.fVencimiento <= :Vencimiento )'
+      #9'  and (CP.bVisible = 1)'
+      #9'  and (PR.bVisible = 1)'
+      'ORDER BY CP.nNroCuota'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'Vencimiento'
+        ParamType = ptUnknown
+      end>
+    left = 336
+    top = 600
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'Vencimiento'
+        ParamType = ptUnknown
+      end>
+    object qPresupuestosSinPFIDCUOTAPRESUPUESTO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDCUOTAPRESUPUESTO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qPresupuestosSinPFREFPRESUPUESTO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFPRESUPUESTO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qPresupuestosSinPFNNROCUOTA: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NNROCUOTA'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFREFTIPO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFTIPO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFFVENCIMIENTO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FVENCIMIENTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFNMONTO: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NMONTO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object qPresupuestosSinPFREFESTADO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFESTADO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFFPAGO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FPAGO'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFBVISIBLE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFIDPRESUPUESTO: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'IDPRESUPUESTO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qPresupuestosSinPFNPRESUPUESTO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NPRESUPUESTO'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFFEMISION: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FEMISION'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFREFCLIENTE: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'REFCLIENTE'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qPresupuestosSinPFREFEMPLEADO: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFEMPLEADO'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFREFESTADO_1: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REFESTADO_1'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFFCAMBIOESTADO: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FCAMBIOESTADO'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFTXMOTIVO: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXMOTIVO'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qPresupuestosSinPFTXOBSERVACIONES: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'TXOBSERVACIONES'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object qPresupuestosSinPFBACEPTADO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BACEPTADO'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFTXDOCUMENTO: TBlobField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TXDOCUMENTO'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftBlob
+    end
+    object qPresupuestosSinPFBVISIBLE_1: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE_1'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qPresupuestosSinPFCRECEPCIONO: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'CRECEPCIONO'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
     end
   end
 end

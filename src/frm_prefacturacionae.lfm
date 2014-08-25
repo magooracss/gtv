@@ -1,7 +1,7 @@
 object frmPrefacturacionAE: TfrmPrefacturacionAE
-  Left = 234
+  Left = 245
   Height = 528
-  Top = 141
+  Top = 142
   Width = 914
   Caption = 'Prefacturar documento'
   ClientHeight = 528

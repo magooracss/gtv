@@ -67,7 +67,7 @@
         <PackageName Value="LCL"/>
       </Item8>
     </RequiredPackages>
-    <Units Count="114">
+    <Units Count="110">
       <Unit0>
         <Filename Value="gtv.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -84,13 +84,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_principal"/>
+        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="616"/>
         <CursorPos X="78" Y="628"/>
         <UsageCount Value="205"/>
-        <Bookmarks Count="1">
-          <Item0 X="3" Y="645" ID="1"/>
-        </Bookmarks>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="dmconexion.pas"/>
@@ -868,7 +868,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="39"/>
         <CursorPos X="5" Y="60"/>
-        <UsageCount Value="192"/>
+        <UsageCount Value="190"/>
       </Unit65>
       <Unit66>
         <Filename Value="frm_tuglocalidades.pas"/>
@@ -1010,27 +1010,18 @@
         <WindowIndex Value="0"/>
         <TopLine Value="333"/>
         <CursorPos X="15" Y="8"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit77>
       <Unit78>
-        <Filename Value="..\..\..\Utiles\lazarus\components\zeos\src\component\ZAbstractRODataset.pas"/>
-        <UnitName Value="ZAbstractRODataset"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="413"/>
-        <CursorPos X="14" Y="430"/>
-        <UsageCount Value="2"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit78>
-      <Unit79>
         <Filename Value="..\..\..\Utiles\lazarus\fpc\2.6.0\source\packages\fcl-db\src\base\db.pas"/>
         <UnitName Value="db"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1282"/>
         <CursorPos X="3" Y="1264"/>
-        <UsageCount Value="1"/>
-      </Unit79>
-      <Unit80>
+        <UsageCount Value="9"/>
+      </Unit78>
+      <Unit79>
         <Filename Value="frm_configuraciones.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmConfiguracion"/>
@@ -1041,34 +1032,25 @@
         <TopLine Value="52"/>
         <CursorPos X="21" Y="55"/>
         <UsageCount Value="200"/>
-      </Unit80>
-      <Unit81>
+      </Unit79>
+      <Unit80>
         <Filename Value="frm_principal.lfm"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
-        <UsageCount Value="1"/>
+        <UsageCount Value="9"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit81>
-      <Unit82>
+      </Unit80>
+      <Unit81>
         <Filename Value="Z:\Utiles\lazComp\zeos\src\dbc\ZDbcInterbase6Utils.pas"/>
         <UnitName Value="ZDbcInterbase6Utils"/>
         <WindowIndex Value="0"/>
         <TopLine Value="835"/>
         <CursorPos X="53" Y="852"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit82>
-      <Unit83>
-        <Filename Value="Z:\Utiles\lazComp\zeos\src\component\ZAbstractRODataset.pas"/>
-        <UnitName Value="ZAbstractRODataset"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1380"/>
-        <CursorPos X="1" Y="1394"/>
-        <UsageCount Value="2"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit83>
-      <Unit84>
+      </Unit81>
+      <Unit82>
         <Filename Value="frm_ingresoslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmIngresosListado"/>
@@ -1078,9 +1060,9 @@
         <WindowIndex Value="0"/>
         <TopLine Value="14"/>
         <CursorPos X="29" Y="14"/>
-        <UsageCount Value="188"/>
-      </Unit84>
-      <Unit85>
+        <UsageCount Value="200"/>
+      </Unit82>
+      <Unit83>
         <Filename Value="dmingresos.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Ingresos"/>
@@ -1090,9 +1072,9 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="59" Y="1"/>
-        <UsageCount Value="188"/>
-      </Unit85>
-      <Unit86>
+        <UsageCount Value="200"/>
+      </Unit83>
+      <Unit84>
         <Filename Value="frm_ingresosae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmIngresoAE"/>
@@ -1102,21 +1084,23 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="93" Y="12"/>
-        <UsageCount Value="188"/>
-      </Unit86>
-      <Unit87>
+        <UsageCount Value="200"/>
+      </Unit84>
+      <Unit85>
         <Filename Value="frm_reciboslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmRecibosListado"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_reciboslistado"/>
+        <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="60"/>
-        <CursorPos X="14" Y="71"/>
-        <UsageCount Value="186"/>
-      </Unit87>
-      <Unit88>
+        <TopLine Value="28"/>
+        <CursorPos X="14" Y="46"/>
+        <UsageCount Value="201"/>
+        <Loaded Value="True"/>
+      </Unit85>
+      <Unit86>
         <Filename Value="dmrecibos.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Recibos"/>
@@ -1124,11 +1108,11 @@
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmrecibos"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="405"/>
-        <CursorPos X="1" Y="435"/>
-        <UsageCount Value="185"/>
-      </Unit88>
-      <Unit89>
+        <TopLine Value="363"/>
+        <CursorPos X="57" Y="420"/>
+        <UsageCount Value="200"/>
+      </Unit86>
+      <Unit87>
         <Filename Value="frm_reciboae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmRecibosAE"/>
@@ -1138,48 +1122,57 @@
         <WindowIndex Value="0"/>
         <TopLine Value="133"/>
         <CursorPos X="28" Y="154"/>
-        <UsageCount Value="181"/>
-      </Unit89>
-      <Unit90>
+        <UsageCount Value="203"/>
+      </Unit87>
+      <Unit88>
         <Filename Value="frm_facturaae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmFacturaAE"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_facturaae"/>
+        <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="60"/>
-        <CursorPos X="12" Y="229"/>
-        <UsageCount Value="176"/>
-      </Unit90>
-      <Unit91>
+        <TopLine Value="206"/>
+        <CursorPos X="3" Y="226"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit88>
+      <Unit89>
         <Filename Value="dmfacturas.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Facturas"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmfacturas"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="70"/>
-        <CursorPos X="47" Y="75"/>
-        <UsageCount Value="176"/>
-        <Bookmarks Count="1">
-          <Item0 X="1" Y="670" ID="2"/>
+        <TopLine Value="388"/>
+        <CursorPos X="3" Y="412"/>
+        <UsageCount Value="200"/>
+        <Bookmarks Count="2">
+          <Item0 X="1" Y="814" ID="2"/>
+          <Item1 X="3" Y="1005" ID="1"/>
         </Bookmarks>
-      </Unit91>
-      <Unit92>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit89>
+      <Unit90>
         <Filename Value="frm_facturaslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmListadoFacturas"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_facturaslistado"/>
+        <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="81"/>
-        <CursorPos X="32" Y="85"/>
-        <UsageCount Value="174"/>
-      </Unit92>
-      <Unit93>
+        <TopLine Value="64"/>
+        <CursorPos X="3" Y="87"/>
+        <UsageCount Value="198"/>
+        <Loaded Value="True"/>
+      </Unit90>
+      <Unit91>
         <Filename Value="frm_cargavaloresingreso.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmCargaValoresIngreso"/>
@@ -1189,40 +1182,25 @@
         <WindowIndex Value="0"/>
         <TopLine Value="37"/>
         <CursorPos X="32" Y="112"/>
-        <UsageCount Value="169"/>
-      </Unit93>
-      <Unit94>
+        <UsageCount Value="193"/>
+      </Unit91>
+      <Unit92>
         <Filename Value="C:\lazarus\lcl\dbgrids.pas"/>
         <UnitName Value="DBGrids"/>
         <WindowIndex Value="0"/>
         <TopLine Value="3396"/>
         <CursorPos X="55" Y="3411"/>
-        <UsageCount Value="4"/>
-      </Unit94>
-      <Unit95>
-        <Filename Value="C:\lazarus\lcl\lresources.pp"/>
-        <UnitName Value="LResources"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="19"/>
-        <CursorPos X="26" Y="34"/>
         <UsageCount Value="2"/>
-      </Unit95>
-      <Unit96>
+      </Unit92>
+      <Unit93>
         <Filename Value="C:\lazarus\fpc\2.6.2\source\packages\fcl-db\src\base\db.pas"/>
         <UnitName Value="db"/>
         <WindowIndex Value="0"/>
         <TopLine Value="297"/>
         <CursorPos X="17" Y="310"/>
-        <UsageCount Value="6"/>
-      </Unit96>
-      <Unit97>
-        <Filename Value="C:\lazarus\fpc\2.6.2\source\packages\fcl-db\src\base\fields.inc"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="963"/>
-        <CursorPos X="3" Y="965"/>
-        <UsageCount Value="2"/>
-      </Unit97>
-      <Unit98>
+        <UsageCount Value="4"/>
+      </Unit93>
+      <Unit94>
         <Filename Value="frm_about.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmAbout"/>
@@ -1232,86 +1210,93 @@
         <WindowIndex Value="0"/>
         <TopLine Value="52"/>
         <CursorPos X="58" Y="57"/>
-        <UsageCount Value="149"/>
-      </Unit98>
-      <Unit99>
+        <UsageCount Value="173"/>
+      </Unit94>
+      <Unit95>
         <Filename Value="frm_itemfacturaae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmItemFacturaAE"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_itemfacturaae"/>
+        <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="39"/>
-        <CursorPos X="3" Y="39"/>
-        <UsageCount Value="132"/>
-      </Unit99>
-      <Unit100>
+        <TopLine Value="45"/>
+        <CursorPos X="4" Y="78"/>
+        <UsageCount Value="156"/>
+        <Loaded Value="True"/>
+      </Unit95>
+      <Unit96>
         <Filename Value="C:\lazarus\lcl\dbctrls.pp"/>
         <UnitName Value="DbCtrls"/>
+        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1548"/>
-        <CursorPos X="52" Y="1563"/>
-        <UsageCount Value="15"/>
-      </Unit100>
-      <Unit101>
+        <TopLine Value="1408"/>
+        <CursorPos X="1" Y="1428"/>
+        <UsageCount Value="13"/>
+        <Loaded Value="True"/>
+      </Unit96>
+      <Unit97>
         <Filename Value="frmseleccionargrupofacturacion.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmSeleccionGrupoFacturacion"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frmseleccionargrupofacturacion"/>
+        <EditorIndex Value="9"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="38"/>
-        <CursorPos X="107" Y="47"/>
-        <UsageCount Value="106"/>
-      </Unit101>
-      <Unit102>
+        <TopLine Value="29"/>
+        <CursorPos X="99" Y="35"/>
+        <UsageCount Value="130"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit97>
+      <Unit98>
         <Filename Value="C:\lazarus\lcl\include\control.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1509"/>
         <CursorPos X="1" Y="1524"/>
-        <UsageCount Value="4"/>
-      </Unit102>
-      <Unit103>
+        <UsageCount Value="2"/>
+      </Unit98>
+      <Unit99>
         <Filename Value="dmfacturaelectronica.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_FacturaElectronica"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmfacturaelectronica"/>
+        <EditorIndex Value="10"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="183"/>
-        <CursorPos X="35" Y="184"/>
-        <UsageCount Value="96"/>
-        <Bookmarks Count="1">
-          <Item0 X="51" Y="197" ID="1"/>
-        </Bookmarks>
-      </Unit103>
-      <Unit104>
+        <TopLine Value="1"/>
+        <CursorPos X="46" Y="3"/>
+        <UsageCount Value="120"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit99>
+      <Unit100>
         <Filename Value="Z:\Utiles\lazComp\rx\rxmemds.pas"/>
         <UnitName Value="rxmemds"/>
         <WindowIndex Value="0"/>
         <TopLine Value="381"/>
         <CursorPos X="1" Y="396"/>
-        <UsageCount Value="10"/>
-      </Unit104>
-      <Unit105>
+        <UsageCount Value="8"/>
+      </Unit100>
+      <Unit101>
         <Filename Value="C:\lazarus\fpc\2.6.2\source\packages\fcl-process\src\process.pp"/>
         <UnitName Value="process"/>
         <WindowIndex Value="0"/>
         <TopLine Value="403"/>
         <CursorPos X="17" Y="429"/>
-        <UsageCount Value="9"/>
-      </Unit105>
-      <Unit106>
+        <UsageCount Value="7"/>
+      </Unit101>
+      <Unit102>
         <Filename Value="C:\lazarus\fpc\2.6.2\source\rtl\objpas\sysutils\osutilsh.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="7"/>
         <CursorPos X="53" Y="15"/>
-        <UsageCount Value="8"/>
-      </Unit106>
-      <Unit107>
+        <UsageCount Value="6"/>
+      </Unit102>
+      <Unit103>
         <Filename Value="frm_administradoresae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmAdministradorAE"/>
@@ -1321,9 +1306,9 @@
         <WindowIndex Value="0"/>
         <TopLine Value="86"/>
         <CursorPos X="3" Y="90"/>
-        <UsageCount Value="52"/>
-      </Unit107>
-      <Unit108>
+        <UsageCount Value="76"/>
+      </Unit103>
+      <Unit104>
         <Filename Value="frm_prefacturacion.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmPrefacturacion"/>
@@ -1332,188 +1317,185 @@
         <UnitName Value="frm_prefacturacion"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="79"/>
-        <CursorPos X="69" Y="105"/>
-        <UsageCount Value="46"/>
+        <TopLine Value="96"/>
+        <CursorPos X="3" Y="98"/>
+        <UsageCount Value="70"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
-      </Unit108>
-      <Unit109>
+      </Unit104>
+      <Unit105>
         <Filename Value="dmprefacturacion.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Prefacturacion"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmprefacturacion"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="374"/>
-        <CursorPos X="28" Y="387"/>
-        <UsageCount Value="46"/>
+        <TopLine Value="291"/>
+        <CursorPos X="38" Y="305"/>
+        <UsageCount Value="70"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
-      </Unit109>
-      <Unit110>
+      </Unit105>
+      <Unit106>
         <Filename Value="C:\lazarus\fpc\2.6.2\source\rtl\objpas\sysutils\datih.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="97"/>
         <CursorPos X="11" Y="116"/>
-        <UsageCount Value="12"/>
-      </Unit110>
-      <Unit111>
+        <UsageCount Value="10"/>
+      </Unit106>
+      <Unit107>
         <Filename Value="C:\lazarus\fpc\2.6.2\source\rtl\objpas\dateutil.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="126"/>
         <CursorPos X="10" Y="146"/>
-        <UsageCount Value="12"/>
-      </Unit111>
-      <Unit112>
+        <UsageCount Value="10"/>
+      </Unit107>
+      <Unit108>
         <Filename Value="C:\lazarus\fpc\2.6.2\source\rtl\objpas\dateutils.pp"/>
         <UnitName Value="dateutils"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="43" Y="1"/>
-        <UsageCount Value="9"/>
-      </Unit112>
-      <Unit113>
+        <UsageCount Value="7"/>
+      </Unit108>
+      <Unit109>
         <Filename Value="frm_prefacturacionae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmPrefacturacionAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_prefacturacionae"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="11"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="97"/>
-        <CursorPos X="42" Y="101"/>
-        <UsageCount Value="29"/>
-        <Bookmarks Count="1">
-          <Item0 X="5" Y="93" ID="1"/>
-        </Bookmarks>
+        <TopLine Value="91"/>
+        <CursorPos X="157" Y="104"/>
+        <UsageCount Value="53"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
-      </Unit113>
+      </Unit109>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="dmprefacturacion.pas"/>
-        <Caret Line="160" Column="63" TopLine="128"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="392" Column="14" TopLine="359"/>
       </Position1>
       <Position2>
-        <Filename Value="frm_prefacturacionae.pas"/>
-        <Caret Line="94" Column="41" TopLine="82"/>
+        <Filename Value="frm_itemfacturaae.pas"/>
+        <Caret Line="39" Column="3" TopLine="39"/>
       </Position2>
       <Position3>
-        <Filename Value="frm_prefacturacionae.pas"/>
-        <Caret Line="81" Column="3" TopLine="79"/>
+        <Filename Value="frm_facturaae.pas"/>
+        <Caret Line="229" Column="12" TopLine="60"/>
       </Position3>
       <Position4>
-        <Filename Value="frm_prefacturacionae.pas"/>
-        <Caret Line="93" Column="61" TopLine="59"/>
+        <Filename Value="frm_facturaae.pas"/>
+        <Caret Line="156" Column="3" TopLine="137"/>
       </Position4>
       <Position5>
-        <Filename Value="dmprefacturacion.pas"/>
-        <Caret Line="132" Column="23" TopLine="121"/>
+        <Filename Value="frm_facturaslistado.pas"/>
+        <Caret Line="85" Column="32" TopLine="81"/>
       </Position5>
       <Position6>
-        <Filename Value="dmprefacturacion.pas"/>
-        <Caret Line="229" Column="7" TopLine="205"/>
+        <Filename Value="frm_prefacturacionae.pas"/>
+        <Caret Line="109" Column="21" TopLine="97"/>
       </Position6>
       <Position7>
-        <Filename Value="dmprefacturacion.pas"/>
-        <Caret Line="240" Column="11" TopLine="208"/>
+        <Filename Value="frm_prefacturacionae.pas"/>
+        <Caret Line="91" Column="4" TopLine="72"/>
       </Position7>
       <Position8>
-        <Filename Value="dmprefacturacion.pas"/>
-        <Caret Line="312" Column="27" TopLine="280"/>
+        <Filename Value="frm_prefacturacionae.pas"/>
+        <Caret Line="101" Column="5" TopLine="82"/>
       </Position8>
       <Position9>
-        <Filename Value="dmprefacturacion.pas"/>
-        <Caret Line="341" Column="26" TopLine="309"/>
+        <Filename Value="frm_prefacturacion.pas"/>
+        <Caret Line="144" Column="33" TopLine="109"/>
       </Position9>
       <Position10>
-        <Filename Value="dmprefacturacion.pas"/>
-        <Caret Line="382" Column="9" TopLine="350"/>
+        <Filename Value="frm_prefacturacion.pas"/>
+        <Caret Line="98" Column="3" TopLine="96"/>
       </Position10>
       <Position11>
-        <Filename Value="dmprefacturacion.pas"/>
-        <Caret Line="392" Column="9" TopLine="358"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="989" Column="3" TopLine="885"/>
       </Position11>
       <Position12>
-        <Filename Value="dmprefacturacion.pas"/>
-        <Caret Line="1" Column="1" TopLine="1"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="399" Column="26" TopLine="397"/>
       </Position12>
       <Position13>
-        <Filename Value="dmprefacturacion.pas"/>
-        <Caret Line="240" Column="11" TopLine="209"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="459" Column="12" TopLine="422"/>
       </Position13>
       <Position14>
-        <Filename Value="dmprefacturacion.pas"/>
-        <Caret Line="312" Column="27" TopLine="280"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
       </Position14>
       <Position15>
-        <Filename Value="dmprefacturacion.pas"/>
-        <Caret Line="341" Column="26" TopLine="309"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="51" Column="32" TopLine="19"/>
       </Position15>
       <Position16>
-        <Filename Value="dmprefacturacion.pas"/>
-        <Caret Line="382" Column="9" TopLine="350"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="92" Column="27" TopLine="60"/>
       </Position16>
       <Position17>
-        <Filename Value="frm_prefacturacionae.pas"/>
-        <Caret Line="93" Column="61" TopLine="65"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="107" Column="25" TopLine="75"/>
       </Position17>
       <Position18>
-        <Filename Value="frm_prefacturacionae.pas"/>
-        <Caret Line="91" Column="75" TopLine="79"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="147" Column="28" TopLine="115"/>
       </Position18>
       <Position19>
-        <Filename Value="frm_prefacturacionae.pas"/>
-        <Caret Line="81" Column="1" TopLine="73"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="176" Column="27" TopLine="144"/>
       </Position19>
       <Position20>
-        <Filename Value="dmprefacturacion.pas"/>
-        <Caret Line="354" Column="76" TopLine="333"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="230" Column="35" TopLine="198"/>
       </Position20>
       <Position21>
-        <Filename Value="frm_prefacturacionae.pas"/>
-        <Caret Line="81" Column="4" TopLine="74"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="254" Column="37" TopLine="222"/>
       </Position21>
       <Position22>
-        <Filename Value="frm_prefacturacion.pas"/>
-        <Caret Line="86" Column="6" TopLine="66"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="309" Column="27" TopLine="277"/>
       </Position22>
       <Position23>
-        <Filename Value="frm_prefacturacion.pas"/>
-        <Caret Line="106" Column="5" TopLine="86"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="327" Column="31" TopLine="295"/>
       </Position23>
       <Position24>
-        <Filename Value="dmprefacturacion.pas"/>
-        <Caret Line="344" Column="15" TopLine="334"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="355" Column="59" TopLine="323"/>
       </Position24>
       <Position25>
-        <Filename Value="frm_prefacturacion.pas"/>
-        <Caret Line="110" Column="1" TopLine="80"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="409" Column="27" TopLine="377"/>
       </Position25>
       <Position26>
-        <Filename Value="frm_prefacturacionae.pas"/>
-        <Caret Line="82" Column="2" TopLine="80"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="629" Column="3" TopLine="599"/>
       </Position26>
       <Position27>
-        <Filename Value="dmprefacturacion.pas"/>
-        <Caret Line="164" Column="49" TopLine="148"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="908" Column="48" TopLine="876"/>
       </Position27>
       <Position28>
-        <Filename Value="frm_prefacturacionae.pas"/>
-        <Caret Line="104" Column="50" TopLine="82"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="966" Column="69" TopLine="934"/>
       </Position28>
       <Position29>
-        <Filename Value="frm_prefacturacionae.pas"/>
-        <Caret Line="87" Column="68" TopLine="71"/>
+        <Filename Value="dmfacturas.pas"/>
+        <Caret Line="993" Column="34" TopLine="969"/>
       </Position29>
       <Position30>
-        <Filename Value="dmprefacturacion.pas"/>
-        <Caret Line="165" Column="35" TopLine="151"/>
+        <Filename Value="frm_prefacturacion.pas"/>
+        <Caret Line="98" Column="3" TopLine="96"/>
       </Position30>
     </JumpHistory>
   </ProjectOptions>

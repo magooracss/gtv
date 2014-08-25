@@ -101,6 +101,7 @@ var
   RutaDBF: string;
   montoneto, montoiva, porcIVA: double;
 begin
+(*
   RutaDBF:= LeerDato(SECCION_FACTURACION, RUTA_DBF);
   DM_Clientes.ClienteEditar(DM_Facturas.FacturasclienteEmpresa_id.AsString);
   montoneto:= DM_Facturas.FacturasimpNeto.AsFloat;
@@ -163,7 +164,7 @@ begin
 
   iva.Post;
   iva.close;
-
+  *)
   (** TABLA PARA COMPROBANTES ASOCIADOS, REMITOS / NOTAS DE CREDITO o DEBITO**)
   comproba.Active:= false;
   comproba.FilePathFull:= RutaDBF;
@@ -215,7 +216,7 @@ end;
 
 procedure TDM_FacturaElectronica.Facturar(factura_id: GUID_ID);
 begin
-  DM_Facturas.LevantarFacturaID(factura_id);
+ // DM_Facturas.LevantarFacturaID(factura_id);
   //CargarDBFs;
   EjecutarRECE;
 end;

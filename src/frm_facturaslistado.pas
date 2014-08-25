@@ -81,10 +81,10 @@ end;
 procedure TfrmListadoFacturas.btnGenerarFacturaAFIPClick(Sender: TObject);
 begin
   DM_Facturas.LevantarFacturaID(DM_Facturas.idFacturaListado);
-  if DM_Facturas.Facturasestado_id.AsInteger = FACTURA_ESTADO_APROBADA then
-    DM_FacturaElectronica.Facturar(DM_Facturas.idFacturaListado)
-  else
-    ShowMessage('Solo se puede enviar a la AFIP una factura aprobada');
+//  if DM_Facturas.Facturasestado_id.AsInteger = FACTURA_ESTADO_APROBADA then
+//    DM_FacturaElectronica.Facturar(DM_Facturas.idFacturaListado)
+//  else
+//    ShowMessage('Solo se puede enviar a la AFIP una factura aprobada');
 end;
 
 procedure TfrmListadoFacturas.btnAnularClick(Sender: TObject);

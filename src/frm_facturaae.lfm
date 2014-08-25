@@ -369,13 +369,13 @@ object frmFacturaAE: TfrmFacturaAE
           item
             Title.Alignment = taCenter
             Title.Caption = 'Fecha'
-            Width = 198
+            Width = 200
             FieldName = 'Fecha'
           end        
           item
             Title.Alignment = taCenter
             Title.Caption = 'Recibo'
-            Width = 198
+            Width = 200
             FieldName = 'NroRecibo'
           end>
         DataSource = ds_reciboFactura
@@ -462,7 +462,7 @@ object frmFacturaAE: TfrmFacturaAE
           item
             Title.Alignment = taCenter
             Title.Caption = 'Detalles'
-            Width = 193
+            Width = 197
             FieldName = 'txDetalles'
           end>
         DataSource = ds_remitoFactura
@@ -553,7 +553,7 @@ object frmFacturaAE: TfrmFacturaAE
         item
           Title.Alignment = taCenter
           Title.Caption = 'Detalle'
-          Width = 517
+          Width = 521
           FieldName = 'Detalle'
         end      
         item
@@ -639,12 +639,11 @@ object frmFacturaAE: TfrmFacturaAE
     end
   end
   object ds_factura: TDatasource
-    DataSet = DM_Facturas.Facturas
     left = 528
     top = 80
   end
   object ds_facturaItems: TDatasource
-    DataSet = DM_Facturas.FacturaItems
+    DataSet = DM_Facturas.FacturasItems
     left = 616
     top = 80
   end

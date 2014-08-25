@@ -88,9 +88,9 @@ procedure TfrmPrefacturacionAE.BitBtn2Click(Sender: TObject);
 begin
   if (MessageDlg ('ATENCION', 'Modifica el número de prefactura por el seleccionado?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
   begin
-    DM_Prefacturacion.AsignarNroPrefactura(DM_Prefacturacion.qPrefacturasExistentesNROPREFACTURA.AsInteger);
-    DM_Prefacturacion.CambiarEstado(EP_PREFACTURADO);
-    DM_Prefacturacion.LevantarPrefacturasCliente(DM_Prefacturacion.Prefacturacioncliente_id.AsString);
+ //   DM_Prefacturacion.AsignarNroPrefactura(DM_Prefacturacion.qPrefacturasExistentesNROPREFACTURA.AsInteger);
+//    DM_Prefacturacion.CambiarEstado(EP_PREFACTURADO);
+//    DM_Prefacturacion.LevantarPrefacturasCliente(DM_Prefacturacion.Prefacturacioncliente_id.AsString);
   end;
 end;
 
@@ -98,8 +98,8 @@ procedure TfrmPrefacturacionAE.BitBtn3Click(Sender: TObject);
 begin
   if (MessageDlg ('ATENCION', 'Lo quito de la prefactura actual? (el estado volverá a ser PARA FACTURAR)', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
   begin
-    DM_Prefacturacion.QuitarNroPrefactura;
-    DM_Prefacturacion.CambiarEstado(EP_PARAFACTURAR);
+  //  DM_Prefacturacion.QuitarNroPrefactura;
+  //  DM_Prefacturacion.CambiarEstado(EP_PARAFACTURAR);
   end;
 end;
 
@@ -107,8 +107,8 @@ procedure TfrmPrefacturacionAE.btnNuevaPrefacturaClick(Sender: TObject);
 begin
   if (MessageDlg ('ATENCION', 'Asigno un nuevo número de prefactura?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
   begin
-    DM_Prefacturacion.AsignarNuevoNroPrefactura;
-    DM_Prefacturacion.CambiarEstado(EP_PREFACTURADO);
+  //  DM_Prefacturacion.AsignarNuevoNroPrefactura;
+  //  DM_Prefacturacion.CambiarEstado(EP_PREFACTURADO);
   end;
 end;
 

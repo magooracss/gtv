@@ -75,7 +75,7 @@ begin
   with DM_Facturas do
   begin
 //    FacturaItems.Edit;
-    FacturaItemsMonto.asFloat:= FacturaItemsCantidad.asFloat * FacturaItemsPrecioUnitario.asFloat;
+ //   FacturaItemsMonto.asFloat:= FacturaItemsCantidad.asFloat * FacturaItemsPrecioUnitario.asFloat;
 //    FacturaItems.Post;
   end;
 end;
