@@ -18,6 +18,7 @@ type
     btnExportarExcel: TBitBtn;
     btnFiltrar: TBitBtn;
     btnSalir: TBitBtn;
+    ckTodosLosProveedores: TCheckBox;
     DBGrid1: TDBGrid;
     ds_subdiarioPagos: TDatasource;
     edFFin: TDateEdit;
@@ -61,6 +62,8 @@ uses
 
 procedure TfrmSubdiarioDePagos.btnFiltrarClick(Sender: TObject);
 begin
+  if ckTodosLosProveedores.Checked then
+    _idProveedor:= GUIDNULO;
   DM_GrupoCuentas.filtrarSubdiarioPagos (edFIni.Date, edFFin.Date, _idProveedor);
 end;
 
@@ -88,6 +91,7 @@ begin
     begin
       _idProveedor:= pant.idProveedor;
       edProveedor.Text:= pant.RazonSocial;
+      ckTodosLosProveedores.Checked:= false;
     end;
   finally
     pant.Free;

@@ -590,9 +590,9 @@ object DM_Prefacturacion: TDM_Prefacturacion
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'SELECT R.*'
-      'FROM Prefacturacion P'
-      '    RIGHT JOIN  tbremitos R ON P.documento_id = R.idremito'
-      'WHERE (P.documento_id is null)'
+      'FROM  FacturasDocumentos FD'
+      '    RIGHT JOIN  tbremitos R ON FD.documento_id = R.idremito'
+      'WHERE (FD.documento_id is null)'
       '       and (R.bVisible = 1)'
       '       and (R.bSinCargo = 0)'
       '       and (R.bFacturado = 0)'
@@ -741,10 +741,10 @@ object DM_Prefacturacion: TDM_Prefacturacion
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'SELECT CP.*, PR.*'
-      'FROM Prefacturacion P'
-      '    RIGHT JOIN  tbCuotasPresupuesto CP ON P.documento_id = CP.idCuotaPresupuesto'
+      'FROM FacturasDocumentos FD'
+      '    RIGHT JOIN  tbCuotasPresupuesto CP ON FD.documento_id = CP.idCuotaPresupuesto'
       #9'INNER JOIN tbPresupuestos PR ON PR.idPresupuesto = CP.refPresupuesto'
-      'WHERE (P.documento_id is null)'
+      'WHERE (FD.documento_id is null)'
       '      and (CP.refEstado <= 1)'
       '      and (CP.fVencimiento <= :Vencimiento )'
       #9'  and (CP.bVisible = 1)'

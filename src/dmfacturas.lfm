@@ -1404,7 +1404,6 @@ object DM_Facturas: TDM_Facturas
         Precision = 0
         Size = 0
       end>
-    AfterInsert = FacturasItemsAfterInsert
     PacketRecords = 0
     left = 216
     top = 40
@@ -3347,8 +3346,38 @@ object DM_Facturas: TDM_Facturas
         DataType = ftInteger
         Precision = 0
         Size = 0
+      end    
+      item
+        Name = 'RemitoFecha'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'PresupuestoFecha'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'RemitoDetalles'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'PresupuestoDetalles'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'PresupuestoCuota'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
       end>
-    AfterInsert = FacturasItemsAfterInsert
+    AfterInsert = FacturasDocumentosAfterInsert
     PacketRecords = 0
     left = 336
     top = 40
@@ -3561,6 +3590,58 @@ object DM_Facturas: TDM_Facturas
       FieldKind = fkData
       FieldName = 'RemitoNro'
       Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object FacturasDocumentosRemitoFecha: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'RemitoFecha'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object FacturasDocumentosPresupuestoFecha: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PresupuestoFecha'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object FacturasDocumentosRemitoDetalles: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'RemitoDetalles'
+      Index = 22
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object FacturasDocumentosPresupuestoDetalles: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'PresupuestoDetalles'
+      Index = 23
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object FacturasDocumentosPresupuestoCuota: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PresupuestoCuota'
+      Index = 24
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -3870,28 +3951,23 @@ object DM_Facturas: TDM_Facturas
   object qTodosLosDocumentos: TZQuery
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
-      ''
-      'SELECT P.ID, P.FACTURA_ID, P.DOCUMENTO_ID, P.TIPODOCUMENTO, P.REFESTADO '
-      #9#9'   , CPR.nNroCuota as PresupuestoCuota '
-      '           , CPR.nMonto as PresupuestoMonto'
-      #9#9'   , CPR.fVencimiento as PresupuestoVencimiento '
-      '           , R.nRemito as RemitoNro'
-      #9#9'   , R.fFecha as RemitoFecha'
-      #9#9'   , R.txDetalles as RemitoDetalles '
-      #9#9'   , CR.cCodigo as CodigoClienteRemito '
-      '           , CR.cNombre as NombreClienteRemito'
-      '           , R.refCliente as idClienteRemito'
-      '           , PR.nPresupuesto as NroPresupuesto'
-      #9#9'   , ClPR.cCodigo as CodigoClientePresupuesto '
-      '           , ClPR.cNombre as NombreClientePresupuesto'
-      '           , PR.refCliente as idClientePresupuesto'
-      'FROM '
-      '    FacturasDocumentos P '
-      '           '#9'LEFT JOIN tbCuotasPresupuesto CPR ON CPR.idCuotaPresupuesto = P.DOCUMENTO_ID '
-      '            LEFT JOIN tbRemitos R ON R.idRemito = P.DOCUMENTO_ID'
-      '           '#9'LEFT JOIN tbPresupuestos PR ON CPR.refPresupuesto = PR.idPresupuesto '
-      #9#9#9#9
-      '           '
+      ' SELECT P.ID, P.FACTURA_ID, P.DOCUMENTO_ID, P.TIPODOCUMENTO, P.REFESTADO '
+      #9'     , CPR.nNroCuota as PresupuestoCuota '
+      '             , CPR.nMonto as PresupuestoMonto '
+      '             , CPR.fVencimiento as PresupuestoVencimiento '
+      '             , R.nRemito as RemitoNro '
+      '             , R.fFecha as RemitoFecha '
+      '             , R.txDetalles as RemitoDetalles '
+      '             , R.refCliente as idClienteRemito '
+      '             , PR.nPresupuesto as NroPresupuesto '
+      '             , PR.refCliente as idClientePresupuesto '
+      '             , cPR.fVencimiento as PresupuestoFecha '
+      ', PR.txMotivo as PresupuestoDetalles'
+      '             FROM '
+      '                 FacturasDocumentos P '
+      '                         LEFT JOIN tbCuotasPresupuesto CPR ON CPR.idCuotaPresupuesto = P.DOCUMENTO_ID '
+      '                         LEFT JOIN tbRemitos R ON R.idRemito = P.DOCUMENTO_ID '
+      '                        LEFT JOIN tbPresupuestos PR ON CPR.refPresupuesto = PR.idPresupuesto '
     )
     Params = <>
     left = 336
@@ -4088,6 +4164,27 @@ object DM_Facturas: TDM_Facturas
       ReadOnly = False
       Required = True
       Size = 152
+    end
+    object qTodosLosDocumentosPRESUPUESTOFECHA: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PRESUPUESTOFECHA'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qTodosLosDocumentosPRESUPUESTODETALLES: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'PRESUPUESTODETALLES'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
     end
   end
   object qRemitosSinPF: TZQuery

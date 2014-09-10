@@ -55,3 +55,12 @@ CREATE TABLE FacturasCnxAFIP
  , mensajeError	varchar(1000)
  , orden	timestamp default CURRENT_TIMESTAMP
 );
+
+CREATE INDEX iDocumentoID ON FacturasDocumentos (documento_id);
+CREATE INDEX idPresupuesto ON tbPresupuestos (idPresupuesto);
+CREATE INDEX idCuotaPresupuesto ON tbCuotasPresupuesto (idCuotaPresupuesto);
+--CREATE INDEX iIDCuotaFecha ON tbCuotasPresupuesto (idCuotaPresupuesto,fVencimiento);
+--CREATE INDEX iIDCuotaPresupuestoFecha ON tbCuotasPresupuesto (idCuotaPresupuesto,refPresupuesto, fVencimiento);
+--CREATE INDEX iIDCuotaPresVencEstadoNro ON tbCuotasPresupuesto (idCuotaPresupuesto,refPresupuesto, fVencimiento, refEstado, nNrocuota);
+--CREATE INDEX iIDCuotaPresVencEstado ON tbCuotasPresupuesto (idCuotaPresupuesto,refPresupuesto, fVencimiento, refEstado);
+

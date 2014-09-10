@@ -95,7 +95,7 @@ end;
 
 procedure TfrmPrefacturacion.BitBtn1Click(Sender: TObject);
 begin
-  DM_Facturas.levantarDocumentosSinPrefacturar;
+  showMessage ('Nada');
 end;
 
 procedure TfrmPrefacturacion.btnFiltrarClick(Sender: TObject);
@@ -134,9 +134,9 @@ end;
 procedure TfrmPrefacturacion.Inicializar;
 begin
   _idCliente:= GUIDNULO;
-  DM_Prefacturacion.levantarDocumentosSinPrefacturar;
-  DM_Prefacturacion.Grabar;
-  DM_Prefacturacion.LevantarPrefacturacion(TD_LIBRE, EP_PARAFACTURAR, GUIDNULO);
+  DM_Facturas.levantarDocumentosSinPrefacturar;
+  DM_Facturas.GrabarDocumentos;
+  DM_Facturas.LevantarDocumentos(TD_LIBRE, EP_PARAFACTURAR, GUIDNULO);
 end;
 
 procedure TfrmPrefacturacion.Buscar;

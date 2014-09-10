@@ -52,6 +52,11 @@ type
     FacturasDocumentosNombreClientePresupuesto: TStringField;
     FacturasDocumentosNombreClienteRemito: TStringField;
     FacturasDocumentosNroPresupuesto: TLongintField;
+    FacturasDocumentosPresupuestoCuota: TLongintField;
+    FacturasDocumentosPresupuestoDetalles: TStringField;
+    FacturasDocumentosPresupuestoFecha: TDateTimeField;
+    FacturasDocumentosRemitoDetalles: TStringField;
+    FacturasDocumentosRemitoFecha: TDateTimeField;
     FacturasDocumentosRemitoNro: TLongintField;
     qPresupuestosSinPF: TZQuery;
     qPresupuestosSinPFBACEPTADO: TSmallintField;
@@ -248,6 +253,8 @@ type
     qTodosLosDocumentosNOMBRECLIENTEREMITO: TStringField;
     qTodosLosDocumentosNROPRESUPUESTO: TLongintField;
     qTodosLosDocumentosPRESUPUESTOCUOTA: TLongintField;
+    qTodosLosDocumentosPRESUPUESTODETALLES: TStringField;
+    qTodosLosDocumentosPRESUPUESTOFECHA: TDateField;
     qTodosLosDocumentosPRESUPUESTOMONTO: TFloatField;
     qTodosLosDocumentosPRESUPUESTOVENCIMIENTO: TDateField;
     qTodosLosDocumentosREFESTADO: TSmallintField;
@@ -326,7 +333,7 @@ type
     RemitosPorFacturaREMITO_ID: TStringField;
     RemitosPorFacturaTXDETALLES: TStringField;
     procedure DataModuleCreate(Sender: TObject);
-    procedure FacturasItemsAfterInsert(DataSet: TDataSet);
+    procedure FacturasDocumentosAfterInsert(DataSet: TDataSet);
     procedure FacturasCabeceraAfterInsert(DataSet: TDataSet);
     procedure reciboFacturaAfterInsert(DataSet: TDataSet);
     procedure remitoFacturaAfterInsert(DataSet: TDataSet);
@@ -377,6 +384,7 @@ type
     (****************   PREFACTURACION   *******************************)
     procedure LevantarDocumentos (documento, estado: integer; idCliente: GUID_ID);
     procedure levantarDocumentosSinPrefacturar;
+    procedure GrabarDocumentos;
 
   end;
 
@@ -399,19 +407,19 @@ begin
   FacturasDocumentos.Open;
 end;
 
-procedure TDM_Facturas.FacturasItemsAfterInsert(DataSet: TDataSet);
+procedure TDM_Facturas.FacturasDocumentosAfterInsert(DataSet: TDataSet);
 begin
-  With DataSet do
+  with DataSet do
   begin
-//    FieldByName('id').asString:= DM_General.CrearGUID;
-//    FieldByName('Factura_id').AsString:= FacturasCabeceraid.AsString;
-//    FieldByName('cantidad').AsFloat:= 1;
-///    FieldByName('Detalle').AsString:= EmptyStr;
-//    FieldByName('PrecioUnitario').AsFloat:=0;
-//    FieldByName('PrecioTotal').AsFloat:=0;
-//    FieldByName('PorcentajeIVA').AsFloat:=0;
+    FieldByName('id').asString:= DM_General.CrearGUID;
+    FieldByName('factura_id').asString:= GUIDNULO;
+    FieldByName('tipodocumento').asInteger:= TD_LIBRE;
+    FieldByName('documento_id').AsString:= GUIDNULO;
+    FieldByName('refEstado').AsInteger:= EP_PARAFACTURAR;
   end;
 end;
+
+
 
 procedure TDM_Facturas.FacturasCabeceraAfterInsert(DataSet: TDataSet);
 begin
@@ -852,6 +860,7 @@ var
 begin
   with FacturasDocumentos do
   begin
+    DisableControls;
     First;
     clienteActual:= GUIDNULO;
     campoCliente:= GUIDNULO;
@@ -864,13 +873,19 @@ begin
         begin
           FacturasDocumentoslxDocumento.asString:= 'REMITO';
           FacturasDocumentoslxNroDocumento.AsInteger:= FacturasDocumentosRemitoNro.AsInteger;
+          FacturasDocumentoslxFecha.AsDateTime:= FacturasDocumentosRemitoFecha.AsDateTime;
+          FacturasDocumentoslxDetalle.asString:= FacturasDocumentosRemitoDetalles.asString;
           campoCliente:= FacturasDocumentosidClienteRemito.AsString;
         end;
         TD_PRESUPUESTO:
         begin
           FacturasDocumentoslxDocumento.asString:= 'PRESUPUESTO';
           FacturasDocumentoslxNroDocumento.AsInteger:= FacturasDocumentosNroPresupuesto.AsInteger;
+          FacturasDocumentoslxFecha.AsDateTime:= FacturasDocumentosPresupuestoFecha.AsDateTime;
+          FacturasDocumentoslxDetalle.asString:= 'CUOTA NRO: '+ IntToStr(FacturasDocumentosPresupuestoCuota.AsInteger)
+                                                 +#10#13#13 + FacturasDocumentosPresupuestoDetalles.asString;
           campoCliente:= FacturasDocumentosidClientePresupuesto.AsString;
+
         end;
       end;
       case FacturasDocumentosrefEstado.AsInteger of
@@ -891,6 +906,7 @@ begin
       Post;
       Next;
     end;
+    EnableControls;
   end;
 end;
 
@@ -909,11 +925,13 @@ begin
             + ' , R.refCliente as idClienteRemito '
             + ' , PR.nPresupuesto as NroPresupuesto '
             + ' , PR.refCliente as idClientePresupuesto '
+            + ' , CPR.fVencimiento as PresupuestoFecha '
+            + ' , PR.txMotivo as PresupuestoDetalles '
             + ' FROM '
             + '     FacturasDocumentos P '
-            + '         	LEFT JOIN tbCuotasPresupuesto CPR ON CPR.idCuotaPresupuesto = P.DOCUMENTO_ID '
-            + '                 LEFT JOIN tbRemitos R ON R.idRemito = P.DOCUMENTO_ID '
-            + '           	LEFT JOIN tbPresupuestos PR ON CPR.refPresupuesto = PR.idPresupuesto '
+            + '             LEFT JOIN tbCuotasPresupuesto CPR ON CPR.idCuotaPresupuesto = P.DOCUMENTO_ID '
+            + '             LEFT JOIN tbRemitos R ON R.idRemito = P.DOCUMENTO_ID '
+            + '             LEFT JOIN tbPresupuestos PR ON CPR.refPresupuesto = PR.idPresupuesto '
             ;
 
   consulta:= consulta + ' WHERE ((R.bVisible = 1) OR (CPR.bVisible = 1)) ';
@@ -976,8 +994,9 @@ begin
 
        // Aplico un corte de mes para saber si calculo el vencimiento a partir de el mes corriente o del siguiente
     DecodeDate(Now, y, m, d);
+
     if (d >= _CONF_CORTEMES) then
-      IncAMonth(d, m, y, 1);
+      IncAMonth(y, m, d, 1);
 
     ParamByName('Vencimiento').AsDate:= EndOfAMonth(y, m);
     Open;
@@ -999,6 +1018,11 @@ begin
  AjustarTablaMemoria;
  FacturasDocumentos.SortOnFields('lxCodigo;lxfecha');
  FacturasDocumentos.First;
+end;
+
+procedure TDM_Facturas.GrabarDocumentos;
+begin
+  DM_General.GrabarDatos(facturasDocSEL, facturasDocINS, facturasDocUPD, FacturasDocumentos, 'id');
 end;
 
 

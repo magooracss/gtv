@@ -437,14 +437,53 @@ end;
  (*******************************************************************************)
 
 procedure TDM_GrupoCuentas.filtrarSubdiarioPagos(fIni, fFin: TDate; idProveedor: GUID_ID);
+var
+  consulta: string;
+  pFini,pFFin: TParam;
 begin
   tbSubdiarioPagos.DisableControls;
+  DM_General.ReiniciarTabla(tbSubdiarioPagos);
   with qSubdiarioPagos do
   begin
     if active then close;
+
+    consulta:= ' SELECT  '
+             + '      OP.fFecha as Fecha '
+             + '     , (TC.TipoComprobante || '' '' || C.NroPtoVenta || ''-'' || C.NroFactura) as Comprobante '
+             + '     ,Pr.cRazonSocial as RazonSocial '
+             + '     , Pr.cCuit as Cuit '
+             + '     ,SUM (CP.nMonto) as ImporteTotal '
+             + '  FROM  tbOrdenesPago OP '
+             + '           INNER JOIN tbComprasPagos CP ON OP.idOrdenPago = CP.refOP '
+             + '           INNER JOIN tbCompras C ON C.idCompra = CP.refCompra '
+             + '           LEFT JOIN tugTiposComprobantes TC ON TC.idTipoComprobante = C.refTipoComprobante '
+             + '          INNER JOIN tbProveedores Pr ON Pr.idProveedor = C.refProveedor '
+             + '    WHERE (OP.bVisible = 1) '
+             + '          and (OP.fFecha >= :fIni) '
+             + '          and (OP.fFecha <= :fFin) ';
+
+
+    if (idProveedor <> GUIDNULO) then
+       consulta:= consulta + '  and (C.refProveedor = ''' + idProveedor + ''') ';
+
+    consulta := consulta + ' GROUP BY    OP.fFecha, TC.TipoComprobante, C.NroPtoVenta, C.NroFactura ,Pr.cRazonSocial, Pr.cCUIT ';
+
+    Sql.Clear;
+    sql.Add(consulta);
+
+    pFini:= TParam.Create(Params, ptInput);
+    pFini.Name:='fIni';
+    pFini.DataType:= ftDate;
+//    Params.AddParam(pFini);
+
+    pFFin:= TParam.Create(Params, ptInput);
+    pFFin.Name:='fFin';
+    pFFin.DataType:= ftDate;
+  //  Params.AddParam(pFFin);
+
     ParamByName('fIni').asDate:= fIni;
     ParamByName('fFin').asDate:= fFin;
-    ParamByName('idProveedor').asString:= idProveedor;
+ //   ParamByName('idProveedor').asString:= idProveedor;
     Open;
     tbSubdiarioPagos.LoadFromDataSet(qSubdiarioPagos, 0, lmAppend);
   end;

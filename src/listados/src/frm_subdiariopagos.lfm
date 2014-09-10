@@ -161,17 +161,17 @@ object frmSubdiarioDePagos: TfrmSubdiarioDePagos
   end
   object Panel1: TPanel
     Left = 0
-    Height = 58
+    Height = 74
     Top = 0
     Width = 901
     Align = alTop
-    ClientHeight = 58
+    ClientHeight = 74
     ClientWidth = 901
     TabOrder = 1
     object edFFin: TDateEdit
       Left = 168
       Height = 24
-      Top = 16
+      Top = 28
       Width = 100
       CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
       OKCaption = 'OK'
@@ -186,7 +186,7 @@ object frmSubdiarioDePagos: TfrmSubdiarioDePagos
     object edFIni: TDateEdit
       Left = 24
       Height = 24
-      Top = 16
+      Top = 28
       Width = 100
       CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
       OKCaption = 'OK'
@@ -199,7 +199,7 @@ object frmSubdiarioDePagos: TfrmSubdiarioDePagos
       TabOrder = 1
     end
     object btnFiltrar: TBitBtn
-      Left = 812
+      Left = 808
       Height = 30
       Top = 12
       Width = 80
@@ -247,7 +247,7 @@ object frmSubdiarioDePagos: TfrmSubdiarioDePagos
     object btnBuscar: TBitBtn
       Left = 312
       Height = 30
-      Top = 12
+      Top = 24
       Width = 99
       Caption = 'Buscar'
       Glyph.Data = {
@@ -304,13 +304,24 @@ object frmSubdiarioDePagos: TfrmSubdiarioDePagos
       Width = 368
       Anchors = [akTop, akLeft, akRight]
       Color = clSkyBlue
+      ReadOnly = True
       TabOrder = 4
+    end
+    object ckTodosLosProveedores: TCheckBox
+      Left = 424
+      Height = 20
+      Top = 48
+      Width = 323
+      Caption = 'Listar todos los proveedores en el intervalo de fechas'
+      Checked = True
+      State = cbChecked
+      TabOrder = 5
     end
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Height = 301
-    Top = 58
+    Height = 285
+    Top = 74
     Width = 901
     Align = alClient
     AutoFillColumns = True
